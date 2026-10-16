@@ -1,0 +1,918 @@
+{
+  "subject": "science",
+  "topicId": "s06-physical-and-chemical-changes",
+  "title": "Physical and Chemical Changes",
+  "order": 6,
+  "bookChapter": "Chapter 6: Physical and Chemical Changes",
+  "frameworkRefs": [
+    "6Cc.01",
+    "6Cc.02",
+    "6Cc.03",
+    "6Cc.04",
+    "6Cc.05",
+    "6TWSp.03",
+    "6TWSp.04",
+    "6TWSc.03",
+    "6TWSa.02",
+    "6TWSa.03",
+    "6TWSa.05"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will tell apart physical changes, which can be reversed, and chemical reactions, which make new substances. You will learn how temperature affects dissolving and how boiling is different from evaporation. You will spot the evidence that a chemical reaction has happened.",
+    "whyItMatters": "Cooking, cleaning and stopping things from rusting all depend on these changes. Knowing which changes can be reversed helps you separate mixtures and recover useful materials like salt. Spotting the signs of a reaction helps you stay safe and think like a scientist.",
+    "realWorld": [
+      "Sugar dissolving faster in hot teh tarik than in an iced drink",
+      "Salt farmers letting seawater evaporate in the sun to collect sea salt",
+      "Wet school uniforms drying quickly on a hot, breezy day",
+      "An egg turning solid as it cooks on a hawker's hotplate",
+      "A bicycle left out in the monsoon rain slowly getting rusty"
+    ],
+    "subtopics": [
+      {
+        "id": "s06-s1",
+        "title": "Reversible changes and separating mixtures",
+        "summary": "Melting, freezing, evaporating, condensing and dissolving can be reversed. Mixtures can be separated by sieving, filtering and evaporating."
+      },
+      {
+        "id": "s06-s2",
+        "title": "Dissolving and temperature",
+        "summary": "A solute dissolves in a solvent to make a solution. Solids usually dissolve faster in hotter liquids because the particles move faster."
+      },
+      {
+        "id": "s06-s3",
+        "title": "Boiling and evaporation",
+        "summary": "Boiling happens all through a liquid at its boiling point; evaporation happens at the surface at any temperature."
+      },
+      {
+        "id": "s06-s4",
+        "title": "Chemical reactions",
+        "summary": "In a chemical reaction, reactants interact to make new substances called products. These changes are usually irreversible."
+      },
+      {
+        "id": "s06-s5",
+        "title": "Evidence of a chemical reaction",
+        "summary": "A gas being given off, a colour change or a temperature change can show that a chemical reaction has happened."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s06-q001",
+      "subtopicId": "s06-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these is a reversible change?",
+      "options": [
+        "Burning paper",
+        "Frying an egg",
+        "An iron nail rusting",
+        "Chocolate melting in your hand"
+      ],
+      "answer": 3,
+      "solution": "Melted chocolate can be cooled and it becomes solid again: no new substance is made, so melting is a reversible physical change. Burning, frying and rusting all make new substances, so they cannot be reversed.",
+      "misconceptions": {
+        "0": "Burning makes new substances (ash, smoke and gases). You cannot turn ash back into paper, so burning is irreversible.",
+        "1": "Heat turns the runny egg into a new, solid substance. Cooling it does not make it runny again, so it is irreversible.",
+        "2": "Rust is a new substance made when iron reacts with oxygen and water. It does not turn back into shiny iron."
+      },
+      "skill": "reversible and irreversible changes",
+      "source": "original"
+    },
+    {
+      "id": "s06-q002",
+      "subtopicId": "s06-s1",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each everyday change to the name of the change of state.",
+      "options": {
+        "left": [
+          "A puddle dries up on a sunny day",
+          "Water droplets form on the outside of a cold glass of iced tea",
+          "An ice lolly turns runny on a hot day",
+          "Water in an ice tray turns solid in the freezer"
+        ],
+        "right": [
+          "Freezing",
+          "Evaporating",
+          "Melting",
+          "Dissolving",
+          "Condensing"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "Puddle drying up: liquid water turns into water vapour, so it is evaporating. Droplets on a cold glass: water vapour in the air cools and turns back into liquid, so it is condensing. Ice lolly turning runny: solid to liquid, so it is melting. Water in the freezer turning solid: liquid to solid, so it is freezing.",
+      "misconceptions": {
+        "common": "Thinking the water on the outside of a cold glass leaked through the glass. It is water vapour from the air condensing on the cold surface."
+      },
+      "skill": "changes of state",
+      "source": "original"
+    },
+    {
+      "id": "s06-q003",
+      "subtopicId": "s06-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "You spill some dry rice into a bag of flour. Which separating method is best for getting the rice grains out of the flour?",
+      "answer": {
+        "accept": [
+          "sieving",
+          "sieve",
+          "a sieve",
+          "using a sieve",
+          "use a sieve",
+          "sifting",
+          "sift"
+        ],
+        "keywords": []
+      },
+      "solution": "Use a sieve. The tiny flour grains fall through the holes, but the bigger rice grains are too large and stay in the sieve.",
+      "misconceptions": {
+        "common": "Choosing filtering. Filtering separates an undissolved solid from a liquid. Two dry solids with different-sized pieces are separated with a sieve."
+      },
+      "skill": "separating mixtures",
+      "source": "original"
+    },
+    {
+      "id": "s06-q004",
+      "subtopicId": "s06-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: When salt dissolves in water, the salt is destroyed, so dissolving cannot be reversed.",
+      "answer": false,
+      "solution": "False. The salt is still there, split into particles too small to see. If you let the water evaporate, the salt is left behind as crystals. So dissolving is a reversible physical change.",
+      "misconceptions": {
+        "common": "Thinking that because you cannot see the salt any more, it has gone. You can still taste it, and evaporation gets it back."
+      },
+      "skill": "reversible and irreversible changes",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s06-q005",
+      "subtopicId": "s06-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "You want to get dry salt back from a mixture of sand and salt. Put the steps in order, from first to last.",
+      "options": [
+        "Heat the dish gently, or leave it somewhere warm, until all the water has evaporated",
+        "Pour the mixture through filter paper in a funnel, into a beaker",
+        "Add water to the mixture and stir until the salt dissolves",
+        "Pour the clear salty water from the beaker into an evaporating dish"
+      ],
+      "answer": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "solution": "First add water so the salt dissolves (the sand does not). Then filter: the sand stays on the filter paper and salty water goes through into the beaker. Pour the salty water into an evaporating dish. Finally let the water evaporate, and the salt is left behind as crystals.",
+      "misconceptions": {
+        "common": "Filtering before adding water does not work, because the salt has not dissolved yet and stays with the sand. Evaporating before filtering leaves the sand mixed in with the salt."
+      },
+      "skill": "separating mixtures",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s06-q006",
+      "subtopicId": "s06-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the changes that are reversible.",
+      "options": [
+        "Water freezing into ice",
+        "Sugar dissolving in water",
+        "Baking a cake",
+        "Candle wax melting",
+        "Burning a matchstick",
+        "Steam condensing on a bathroom mirror"
+      ],
+      "answer": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "solution": "Freezing, dissolving, melting and condensing are physical changes: no new substance is made, so they can be reversed (ice melts, sugary water can be evaporated to leave sugar, wax sets again, water evaporates again). Baking and burning make new substances, so they are irreversible.",
+      "misconceptions": {
+        "2": "Baking makes new substances: the cake cannot be turned back into flour, eggs and sugar.",
+        "4": "Burning makes new substances such as ash, smoke and gases, so it cannot be reversed."
+      },
+      "skill": "reversible and irreversible changes",
+      "source": "original"
+    },
+    {
+      "id": "s06-q007",
+      "subtopicId": "s06-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Aisha stirs a spoonful of salt and a spoonful of sand into a beaker of water. Then she pours it through filter paper in a funnel. What happens?",
+      "options": [
+        "The sand stays on the filter paper, and salty water passes through",
+        "The salt and the sand both stay on the filter paper, and pure water passes through",
+        "The salt stays on the filter paper, and sandy water passes through",
+        "Everything passes through, because the sand is wet"
+      ],
+      "answer": 0,
+      "solution": "Salt dissolves in water, so its particles are tiny and pass through the filter paper with the water. Sand does not dissolve; its grains are too big for the holes, so they stay on the paper. To get the salt back, evaporate the salty water.",
+      "misconceptions": {
+        "1": "Dissolved salt is split into particles small enough to pass through the tiny holes in filter paper. The liquid that comes through is still salty.",
+        "2": "This is the wrong way round. Sand does not dissolve, so its grains are too big to pass through. The salt has dissolved, so it passes through with the water.",
+        "3": "Sand does not dissolve, wet or dry. Its grains are too big for the holes in filter paper, so they are trapped."
+      },
+      "skill": "separating mixtures",
+      "source": "original"
+    },
+    {
+      "id": "s06-q008",
+      "subtopicId": "s06-s2",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each word to its meaning.",
+      "options": {
+        "left": [
+          "Solute",
+          "Solvent",
+          "Solution"
+        ],
+        "right": [
+          "The liquid that a substance dissolves in, such as water",
+          "A substance that does not dissolve, such as sand",
+          "The substance that dissolves, such as sugar",
+          "The mixture made when a substance dissolves in a liquid, such as sugary water"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "solution": "When sugar dissolves in water, sugar is the solute, water is the solvent, and the sugary water is the solution. A substance that does not dissolve, like sand, is called insoluble.",
+      "misconceptions": {
+        "common": "Mixing up solute and solvent. The solvent is the liquid that does the dissolving; the solute is the substance that gets dissolved."
+      },
+      "skill": "dissolving vocabulary",
+      "source": "original"
+    },
+    {
+      "id": "s06-q009",
+      "subtopicId": "s06-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "You stir one spoonful of sugar into each of three cups of water in exactly the same way. In which cup will the sugar dissolve fastest?",
+      "options": [
+        "Water at 5 °C (from the fridge)",
+        "Water at 25 °C (room temperature)",
+        "Water at 60 °C (hot)",
+        "It will take the same time in all three cups"
+      ],
+      "answer": 2,
+      "solution": "The hotter the water, the faster sugar dissolves. So the sugar dissolves fastest in the water at 60 °C.",
+      "misconceptions": {
+        "0": "Cold water particles move slowly, so sugar dissolves slowest in cold water, not fastest.",
+        "1": "Sugar will dissolve at room temperature, but hotter water dissolves it faster because its particles move faster.",
+        "3": "Temperature does make a difference: the hotter the water, the faster sugar dissolves."
+      },
+      "skill": "effect of temperature on dissolving",
+      "source": "original"
+    },
+    {
+      "id": "s06-q010",
+      "subtopicId": "s06-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Why does sugar dissolve faster in hot water than in cold water?",
+      "options": [
+        "The hot water melts the sugar",
+        "In hot water the water particles move faster, so they hit the sugar more often and carry its particles away more quickly",
+        "The sugar particles shrink in hot water",
+        "Hot water has more water particles in it than cold water"
+      ],
+      "answer": 1,
+      "solution": "Particles move faster when they are hotter. Fast-moving water particles hit the sugar more often and harder, pulling sugar particles away and spreading them through the water more quickly. So the sugar dissolves faster.",
+      "misconceptions": {
+        "0": "Sugar is dissolving, not melting. Sugar only melts at a temperature far above the boiling point of water. Dissolving means the sugar particles spread out between the water particles.",
+        "2": "Particles do not change size when heated. They just move faster.",
+        "3": "The same amount of hot and cold water has about the same number of particles. The difference is how fast they move."
+      },
+      "skill": "particle model of dissolving",
+      "source": "original"
+    },
+    {
+      "id": "s06-q011",
+      "subtopicId": "s06-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "You have 200 g of water in a beaker. You stir in 25 g of sugar until it has all dissolved. What is the mass of the sugar solution now? Give your answer in grams.",
+      "answer": {
+        "value": 225,
+        "tolerance": 0,
+        "accept": [
+          "225 g",
+          "225g",
+          "225 grams"
+        ]
+      },
+      "solution": "The sugar has not disappeared; its particles are spread out between the water particles. So nothing is lost: 200 + 25 = 225 g.",
+      "misconceptions": {
+        "common": "Thinking the sugar has vanished, so the mass stays at 200 g. Dissolved sugar is still there; you can taste it."
+      },
+      "skill": "dissolving and mass",
+      "source": "original"
+    },
+    {
+      "id": "s06-q012",
+      "subtopicId": "s06-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Daniel wants to find out whether the temperature of water affects how long a sugar cube takes to dissolve. He tests water at 20 °C, 40 °C, 60 °C and 80 °C. What is the dependent variable (the one he measures)?",
+      "options": [
+        "The temperature of the water",
+        "The volume of water in the cup",
+        "The size of the sugar cube",
+        "The time taken for the sugar cube to dissolve"
+      ],
+      "answer": 3,
+      "solution": "Daniel changes the water temperature (independent variable) and measures how long the sugar cube takes to dissolve (dependent variable). Everything else, such as the volume of water and the size of the sugar cube, stays the same (control variables).",
+      "misconceptions": {
+        "0": "That is the independent variable: the one Daniel changes on purpose.",
+        "1": "This is a control variable. It must be kept the same to make the test fair.",
+        "2": "This is a control variable. Using the same size of sugar cube each time keeps the test fair."
+      },
+      "skill": "identifying variables in a fair test",
+      "source": "original"
+    },
+    {
+      "id": "s06-q013",
+      "subtopicId": "s06-s2",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel is testing whether the temperature of water affects how long a sugar cube takes to dissolve. Select ALL the things he should keep the same to make it a fair test.",
+      "options": [
+        "The volume of water",
+        "The temperature of the water",
+        "The size and type of the sugar cube",
+        "The amount of stirring",
+        "The time taken to dissolve"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "solution": "In a fair test you change one thing (water temperature) and measure one thing (time to dissolve). Everything else that could affect the result must stay the same: the volume of water, the size and type of sugar cube, and the stirring.",
+      "misconceptions": {
+        "1": "This is the independent variable: the one thing he changes on purpose, so it must NOT be kept the same.",
+        "4": "This is the dependent variable: what he measures. He cannot keep it the same; it is his result."
+      },
+      "skill": "identifying variables in a fair test",
+      "source": "original"
+    },
+    {
+      "id": "s06-q014",
+      "subtopicId": "s06-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel's results are: water at 20 °C: 120 s. Water at 40 °C: 75 s. Water at 60 °C: 95 s. Water at 80 °C: 30 s. Which result does not fit the pattern (is anomalous)?",
+      "options": [
+        "The 20 °C result",
+        "The 40 °C result",
+        "The 60 °C result",
+        "The 80 °C result"
+      ],
+      "answer": 2,
+      "solution": "The pattern is: the hotter the water, the shorter the time. So the 60 °C time should be between 75 s and 30 s. But it was 95 s, longer than at 40 °C. That result does not fit, so it is anomalous. Daniel should repeat it.",
+      "misconceptions": {
+        "0": "120 s is the longest time, but that fits the pattern: the coldest water should take the longest.",
+        "1": "75 s fits the pattern: it is shorter than at 20 °C and longer than at 80 °C.",
+        "3": "30 s is the shortest time, which fits: the hottest water should dissolve the sugar fastest."
+      },
+      "skill": "identifying anomalous results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s06-q015",
+      "subtopicId": "s06-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which statement about evaporation is correct?",
+      "options": [
+        "It happens at the surface of a liquid and can happen at any temperature",
+        "It only happens when a liquid reaches its boiling point",
+        "It makes bubbles of gas all through the liquid",
+        "It only happens in sunlight"
+      ],
+      "answer": 0,
+      "solution": "Evaporation is when particles at the surface of a liquid escape into the air as a gas. It can happen at any temperature, though it is faster when it is warmer. Boiling is different: it happens all through the liquid, at the boiling point.",
+      "misconceptions": {
+        "1": "Evaporation happens below the boiling point too. A puddle evaporates on a 30 °C day, even though water boils at 100 °C.",
+        "2": "That describes boiling. Evaporation happens quietly at the surface, with no bubbles.",
+        "3": "Sunlight warms water and speeds up evaporation, but water also evaporates indoors, at night and in the shade."
+      },
+      "skill": "boiling and evaporation",
+      "source": "original"
+    },
+    {
+      "id": "s06-q016",
+      "subtopicId": "s06-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Water in a puddle can evaporate even though it is much colder than 100 °C.",
+      "answer": true,
+      "solution": "True. Evaporation can happen at any temperature. Some water particles at the surface move fast enough to escape into the air, so the puddle slowly dries up.",
+      "misconceptions": {
+        "common": "Thinking water must reach 100 °C to turn into a gas. That is boiling. Evaporation happens at lower temperatures too."
+      },
+      "skill": "boiling and evaporation",
+      "source": "original"
+    },
+    {
+      "id": "s06-q017",
+      "subtopicId": "s06-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "When water boils, it turns into a gas. What is this gas called?",
+      "answer": {
+        "accept": [
+          "water vapour",
+          "steam",
+          "water vapor",
+          "vapour",
+          "vapor",
+          "water vapour (steam)"
+        ],
+        "keywords": []
+      },
+      "solution": "When water boils it becomes water vapour, also called steam. It is invisible; the white cloud you see above a kettle is tiny droplets that have already condensed.",
+      "misconceptions": {
+        "common": "Saying the bubbles in boiling water are air or oxygen. They are bubbles of water vapour (steam)."
+      },
+      "skill": "boiling and evaporation",
+      "source": "original"
+    },
+    {
+      "id": "s06-q018",
+      "subtopicId": "s06-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the statements that are true of BOILING but NOT of evaporation.",
+      "options": [
+        "Bubbles of gas form all through the liquid",
+        "The liquid changes into a gas",
+        "For pure water, it happens only at 100 °C (at sea level)",
+        "It can happen at room temperature, for example water in a glass at 25 °C",
+        "It happens only at the surface of the liquid"
+      ],
+      "answer": [
+        0,
+        2
+      ],
+      "solution": "Boiling happens at a fixed temperature (100 °C for pure water) and makes bubbles of gas all through the liquid. Evaporation happens only at the surface and at any temperature. Both change a liquid into a gas.",
+      "misconceptions": {
+        "1": "Both boiling and evaporation turn a liquid into a gas, so this is not a difference.",
+        "3": "This is true of evaporation, not boiling.",
+        "4": "This describes evaporation. Boiling happens all through the liquid."
+      },
+      "skill": "boiling and evaporation",
+      "source": "original"
+    },
+    {
+      "id": "s06-q019",
+      "subtopicId": "s06-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Where would a wet towel dry fastest?",
+      "options": [
+        "Folded up on a washing line on a warm, windy day",
+        "Spread out indoors in a cool room with no breeze",
+        "Rolled up in a bag on a cool day",
+        "Spread out on a washing line on a warm, windy day"
+      ],
+      "answer": 3,
+      "solution": "Evaporation is faster when it is warmer, when there is wind to carry the water vapour away, and when more of the wet surface is open to the air. Spread out on a warm, windy day has all three.",
+      "misconceptions": {
+        "0": "Folding hides most of the towel's surface. Water evaporates from surfaces, so spreading the towel out dries it faster.",
+        "1": "Cool, still air slows evaporation down. Warmth and wind both speed it up.",
+        "2": "Little surface, cool air and no wind: this is the slowest way to dry a towel."
+      },
+      "skill": "factors affecting evaporation",
+      "source": "original"
+    },
+    {
+      "id": "s06-q020",
+      "subtopicId": "s06-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A pan of water has been boiling steadily for 5 minutes. Priya turns the cooker flame up higher. What happens to the temperature of the boiling water?",
+      "options": [
+        "It rises above 100 °C, because more heat is going in",
+        "It stays at about 100 °C, but the water boils away faster",
+        "It drops, because the water is boiling away",
+        "It stops boiling, because the flame is too strong"
+      ],
+      "answer": 1,
+      "solution": "Once water is boiling, it stays at its boiling point, 100 °C. Extra heat does not raise the temperature; it just turns the water into steam more quickly. So the water boils away faster.",
+      "misconceptions": {
+        "0": "While water is boiling, the extra heat is used to turn liquid into gas. The temperature stays at the boiling point, 100 °C.",
+        "2": "The amount of water goes down, but its temperature stays at 100 °C while it boils.",
+        "3": "A stronger flame makes the water boil harder, not stop."
+      },
+      "skill": "boiling and evaporation",
+      "source": "original"
+    },
+    {
+      "id": "s06-q021",
+      "subtopicId": "s06-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Omar pours 100 ml of water into a wide, shallow dish and 100 ml into a tall, narrow cup. He leaves both on the same windowsill. After 2 days, the dish has 40 ml left and the cup has 85 ml left. What can he conclude?",
+      "options": [
+        "Water evaporates faster from a narrow container",
+        "The water in the dish boiled",
+        "Water evaporates faster when more of its surface is open to the air",
+        "The cup was in a warmer place than the dish"
+      ],
+      "answer": 2,
+      "solution": "The dish lost 100 - 40 = 60 ml. The cup lost 100 - 85 = 15 ml. The only difference was the shape: the wide dish has a much bigger surface open to the air. Evaporation happens at the surface, so a bigger surface means faster evaporation.",
+      "misconceptions": {
+        "0": "This is the wrong way round. The cup lost only 15 ml, but the wide dish lost 60 ml.",
+        "1": "A windowsill is nowhere near 100 °C. The water evaporated from its surface; it did not boil.",
+        "3": "Both were on the same windowsill, so the place was kept the same. The difference between them was the size of the water's surface."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "original"
+    },
+    {
+      "id": "s06-q022",
+      "subtopicId": "s06-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In a chemical reaction, what are the substances you start with called?",
+      "options": [
+        "Products",
+        "Reactants",
+        "Solutes",
+        "Mixtures"
+      ],
+      "answer": 1,
+      "solution": "In a chemical reaction, the reactants (starting substances) interact to make new substances called products. Tip: reactants react; products are produced.",
+      "misconceptions": {
+        "0": "Products are the new substances made at the end. The starting substances are reactants.",
+        "2": "A solute is a substance that dissolves. That word is about dissolving, not chemical reactions.",
+        "3": "A mixture is substances mixed together without reacting. The starting substances in a reaction are called reactants."
+      },
+      "skill": "reactants and products",
+      "source": "original"
+    },
+    {
+      "id": "s06-q023",
+      "subtopicId": "s06-s4",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In a chemical reaction, what name is given to the new substances that are made?",
+      "answer": {
+        "accept": [
+          "products",
+          "product",
+          "the products"
+        ],
+        "keywords": []
+      },
+      "solution": "The new substances made in a chemical reaction are called products. The starting substances are called reactants.",
+      "misconceptions": {
+        "common": "Mixing up reactants and products. Reactants are what you start with; products are what is produced."
+      },
+      "skill": "reactants and products",
+      "source": "original"
+    },
+    {
+      "id": "s06-q024",
+      "subtopicId": "s06-s4",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each change to the new substance (product) you can see.",
+      "options": {
+        "left": [
+          "An iron gate left out in the rain for months",
+          "Bread left in the toaster far too long",
+          "Baking soda added to vinegar"
+        ],
+        "right": [
+          "Bubbles of carbon dioxide gas",
+          "Water droplets from steam",
+          "Orange-brown rust",
+          "Black, burnt carbon"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "solution": "Iron reacts with oxygen and water to make rust. Bread heated too long turns into black carbon. Baking soda reacts with vinegar to make carbon dioxide gas, which you see as bubbles. Water droplets from steam are not a new substance; condensing is a physical change.",
+      "misconceptions": {
+        "common": "Choosing water droplets from steam. Steam condensing is a physical change, so no new substance is made."
+      },
+      "skill": "reactants and products",
+      "source": "original"
+    },
+    {
+      "id": "s06-q025",
+      "subtopicId": "s06-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: When a candle burns, the wax reacts with oxygen from the air to make new substances, including carbon dioxide and water vapour.",
+      "answer": true,
+      "solution": "True. Burning is a chemical reaction. The reactants are wax and oxygen; the products include carbon dioxide and water vapour. That is why a burning candle slowly gets shorter: the wax is used up.",
+      "misconceptions": {
+        "common": "Thinking the wax just melts away. Some wax melts, but the wax burning in the flame reacts with oxygen and becomes new gases."
+      },
+      "skill": "reactants and products",
+      "source": "original"
+    },
+    {
+      "id": "s06-q026",
+      "subtopicId": "s06-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "When wood burns on a campfire, it reacts with oxygen from the air. Which of these are PRODUCTS of this reaction?",
+      "options": [
+        "Ash, smoke, carbon dioxide and water vapour",
+        "Wood and oxygen",
+        "Only heat and light",
+        "Melted wood"
+      ],
+      "answer": 0,
+      "solution": "Reactants: wood and oxygen. Products: ash, smoke, carbon dioxide and water vapour. The reaction also gives out heat and light, which is why a campfire is hot and bright.",
+      "misconceptions": {
+        "1": "These are the reactants: the substances you start with.",
+        "2": "Heat and light are energy given out, not substances. The products are the new substances: ash, smoke, carbon dioxide and water vapour.",
+        "3": "Wood does not melt. It reacts with oxygen to make new substances."
+      },
+      "skill": "reactants and products",
+      "source": "original"
+    },
+    {
+      "id": "s06-q027",
+      "subtopicId": "s06-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Wei Ming adds baking soda to vinegar. It fizzes for a while, then stops. Can he get the baking soda and vinegar back?",
+      "options": [
+        "Yes, by evaporating the water, in the same way you get salt back from salty water",
+        "Yes, by putting the mixture in the freezer",
+        "No, because the baking soda has dissolved, and dissolved substances can never be got back",
+        "No, because they have reacted to make new substances, so the reactants are used up"
+      ],
+      "answer": 3,
+      "solution": "The fizzing shows a chemical reaction: baking soda and vinegar (reactants) made new substances (products), including carbon dioxide gas. The reactants are used up, and this change cannot easily be reversed.",
+      "misconceptions": {
+        "0": "Evaporating works for dissolving because dissolving is a physical change. Here a chemical reaction made new substances, so evaporating would leave a new solid, not baking soda.",
+        "1": "Freezing only changes the state of water. It cannot turn the products back into baking soda and vinegar.",
+        "2": "Dissolved substances can be got back by evaporation. The real reason is that a chemical reaction has made new substances."
+      },
+      "skill": "irreversible changes",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s06-q028",
+      "subtopicId": "s06-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Arjun sets up three test tubes, each with an iron nail. Tube A: nail in a little water, open to the air. Tube B: nail in boiled water (which has had the air removed), with a layer of oil on top to keep air out. Tube C: nail in dry air, with a drying powder that removes water vapour. After a week, only the nail in Tube A has rusted. What does this show?",
+      "options": [
+        "Iron needs only water to rust",
+        "Iron needs both water and air (oxygen) to rust",
+        "Iron needs only air to rust",
+        "Oil and drying powder make iron rust faster"
+      ],
+      "answer": 1,
+      "solution": "Tube A had water and air: rusted. Tube B had water only: no rust. Tube C had air only: no rust. So iron rusts only when both water and oxygen from the air are present. Rust is a new substance, so rusting is a chemical reaction.",
+      "misconceptions": {
+        "0": "Tube B had water but no air, and its nail did not rust. So water alone is not enough.",
+        "2": "Tube C had air but no water, and its nail did not rust. So air alone is not enough.",
+        "3": "The nails with oil (B) and drying powder (C) did NOT rust. These kept out air or water, which stopped rusting."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s06-q029",
+      "subtopicId": "s06-s5",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Select ALL the observations that can be evidence that a chemical reaction has taken place.",
+      "options": [
+        "Bubbles of a new gas are given off",
+        "The colour changes",
+        "The mixture gets hotter or colder on its own",
+        "A solid is cut into smaller pieces",
+        "A solid changes shape when it is squashed"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "Three common signs of a chemical reaction are: a gas being given off (fizzing or bubbles), a colour change, and a temperature change. Cutting and squashing only change size or shape, so they are physical changes.",
+      "misconceptions": {
+        "3": "Cutting changes only the size of the pieces. No new substance is made.",
+        "4": "Squashing changes only the shape. No new substance is made."
+      },
+      "skill": "evidence of a chemical reaction",
+      "source": "original"
+    },
+    {
+      "id": "s06-q030",
+      "subtopicId": "s06-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A shiny orange-brown copper roof slowly turns green over many years, as the copper reacts with the air and rain. What evidence of a chemical reaction is this?",
+      "options": [
+        "A gas is given off",
+        "A colour change",
+        "A temperature change",
+        "A change of state from solid to liquid"
+      ],
+      "answer": 1,
+      "solution": "The green layer is a new substance made when copper reacts with substances in the air and rain. You can tell because the colour has changed from orange-brown to green.",
+      "misconceptions": {
+        "0": "No gas is seen escaping. The evidence here is the new green colour.",
+        "2": "This reaction is far too slow to make the roof noticeably hotter or colder. The evidence is the colour.",
+        "3": "The copper stays solid. The green layer is a new solid substance, shown by the colour change."
+      },
+      "skill": "evidence of a chemical reaction",
+      "source": "original"
+    },
+    {
+      "id": "s06-q031",
+      "subtopicId": "s06-s5",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: If you see bubbles, a chemical reaction must have happened.",
+      "answer": false,
+      "solution": "False. Bubbles show a gas, but not always a new substance. Boiling water bubbles because water turns into water vapour, a physical change. Opening a fizzy drink releases carbon dioxide that was already dissolved in it. Bubbles are evidence of a reaction only when a new gas is being made, as when vinegar meets baking soda.",
+      "misconceptions": {
+        "common": "Treating every bubble as proof of a reaction. Ask: is a new gas being made, or is it a change of state or gas that was already there?"
+      },
+      "skill": "evidence of a chemical reaction",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s06-q032",
+      "subtopicId": "s06-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A hand warmer packet contains iron powder. When you open it, the iron reacts with oxygen in the air and the packet stays warm for hours. Which evidence of a chemical reaction does this show?",
+      "options": [
+        "A temperature change (it gets hotter)",
+        "A gas is given off",
+        "The packet changes colour",
+        "None, because the iron is just melting"
+      ],
+      "answer": 0,
+      "solution": "The iron powder reacts with oxygen to make a new substance, and this reaction gives out heat. The rise in temperature is the evidence that a chemical reaction is happening.",
+      "misconceptions": {
+        "1": "The packet takes in oxygen from the air; you do not see bubbles of a gas being given off. The evidence you notice is the heat.",
+        "2": "You cannot see a colour change through the packet. What you notice is that it gets warm.",
+        "3": "Iron melts at about 1500 °C, but a hand warmer only gets warm. The iron is reacting with oxygen to make a new substance, and the reaction gives out heat."
+      },
+      "skill": "evidence of a chemical reaction",
+      "source": "original"
+    },
+    {
+      "id": "s06-q033",
+      "subtopicId": "s06-s5",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Aisha mixes two liquids in a cup and measures the temperature every 30 seconds. Her table shows: 0 s: 24 °C, 30 s: 27 °C, 60 s: 31 °C, 90 s: 31 °C, 120 s: 30 °C. By how many degrees did the temperature rise from the start to the highest reading? Give your answer in °C.",
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": [
+          "7 °C",
+          "7°C",
+          "7 degrees"
+        ]
+      },
+      "solution": "The starting temperature was 24 °C. The highest reading was 31 °C. Rise = 31 - 24 = 7 °C. A temperature change like this is evidence that a chemical reaction happened.",
+      "misconceptions": {
+        "common": "Using the last reading (30 °C) instead of the highest (31 °C), which gives 6 °C."
+      },
+      "skill": "reading results tables",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s06-q034",
+      "subtopicId": "s06-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which observation is NOT good evidence that a chemical reaction has taken place?",
+      "options": [
+        "A cut apple slice turns brown after a while",
+        "Baking soda fizzes and gives off a gas when vinegar is added",
+        "Bubbles of steam form when water is heated to 100 °C",
+        "A firework gives off heat, light and smoke"
+      ],
+      "answer": 2,
+      "solution": "Boiling water makes bubbles of steam, but steam is just water as a gas. No new substance is made, so boiling is a physical change. The other three all make new substances.",
+      "misconceptions": {
+        "0": "The brown colour comes from new substances made when the cut apple reacts with oxygen in the air. A colour change is evidence of a reaction.",
+        "1": "A new gas, carbon dioxide, is made. That is evidence of a reaction.",
+        "3": "A firework burning makes new substances and gives out heat, so this is evidence of a reaction."
+      },
+      "skill": "evidence of a chemical reaction",
+      "source": "original"
+    },
+    {
+      "id": "s06-q035",
+      "subtopicId": "s06-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel predicts that mixing baking soda with vinegar makes the mixture colder. Which is the best way to test his prediction?",
+      "options": [
+        "Touch the cup before and after, and decide whether it feels colder",
+        "Watch whether bubbles form",
+        "Measure the temperature only after adding the baking soda",
+        "Measure the vinegar's temperature with a thermometer, add the baking soda, then measure the temperature again"
+      ],
+      "answer": 3,
+      "solution": "To test a prediction about temperature, measure temperature with the right equipment: a thermometer. Take a reading before mixing and after mixing, then compare. If the second reading is lower, Daniel's prediction is supported.",
+      "misconceptions": {
+        "0": "Your hand is not an accurate measuring instrument. A thermometer gives numbers you can compare.",
+        "1": "Bubbles show that a gas is made, but they tell you nothing about temperature.",
+        "2": "With only one reading you cannot tell whether the temperature went up or down. You need a reading before and after."
+      },
+      "skill": "choosing equipment and methods",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    }
+  ]
+}

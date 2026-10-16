@@ -1,0 +1,260 @@
+{
+ "generatedAt": "2026-10-16T09:48:16+00:00",
+ "contentVersion": "cc7128e5a41b",
+ "samples": false,
+ "subjects": [
+  {
+   "id": "maths",
+   "topics": [
+    {
+     "topicId": "m01-place-value",
+     "title": "Place Value",
+     "order": 1,
+     "bookChapter": "Chapter 1: Place Value",
+     "file": "content/maths/m01-place-value.json",
+     "questions": 46,
+     "subtopics": 5
+    },
+    {
+     "topicId": "m02-number-system",
+     "title": "The Number System",
+     "order": 2,
+     "bookChapter": "Chapter 2: The Number System",
+     "file": "content/maths/m02-number-system.json",
+     "questions": 45,
+     "subtopics": 4
+    },
+    {
+     "topicId": "m03-2d-shapes-and-angles",
+     "title": "2D Shapes and Angles",
+     "order": 3,
+     "bookChapter": "Chapter 3: 2D Shapes and Angles",
+     "file": "content/maths/m03-2d-shapes-and-angles.json",
+     "questions": 51,
+     "subtopics": 6
+    },
+    {
+     "topicId": "m04-3d-shapes-volume-capacity",
+     "title": "3D Shapes, Volume and Capacity",
+     "order": 4,
+     "bookChapter": "Chapter 4: 3D Shapes, Volume and Capacity",
+     "file": "content/maths/m04-3d-shapes-volume-capacity.json",
+     "questions": 49,
+     "subtopics": 4
+    },
+    {
+     "topicId": "m05-addition-and-subtraction",
+     "title": "Addition and Subtraction",
+     "order": 5,
+     "bookChapter": "Chapter 5: Addition and Subtraction",
+     "file": "content/maths/m05-addition-and-subtraction.json",
+     "questions": 45,
+     "subtopics": 4
+    },
+    {
+     "topicId": "m06-multiplication-and-division",
+     "title": "Multiplication and Division",
+     "order": 6,
+     "bookChapter": "Chapter 6: Multiplication and Division",
+     "file": "content/maths/m06-multiplication-and-division.json",
+     "questions": 45,
+     "subtopics": 5
+    },
+    {
+     "topicId": "m07-number-patterns",
+     "title": "Number Patterns",
+     "order": 7,
+     "bookChapter": "Chapter 7: Number Patterns",
+     "file": "content/maths/m07-number-patterns.json",
+     "questions": 44,
+     "subtopics": 4
+    },
+    {
+     "topicId": "m08-probability",
+     "title": "Probability",
+     "order": 8,
+     "bookChapter": "Chapter 8: Probability",
+     "file": "content/maths/m08-probability.json",
+     "questions": 45,
+     "subtopics": 4
+    },
+    {
+     "topicId": "m09-fractions-percentages-decimals",
+     "title": "Fractions, Percentages and Decimals",
+     "order": 9,
+     "bookChapter": "Chapter 9: Fractions, Percentages and Decimals",
+     "file": "content/maths/m09-fractions-percentages-decimals.json",
+     "questions": 48,
+     "subtopics": 5
+    },
+    {
+     "topicId": "m10-calculations-with-fractions",
+     "title": "Calculations with Fractions",
+     "order": 10,
+     "bookChapter": "Chapter 10: Calculations with Fractions",
+     "file": "content/maths/m10-calculations-with-fractions.json",
+     "questions": 50,
+     "subtopics": 6
+    },
+    {
+     "topicId": "m11-ratio-and-proportion",
+     "title": "Ratio and Proportion",
+     "order": 11,
+     "bookChapter": "Chapter 11: Ratio and Proportion",
+     "file": "content/maths/m11-ratio-and-proportion.json",
+     "questions": 44,
+     "subtopics": 5
+    },
+    {
+     "topicId": "m12-data-handling",
+     "title": "Data Handling and Statistical Inquiry",
+     "order": 12,
+     "bookChapter": "Chapter 12: Data Handling and Statistical Inquiry",
+     "file": "content/maths/m12-data-handling.json",
+     "questions": 45,
+     "subtopics": 4
+    },
+    {
+     "topicId": "m13-coordinate-grid",
+     "title": "The Coordinate Grid",
+     "order": 13,
+     "bookChapter": "Chapter 13: The Coordinate Grid",
+     "file": "content/maths/m13-coordinate-grid.json",
+     "questions": 46,
+     "subtopics": 3
+    },
+    {
+     "topicId": "m14-reflection-and-rotation",
+     "title": "Reflection and Rotation",
+     "order": 14,
+     "bookChapter": "Chapter 14: Reflection and Rotation",
+     "file": "content/maths/m14-reflection-and-rotation.json",
+     "questions": 47,
+     "subtopics": 4
+    },
+    {
+     "topicId": "m15-time-and-measures",
+     "title": "Time and Measures",
+     "order": 15,
+     "bookChapter": "No separate book chapter: Stage 6 time objective 6Gt.01, plus measure conversions used throughout the book",
+     "file": "content/maths/m15-time-and-measures.json",
+     "questions": 47,
+     "subtopics": 4
+    }
+   ]
+  },
+  {
+   "id": "science",
+   "topics": [
+    {
+     "topicId": "s01-respiratory-and-circulatory-systems",
+     "title": "The Respiratory and Circulatory Systems",
+     "order": 1,
+     "bookChapter": "Chapter 1: The Respiratory and Circulatory Systems",
+     "file": "content/science/s01-respiratory-and-circulatory-systems.json",
+     "questions": 36,
+     "subtopics": 5
+    },
+    {
+     "topicId": "s02-human-reproductive-system",
+     "title": "The Human Reproductive System",
+     "order": 2,
+     "bookChapter": "Chapter 2: The Human Reproductive System",
+     "file": "content/science/s02-human-reproductive-system.json",
+     "questions": 36,
+     "subtopics": 4
+    },
+    {
+     "topicId": "s03-human-diseases",
+     "title": "Human Diseases",
+     "order": 3,
+     "bookChapter": "Chapter 3: Human Diseases",
+     "file": "content/science/s03-human-diseases.json",
+     "questions": 38,
+     "subtopics": 4
+    },
+    {
+     "topicId": "s04-food-chains-and-food-webs",
+     "title": "Food Chains and Food Webs",
+     "order": 4,
+     "bookChapter": "Chapter 4: Food Chains and Food Webs",
+     "file": "content/science/s04-food-chains-and-food-webs.json",
+     "questions": 39,
+     "subtopics": 4
+    },
+    {
+     "topicId": "s05-properties-of-matter",
+     "title": "Properties of Matter",
+     "order": 5,
+     "bookChapter": "Chapter 5: Properties of Matter",
+     "file": "content/science/s05-properties-of-matter.json",
+     "questions": 35,
+     "subtopics": 4
+    },
+    {
+     "topicId": "s06-physical-and-chemical-changes",
+     "title": "Physical and Chemical Changes",
+     "order": 6,
+     "bookChapter": "Chapter 6: Physical and Chemical Changes",
+     "file": "content/science/s06-physical-and-chemical-changes.json",
+     "questions": 35,
+     "subtopics": 5
+    },
+    {
+     "topicId": "s07-effects-of-forces",
+     "title": "Effects of Forces",
+     "order": 7,
+     "bookChapter": "Chapter 7: Effects of Forces",
+     "file": "content/science/s07-effects-of-forces.json",
+     "questions": 41,
+     "subtopics": 5
+    },
+    {
+     "topicId": "s08-movement-of-light",
+     "title": "Movement of Light",
+     "order": 8,
+     "bookChapter": "Chapter 8: Movement of Light",
+     "file": "content/science/s08-movement-of-light.json",
+     "questions": 36,
+     "subtopics": 4
+    },
+    {
+     "topicId": "s09-electrical-circuits",
+     "title": "More About Electrical Circuits",
+     "order": 9,
+     "bookChapter": "Chapter 9: More About Electrical Circuits",
+     "file": "content/science/s09-electrical-circuits.json",
+     "questions": 36,
+     "subtopics": 4
+    },
+    {
+     "topicId": "s10-more-about-rocks",
+     "title": "More About Rocks",
+     "order": 10,
+     "bookChapter": "Chapter 10: More About Rocks",
+     "file": "content/science/s10-more-about-rocks.json",
+     "questions": 37,
+     "subtopics": 5
+    },
+    {
+     "topicId": "s11-soil",
+     "title": "Soil",
+     "order": 11,
+     "bookChapter": "Chapter 11: Soil",
+     "file": "content/science/s11-soil.json",
+     "questions": 36,
+     "subtopics": 4
+    },
+    {
+     "topicId": "s12-more-about-the-solar-system",
+     "title": "More About the Solar System",
+     "order": 12,
+     "bookChapter": "Chapter 12: More About the Solar System",
+     "file": "content/science/s12-more-about-the-solar-system.json",
+     "questions": 36,
+     "subtopics": 4
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1060 @@
+{
+  "subject": "maths",
+  "topicId": "m06-multiplication-and-division",
+  "title": "Multiplication and Division",
+  "order": 6,
+  "bookChapter": "Chapter 6: Multiplication and Division",
+  "frameworkRefs": [
+    "6Ni.02",
+    "6Ni.03",
+    "6Ni.04",
+    "6Ni.05",
+    "6Nf.10",
+    "6Nf.11"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will use the order of operations and brackets, and the laws of arithmetic, to make calculations easier. You will multiply whole numbers by 1-digit and 2-digit numbers, and divide whole numbers, deciding what to do with a remainder. You will also multiply and divide decimals by whole numbers, and solve multi-step word problems.",
+    "whyItMatters": "Multiplying and dividing let you work out totals, shares and costs quickly. Estimating first tells you if an answer is sensible. Knowing the order of operations means everyone gets the same answer to the same calculation.",
+    "realWorld": [
+      "Working out the cost of 3 Grab rides and the change from RM 50",
+      "Finding how many buses are needed for a school trip",
+      "Sharing a 2-litre bottle of soya milk equally between glasses",
+      "Working out a hawker stall's takings from bowls of laksa and plates of chicken rice",
+      "Counting how many weeks of saving you need to buy a bicycle"
+    ],
+    "subtopics": [
+      {
+        "id": "m06-s1",
+        "title": "Order of operations and laws of arithmetic",
+        "summary": "Work out brackets first, then multiplication and division, then addition and subtraction. Use the commutative, associative and distributive laws to make calculations easier."
+      },
+      {
+        "id": "m06-s2",
+        "title": "Multiplying whole numbers",
+        "summary": "Multiply whole numbers up to 10 000 by 1-digit and 2-digit numbers, estimating first to check your answer."
+      },
+      {
+        "id": "m06-s3",
+        "title": "Dividing whole numbers and remainders",
+        "summary": "Divide whole numbers up to 1000 by 1-digit and 2-digit numbers. Decide whether to round a remainder up or down in a real problem."
+      },
+      {
+        "id": "m06-s4",
+        "title": "Multiplying and dividing decimals",
+        "summary": "Multiply and divide numbers with one or two decimal places by whole numbers, and use estimation to place the decimal point."
+      },
+      {
+        "id": "m06-s5",
+        "title": "Multi-step word problems",
+        "summary": "Solve problems with money and measures that need more than one step of multiplication, division, addition or subtraction."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m06-q001",
+      "subtopicId": "m06-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 20 - 3 × 4.",
+      "options": [
+        "68",
+        "12",
+        "8",
+        "32"
+      ],
+      "answer": 2,
+      "solution": "Multiply before you subtract. 3 x 4 = 12. Then 20 - 12 = 8.",
+      "misconceptions": {
+        "0": "You worked from left to right (20 - 3 = 17, then 17 x 4 = 68). Multiplication is done before subtraction.",
+        "1": "You worked out 3 x 4 = 12 but forgot to subtract it from 20.",
+        "3": "You multiplied first, which is right, but then added 20 + 12 instead of subtracting."
+      },
+      "skill": "order of operations",
+      "source": "original"
+    },
+    {
+      "id": "m06-q002",
+      "subtopicId": "m06-s1",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out (5 + 7) × 3.",
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Brackets first: 5 + 7 = 12. Then 12 x 3 = 36.",
+      "misconceptions": {
+        "common": "Ignoring the brackets and multiplying first: 5 + 7 x 3 = 5 + 21 = 26. Whatever is inside brackets is always worked out first."
+      },
+      "skill": "order of operations",
+      "source": "original"
+    },
+    {
+      "id": "m06-q003",
+      "subtopicId": "m06-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 6 × 15 = 15 × 6",
+      "answer": true,
+      "solution": "6 x 15 = 90 and 15 x 6 = 90. You can multiply two numbers in either order and get the same answer. This is the commutative law. The statement is true.",
+      "misconceptions": {
+        "common": "Thinking that changing the order changes the answer. That is true for subtraction and division (10 - 2 is not 2 - 10), but not for multiplication or addition."
+      },
+      "skill": "laws of arithmetic",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m06-q004",
+      "subtopicId": "m06-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which calculation gives the same answer as 7 × 48?",
+      "options": [
+        "7 × 50 - 7 × 2",
+        "7 × 50 - 2",
+        "7 × 40 + 8",
+        "7 × 50 + 7 × 2"
+      ],
+      "answer": 0,
+      "solution": "48 = 50 - 2. So 7 x 48 = 7 x 50 - 7 x 2 = 350 - 14 = 336. Multiplying each part of a number and then combining is the distributive law.",
+      "misconceptions": {
+        "1": "You took 2 away only once. 48 is 50 - 2, so you need to take away seven lots of 2, which is 7 x 2 = 14.",
+        "2": "You multiplied the 40 by 7 but forgot to multiply the 8 by 7. It should be 7 x 40 + 7 x 8.",
+        "3": "48 is 2 LESS than 50, so you subtract 7 x 2, not add it."
+      },
+      "skill": "laws of arithmetic",
+      "source": "original"
+    },
+    {
+      "id": "m06-q005",
+      "subtopicId": "m06-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Work out 25 × 37 × 4. Hint: you can multiply the numbers in any order.",
+      "answer": {
+        "value": 3700,
+        "tolerance": 0,
+        "accept": [
+          "3 700",
+          "3,700"
+        ]
+      },
+      "solution": "Multiply 25 x 4 first, because it makes 100. Then 100 x 37 = 3700.",
+      "misconceptions": {
+        "common": "Thinking you must work strictly from left to right (25 x 37 = 925, then 925 x 4). That still gives 3700, but it is slow and easy to slip. With only multiplication, you can choose the easiest order."
+      },
+      "skill": "laws of arithmetic",
+      "source": "original"
+    },
+    {
+      "id": "m06-q006",
+      "subtopicId": "m06-s1",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each calculation to its answer.",
+      "options": {
+        "left": [
+          "3 + 4 × 5",
+          "(3 + 4) × 5",
+          "3 × 4 + 5",
+          "3 × (4 + 5)"
+        ],
+        "right": [
+          "27",
+          "23",
+          "60",
+          "35",
+          "17"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "3 + 4 x 5: multiply first, 3 + 20 = 23. (3 + 4) x 5: brackets first, 7 x 5 = 35. 3 x 4 + 5: multiply first, 12 + 5 = 17. 3 x (4 + 5): brackets first, 3 x 9 = 27.",
+      "misconceptions": {
+        "common": "Working from left to right every time, which gives 35 for 3 + 4 x 5. Without brackets, multiplication comes before addition."
+      },
+      "skill": "order of operations",
+      "source": "original"
+    },
+    {
+      "id": "m06-q007",
+      "subtopicId": "m06-s1",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which law of arithmetic is used here?  6 × 23 = 6 × 20 + 6 × 3. Answer with one word.",
+      "answer": {
+        "accept": [
+          "distributive",
+          "distributive law",
+          "the distributive law",
+          "distributive property",
+          "the distributive property",
+          "Distributive"
+        ],
+        "keywords": []
+      },
+      "solution": "23 is split into 20 + 3, and each part is multiplied by 6: 120 + 18 = 138. Splitting a number into parts and multiplying each part is the distributive law.",
+      "misconceptions": {
+        "common": "Answering 'commutative' or 'associative'. Commutative means swapping the order (6 x 23 = 23 x 6). Associative means grouping differently ((2 x 3) x 4 = 2 x (3 x 4))."
+      },
+      "skill": "laws of arithmetic",
+      "source": "original"
+    },
+    {
+      "id": "m06-q008",
+      "subtopicId": "m06-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Work out 36 ÷ (4 + 2) × 3.",
+      "options": [
+        "2",
+        "15",
+        "6",
+        "18"
+      ],
+      "answer": 3,
+      "solution": "Brackets first: 4 + 2 = 6. Then division and multiplication from left to right: 36 ÷ 6 = 6, then 6 x 3 = 18.",
+      "misconceptions": {
+        "0": "You multiplied 6 x 3 before dividing. Division and multiplication have equal priority, so after the brackets work from left to right: 36 ÷ 6 = 6, then 6 x 3 = 18.",
+        "1": "You ignored the brackets: 36 ÷ 4 + 2 x 3 = 9 + 6 = 15. Brackets must be worked out first.",
+        "2": "You did the brackets and the division (36 ÷ 6 = 6) but forgot to multiply by 3."
+      },
+      "skill": "order of operations",
+      "source": "original"
+    },
+    {
+      "id": "m06-q009",
+      "subtopicId": "m06-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Where should brackets go so that 8 + 4 × 6 - 2 equals 48?",
+      "options": [
+        "(8 + 4) × 6 - 2",
+        "(8 + 4) × (6 - 2)",
+        "8 + 4 × (6 - 2)",
+        "8 + (4 × 6) - 2"
+      ],
+      "answer": 1,
+      "solution": "Try each one. (8 + 4) x (6 - 2) = 12 x 4 = 48. This is the only one that makes 48.",
+      "misconceptions": {
+        "0": "This gives 12 x 6 - 2 = 72 - 2 = 70. The subtraction needs brackets too.",
+        "2": "This gives 8 + 4 x 4 = 8 + 16 = 24. The multiplication is still done before the addition.",
+        "3": "These brackets change nothing, because multiplication is done first anyway: 8 + 24 - 2 = 30."
+      },
+      "skill": "order of operations",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m06-q010",
+      "subtopicId": "m06-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 1234 × 6.",
+      "options": [
+        "6284",
+        "7404",
+        "7204",
+        "1240"
+      ],
+      "answer": 1,
+      "solution": "Ones: 4 x 6 = 24, write 4, carry 2. Tens: 3 x 6 = 18, + 2 = 20, write 0, carry 2. Hundreds: 2 x 6 = 12, + 2 = 14, write 4, carry 1. Thousands: 1 x 6 = 6, + 1 = 7. Answer: 7404. Estimate check: 1200 x 6 = 7200.",
+      "misconceptions": {
+        "0": "You did not carry. 4 x 6 = 24, so write 4 and carry 2 tens. Every carried digit must be added in the next column.",
+        "2": "You forgot to add the 2 carried from the tens into the hundreds. 2 x 6 = 12, plus 2 carried = 14.",
+        "3": "You added 6 instead of multiplying by 6."
+      },
+      "skill": "multiplying by a 1-digit number",
+      "source": "original"
+    },
+    {
+      "id": "m06-q011",
+      "subtopicId": "m06-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Estimate 4896 × 5 by first rounding 4896 to the nearest thousand.",
+      "answer": {
+        "value": 25000,
+        "tolerance": 0,
+        "accept": [
+          "25 000",
+          "25,000"
+        ]
+      },
+      "solution": "4896 rounds to 5000, because its hundreds digit is 8. 5000 x 5 = 25 000. (The exact answer is 24 480, close to the estimate.)",
+      "misconceptions": {
+        "common": "Rounding 4896 down to 4000, which gives 20 000. 4896 is much nearer to 5000 than to 4000."
+      },
+      "skill": "estimating products",
+      "source": "original"
+    },
+    {
+      "id": "m06-q012",
+      "subtopicId": "m06-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 305 × 4.",
+      "options": [
+        "1200",
+        "12 020",
+        "309",
+        "1220"
+      ],
+      "answer": 3,
+      "solution": "Ones: 5 x 4 = 20, write 0, carry 2. Tens: 0 x 4 = 0, + 2 = 2. Hundreds: 3 x 4 = 12. Answer: 1220. Check: 300 x 4 = 1200, plus 5 x 4 = 20, gives 1220.",
+      "misconceptions": {
+        "0": "You forgot the 2 tens carried from 5 x 4 = 20. In the tens column, 0 x 4 + 2 = 2.",
+        "1": "You wrote 20 in full in the ones place. Write only the 0 and carry the 2 tens into the next column.",
+        "2": "You added 4 instead of multiplying by 4."
+      },
+      "skill": "multiplying by a 1-digit number",
+      "source": "original"
+    },
+    {
+      "id": "m06-q013",
+      "subtopicId": "m06-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which is the best estimate for 612 × 48?",
+      "options": [
+        "30 000",
+        "3000",
+        "24 000",
+        "300 000"
+      ],
+      "answer": 0,
+      "solution": "Round each number: 612 is about 600 and 48 is about 50. 600 x 50 = 30 000. (The exact answer is 29 376.)",
+      "misconceptions": {
+        "1": "Your place value slipped. 600 x 50: 6 x 5 = 30, and there are three zeros in 600 and 50, so the answer is 30 000.",
+        "2": "You rounded 48 down to 40. 48 is nearer to 50, so 600 x 50 is a better estimate.",
+        "3": "You put in one zero too many. 600 x 50 = 30 000."
+      },
+      "skill": "estimating products",
+      "source": "original"
+    },
+    {
+      "id": "m06-q014",
+      "subtopicId": "m06-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out 476 × 23.",
+      "answer": {
+        "value": 10948,
+        "tolerance": 0,
+        "accept": [
+          "10 948",
+          "10,948"
+        ]
+      },
+      "solution": "Split 23 into 20 + 3. 476 x 3 = 1428. 476 x 20 = 9520. Add: 9520 + 1428 = 10 948. Estimate check: 500 x 20 = 10 000, so the answer is sensible.",
+      "misconceptions": {
+        "common": "Forgetting the place-holder zero when multiplying by the 2 tens: using 476 x 2 = 952 instead of 476 x 20 = 9520. That gives 952 + 1428 = 2380, which is far too small."
+      },
+      "skill": "multiplying by a 2-digit number",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m06-q015",
+      "subtopicId": "m06-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out 2518 × 34.",
+      "options": [
+        "17 626",
+        "75 540",
+        "85 612",
+        "85 512"
+      ],
+      "answer": 2,
+      "solution": "Split 34 into 30 + 4. 2518 x 4 = 10 072. 2518 x 30 = 75 540. Add: 75 540 + 10 072 = 85 612. Estimate check: 2500 x 30 = 75 000, a bit less, which makes sense.",
+      "misconceptions": {
+        "0": "You multiplied by 3 instead of 30 (no place-holder zero). 2518 x 30 = 75 540, not 7554.",
+        "1": "This is only 2518 x 30. You must add 2518 x 4 = 10 072 as well.",
+        "3": "Your adding slipped. In 75 540 + 10 072, the tens make 4 + 7 = 11, so carry 1 into the hundreds: 5 + 0 + 1 = 6."
+      },
+      "skill": "multiplying by a 2-digit number",
+      "source": "original"
+    },
+    {
+      "id": "m06-q016",
+      "subtopicId": "m06-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 3999 × 7 is 7 less than 28 000.",
+      "answer": true,
+      "solution": "3999 = 4000 - 1. So 3999 x 7 = 4000 x 7 - 1 x 7 = 28 000 - 7 = 27 993. That is 7 less than 28 000, so the statement is true.",
+      "misconceptions": {
+        "common": "Thinking the answer is only 1 less than 28 000. You are 1 short in each of the 7 groups, so you are 7 short altogether."
+      },
+      "skill": "laws of arithmetic",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m06-q017",
+      "subtopicId": "m06-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In this multiplication one digit is missing, shown by ?:  24?6 × 3 = 7398. What is the missing digit?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Use the inverse: 7398 ÷ 3 = 2466. So the first number is 2466 and the missing digit is 6. Check: 2466 x 3 = 7398.",
+      "misconceptions": {
+        "common": "Forgetting the carries when working digit by digit. Dividing 7398 by 3 avoids this and gives the whole number at once."
+      },
+      "skill": "missing digits in calculations",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m06-q018",
+      "subtopicId": "m06-s2",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Select ALL the calculations whose answer is greater than 20 000.",
+      "options": [
+        "4999 × 4",
+        "812 × 25",
+        "2501 × 8",
+        "698 × 28",
+        "1820 × 11"
+      ],
+      "answer": [
+        1,
+        2,
+        4
+      ],
+      "solution": "4999 x 4 = 19 996 (no, just under). 812 x 25 = 20 300 (yes). 2501 x 8 = 20 008 (yes). 698 x 28 = 19 544 (no). 1820 x 11 = 20 020 (yes).",
+      "misconceptions": {
+        "0": "4999 x 4 = 19 996, just under 20 000. The estimate 5000 x 4 = 20 000 is not enough when the answer is this close to the boundary.",
+        "3": "698 x 28 = 19 544. Rounding to 700 x 30 = 21 000 overestimates, so work it out exactly."
+      },
+      "skill": "multiplying by a 2-digit number",
+      "source": "original"
+    },
+    {
+      "id": "m06-q019",
+      "subtopicId": "m06-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 728 ÷ 4.",
+      "options": [
+        "102",
+        "2912",
+        "732",
+        "182"
+      ],
+      "answer": 3,
+      "solution": "Hundreds: 7 ÷ 4 = 1 remainder 3. Carry the 3 to the tens: 32 ÷ 4 = 8. Ones: 8 ÷ 4 = 2. Answer: 182. Check: 182 x 4 = 728.",
+      "misconceptions": {
+        "0": "You divided each digit on its own and lost the remainders. 7 ÷ 4 = 1 remainder 3, so carry the 3 to make 32 tens. 32 ÷ 4 = 8.",
+        "1": "You multiplied by 4 instead of dividing.",
+        "2": "You added 4 instead of dividing by 4."
+      },
+      "skill": "dividing by a 1-digit number",
+      "source": "original"
+    },
+    {
+      "id": "m06-q020",
+      "subtopicId": "m06-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 250 ÷ 7. Give your answer with a remainder.",
+      "options": [
+        "34 r 12",
+        "35",
+        "35 r 5",
+        "5 r 35"
+      ],
+      "answer": 2,
+      "solution": "7 x 30 = 210, leaving 40. 7 x 5 = 35, leaving 5. So 7 goes into 250 thirty-five times with 5 left over: 35 r 5. Check: 35 x 7 + 5 = 250.",
+      "misconceptions": {
+        "0": "The remainder 12 is bigger than 7, so another 7 fits in. A remainder must always be smaller than the number you divide by.",
+        "1": "You found how many 7s fit, but left out the remainder. 7 x 35 = 245, so 250 - 245 = 5 is left over.",
+        "3": "You swapped the answer and the remainder. 7 goes into 250 thirty-five times, with 5 left over."
+      },
+      "skill": "division with remainders",
+      "source": "original"
+    },
+    {
+      "id": "m06-q021",
+      "subtopicId": "m06-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which is the best estimate for 789 ÷ 21?",
+      "options": [
+        "40",
+        "4",
+        "400",
+        "16 000"
+      ],
+      "answer": 0,
+      "solution": "Round each number: 789 is about 800 and 21 is about 20. 800 ÷ 20 = 40. (The exact answer is a little under 38.)",
+      "misconceptions": {
+        "1": "Place value slip. 800 ÷ 20: 80 tens ÷ 2 tens is 40, not 4. Check: 4 x 20 = 80, which is far less than 800.",
+        "2": "You divided 800 by 2 instead of by 20.",
+        "3": "You multiplied 800 x 20 instead of dividing."
+      },
+      "skill": "estimating quotients",
+      "source": "original"
+    },
+    {
+      "id": "m06-q022",
+      "subtopicId": "m06-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A bus can carry 42 pupils. 300 pupils are going on a school trip. How many buses are needed?",
+      "options": [
+        "7",
+        "8",
+        "7 r 6",
+        "6"
+      ],
+      "answer": 1,
+      "solution": "300 ÷ 42 = 7 remainder 6 (42 x 7 = 294). 7 buses leave 6 pupils with no seat, so one more bus is needed. 8 buses.",
+      "misconceptions": {
+        "0": "7 buses carry only 7 x 42 = 294 pupils, so 6 pupils would be left behind. You need one more bus: round up.",
+        "2": "You divided correctly but did not answer the question. You cannot order '7 remainder 6' buses; the 6 extra pupils need another bus.",
+        "3": "6 is the remainder (the number of pupils left over), not the number of buses."
+      },
+      "skill": "interpreting remainders",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m06-q023",
+      "subtopicId": "m06-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Mei Lin has 500 cm of ribbon. Each bow needs 35 cm of ribbon. How many complete bows can she make?",
+      "answer": {
+        "value": 14,
+        "tolerance": 0,
+        "accept": [
+          "14 bows"
+        ]
+      },
+      "solution": "500 ÷ 35: 35 x 10 = 350, leaving 150. 35 x 4 = 140, leaving 10. So 500 ÷ 35 = 14 remainder 10. The 10 cm left over is not enough for another bow, so she can make 14 bows.",
+      "misconceptions": {
+        "common": "Rounding up to 15. For 15 bows she would need 15 x 35 = 525 cm, but she has only 500 cm. Here the remainder is thrown away, so round down."
+      },
+      "skill": "interpreting remainders",
+      "source": "original"
+    },
+    {
+      "id": "m06-q024",
+      "subtopicId": "m06-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out 864 ÷ 24.",
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Find how many 24s are in 864. 24 x 30 = 720, leaving 864 - 720 = 144. 24 x 6 = 144, leaving 0. So 864 ÷ 24 = 30 + 6 = 36. Check: 36 x 24 = 864.",
+      "misconceptions": {
+        "common": "A place value slip such as 3.6 or 360. Estimate first: 864 ÷ 24 is close to 900 ÷ 25 = 36 (or 800 ÷ 20 = 40), so the answer is in the 30s."
+      },
+      "skill": "dividing by a 2-digit number",
+      "source": "original"
+    },
+    {
+      "id": "m06-q025",
+      "subtopicId": "m06-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 952 ÷ 28 has a remainder.",
+      "answer": false,
+      "solution": "28 x 30 = 840, leaving 112. 28 x 4 = 112, leaving 0. So 952 ÷ 28 = 34 exactly, with no remainder. The statement is false.",
+      "misconceptions": {
+        "common": "Guessing that a large division must leave a remainder. Check by multiplying: 28 x 34 = 952 exactly."
+      },
+      "skill": "dividing by a 2-digit number",
+      "source": "original"
+    },
+    {
+      "id": "m06-q026",
+      "subtopicId": "m06-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "When a number is divided by 13, the answer is 47 remainder 9. What is the number?",
+      "answer": {
+        "value": 620,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Use the inverse. 13 x 47 = 611 (13 x 40 = 520 and 13 x 7 = 91). Then add the remainder: 611 + 9 = 620. Check: 620 ÷ 13 = 47 remainder 9.",
+      "misconceptions": {
+        "common": "Forgetting to add the remainder (answering 611) or subtracting it (602). The remainder is the extra left over, so it is added on."
+      },
+      "skill": "division with remainders",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m06-q027",
+      "subtopicId": "m06-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Omar has 650 ml of juice. He pours it into cups that each hold 75 ml, and fills as many cups as he can. How much juice is left over?",
+      "options": [
+        "50 ml",
+        "8 ml",
+        "25 ml"
+      ],
+      "answer": 0,
+      "solution": "650 ÷ 75: 75 x 8 = 600, and 75 x 9 = 675 is too much. So he fills 8 cups using 600 ml. Juice left: 650 - 600 = 50 ml.",
+      "misconceptions": {
+        "1": "8 is the number of cups he fills, not the amount of juice left. 8 x 75 = 600 ml, so 650 - 600 = 50 ml is left.",
+        "2": "25 ml is how much more juice he would need to fill another cup (75 - 50). The question asks how much is left over."
+      },
+      "skill": "interpreting remainders",
+      "source": "original"
+    },
+    {
+      "id": "m06-q028",
+      "subtopicId": "m06-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 2.4 × 3.",
+      "options": [
+        "72",
+        "6.12",
+        "0.72",
+        "7.2"
+      ],
+      "answer": 3,
+      "solution": "2 x 3 = 6 and 0.4 x 3 = 1.2. Add them: 6 + 1.2 = 7.2. (Or: 24 x 3 = 72, and 2.4 is 24 tenths, so the answer is 72 tenths = 7.2.)",
+      "misconceptions": {
+        "0": "You worked out 24 x 3 = 72 but did not put the decimal point back. 2.4 x 3 is about 2 x 3 = 6, so 72 is far too big.",
+        "1": "You multiplied the ones and tenths separately (2 x 3 = 6, 4 x 3 = 12) and wrote them side by side. 12 tenths = 1.2, so 6 + 1.2 = 7.2.",
+        "2": "You moved the decimal point too far. 2.4 has one decimal place, so the answer has one: 7.2."
+      },
+      "skill": "multiplying decimals by whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m06-q029",
+      "subtopicId": "m06-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 8.4 ÷ 4.",
+      "answer": {
+        "value": 2.1,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "8 ones ÷ 4 = 2 ones. 4 tenths ÷ 4 = 1 tenth. So 8.4 ÷ 4 = 2.1. Check: 2.1 x 4 = 8.4.",
+      "misconceptions": {
+        "common": "Writing 2.01 or 21. The 4 in 8.4 is 4 tenths, so 4 tenths ÷ 4 = 1 tenth, which is 0.1."
+      },
+      "skill": "dividing decimals by whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m06-q030",
+      "subtopicId": "m06-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A pen costs RM 1.25. How much do 4 pens cost?",
+      "options": [
+        "RM 50.00",
+        "RM 5.25",
+        "RM 5.00",
+        "RM 4.00"
+      ],
+      "answer": 2,
+      "solution": "RM 1 x 4 = RM 4. 25 sen x 4 = 100 sen = RM 1. Total: RM 4 + RM 1 = RM 5.00.",
+      "misconceptions": {
+        "0": "Decimal point slip. 125 sen x 4 = 500 sen, and 500 sen = RM 5.00. Estimate: 4 pens at a bit more than RM 1 cost a bit more than RM 4.",
+        "1": "You added RM 4 to the price instead of multiplying the price by 4.",
+        "3": "You multiplied the ringgit (1 x 4 = 4) but forgot the sen. 25 sen x 4 = 100 sen = RM 1, so the total is RM 5.00."
+      },
+      "skill": "multiplying decimals by whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m06-q031",
+      "subtopicId": "m06-s4",
+      "type": "order",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Work out each calculation. Then put the calculations in order from smallest answer to largest answer.",
+      "options": [
+        "0.4 × 6",
+        "1.5 × 2",
+        "8.1 ÷ 3",
+        "5.2 ÷ 2"
+      ],
+      "answer": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "solution": "0.4 x 6 = 2.4. 1.5 x 2 = 3. 8.1 ÷ 3 = 2.7. 5.2 ÷ 2 = 2.6. Smallest to largest: 2.4, 2.6, 2.7, 3.",
+      "misconceptions": {
+        "common": "Thinking 0.4 x 6 = 0.24 or 24. 4 tenths x 6 = 24 tenths, which is 2.4."
+      },
+      "skill": "multiplying decimals by whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m06-q032",
+      "subtopicId": "m06-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out 3.65 × 7.",
+      "answer": {
+        "value": 25.55,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Work out 365 x 7 = 2555 (300 x 7 = 2100, 60 x 7 = 420, 5 x 7 = 35). 3.65 has two decimal places, so the answer has two: 25.55. Estimate check: 3.65 x 7 is about 4 x 7 = 28.",
+      "misconceptions": {
+        "common": "Putting the decimal point in the wrong place (255.5 or 2.555). Estimate first: about 4 x 7 = 28, so the answer must be in the 20s."
+      },
+      "skill": "multiplying decimals by whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m06-q033",
+      "subtopicId": "m06-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Work out 7.35 ÷ 5.",
+      "options": [
+        "14.7",
+        "1.47",
+        "0.147",
+        "36.75"
+      ],
+      "answer": 1,
+      "solution": "Ones: 7 ÷ 5 = 1 remainder 2. Carry the 2 into the tenths: 23 tenths ÷ 5 = 4 remainder 3. Carry the 3 into the hundredths: 35 hundredths ÷ 5 = 7. Answer: 1.47. Check: 1.47 x 5 = 7.35.",
+      "misconceptions": {
+        "0": "You put the decimal point one place too far to the right. 7.35 ÷ 5 must be a little more than 1, because 5 ÷ 5 = 1, so 14.7 is far too big.",
+        "2": "You moved the decimal point one place too far to the left. 7.35 ÷ 5 must be a little more than 1, because 5 ÷ 5 = 1, so 0.147 is far too small.",
+        "3": "You multiplied by 5 instead of dividing."
+      },
+      "skill": "dividing decimals by whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m06-q034",
+      "subtopicId": "m06-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which is the best estimate of 4.85 × 19?",
+      "options": [
+        "10",
+        "80",
+        "100",
+        "1000"
+      ],
+      "answer": 2,
+      "solution": "Round 4.85 to 5 and 19 to 20. 5 x 20 = 100. (The exact answer is 92.15.)",
+      "misconceptions": {
+        "0": "Place value slip. 5 x 20 = 100, not 10.",
+        "1": "You cut 4.85 down to 4. 4.85 is nearer to 5, so 5 x 20 is a better estimate.",
+        "3": "One zero too many. 5 x 20 = 100."
+      },
+      "skill": "estimating with decimals",
+      "source": "original"
+    },
+    {
+      "id": "m06-q035",
+      "subtopicId": "m06-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Work out 16.2 ÷ 12. Give your answer as a decimal.",
+      "answer": {
+        "value": 1.35,
+        "tolerance": 0,
+        "accept": [
+          "1 7/20"
+        ]
+      },
+      "solution": "Ones: 16 ÷ 12 = 1 remainder 4. Carry 4 into the tenths: 42 tenths ÷ 12 = 3 remainder 6. Write 16.2 as 16.20 and carry 6 into the hundredths: 60 hundredths ÷ 12 = 5. Answer: 1.35. Check: 1.35 x 12 = 16.2.",
+      "misconceptions": {
+        "common": "Stopping with a remainder, such as 1.3 remainder 0.6. With decimals you can keep dividing: write 16.2 as 16.20 and carry on into the hundredths."
+      },
+      "skill": "dividing decimals by whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m06-q036",
+      "subtopicId": "m06-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Work out 2.75 × 36.",
+      "answer": {
+        "value": 99,
+        "tolerance": 0,
+        "accept": [
+          "99.00",
+          "99.0"
+        ]
+      },
+      "solution": "Split 2.75 into 2 + 0.75. 2 x 36 = 72. 0.75 x 36 = 27 (three quarters of 36). 72 + 27 = 99. Another way: 2.75 x 4 = 11, and 36 = 4 x 9, so 11 x 9 = 99.",
+      "misconceptions": {
+        "common": "Putting the decimal point in the wrong place (9.9 or 990). Estimate: 3 x 36 = 108, so the answer is a bit less than 108."
+      },
+      "skill": "multiplying decimals by whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m06-q037",
+      "subtopicId": "m06-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Pencils cost RM 1.20 each. Mei Lin buys 5 pencils and pays with a RM 10 note. How much change does she get?",
+      "options": [
+        "RM 6.00",
+        "RM 4.00",
+        "RM 8.80",
+        "RM 16.00"
+      ],
+      "answer": 1,
+      "solution": "Cost of 5 pencils: 5 x RM 1.20 = RM 6.00. Change: RM 10.00 - RM 6.00 = RM 4.00.",
+      "misconceptions": {
+        "0": "This is the cost of the 5 pencils. The question asks for the change, so subtract it from RM 10.",
+        "2": "You took away the cost of only one pencil. She bought 5 pencils, which cost 5 x RM 1.20 = RM 6.00.",
+        "3": "You added RM 10 and RM 6. Change is the money left over, so subtract."
+      },
+      "skill": "multi-step word problems with x and ÷",
+      "source": "original"
+    },
+    {
+      "id": "m06-q038",
+      "subtopicId": "m06-s5",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A tray holds 24 eggs. How many eggs are there in 15 trays?",
+      "answer": {
+        "value": 360,
+        "tolerance": 0,
+        "accept": [
+          "360 eggs"
+        ]
+      },
+      "solution": "24 x 15 = 24 x 10 + 24 x 5 = 240 + 120 = 360 eggs.",
+      "misconceptions": {
+        "common": "Adding 24 + 15 = 39 instead of multiplying. 15 trays of 24 means 15 groups of 24, which is multiplication."
+      },
+      "skill": "multi-step word problems with x and ÷",
+      "source": "original"
+    },
+    {
+      "id": "m06-q039",
+      "subtopicId": "m06-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A factory packs 1275 boxes each day. Each box holds 24 bottles. How many bottles does the factory pack each day?",
+      "options": [
+        "7650",
+        "25 500",
+        "1299",
+        "30 600"
+      ],
+      "answer": 3,
+      "solution": "Split 24 into 20 + 4. 1275 x 20 = 25 500. 1275 x 4 = 5100. Add: 25 500 + 5100 = 30 600 bottles.",
+      "misconceptions": {
+        "0": "You multiplied by 2 instead of 20 (no place-holder zero). 1275 x 20 = 25 500, not 2550.",
+        "1": "This is only 1275 x 20. You must add 1275 x 4 = 5100 as well.",
+        "2": "You added 24 instead of multiplying. 1275 boxes of 24 bottles means 1275 x 24."
+      },
+      "skill": "multiplying by a 2-digit number",
+      "source": "original"
+    },
+    {
+      "id": "m06-q040",
+      "subtopicId": "m06-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A 2-litre bottle of soya milk is poured equally into 8 glasses. How many millilitres of soya milk are in each glass?",
+      "options": [
+        "250 ml",
+        "0.25 ml",
+        "16 ml",
+        "4 ml"
+      ],
+      "answer": 0,
+      "solution": "Change litres into millilitres: 2 L = 2000 ml. Share equally: 2000 ÷ 8 = 250 ml in each glass.",
+      "misconceptions": {
+        "1": "2 ÷ 8 = 0.25 litres, but you did not change litres into millilitres. 0.25 L = 250 ml.",
+        "2": "You multiplied 2 x 8. Pouring equally into 8 glasses means sharing, so divide. Also change litres into millilitres.",
+        "3": "You divided 8 ÷ 2, the wrong way round, and did not change litres into millilitres."
+      },
+      "skill": "multi-step word problems with x and ÷",
+      "source": "original"
+    },
+    {
+      "id": "m06-q041",
+      "subtopicId": "m06-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Arjun's family takes 3 Grab rides. Each ride costs RM 14.50. They pay with RM 50. How much change do they get?",
+      "options": [
+        "RM 35.50",
+        "RM 6.50",
+        "RM 43.50",
+        "RM 7.50"
+      ],
+      "answer": 1,
+      "solution": "Cost of 3 rides: 3 x RM 14.50 = RM 43.50 (3 x 14 = 42 and 3 x 0.50 = 1.50). Change: RM 50.00 - RM 43.50 = RM 6.50.",
+      "misconceptions": {
+        "0": "You took away the cost of only one ride. There were 3 rides.",
+        "2": "This is the total cost of the rides. Subtract it from RM 50 to find the change.",
+        "3": "You worked out 3 x RM 14 = RM 42 and added only 50 sen, giving RM 42.50. The 50 sen must be multiplied by 3 as well: 3 x RM 14.50 = RM 43.50."
+      },
+      "skill": "multi-step word problems with x and ÷",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m06-q042",
+      "subtopicId": "m06-s5",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Siti saves RM 35 every week. She wants to buy a bicycle that costs RM 600. What is the smallest number of weeks she must save for?",
+      "answer": {
+        "value": 18,
+        "tolerance": 0,
+        "accept": [
+          "18 weeks"
+        ]
+      },
+      "solution": "600 ÷ 35 = 17 remainder 5, because 35 x 17 = 595. After 17 weeks she has RM 595, which is RM 5 short. So she needs one more week: 18 weeks (she will then have RM 630).",
+      "misconceptions": {
+        "common": "Answering 17 by ignoring the remainder. After 17 weeks she is still RM 5 short, so here the answer must be rounded up."
+      },
+      "skill": "interpreting remainders",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m06-q043",
+      "subtopicId": "m06-s5",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "A hawker sells 48 bowls of laksa at RM 6.50 each and 35 plates of chicken rice at RM 7.20 each. How much money does the hawker take altogether? Give your answer in RM.",
+      "answer": {
+        "value": 564,
+        "tolerance": 0,
+        "accept": [
+          "RM 564",
+          "RM564",
+          "564.00",
+          "RM 564.00"
+        ]
+      },
+      "solution": "Laksa: 48 x RM 6.50 = RM 312 (48 x 6 = 288 and 48 x 0.50 = 24). Chicken rice: 35 x RM 7.20 = RM 252 (35 x 7 = 245 and 35 x 0.20 = 7). Total: RM 312 + RM 252 = RM 564.",
+      "misconceptions": {
+        "common": "Adding the prices and the numbers first, for example (48 + 35) x (6.50 + 7.20). Each item must be multiplied by its own price, and then the two amounts added."
+      },
+      "skill": "multi-step word problems with x and ÷",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m06-q044",
+      "subtopicId": "m06-s5",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "A school buys 18 boxes of markers. Each box has 24 markers. The markers are shared equally among 16 classes. How many markers does each class get?",
+      "answer": {
+        "value": 27,
+        "tolerance": 0,
+        "accept": [
+          "27 markers"
+        ]
+      },
+      "solution": "Total markers: 18 x 24 = 432 (18 x 20 = 360 and 18 x 4 = 72). Share among 16 classes: 432 ÷ 16 = 27 (16 x 27 = 432). Each class gets 27 markers.",
+      "misconceptions": {
+        "common": "Stopping at 432, the total number of markers. The question asks how many each class gets, so you must also divide by 16."
+      },
+      "skill": "multi-step word problems with x and ÷",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m06-q045",
+      "subtopicId": "m06-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A rope 12.6 m long is cut into 7 equal pieces. Kumar uses 2 of the pieces. What is the total length of rope that is left?",
+      "options": [
+        "1.8 m",
+        "3.6 m",
+        "9 m",
+        "10.8 m"
+      ],
+      "answer": 2,
+      "solution": "One piece: 12.6 ÷ 7 = 1.8 m. Pieces left: 7 - 2 = 5. Length left: 5 x 1.8 = 9 m. (Or: 12.6 - 2 x 1.8 = 12.6 - 3.6 = 9 m.)",
+      "misconceptions": {
+        "0": "This is the length of one piece. 5 pieces are left, so multiply by 5.",
+        "1": "This is the length Kumar used (2 x 1.8 m). The question asks for the length left.",
+        "3": "You took away only one piece (12.6 - 1.8). Kumar used 2 pieces."
+      },
+      "skill": "multi-step word problems with x and ÷",
+      "source": "inspired-by: Singapore P6"
+    }
+  ]
+}

@@ -1,0 +1,980 @@
+{
+  "subject": "science",
+  "topicId": "s03-human-diseases",
+  "title": "Human Diseases",
+  "order": 3,
+  "bookChapter": "Chapter 3: Human Diseases",
+  "frameworkRefs": [
+    "6Bp.02",
+    "6Bp.03",
+    "6Bp.04",
+    "6TWSm.01",
+    "6TWSp.04",
+    "6TWSp.05",
+    "6TWSa.02",
+    "6TWSa.03",
+    "6SIC.02"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will learn that some diseases are caused by tiny living things called microorganisms: viruses, bacteria, fungi and parasites. You will find out how these diseases pass from one person to another. You will also learn how good hygiene stops them spreading, and how your body defends itself.",
+    "whyItMatters": "Knowing how diseases spread helps you keep yourself and your family well. Simple habits like washing your hands and getting rid of stagnant water can stop an illness before it starts. This topic also explains why doctors give vaccines and why food must be cooked and stored properly.",
+    "realWorld": [
+      "Emptying flower-pot trays and old containers after monsoon rain so Aedes mosquitoes cannot breed and spread dengue",
+      "Washing your hands with soap before eating nasi lemak at a hawker stall",
+      "Covering a cough with a tissue or your elbow on a crowded LRT train",
+      "Boiling drinking water after a flood, when tap water may be dirty",
+      "Keeping raw chicken away from cut fruit when cooking at home"
+    ],
+    "subtopics": [
+      {
+        "id": "s03-s1",
+        "title": "Microorganisms that cause disease",
+        "summary": "Viruses, bacteria, fungi and parasites can cause diseases such as flu, cholera, athlete's foot and malaria. Not all microorganisms are harmful."
+      },
+      {
+        "id": "s03-s2",
+        "title": "How diseases spread",
+        "summary": "Diseases pass from one host to another through droplets in the air, dirty water and food, body fluids, touch and insect vectors such as mosquitoes."
+      },
+      {
+        "id": "s03-s3",
+        "title": "Good hygiene and prevention",
+        "summary": "Hand washing, safe water, careful cooking and food storage, covering coughs and avoiding mosquito bites all stop diseases spreading."
+      },
+      {
+        "id": "s03-s4",
+        "title": "The body's defences",
+        "summary": "Your skin, mucus, tiny hairs in your airways and stomach acid keep most microorganisms out. White blood cells and vaccines help fight those that get in."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s03-q001",
+      "subtopicId": "s03-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Influenza (flu) is an infectious disease. Which type of microorganism causes flu?",
+      "options": [
+        "A fungus",
+        "A bacterium",
+        "A virus",
+        "A parasite"
+      ],
+      "answer": 2,
+      "solution": "Flu is caused by the influenza virus. Colds and COVID-19 are also caused by viruses. Viruses are the smallest microorganisms and can only multiply inside the cells of a host.",
+      "misconceptions": {
+        "0": "Fungi cause diseases such as athlete's foot and ringworm. Flu is caused by a virus.",
+        "1": "Many people think every germ is a bacterium, but flu is caused by a virus. Bacteria cause diseases such as cholera.",
+        "3": "Parasites cause diseases such as malaria. Flu is caused by a virus that spreads in droplets from coughs and sneezes."
+      },
+      "skill": "naming the microorganism that causes a disease",
+      "source": "original"
+    },
+    {
+      "id": "s03-q002",
+      "subtopicId": "s03-s1",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each disease to the type of microorganism that causes it.",
+      "options": {
+        "left": [
+          "Athlete's foot",
+          "Cholera",
+          "Malaria",
+          "Common cold"
+        ],
+        "right": [
+          "Virus",
+          "Fungus",
+          "Bacterium",
+          "Parasite (a tiny single-celled living thing)"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "Athlete's foot is caused by a fungus that likes warm, damp skin between the toes. Cholera is caused by bacteria in dirty water. Malaria is caused by a tiny parasite that mosquitoes carry. The common cold is caused by a virus. Well done if you got all four!",
+      "misconceptions": {
+        "common": "Mixing up malaria and the common cold: malaria is caused by a parasite carried by mosquitoes, while a cold is caused by a virus."
+      },
+      "skill": "naming the microorganism that causes a disease",
+      "source": "original"
+    },
+    {
+      "id": "s03-q003",
+      "subtopicId": "s03-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: All microorganisms are harmful and cause disease.",
+      "answer": false,
+      "solution": "This is false. Many microorganisms are useful. Yeast (a fungus) makes bread rise, bacteria turn milk into yoghurt, and many bacteria and fungi break down dead leaves so the nutrients go back into the soil. Only some microorganisms cause disease.",
+      "misconceptions": {
+        "common": "Thinking that 'microorganism' always means 'germ'. Only some microorganisms cause disease."
+      },
+      "skill": "useful and harmful microorganisms",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s03-q004",
+      "subtopicId": "s03-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Ringworm causes a round, itchy rash on the skin. What causes ringworm?",
+      "options": [
+        "A fungus",
+        "A worm that lives under the skin",
+        "A virus",
+        "A bacterium"
+      ],
+      "answer": 0,
+      "solution": "Ringworm is caused by a fungus, not a worm. The fungus grows on the skin and makes a ring-shaped rash. It is a close cousin of athlete's foot, which is also a fungal infection.",
+      "misconceptions": {
+        "1": "The name is misleading. No worm is involved: ringworm is a fungal infection. The rash is just ring-shaped.",
+        "2": "Viruses cause diseases such as colds, flu and chickenpox. Ringworm is caused by a fungus, like athlete's foot.",
+        "3": "Bacteria cause diseases such as cholera. Ringworm is caused by a fungus that grows on the skin."
+      },
+      "skill": "naming the microorganism that causes a disease",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s03-q005",
+      "subtopicId": "s03-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "When a microorganism infects a person and lives in their body, what do we call that person? Answer in one word.",
+      "answer": {
+        "accept": [
+          "host",
+          "a host",
+          "the host",
+          "hosts"
+        ],
+        "keywords": []
+      },
+      "solution": "The living thing that a microorganism lives in is called the host. When a disease spreads, it passes from one host to another, for example from one person to another.",
+      "misconceptions": {
+        "common": "Answering 'vector'. A vector, such as a mosquito, carries the microorganism between hosts; the host is the living thing the microorganism lives in."
+      },
+      "skill": "disease vocabulary: host and vector",
+      "source": "original"
+    },
+    {
+      "id": "s03-q006",
+      "subtopicId": "s03-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the diseases below that are caused by a virus.",
+      "options": [
+        "COVID-19",
+        "Cholera",
+        "Chickenpox",
+        "Athlete's foot",
+        "Dengue fever"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "COVID-19, chickenpox and dengue fever are all caused by viruses. Mosquitoes carry the dengue virus from person to person. Cholera is caused by bacteria and athlete's foot by a fungus.",
+      "misconceptions": {
+        "1": "Cholera is caused by bacteria, usually from dirty drinking water.",
+        "3": "Athlete's foot is caused by a fungus that grows on warm, damp skin.",
+        "common": "Dengue is often missed because it is spread by mosquitoes, like malaria. But dengue is caused by a virus, while malaria is caused by a parasite."
+      },
+      "skill": "naming the microorganism that causes a disease",
+      "source": "original"
+    },
+    {
+      "id": "s03-q007",
+      "subtopicId": "s03-s1",
+      "type": "order",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Put these in order of size, from smallest to largest.",
+      "options": [
+        "A human skin cell",
+        "An ant",
+        "A virus",
+        "A bacterium"
+      ],
+      "answer": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "solution": "Viruses are the smallest: only a very powerful microscope can show them. A bacterium is a single cell, much bigger than a virus but still smaller than most of our own cells. A human skin cell is bigger again, but still needs a microscope. An ant is easy to see with your eyes.",
+      "misconceptions": {
+        "common": "Thinking a bacterium is smaller than a virus. Viruses are much smaller: many viruses could fit inside one bacterium."
+      },
+      "skill": "comparing sizes of microorganisms",
+      "source": "original"
+    },
+    {
+      "id": "s03-q008",
+      "subtopicId": "s03-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Malaria and dengue fever are both spread by mosquitoes. Which statement is correct?",
+      "options": [
+        "Both diseases are caused by the mosquito itself.",
+        "Both diseases are caused by bacteria in the mosquito's saliva.",
+        "Malaria is caused by a virus and dengue is caused by a parasite.",
+        "Malaria is caused by a parasite and dengue is caused by a virus."
+      ],
+      "answer": 3,
+      "solution": "A mosquito is a vector. When it bites an infected person it takes in the microorganism, then passes it on when it bites someone else. For malaria the microorganism is a tiny parasite. For dengue it is a virus.",
+      "misconceptions": {
+        "0": "The mosquito is the vector: it carries the microorganism from one person to another. The disease is caused by the microorganism, not by the mosquito.",
+        "1": "Neither disease is caused by bacteria. Malaria is caused by a parasite and dengue by a virus.",
+        "2": "This swaps them round. Malaria is caused by a parasite; dengue is caused by a virus."
+      },
+      "skill": "naming the microorganism that causes a disease",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s03-q009",
+      "subtopicId": "s03-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Your classmate has a cold. She sneezes without covering her nose and mouth. How is the cold virus MOST likely to reach you?",
+      "options": [
+        "Through tiny droplets in the air from her sneeze",
+        "Through a mosquito bite",
+        "Through drinking water from the school tap",
+        "Only by touching her blood"
+      ],
+      "answer": 0,
+      "solution": "A sneeze sprays tiny droplets of mucus and saliva into the air. If they contain the cold virus, people nearby can breathe them in. That is why we cover coughs and sneezes.",
+      "misconceptions": {
+        "1": "Mosquitoes spread diseases such as dengue and malaria, not colds. Colds spread through droplets and touch.",
+        "2": "Dirty water spreads diseases such as cholera. A sneeze sends the cold virus into the air, not into the tap water.",
+        "3": "Colds do not need blood to spread. A sneeze sprays millions of tiny droplets containing the virus into the air."
+      },
+      "skill": "how diseases spread",
+      "source": "original"
+    },
+    {
+      "id": "s03-q010",
+      "subtopicId": "s03-s2",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each disease to the way it is usually spread.",
+      "options": {
+        "left": [
+          "Cholera",
+          "Dengue fever",
+          "Influenza (flu)",
+          "Athlete's foot"
+        ],
+        "right": [
+          "Droplets from coughs and sneezes",
+          "Walking barefoot on damp changing-room floors",
+          "Drinking dirty, untreated water",
+          "Bites from infected mosquitoes"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "Cholera bacteria live in water polluted with sewage. The dengue virus is carried by Aedes mosquitoes. Flu viruses travel in droplets from coughs and sneezes. The athlete's foot fungus is picked up from damp floors and shared towels.",
+      "misconceptions": {
+        "common": "Matching dengue to droplets because it makes you feel like you have flu. Dengue cannot spread by coughs; it needs an Aedes mosquito to carry the virus."
+      },
+      "skill": "how diseases spread",
+      "source": "original"
+    },
+    {
+      "id": "s03-q011",
+      "subtopicId": "s03-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "In science, what is a 'vector'?",
+      "options": [
+        "The microorganism that causes the disease",
+        "An animal, such as a mosquito, that carries a microorganism from one host to another",
+        "A medicine that kills microorganisms",
+        "The person who is ill with the disease"
+      ],
+      "answer": 1,
+      "solution": "A vector carries a microorganism from one host to another. Mosquitoes are vectors for dengue and malaria: they pick up the microorganism when they bite an infected person and pass it on with the next bite.",
+      "misconceptions": {
+        "0": "The microorganism is the cause. The vector is the animal that carries it, like a delivery van carrying a parcel.",
+        "2": "A vector does not cure anything. It spreads disease by carrying microorganisms between hosts.",
+        "3": "The ill person is the host. The vector carries the microorganism between hosts."
+      },
+      "skill": "disease vocabulary: host and vector",
+      "source": "original"
+    },
+    {
+      "id": "s03-q012",
+      "subtopicId": "s03-s2",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the ways a disease can pass from one host to another.",
+      "options": [
+        "Drinking water that contains harmful bacteria",
+        "Breathing in droplets from someone's sneeze",
+        "Being bitten by an infected mosquito",
+        "Looking at someone who is ill",
+        "Touching a dirty door handle and then rubbing your eyes"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "solution": "Microorganisms must get from one host into another. They can travel in water, in droplets in the air, inside a mosquito, or on hands and surfaces. Looking at an ill person does not move any microorganisms into your body.",
+      "misconceptions": {
+        "3": "Microorganisms have to get into your body to infect you. Just looking at someone cannot pass on a disease."
+      },
+      "skill": "how diseases spread",
+      "source": "original"
+    },
+    {
+      "id": "s03-q013",
+      "subtopicId": "s03-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: You can catch malaria by shaking hands with someone who has malaria.",
+      "answer": false,
+      "solution": "This is false. The malaria parasite lives in the blood. It is passed on when an infected mosquito bites a person. Shaking hands does not pass it on.",
+      "misconceptions": {
+        "common": "Thinking every disease spreads by touch. Malaria needs a mosquito to carry the parasite from one person's blood to another's."
+      },
+      "skill": "how diseases spread",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s03-q014",
+      "subtopicId": "s03-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "At a food stall, flies land on a rubbish bin and then on plates of uncovered food. Why can this make people ill?",
+      "options": [
+        "The fly itself is a type of bacterium.",
+        "Flies only spread disease by biting people.",
+        "Flies carry microorganisms on their legs and bodies from the rubbish to the food.",
+        "The smell of the rubbish makes the food go bad."
+      ],
+      "answer": 2,
+      "solution": "Rubbish is full of bacteria. When a fly walks on it, bacteria stick to its hairy legs and body. When it then lands on food, some bacteria are left behind. If we eat that food, we can get food poisoning. Covering food stops this.",
+      "misconceptions": {
+        "0": "A fly is an insect, not a microorganism. It carries bacteria on its body.",
+        "1": "Houseflies do not bite. They spread microorganisms by landing on dirty things and then on food.",
+        "3": "Smells do not carry disease. The harmful bacteria are carried on the fly's legs and body."
+      },
+      "skill": "how diseases spread",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s03-q015",
+      "subtopicId": "s03-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Dengue cases in Malaysia often rise during the rainy monsoon season. Which is the BEST explanation?",
+      "options": [
+        "Rain fills containers and puddles with stagnant water, so more mosquitoes breed and more people are bitten.",
+        "Rainwater carries the dengue virus into our drinking water.",
+        "Cold rain on the skin lets the virus soak into the body.",
+        "The dengue virus grows in puddles and floats into the air."
+      ],
+      "answer": 0,
+      "solution": "Aedes mosquitoes lay their eggs in still (stagnant) water, such as water in old tins, flower-pot trays and blocked drains. More rain means more breeding places, so more mosquitoes. More mosquitoes means more bites, so the virus spreads to more people.",
+      "misconceptions": {
+        "1": "Dengue does not spread through drinking water. It needs an infected Aedes mosquito to bite a person.",
+        "2": "The virus cannot soak through skin. It enters when an infected mosquito bites.",
+        "3": "The virus does not live in puddles. Mosquito larvae live in stagnant water; the adult mosquitoes then carry the virus."
+      },
+      "skill": "insect vectors and stagnant water",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s03-q016",
+      "subtopicId": "s03-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: A class sprays coloured water from a spray bottle to model a sneeze. Because it is only a model, the results may not be exactly the same as for a real sneeze.",
+      "answer": true,
+      "solution": "This is true. A spray bottle is a safe model that shows how droplets spread out. But a real sneeze is stronger or weaker, and the droplets are different sizes, so real distances may be different. Models help us understand, but they are not exactly the same as real life.",
+      "misconceptions": {
+        "common": "Thinking a model gives perfect, real-life results. Models are simpler than the real thing, so they help us understand an idea but can differ in the details."
+      },
+      "skill": "using models in science",
+      "source": "original"
+    },
+    {
+      "id": "s03-q017",
+      "subtopicId": "s03-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Using the spray-bottle model, Daniel measures how far the furthest drop travels. He sprays 5 times. His results are: 152 cm, 148 cm, 155 cm, 62 cm and 150 cm. Which result is anomalous?",
+      "options": [
+        "155 cm",
+        "148 cm",
+        "None of them, because every measurement must be kept as it is",
+        "62 cm"
+      ],
+      "answer": 3,
+      "solution": "Four results are close together, between 148 cm and 155 cm. 62 cm is far away from all of them, so it is anomalous. Perhaps the nozzle was blocked or Daniel did not squeeze hard. He should repeat that spray and leave 62 cm out of any average.",
+      "misconceptions": {
+        "0": "155 cm is the largest, but it is close to the others. An anomalous result is one that does not fit the pattern at all.",
+        "1": "148 cm is only a few centimetres from the others, so it fits the pattern.",
+        "2": "We do record every result, but we should spot one that does not fit and check it. 62 cm is far away from all the others."
+      },
+      "skill": "identifying anomalous results",
+      "source": "original"
+    },
+    {
+      "id": "s03-q018",
+      "subtopicId": "s03-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "When is it MOST important to wash your hands with soap?",
+      "options": [
+        "Before eating and after using the toilet",
+        "Only when your hands look dirty",
+        "Only after eating",
+        "Only once in the morning when you wake up"
+      ],
+      "answer": 0,
+      "solution": "Microorganisms are too small to see, so hands can look clean but still carry them. Washing before eating stops them getting into your mouth. Washing after the toilet removes bacteria from faeces that can cause diarrhoea.",
+      "misconceptions": {
+        "1": "Microorganisms are too small to see. Clean-looking hands can still carry them.",
+        "2": "Washing before eating stops microorganisms on your hands getting into your mouth with the food.",
+        "3": "Hands pick up new microorganisms all day, so you need to wash them at key times, like before eating and after the toilet."
+      },
+      "skill": "good hygiene to stop disease",
+      "source": "original"
+    },
+    {
+      "id": "s03-q019",
+      "subtopicId": "s03-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: It is safe to share a toothbrush with a friend as long as you rinse it in water first.",
+      "answer": false,
+      "solution": "This is false. Toothbrushes can carry saliva and sometimes tiny amounts of blood from the gums. Some diseases are spread through body fluids like these, and rinsing with water does not remove all the microorganisms. Always use your own toothbrush.",
+      "misconceptions": {
+        "common": "Thinking that rinsing in water removes all microorganisms. Some microorganisms in saliva and blood stay on the bristles."
+      },
+      "skill": "good hygiene to stop disease",
+      "source": "original"
+    },
+    {
+      "id": "s03-q020",
+      "subtopicId": "s03-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "When you sneeze and have no tissue, what part of your arm should you sneeze into? Answer in one word.",
+      "answer": {
+        "accept": [
+          "elbow",
+          "your elbow",
+          "the elbow",
+          "inner elbow",
+          "bent elbow",
+          "sleeve",
+          "arm",
+          "inside of elbow"
+        ],
+        "keywords": []
+      },
+      "solution": "Sneeze or cough into a tissue, then throw it away. With no tissue, use the inside of your bent elbow. Sneezing into your hands is worse because hands touch everything.",
+      "misconceptions": {
+        "common": "Sneezing into your hands. Your hands then carry the microorganisms to door handles, phones and other people."
+      },
+      "skill": "good hygiene to stop disease",
+      "source": "original"
+    },
+    {
+      "id": "s03-q021",
+      "subtopicId": "s03-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the ways to avoid being bitten by mosquitoes.",
+      "options": [
+        "Sleeping under a mosquito net",
+        "Using insect repellent on your skin",
+        "Drinking boiled water",
+        "Wearing long sleeves and long trousers",
+        "Fitting fine wire screens on windows"
+      ],
+      "answer": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "solution": "Nets, repellent, covering your skin and window screens all stop mosquitoes reaching your skin. Boiled water is good for preventing water-borne diseases, but it has nothing to do with mosquito bites.",
+      "misconceptions": {
+        "2": "Boiling water kills microorganisms that cause diseases like cholera. It does not stop mosquitoes from biting you."
+      },
+      "skill": "avoiding insect vectors",
+      "source": "original"
+    },
+    {
+      "id": "s03-q022",
+      "subtopicId": "s03-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: Keeping food in a fridge slows down the growth of bacteria, but it does not kill them all.",
+      "answer": true,
+      "solution": "This is true. Bacteria multiply quickly when it is warm. In the cold of a fridge they multiply very slowly, so food stays safe for longer. But most are not killed, which is why leftovers should be eaten within a few days and heated until very hot.",
+      "misconceptions": {
+        "common": "Thinking that cold kills all bacteria. Cold makes them grow and multiply much more slowly, so food lasts longer, but it can still go bad in time."
+      },
+      "skill": "safe food storage and cooking",
+      "source": "original"
+    },
+    {
+      "id": "s03-q023",
+      "subtopicId": "s03-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "After a flood, the tap water in a town may be dirty and there is a risk of cholera. Which water is SAFEST to drink?",
+      "options": [
+        "Clear water from a river, because it looks clean",
+        "Rainwater collected in an old, uncovered drum",
+        "Water that has been boiled, cooled and kept in a clean, covered container",
+        "Tap water that has been left to stand in a bucket overnight"
+      ],
+      "answer": 2,
+      "solution": "Boiling kills the bacteria that cause cholera. Keeping the boiled water in a clean, covered container stops new microorganisms getting in. Looking clear is not enough, because bacteria are invisible.",
+      "misconceptions": {
+        "0": "Bacteria are too small to see, so clear water can still carry cholera.",
+        "1": "An open drum can collect dirt and droppings, and mosquitoes can breed in it. It is not safe to drink without boiling.",
+        "3": "Standing does not kill bacteria. If the tap water was dirty, it is still dirty the next morning."
+      },
+      "skill": "safe drinking water",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s03-q024",
+      "subtopicId": "s03-s3",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Put the steps for washing your hands properly in order, from first to last.",
+      "options": [
+        "Rinse off the soap with clean water",
+        "Put soap on your hands",
+        "Dry your hands with a clean towel",
+        "Wet your hands with clean water",
+        "Rub all parts of your hands, including between the fingers and under the nails, for about 20 seconds"
+      ],
+      "answer": [
+        3,
+        1,
+        4,
+        0,
+        2
+      ],
+      "solution": "First wet your hands so the soap can lather. Add soap. Rub every part of your hands for about 20 seconds; this loosens dirt and microorganisms. Rinse them away with clean water. Finally dry with a clean towel, because wet hands pick up microorganisms more easily.",
+      "misconceptions": {
+        "common": "Rinsing too early or skipping the 20 seconds of rubbing. The rubbing is what loosens the microorganisms so the water can wash them away."
+      },
+      "skill": "good hygiene to stop disease",
+      "source": "original"
+    },
+    {
+      "id": "s03-q025",
+      "subtopicId": "s03-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Mei Lin cuts raw chicken on a chopping board. Then she uses the same board, without washing it, to slice cucumber for a salad. Why is this risky?",
+      "options": [
+        "Bacteria from the raw chicken can get onto the cucumber, which is eaten without cooking.",
+        "The cucumber will make the chicken unsafe to eat.",
+        "It is only risky if the chicken smells bad.",
+        "The bacteria on the board die as soon as the chicken is taken away."
+      ],
+      "answer": 0,
+      "solution": "Raw chicken often carries bacteria that cause food poisoning. Cooking the chicken kills them, but the cucumber will not be cooked. So bacteria left on the board pass to the cucumber and into your body. Use a separate board, or wash it well with hot, soapy water.",
+      "misconceptions": {
+        "1": "This is the wrong way round. Raw chicken can carry harmful bacteria; the danger is to the cucumber, which is not cooked.",
+        "2": "Harmful bacteria usually cannot be seen or smelled. Fresh-looking raw chicken can still carry them.",
+        "3": "Bacteria can survive on boards and knives for hours. Washing with hot, soapy water removes them."
+      },
+      "skill": "safe food storage and cooking",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s03-q026",
+      "subtopicId": "s03-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Arjun wants to find out whether temperature affects how fast mould (a fungus) grows on bread. He puts identical slices of bread in sealed bags. He keeps one bag in a fridge (5 °C), one in a cupboard (25 °C) and one in a warm place (35 °C). What is the independent variable (the one he changes)?",
+      "options": [
+        "The amount of mould that grows",
+        "The size of the bread slices",
+        "The type of bag",
+        "The temperature"
+      ],
+      "answer": 3,
+      "solution": "The independent variable is the one thing you choose to change. Arjun changes the temperature (5 °C, 25 °C, 35 °C). He measures the amount of mould (dependent variable) and keeps everything else, such as the bread and the bags, the same (control variables).",
+      "misconceptions": {
+        "0": "This is the dependent variable: the thing Arjun measures to see the effect of the change.",
+        "1": "Arjun keeps this the same in every bag, so it is a control variable.",
+        "2": "The bags are all the same, so this is a control variable. Only the temperature changes."
+      },
+      "skill": "fair test variables",
+      "source": "original"
+    },
+    {
+      "id": "s03-q027",
+      "subtopicId": "s03-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Arjun's results after 6 days show how much of each slice is covered in mould. Fridge (5 °C): 0%. Cupboard (25 °C): 40%. Warm place (35 °C): 75%. Which conclusion do the results support?",
+      "options": [
+        "Mould grows fastest in cold places.",
+        "The warmer the place, the faster the mould grew.",
+        "Cold kills mould, so food in a fridge can be kept forever.",
+        "Temperature had no effect on mould growth."
+      ],
+      "answer": 1,
+      "solution": "As the temperature went up from 5 °C to 25 °C to 35 °C, the mould cover went up from 0% to 40% to 75%. So mould grew faster in warmer places. This is why we keep food cool: microorganisms grow slowly in the cold.",
+      "misconceptions": {
+        "0": "This reads the results the wrong way round. The coldest bread had no mould at all.",
+        "2": "The results only show that no mould grew in 6 days. Cold slows mould down; it does not kill it, so food in a fridge still goes bad eventually.",
+        "3": "The amount of mould changed a lot (0%, 40%, 75%) as the temperature changed, so temperature did have an effect."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s03-q028",
+      "subtopicId": "s03-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "At the end of the mould investigation, the teacher says the bags must stay sealed and be thrown away without opening them. What is the main safety reason?",
+      "options": [
+        "Opening the bags would make the bread too dry to eat.",
+        "Mould is a virus that spreads through the air and gives people flu.",
+        "Mould releases tiny spores that can be breathed in and may cause breathing problems or allergies.",
+        "The bread will become heavier and could break the bin."
+      ],
+      "answer": 2,
+      "solution": "Mould is a fungus. It produces tiny spores that float in the air. Breathing them in can cause coughing, allergies or breathing problems, especially for people with asthma. Keeping the bags sealed keeps the spores in.",
+      "misconceptions": {
+        "0": "Mouldy bread should never be eaten, so dryness does not matter. The bags stay shut to keep the spores in.",
+        "1": "Mould is a fungus, not a virus, and it does not cause flu. The risk is breathing in its spores.",
+        "3": "The mass of the bread is not a safety risk. The risk is breathing in mould spores."
+      },
+      "skill": "risks in practical work",
+      "source": "original"
+    },
+    {
+      "id": "s03-q029",
+      "subtopicId": "s03-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "In Malaysia, health officers sometimes visit homes to look for containers holding stagnant water. Why do they do this?",
+      "options": [
+        "To test whether the water contains cholera bacteria",
+        "To find and remove places where Aedes mosquitoes breed, so fewer people catch dengue",
+        "Because stagnant water gives off a gas that causes dengue",
+        "To collect the water so it can be boiled and drunk"
+      ],
+      "answer": 1,
+      "solution": "Aedes mosquitoes lay eggs in still water in pots, tins, tyres and blocked drains. If the water is emptied, the young mosquitoes cannot grow. Fewer mosquitoes means fewer bites and fewer dengue cases. This is science being used in our local area.",
+      "misconceptions": {
+        "0": "The officers are looking for mosquito breeding places, not testing drinking water.",
+        "2": "Dengue is caused by a virus carried by mosquitoes, not by a gas from water.",
+        "3": "Stagnant water is not collected for drinking. It is emptied so mosquitoes cannot lay eggs in it."
+      },
+      "skill": "insect vectors and stagnant water",
+      "source": "original"
+    },
+    {
+      "id": "s03-q030",
+      "subtopicId": "s03-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which part of your body covers you and acts as a barrier to stop most microorganisms getting inside?",
+      "options": [
+        "Blood",
+        "Muscles",
+        "Bones",
+        "Skin"
+      ],
+      "answer": 3,
+      "solution": "Your skin is a tough, waterproof layer that covers your whole body. Most microorganisms cannot get through unbroken skin. That is why a cut needs to be cleaned and covered.",
+      "misconceptions": {
+        "0": "Blood is inside the body. It helps fight microorganisms that have already got in, but it is not the outer barrier.",
+        "1": "Muscles help you move. They are under the skin and are not a barrier against microorganisms.",
+        "2": "Bones support your body. They are deep inside and do not stop microorganisms entering."
+      },
+      "skill": "the body's defences",
+      "source": "original"
+    },
+    {
+      "id": "s03-q031",
+      "subtopicId": "s03-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Stomach acid helps to kill many of the microorganisms we swallow with our food and drink.",
+      "answer": true,
+      "solution": "This is true. Your stomach makes a strong acid. It helps to digest food and it also kills many of the microorganisms that come in with food and drink.",
+      "misconceptions": {
+        "common": "Thinking the stomach only digests food. Its strong acid also kills many microorganisms, so it is one of the body's defences."
+      },
+      "skill": "the body's defences",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s03-q032",
+      "subtopicId": "s03-s4",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name of the sticky liquid in your nose and airways that traps dust and microorganisms?",
+      "answer": {
+        "accept": [
+          "mucus",
+          "the mucus",
+          "mucous",
+          "snot",
+          "phlegm"
+        ],
+        "keywords": []
+      },
+      "solution": "Mucus is a sticky liquid made in your nose and airways. Dust and microorganisms get stuck in it before they can reach your lungs. Tiny hairs then sweep the mucus away, and you blow it out or swallow it, where stomach acid kills the microorganisms.",
+      "misconceptions": {
+        "common": "Answering 'saliva'. Saliva is the watery liquid in your mouth; the sticky trap in your nose and airways is mucus."
+      },
+      "skill": "the body's defences",
+      "source": "original"
+    },
+    {
+      "id": "s03-q033",
+      "subtopicId": "s03-s4",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each body defence to how it protects you.",
+      "options": {
+        "left": [
+          "Skin",
+          "Mucus in the nose and airways",
+          "Stomach acid",
+          "Tears"
+        ],
+        "right": [
+          "Kills many microorganisms swallowed with food",
+          "Forms a tough, waterproof outer barrier",
+          "Wash dirt and microorganisms out of the eyes",
+          "Traps dust and microorganisms in a sticky layer"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "solution": "Skin is the outer barrier. Mucus traps microorganisms before they reach the lungs. Stomach acid kills microorganisms in food. Tears wash the eyes and also contain a substance that kills some bacteria.",
+      "misconceptions": {
+        "common": "Mixing up mucus and stomach acid. Mucus traps microorganisms in the airways; acid kills them in the stomach."
+      },
+      "skill": "the body's defences",
+      "source": "original"
+    },
+    {
+      "id": "s03-q034",
+      "subtopicId": "s03-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Why should a cut on your knee be cleaned and covered with a plaster?",
+      "options": [
+        "Because microorganisms can only get into the body through cuts",
+        "Because the skin, which normally keeps microorganisms out, is broken",
+        "Because the plaster contains medicine that makes new skin grow instantly",
+        "Because blood from the cut attracts flies that make the cut heal slower"
+      ],
+      "answer": 1,
+      "solution": "Unbroken skin is a barrier. A cut makes a gap, so microorganisms can get in and cause an infection. Cleaning removes dirt and microorganisms. A plaster covers the gap until new skin grows.",
+      "misconceptions": {
+        "0": "Cuts are one way in, but microorganisms can also enter through the mouth, nose and eyes.",
+        "2": "Most plasters simply cover the cut. They keep microorganisms out while the skin heals slowly by itself.",
+        "3": "Flies are not the main reason. The plaster closes the gap in the skin so microorganisms cannot get in."
+      },
+      "skill": "the body's defences",
+      "source": "original"
+    },
+    {
+      "id": "s03-q035",
+      "subtopicId": "s03-s4",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the natural defences that your own body has against microorganisms.",
+      "options": [
+        "Skin",
+        "Mucus",
+        "Hand sanitiser",
+        "Stomach acid",
+        "Tiny hairs in the nose and airways",
+        "A mosquito net"
+      ],
+      "answer": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "solution": "Skin, mucus, stomach acid and the tiny hairs in the nose and airways are all parts of your body that keep microorganisms out or kill them. Hand sanitiser and mosquito nets are helpful things people use, but they are not body defences.",
+      "misconceptions": {
+        "2": "Hand sanitiser helps, but it is something we use, not part of our body.",
+        "5": "A net is a useful way to avoid bites, but it is not part of the body."
+      },
+      "skill": "the body's defences",
+      "source": "original"
+    },
+    {
+      "id": "s03-q036",
+      "subtopicId": "s03-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Doctors give children vaccines, for example against measles. How does a vaccine help?",
+      "options": [
+        "It contains dead, weakened or harmless parts of a microorganism, so the body learns to fight the real one quickly.",
+        "It is a medicine that cures measles after you have caught it.",
+        "It kills every microorganism in your body, including useful ones.",
+        "It makes your skin thicker so microorganisms cannot get in."
+      ],
+      "answer": 0,
+      "solution": "A vaccine shows your body a safe version of a microorganism. Your white blood cells learn to recognise it. If the real microorganism gets in later, your body fights it off quickly, before you become very ill.",
+      "misconceptions": {
+        "1": "A vaccine is given before you are ill. It prepares the body; it is not a cure.",
+        "2": "A vaccine does not kill microorganisms directly. It trains your body to recognise one particular disease.",
+        "3": "A vaccine does not change your skin. It works by training your white blood cells."
+      },
+      "skill": "white blood cells and vaccines",
+      "source": "original"
+    },
+    {
+      "id": "s03-q037",
+      "subtopicId": "s03-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "What is the main job of white blood cells?",
+      "options": [
+        "To carry oxygen around the body",
+        "To make the sticky mucus in your nose",
+        "To find and destroy microorganisms that get inside the body",
+        "To give the blood its red colour"
+      ],
+      "answer": 2,
+      "solution": "If microorganisms get past the skin, mucus and stomach acid, white blood cells in the blood attack them. Some swallow microorganisms; others make chemicals that help destroy them.",
+      "misconceptions": {
+        "0": "Red blood cells carry oxygen. White blood cells defend the body.",
+        "1": "Mucus is made by the lining of the nose and airways, not by white blood cells.",
+        "3": "Red blood cells make blood red. White blood cells are the body's fighters."
+      },
+      "skill": "white blood cells and vaccines",
+      "source": "original"
+    },
+    {
+      "id": "s03-q038",
+      "subtopicId": "s03-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Priya takes two identical apples. She makes a cut in the skin of apple A but leaves apple B whole. She rubs a piece of rotten apple on both and leaves them side by side for a week. Apple A rots around the cut; apple B does not rot. What does this investigation show?",
+      "options": [
+        "Cuts alone make apples rot, without any microorganisms.",
+        "Apples rot faster in the dark.",
+        "Microorganisms can easily pass through unbroken skin.",
+        "Unbroken skin is a barrier; when it is broken, microorganisms can get in."
+      ],
+      "answer": 3,
+      "solution": "Priya changed only one thing: whether the skin was cut. Both apples met the same microorganisms. Only the cut apple rotted, so the skin was keeping microorganisms out. The apple is a model of our own skin: a cut lets microorganisms in.",
+      "misconceptions": {
+        "0": "Both apples were rubbed with the rotten apple, which carries microorganisms. The cut simply let them in.",
+        "1": "Light was not changed in this test: both apples were kept side by side. The only difference was the cut.",
+        "2": "Apple B had unbroken skin and did not rot, so the microorganisms could not get through."
+      },
+      "skill": "using models in science",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    }
+  ]
+}

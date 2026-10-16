@@ -1,0 +1,1087 @@
+{
+  "subject": "maths",
+  "topicId": "m02-number-system",
+  "title": "The Number System",
+  "order": 2,
+  "bookChapter": "Chapter 2: The Number System",
+  "frameworkRefs": [
+    "6Nc.01",
+    "6Ni.06",
+    "6Ni.07",
+    "6Ni.08",
+    "TWM.04"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will count on and back past zero and compare negative numbers. You will find factors, multiples, prime numbers, common factors and common multiples. You will also use divisibility tests and recognise square and cube numbers.",
+    "whyItMatters": "These number facts make calculations faster. Knowing factors helps you simplify fractions, and divisibility tests let you check answers in seconds. Negative numbers are used for temperatures, heights below sea level and floors below the ground.",
+    "realWorld": [
+      "Weather reports for cold cities, such as -5 °C in Seoul in winter",
+      "Lift buttons for basement car parks in KL malls, where B1 and B2 are like floors -1 and -2",
+      "Sharing 24 kuih equally among friends with none left over (the group sizes are factors of 24)",
+      "Working out when buses on two different routes next leave the station together (common multiples)",
+      "Laying floor tiles in a square: 6 rows of 6 tiles makes 36, a square number"
+    ],
+    "subtopics": [
+      {
+        "id": "m02-s1",
+        "title": "Negative numbers",
+        "summary": "Read, order, and count on and back past zero, and find the difference between two temperatures on a number line."
+      },
+      {
+        "id": "m02-s2",
+        "title": "Factors, multiples and primes",
+        "summary": "Find factors and multiples, common factors and common multiples (including the highest common factor and the lowest common multiple), and spot prime numbers."
+      },
+      {
+        "id": "m02-s3",
+        "title": "Tests of divisibility",
+        "summary": "Use quick tests to check whether a number divides exactly by 2, 3, 4, 5, 6, 9, 10 or 25, with a focus on 3, 6 and 9."
+      },
+      {
+        "id": "m02-s4",
+        "title": "Square numbers and cube numbers",
+        "summary": "Recognise square numbers such as 7^2 = 49 (7^2 means 7 x 7) and cube numbers from 1 to 125 such as 4^3 = 64 (4^3 means 4 x 4 x 4)."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m02-q001",
+      "subtopicId": "m02-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The temperature at night is 3 °C. By the morning it has fallen by 5 degrees. What is the temperature in the morning?",
+      "options": [
+        "2 °C",
+        "-8 °C",
+        "-2 °C",
+        "8 °C"
+      ],
+      "answer": 2,
+      "solution": "Start at 3 on a number line and count back 5 steps: 2, 1, 0, -1, -2. It takes 3 steps to reach 0, then 2 more steps below zero. The morning temperature is -2 °C.",
+      "misconceptions": {
+        "0": "The answer is below zero, so it needs a minus sign. Counting back 5 from 3: 2, 1, 0, -1, -2.",
+        "1": "This adds 3 and 5 and then puts a minus sign in front. Count back from 3 on a number line instead: you pass 0 after 3 steps and go 2 more below zero.",
+        "3": "This adds 5 degrees. 'Fallen' means the temperature went DOWN, so count back."
+      },
+      "skill": "counting back past zero",
+      "source": "original"
+    },
+    {
+      "id": "m02-q002",
+      "subtopicId": "m02-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these temperatures is the coldest?",
+      "options": [
+        "-6 °C",
+        "-2 °C",
+        "0 °C"
+      ],
+      "answer": 0,
+      "solution": "On a number line, numbers further to the left are smaller. -6 is further left than -2, and -2 is left of 0. So -6 °C is the coldest.",
+      "misconceptions": {
+        "1": "2 is smaller than 6, but with negative numbers it is the other way round. -2 °C is only 2 degrees below zero; -6 °C is 6 degrees below zero, which is colder.",
+        "2": "Zero is not the lowest temperature. Negative temperatures like -2 °C and -6 °C are colder than 0 °C."
+      },
+      "skill": "comparing negative numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q003",
+      "subtopicId": "m02-s1",
+      "type": "order",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Put these numbers in order from smallest to largest.",
+      "options": [
+        "3",
+        "-5",
+        "0",
+        "-1",
+        "-8"
+      ],
+      "answer": [
+        4,
+        1,
+        3,
+        2,
+        0
+      ],
+      "solution": "Think of a number line. The furthest left is -8, then -5, then -1, then 0, then 3. So the order is -8, -5, -1, 0, 3.",
+      "misconceptions": {
+        "common": "Putting -1 before -5 and -8 because 1 is smaller than 5 and 8. For negative numbers, the bigger the number after the minus sign, the smaller it is."
+      },
+      "skill": "ordering negative numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q004",
+      "subtopicId": "m02-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: -9 is greater than -4.",
+      "answer": false,
+      "solution": "On a number line, -9 is to the left of -4, so -9 is SMALLER than -4. Think of temperatures: -9 °C is colder than -4 °C. The statement is false.",
+      "misconceptions": {
+        "common": "Thinking -9 is bigger because 9 is bigger than 4. -9 is further below zero, so it is smaller."
+      },
+      "skill": "comparing negative numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q005",
+      "subtopicId": "m02-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "At 6 am in Beijing the temperature was -4 °C. By 2 pm it was 7 °C. By how many degrees did the temperature rise? Give your answer as a number of degrees.",
+      "answer": {
+        "value": 11,
+        "tolerance": 0,
+        "accept": [
+          "11 °C",
+          "11 degrees"
+        ]
+      },
+      "solution": "Use a number line. From -4 up to 0 is 4 degrees. From 0 up to 7 is 7 degrees. Total rise: 4 + 7 = 11 degrees.",
+      "misconceptions": {
+        "common": "Answering 3 by working out 7 - 4. On a number line, the distance from -4 to 0 is 4 and from 0 to 7 is 7, so the rise is 4 + 7 = 11."
+      },
+      "skill": "difference between temperatures",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m02-q006",
+      "subtopicId": "m02-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "In a shopping mall in KL, the ground floor is floor 0. The car park floors below it are numbered -1, -2, -3 and so on. A lift starts on floor 2 and goes down 5 floors. Which floor does it stop at?",
+      "options": [
+        "-2",
+        "3",
+        "-7",
+        "-3"
+      ],
+      "answer": 3,
+      "solution": "Count down 5 floors from floor 2: 1, 0, -1, -2, -3. The lift stops on floor -3, the third car park floor below the ground.",
+      "misconceptions": {
+        "0": "This counts floor 2 itself as one of the 5 steps. Count the moves: 1, 0, -1, -2, -3. That is 5 floors down.",
+        "1": "The lift goes below the ground floor, so the floor number must be negative.",
+        "2": "This adds 2 and 5. Going down from floor 2, you only pass 2 floors to reach 0, then 3 more below."
+      },
+      "skill": "counting back past zero",
+      "source": "original"
+    },
+    {
+      "id": "m02-q007",
+      "subtopicId": "m02-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What is the next number in this sequence? -11, -7, -3, ...",
+      "answer": {
+        "value": 1,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Each step adds 4: -11 + 4 = -7, -7 + 4 = -3. So the next number is -3 + 4 = 1. On a number line, from -3 count on 3 to reach 0, then 1 more to reach 1.",
+      "misconceptions": {
+        "common": "Answering -1 or -7 by counting the wrong way. The numbers are going UP by 4 each time (towards zero and past it)."
+      },
+      "skill": "counting on past zero",
+      "source": "original"
+    },
+    {
+      "id": "m02-q008",
+      "subtopicId": "m02-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Count back in steps of 0.5: 1.5, 1, 0.5, 0, ... What is the next number?",
+      "options": [
+        "-0.5",
+        "0.5",
+        "-1",
+        "-5"
+      ],
+      "answer": 0,
+      "solution": "Each step takes away 0.5. 0 - 0.5 = -0.5. On a number line, -0.5 is halfway between 0 and -1.",
+      "misconceptions": {
+        "1": "Counting can carry on below zero. The next number is half a step below zero, which is -0.5.",
+        "2": "This counts back a whole 1. The step size is 0.5, so from 0 you go to -0.5.",
+        "3": "This loses the decimal point. Half a step below zero is -0.5, not -5."
+      },
+      "skill": "counting back past zero",
+      "source": "original"
+    },
+    {
+      "id": "m02-q009",
+      "subtopicId": "m02-s1",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "One morning the temperatures in five cities were: Oslo -7 °C, Seoul -2 °C, Tokyo 4 °C, Moscow -12 °C, Penang 31 °C. What is the difference between the highest and the lowest temperature? Give your answer as a number of degrees.",
+      "answer": {
+        "value": 43,
+        "tolerance": 0,
+        "accept": [
+          "43 °C",
+          "43 degrees"
+        ]
+      },
+      "solution": "The highest is Penang, 31 °C. The lowest is Moscow, -12 °C (the biggest number after a minus sign). On a number line: from -12 to 0 is 12 degrees, from 0 to 31 is 31 degrees. 12 + 31 = 43 degrees.",
+      "misconceptions": {
+        "common": "Answering 19 by working out 31 - 12. Moscow is 12 degrees BELOW zero, so the gap is 12 degrees up to zero and then 31 more."
+      },
+      "skill": "difference between temperatures",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m02-q010",
+      "subtopicId": "m02-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the numbers that are between -4 and 1 on a number line.",
+      "options": [
+        "-3",
+        "-5",
+        "0",
+        "-0.5",
+        "2",
+        "-4.5"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "solution": "Picture a number line from -4 to 1. -3 is inside. 0 is inside. -0.5 is between -1 and 0, so it is inside. -5 and -4.5 are to the left of -4. 2 is to the right of 1.",
+      "misconceptions": {
+        "1": "-5 is further left than -4, so it is smaller than -4 and not between -4 and 1.",
+        "4": "2 is bigger than 1, so it is to the right of 1.",
+        "5": "-4.5 is half a step further left than -4, so it is smaller than -4."
+      },
+      "skill": "comparing negative numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q011",
+      "subtopicId": "m02-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which number is exactly halfway between -6 and 10 on a number line?",
+      "options": [
+        "8",
+        "2",
+        "4",
+        "16"
+      ],
+      "answer": 1,
+      "solution": "The distance from -6 to 10 is 6 + 10 = 16. Half of 16 is 8. Count on 8 from -6: -6 -> 0 is 6 steps, then 2 more steps reaches 2. Check: from 2 to 10 is also 8. The halfway number is 2.",
+      "misconceptions": {
+        "0": "8 is half of the distance (16 ÷ 2 = 8), but you then need to count 8 on from -6, which lands on 2.",
+        "2": "This works out -6 + 10 = 4 but forgets to halve it. The halfway point is 2.",
+        "3": "16 is the whole distance from -6 to 10. The halfway point is a number on the line, not a distance."
+      },
+      "skill": "number line reasoning with negative numbers",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m02-q012",
+      "subtopicId": "m02-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which number is a multiple of 6?",
+      "options": [
+        "3",
+        "16",
+        "42",
+        "26"
+      ],
+      "answer": 2,
+      "solution": "Multiples of 6 are in the 6 times table: 6, 12, 18, 24, 30, 36, 42... 6 x 7 = 42, so 42 is a multiple of 6.",
+      "misconceptions": {
+        "0": "3 is a FACTOR of 6 (it divides into 6). A multiple of 6 is in the 6 times table, like 6, 12, 18...",
+        "1": "16 ends in 6, but that does not make it a multiple of 6. 6 x 2 = 12 and 6 x 3 = 18, so 16 is not in the 6 times table.",
+        "3": "26 ends in 6, but 6 x 4 = 24 and 6 x 5 = 30, so 26 is not in the 6 times table."
+      },
+      "skill": "factors and multiples",
+      "source": "original"
+    },
+    {
+      "id": "m02-q013",
+      "subtopicId": "m02-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these is a prime number?",
+      "options": [
+        "23",
+        "21",
+        "1",
+        "27"
+      ],
+      "answer": 0,
+      "solution": "A prime number has exactly two factors: 1 and itself. 23 can only be divided exactly by 1 and 23, so it is prime. 21 = 3 x 7 and 27 = 3 x 9, and 1 has only one factor.",
+      "misconceptions": {
+        "1": "21 is odd, but not every odd number is prime. 21 = 3 x 7, so it has the factors 1, 3, 7 and 21.",
+        "2": "1 is not a prime number. A prime has exactly TWO factors (1 and itself). 1 has only one factor.",
+        "3": "27 = 3 x 9, so it has more than two factors (1, 3, 9, 27). It is not prime."
+      },
+      "skill": "prime numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q014",
+      "subtopicId": "m02-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 2 is the only even prime number.",
+      "answer": true,
+      "solution": "2 has exactly two factors (1 and 2), so it is prime. Every other even number can be divided by 2 as well as by 1 and itself, so it has more than two factors. So 2 is the only even prime. True!",
+      "misconceptions": {
+        "common": "Thinking all prime numbers are odd, so 2 cannot be prime. 2 has exactly two factors, 1 and 2, so it is prime."
+      },
+      "skill": "prime numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q015",
+      "subtopicId": "m02-s2",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the factors of 18.",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "9",
+        "12",
+        "36"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "solution": "The factors of 18 come in pairs: 1 x 18, 2 x 9, 3 x 6. So the factors are 1, 2, 3, 6, 9 and 18. From the list, 2, 6 and 9 are factors.",
+      "misconceptions": {
+        "1": "4 does not divide exactly into 18: 4 x 4 = 16 and 4 x 5 = 20.",
+        "4": "12 does not divide exactly into 18: 18 ÷ 12 = 1 remainder 6.",
+        "5": "36 is a MULTIPLE of 18 (18 x 2), not a factor. Factors of 18 can never be bigger than 18."
+      },
+      "skill": "factors and multiples",
+      "source": "original"
+    },
+    {
+      "id": "m02-q016",
+      "subtopicId": "m02-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What is the highest common factor of 24 and 36?",
+      "options": [
+        "4",
+        "6",
+        "12",
+        "72"
+      ],
+      "answer": 2,
+      "solution": "Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Common factors: 1, 2, 3, 4, 6, 12. The highest is 12.",
+      "misconceptions": {
+        "0": "4 is a common factor of 24 and 36, but it is not the highest one.",
+        "1": "6 is a common factor of 24 and 36, but 12 is higher and also divides both.",
+        "3": "72 is the lowest common MULTIPLE of 24 and 36. A factor of 24 cannot be bigger than 24."
+      },
+      "skill": "highest common factor",
+      "source": "original"
+    },
+    {
+      "id": "m02-q017",
+      "subtopicId": "m02-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What is the lowest common multiple of 4 and 6?",
+      "options": [
+        "12",
+        "2",
+        "10",
+        "24"
+      ],
+      "answer": 0,
+      "solution": "Multiples of 4: 4, 8, 12, 16, 20, 24... Multiples of 6: 6, 12, 18, 24... The first number in both lists is 12.",
+      "misconceptions": {
+        "1": "2 is the highest common FACTOR of 4 and 6. A multiple of 4 must be 4 or more.",
+        "2": "This adds 4 + 6. 10 is not in the 4 times table.",
+        "3": "24 = 4 x 6 is a common multiple, but there is a smaller one: 12."
+      },
+      "skill": "lowest common multiple",
+      "source": "original"
+    },
+    {
+      "id": "m02-q018",
+      "subtopicId": "m02-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which number is a common factor of 20 and 30?",
+      "options": [
+        "4",
+        "10",
+        "60",
+        "3"
+      ],
+      "answer": 1,
+      "solution": "10 divides exactly into both: 20 ÷ 10 = 2 and 30 ÷ 10 = 3. So 10 is a common factor of 20 and 30.",
+      "misconceptions": {
+        "0": "4 is a factor of 20, but not of 30 (30 ÷ 4 = 7 remainder 2). A common factor must divide BOTH numbers.",
+        "2": "60 is a common MULTIPLE of 20 and 30, not a factor. Factors cannot be bigger than the number.",
+        "3": "3 is a factor of 30, but not of 20 (20 ÷ 3 = 6 remainder 2)."
+      },
+      "skill": "common factors",
+      "source": "original"
+    },
+    {
+      "id": "m02-q019",
+      "subtopicId": "m02-s2",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each number to the number of factors it has.",
+      "options": {
+        "left": [
+          "17",
+          "25",
+          "1",
+          "12"
+        ],
+        "right": [
+          "has exactly 1 factor",
+          "has exactly 2 factors",
+          "has exactly 3 factors",
+          "has exactly 6 factors",
+          "has exactly 4 factors"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "solution": "17: 1 and 17, so 2 factors (it is prime). 25: 1, 5, 25, so 3 factors. 1: only 1, so 1 factor. 12: 1, 2, 3, 4, 6, 12, so 6 factors. No number here has exactly 4 factors.",
+      "misconceptions": {
+        "common": "Missing a factor pair, or counting 5 twice for 25. 5 x 5 = 25 gives just one factor, 5, so 25 has 1, 5 and 25: three factors."
+      },
+      "skill": "factors and multiples",
+      "source": "original"
+    },
+    {
+      "id": "m02-q020",
+      "subtopicId": "m02-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Route A buses leave the bus station every 12 minutes. Route B buses leave every 18 minutes. A bus from each route leaves together at 7:00 am. How many minutes later will a bus from each route next leave together?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "accept": [
+          "36 minutes",
+          "36 min"
+        ]
+      },
+      "solution": "Route A leaves after 12, 24, 36, 48... minutes. Route B leaves after 18, 36, 54... minutes. The first time in both lists is 36 minutes. They next leave together after 36 minutes, at 7:36 am.",
+      "misconceptions": {
+        "common": "Answering 216 (12 x 18) or 6. 12 x 18 is a time when they leave together, but not the FIRST time. You need the lowest common multiple."
+      },
+      "skill": "lowest common multiple",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m02-q021",
+      "subtopicId": "m02-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Wei Ming has 36 red beads and 48 blue beads. He uses ALL the beads to make identical bracelets: every bracelet has the same number of red beads and the same number of blue beads. What is the greatest number of bracelets he can make?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "accept": [
+          "12 bracelets"
+        ]
+      },
+      "solution": "The number of bracelets must be a factor of 36 and of 48. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Factors of 48: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. The highest common factor is 12. So 12 bracelets, each with 3 red and 4 blue beads.",
+      "misconceptions": {
+        "common": "Answering 144 (the lowest common multiple) or 84 (36 + 48). The number of bracelets must divide both 36 and 48 exactly, so you need the highest common factor."
+      },
+      "skill": "highest common factor",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m02-q022",
+      "subtopicId": "m02-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "I am a number between 40 and 50. I am a multiple of 3 and a factor of 90. What number am I?",
+      "options": [
+        "42",
+        "48",
+        "30",
+        "45"
+      ],
+      "answer": 3,
+      "solution": "Factors of 90: 1, 2, 3, 5, 6, 9, 10, 15, 18, 30, 45, 90. The only one between 40 and 50 is 45. Check: 45 = 3 x 15, so it is a multiple of 3. The number is 45.",
+      "misconceptions": {
+        "0": "42 is a multiple of 3, but it is not a factor of 90 (90 ÷ 42 = 2 remainder 6).",
+        "1": "48 is a multiple of 3, but it is not a factor of 90 (90 ÷ 48 = 1 remainder 42).",
+        "2": "30 is a multiple of 3 and a factor of 90, but it is not between 40 and 50."
+      },
+      "skill": "factors and multiples",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m02-q023",
+      "subtopicId": "m02-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which number is divisible by 5?",
+      "options": [
+        "352",
+        "535",
+        "553",
+        "5 001"
+      ],
+      "answer": 1,
+      "solution": "A number is divisible by 5 if its last digit is 0 or 5. Only 535 ends in 5. Check: 535 ÷ 5 = 107.",
+      "misconceptions": {
+        "0": "352 has a 5 in it, but the test only looks at the LAST digit. 352 ends in 2, so it is not divisible by 5.",
+        "2": "553 starts with 5, but it ends in 3. A number is divisible by 5 only if its last digit is 0 or 5.",
+        "3": "5 001 starts with 5, but it ends in 1, so it is not divisible by 5."
+      },
+      "skill": "divisibility tests",
+      "source": "original"
+    },
+    {
+      "id": "m02-q024",
+      "subtopicId": "m02-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which number is divisible by 3? (Hint: add up the digits.)",
+      "options": [
+        "212",
+        "502",
+        "471",
+        "3 001"
+      ],
+      "answer": 2,
+      "solution": "A number is divisible by 3 if the sum of its digits is a multiple of 3. 4 + 7 + 1 = 12, and 12 is a multiple of 3. Check: 471 ÷ 3 = 157.",
+      "misconceptions": {
+        "0": "2 + 1 + 2 = 5. 5 is not a multiple of 3, so 212 is not divisible by 3.",
+        "1": "5 + 0 + 2 = 7. 7 is not a multiple of 3, so 502 is not divisible by 3.",
+        "3": "3 001 starts with 3, but that does not matter. 3 + 0 + 0 + 1 = 4, which is not a multiple of 3."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q025",
+      "subtopicId": "m02-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which number, 3, 6 or 9, has this divisibility test: 'the number is even AND the sum of its digits is a multiple of 3'?",
+      "answer": {
+        "accept": [
+          "6",
+          "six"
+        ],
+        "keywords": []
+      },
+      "solution": "6 = 2 x 3. So a number divisible by 6 must pass the test for 2 (it is even) AND the test for 3 (digit sum is a multiple of 3). The answer is 6.",
+      "misconceptions": {
+        "common": "Answering 3 or 9. The test for 3 only needs the digit sum. Needing to be even as well (divisible by 2) is what makes the test for 6, because 6 = 2 x 3."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q026",
+      "subtopicId": "m02-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The 3-digit number 47? is divisible by 9. The ? stands for a missing digit. What is the missing digit?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": [
+          "seven"
+        ]
+      },
+      "solution": "For a number to be divisible by 9, its digit sum must be a multiple of 9. 4 + 7 = 11. The next multiple of 9 is 18, and 18 - 11 = 7. So the digit is 7. Check: 477 ÷ 9 = 53.",
+      "misconceptions": {
+        "common": "Answering 6 by stopping at a multiple of 3 (4 + 7 + 1 = 12). For 9, the digit sum must be a multiple of 9."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q027",
+      "subtopicId": "m02-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the numbers that are divisible by 6.",
+      "options": [
+        "126",
+        "234",
+        "316",
+        "405",
+        "522",
+        "16"
+      ],
+      "answer": [
+        0,
+        1,
+        4
+      ],
+      "solution": "Divisible by 6 means even AND digit sum a multiple of 3. 126: even, 1 + 2 + 6 = 9. Yes. 234: even, 9. Yes. 316: even, 10. No. 405: odd. No. 522: even, 9. Yes. 16: even, 7. No.",
+      "misconceptions": {
+        "2": "316 is even, but 3 + 1 + 6 = 10, which is not a multiple of 3. So it is not divisible by 6.",
+        "3": "4 + 0 + 5 = 9, so 405 is divisible by 3. But it is odd, so it is not divisible by 2 and so not by 6.",
+        "5": "16 ends in 6, but that does not make it divisible by 6. 1 + 6 = 7 is not a multiple of 3."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q028",
+      "subtopicId": "m02-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which number is divisible by 4? (Hint: look at the last two digits.)",
+      "options": [
+        "1 342",
+        "3 114",
+        "4 442",
+        "2 516"
+      ],
+      "answer": 3,
+      "solution": "A number is divisible by 4 if its last two digits make a number divisible by 4. 2 516 ends in 16, and 16 ÷ 4 = 4. So 2 516 is divisible by 4. (2 516 ÷ 4 = 629.)",
+      "misconceptions": {
+        "0": "1 342 is even, but being even only shows it divides by 2. The last two digits, 42, are not divisible by 4 (42 ÷ 4 = 10 remainder 2).",
+        "1": "3 114 ends in 4, but the test for 4 uses the last TWO digits: 14 is not divisible by 4.",
+        "2": "Starting with 4s does not matter. The last two digits are 42, which is not divisible by 4."
+      },
+      "skill": "divisibility tests",
+      "source": "original"
+    },
+    {
+      "id": "m02-q029",
+      "subtopicId": "m02-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 7 245 is divisible by 9.",
+      "answer": true,
+      "solution": "Add the digits: 7 + 2 + 4 + 5 = 18. 18 is a multiple of 9, so 7 245 is divisible by 9. The statement is true. Check: 7 245 ÷ 9 = 805.",
+      "misconceptions": {
+        "common": "Thinking it cannot be divisible by 9 because it is odd or does not end in 9. The test for 9 uses the digit sum, not the last digit."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q030",
+      "subtopicId": "m02-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which of these numbers does 2 475 divide by exactly, with no remainder?",
+      "options": [
+        "2",
+        "4",
+        "9",
+        "10"
+      ],
+      "answer": 2,
+      "solution": "Digit sum: 2 + 4 + 7 + 5 = 18, which is a multiple of 9. So 2 475 is divisible by 9 (2 475 ÷ 9 = 275). It is odd, so not divisible by 2, 4 or 10.",
+      "misconceptions": {
+        "0": "2 475 starts with 2, but the test for 2 looks at the last digit. It ends in 5, which is odd.",
+        "1": "There is a 4 in 2 475, but the test for 4 uses the last two digits: 75 is not divisible by 4.",
+        "3": "To be divisible by 10 a number must end in 0. 2 475 ends in 5."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q031",
+      "subtopicId": "m02-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The 3-digit number 53? is divisible by 6. The ? stands for a missing digit. What is the missing digit?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0,
+        "accept": [
+          "four"
+        ]
+      },
+      "solution": "Divisible by 6 means even AND digit sum a multiple of 3. 5 + 3 = 8, so the missing digit must make 9, 12 or 15: it could be 1, 4 or 7. It must also be even, so it is 4. Check: 534 ÷ 6 = 89.",
+      "misconceptions": {
+        "common": "Answering 1 or 7: these make the digit sum a multiple of 3, but 531 and 537 are odd. A number divisible by 6 must also be even."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m02-q032",
+      "subtopicId": "m02-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which statement is ALWAYS true?",
+      "options": [
+        "Every number divisible by 3 is divisible by 9.",
+        "Every number divisible by 9 is divisible by 3.",
+        "Every number divisible by 3 is divisible by 6.",
+        "Every even number is divisible by 4."
+      ],
+      "answer": 1,
+      "solution": "9 = 3 x 3, so every multiple of 9 is also a multiple of 3. For example 18 = 3 x 6 and 27 = 3 x 9. Each of the other statements can be broken by one example: 12, 9 and 6.",
+      "misconceptions": {
+        "0": "Not always. 12 is divisible by 3 but not by 9 (12 ÷ 9 = 1 remainder 3).",
+        "2": "Not always. 9 is divisible by 3 but not by 6, because 9 is odd.",
+        "3": "Not always. 6 is even but not divisible by 4 (6 ÷ 4 = 1 remainder 2)."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m02-q033",
+      "subtopicId": "m02-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "I am a 2-digit number. I am divisible by 3 and also by 25. What number am I?",
+      "answer": {
+        "value": 75,
+        "tolerance": 0,
+        "accept": [
+          "seventy-five"
+        ]
+      },
+      "solution": "2-digit numbers divisible by 25: 25, 50, 75. Digit sums: 2 + 5 = 7, 5 + 0 = 5, 7 + 5 = 12. Only 12 is a multiple of 3, so the number is 75. Check: 75 ÷ 3 = 25.",
+      "misconceptions": {
+        "common": "Answering 25 or 50. They pass the test for 25 (ending in 00, 25, 50 or 75) but their digit sums (7 and 5) are not multiples of 3."
+      },
+      "skill": "divisibility tests",
+      "source": "original"
+    },
+    {
+      "id": "m02-q034",
+      "subtopicId": "m02-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 7^2?",
+      "options": [
+        "49",
+        "14",
+        "77",
+        "343"
+      ],
+      "answer": 0,
+      "solution": "7^2 means 7 squared, which is 7 x 7 = 49.",
+      "misconceptions": {
+        "1": "This works out 7 x 2. 7^2 means 7 x 7.",
+        "2": "This writes 7 twice. 7^2 means 7 multiplied by itself.",
+        "3": "343 is 7^3 = 7 x 7 x 7. 7^2 uses only two 7s."
+      },
+      "skill": "square numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q035",
+      "subtopicId": "m02-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 4^3?",
+      "answer": {
+        "value": 64,
+        "tolerance": 0,
+        "accept": [
+          "sixty-four"
+        ]
+      },
+      "solution": "4^3 means 4 cubed: 4 x 4 x 4. 4 x 4 = 16, then 16 x 4 = 64.",
+      "misconceptions": {
+        "common": "Answering 12 by working out 4 x 3. 4^3 means 4 x 4 x 4."
+      },
+      "skill": "cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q036",
+      "subtopicId": "m02-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these is a cube number?",
+      "options": [
+        "9",
+        "6",
+        "27",
+        "16"
+      ],
+      "answer": 2,
+      "solution": "Cube numbers are 1 x 1 x 1 = 1, 2 x 2 x 2 = 8, 3 x 3 x 3 = 27, 4 x 4 x 4 = 64, 5 x 5 x 5 = 125. 27 is in the list.",
+      "misconceptions": {
+        "0": "9 = 3 x 3, so it is a SQUARE number, not a cube number.",
+        "1": "6 = 2 x 3. A cube number is a number times itself three times, e.g. 2 x 2 x 2 = 8.",
+        "3": "16 = 4 x 4, a square number. It is not 1, 8, 27, 64 or 125."
+      },
+      "skill": "cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q037",
+      "subtopicId": "m02-s4",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the special name for the numbers 1, 8, 27, 64 and 125?",
+      "answer": {
+        "accept": [
+          "cube numbers",
+          "cube number",
+          "cubes",
+          "cube",
+          "cubed numbers",
+          "cubic numbers"
+        ],
+        "keywords": []
+      },
+      "solution": "1 = 1 x 1 x 1, 8 = 2 x 2 x 2, 27 = 3 x 3 x 3, 64 = 4 x 4 x 4, 125 = 5 x 5 x 5. They are cube numbers, because a cube of small blocks that is 2 long, 2 wide and 2 high has 8 blocks.",
+      "misconceptions": {
+        "common": "Saying square numbers. Square numbers come from 2 equal numbers multiplied (like 3 x 3 = 9); these come from 3 equal numbers multiplied."
+      },
+      "skill": "cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q038",
+      "subtopicId": "m02-s4",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out each value, then put them in order from smallest to largest.",
+      "options": [
+        "5^2",
+        "3^3",
+        "2^3",
+        "4^2",
+        "1^3"
+      ],
+      "answer": [
+        4,
+        2,
+        3,
+        0,
+        1
+      ],
+      "solution": "5^2 = 25. 3^3 = 27. 2^3 = 8. 4^2 = 16. 1^3 = 1. Smallest to largest: 1^3 (1), 2^3 (8), 4^2 (16), 5^2 (25), 3^3 (27).",
+      "misconceptions": {
+        "common": "Treating the small number as 'times', e.g. 3^3 = 9 or 2^3 = 6. The small number tells you how many times to multiply the number by itself."
+      },
+      "skill": "square and cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q039",
+      "subtopicId": "m02-s4",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the square numbers.",
+      "options": [
+        "36",
+        "48",
+        "64",
+        "90",
+        "100",
+        "125"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Square numbers: 6 x 6 = 36, 8 x 8 = 64, 10 x 10 = 100. 48, 90 and 125 are not the result of a whole number multiplied by itself.",
+      "misconceptions": {
+        "1": "48 is between 6 x 6 = 36 and 7 x 7 = 49, so it is not a square number.",
+        "3": "90 is between 9 x 9 = 81 and 10 x 10 = 100, so it is not a square number.",
+        "5": "125 = 5 x 5 x 5 is a CUBE number. It is between 11 x 11 = 121 and 12 x 12 = 144, so it is not a square number."
+      },
+      "skill": "square numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q040",
+      "subtopicId": "m02-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A square garden has an area of 121 m^2. How long is one side of the garden?",
+      "options": [
+        "60.5 m",
+        "11 m",
+        "30.25 m",
+        "12 m"
+      ],
+      "answer": 1,
+      "solution": "Area of a square = side x side. Which number times itself is 121? 11 x 11 = 121. So each side is 11 m.",
+      "misconceptions": {
+        "0": "This halves the area. For a square, you need the number that multiplied by ITSELF gives 121.",
+        "2": "This divides 121 by 4, which you would do with a perimeter, not an area.",
+        "3": "12 x 12 = 144, not 121. Try one less: 11 x 11 = 121."
+      },
+      "skill": "square numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q041",
+      "subtopicId": "m02-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Work out 6^2 + 2^3.",
+      "options": [
+        "18",
+        "42",
+        "288",
+        "44"
+      ],
+      "answer": 3,
+      "solution": "6^2 = 6 x 6 = 36. 2^3 = 2 x 2 x 2 = 8. 36 + 8 = 44.",
+      "misconceptions": {
+        "0": "This works out 6 x 2 = 12 and 2 x 3 = 6, then 12 + 6. The powers mean 6 x 6 and 2 x 2 x 2.",
+        "1": "6^2 = 36 is right, but 2^3 is 2 x 2 x 2 = 8, not 2 x 3 = 6.",
+        "2": "This multiplies 36 x 8. The sign is +, so add: 36 + 8."
+      },
+      "skill": "square and cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q042",
+      "subtopicId": "m02-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 2^3 is the same as 3^2.",
+      "answer": false,
+      "solution": "2^3 = 2 x 2 x 2 = 8. 3^2 = 3 x 3 = 9. 8 is not the same as 9, so the statement is false.",
+      "misconceptions": {
+        "common": "Thinking the order does not matter because both use a 2 and a 3. 2^3 means three 2s multiplied; 3^2 means two 3s multiplied."
+      },
+      "skill": "square and cube numbers",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m02-q043",
+      "subtopicId": "m02-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which number is BOTH a square number and a cube number?",
+      "options": [
+        "8",
+        "16",
+        "64",
+        "27"
+      ],
+      "answer": 2,
+      "solution": "64 = 8 x 8, so it is a square number. 64 = 4 x 4 x 4, so it is also a cube number. It is both!",
+      "misconceptions": {
+        "0": "8 = 2 x 2 x 2 is a cube number, but no whole number times itself makes 8 (2 x 2 = 4, 3 x 3 = 9).",
+        "1": "16 = 4 x 4 is a square number, but it is not a cube number (2 x 2 x 2 = 8, 3 x 3 x 3 = 27).",
+        "3": "27 = 3 x 3 x 3 is a cube number, but it is not a square number (5 x 5 = 25, 6 x 6 = 36)."
+      },
+      "skill": "square and cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q044",
+      "subtopicId": "m02-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel builds a large cube from small 1 cm cubes. The large cube is 5 small cubes long, 5 wide and 5 high. He then takes away a block of small cubes that is 3 long, 3 wide and 3 high from one corner. How many small cubes are left?",
+      "answer": {
+        "value": 98,
+        "tolerance": 0,
+        "accept": [
+          "98 cubes"
+        ]
+      },
+      "solution": "The large cube has 5 x 5 x 5 = 125 small cubes. The block taken away has 3 x 3 x 3 = 27 small cubes. 125 - 27 = 98 small cubes are left.",
+      "misconceptions": {
+        "common": "Answering 116 by taking away 3 x 3 = 9 instead of 3 x 3 x 3 = 27. The block that is removed is a cube too, so it has 3^3 = 27 small cubes."
+      },
+      "skill": "cube numbers",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m02-q045",
+      "subtopicId": "m02-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "How many square numbers are there between 50 and 150?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "accept": [
+          "five"
+        ]
+      },
+      "solution": "7 x 7 = 49 is too small. Then 8 x 8 = 64, 9 x 9 = 81, 10 x 10 = 100, 11 x 11 = 121, 12 x 12 = 144. 13 x 13 = 169 is too big. That is 5 square numbers.",
+      "misconceptions": {
+        "common": "Missing 144 (12 x 12) or 121 (11 x 11) because they are past the 10 times table."
+      },
+      "skill": "square numbers",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    }
+  ]
+}

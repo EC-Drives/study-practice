@@ -1,0 +1,928 @@
+{
+  "subject": "science",
+  "topicId": "s10-more-about-rocks",
+  "title": "More About Rocks",
+  "order": 10,
+  "bookChapter": "Chapter 10: More About Rocks",
+  "frameworkRefs": [
+    "6ESp.01",
+    "6ESp.02",
+    "6ESc.01",
+    "6TWSm.01",
+    "6TWSp.03",
+    "6TWSp.04",
+    "6TWSc.08",
+    "6TWSa.03"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will learn how igneous, sedimentary and metamorphic rocks form and how to tell them apart. You will find out how fossils form in sedimentary rock. You will follow rocks around the rock cycle.",
+    "whyItMatters": "Rocks are all around you, from buildings and roads to the beaches and hills. Knowing how rocks form helps you read the Earth's history, and explains where fossils, building stone and even sand come from.",
+    "realWorld": [
+      "Granite kitchen tops and building steps, with their large, speckled crystals",
+      "Limestone hills and caves, such as the Batu Caves near KL and the limestone hills around Ipoh",
+      "Marble floors and statues, made from limestone changed by heat and pressure",
+      "A pumice stone used in the bathroom to smooth rough skin on your feet",
+      "Slate roof tiles and old school writing boards, which split into thin, waterproof sheets"
+    ],
+    "subtopics": [
+      {
+        "id": "s10-s1",
+        "title": "Igneous rocks",
+        "summary": "Igneous rocks form when magma or lava cools and solidifies. They have interlocking crystals; slow cooling makes bigger crystals."
+      },
+      {
+        "id": "s10-s2",
+        "title": "Sedimentary rocks",
+        "summary": "Sedimentary rocks form from layers of sediment that are buried, compacted and cemented. They often have layers, grains and fossils."
+      },
+      {
+        "id": "s10-s3",
+        "title": "Metamorphic rocks",
+        "summary": "Metamorphic rocks form when heat and pressure change an existing rock without melting it, such as limestone to marble and shale to slate."
+      },
+      {
+        "id": "s10-s4",
+        "title": "Fossils",
+        "summary": "Fossils form when the hard parts of dead plants and animals are buried in sediment and slowly replaced by minerals."
+      },
+      {
+        "id": "s10-s5",
+        "title": "The rock cycle",
+        "summary": "Rocks change from one type to another through solidification, erosion, sedimentation, burial, metamorphism and melting."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s10-q001",
+      "subtopicId": "s10-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How do igneous rocks form?",
+      "options": [
+        "Layers of sand and mud are pressed and stuck together",
+        "Melted rock (magma or lava) cools down and becomes solid",
+        "Rocks are heated and squeezed deep underground without melting",
+        "Dead plants and animals rot and turn into rock"
+      ],
+      "answer": 1,
+      "solution": "'Igneous' comes from a Latin word for fire. Igneous rocks form when very hot melted rock, called magma underground or lava at the surface, cools and turns solid.",
+      "misconceptions": {
+        "0": "That is how sedimentary rocks form.",
+        "2": "That is how metamorphic rocks form. Igneous rocks come from rock that has fully melted.",
+        "3": "Rotting plants and animals make humus in soil. Igneous rocks form from melted rock, which is far too hot for living things."
+      },
+      "skill": "how igneous rocks form",
+      "source": "original"
+    },
+    {
+      "id": "s10-q002",
+      "subtopicId": "s10-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name for hot, melted rock that is still UNDER the ground?",
+      "answer": {
+        "accept": [
+          "magma"
+        ],
+        "keywords": []
+      },
+      "solution": "Melted rock underground is called magma. When it comes out of a volcano onto the surface, it is called lava.",
+      "misconceptions": {
+        "common": "Answering 'lava'. Lava is melted rock that has reached the surface; underground it is magma."
+      },
+      "skill": "how igneous rocks form",
+      "source": "original"
+    },
+    {
+      "id": "s10-q003",
+      "subtopicId": "s10-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Granite is an igneous rock.",
+      "answer": true,
+      "solution": "True. Granite forms when magma cools slowly deep underground. You can see its large, speckled crystals on many kitchen tops and building steps.",
+      "misconceptions": {
+        "common": "Thinking granite is metamorphic because it is very hard. Hardness alone does not tell you the rock type; granite formed from cooled melted rock, so it is igneous."
+      },
+      "skill": "identifying rock types",
+      "source": "original"
+    },
+    {
+      "id": "s10-q004",
+      "subtopicId": "s10-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which set of features best helps you identify an IGNEOUS rock?",
+      "options": [
+        "It has layers and may contain fossils",
+        "It is made of rounded grains that rub off easily",
+        "It is made of interlocking crystals and has no layers or fossils",
+        "It fizzes when a few drops of vinegar are put on it"
+      ],
+      "answer": 2,
+      "solution": "Igneous rocks form from melted rock. As it cools, crystals grow and lock tightly together. Any living thing would be destroyed by the heat, so there are no fossils, and the rock does not build up in layers like sediment does.",
+      "misconceptions": {
+        "0": "Layers and fossils are clues for a sedimentary rock.",
+        "1": "Rounded grains that rub off are typical of a sedimentary rock such as sandstone.",
+        "3": "Fizzing with vinegar is a test for limestone, chalk and marble, which are not igneous rocks."
+      },
+      "skill": "identifying rock types",
+      "source": "original"
+    },
+    {
+      "id": "s10-q005",
+      "subtopicId": "s10-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Pumice is an igneous rock that can float on water. Why?",
+      "options": [
+        "It is full of tiny holes made by gas bubbles that were trapped when the lava cooled quickly",
+        "It is made from pieces of seashell, which are light",
+        "It is a metamorphic rock that has been squeezed very flat",
+        "It is so hot when it forms that it stays lighter than water forever"
+      ],
+      "answer": 0,
+      "solution": "When frothy, gassy lava cools very quickly, the gas bubbles get trapped and leave lots of tiny holes. All those air spaces make pumice light enough to float. People use it to scrub hard skin off their feet.",
+      "misconceptions": {
+        "1": "Rocks made from shells, such as limestone, are sedimentary and do not float.",
+        "2": "Pumice is not metamorphic. Squeezing makes rock denser, which would make it sink, not float.",
+        "3": "Pumice cools down completely. It floats because of the trapped air spaces, not because of heat."
+      },
+      "skill": "igneous rock examples",
+      "source": "original"
+    },
+    {
+      "id": "s10-q006",
+      "subtopicId": "s10-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Granite has large crystals that you can see easily. Basalt has crystals so tiny that you need a hand lens to see them. Which explanation is correct?",
+      "options": [
+        "Granite cooled slowly underground, but basalt cooled quickly at the surface",
+        "Granite cooled quickly at the surface, but basalt cooled slowly underground",
+        "Granite is older, so its crystals kept growing after it became solid",
+        "Basalt has been worn away by rain, which made its crystals smaller"
+      ],
+      "answer": 0,
+      "solution": "Crystals grow while melted rock cools. Magma deep underground is surrounded by hot rock, so it cools slowly over thousands of years and the crystals grow large (granite). Lava at the surface cools quickly in air or water, so the crystals stay tiny (basalt).",
+      "misconceptions": {
+        "1": "This is the wrong way round. Slow cooling gives crystals more time to grow, so slow cooling makes LARGE crystals.",
+        "2": "Crystals grow while the melted rock is cooling and hardening. Once the rock is solid, the crystals stop growing.",
+        "3": "Weathering breaks rock into pieces but does not shrink the crystals inside. Crystal size depends on how fast the rock cooled."
+      },
+      "skill": "crystal size and cooling speed",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s10-q007",
+      "subtopicId": "s10-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Mei Lin investigates whether cooling speed affects crystal size. Her teacher melts some salol (a substance that forms crystals as it cools) and puts one drop on a warm glass slide and one drop on a cold glass slide. Mei Lin then looks at the crystals with a hand lens. What is the INDEPENDENT variable?",
+      "options": [
+        "The size of the crystals",
+        "The size of each drop of salol",
+        "The hand lens she uses",
+        "The temperature of the slide"
+      ],
+      "answer": 3,
+      "solution": "The independent variable is the one thing she changes on purpose: how warm the slide is, which controls how fast the drop cools. The dependent variable is the crystal size. The drop size and type of slide stay the same.",
+      "misconceptions": {
+        "0": "Crystal size is what she observes. That is the dependent variable.",
+        "1": "The drops should be the same size. That is a control variable.",
+        "2": "She uses the same hand lens each time. It is a piece of equipment, not the variable she changes."
+      },
+      "skill": "fair test variables",
+      "source": "original"
+    },
+    {
+      "id": "s10-q008",
+      "subtopicId": "s10-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In Mei Lin's test, one drop of melted salol cools on a warm slide and one cools on an ice-cold slide. Using what you know about igneous rocks, what do you PREDICT she will see?",
+      "options": [
+        "Larger crystals on the cold slide, because that drop becomes solid faster",
+        "Larger crystals on the warm slide, because that drop cools more slowly",
+        "Crystals of the same size on both slides, because it is the same substance",
+        "No crystals at all, because crystals only form in rocks"
+      ],
+      "answer": 1,
+      "solution": "This is a model of granite and basalt. The warm slide is like magma cooling slowly underground: big crystals. The cold slide is like lava cooling quickly at the surface: small crystals.",
+      "misconceptions": {
+        "0": "Becoming solid faster gives the crystals LESS time to grow, so they stay small.",
+        "2": "The substance is the same, but the cooling speed is different, and cooling speed affects crystal size.",
+        "3": "Many substances form crystals, such as salt, sugar and salol. This is why salol is a good model for cooling magma."
+      },
+      "skill": "making predictions",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s10-q009",
+      "subtopicId": "s10-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What are sedimentary rocks made from?",
+      "options": [
+        "Lava that has cooled and become solid",
+        "Rock that has been changed by great heat and pressure",
+        "Layers of small pieces (sediment) that are pressed and stuck together",
+        "Plant roots that have grown into stone"
+      ],
+      "answer": 2,
+      "solution": "Sediment is small pieces of rock, sand, mud and shells. It settles in layers, usually under water. Over a very long time the layers are pressed down (compaction) and glued together by minerals (cementation) to make sedimentary rock.",
+      "misconceptions": {
+        "0": "Cooled lava makes igneous rock.",
+        "1": "That describes metamorphic rock.",
+        "3": "Roots can help break rocks apart, but they do not turn into stone to make a rock."
+      },
+      "skill": "how sedimentary rocks form",
+      "source": "original"
+    },
+    {
+      "id": "s10-q010",
+      "subtopicId": "s10-s2",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Select ALL the sedimentary rocks.",
+      "options": [
+        "Sandstone",
+        "Granite",
+        "Chalk",
+        "Marble",
+        "Shale",
+        "Basalt"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Sandstone (sand grains), chalk (tiny sea creature skeletons) and shale (mud) are all made from sediment, so they are sedimentary. Granite and basalt are igneous, and marble is metamorphic.",
+      "misconceptions": {
+        "1": "Granite is igneous: it formed from cooled magma.",
+        "3": "Marble is metamorphic: it formed when limestone was heated and squeezed.",
+        "5": "Basalt is igneous: it formed from cooled lava."
+      },
+      "skill": "identifying rock types",
+      "source": "original"
+    },
+    {
+      "id": "s10-q011",
+      "subtopicId": "s10-s2",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Put the steps in the formation of sandstone in order, from first to last.",
+      "options": [
+        "New layers on top press down and squeeze out the water",
+        "Weathering breaks a rock into tiny grains of sand",
+        "Minerals in the water glue the grains together",
+        "The sand settles in layers on the sea bed",
+        "A river carries the sand down to the sea"
+      ],
+      "answer": [
+        1,
+        4,
+        3,
+        0,
+        2
+      ],
+      "solution": "First the rock is broken into sand (weathering), then the sand is carried away (erosion and transport). It settles in layers (sedimentation). Layers on top press it down (compaction, as it is buried), and finally minerals cement the grains together (cementation).",
+      "misconceptions": {
+        "common": "Putting 'settles in layers' before the sand is carried to the sea. The sand must be moved to where it settles first."
+      },
+      "skill": "how sedimentary rocks form",
+      "source": "original"
+    },
+    {
+      "id": "s10-q012",
+      "subtopicId": "s10-s2",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Grains of sediment are glued together by minerals that come out of the water between them. What is this process called?",
+      "answer": {
+        "accept": [
+          "cementation",
+          "cementing",
+          "cemented"
+        ],
+        "keywords": []
+      },
+      "solution": "This is called cementation. The minerals act like cement between bricks, holding the grains together to make solid rock.",
+      "misconceptions": {
+        "common": "Answering 'compaction'. Compaction is the squeezing by the weight of layers above; cementation is the gluing by minerals."
+      },
+      "skill": "how sedimentary rocks form",
+      "source": "original"
+    },
+    {
+      "id": "s10-q013",
+      "subtopicId": "s10-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Siti wants to know how much water a piece of sandstone can soak up. The dry sandstone has a mass of 120 g. After soaking in water for one hour, its mass is 131 g. How many grams of water did it soak up? Give your answer in grams.",
+      "answer": {
+        "value": 11,
+        "tolerance": 0,
+        "accept": [
+          "11 g",
+          "11g",
+          "11 grams"
+        ]
+      },
+      "solution": "Water soaked up = mass after soaking - dry mass = 131 - 120 = 11 g. Sandstone has small spaces between its grains, so water can soak in.",
+      "misconceptions": {
+        "common": "Answering 131 g, which is the total mass of rock plus water. Subtract the dry mass to find just the water."
+      },
+      "skill": "measuring and recording results",
+      "source": "original"
+    },
+    {
+      "id": "s10-q014",
+      "subtopicId": "s10-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "You put gravel, sand, fine clay and water in a jar, shake it well and leave it overnight. This is a model of how sediment settles. What do you expect to see in the morning?",
+      "options": [
+        "Fine clay at the bottom, sand above it, and gravel on top",
+        "The layers form in a different, random order every time",
+        "Everything stays evenly mixed in the water and never settles",
+        "Gravel at the bottom, sand above it, and fine clay on top"
+      ],
+      "answer": 3,
+      "solution": "When the water stops moving, the largest and heaviest pieces (gravel) sink first, then the sand, and the tiny clay particles settle last on top. Rivers and seas sort sediment into layers in the same way, which is why sedimentary rocks have layers.",
+      "misconceptions": {
+        "0": "This is upside down. The biggest, heaviest pieces sink fastest, so they reach the bottom first.",
+        "1": "Settling follows a pattern: bigger, heavier pieces settle first. You would get the same order each time.",
+        "2": "When the water is still, the pieces sink. Some very fine clay may stay cloudy for a while, but it settles in the end."
+      },
+      "skill": "using models",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s10-q015",
+      "subtopicId": "s10-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A cliff shows three layers of rock that have not been turned over. Top: sandstone. Middle: shale with fossil fish. Bottom: limestone with fossil shells. Which conclusion is correct?",
+      "options": [
+        "The sandstone is the oldest layer, because it is on top",
+        "The limestone layer formed before the shale layer",
+        "The fish lived after the sandstone formed",
+        "All three layers formed at the same time"
+      ],
+      "answer": 1,
+      "solution": "In layers of sedimentary rock that have not been disturbed, each new layer settles on top of the older ones. So the bottom layer is the oldest. The limestone (bottom) formed first, then the shale, then the sandstone.",
+      "misconceptions": {
+        "0": "This is the wrong way round. New sediment settles on top of older layers, so the top layer is the YOUNGEST.",
+        "2": "The fish are in the shale, which is below the sandstone, so the fish lived BEFORE the sandstone formed.",
+        "3": "Each layer settled on the one below it, one after another, often over thousands of years."
+      },
+      "skill": "drawing conclusions from evidence",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s10-q016",
+      "subtopicId": "s10-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How do metamorphic rocks form?",
+      "options": [
+        "Melted rock cools and becomes solid",
+        "Pieces of sediment are buried and cemented together",
+        "Rain and wind break a rock into smaller pieces",
+        "An existing rock is changed by great heat and pressure, without melting"
+      ],
+      "answer": 3,
+      "solution": "'Metamorphic' means 'changed form'. Deep underground, great heat and pressure change the minerals and crystals of a rock that is already there, without melting it. The new rock is a metamorphic rock.",
+      "misconceptions": {
+        "0": "That is how igneous rocks form.",
+        "1": "That is how sedimentary rocks form.",
+        "2": "That is weathering and erosion. It breaks rocks down; it does not make metamorphic rock."
+      },
+      "skill": "how metamorphic rocks form",
+      "source": "original"
+    },
+    {
+      "id": "s10-q017",
+      "subtopicId": "s10-s3",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each rock to the metamorphic rock it can change into.",
+      "options": {
+        "left": [
+          "Limestone",
+          "Shale"
+        ],
+        "right": [
+          "Granite",
+          "Slate",
+          "Basalt",
+          "Marble"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "solution": "Heat and pressure change limestone into marble, and shale (a mudrock) into slate. Granite and basalt are igneous rocks, not metamorphic rocks.",
+      "misconceptions": {
+        "common": "Mixing up marble and slate. A tip: shale and slate both begin with 's' and both are fine-grained rocks that split into thin layers; marble is the sparkly, crystal rock used for floors and statues."
+      },
+      "skill": "metamorphic rock examples",
+      "source": "original"
+    },
+    {
+      "id": "s10-q018",
+      "subtopicId": "s10-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Marble forms when granite is heated and squeezed deep underground.",
+      "answer": false,
+      "solution": "False. Marble forms from LIMESTONE (or chalk) that is heated and squeezed. That is why marble, like limestone, fizzes with acid such as vinegar.",
+      "misconceptions": {
+        "common": "Thinking marble comes from granite because both are hard, shiny rocks used in buildings. Marble's 'parent' rock is limestone."
+      },
+      "skill": "metamorphic rock examples",
+      "source": "original"
+    },
+    {
+      "id": "s10-q019",
+      "subtopicId": "s10-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Name the TWO things deep underground that change an existing rock into a metamorphic rock. Write them joined by 'and'.",
+      "answer": {
+        "accept": [
+          "heat and pressure",
+          "pressure and heat",
+          "high temperature and pressure",
+          "pressure and high temperature",
+          "heat and squeezing",
+          "heating and squeezing",
+          "high heat and high pressure",
+          "great heat and pressure"
+        ],
+        "keywords": []
+      },
+      "solution": "Heat and pressure. Deep underground it is very hot, and the weight of rock above squeezes everything. Together they change the rock without melting it.",
+      "misconceptions": {
+        "common": "Answering 'heat and melting'. If the rock melts, it becomes magma and later an igneous rock, not a metamorphic rock."
+      },
+      "skill": "how metamorphic rocks form",
+      "source": "original"
+    },
+    {
+      "id": "s10-q020",
+      "subtopicId": "s10-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Slate is often used for roof tiles. Which property makes it a good choice?",
+      "options": [
+        "It splits into thin, flat sheets that do not let water through",
+        "It is soft and soaks up rainwater",
+        "It is full of tiny holes, so air can flow through the roof",
+        "It floats, so the roof is very light"
+      ],
+      "answer": 0,
+      "solution": "When shale is squeezed into slate, its tiny minerals line up in flat sheets. So slate splits into thin, flat pieces. It is hard and does not let water soak through, which is exactly what a roof tile needs.",
+      "misconceptions": {
+        "1": "This is the wrong way round. A roof tile must keep water OUT. Slate is hard and waterproof.",
+        "2": "Holes would let rain in. Rock full of holes, like pumice, would be a poor roof.",
+        "3": "Slate does not float. It is quite heavy, but its thin sheets keep the roof from being too heavy."
+      },
+      "skill": "metamorphic rock examples",
+      "source": "original"
+    },
+    {
+      "id": "s10-q021",
+      "subtopicId": "s10-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Hot magma once pushed up into layers of shale. The shale right next to the magma did NOT melt, but it was baked and became much harder. What kind of rock is the baked shale now?",
+      "options": [
+        "An igneous rock, because it was close to magma",
+        "Still a sedimentary rock, because shale is always sedimentary",
+        "A metamorphic rock, because heat changed the shale without melting it",
+        "A fossil, because it has been baked hard"
+      ],
+      "answer": 2,
+      "solution": "The magma's heat changed the shale's minerals without melting it. Changing an existing rock by heat (and/or pressure) without melting is metamorphism, so the baked shale is now a metamorphic rock.",
+      "misconceptions": {
+        "0": "Being near magma is not enough. The shale did not melt, so it did not become igneous rock.",
+        "1": "It started as sedimentary shale, but the heat changed it into a new, harder rock, so it is no longer the same rock.",
+        "3": "A fossil is the remains of a living thing, not a type of rock made by heating."
+      },
+      "skill": "how metamorphic rocks form",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s10-q022",
+      "subtopicId": "s10-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Siti tests how much water four rocks soak up. Each rock has a mass of 100 g when dry. Mass after soaking: chalk 112 g, sandstone 108 g, marble 100 g, granite 101 g. Which conclusion do her results support?",
+      "options": [
+        "Sandstone soaked up the most water",
+        "The two sedimentary rocks soaked up more water than the igneous and metamorphic rocks",
+        "Marble soaked up 100 g of water",
+        "Granite soaked up more water than chalk"
+      ],
+      "answer": 1,
+      "solution": "Work out the water soaked up: chalk 112 - 100 = 12 g; sandstone 108 - 100 = 8 g; marble 0 g; granite 1 g. Chalk and sandstone are sedimentary and have spaces between their grains. Marble (metamorphic) and granite (igneous) have tightly locked crystals, so almost no water gets in.",
+      "misconceptions": {
+        "0": "Sandstone gained 8 g, but chalk gained 112 - 100 = 12 g, so chalk soaked up the most.",
+        "2": "100 g is the mass of the marble after soaking. It started at 100 g, so it soaked up 100 - 100 = 0 g of water.",
+        "3": "Granite gained only 101 - 100 = 1 g, but chalk gained 12 g, so chalk soaked up far more."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "original"
+    },
+    {
+      "id": "s10-q023",
+      "subtopicId": "s10-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is a fossil?",
+      "options": [
+        "A type of crystal that grows when lava cools",
+        "Any rock that is very old",
+        "The remains or traces of a living thing from long ago, preserved in rock",
+        "A rock that has been changed by heat and pressure"
+      ],
+      "answer": 2,
+      "solution": "A fossil is the remains (such as bones or shells) or traces (such as footprints) of a plant or animal that lived a very long time ago, preserved in rock.",
+      "misconceptions": {
+        "0": "Crystals in lava form igneous rock. Fossils come from living things, not from cooling lava.",
+        "1": "Being old does not make a rock a fossil. A fossil must come from something that was once alive.",
+        "3": "That is a metamorphic rock. Heat and pressure usually destroy fossils."
+      },
+      "skill": "what fossils are",
+      "source": "original"
+    },
+    {
+      "id": "s10-q024",
+      "subtopicId": "s10-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Soft body parts, such as skin and muscle, become fossils more easily than hard parts, such as bones, teeth and shells.",
+      "answer": false,
+      "solution": "False. Soft parts usually rot away or are eaten before they can be buried. Hard parts like bones, teeth and shells last long enough to be buried and turned to stone, so most fossils are of hard parts.",
+      "misconceptions": {
+        "common": "Thinking all of an animal is fossilised. Usually only the hard parts survive long enough to become fossils."
+      },
+      "skill": "how fossils form",
+      "source": "original"
+    },
+    {
+      "id": "s10-q025",
+      "subtopicId": "s10-s4",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In which type of rock are fossils most often found?",
+      "answer": {
+        "accept": [
+          "sedimentary",
+          "sedimentary rock",
+          "sedimentary rocks"
+        ],
+        "keywords": []
+      },
+      "solution": "Sedimentary rock. Dead plants and animals get buried by layers of sediment, which slowly turn into rock around them without the great heat that would destroy them.",
+      "misconceptions": {
+        "common": "Answering 'igneous'. Igneous rocks form from melted rock, which is so hot it would destroy any remains."
+      },
+      "skill": "how fossils form",
+      "source": "original"
+    },
+    {
+      "id": "s10-q026",
+      "subtopicId": "s10-s4",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Put the steps in the formation of a fish fossil in order, from first to last.",
+      "options": [
+        "Layers of sediment bury the bones",
+        "Millions of years later the rock is lifted up and worn away, uncovering the fossil",
+        "A fish dies and sinks to the sea bed",
+        "Minerals from the water slowly replace the bones, turning them to stone",
+        "Its soft parts rot away or are eaten on the sea bed, leaving only the bones"
+      ],
+      "answer": [
+        2,
+        4,
+        0,
+        3,
+        1
+      ],
+      "solution": "The fish dies and sinks. Soft parts rot, leaving hard bones. Sediment buries the bones and later becomes rock. Minerals replace the bones bit by bit, making a stone copy. Finally, the rock is lifted and worn away (eroded) so the fossil can be found.",
+      "misconceptions": {
+        "common": "Putting 'minerals replace the bones' before the bones are buried. The bones must be buried first, so they are protected while the minerals slowly replace them."
+      },
+      "skill": "how fossils form",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s10-q027",
+      "subtopicId": "s10-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Why are fossils almost never found in igneous rock?",
+      "options": [
+        "Igneous rocks are too hard to break open to look for fossils",
+        "Animals never lived anywhere near volcanoes",
+        "Igneous rocks are always younger than any fossils",
+        "Igneous rock forms from extremely hot melted rock, which would destroy any remains"
+      ],
+      "answer": 3,
+      "solution": "Magma and lava are over 700 °C, hot enough to burn up bones and shells completely. Fossils need to be gently buried by sediment, which is why they are found in sedimentary rocks.",
+      "misconceptions": {
+        "0": "Scientists can break open hard rocks. The real reason is that the remains are destroyed before the rock forms.",
+        "1": "Animals have lived in many places, including near volcanoes. The problem is the heat of the melted rock, not where animals lived.",
+        "2": "Igneous rocks have formed all through Earth's history, some very old. Age is not the reason."
+      },
+      "skill": "how fossils form",
+      "source": "original"
+    },
+    {
+      "id": "s10-q028",
+      "subtopicId": "s10-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Fossils of sea shells are found inside limestone rock near the top of a high mountain. What is the best explanation?",
+      "options": [
+        "The limestone formed on an ancient sea bed and was later pushed up by movements of the Earth",
+        "Sea birds dropped the shells on the mountain",
+        "The shells grew inside the rock on the mountain",
+        "Heavy rain washed the shells up the mountain"
+      ],
+      "answer": 0,
+      "solution": "The shells were buried in sediment on a sea bed, and the sediment became limestone with the fossils inside. Over millions of years, movements of the Earth's crust slowly pushed the rock up to form mountains.",
+      "misconceptions": {
+        "1": "Shells dropped by birds would lie on the surface. These fossils are INSIDE the rock, so they were buried as the rock formed.",
+        "2": "Shellfish live in water, not inside solid rock. The rock formed around them after they died.",
+        "3": "Water flows downhill, so rain cannot carry shells up a mountain."
+      },
+      "skill": "how fossils form",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s10-q029",
+      "subtopicId": "s10-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In class you press a shell into soft clay, take the shell out and pour plaster of Paris into the hollow it left. When the plaster sets, you have a shell-shaped 'fossil'. Which part of real fossil formation does pouring in the plaster model?",
+      "options": [
+        "The animal being eaten by a predator",
+        "Minerals filling the space left by the remains to make a stone copy",
+        "Lava cooling and forming crystals",
+        "Rock being heated and squeezed deep underground"
+      ],
+      "answer": 1,
+      "solution": "The clay is like soft sediment. The hollow left by the shell is like the space left when real remains dissolve away, and the plaster is like minerals filling that space and hardening into a stone copy (a cast fossil). A model helps us picture something that takes millions of years.",
+      "misconceptions": {
+        "0": "Nothing in the model is eaten. The plaster stands for minerals filling a space.",
+        "2": "Cooling lava makes igneous rock, where fossils are not found.",
+        "3": "That is metamorphism, which usually destroys fossils."
+      },
+      "skill": "using models",
+      "source": "original"
+    },
+    {
+      "id": "s10-q030",
+      "subtopicId": "s10-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In the rock cycle, what is EROSION?",
+      "options": [
+        "Pieces of rock being carried away by water, wind or ice",
+        "Rock melting deep underground",
+        "Layers of sediment being pressed together",
+        "Lava cooling into solid rock"
+      ],
+      "answer": 0,
+      "solution": "Erosion is when broken pieces of rock are carried away by moving water, wind or ice. Rivers carry the pieces to the sea, where they settle as sediment.",
+      "misconceptions": {
+        "1": "That is melting, which turns rock into magma.",
+        "2": "That is compaction during burial, which happens after sediment has settled.",
+        "3": "That is solidification, which makes igneous rock."
+      },
+      "skill": "rock cycle processes",
+      "source": "original"
+    },
+    {
+      "id": "s10-q031",
+      "subtopicId": "s10-s5",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name for the process in which liquid magma or lava cools and turns into solid rock?",
+      "answer": {
+        "accept": [
+          "solidification",
+          "solidifying",
+          "solidify",
+          "solidification of magma",
+          "freezing",
+          "crystallisation",
+          "crystallization"
+        ],
+        "keywords": []
+      },
+      "solution": "This is solidification: a liquid becoming a solid. It is the same change as water freezing into ice, but it happens at a much higher temperature, and it makes igneous rock.",
+      "misconceptions": {
+        "common": "Answering 'melting'. Melting is the opposite change: solid rock turning into liquid magma."
+      },
+      "skill": "rock cycle processes",
+      "source": "original"
+    },
+    {
+      "id": "s10-q032",
+      "subtopicId": "s10-s5",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each process to the type of rock it makes.",
+      "options": {
+        "left": [
+          "Magma cools and hardens",
+          "Layers of sediment are buried and cemented together",
+          "Rock is heated and squeezed deep underground without melting"
+        ],
+        "right": [
+          "Metamorphic rock",
+          "Magma",
+          "Igneous rock",
+          "Sedimentary rock"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "solution": "Solidification of magma makes igneous rock. Sedimentation and burial make sedimentary rock. Metamorphism (heat and pressure without melting) makes metamorphic rock. Magma is melted rock, not a type of solid rock.",
+      "misconceptions": {
+        "common": "Matching 'heated and squeezed' to igneous rock because both involve heat. Igneous rock needs the rock to melt fully first; metamorphic rock changes without melting."
+      },
+      "skill": "rock cycle processes",
+      "source": "original"
+    },
+    {
+      "id": "s10-q033",
+      "subtopicId": "s10-s5",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "In the rock cycle, a piece of limestone ends up as part of a new igneous rock. Put the steps in order, from first to last.",
+      "options": [
+        "The marble is pushed even deeper, where it melts into magma",
+        "The limestone is buried deeper and deeper under new layers",
+        "The magma rises and cools to form igneous rock",
+        "Heat and pressure change the limestone into marble"
+      ],
+      "answer": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "solution": "Burial comes first. The heat and pressure deep down cause metamorphism (limestone to marble). Deeper still, it melts into magma. Finally the magma cools and solidifies into igneous rock.",
+      "misconceptions": {
+        "common": "Putting melting before metamorphism. Metamorphism happens at high heat WITHOUT melting; melting needs even higher temperatures, deeper down."
+      },
+      "skill": "rock cycle processes",
+      "source": "original"
+    },
+    {
+      "id": "s10-q034",
+      "subtopicId": "s10-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What must happen to a rock for it to become an IGNEOUS rock?",
+      "options": [
+        "It must be broken up, carried away and cemented together",
+        "It must be heated and squeezed without melting",
+        "It must melt and then cool and solidify",
+        "It must be buried under the sea for a long time"
+      ],
+      "answer": 2,
+      "solution": "Every igneous rock comes from melted rock. Any rock (igneous, sedimentary or metamorphic) that melts becomes magma, and when the magma cools and solidifies it becomes igneous rock.",
+      "misconceptions": {
+        "0": "That makes sedimentary rock.",
+        "1": "That makes metamorphic rock. For igneous rock, the rock must melt completely first.",
+        "3": "Burial under the sea can lead to sedimentary rock. Igneous rock always comes from melted rock."
+      },
+      "skill": "rock cycle processes",
+      "source": "original"
+    },
+    {
+      "id": "s10-q035",
+      "subtopicId": "s10-s5",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: In the rock cycle, a metamorphic rock can be worn away, and its pieces can end up in a new sedimentary rock.",
+      "answer": true,
+      "solution": "True. Any rock at the surface can be weathered and eroded. Its pieces are carried away, settle as sediment, and can be buried and cemented into new sedimentary rock.",
+      "misconceptions": {
+        "common": "Thinking each rock type can only change in one direction. In the rock cycle, rocks can follow many different paths."
+      },
+      "skill": "the rock cycle",
+      "source": "original"
+    },
+    {
+      "id": "s10-q036",
+      "subtopicId": "s10-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which sentence about the rock cycle is correct?",
+      "options": [
+        "Igneous rocks can never become sedimentary rocks",
+        "The rock cycle usually takes only a few years",
+        "Sedimentary rocks form directly from magma",
+        "Over a very long time, any type of rock can be changed into any other type"
+      ],
+      "answer": 3,
+      "solution": "The rock cycle has no fixed start or finish. Weathering and erosion, burial, metamorphism, melting and solidification can change any rock type into any other, but usually over millions of years.",
+      "misconceptions": {
+        "0": "Igneous rocks at the surface can be weathered and eroded, and their pieces can form sedimentary rock.",
+        "1": "Most rock cycle changes take thousands to millions of years.",
+        "2": "Magma forms igneous rock. Sedimentary rock forms from pieces of other rocks (sediment)."
+      },
+      "skill": "the rock cycle",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s10-q037",
+      "subtopicId": "s10-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A grain of sand in a piece of sandstone was once part of a granite mountain. Starting from magma, which list puts the processes it went through in the correct order?",
+      "options": [
+        "erosion, solidification, sedimentation, burial",
+        "solidification, erosion, sedimentation, burial",
+        "solidification, metamorphism, melting, sedimentation",
+        "sedimentation, solidification, erosion, burial"
+      ],
+      "answer": 1,
+      "solution": "1. Magma solidified underground to make granite. 2. The granite was weathered and eroded, and the sand grains were carried away. 3. The grains settled in layers (sedimentation). 4. They were buried, compacted and cemented into sandstone.",
+      "misconceptions": {
+        "0": "The granite had to form (solidify) before it could be worn away. Erosion cannot happen to rock that does not exist yet.",
+        "2": "This path ends in melting, which would make magma and then igneous rock, not sandstone.",
+        "3": "Sedimentation cannot come first: the magma had to solidify into granite, and the granite had to be eroded, before the sand could settle."
+      },
+      "skill": "the rock cycle",
+      "source": "inspired-by: Singapore P6"
+    }
+  ]
+}

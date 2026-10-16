@@ -1,0 +1,890 @@
+{
+  "subject": "science",
+  "topicId": "s05-properties-of-matter",
+  "title": "Properties of Matter",
+  "order": 5,
+  "bookChapter": "Chapter 5: Properties of Matter",
+  "frameworkRefs": [
+    "6Cp.01",
+    "6Cp.02",
+    "6Cp.03",
+    "6TWSm.02",
+    "6TWSp.03",
+    "6TWSp.04",
+    "6TWSa.02",
+    "6TWSa.03"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will use the particle model to describe solids, liquids and gases. You will learn that every substance melts and boils at its own temperature. You will find out that gases have mass and take up space, and why some materials conduct heat and electricity while others do not.",
+    "whyItMatters": "Knowing the properties of a substance helps you choose the right material for a job, like copper for wires and plastic for pan handles. Melting and boiling points help scientists identify substances. These ideas are the base for the changes of state and chemical reactions in the next topic.",
+    "realWorld": [
+      "A wooden or plastic handle on a wok, so you can stir nasi goreng without burning your hand",
+      "Copper wires inside a phone charger cable, wrapped in a plastic coating for safety",
+      "Fizz escaping when you open a can of soft drink at a hawker stall",
+      "Ice in teh ais melting quickly on a hot afternoon in KL",
+      "An air pump at a petrol station squeezing air into a car tyre"
+    ],
+    "subtopics": [
+      {
+        "id": "s05-s1",
+        "title": "Solids, liquids and gases",
+        "summary": "Use the particle model to describe how particles are arranged and move in solids, liquids and gases."
+      },
+      {
+        "id": "s05-s2",
+        "title": "Melting and boiling points",
+        "summary": "Every substance melts and boils at its own temperature. Use these values to work out its state at a given temperature."
+      },
+      {
+        "id": "s05-s3",
+        "title": "Gases have mass and take up space",
+        "summary": "Gases are matter: they fill space and have mass that a scale can measure."
+      },
+      {
+        "id": "s05-s4",
+        "title": "Conductors and insulators",
+        "summary": "Some materials let heat or electricity pass through easily (conductors) and others do not (insulators)."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s05-q001",
+      "subtopicId": "s05-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In which state of matter are the particles packed closely together in a regular pattern, only able to vibrate on the spot?",
+      "options": [
+        "Liquid",
+        "Gas",
+        "Solid",
+        "All three states"
+      ],
+      "answer": 2,
+      "solution": "In a solid, the particles are packed tightly in a regular arrangement. They cannot move from place to place; they only vibrate (jiggle) where they are. That is why a solid keeps its own shape.",
+      "misconceptions": {
+        "0": "In a liquid the particles are close together but can slide past each other, which is why liquids can be poured. Particles fixed in a regular pattern describe a solid.",
+        "1": "In a gas the particles are far apart and move quickly in all directions. Closely packed particles in fixed places describe a solid.",
+        "3": "The particles are arranged differently in each state. Only in a solid are they held in a regular pattern, vibrating on the spot."
+      },
+      "skill": "particle model of solids, liquids and gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q002",
+      "subtopicId": "s05-s1",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each state of matter to the way its particles are arranged and move.",
+      "options": {
+        "left": [
+          "Solid",
+          "Liquid",
+          "Gas"
+        ],
+        "right": [
+          "Far apart, moving quickly in all directions",
+          "Close together in a regular pattern, vibrating on the spot",
+          "Far apart and not moving at all",
+          "Close together but able to slide past each other"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "solution": "Solid: particles close together in a regular pattern, vibrating on the spot, so a solid keeps its shape. Liquid: particles still close together but able to slide past each other, so a liquid flows and takes the shape of its container. Gas: particles far apart and moving quickly in all directions, so a gas spreads out to fill any space. Particles are never completely still.",
+      "misconceptions": {
+        "common": "Thinking gas particles sit still because a gas looks 'empty'. Particles in every state are always moving; gas particles move the fastest and most freely."
+      },
+      "skill": "particle model of solids, liquids and gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q003",
+      "subtopicId": "s05-s1",
+      "type": "order",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Put these three forms of water in order, from the one whose particles are LEAST free to move to the one whose particles are MOST free to move.",
+      "options": [
+        "Steam (water vapour) at 110 °C",
+        "Ice at -5 °C",
+        "Liquid water at 50 °C"
+      ],
+      "answer": [
+        1,
+        2,
+        0
+      ],
+      "solution": "Ice is a solid: its particles only vibrate in fixed places. Liquid water is a liquid: its particles can slide past each other. Steam is a gas: its particles are far apart and move freely in all directions. So the order is ice, liquid water, steam.",
+      "misconceptions": {
+        "common": "Putting liquid water last because water 'flows'. A liquid flows, but gas particles are even freer: they spread out in all directions to fill their container."
+      },
+      "skill": "particle model of solids, liquids and gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q004",
+      "subtopicId": "s05-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the statements that are true for a gas.",
+      "options": [
+        "It spreads out to fill any container it is in",
+        "It has a fixed volume that cannot change",
+        "It can be squashed (compressed) into a smaller space",
+        "Its particles stay in fixed positions",
+        "It takes the shape of its container"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Gas particles are far apart and move quickly in all directions. So a gas spreads out to fill its container, takes the container's shape, and can be squashed because there are big gaps between the particles. It has no fixed volume and its particles are not in fixed positions.",
+      "misconceptions": {
+        "1": "A gas has no fixed volume. It spreads out to fill its container and can be squashed into a smaller space. A liquid has a fixed volume.",
+        "3": "Fixed positions describe a solid. Gas particles move quickly in all directions."
+      },
+      "skill": "particle model of solids, liquids and gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q005",
+      "subtopicId": "s05-s1",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Air in a syringe with its tip sealed can be squashed into a smaller space, but water in the same sealed syringe can hardly be squashed at all. Complete the reason with one word: the particles in air have large ______ between them.",
+      "answer": {
+        "accept": [
+          "gaps",
+          "gap",
+          "spaces",
+          "space",
+          "empty spaces",
+          "empty space",
+          "distances"
+        ],
+        "keywords": []
+      },
+      "solution": "In air (a gas) the particles are far apart, with large gaps between them. When you push the plunger, the particles are pushed closer together. In water (a liquid) the particles are already touching, so there is almost no room to squash them.",
+      "misconceptions": {
+        "common": "Saying the air is 'lighter' or 'weaker'. Air can be squashed because its particles are far apart; water particles are already close together, so they cannot be pushed much closer."
+      },
+      "skill": "particle model of solids, liquids and gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q006",
+      "subtopicId": "s05-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Your class acts out a model of particles in the school hall. Each pupil is one particle. Which way of moving best models a GAS?",
+      "options": [
+        "Pupils stand shoulder to shoulder in neat rows, swaying on the spot",
+        "Pupils stand close together and slowly shuffle past one another",
+        "Pupils spread out across the hall but stand completely still",
+        "Pupils spread out across the whole hall, moving quickly in all directions"
+      ],
+      "answer": 3,
+      "solution": "A model helps us picture particles we cannot see. In a gas, particles are far apart and move quickly in all directions, so pupils spread across the hall and moving fast is the best model. Rows swaying on the spot model a solid; shuffling close together models a liquid.",
+      "misconceptions": {
+        "0": "This models a solid: particles packed closely in a regular pattern, vibrating in place.",
+        "1": "This models a liquid: particles close together but able to slide past each other.",
+        "2": "Gas particles are far apart, but they are never still. They move quickly in all directions."
+      },
+      "skill": "using models to explain states of matter",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s05-q007",
+      "subtopicId": "s05-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Someone opens a bottle of perfume in one corner of a classroom. A few minutes later, pupils on the other side of the room can smell it, even though nobody moved and there is no fan. Which is the best explanation?",
+      "options": [
+        "The perfume particles grow bigger until they fill the room",
+        "Some perfume evaporates into a gas, and the gas particles move in all directions and spread through the air in the room",
+        "The liquid perfume flows across the floor to the other side of the room",
+        "A smell is not made of particles, so it reaches everyone instantly"
+      ],
+      "answer": 1,
+      "solution": "Some of the liquid perfume evaporates and becomes a gas. Gas particles move quickly in all directions and bump into air particles, so they slowly spread out through the whole room. When some reach your nose, you smell the perfume.",
+      "misconceptions": {
+        "0": "Particles do not grow. The perfume spreads because its gas particles keep moving and mix with the air particles, not because each particle gets larger.",
+        "2": "The liquid stays in the bottle. What reaches your nose is perfume gas mixing with the air.",
+        "3": "A smell is made of real particles in the air, which your nose detects. They take a few minutes to spread across the room."
+      },
+      "skill": "particle model of solids, liquids and gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q008",
+      "subtopicId": "s05-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "When a block of ice is heated and melts into water, what happens to its particles?",
+      "options": [
+        "They gain energy, vibrate more and break free of their fixed places, so they can slide past each other",
+        "The particles themselves melt and become soft",
+        "They turn into new, different particles of liquid",
+        "They lose energy and slow down until they can flow"
+      ],
+      "answer": 0,
+      "solution": "Heating gives the ice particles more energy. They vibrate faster and faster until they break free of their fixed places. Now they can slide past each other: the solid has become a liquid. The particles are still water particles, just moving more freely.",
+      "misconceptions": {
+        "1": "Particles do not melt. Melting is about how the particles are arranged and how they move, not about the particles changing.",
+        "2": "Melting is a physical change. The particles in water are the same as the particles in ice; only their arrangement and movement change.",
+        "3": "This is the wrong way round. Heating gives particles more energy, so they move more. Losing energy is what happens when water freezes."
+      },
+      "skill": "particle model of solids, liquids and gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q009",
+      "subtopicId": "s05-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "At what temperature does pure water boil at sea level?",
+      "options": [
+        "0 °C",
+        "100 °C",
+        "212 °C",
+        "It has no fixed temperature; it boils at a lower temperature if you heat it more strongly"
+      ],
+      "answer": 1,
+      "solution": "Pure water boils at 100 °C at sea level. This boiling point is a property of water: it is the same whether you heat it gently or strongly.",
+      "misconceptions": {
+        "0": "0 °C is the melting (and freezing) point of water, where ice turns into liquid water. Water boils at 100 °C.",
+        "2": "212 is the boiling point of water on the Fahrenheit scale (212 °F). On the Celsius scale it is 100 °C.",
+        "3": "Stronger heating makes water reach its boiling point sooner, but the boiling point itself stays at 100 °C for pure water."
+      },
+      "skill": "using melting and boiling points",
+      "source": "original"
+    },
+    {
+      "id": "s05-q010",
+      "subtopicId": "s05-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name for the temperature at which a solid substance turns into a liquid?",
+      "answer": {
+        "accept": [
+          "melting point",
+          "the melting point",
+          "melting temperature",
+          "melting points"
+        ],
+        "keywords": []
+      },
+      "solution": "The melting point is the temperature at which a solid turns into a liquid. For ice it is 0 °C. Each substance has its own melting point.",
+      "misconceptions": {
+        "common": "Saying 'boiling point'. The boiling point is when a liquid turns into a gas; the melting point is when a solid turns into a liquid."
+      },
+      "skill": "using melting and boiling points",
+      "source": "original"
+    },
+    {
+      "id": "s05-q011",
+      "subtopicId": "s05-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: All solids melt at 0 °C, just like ice.",
+      "answer": false,
+      "solution": "False. Each substance has its own melting point. Ice melts at 0 °C, chocolate at about 30-35 °C and iron at about 1500 °C. Because melting points are different, they can help scientists identify a substance.",
+      "misconceptions": {
+        "common": "We see ice melting so often that it is easy to think 0 °C is the melting temperature for everything. It is only the melting point of water."
+      },
+      "skill": "using melting and boiling points",
+      "source": "original"
+    },
+    {
+      "id": "s05-q012",
+      "subtopicId": "s05-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A table shows the melting points and boiling points of four substances. Substance P: melts at -95 °C, boils at 56 °C. Substance Q: melts at 44 °C, boils at 280 °C. Substance R: melts at -190 °C, boils at -150 °C. Substance S: melts at 5 °C, boils at 250 °C. Which substance is a GAS at room temperature (25 °C)?",
+      "options": [
+        "Substance P",
+        "Substance Q",
+        "Substance R",
+        "Substance S"
+      ],
+      "answer": 2,
+      "solution": "A substance is a gas when the temperature is above its boiling point. Only R boils below 25 °C (at -150 °C). So at 25 °C, R is a gas. P and S are liquids, and Q is a solid.",
+      "misconceptions": {
+        "0": "25 °C is above P's melting point (-95 °C) but below its boiling point (56 °C), so P is a liquid. A substance is a gas only when it is above its boiling point.",
+        "1": "25 °C is below Q's melting point (44 °C), so Q has not melted yet. It is a solid.",
+        "3": "25 °C is between S's melting point (5 °C) and its boiling point (250 °C), so S is a liquid."
+      },
+      "skill": "using melting and boiling points",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s05-q013",
+      "subtopicId": "s05-s2",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Mercury is a metal that melts at -39 °C and boils at 357 °C. In what state is mercury at room temperature (25 °C)?",
+      "answer": {
+        "accept": [
+          "liquid",
+          "a liquid",
+          "liquid state",
+          "the liquid state"
+        ],
+        "keywords": []
+      },
+      "solution": "25 °C is above mercury's melting point (-39 °C), so it has melted. It is below its boiling point (357 °C), so it has not boiled. That makes mercury a liquid at room temperature, which is unusual for a metal.",
+      "misconceptions": {
+        "common": "Thinking all metals are solid at room temperature. Always compare the temperature with the substance's own melting and boiling points."
+      },
+      "skill": "using melting and boiling points",
+      "source": "original"
+    },
+    {
+      "id": "s05-q014",
+      "subtopicId": "s05-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: For a pure substance, the melting point and the freezing point are the same temperature.",
+      "answer": true,
+      "solution": "True. Water melts at 0 °C and freezes at 0 °C. Melting and freezing are the same change going in opposite directions, so for a pure substance they happen at the same temperature.",
+      "misconceptions": {
+        "common": "Thinking water has to be far colder than 0 °C to freeze. Pure water starts to freeze at 0 °C, the same temperature at which ice melts."
+      },
+      "skill": "using melting and boiling points",
+      "source": "original"
+    },
+    {
+      "id": "s05-q015",
+      "subtopicId": "s05-s2",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A table shows the melting points and boiling points of four substances. Substance P: melts at -95 °C, boils at 56 °C. Substance Q: melts at 44 °C, boils at 280 °C. Substance R: melts at -190 °C, boils at -150 °C. Substance S: melts at 5 °C, boils at 250 °C. Select ALL the substances that are LIQUIDS at 50 °C.",
+      "options": [
+        "Substance P",
+        "Substance Q",
+        "Substance R",
+        "Substance S"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "A substance is a liquid when the temperature is above its melting point and below its boiling point. P: -95 < 50 < 56, liquid (only just below boiling). Q: 44 < 50 < 280, liquid (it has just melted). R: 50 is above -150, so it is a gas. S: 5 < 50 < 250, liquid. So P, Q and S are liquids.",
+      "misconceptions": {
+        "2": "50 °C is far above R's boiling point (-150 °C), so R is a gas.",
+        "common": "Missing Q (at 50 °C it has passed its melting point of 44 °C) or missing P (50 °C is still below its boiling point of 56 °C). Check both numbers for every substance."
+      },
+      "skill": "using melting and boiling points",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s05-q016",
+      "subtopicId": "s05-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Oxygen melts at -218 °C and boils at -183 °C. Scientists can cool oxygen down to -200 °C. In what state is oxygen at -200 °C?",
+      "options": [
+        "Solid",
+        "Liquid",
+        "Gas",
+        "You cannot tell from this information"
+      ],
+      "answer": 1,
+      "solution": "On a number line, -218 is lowest, then -200, then -183. So -200 °C is above oxygen's melting point (-218 °C) and below its boiling point (-183 °C). Between the melting and boiling points, a substance is a liquid. Liquid oxygen is real: hospitals and rockets use it.",
+      "misconceptions": {
+        "0": "-200 °C is extremely cold, but it is still warmer than oxygen's melting point. -200 is higher than -218, so the oxygen has not frozen.",
+        "2": "Oxygen is a gas at everyday temperatures, but -200 °C is below its boiling point (-183 °C), so it has turned into a liquid.",
+        "3": "You can tell: compare -200 °C with both values. It is above the melting point and below the boiling point, so oxygen is a liquid."
+      },
+      "skill": "using melting and boiling points",
+      "source": "original"
+    },
+    {
+      "id": "s05-q017",
+      "subtopicId": "s05-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Wei Ming heats a beaker of crushed ice steadily and records its temperature every minute. His readings are: 0 min: -10 °C, 1 min: -4 °C, 2 min: 0 °C, 3 min: 0 °C, 4 min: 0 °C, 5 min: 0 °C, 6 min: 5 °C, 7 min: 11 °C. Which is the best conclusion?",
+      "options": [
+        "The thermometer stopped working between 2 and 5 minutes",
+        "Ice can never be warmer than 0 °C, so the readings got stuck",
+        "Ice melts at 11 °C, the highest temperature recorded",
+        "The temperature stayed at 0 °C while the ice was melting, because 0 °C is the melting point of ice"
+      ],
+      "answer": 3,
+      "solution": "The temperature rose until it reached 0 °C, then stayed level from 2 to 5 minutes. During that time the heat was used to melt the ice, not to warm it. Once all the ice had melted, the water warmed up again. The level part shows the melting point of ice: 0 °C.",
+      "misconceptions": {
+        "0": "If the thermometer had broken, the readings would not start rising again at 6 minutes. Staying at 0 °C is a real result: the heat was being used to melt the ice.",
+        "1": "After the ice had all melted, the liquid water warmed up past 0 °C (5 °C, then 11 °C). The level part only lasts while ice is melting.",
+        "2": "By 11 °C the ice had already melted. The melting point is where the readings stay level: 0 °C."
+      },
+      "skill": "interpreting results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s05-q018",
+      "subtopicId": "s05-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which observation shows that air takes up space?",
+      "options": [
+        "A balloon gets bigger when you blow air into it",
+        "A feather falls slowly to the ground",
+        "You cannot see the air in a room",
+        "Wet clothes dry on a washing line"
+      ],
+      "answer": 0,
+      "solution": "When you blow into a balloon, the air you add needs room, so the balloon stretches and gets bigger. This shows that air takes up space, just like solids and liquids do.",
+      "misconceptions": {
+        "1": "A feather falls slowly because of air resistance, which is a force. It does not show that air takes up space.",
+        "2": "Not being able to see something does not mean it takes up no space. Air is invisible, but it still fills rooms, balloons and bottles.",
+        "3": "This shows water evaporating into the air. It is about water changing state, not about air taking up space."
+      },
+      "skill": "properties of gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q019",
+      "subtopicId": "s05-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which gas is dissolved in fizzy drinks and forms the bubbles when you open the bottle?",
+      "answer": {
+        "accept": [
+          "carbon dioxide",
+          "CO2",
+          "carbon dioxide gas",
+          "co2"
+        ],
+        "keywords": []
+      },
+      "solution": "Fizzy drinks have carbon dioxide gas pushed into them under pressure at the factory. When you open the bottle, the pressure drops and the carbon dioxide comes out as bubbles.",
+      "misconceptions": {
+        "common": "Saying 'oxygen' or 'air'. The bubbles in fizzy drinks are carbon dioxide."
+      },
+      "skill": "properties of gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q020",
+      "subtopicId": "s05-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Gases have no mass, because they are too light to feel.",
+      "answer": false,
+      "solution": "False. All matter has mass, including gases. One litre of air has a mass of about 1.2 g. That is small, but a sensitive scale can measure it, for example when you pump air into a ball.",
+      "misconceptions": {
+        "common": "Thinking that because air is invisible and we cannot feel its weight, it has no mass. Gases are matter, and all matter has mass."
+      },
+      "skill": "properties of gases",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s05-q021",
+      "subtopicId": "s05-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Daniel weighs a flat football on a kitchen scale: 430 g. He pumps it up with air and weighs it again: 436 g. What is the mass of the air he pumped in? Give your answer in grams.",
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": [
+          "6 g",
+          "6g",
+          "6 grams"
+        ]
+      },
+      "solution": "Find the difference: 436 - 430 = 6 g. The ball became 6 g heavier because the air pumped in has mass.",
+      "misconceptions": {
+        "common": "Adding the two masses (866 g) instead of finding the difference, or deciding the scale is wrong because air 'weighs nothing'."
+      },
+      "skill": "properties of gases",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s05-q022",
+      "subtopicId": "s05-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Mei Lin weighs an unopened can of fizzy drink: 368 g. She opens it, swirls it gently until it stops fizzing, and weighs the can again with all the drink still inside: 366 g. No drink was spilled. Why is it lighter?",
+      "options": [
+        "Air got into the can, and air makes things lighter",
+        "The drink got warmer, and warm drinks have less mass",
+        "Carbon dioxide gas escaped from the drink, and gases have mass",
+        "Gases have no mass, so the scale must be faulty"
+      ],
+      "answer": 2,
+      "solution": "The fizz in the drink is dissolved carbon dioxide gas. When the bubbles escape into the air, that gas leaves the can, taking its mass with it. 368 - 366 = 2 g of gas escaped. This shows that gases have mass.",
+      "misconceptions": {
+        "0": "Air has mass, so letting air in could not make the can lighter. The mass went down because carbon dioxide gas left the drink.",
+        "1": "Warming something does not change its mass. The 2 g that was lost is the carbon dioxide gas that escaped.",
+        "3": "The scale is fine. Gases do have mass, so when the carbon dioxide bubbled out, the can lost about 2 g."
+      },
+      "skill": "properties of gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q023",
+      "subtopicId": "s05-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Siti wants to show that air has mass. She has a pump, a kitchen scale and some footballs. Which plan is best?",
+      "options": [
+        "Weigh a flat ball, then weigh a different ball that is already pumped up",
+        "Pump up a ball and weigh it once",
+        "Pump up a ball and see whether it bounces higher",
+        "Weigh a flat ball, pump air into that same ball, then weigh it again on the same scale"
+      ],
+      "answer": 3,
+      "solution": "To see whether adding air adds mass, change only one thing: the amount of air. Use the same ball and the same scale, and weigh it before and after pumping. If the mass goes up, the air has mass.",
+      "misconceptions": {
+        "0": "Two different balls might have different masses to start with, so this is not a fair comparison. Use the same ball before and after.",
+        "1": "One reading on its own cannot show a change. You need a reading before and after adding the air.",
+        "2": "Bounce height does not measure mass. To show air has mass, you must measure mass with the scale."
+      },
+      "skill": "planning a fair test",
+      "source": "original"
+    },
+    {
+      "id": "s05-q024",
+      "subtopicId": "s05-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Arjun makes a balance. He hangs a deflated balloon from each end of a stick, then hangs the stick from its middle so it is level. He takes one balloon off, blows it up with air, ties it and hangs it back in the same place. What do you predict will happen, and why?",
+      "options": [
+        "The side with the blown-up balloon will go up, because air makes things lighter",
+        "The side with the blown-up balloon will go down, because the air inside has mass",
+        "The stick will stay level, because air has no mass",
+        "The stick will stay level, because both balloons have the same amount of rubber"
+      ],
+      "answer": 1,
+      "solution": "Before, both sides had the same mass, so the stick was level. Now one balloon also contains air that has been squeezed in. That air has mass, so the side with the blown-up balloon becomes heavier and goes down.",
+      "misconceptions": {
+        "0": "Air does not make things lighter; it adds mass. Balloons that float are filled with helium, but this balloon was filled with ordinary air from Arjun's lungs.",
+        "2": "Air does have mass. Adding air to one balloon adds a little mass to that side, so that side goes down.",
+        "3": "The rubber is the same, but the blown-up balloon also holds air, and that air has mass."
+      },
+      "skill": "making predictions",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s05-q025",
+      "subtopicId": "s05-s3",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Select ALL the observations that are evidence that a gas takes up space or has mass.",
+      "options": [
+        "You cannot push the plunger of a syringe full of air all the way in when its tip is sealed",
+        "A football gets heavier when it is pumped up with air",
+        "When you fill a narrow-necked bottle with water quickly, it 'glugs' as bubbles of air come out",
+        "You cannot see the air around you",
+        "Air has no smell"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "The syringe: the air inside takes up space, so the plunger cannot go all the way in. The football: it gets heavier, so the air has mass. The bottle: water can only go in when air comes out, because the air was taking up the space. Being invisible or having no smell is not evidence either way.",
+      "misconceptions": {
+        "3": "Being invisible tells us nothing about mass or space. Many things we cannot see, like air, still take up space.",
+        "4": "Having no smell tells us nothing about whether air has mass or takes up space."
+      },
+      "skill": "properties of gases",
+      "source": "original"
+    },
+    {
+      "id": "s05-q026",
+      "subtopicId": "s05-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Why do many cooking pots have a metal base but a handle made of plastic or wood?",
+      "options": [
+        "Plastic and wood are good thermal conductors, so the handle heats up quickly",
+        "Plastic and wood are stronger than metal",
+        "Metal is a good thermal conductor, so heat reaches the food; plastic and wood are thermal insulators, so the handle stays cool enough to hold",
+        "Plastic and wood make the food cook faster"
+      ],
+      "answer": 2,
+      "solution": "Heat travels easily through metal (a good thermal conductor), so the base passes heat from the flame to the food. Heat travels very slowly through plastic and wood (thermal insulators), so the handle stays cool enough to hold.",
+      "misconceptions": {
+        "0": "This is the wrong way round. Plastic and wood are thermal insulators: they let heat through only slowly.",
+        "1": "Strength is a different property, and metal is usually stronger. The handle is chosen because plastic and wood do not let heat through easily.",
+        "3": "The metal base cooks the food. The handle is there to keep your hand safe, not to cook the food faster."
+      },
+      "skill": "thermal conductors and insulators",
+      "source": "original"
+    },
+    {
+      "id": "s05-q027",
+      "subtopicId": "s05-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: All metals conduct electricity.",
+      "answer": true,
+      "solution": "True. Metals such as copper, aluminium, iron and steel all let electricity pass through them, so they are electrical conductors. Some conduct better than others; copper is one of the best, which is why most electrical wires are made of it.",
+      "misconceptions": {
+        "common": "Thinking only some metals conduct, for example that steel does not because wires are made of copper. All metals conduct electricity, though some conduct better than others."
+      },
+      "skill": "electrical conductors and insulators",
+      "source": "original"
+    },
+    {
+      "id": "s05-q028",
+      "subtopicId": "s05-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Mei Lin stands a metal spoon, a plastic spoon and a wooden spoon in the same cup of hot water. Each spoon has a same-sized blob of butter stuck near the top of its handle. Predict which blob of butter will start to melt first.",
+      "options": [
+        "The one on the metal spoon",
+        "The one on the plastic spoon",
+        "The one on the wooden spoon",
+        "They will all melt at the same time, because the water is the same"
+      ],
+      "answer": 0,
+      "solution": "Metal is a good thermal conductor, so heat from the water travels up the metal handle quickly and melts that butter first. Plastic and wood are thermal insulators, so their butter melts much later, or not at all.",
+      "misconceptions": {
+        "1": "Plastic is a thermal insulator, so heat travels through it slowly. Metal conducts heat much faster.",
+        "2": "Wood is a thermal insulator, so heat travels up a wooden handle very slowly.",
+        "3": "The water is the same, but the spoon materials are different. Heat travels through metal much faster than through plastic or wood."
+      },
+      "skill": "making predictions",
+      "source": "original"
+    },
+    {
+      "id": "s05-q029",
+      "subtopicId": "s05-s4",
+      "type": "order",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Put the steps of Mei Lin's spoon investigation in a sensible order, from first to last.",
+      "options": [
+        "Stand all three spoons in the cup of hot water at the same moment and start the stopwatch",
+        "Collect a metal, a plastic and a wooden spoon of the same length",
+        "Record the time when each blob of butter starts to melt",
+        "Stick a same-sized blob of butter near the top of each handle"
+      ],
+      "answer": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "solution": "First collect the spoons, then add the butter so each spoon is ready. Put all three in the hot water together and start timing straight away, so the test is fair. Finally, record when each blob starts to melt.",
+      "misconceptions": {
+        "common": "Adding the butter after the spoons are already in the hot water, or starting the stopwatch at a different time, makes the timings unfair."
+      },
+      "skill": "planning a fair test",
+      "source": "original"
+    },
+    {
+      "id": "s05-q030",
+      "subtopicId": "s05-s4",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the materials that are good electrical conductors.",
+      "options": [
+        "Copper wire",
+        "Rubber band",
+        "Aluminium foil",
+        "Glass marble",
+        "Steel paper clip",
+        "Dry wooden ruler"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Copper, aluminium and steel are all metals, and metals are good electrical conductors. Rubber, glass and dry wood are electrical insulators.",
+      "misconceptions": {
+        "1": "Rubber is an electrical insulator. That is why rubber gloves and boots are used for electrical safety.",
+        "3": "Glass is an electrical insulator; electricity cannot pass through it easily.",
+        "5": "Dry wood is an electrical insulator."
+      },
+      "skill": "electrical conductors and insulators",
+      "source": "original"
+    },
+    {
+      "id": "s05-q031",
+      "subtopicId": "s05-s4",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each item to the property that makes it right for its job.",
+      "options": {
+        "left": [
+          "Copper wire inside a phone charger cable",
+          "Plastic coating around the charger cable",
+          "Aluminium base of a frying pan",
+          "Air trapped between the fibres of a woollen jumper"
+        ],
+        "right": [
+          "Thermal insulator",
+          "Good electrical conductor",
+          "Good thermal conductor",
+          "Electrical insulator"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "The copper wire's job is to carry electricity, so it must be a good electrical conductor. The plastic coating stops electricity reaching your hand: an electrical insulator. The pan base must pass heat to the food: a good thermal conductor. Trapped air slows heat escaping from your body: a thermal insulator, which keeps you warm.",
+      "misconceptions": {
+        "common": "Mixing up electrical and thermal properties. Think about the job: carrying or blocking electricity, or carrying or blocking heat."
+      },
+      "skill": "materials and their uses",
+      "source": "original"
+    },
+    {
+      "id": "s05-q032",
+      "subtopicId": "s05-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Electricians use screwdrivers with thick plastic or rubber handles. What is the main reason?",
+      "options": [
+        "Plastic and rubber are good electrical conductors, so electricity flows safely away",
+        "Plastic and rubber stop the metal from rusting",
+        "Plastic and rubber are good thermal conductors, so they keep the electrician's hand warm",
+        "Plastic and rubber are electrical insulators, so they help protect the electrician from an electric shock"
+      ],
+      "answer": 3,
+      "solution": "Electricity cannot pass easily through plastic or rubber, because they are electrical insulators. An insulated handle helps stop electricity travelling into the electrician's hand.",
+      "misconceptions": {
+        "0": "This is the wrong way round. Plastic and rubber are insulators: they stop electricity passing through to the hand.",
+        "1": "The handle does not cover the metal tip, so it cannot be for rust. It is there to stop electricity reaching the hand.",
+        "2": "This mixes up heat and electricity. Plastic and rubber are insulators for both, and the handle is there for electrical safety."
+      },
+      "skill": "electrical conductors and insulators",
+      "source": "original"
+    },
+    {
+      "id": "s05-q033",
+      "subtopicId": "s05-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Mei Lin stands a metal, a plastic and a wooden spoon in the same cup of hot water, with a same-sized blob of butter on each handle. She times how long each blob takes to start melting. Which is the independent variable (the one she changes on purpose)?",
+      "options": [
+        "The time taken for the butter to start melting",
+        "The temperature of the water",
+        "The material of the spoon",
+        "The size of the butter blobs"
+      ],
+      "answer": 2,
+      "solution": "The independent variable is the one thing you change on purpose. Mei Lin changes the spoon material (metal, plastic, wood). She measures the melting time (dependent variable) and keeps the water and the butter blobs the same (control variables).",
+      "misconceptions": {
+        "0": "That is the dependent variable: the thing she measures. The independent variable is what she changes, the spoon material.",
+        "1": "This is a control variable. It is the same for all the spoons, which keeps the test fair.",
+        "3": "This is a control variable. Keeping the blobs the same size keeps the test fair."
+      },
+      "skill": "identifying variables in a fair test",
+      "source": "original"
+    },
+    {
+      "id": "s05-q034",
+      "subtopicId": "s05-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "On a cool morning, a metal bench and a wooden bench in the same park have both been outside all night, so they are at the same temperature. Yet the metal bench feels much colder when you sit on it. Why?",
+      "options": [
+        "The metal bench is really at a lower temperature than the wooden bench",
+        "Metal is a good thermal conductor, so it carries heat away from your body quickly",
+        "Metal lets cold flow into your body",
+        "Wood is a good thermal conductor, so it warms you up"
+      ],
+      "answer": 1,
+      "solution": "Your body is warmer than both benches, so heat flows from you into the bench. Metal is a good thermal conductor and carries the heat away quickly, so you feel cold. Wood is a thermal insulator and takes heat away slowly, so it feels less cold, even at the same temperature.",
+      "misconceptions": {
+        "0": "Both benches have been in the same place all night, so they are at the same temperature. The difference is how fast each material takes heat away from you.",
+        "2": "Cold is not something that flows. Heat flows from warmer things to cooler things; the metal takes heat from your body quickly, so you feel cold.",
+        "3": "This is the wrong way round. Wood is a thermal insulator, so it takes heat from you only slowly. That is why it feels warmer."
+      },
+      "skill": "thermal conductors and insulators",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s05-q035",
+      "subtopicId": "s05-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Mei Lin repeats her test with the metal spoon three times. The butter starts to melt after 45 s, 48 s and 112 s. What should she do with these results?",
+      "options": [
+        "Leave out 45 s, because it is the smallest",
+        "Use all three and give the average as about 68 s",
+        "Leave out 48 s, because it is in the middle",
+        "Treat 112 s as an anomalous result: check or repeat that test, and leave it out of the average if it was a mistake"
+      ],
+      "answer": 3,
+      "solution": "45 s and 48 s are close together, but 112 s is far away from them: it is anomalous. Perhaps that blob was bigger or the spoon was not standing in the water properly. She should repeat that test. The average of the two reliable results is (45 + 48) / 2 = 46.5 s.",
+      "misconceptions": {
+        "0": "45 s and 48 s are close together, so they agree with each other. The odd one out is 112 s.",
+        "1": "An average that includes an anomalous result is misleading. (45 + 48 + 112) / 3 is about 68 s, far from what usually happened.",
+        "2": "Being in the middle does not make a result odd. 48 s agrees well with 45 s."
+      },
+      "skill": "identifying anomalous results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    }
+  ]
+}

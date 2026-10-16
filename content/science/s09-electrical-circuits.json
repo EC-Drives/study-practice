@@ -1,0 +1,877 @@
+{
+  "subject": "science",
+  "topicId": "s09-electrical-circuits",
+  "title": "More About Electrical Circuits",
+  "order": 9,
+  "bookChapter": "Chapter 9: More About Electrical Circuits",
+  "frameworkRefs": [
+    "6Pe.01",
+    "6Pe.02",
+    "6TWSp.04",
+    "6TWSp.05",
+    "6TWSc.03",
+    "6TWSa.02",
+    "6TWSa.03"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will use circuit symbols to read and describe circuit diagrams. You will compare how bright lamps are in series and parallel circuits. You will also find out why a circuit might not work and how to test materials fairly.",
+    "whyItMatters": "Torches, doorbells, phone chargers and the lights in your home all depend on circuits. Knowing how circuits work helps you build them, find simple faults and stay safe around electricity.",
+    "realWorld": [
+      "Old strings of festive fairy lights: when one bulb breaks, the whole string can go dark because the bulbs are in series",
+      "The lights in your home are wired in parallel, so you can switch on the kitchen light without the bedroom light",
+      "A torch uses two or more cells in series to make its bulb bright",
+      "A doorbell is a simple circuit: the button is a switch and the bell is a buzzer",
+      "Phone charger cables have copper inside (a conductor) and plastic outside (an insulator) to keep you safe"
+    ],
+    "subtopics": [
+      {
+        "id": "s09-s1",
+        "title": "Circuit symbols and complete circuits",
+        "summary": "Recognise the symbols for a cell, battery, lamp, buzzer, switch, wire and junction, and know that a lamp lights only in a complete loop."
+      },
+      {
+        "id": "s09-s2",
+        "title": "Series circuits",
+        "summary": "In a series circuit everything is in one loop: more lamps make each lamp dimmer, more cells make them brighter, and one break stops everything."
+      },
+      {
+        "id": "s09-s3",
+        "title": "Parallel circuits",
+        "summary": "In a parallel circuit each lamp has its own branch, so lamps stay bright and keep working if another branch is broken."
+      },
+      {
+        "id": "s09-s4",
+        "title": "Conductors, insulators and fixing circuits",
+        "summary": "Metals conduct electricity and plastics, rubber and wood insulate. Use this, and fair tests, to find out why a circuit does not work."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s09-q001",
+      "subtopicId": "s09-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In a circuit diagram, which component is shown by a circle with a cross (X) inside?",
+      "options": [
+        "A cell",
+        "A buzzer",
+        "A lamp",
+        "A switch"
+      ],
+      "answer": 2,
+      "solution": "The lamp symbol is a circle with a cross inside. You can remember it because the cross looks a little like the glowing wire inside a bulb. Well done if you knew it!",
+      "misconceptions": {
+        "0": "A cell is drawn as a long thin line next to a short thick line, not as a circle.",
+        "1": "A buzzer is drawn as a half-circle (dome) shape with two wires coming out of its flat side. The circle with a cross is the lamp.",
+        "3": "A switch is drawn as a line with a gap and a short line that can lift up or lie flat. It has no circle."
+      },
+      "skill": "circuit symbols",
+      "source": "original"
+    },
+    {
+      "id": "s09-q002",
+      "subtopicId": "s09-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which description matches the circuit symbol for a cell?",
+      "options": [
+        "A long thin line next to a short thick line",
+        "A circle with a cross (X) inside",
+        "A line with a gap, where a short line is lifted up at an angle like an open gate",
+        "A large dot where wires meet"
+      ],
+      "answer": 0,
+      "solution": "A cell is drawn as two lines side by side: a long thin line and a short thick line. The long line is the positive (+) side.",
+      "misconceptions": {
+        "1": "That is the lamp symbol.",
+        "2": "That is an open switch. The gap means electricity cannot flow.",
+        "3": "A dot is a junction, a place where wires join. It is not a component that pushes electricity."
+      },
+      "skill": "circuit symbols",
+      "source": "original"
+    },
+    {
+      "id": "s09-q003",
+      "subtopicId": "s09-s1",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each circuit symbol (described in words) to the component it shows.",
+      "options": {
+        "left": [
+          "A circle with a cross (X) inside",
+          "A long thin line next to a short thick line",
+          "A line with a gap, where a short line is lifted up at an angle like an open gate",
+          "A large dot where wires meet",
+          "A half-circle (dome) shape with two wires coming out of its flat side"
+        ],
+        "right": [
+          "closed switch",
+          "junction",
+          "lamp",
+          "buzzer",
+          "cell",
+          "open switch",
+          "motor"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "solution": "Circle with a cross = lamp. Long thin line and short thick line = cell. Gap with a lifted line = open switch. Big dot = junction (wires joined). Dome shape = buzzer. A motor would be a circle with the letter M inside, and a closed switch would have its line lying flat across the gap.",
+      "misconceptions": {
+        "common": "Mixing up the open and closed switch. If the line is lifted, there is a gap, so the switch is OPEN and the circuit is broken."
+      },
+      "skill": "circuit symbols",
+      "source": "original"
+    },
+    {
+      "id": "s09-q004",
+      "subtopicId": "s09-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: When a switch in a simple circuit is open, electricity flows and the lamp lights.",
+      "answer": false,
+      "solution": "False. An open switch leaves a gap in the circuit, so there is no complete loop. Electricity cannot flow and the lamp stays off. Closing the switch joins the gap and the lamp lights.",
+      "misconceptions": {
+        "common": "In everyday life we say 'open the tap' to make water flow, so some people think an 'open' switch lets electricity flow. In circuits it is the other way round: open means a gap, so OFF."
+      },
+      "skill": "complete circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q005",
+      "subtopicId": "s09-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "How is the symbol for a CLOSED switch different from the symbol for an OPEN switch?",
+      "options": [
+        "In a closed switch a cross is drawn over the switch to show it is off",
+        "In a closed switch the gap is drawn wider so that no electricity can pass",
+        "In a closed switch there is a long line next to a short line",
+        "In a closed switch the short line lies flat across the gap, joining both sides"
+      ],
+      "answer": 3,
+      "solution": "When a switch is closed, the moving part lies flat and touches both sides, so the circuit becomes a complete loop. When it is open, the moving part is lifted and there is a gap.",
+      "misconceptions": {
+        "0": "A cross inside a circle is the lamp symbol. Switches never have a cross.",
+        "1": "This mixes up the words. 'Closed' means the gap is closed (joined), so electricity CAN pass. Think of a drawbridge: when it comes down flat, the gap is closed and you can cross.",
+        "2": "A long line next to a short line is the cell symbol, not a switch."
+      },
+      "skill": "circuit symbols",
+      "source": "original"
+    },
+    {
+      "id": "s09-q006",
+      "subtopicId": "s09-s1",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What is the name for two or more cells joined together in a circuit?",
+      "answer": {
+        "accept": [
+          "battery",
+          "a battery",
+          "batteries",
+          "battery of cells",
+          "a battery of cells"
+        ],
+        "keywords": []
+      },
+      "solution": "Two or more cells joined together make a battery. In everyday life we call a single AA cell a 'battery', but in science one is a cell and two or more joined together make a battery.",
+      "misconceptions": {
+        "common": "Answering 'cells' or 'cell'. One cell on its own is a cell; joined cells make a battery."
+      },
+      "skill": "circuit symbols",
+      "source": "original"
+    },
+    {
+      "id": "s09-q007",
+      "subtopicId": "s09-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the circuits in which the lamp will light. Every part works properly.",
+      "options": [
+        "A cell, a lamp and wires joined in a complete loop",
+        "A cell and a lamp with only one wire, going from one end of the cell to the lamp",
+        "A cell, a closed switch and a lamp joined in a complete loop",
+        "A cell, an open switch and a lamp joined in a loop",
+        "A cell, a lamp and a plastic ruler joining two of the wires in the loop",
+        "Two cells joined positive end to negative end, a lamp and wires in a complete loop"
+      ],
+      "answer": [
+        0,
+        2,
+        5
+      ],
+      "solution": "A lamp lights only when there is a complete loop of conductors from the cell, through the lamp and back. The first, third and last circuits are complete. The one-wire circuit has a break, the open switch makes a gap, and the plastic ruler does not conduct.",
+      "misconceptions": {
+        "1": "With one wire there is no complete loop. Electricity needs a path out of the cell, through the lamp and back again.",
+        "3": "An open switch makes a gap, so the loop is not complete.",
+        "4": "Plastic is an electrical insulator, so it acts like a gap in the circuit."
+      },
+      "skill": "complete circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q008",
+      "subtopicId": "s09-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A circuit diagram is described by going round the loop: a long thin line next to a short thick line; then a wire to a circle with a cross (X) inside; then a wire to a half-circle (dome) shape with two wires coming out of its flat side; then a wire to a line with a gap, where a short line is lifted up at an angle like an open gate; then a wire back to the start. What happens in this circuit?",
+      "options": [
+        "The lamp lights but the buzzer is silent, because the lamp uses up the electricity first",
+        "The lamp is off and the buzzer is silent, because the switch is open",
+        "The lamp lights and the buzzer sounds",
+        "Only the buzzer sounds, because it is the component nearest to the switch"
+      ],
+      "answer": 1,
+      "solution": "First name each symbol: cell, lamp, buzzer, open switch. They are all in one loop (a series circuit). The switch is open, so there is a gap and no electricity can flow. Nothing works until the switch is closed, and then both the lamp and the buzzer work.",
+      "misconceptions": {
+        "0": "Electricity is not used up by the first component. In any case, the switch is open, so nothing works at all.",
+        "2": "Look again at the last symbol. The lifted line means the switch is open, so the loop is broken.",
+        "3": "Being near the switch does not matter. In a single loop, an open switch stops the electricity everywhere."
+      },
+      "skill": "reading circuit diagrams",
+      "source": "original"
+    },
+    {
+      "id": "s09-q009",
+      "subtopicId": "s09-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A series circuit has one cell and one lamp. You add a second, identical lamp in series. What happens?",
+      "options": [
+        "Both lamps are dimmer than the single lamp was",
+        "Both lamps are brighter than the single lamp was",
+        "The first lamp stays as bright as before and the second lamp is dim",
+        "Nothing changes; both lamps are as bright as the single lamp was"
+      ],
+      "answer": 0,
+      "solution": "In a series circuit everything is in one loop. Adding another lamp makes it harder for electricity to flow, so both lamps glow more dimly, and they are equally bright.",
+      "misconceptions": {
+        "1": "More lamps do not mean more light from each lamp. The two lamps share the push from one cell, so each is dimmer.",
+        "2": "Electricity is not used up by the first lamp. In a series circuit the lamps are the same brightness.",
+        "3": "That would be true for lamps in parallel, not in series. In series the lamps share the cell, so each one is dimmer."
+      },
+      "skill": "brightness of lamps in series",
+      "source": "original"
+    },
+    {
+      "id": "s09-q010",
+      "subtopicId": "s09-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: In a series circuit with three lamps, if one lamp breaks, the other two lamps go out as well.",
+      "answer": true,
+      "solution": "True. In a series circuit there is only one path. A broken lamp makes a gap in that path, so the electricity stops everywhere and all the lamps go out.",
+      "misconceptions": {
+        "common": "Thinking the other lamps keep working. That happens in a parallel circuit, where each lamp has its own path."
+      },
+      "skill": "series circuits: one path",
+      "source": "original"
+    },
+    {
+      "id": "s09-q011",
+      "subtopicId": "s09-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A series circuit has one cell and two lamps. You add a second cell, facing the same way as the first. What happens to the lamps?",
+      "options": [
+        "Both lamps become dimmer, because there are more components in the circuit",
+        "Only the lamp next to the new cell becomes brighter",
+        "Both lamps become brighter",
+        "Nothing changes, because a circuit only uses one cell at a time"
+      ],
+      "answer": 2,
+      "solution": "Two cells in series give a bigger push than one cell. With the same two lamps, more electricity flows, so both lamps glow brighter.",
+      "misconceptions": {
+        "0": "Adding a LAMP makes lamps dimmer. Adding a CELL gives a bigger push, so the lamps get brighter.",
+        "1": "In a series circuit the lamps are always equally bright. The extra push from the new cell reaches the whole loop.",
+        "3": "Cells joined in series all push together, so the push is bigger."
+      },
+      "skill": "brightness of lamps in series",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s09-q012",
+      "subtopicId": "s09-s2",
+      "type": "order",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "All cells and lamps are identical and every circuit is a series circuit. Put the circuits in order from the DIMMEST lamps to the BRIGHTEST lamps.",
+      "options": [
+        "1 cell and 1 lamp",
+        "2 cells and 1 lamp",
+        "1 cell and 3 lamps",
+        "1 cell and 2 lamps"
+      ],
+      "answer": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "solution": "Think 'push from the cells' shared between the lamps. 1 cell shared by 3 lamps is the dimmest. 1 cell shared by 2 lamps is next. 1 cell with 1 lamp is brighter. 2 cells with only 1 lamp is the brightest.",
+      "misconceptions": {
+        "common": "Looking only at the number of cells or only at the number of lamps. You need both: more cells make lamps brighter, more lamps in series make each lamp dimmer."
+      },
+      "skill": "brightness of lamps in series",
+      "source": "original"
+    },
+    {
+      "id": "s09-q013",
+      "subtopicId": "s09-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A series circuit has two cells, a closed switch and three lamps. All three lamps are lit. One lamp is unscrewed and taken out. How many lamps are still lit? Give a whole number.",
+      "answer": {
+        "value": 0,
+        "tolerance": 0,
+        "accept": [
+          "none",
+          "zero"
+        ]
+      },
+      "solution": "Taking out one lamp leaves a gap in the only path. In a series circuit a gap anywhere stops all the electricity, so 0 lamps stay lit.",
+      "misconceptions": {
+        "common": "Answering 2 by thinking the other lamps keep working. That only happens when lamps are in parallel."
+      },
+      "skill": "series circuits: one path",
+      "source": "original"
+    },
+    {
+      "id": "s09-q014",
+      "subtopicId": "s09-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: In a series circuit with two identical lamps, the lamp nearer the positive (+) end of the cell is brighter because it gets the electricity first.",
+      "answer": false,
+      "solution": "False. Electricity flows all the way round the loop at the same time; it is not used up as it goes. Identical lamps in series are equally bright, wherever they are in the loop.",
+      "misconceptions": {
+        "common": "Thinking electricity is 'used up' as it travels, so the first lamp takes most of it. The current is the same in every part of a series circuit."
+      },
+      "skill": "brightness of lamps in series",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s09-q015",
+      "subtopicId": "s09-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Arjun investigates this question: 'How does the number of lamps in a series circuit affect how bright each lamp is?' He uses 1, 2, 3 and then 4 lamps. Which is the INDEPENDENT variable (the one he changes)?",
+      "options": [
+        "The brightness of the lamps",
+        "The number of cells",
+        "The type of wire",
+        "The number of lamps"
+      ],
+      "answer": 3,
+      "solution": "The independent variable is the one thing you choose to change: here, the number of lamps. The dependent variable is what you measure (brightness). Everything else, such as the number of cells and the type of wire, stays the same.",
+      "misconceptions": {
+        "0": "Brightness is what he observes or measures. That is the dependent variable.",
+        "1": "He keeps the number of cells the same. That is a control variable, so the test is fair.",
+        "2": "He should keep the wires the same. That is a control variable."
+      },
+      "skill": "fair test variables",
+      "source": "original"
+    },
+    {
+      "id": "s09-q016",
+      "subtopicId": "s09-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Wei Ming measures how bright a lamp is with a light sensor. He tests each number of cells three times. Results: 1 cell: 20, 21, 19. 2 cells: 40, 12, 41. 3 cells: 60, 59, 61. Which reading is the anomalous result (the one that does not fit the pattern)? Give the number.",
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "The other two readings for 2 cells are 40 and 41, and the pattern goes up by about 20 for each extra cell. The reading 12 is far away from the rest, so it is anomalous. Wei Ming should check his circuit and repeat that reading.",
+      "misconceptions": {
+        "common": "Choosing 19 or 59 because they are a little lower. Small differences are normal; an anomalous result is one that is far away from the others."
+      },
+      "skill": "anomalous results",
+      "source": "original"
+    },
+    {
+      "id": "s09-q017",
+      "subtopicId": "s09-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "All cells and lamps are identical and all circuits are series circuits. Which circuit has lamps that glow with the SAME brightness as a circuit with 1 cell and 1 lamp?",
+      "options": [
+        "1 cell and 2 lamps",
+        "2 cells and 2 lamps",
+        "2 cells and 1 lamp",
+        "3 cells and 2 lamps"
+      ],
+      "answer": 1,
+      "solution": "With 1 cell and 1 lamp, each lamp gets the push of one cell. With 2 cells and 2 lamps, the push of two cells is shared by two lamps, so each lamp again gets the push of one cell. The brightness is the same.",
+      "misconceptions": {
+        "0": "Here the two lamps share the push from only one cell, so each lamp is dimmer.",
+        "2": "Two cells push one lamp, so it is brighter than 1 cell with 1 lamp.",
+        "3": "Three cells shared by two lamps gives each lamp more push than one cell, so they are brighter."
+      },
+      "skill": "brightness of lamps in series",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s09-q018",
+      "subtopicId": "s09-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Mei Lin hangs an old string of fairy lights for Hari Raya. At the moment one tiny bulb breaks, ALL the other bulbs go out, even though they all work. What is the best explanation?",
+      "options": [
+        "The broken bulb has used up all the electricity",
+        "The bulbs are joined in parallel, so one broken bulb stops them all",
+        "The bulbs are joined in series, so the broken bulb makes a gap in the only path",
+        "The bulbs are all on separate branches, so each one needs its own cell"
+      ],
+      "answer": 2,
+      "solution": "A string where one broken bulb puts out all the others must have its bulbs in series: one single loop. The broken bulb breaks the loop, so no electricity flows through any bulb.",
+      "misconceptions": {
+        "0": "Bulbs do not use up the electricity flowing through them. The problem is the gap that the broken bulb makes.",
+        "1": "This is the wrong way round. In parallel, the other bulbs would stay lit because each has its own path.",
+        "3": "Separate branches would be a parallel circuit, and the other bulbs would still light from the same supply."
+      },
+      "skill": "series circuits: one path",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s09-q019",
+      "subtopicId": "s09-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which sentence describes lamps joined in PARALLEL?",
+      "options": [
+        "The lamps are joined one after another in a single loop",
+        "Each lamp is on its own separate branch connected to the cell",
+        "The lamps must be touching each other",
+        "The lamps are lined up in a straight row next to each other"
+      ],
+      "answer": 1,
+      "solution": "In a parallel circuit the wires split into branches. Each lamp sits on its own branch, so each lamp has its own path back to the cell.",
+      "misconceptions": {
+        "0": "One single loop is a series circuit.",
+        "2": "Lamps in a circuit are joined by wires; they do not need to touch.",
+        "3": "'Parallel' in maths means lines side by side, but in circuits it means separate branches (paths), not the way the lamps are lined up."
+      },
+      "skill": "parallel circuits: separate branches",
+      "source": "original"
+    },
+    {
+      "id": "s09-q020",
+      "subtopicId": "s09-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: In a parallel circuit, if the lamp on one branch breaks, the lamps on the other branches stay lit.",
+      "answer": true,
+      "solution": "True. Each branch is its own path. A break in one branch does not affect the complete paths through the other branches.",
+      "misconceptions": {
+        "common": "Thinking all the lamps go out. That happens in a series circuit, which has only one path."
+      },
+      "skill": "parallel circuits: separate branches",
+      "source": "original"
+    },
+    {
+      "id": "s09-q021",
+      "subtopicId": "s09-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What type of circuit has more than one path (branch) for the electricity to flow along?",
+      "answer": {
+        "accept": [
+          "parallel",
+          "parallel circuit",
+          "a parallel circuit",
+          "parallel circuits"
+        ],
+        "keywords": []
+      },
+      "solution": "A parallel circuit has two or more branches, so electricity has more than one path to follow.",
+      "misconceptions": {
+        "common": "Answering 'series'. A series circuit has only ONE path."
+      },
+      "skill": "parallel circuits: separate branches",
+      "source": "original"
+    },
+    {
+      "id": "s09-q022",
+      "subtopicId": "s09-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A cell is connected to two identical lamps in parallel. Compared with ONE of these lamps connected on its own to the same cell, how bright is each lamp?",
+      "options": [
+        "About half as bright",
+        "About twice as bright",
+        "One lamp is bright and the other is dim",
+        "About the same brightness"
+      ],
+      "answer": 3,
+      "solution": "In a parallel circuit each lamp is on its own branch and gets the full push from the cell. So each lamp is about as bright as a single lamp on the same cell. (The cell does run down faster, because it is lighting two lamps.)",
+      "misconceptions": {
+        "0": "That is what happens in SERIES, where lamps share one path. In parallel, each lamp gets the full push of the cell.",
+        "1": "The cell has not changed, so the push on each lamp is the same, not bigger.",
+        "2": "The lamps are identical and each is on its own branch, so they are equally bright."
+      },
+      "skill": "brightness of lamps in parallel",
+      "source": "original"
+    },
+    {
+      "id": "s09-q023",
+      "subtopicId": "s09-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Why are the lights in a home wired in parallel, not in series?",
+      "options": [
+        "So each light can be switched on and off by itself, and the others keep working if one bulb blows",
+        "So that all the lights go off together to save electricity",
+        "Because parallel wiring uses fewer wires than series wiring",
+        "So that the lights are dimmer and use less electricity"
+      ],
+      "answer": 0,
+      "solution": "With parallel wiring, every light is on its own branch with its own switch. You can turn on the kitchen light without the bedroom light, and a blown bulb does not put out the others.",
+      "misconceptions": {
+        "1": "That would happen in series wiring, and it would be very inconvenient: you could not light just one room.",
+        "2": "Parallel wiring usually needs MORE wire, because each branch needs its own path. It is chosen for convenience and reliability.",
+        "3": "In parallel each light gets the full push and stays bright. Lights in series would be the dim ones."
+      },
+      "skill": "household wiring",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s09-q024",
+      "subtopicId": "s09-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the true statements. A cell lights three identical lamps, P, Q and R. Each lamp is on its own parallel branch. Lamp Q breaks.",
+      "options": [
+        "Lamp P stays lit",
+        "Lamp R stays lit",
+        "Lamps P and R both go out",
+        "Lamps P and R become much dimmer",
+        "Lamp Q does not light"
+      ],
+      "answer": [
+        0,
+        1,
+        4
+      ],
+      "solution": "Q's branch now has a gap, so Q is off. P and R are on separate branches that are still complete loops with the cell, so they stay lit and about as bright as before.",
+      "misconceptions": {
+        "2": "That would happen in series. Here P and R are on their own branches, which are still complete.",
+        "3": "P and R still get the full push from the cell on their own branches, so they stay about as bright as before."
+      },
+      "skill": "parallel circuits: separate branches",
+      "source": "original"
+    },
+    {
+      "id": "s09-q025",
+      "subtopicId": "s09-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Circuit A: one cell with two lamps in series. Circuit B: one cell with two lamps in parallel. All the cells and lamps are identical. Which statement is correct?",
+      "options": [
+        "The lamps in circuit B are brighter than the lamps in circuit A",
+        "The lamps in circuit A are brighter than the lamps in circuit B",
+        "All four lamps are equally bright, because both circuits have one cell and two lamps",
+        "Only one lamp in circuit B lights, because the electricity can take only one branch"
+      ],
+      "answer": 0,
+      "solution": "In circuit A (series) the two lamps share one path and one cell, so each is dim. In circuit B (parallel) each lamp has its own branch and the full push of the cell, so each is as bright as a single lamp. So B's lamps are brighter.",
+      "misconceptions": {
+        "1": "This is the wrong way round. In series (A) the two lamps share the push of the cell, so they are dimmer.",
+        "2": "Having the same parts is not enough. The way they are joined changes the brightness.",
+        "3": "Electricity flows through every complete branch at the same time, so both lamps in B light."
+      },
+      "skill": "comparing series and parallel circuits",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s09-q026",
+      "subtopicId": "s09-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A cell is connected to two parallel branches. Branch 1 has a lamp and a switch. Branch 2 has a buzzer only. Both work while the switch is closed. Now the switch is opened. What happens?",
+      "options": [
+        "The lamp and the buzzer both stop",
+        "The lamp stays on and the buzzer stops",
+        "The lamp goes off and the buzzer keeps sounding",
+        "Nothing changes, because switches do not work in parallel circuits"
+      ],
+      "answer": 2,
+      "solution": "Opening the switch makes a gap in branch 1 only, so the lamp goes off. Branch 2 still makes a complete loop with the cell, so the buzzer keeps sounding.",
+      "misconceptions": {
+        "0": "That would be true in a series circuit. The switch is only on branch 1, so branch 2 is still a complete path.",
+        "1": "A switch only controls the branch it is on. This switch is on the lamp's branch, not the buzzer's.",
+        "3": "Switches work in any circuit. This one breaks the path through branch 1, so the lamp goes off."
+      },
+      "skill": "switches in parallel circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q027",
+      "subtopicId": "s09-s3",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "True or false: A switch is placed in the wire right next to the cell, BEFORE the circuit splits into two parallel branches with one lamp each. Opening this switch turns off only one of the lamps.",
+      "answer": false,
+      "solution": "False. Every bit of electricity has to pass through this part of the circuit before it splits. Opening the switch here breaks the path for both branches, so BOTH lamps go off.",
+      "misconceptions": {
+        "common": "Thinking any switch in a parallel circuit controls only one lamp. It depends where the switch is: on a branch it controls that branch; in the main wire before the split it controls everything."
+      },
+      "skill": "switches in parallel circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q028",
+      "subtopicId": "s09-s4",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Select ALL the materials that conduct electricity.",
+      "options": [
+        "Copper wire",
+        "Plastic ruler",
+        "Aluminium foil",
+        "Rubber band",
+        "Steel paper clip",
+        "Wooden lolly stick"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Metals are good electrical conductors: copper, aluminium and steel all let electricity pass. Plastic, rubber and dry wood are insulators.",
+      "misconceptions": {
+        "1": "Plastic is an insulator. That is why it is used to cover wires.",
+        "3": "Rubber is an insulator.",
+        "5": "Dry wood is an insulator."
+      },
+      "skill": "conductors and insulators",
+      "source": "original"
+    },
+    {
+      "id": "s09-q029",
+      "subtopicId": "s09-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Why are the copper wires in a lamp cable covered in plastic?",
+      "options": [
+        "Plastic is a good conductor, so it helps carry the electricity",
+        "Plastic makes the electricity flow faster",
+        "The plastic is only there to give the cable a nice colour",
+        "Plastic is an electrical insulator, so it stops electricity passing into anyone who touches the cable"
+      ],
+      "answer": 3,
+      "solution": "Copper conducts electricity well, so it carries the electricity. Plastic is an insulator, so wrapping it round the copper keeps the electricity inside the wire and keeps people safe.",
+      "misconceptions": {
+        "0": "This is the wrong way round. The COPPER inside is the conductor; the plastic is an insulator.",
+        "1": "The plastic does not carry the electricity at all. Its job is to keep it safely inside the wire.",
+        "2": "Colours help us tell wires apart, but the main reason is safety: plastic is an insulator."
+      },
+      "skill": "conductors and insulators",
+      "source": "original"
+    },
+    {
+      "id": "s09-q030",
+      "subtopicId": "s09-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A circuit has a cell, a closed switch and a lamp, joined in a complete loop with copper wires. The lamp does not light. Which of these could be the reason?",
+      "options": [
+        "The switch is closed",
+        "The thin wire (filament) inside the lamp is broken",
+        "The wires are made of copper",
+        "The wires are 30 cm long, so the electricity cannot reach the lamp"
+      ],
+      "answer": 1,
+      "solution": "If the filament inside the bulb is broken, there is a gap inside the lamp itself, so the loop is not complete and the lamp cannot light. Other things to check would be a flat cell or a loose connection.",
+      "misconceptions": {
+        "0": "A closed switch joins the gap, so it lets electricity flow. It would be a problem if the switch were OPEN.",
+        "2": "Copper is an excellent conductor. That is why it is used for wires.",
+        "3": "Electricity flows easily through 30 cm of copper wire. Wires much longer than this are used in homes."
+      },
+      "skill": "troubleshooting circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q031",
+      "subtopicId": "s09-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: Tap water can conduct electricity, so you should never touch a light switch or plug with wet hands.",
+      "answer": true,
+      "solution": "True. Tap water has tiny amounts of dissolved substances that let electricity pass. Wet hands make it easier for electricity from the mains to pass through your body, which is very dangerous.",
+      "misconceptions": {
+        "common": "Thinking water is an insulator because it is not a metal. Tap water conducts electricity well enough to be dangerous with mains electricity."
+      },
+      "skill": "electrical safety",
+      "source": "original"
+    },
+    {
+      "id": "s09-q032",
+      "subtopicId": "s09-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "You want to test whether some objects conduct electricity. Which way of testing is the SAFEST?",
+      "options": [
+        "Push each object into the holes of a wall socket and see if anything happens",
+        "Use a circuit with one cell, but hold the bare ends of the wires with wet hands",
+        "Use a circuit with one cell, a lamp and wires, and put each object in a gap in the circuit",
+        "Use the cable of a plugged-in lamp, after cutting it open, and touch the objects to the wires"
+      ],
+      "answer": 2,
+      "solution": "Cells give a small, safe push. A simple tester circuit with a cell, a lamp and a gap is safe to use: if the lamp lights when an object closes the gap, the object is a conductor. Never experiment with mains electricity.",
+      "misconceptions": {
+        "0": "Mains electricity from a wall socket can kill. Never put anything into a socket.",
+        "1": "Wet hands are a bad habit around electricity. Keep hands dry and hold wires by their plastic coating.",
+        "3": "Cutting a mains cable is extremely dangerous. School tests should only use cells."
+      },
+      "skill": "planning safe practical work",
+      "source": "original"
+    },
+    {
+      "id": "s09-q033",
+      "subtopicId": "s09-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Priya builds a circuit with a cell, a lamp and a gap between two crocodile clips. She clips different objects into the gap. How can she tell that an object is an electrical conductor?",
+      "options": [
+        "The lamp lights when the object is clipped into the gap",
+        "The object gets warm in her hand",
+        "The lamp goes out when the object is clipped into the gap",
+        "The crocodile clips stick to the object"
+      ],
+      "answer": 0,
+      "solution": "The gap breaks the circuit, so the lamp is off. A conductor fills the gap and completes the loop, so electricity flows and the lamp lights. An insulator leaves the lamp off.",
+      "misconceptions": {
+        "1": "Warmth is not how we test for electrical conductors here. The lamp is the sign that electricity is flowing.",
+        "2": "With a gap, the lamp is already off. A conductor completes the loop, so the lamp turns ON.",
+        "3": "This mixes up electrical conductors with magnetic materials. Sticking is about magnets, not electricity."
+      },
+      "skill": "choosing equipment",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s09-q034",
+      "subtopicId": "s09-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Priya's results: steel spoon - lamp lit; plastic spoon - not lit; wooden spoon - not lit; aluminium foil - lit; glass marble - not lit. Which conclusion do her results support best?",
+      "options": [
+        "All spoons conduct electricity",
+        "The metal objects conducted electricity and the other objects did not",
+        "Shiny objects conduct electricity",
+        "Heavy objects conduct electricity and light objects do not"
+      ],
+      "answer": 1,
+      "solution": "Look for what the 'lit' objects have in common: the steel spoon and the aluminium foil are both metals. The plastic, wood and glass objects did not light the lamp. So the results support: metals conduct electricity; these non-metals do not.",
+      "misconceptions": {
+        "0": "Only the steel spoon lit the lamp. The plastic and wooden spoons did not, so the shape of the object does not matter: the material does.",
+        "2": "The glass marble is shiny, but it did not light the lamp. Shininess is not the reason; being a metal is.",
+        "3": "Aluminium foil is very light, but it lit the lamp. Mass is not what matters."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "original"
+    },
+    {
+      "id": "s09-q035",
+      "subtopicId": "s09-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Omar wants to find out whether the length of wire in a circuit affects how bright a lamp is. Which plan is a fair test?",
+      "options": [
+        "Change the length of the wire and also add an extra cell for the longer wires",
+        "Use a different lamp for each length of wire, to make it more interesting",
+        "Test only one length of wire, but test it ten times",
+        "Change only the length of the wire, and keep the same cell, lamp and type of wire each time"
+      ],
+      "answer": 3,
+      "solution": "In a fair test you change ONE thing (the independent variable: wire length), measure one thing (the dependent variable: brightness) and keep everything else the same (control variables: cell, lamp, type and thickness of wire).",
+      "misconceptions": {
+        "0": "This changes two things at once. If the brightness changes, he would not know which change caused it.",
+        "1": "Different lamps could be brighter or dimmer on their own, so the test would not be fair.",
+        "2": "Repeating is good, but with only one length he cannot see whether length makes a difference."
+      },
+      "skill": "fair test variables",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s09-q036",
+      "subtopicId": "s09-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Aisha builds a series circuit with two cells and one lamp. All the parts work and the wires are joined properly, but the lamp does not light. When she turns ONE of the cells round, the lamp lights brightly. Why did the lamp not light at first?",
+      "options": [
+        "The two cells were facing opposite ways, so their pushes worked against each other and cancelled out",
+        "Two cells give too much electricity for one lamp",
+        "The lamp needed time to warm up before it could light",
+        "Turning the cell round made the wires start to conduct"
+      ],
+      "answer": 0,
+      "solution": "Cells push electricity one way round the circuit, from the + side. If two cells face opposite ways, one pushes clockwise and the other anticlockwise, so they cancel out and the lamp stays off. Turned the same way, their pushes add up and the lamp lights brightly.",
+      "misconceptions": {
+        "1": "If that were true, the lamp would not light brightly after she turned the cell round, because there are still two cells.",
+        "2": "Lamps light straight away in a complete circuit. The change came from turning the cell, not from waiting.",
+        "3": "The copper wires always conduct. The wires did not change; the direction of one cell did."
+      },
+      "skill": "troubleshooting circuits",
+      "source": "original"
+    }
+  ]
+}

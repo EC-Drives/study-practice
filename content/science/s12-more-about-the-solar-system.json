@@ -1,0 +1,870 @@
+{
+  "subject": "science",
+  "topicId": "s12-more-about-the-solar-system",
+  "title": "More About the Solar System",
+  "order": 12,
+  "bookChapter": "Chapter 12: More About the Solar System",
+  "frameworkRefs": [
+    "6ESs.01",
+    "6ESs.02",
+    "6TWSm.01",
+    "6TWSm.02",
+    "6TWSp.02",
+    "6TWSa.01",
+    "6TWSa.02",
+    "6TWSa.03",
+    "6SIC.01"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will learn the order of the planets and how the planets, the Earth, the Moon and the Sun move. You will find out why the Moon seems to change shape over a month. You will also see how models and new evidence changed our ideas about the Solar System.",
+    "whyItMatters": "The movements of the Earth and Moon give us our days, months and years. Understanding them explains sunrise, sunset and the changing Moon you see from your window. It also shows how science changes when new evidence is found.",
+    "realWorld": [
+      "The Islamic calendar uses the new crescent moon to mark the start of each month, such as the start of Ramadan",
+      "Chinese families celebrate the Mid-Autumn Festival with mooncakes on the night of a full moon",
+      "When it is lunchtime in Kuala Lumpur, it is still early morning in London, because the Earth is spinning",
+      "The National Planetarium in Kuala Lumpur uses models to show the planets and their orbits",
+      "Leap years add 29 February to keep our calendar in step with the Earth's orbit"
+    ],
+    "subtopics": [
+      {
+        "id": "s12-s1",
+        "title": "The Sun and the planets",
+        "summary": "The Sun is a star at the centre of the Solar System. Eight planets orbit it: four rocky inner planets and four giant outer planets."
+      },
+      {
+        "id": "s12-s2",
+        "title": "Movements of the Earth, Moon and planets",
+        "summary": "The Earth spins once a day, giving day and night, and orbits the Sun once a year. The Moon orbits the Earth."
+      },
+      {
+        "id": "s12-s3",
+        "title": "Phases of the Moon",
+        "summary": "Half the Moon is always lit by the Sun. As it orbits the Earth we see different amounts of the lit half, in a cycle of about 29 1/2 days."
+      },
+      {
+        "id": "s12-s4",
+        "title": "Models and changing ideas",
+        "summary": "Models help us understand the Solar System. Evidence changed the idea of an Earth-centred universe to a Sun-centred Solar System."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s12-q001",
+      "subtopicId": "s12-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is at the centre of our Solar System?",
+      "options": [
+        "The Earth",
+        "The Moon",
+        "The Sun",
+        "Jupiter"
+      ],
+      "answer": 2,
+      "solution": "The Sun is a star at the centre of the Solar System. The eight planets, including Earth, all orbit (travel around) the Sun.",
+      "misconceptions": {
+        "0": "Long ago people thought the Earth was at the centre, because the Sun seems to move across our sky. We now know the Earth orbits the Sun.",
+        "1": "The Moon orbits the Earth. It is much smaller than the Earth and is not at the centre of anything.",
+        "3": "Jupiter is the biggest planet, but it orbits the Sun like all the other planets."
+      },
+      "skill": "the Sun and the planets",
+      "source": "original"
+    },
+    {
+      "id": "s12-q002",
+      "subtopicId": "s12-s1",
+      "type": "order",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Put these planets in order from closest to the Sun to furthest from the Sun.",
+      "options": [
+        "Earth",
+        "Jupiter",
+        "Mercury",
+        "Mars",
+        "Venus"
+      ],
+      "answer": [
+        2,
+        4,
+        0,
+        3,
+        1
+      ],
+      "solution": "Going out from the Sun: Mercury, Venus, Earth, Mars, then Jupiter. A sentence can help you remember the order of all eight planets, for example 'My Very Easy Method Just Speeds Up Naming' (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune).",
+      "misconceptions": {
+        "common": "Swapping Mercury and Venus, or putting Mars before Earth. Earth is the third planet from the Sun and Mars is the fourth."
+      },
+      "skill": "order of the planets",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s12-q003",
+      "subtopicId": "s12-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which is the largest planet in the Solar System?",
+      "options": [
+        "Saturn",
+        "Jupiter",
+        "Earth",
+        "The Sun"
+      ],
+      "answer": 1,
+      "solution": "Jupiter is the largest planet. It is a gas giant, about 11 times wider than the Earth. The Sun is bigger still, but it is a star, not a planet.",
+      "misconceptions": {
+        "0": "Saturn's huge rings make it look very big, and it is the second largest planet, but Jupiter is larger.",
+        "2": "Earth feels big to us, but it is a small rocky planet. More than 1000 Earths could fit inside Jupiter.",
+        "3": "The Sun is much bigger than Jupiter, but the Sun is a star, not a planet."
+      },
+      "skill": "the Sun and the planets",
+      "source": "original"
+    },
+    {
+      "id": "s12-q004",
+      "subtopicId": "s12-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the planets that are rocky inner planets.",
+      "options": [
+        "Venus",
+        "Jupiter",
+        "Mercury",
+        "Saturn",
+        "Mars",
+        "Earth"
+      ],
+      "answer": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "solution": "The four inner planets, Mercury, Venus, Earth and Mars, are small and rocky. The four outer planets are giants: Jupiter and Saturn are gas giants, and Uranus and Neptune are ice giants.",
+      "misconceptions": {
+        "1": "Jupiter is a gas giant, one of the four outer planets beyond the asteroid belt.",
+        "3": "Saturn is a gas giant made mostly of gas, not rock. It is an outer planet."
+      },
+      "skill": "rocky and giant planets",
+      "source": "original"
+    },
+    {
+      "id": "s12-q005",
+      "subtopicId": "s12-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The Sun is a star.",
+      "answer": true,
+      "solution": "True. The Sun is a star, a huge ball of very hot gas that gives out its own light and heat. It looks much bigger and brighter than the other stars only because it is much closer to us.",
+      "misconceptions": {
+        "common": "Thinking the Sun cannot be a star because stars look like tiny dots at night. The other stars look small only because they are much further away."
+      },
+      "skill": "the Sun and the planets",
+      "source": "original"
+    },
+    {
+      "id": "s12-q006",
+      "subtopicId": "s12-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Pluto used to be called the ninth planet. Why is it no longer called a planet?",
+      "options": [
+        "Pluto was destroyed, so it no longer exists",
+        "Scientists found out that Pluto is a moon of Neptune",
+        "Pluto stopped orbiting the Sun",
+        "In 2006 scientists decided it is a dwarf planet, because it is small and shares its orbit with many other icy objects"
+      ],
+      "answer": 3,
+      "solution": "As scientists discovered more icy objects beyond Neptune, they agreed on what counts as a planet. Pluto is small and has not cleared its orbit of other objects, so in 2006 it was classified as a dwarf planet. This is an example of scientific ideas changing when new evidence is found.",
+      "misconceptions": {
+        "0": "Pluto still exists and still orbits the Sun. Only its name group changed, from planet to dwarf planet.",
+        "1": "Pluto orbits the Sun, not Neptune. It is a dwarf planet, not a moon.",
+        "2": "Pluto still orbits the Sun. It takes about 248 years to go round once."
+      },
+      "skill": "the Sun and the planets",
+      "source": "original"
+    },
+    {
+      "id": "s12-q007",
+      "subtopicId": "s12-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Arjun predicts: 'The further a planet is from the Sun, the colder its surface.' He finds this table of average surface temperatures (planets listed in order from the Sun): Mercury 167 °C, Venus 464 °C, Earth 15 °C, Mars -65 °C. Which planet does NOT fit his prediction?",
+      "options": [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars"
+      ],
+      "answer": 1,
+      "solution": "If the prediction were right, the temperatures should go down as you move away from the Sun. Mercury should be hottest. But Venus, which is further away, is hotter (464 °C) than Mercury (167 °C). So Venus does not fit the prediction. Earth and Mars do fit.",
+      "misconceptions": {
+        "0": "Mercury is closest to the Sun, so the prediction says it should be the hottest of these four. But Venus is even hotter, so Venus is the one that breaks the pattern.",
+        "2": "Earth (15 °C) is colder than Venus and warmer than Mars, so it fits the pattern.",
+        "3": "-65 °C is the coldest temperature in the table (below zero), and Mars is the furthest away, so it fits the prediction."
+      },
+      "skill": "testing predictions with data",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s12-q008",
+      "subtopicId": "s12-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Mercury is the closest planet to the Sun, but Venus has the hottest surface of all the planets. What is the best explanation?",
+      "options": [
+        "Venus has a very thick atmosphere, mostly carbon dioxide, that traps the heat",
+        "Venus is closer to the Sun than Mercury",
+        "Venus is a gas giant, and gas giants are hotter",
+        "Venus makes its own light and heat, like the Sun"
+      ],
+      "answer": 0,
+      "solution": "Mercury has almost no atmosphere, so its heat escapes into space. Venus is covered in a very thick atmosphere of carbon dioxide with clouds. This traps heat like a blanket, so Venus is hotter than Mercury even though it is further from the Sun.",
+      "misconceptions": {
+        "1": "Mercury is the closest planet to the Sun. Venus is the second planet.",
+        "2": "Venus is a small rocky planet. The gas giants (Jupiter and Saturn) are far from the Sun and very cold at their cloud tops.",
+        "3": "Planets do not make their own light. Venus shines in our sky only because it reflects sunlight."
+      },
+      "skill": "rocky and giant planets",
+      "source": "original"
+    },
+    {
+      "id": "s12-q009",
+      "subtopicId": "s12-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which planet is fourth from the Sun and is often called the Red Planet?",
+      "answer": {
+        "accept": [
+          "Mars",
+          "planet Mars"
+        ],
+        "keywords": []
+      },
+      "solution": "Mars is the fourth planet from the Sun, after Mercury, Venus and Earth. Its rocks and dust contain iron oxide (rust), which makes it look red.",
+      "misconceptions": {
+        "common": "Answering Jupiter. Jupiter is fifth from the Sun; Mars comes just before it."
+      },
+      "skill": "order of the planets",
+      "source": "original"
+    },
+    {
+      "id": "s12-q010",
+      "subtopicId": "s12-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What causes day and night on Earth?",
+      "options": [
+        "The Sun moves around the Earth once a day",
+        "The Earth spins on its axis, once about every 24 hours",
+        "The Earth orbits the Sun once a day",
+        "The Moon blocks the Sun's light every night"
+      ],
+      "answer": 1,
+      "solution": "The Earth spins (rotates) on its axis once about every 24 hours. The side facing the Sun has day; the side facing away has night. As the Earth turns, places move from day into night and back again.",
+      "misconceptions": {
+        "0": "The Sun only seems to move across the sky. It is really the Earth turning that makes the Sun appear to rise and set.",
+        "2": "One orbit of the Sun takes a whole year (about 365 1/4 days). Day and night come from the Earth spinning, not orbiting.",
+        "3": "The Moon does not cause night. Night is when your side of the Earth has turned to face away from the Sun."
+      },
+      "skill": "day, night and years",
+      "source": "original"
+    },
+    {
+      "id": "s12-q011",
+      "subtopicId": "s12-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How many days does it take the Earth to orbit the Sun once? Give your answer to the nearest whole day.",
+      "answer": {
+        "value": 365,
+        "tolerance": 0,
+        "accept": [
+          "365 days"
+        ]
+      },
+      "solution": "The Earth takes about 365 1/4 days to travel once around the Sun. To the nearest whole day that is 365 days, which is one year.",
+      "misconceptions": {
+        "common": "Answering 24 (hours), which is the time for the Earth to spin once, not to orbit the Sun."
+      },
+      "skill": "day, night and years",
+      "source": "original"
+    },
+    {
+      "id": "s12-q012",
+      "subtopicId": "s12-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The Moon orbits the Earth, and the Earth orbits the Sun.",
+      "answer": true,
+      "solution": "True. The Moon travels around the Earth, and at the same time the Earth (taking the Moon with it) travels around the Sun.",
+      "misconceptions": {
+        "common": "Thinking the Sun orbits the Earth because it seems to move across our sky."
+      },
+      "skill": "orbits in the Solar System",
+      "source": "original"
+    },
+    {
+      "id": "s12-q013",
+      "subtopicId": "s12-s2",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each movement to the time it takes.",
+      "options": {
+        "left": [
+          "The Earth spins once on its axis",
+          "The Earth orbits the Sun once",
+          "The Moon orbits the Earth once"
+        ],
+        "right": [
+          "About 27 to 28 days",
+          "About 24 hours",
+          "About 7 days",
+          "About 365 1/4 days"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "solution": "The Earth spins once in about 24 hours (one day). It orbits the Sun once in about 365 1/4 days (one year). The Moon orbits the Earth once in about 27 to 28 days (about 27 1/3 days). (The Moon's phases repeat about every 29 1/2 days, a little longer, because the Earth has moved along its own orbit in that time.)",
+      "misconceptions": {
+        "common": "Mixing up spinning (a day) and orbiting (a year). A spin is turning on the spot; an orbit is a journey all the way around something."
+      },
+      "skill": "day, night and years",
+      "source": "original"
+    },
+    {
+      "id": "s12-q014",
+      "subtopicId": "s12-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: The Sun rises in the east and sets in the west because the Sun travels around the Earth every day.",
+      "answer": false,
+      "solution": "False. The Sun does rise in the east and set in the west, but that is because the Earth spins from west to east. As your part of the Earth turns towards the Sun it looks like sunrise, and as it turns away it looks like sunset.",
+      "misconceptions": {
+        "common": "Believing what it looks like from the ground. It feels as if we are still and the Sun moves, but really the Earth is turning."
+      },
+      "skill": "day, night and years",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s12-q015",
+      "subtopicId": "s12-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The Earth takes about 365 1/4 days to orbit the Sun, but a normal calendar year has 365 days. Why do we add an extra day (29 February) every 4 years?",
+      "options": [
+        "The Earth slows down every fourth year",
+        "The Moon takes an extra day to orbit the Earth every fourth year",
+        "Four extra quarter days add up to one whole day",
+        "To make February the same length as the other months"
+      ],
+      "answer": 2,
+      "solution": "Each year the Earth needs about 1/4 of a day more than 365 days. After 4 years: 1/4 + 1/4 + 1/4 + 1/4 = 1 whole day. So every 4 years we add one day to keep the calendar in step with the Earth's orbit.",
+      "misconceptions": {
+        "0": "The Earth's speed does not change from year to year. The extra day is needed because of the 1/4 day left over each year.",
+        "1": "The calendar year is based on the Earth orbiting the Sun, not on the Moon.",
+        "3": "Even with 29 days, February is still shorter than every other month."
+      },
+      "skill": "day, night and years",
+      "source": "original"
+    },
+    {
+      "id": "s12-q016",
+      "subtopicId": "s12-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A normal year has 365 days and a leap year has 366 days. How many days are there altogether in 4 years in a row, if exactly one of them is a leap year? Give your answer in days.",
+      "answer": {
+        "value": 1461,
+        "tolerance": 0,
+        "accept": [
+          "1461 days",
+          "1,461"
+        ]
+      },
+      "solution": "Three normal years: 3 x 365 = 1095 days. One leap year: 366 days. Total: 1095 + 366 = 1461 days. (This is the same as 4 x 365 1/4 = 1461.)",
+      "misconceptions": {
+        "common": "Doing 4 x 365 = 1460 and forgetting the extra leap day."
+      },
+      "skill": "day, night and years",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s12-q017",
+      "subtopicId": "s12-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "From Earth, we always see the same side of the Moon. Which statement explains this?",
+      "options": [
+        "The Moon does not spin at all",
+        "The Earth's shadow always covers the other side of the Moon",
+        "The Moon spins once on its axis in the same time that it takes to orbit the Earth once",
+        "The other side of the Moon never gets any sunlight"
+      ],
+      "answer": 2,
+      "solution": "The Moon takes about 27 days to orbit the Earth, and it also takes about 27 days to spin once. Because these match, the same side always faces the Earth. Try it: walk around a chair while always facing it. You turn around once as you go around once.",
+      "misconceptions": {
+        "0": "If the Moon did not spin, we would see all of its sides as it travelled around the Earth. It does spin, exactly once per orbit.",
+        "1": "The Earth's shadow only falls on the Moon during a lunar eclipse. It is not why we always see the same side.",
+        "3": "The far side of the Moon gets sunlight too; at new moon it is fully lit. We just never see it from Earth."
+      },
+      "skill": "orbits in the Solar System",
+      "source": "original"
+    },
+    {
+      "id": "s12-q018",
+      "subtopicId": "s12-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A table shows each planet's distance from the Sun and the time it takes to orbit the Sun once: Mercury 58 million km, 88 days; Venus 108 million km, 225 days; Earth 150 million km, 365 days; Mars 228 million km, 687 days. Which conclusion do these data support?",
+      "options": [
+        "The closer a planet is to the Sun, the longer it takes to orbit the Sun once",
+        "All the planets take about the same time to orbit the Sun",
+        "Bigger planets take longer to orbit the Sun",
+        "The further a planet is from the Sun, the longer it takes to orbit the Sun once"
+      ],
+      "answer": 3,
+      "solution": "Look at both columns together. As the distance goes up (58, 108, 150, 228 million km), the orbit time also goes up (88, 225, 365, 687 days). So the further a planet is from the Sun, the longer its year. A further planet has a longer path to travel and also moves more slowly.",
+      "misconceptions": {
+        "0": "This is the pattern back to front. Mercury is closest and takes only 88 days, the shortest time.",
+        "1": "The times are very different, from 88 days to 687 days. Always check the numbers before choosing a conclusion.",
+        "2": "The table does not give the sizes of the planets, so this conclusion is not supported by these data. (In fact Mars is smaller than Earth but takes longer.)"
+      },
+      "skill": "describing patterns in data",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s12-q019",
+      "subtopicId": "s12-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Why can we see the Moon shining in the night sky?",
+      "options": [
+        "It gives out its own light, like the Sun",
+        "It glows because it is very hot",
+        "It reflects light from the Sun",
+        "It reflects light from the stars"
+      ],
+      "answer": 2,
+      "solution": "The Sun is a light source. The Moon is not; it reflects sunlight. Light from the Sun hits the Moon, bounces off and travels to our eyes, so we see it.",
+      "misconceptions": {
+        "0": "The Moon is not a light source. It is a ball of rock that we see only because sunlight bounces off it.",
+        "1": "The Moon is not hot enough to glow. It shines only because it reflects sunlight.",
+        "3": "Starlight is far too faint to light up the Moon. The Moon's light is reflected sunlight."
+      },
+      "skill": "why the Moon has phases",
+      "source": "original"
+    },
+    {
+      "id": "s12-q020",
+      "subtopicId": "s12-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name of the phase when the whole side of the Moon facing the Earth is lit, so we see a complete bright circle?",
+      "answer": {
+        "accept": [
+          "full moon",
+          "a full moon",
+          "the full moon",
+          "full"
+        ],
+        "keywords": []
+      },
+      "solution": "This is a full moon. It happens when the Moon is on the opposite side of the Earth from the Sun, so we see all of the Moon's lit half.",
+      "misconceptions": {
+        "common": "Answering 'new moon'. At new moon we see almost nothing, because the lit side faces away from us."
+      },
+      "skill": "naming the phases of the Moon",
+      "source": "original"
+    },
+    {
+      "id": "s12-q021",
+      "subtopicId": "s12-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: The phases of the Moon are caused by the Earth's shadow falling on the Moon.",
+      "answer": false,
+      "solution": "False. Half of the Moon is always lit by the Sun. As the Moon orbits the Earth, we see different amounts of that lit half, which gives the phases. The Earth's shadow falls on the Moon only during a lunar eclipse, which is rare.",
+      "misconceptions": {
+        "common": "This is one of the most common mistakes about the Moon. If the Earth's shadow caused the phases, the Moon would be hidden at full moon, but at full moon the Moon is fully lit."
+      },
+      "skill": "why the Moon has phases",
+      "source": "original"
+    },
+    {
+      "id": "s12-q022",
+      "subtopicId": "s12-s3",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Starting from the new moon, put these phases of the Moon in the order they happen.",
+      "options": [
+        "full moon",
+        "waxing crescent",
+        "waxing gibbous",
+        "new moon",
+        "first quarter"
+      ],
+      "answer": [
+        3,
+        1,
+        4,
+        2,
+        0
+      ],
+      "solution": "After a new moon, a thin waxing crescent appears. It grows to a first quarter (half of the face lit), then a waxing gibbous (more than half lit), and then a full moon. 'Waxing' means the lit part is getting bigger.",
+      "misconceptions": {
+        "common": "Putting waxing gibbous before first quarter. A crescent is less than half lit, a quarter is half lit and gibbous is more than half lit, so the order is crescent, quarter, gibbous."
+      },
+      "skill": "naming the phases of the Moon",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s12-q023",
+      "subtopicId": "s12-s3",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What word describes the Moon when the lit part we can see is getting bigger each night? Answer in one word.",
+      "answer": {
+        "accept": [
+          "waxing"
+        ],
+        "keywords": []
+      },
+      "solution": "When the lit part is growing, the Moon is waxing. When it is shrinking after full moon, the Moon is waning.",
+      "misconceptions": {
+        "common": "Mixing up waxing (growing, from new moon to full moon) and waning (shrinking, from full moon to new moon)."
+      },
+      "skill": "naming the phases of the Moon",
+      "source": "original"
+    },
+    {
+      "id": "s12-q024",
+      "subtopicId": "s12-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "About how long is it from one full moon to the next full moon?",
+      "options": [
+        "About 7 days",
+        "About 29 1/2 days",
+        "About 24 hours",
+        "About 365 days"
+      ],
+      "answer": 1,
+      "solution": "The Moon goes through all its phases, from full moon back to full moon, in about 29 1/2 days. That is about one month; the word 'month' comes from 'moon'.",
+      "misconceptions": {
+        "0": "About 7 days is the time between one main phase and the next, for example from new moon to first quarter. A full cycle takes about four times as long.",
+        "2": "24 hours is the time for the Earth to spin once. The Moon's cycle of phases takes about a month.",
+        "3": "365 days is the time for the Earth to orbit the Sun, one year. There are about 12 full moons in a year."
+      },
+      "skill": "the Moon's monthly cycle",
+      "source": "original"
+    },
+    {
+      "id": "s12-q025",
+      "subtopicId": "s12-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "At new moon we can hardly see the Moon at all. Where is the Moon at new moon?",
+      "options": [
+        "Between the Earth and the Sun, so its lit side faces away from us",
+        "On the far side of the Earth from the Sun",
+        "Inside the Earth's shadow",
+        "Behind the Sun, where the Sun hides it"
+      ],
+      "answer": 0,
+      "solution": "At new moon the Moon is roughly between the Earth and the Sun. The Sun lights the side of the Moon facing away from us, and the side facing us is dark, so we can hardly see it. It is also in the sky during the day, close to the bright Sun.",
+      "misconceptions": {
+        "1": "That is where the Moon is at full moon. Then the lit side faces us and we see a full circle.",
+        "2": "The Moon is in the Earth's shadow only during a lunar eclipse. At new moon it is on the Sun's side of the Earth, not in our shadow.",
+        "3": "The Moon orbits the Earth, so it never goes behind the Sun. At new moon it is between us and the Sun."
+      },
+      "skill": "why the Moon has phases",
+      "source": "original"
+    },
+    {
+      "id": "s12-q026",
+      "subtopicId": "s12-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Siti wants to find out how the Moon's appearance changes over a month. Which plan is best?",
+      "options": [
+        "Draw the Moon on one night and copy that drawing for the other days",
+        "Draw the Moon only on the night of the full moon",
+        "Watch the Moon through a telescope for one hour on a single night",
+        "Draw the Moon's shape at about the same time every clear night for a month, writing the date each time"
+      ],
+      "answer": 3,
+      "solution": "This is an 'observing over time' enquiry. The Moon's phases change slowly over about a month, so Siti needs regular observations: every clear night, about the same time, with the date recorded. If it is cloudy she can leave a gap and carry on the next night.",
+      "misconceptions": {
+        "0": "One observation cannot show a change. She must observe again and again over time.",
+        "1": "That shows only one phase. To see how the Moon changes she needs to observe it on many nights through the month.",
+        "2": "The Moon's shape changes very little in one hour. The phases change over days and weeks."
+      },
+      "skill": "observing over time",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s12-q027",
+      "subtopicId": "s12-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Tonight the Moon is at first quarter. About how long will it be until the next full moon?",
+      "options": [
+        "About 1 week",
+        "About 2 weeks",
+        "About 3 weeks",
+        "About 4 weeks"
+      ],
+      "answer": 0,
+      "solution": "The whole cycle takes about 29 1/2 days, roughly 4 weeks. The four main phases come about 1 week apart: new moon, first quarter, full moon, last quarter. So from first quarter to full moon is about 1 week.",
+      "misconceptions": {
+        "1": "About 2 weeks is the time from new moon to full moon. First quarter is already halfway there.",
+        "2": "This counts the wrong way round the cycle. After first quarter the Moon goes to waxing gibbous and then full moon, which is about 1 week.",
+        "3": "About 4 weeks (29 1/2 days) is the whole cycle, from one full moon to the next."
+      },
+      "skill": "the Moon's monthly cycle",
+      "source": "original"
+    },
+    {
+      "id": "s12-q028",
+      "subtopicId": "s12-s3",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Select ALL the statements that are true about the phases of the Moon.",
+      "options": [
+        "The Moon changes shape because clouds cover parts of it",
+        "Half of the Moon is always lit by the Sun",
+        "The Moon actually gets smaller when it is waning",
+        "We see different amounts of the Moon's lit half as it orbits the Earth",
+        "Full moon happens when the Moon is on the opposite side of the Earth from the Sun"
+      ],
+      "answer": [
+        1,
+        3,
+        4
+      ],
+      "solution": "The Sun always lights half of the Moon. As the Moon orbits the Earth, we see different amounts of that lit half. When the Moon is on the opposite side of the Earth from the Sun, we see all of the lit half: a full moon. The Moon's real size does not change.",
+      "misconceptions": {
+        "0": "Clouds can hide the Moon, but they do not cause its phases. The phases happen even on perfectly clear nights.",
+        "2": "The Moon's size never changes. Only the amount of its lit half that we can see changes."
+      },
+      "skill": "why the Moon has phases",
+      "source": "original"
+    },
+    {
+      "id": "s12-q029",
+      "subtopicId": "s12-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In the old geocentric model of the universe, what was at the centre?",
+      "options": [
+        "The Earth",
+        "The Sun",
+        "The Moon",
+        "The stars"
+      ],
+      "answer": 0,
+      "solution": "'Geo' means Earth. In the geocentric model, the Earth was at the centre and the Sun, Moon, planets and stars all moved around it. It matched what people saw from the ground, but later evidence showed it was wrong.",
+      "misconceptions": {
+        "1": "A model with the Sun at the centre is the heliocentric model. 'Geo' means Earth, so the geocentric model has the Earth at the centre.",
+        "2": "No model put the Moon at the centre. In the geocentric model the Moon, Sun and planets all moved around the Earth.",
+        "3": "In the geocentric model the stars were thought to be on a far-away sphere turning around the Earth, not at the centre."
+      },
+      "skill": "geocentric and heliocentric models",
+      "source": "original"
+    },
+    {
+      "id": "s12-q030",
+      "subtopicId": "s12-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Long ago, many people believed that the Sun moved around the Earth, because that is how it looks from the ground.",
+      "answer": true,
+      "solution": "True. From the ground, the Earth feels still and the Sun seems to cross the sky each day. So for a very long time most people believed in a geocentric (Earth-centred) model. New evidence later changed scientists' minds.",
+      "misconceptions": {
+        "common": "Thinking people long ago were just careless. They used the evidence they had; better evidence, such as telescope observations, came later."
+      },
+      "skill": "geocentric and heliocentric models",
+      "source": "original"
+    },
+    {
+      "id": "s12-q031",
+      "subtopicId": "s12-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which scientist is famous for describing a model of the Solar System with the Sun at the centre, in a book published in 1543?",
+      "options": [
+        "Ptolemy",
+        "Isaac Newton",
+        "Nicolaus Copernicus",
+        "Neil Armstrong"
+      ],
+      "answer": 2,
+      "solution": "Nicolaus Copernicus described a heliocentric (Sun-centred) model in 1543. Later, Galileo's telescope observations gave evidence that supported it. This shows how scientific ideas change when new evidence is found.",
+      "misconceptions": {
+        "0": "Ptolemy, who lived in ancient times, described the Earth-centred (geocentric) model, the one Copernicus argued against.",
+        "1": "Newton lived later (born 1643) and is famous for explaining gravity, not for first putting the Sun at the centre.",
+        "3": "Neil Armstrong was the first person to walk on the Moon, in 1969. He did not create a model of the Solar System."
+      },
+      "skill": "geocentric and heliocentric models",
+      "source": "original"
+    },
+    {
+      "id": "s12-q032",
+      "subtopicId": "s12-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Your class makes a model using a lamp for the Sun, a large ball for the Earth and a small ball for the Moon. What is this model most useful for showing?",
+      "options": [
+        "How the Sun lights half of the Moon, and why we see different phases as the Moon moves around the Earth",
+        "The real distances between the Sun, the Earth and the Moon",
+        "That the Moon makes its own light",
+        "How hot the Sun really is"
+      ],
+      "answer": 0,
+      "solution": "Models help us understand things that are too big or too far away to see directly. With a lamp and balls, you can see that half of the 'Moon' is always lit, and that you see a different amount of that lit half as it moves around the 'Earth'. But a model is never perfect: this one does not show real sizes or distances.",
+      "misconceptions": {
+        "1": "In a classroom model the distances are far too small. The real Sun is about 150 million km from Earth, so this model cannot show true distances.",
+        "2": "In the model the small ball only shines where the lamp lights it, which shows the Moon reflects light; it does not make its own.",
+        "3": "A lamp cannot show the Sun's real temperature. The model is for showing positions, movement and lighting."
+      },
+      "skill": "using models",
+      "source": "original"
+    },
+    {
+      "id": "s12-q033",
+      "subtopicId": "s12-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "In a scale model, the Earth is a ball 1 cm wide. The Sun's diameter is about 109 times the Earth's diameter. How wide should the model Sun be? Give your answer in cm.",
+      "answer": {
+        "value": 109,
+        "tolerance": 0,
+        "accept": [
+          "109 cm",
+          "109cm",
+          "1.09 m"
+        ]
+      },
+      "solution": "The model must keep the same scale for both. 1 cm x 109 = 109 cm. That is more than a metre wide, while the Earth is the size of a pea!",
+      "misconceptions": {
+        "common": "Thinking the Sun only needs to be a bit bigger than the Earth because they look similar in size in pictures. Multiply the Earth's model size by 109."
+      },
+      "skill": "using models",
+      "source": "original"
+    },
+    {
+      "id": "s12-q034",
+      "subtopicId": "s12-s4",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What name is given to a model of the Solar System that has the Sun at the centre? Answer in one word.",
+      "answer": {
+        "accept": [
+          "heliocentric",
+          "heliocentric model",
+          "the heliocentric model"
+        ],
+        "keywords": []
+      },
+      "solution": "A Sun-centred model is called heliocentric. 'Helios' is the Greek word for the Sun. The Earth-centred model is called geocentric.",
+      "misconceptions": {
+        "common": "Answering 'geocentric'. Geo means Earth; the geocentric model has the Earth at the centre."
+      },
+      "skill": "geocentric and heliocentric models",
+      "source": "original"
+    },
+    {
+      "id": "s12-q035",
+      "subtopicId": "s12-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In 1610, Galileo looked at Jupiter through a telescope and saw four moons travelling around Jupiter. Why was this important evidence against the geocentric model?",
+      "options": [
+        "It proved that Jupiter is at the centre of the Solar System",
+        "It showed that Jupiter is bigger than the Sun",
+        "It proved that the Earth has four moons",
+        "It showed that not everything in the sky orbits the Earth"
+      ],
+      "answer": 3,
+      "solution": "The geocentric model said that everything in the sky went around the Earth. Galileo saw moons going around Jupiter instead. That was evidence that the Earth is not the centre of everything, which supported Copernicus's Sun-centred model. New evidence changed scientific ideas.",
+      "misconceptions": {
+        "0": "Moons orbiting Jupiter do not put Jupiter at the centre of the Solar System. They only show that the Earth is not the centre of every orbit.",
+        "1": "The moons tell us nothing about Jupiter being bigger than the Sun, and in fact the Sun is far bigger.",
+        "2": "These four moons go around Jupiter, not the Earth. The Earth has only one moon."
+      },
+      "skill": "geocentric and heliocentric models",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s12-q036",
+      "subtopicId": "s12-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Why is it very hard to make a classroom model of the Solar System in which both the sizes of the planets and the distances between them are to the same scale?",
+      "options": [
+        "The planets are close together, so they would overlap in the model",
+        "The distances are huge compared with the sizes, so either the planets would be tiny dots or the model would be far too big for the room",
+        "Scientists do not know how far away the planets are",
+        "The Sun is smaller than the planets, so it would be too hard to see"
+      ],
+      "answer": 1,
+      "solution": "Real distances are enormous. If the Earth were a 1 cm ball, the Sun would be about 109 cm wide and about 117 m away, and Neptune would be about 3.5 km away! So a classroom model must choose: show sizes to scale OR distances to scale, not both. Knowing what a model cannot show is part of using models well.",
+      "misconceptions": {
+        "0": "Pictures and posters often show the planets close together, but in reality the gaps between them are enormous compared with their sizes.",
+        "2": "Scientists know the distances to the planets very accurately. The problem is how huge those distances are.",
+        "3": "The Sun is much bigger than any planet. Its diameter is about 109 times the Earth's."
+      },
+      "skill": "using models",
+      "source": "original"
+    }
+  ]
+}

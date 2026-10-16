@@ -1,0 +1,904 @@
+{
+  "subject": "science",
+  "topicId": "s01-respiratory-and-circulatory-systems",
+  "title": "The Respiratory and Circulatory Systems",
+  "order": 1,
+  "bookChapter": "Chapter 1: The Respiratory and Circulatory Systems",
+  "frameworkRefs": [
+    "6Bs.01",
+    "6Bs.02",
+    "6TWSm.02",
+    "6TWSp.04",
+    "6TWSp.05",
+    "6TWSc.04",
+    "6TWSa.02",
+    "6TWSa.03",
+    "6TWSa.05"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will learn how air travels into your lungs and how oxygen passes into your blood. You will learn how your heart pumps blood through arteries, capillaries and veins, and what the blood carries. You will also see that many other vertebrates have similar systems.",
+    "whyItMatters": "Every cell in your body needs oxygen and nutrients, and needs its waste taken away. Your lungs, heart and blood vessels work as a team to do this every second of your life. Knowing how they work helps you understand exercise, fitness and staying healthy.",
+    "realWorld": [
+      "Your heart pounding and your breathing speeding up when you run in PE or climb the stairs at an LRT station",
+      "A doctor at the klinik feeling your pulse or listening to your heart and lungs with a stethoscope",
+      "A smartwatch showing your heart rate in beats per minute",
+      "Wearing a mask on hazy days to protect your lungs",
+      "Watching a dolphin or turtle come up for air at an aquarium in KL"
+    ],
+    "subtopics": [
+      {
+        "id": "s01-s1",
+        "title": "The respiratory system",
+        "summary": "The parts that carry air into your lungs (nose, trachea, bronchi, air sacs) and how the diaphragm and ribs make you breathe in and out."
+      },
+      {
+        "id": "s01-s2",
+        "title": "Gas exchange in the lungs",
+        "summary": "In the air sacs, oxygen passes from the air into the blood and carbon dioxide passes from the blood into the air."
+      },
+      {
+        "id": "s01-s3",
+        "title": "The heart and blood vessels",
+        "summary": "The heart pumps blood away through arteries, through tiny capillaries, and back through veins. You can feel each heartbeat as a pulse."
+      },
+      {
+        "id": "s01-s4",
+        "title": "What blood carries and the effects of exercise",
+        "summary": "Blood transports oxygen, nutrients and waste. Exercise makes your heart rate and breathing rate go up; you can investigate this with fair tests."
+      },
+      {
+        "id": "s01-s5",
+        "title": "Other vertebrates",
+        "summary": "Many vertebrates have a heart, blood vessels and lungs like ours. Most fish use gills instead of lungs to take in oxygen."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s01-q001",
+      "subtopicId": "s01-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which organs in your chest take in oxygen from the air you breathe?",
+      "options": [
+        "The heart",
+        "The stomach",
+        "The lungs",
+        "The kidneys"
+      ],
+      "answer": 2,
+      "solution": "When you breathe in, air travels down your windpipe into your two lungs. In the lungs, oxygen passes from the air into your blood.",
+      "misconceptions": {
+        "0": "The heart is in your chest too, but its job is to pump blood. The air you breathe goes into your lungs, not your heart.",
+        "1": "The stomach breaks down food. The air you breathe goes down your windpipe into your lungs.",
+        "3": "The kidneys clean waste out of the blood. Oxygen gets into your body through your lungs."
+      },
+      "skill": "parts of the respiratory system",
+      "source": "original"
+    },
+    {
+      "id": "s01-q002",
+      "subtopicId": "s01-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the scientific name for the windpipe, the tube that carries air from your throat towards your lungs?",
+      "answer": {
+        "accept": [
+          "trachea",
+          "the trachea",
+          "trachaea"
+        ],
+        "keywords": []
+      },
+      "solution": "The windpipe is called the trachea. It has rings of tough cartilage that keep it open, so air can always get through to your lungs.",
+      "misconceptions": {
+        "common": "Mixing up the trachea with the oesophagus (gullet). The oesophagus carries food to the stomach; the trachea carries air to the lungs."
+      },
+      "skill": "parts of the respiratory system",
+      "source": "original"
+    },
+    {
+      "id": "s01-q003",
+      "subtopicId": "s01-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: When you breathe in, your diaphragm tightens and moves down.",
+      "answer": true,
+      "solution": "True. The diaphragm is a dome-shaped sheet of muscle under your lungs. When you breathe in, it tightens and flattens, moving down. This makes more space in your chest, so air flows in.",
+      "misconceptions": {
+        "common": "Thinking the diaphragm moves up when you breathe in. It moves up when you breathe out, which helps push air out of the lungs."
+      },
+      "skill": "breathing in and out",
+      "source": "original"
+    },
+    {
+      "id": "s01-q004",
+      "subtopicId": "s01-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Put these parts in the order that air passes through them when you breathe in, from first to last.",
+      "options": [
+        "Bronchi",
+        "Nose or mouth",
+        "Air sacs (alveoli)",
+        "Trachea (windpipe)"
+      ],
+      "answer": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "solution": "Air enters through your nose or mouth and goes down the trachea. The trachea splits into two bronchi, one going into each lung. The bronchi branch into smaller and smaller tubes that end in millions of tiny air sacs.",
+      "misconceptions": {
+        "common": "Putting the bronchi before the trachea. The trachea is the one main tube; lower down it splits into the two bronchi."
+      },
+      "skill": "path of air into the lungs",
+      "source": "original"
+    },
+    {
+      "id": "s01-q005",
+      "subtopicId": "s01-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which sentence correctly describes what happens when you breathe in?",
+      "options": [
+        "Your ribs move up and out, and the space inside your chest gets bigger.",
+        "Your ribs move down and in, and the space inside your chest gets bigger.",
+        "Your ribs move up and out, and the space inside your chest gets smaller.",
+        "Your ribs stay still, and your lungs suck the air in by themselves."
+      ],
+      "answer": 0,
+      "solution": "When you breathe in, muscles between your ribs pull them up and out, and your diaphragm moves down. The space inside your chest gets bigger, so air flows into your lungs. Breathing out is the opposite.",
+      "misconceptions": {
+        "1": "Ribs move down and in when you breathe OUT. Moving down and in makes the chest smaller, not bigger.",
+        "2": "When the ribs move up and out, the chest gets bigger, not smaller. A bigger space is what lets air flow in.",
+        "3": "The lungs have no muscles of their own to suck in air. The diaphragm and the muscles between the ribs do the work; the lungs simply fill up."
+      },
+      "skill": "breathing in and out",
+      "source": "original"
+    },
+    {
+      "id": "s01-q006",
+      "subtopicId": "s01-s1",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each part of the respiratory system to its job.",
+      "options": {
+        "left": [
+          "Trachea",
+          "Bronchi",
+          "Air sacs (alveoli)",
+          "Diaphragm",
+          "Ribs"
+        ],
+        "right": [
+          "Sheet of muscle under the lungs that helps you breathe",
+          "Tiny bags with very thin walls, where gases pass into and out of the blood",
+          "Bones that protect the lungs and move when you breathe",
+          "Main tube that carries air from the throat towards the lungs",
+          "Pumps blood around the body",
+          "Two tubes that branch off, one into each lung"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "solution": "Trachea: the main air tube. Bronchi: the two branches, one into each lung. Air sacs: where oxygen and carbon dioxide are swapped with the blood. Diaphragm: the breathing muscle under the lungs. Ribs: a protective cage that moves up and out as you breathe in. 'Pumps blood around the body' is the heart, which is part of the circulatory system.",
+      "misconceptions": {
+        "common": "Mixing up the trachea and the bronchi. There is one trachea, and it splits into two bronchi. Also, the heart pumps blood; it is not part of the respiratory system."
+      },
+      "skill": "parts of the respiratory system",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s01-q007",
+      "subtopicId": "s01-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Your class builds a model of the chest. Two balloons are tied to a Y-shaped straw inside a plastic bottle that has had its bottom cut off. A rubber sheet is stretched over the open bottom. When you pull the rubber sheet down, the balloons fill with air. Which part of the body does the rubber sheet represent?",
+      "options": [
+        "The lungs",
+        "The trachea",
+        "The ribs",
+        "The diaphragm"
+      ],
+      "answer": 3,
+      "solution": "The rubber sheet sits under the balloon 'lungs' and is pulled down, just like your diaphragm moves down. This makes the space inside the bottle bigger, so air flows in through the straw and the balloons inflate. That is how breathing in works.",
+      "misconceptions": {
+        "0": "The balloons stand for the lungs, because they are the parts that fill with air. The rubber sheet is what makes them fill.",
+        "1": "The straw stands for the trachea and bronchi, the tubes that air travels along. The sheet is the part that moves to make breathing happen.",
+        "2": "The walls of the bottle stand for the chest wall and ribs. The sheet is underneath the 'lungs', just like the diaphragm."
+      },
+      "skill": "using a model of breathing",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s01-q008",
+      "subtopicId": "s01-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which gas passes from the air in your lungs into your blood?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Water vapour"
+      ],
+      "answer": 1,
+      "solution": "In the lungs, oxygen moves from the air into the blood. The blood then carries the oxygen to every part of your body.",
+      "misconceptions": {
+        "0": "This is the wrong way round. Carbon dioxide passes OUT of the blood into the lungs, so that you can breathe it out.",
+        "2": "Air is mostly nitrogen, but your body does not use it. You breathe nitrogen in and out again almost unchanged.",
+        "3": "You breathe OUT water vapour (that is why your breath mists up a cold mirror), but the gas your body takes into the blood is oxygen."
+      },
+      "skill": "gas exchange in the lungs",
+      "source": "original"
+    },
+    {
+      "id": "s01-q009",
+      "subtopicId": "s01-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The air you breathe out contains no oxygen at all.",
+      "answer": false,
+      "solution": "False. Your body takes in only some of the oxygen. Air breathed in is about 21% oxygen, and air breathed out still has about 16% oxygen.",
+      "misconceptions": {
+        "common": "Thinking we breathe in only oxygen and breathe out only carbon dioxide. Both are mixtures of gases; only the amounts change."
+      },
+      "skill": "comparing inhaled and exhaled air",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s01-q010",
+      "subtopicId": "s01-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In which tiny parts of the lungs does oxygen pass into the blood?",
+      "answer": {
+        "accept": [
+          "air sacs",
+          "air sac",
+          "the air sacs",
+          "alveoli",
+          "alveolus",
+          "the alveoli"
+        ],
+        "keywords": []
+      },
+      "solution": "The tubes in your lungs end in millions of tiny air sacs, also called alveoli. Each one is wrapped in tiny blood vessels, and this is where oxygen passes into the blood.",
+      "misconceptions": {
+        "common": "Answering 'bronchi'. The bronchi are tubes that carry air; the gases are swapped in the air sacs at the very ends of the smallest tubes."
+      },
+      "skill": "gas exchange in the lungs",
+      "source": "original"
+    },
+    {
+      "id": "s01-q011",
+      "subtopicId": "s01-s2",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the features of the air sacs (alveoli) that help oxygen pass into the blood quickly.",
+      "options": [
+        "They have very thin walls",
+        "There are millions of them, so together they have a huge surface",
+        "They are surrounded by lots of tiny blood vessels (capillaries)",
+        "They have thick, muscular walls",
+        "They are full of blood instead of air"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "Gases pass through quickly when the wall is thin, the surface is large and plenty of blood flows past to carry the oxygen away. The air sacs have all three of these features.",
+      "misconceptions": {
+        "3": "Thick walls would slow the gases down. The walls of the air sacs are only one cell thick, so oxygen can pass through easily.",
+        "4": "The air sacs are full of air. The blood flows in tiny capillaries wrapped around the outside of each air sac."
+      },
+      "skill": "gas exchange in the lungs",
+      "source": "original"
+    },
+    {
+      "id": "s01-q012",
+      "subtopicId": "s01-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Air breathed out has much more carbon dioxide than air breathed in. Where does this extra carbon dioxide come from?",
+      "options": [
+        "The oxygen turns into carbon dioxide inside the lungs.",
+        "It comes up from the stomach when you digest food.",
+        "It is a waste gas made by the body's cells and carried to the lungs by the blood.",
+        "It was all in the air you breathed in, and the lungs just collect it."
+      ],
+      "answer": 2,
+      "solution": "Your cells use oxygen to release energy from food, and this makes carbon dioxide as a waste. The blood carries the carbon dioxide to the lungs. It passes into the air sacs and you breathe it out.",
+      "misconceptions": {
+        "0": "The lungs do not change one gas into another. They are where gases swap between the air and the blood. The carbon dioxide was made in your body's cells.",
+        "1": "Gas from the stomach comes up the food pipe as a burp. The carbon dioxide you breathe out comes from your cells, carried by the blood to your lungs.",
+        "3": "Air breathed in has only a tiny amount of carbon dioxide (about 0.04%). The large extra amount you breathe out was made by your cells."
+      },
+      "skill": "gas exchange in the lungs",
+      "source": "original"
+    },
+    {
+      "id": "s01-q013",
+      "subtopicId": "s01-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A table shows the gases in air. Air breathed in: oxygen 21%, carbon dioxide 0.04%. Air breathed out: oxygen 16%, carbon dioxide 4%. How many times more carbon dioxide is there in air breathed out than in air breathed in? Give your answer as a whole number.",
+      "answer": {
+        "value": 100,
+        "tolerance": 0,
+        "accept": [
+          "100 times"
+        ]
+      },
+      "solution": "'How many times more' means divide. 4 ÷ 0.04: multiply both numbers by 100 to get 400 ÷ 4 = 100. So breathed-out air has 100 times as much carbon dioxide. The extra carbon dioxide came out of your blood in the lungs.",
+      "misconceptions": {
+        "common": "Subtracting instead of dividing (4 - 0.04 = 3.96), or slipping with the decimal and getting 10. 'How many times more' means divide, and 4 ÷ 0.04 = 400 ÷ 4 = 100."
+      },
+      "skill": "comparing inhaled and exhaled air",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s01-q014",
+      "subtopicId": "s01-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the main job of the heart?",
+      "options": [
+        "To pump blood around the body",
+        "To take oxygen out of the air",
+        "To clean waste out of the blood",
+        "To store blood until the body needs it"
+      ],
+      "answer": 0,
+      "solution": "Your heart is a strong muscle about the size of your fist. It squeezes again and again to pump blood through your blood vessels to every part of your body.",
+      "misconceptions": {
+        "1": "That is the job of the lungs. The heart pumps the blood that carries the oxygen.",
+        "2": "The kidneys clean waste out of the blood. The heart is a pump.",
+        "3": "The heart does not store blood. It keeps blood moving all the time, beating around 70 to 100 times a minute when you rest."
+      },
+      "skill": "the heart",
+      "source": "original"
+    },
+    {
+      "id": "s01-q015",
+      "subtopicId": "s01-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which type of blood vessel carries blood away from the heart?",
+      "answer": {
+        "accept": [
+          "artery",
+          "arteries",
+          "an artery"
+        ],
+        "keywords": []
+      },
+      "solution": "Arteries carry blood away from the heart. A memory trick: Arteries go Away. Veins carry blood back to the heart.",
+      "misconceptions": {
+        "common": "Mixing up arteries and veins. Remember: Arteries go Away from the heart; veins bring blood back."
+      },
+      "skill": "arteries, veins and capillaries",
+      "source": "original"
+    },
+    {
+      "id": "s01-q016",
+      "subtopicId": "s01-s3",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each type of blood vessel to its description.",
+      "options": {
+        "left": [
+          "Artery",
+          "Vein",
+          "Capillary"
+        ],
+        "right": [
+          "Tiny vessel with very thin walls, where substances pass between the blood and the body's cells",
+          "Carries blood back to the heart; has thinner walls and valves",
+          "Carries blood away from the heart; has thick, stretchy walls",
+          "Carries air into the lungs"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "solution": "Arteries carry blood away from the heart. The heart pushes blood into them hard, so they have thick, stretchy walls. Veins bring blood back to the heart; they have thinner walls and valves that stop blood flowing backwards. Capillaries are the tiny vessels in between, with walls so thin that oxygen, nutrients and waste can pass through. Air tubes are part of the respiratory system, not blood vessels.",
+      "misconceptions": {
+        "common": "Swapping arteries and veins. Arteries go Away from the heart; veins return blood to it."
+      },
+      "skill": "arteries, veins and capillaries",
+      "source": "original"
+    },
+    {
+      "id": "s01-q017",
+      "subtopicId": "s01-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "When you press two fingers gently on the inside of your wrist, you can feel your pulse. What is your pulse?",
+      "options": [
+        "The sound of air moving in and out of your lungs",
+        "Blood flowing back to the heart in a vein",
+        "The number of breaths you take each minute",
+        "A throb of blood pushed along an artery each time your heart beats"
+      ],
+      "answer": 3,
+      "solution": "Each time your heart beats, it pushes a surge of blood into your arteries. Where an artery is close to the skin, like at your wrist or neck, you can feel this as a pulse. One pulse beat = one heartbeat.",
+      "misconceptions": {
+        "0": "That is breathing. Your pulse comes from your heart pumping, not from your lungs.",
+        "1": "Blood in veins flows smoothly and gently, so you cannot feel a pulse in them. The pulse is felt in an artery close to the skin.",
+        "2": "That is your breathing rate. Your pulse matches your heartbeat."
+      },
+      "skill": "the pulse and heart rate",
+      "source": "original"
+    },
+    {
+      "id": "s01-q018",
+      "subtopicId": "s01-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Wei Ming counts 19 pulse beats at his wrist in 15 seconds. What is his heart rate in beats per minute?",
+      "answer": {
+        "value": 76,
+        "tolerance": 0,
+        "accept": [
+          "76 beats per minute",
+          "76 bpm"
+        ]
+      },
+      "solution": "There are 4 lots of 15 seconds in 1 minute (4 x 15 = 60). So multiply by 4: 19 x 4 = 76 beats per minute.",
+      "misconceptions": {
+        "common": "Multiplying by 15 or by 60 instead of by 4. You multiply by the number of 15-second blocks in one minute, which is 4."
+      },
+      "skill": "the pulse and heart rate",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s01-q019",
+      "subtopicId": "s01-s3",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Blood leaves your heart, travels to a muscle in your leg and comes back again. Put these steps in order, from first to last.",
+      "options": [
+        "Travels along a vein",
+        "Leaves the heart",
+        "Passes through capillaries in the leg muscle",
+        "Returns to the heart",
+        "Travels along an artery"
+      ],
+      "answer": [
+        1,
+        4,
+        2,
+        0,
+        3
+      ],
+      "solution": "Blood leaves the heart in an artery. The artery branches into tiny capillaries in the muscle, where oxygen and nutrients pass into the muscle cells and waste passes into the blood. The capillaries join up into a vein, which carries the blood back to the heart.",
+      "misconceptions": {
+        "common": "Putting the vein before the artery. Blood always leaves the heart in arteries and comes back in veins, with capillaries joining them in between."
+      },
+      "skill": "path of blood around the body",
+      "source": "original"
+    },
+    {
+      "id": "s01-q020",
+      "subtopicId": "s01-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which is the BEST definition of an artery?",
+      "options": [
+        "A blood vessel that carries blood full of oxygen",
+        "A blood vessel that carries blood away from the heart",
+        "A blood vessel that carries blood back to the heart",
+        "The smallest blood vessel, where substances pass in and out of the blood"
+      ],
+      "answer": 1,
+      "solution": "An artery is any blood vessel that carries blood away from the heart. Most arteries carry blood rich in oxygen, but the one going to the lungs does not, so 'away from the heart' is the best definition.",
+      "misconceptions": {
+        "0": "Most arteries do carry oxygen-rich blood, but not all of them: the artery from the heart to the lungs carries blood that is low in oxygen. What makes a vessel an artery is its direction, away from the heart.",
+        "2": "That describes a vein, not an artery.",
+        "3": "That describes a capillary. Arteries are large vessels with thick walls."
+      },
+      "skill": "arteries, veins and capillaries",
+      "source": "original"
+    },
+    {
+      "id": "s01-q021",
+      "subtopicId": "s01-s3",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "True or false: In one complete trip around the body, blood passes through the heart twice.",
+      "answer": true,
+      "solution": "True. The heart pumps blood to the lungs, where it picks up oxygen. The blood returns to the heart (first visit), which pumps it out to the rest of the body. After delivering oxygen, the blood comes back to the heart again (second visit) and is sent to the lungs once more.",
+      "misconceptions": {
+        "common": "Thinking blood goes in one big loop: heart, body, lungs, heart. In fact blood returns to the heart after the lungs AND after the body."
+      },
+      "skill": "path of blood around the body",
+      "source": "original"
+    },
+    {
+      "id": "s01-q022",
+      "subtopicId": "s01-s4",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Select ALL the things that blood carries around your body.",
+      "options": [
+        "Oxygen",
+        "Nutrients from digested food",
+        "Carbon dioxide (a waste gas)",
+        "Bubbles of air",
+        "Pieces of undigested food"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "Blood carries oxygen from the lungs to the body, nutrients from digested food to every cell, and waste such as carbon dioxide away from the cells (carbon dioxide goes to the lungs to be breathed out).",
+      "misconceptions": {
+        "3": "Oxygen is carried by red blood cells, not as bubbles of air. Air bubbles in blood vessels would be dangerous.",
+        "4": "Food has to be broken down into tiny nutrient particles before it can pass into the blood. Undigested food stays in the gut and leaves the body as waste."
+      },
+      "skill": "what blood transports",
+      "source": "original"
+    },
+    {
+      "id": "s01-q023",
+      "subtopicId": "s01-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "You run fast for two minutes. What happens to your heart rate and your breathing rate?",
+      "options": [
+        "Heart rate goes up, but breathing rate goes down",
+        "Both go up",
+        "Both go down",
+        "Heart rate stays the same; only breathing rate goes up"
+      ],
+      "answer": 1,
+      "solution": "When you exercise, your muscles need more oxygen and make more carbon dioxide. You breathe faster and deeper to swap more gases in your lungs, and your heart beats faster to move the blood around more quickly.",
+      "misconceptions": {
+        "0": "Your muscles need extra oxygen, so you breathe faster and deeper as well as your heart beating faster.",
+        "2": "Resting makes them go down. Exercise makes them both go up.",
+        "3": "Breathing faster brings in more oxygen, but your heart must also beat faster to carry that oxygen to your muscles."
+      },
+      "skill": "effects of exercise",
+      "source": "original"
+    },
+    {
+      "id": "s01-q024",
+      "subtopicId": "s01-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Why does your heart beat faster when you exercise?",
+      "options": [
+        "Your muscles make oxygen, which must be carried quickly to the lungs.",
+        "Exercise uses up blood, so the heart must make more.",
+        "Your working muscles need more oxygen and nutrients, so blood must reach them faster.",
+        "The heart beats faster so that you will breathe faster."
+      ],
+      "answer": 2,
+      "solution": "Working muscles use more oxygen to release energy, and they make more carbon dioxide. Your heart beats faster to deliver oxygen and nutrients more quickly and to carry the extra carbon dioxide away to the lungs.",
+      "misconceptions": {
+        "0": "This is the wrong way round. Muscles USE oxygen and make carbon dioxide; the blood carries the carbon dioxide to the lungs.",
+        "1": "The heart does not make blood (blood cells are made inside your bones). Exercise does not use up blood; the heart just pumps the same blood round faster.",
+        "3": "Your heart rate does not cause your breathing rate. Both go up for the same reason: your muscles need more oxygen and must get rid of more carbon dioxide."
+      },
+      "skill": "effects of exercise",
+      "source": "original"
+    },
+    {
+      "id": "s01-q025",
+      "subtopicId": "s01-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Arjun investigates this question: 'Does the number of minutes I skip change my pulse rate?' He skips for 1, 2, 3 and 4 minutes, at the same speed each time, and measures his pulse rate straight after. Which is the dependent variable (the one he measures)?",
+      "options": [
+        "The number of minutes he skips",
+        "The speed he skips at",
+        "The skipping rope he uses",
+        "His pulse rate after skipping"
+      ],
+      "answer": 3,
+      "solution": "The dependent variable is what you measure to see the effect. Arjun changes the number of minutes (independent variable), keeps the speed and the rope the same (control variables), and measures his pulse rate (dependent variable).",
+      "misconceptions": {
+        "0": "This is the independent variable: the one Arjun chooses to change.",
+        "1": "Arjun keeps the speed the same each time, so it is a control variable. Keeping it the same makes the test fair.",
+        "2": "Arjun uses the same rope each time, so it is kept the same (a control variable). It is not what he measures."
+      },
+      "skill": "fair test variables",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s01-q026",
+      "subtopicId": "s01-s4",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Mei Lin measures her resting pulse rate four times while sitting still. Her results, in beats per minute, are: 76, 78, 104, 77. Which result is anomalous (does not fit the pattern)?",
+      "answer": {
+        "accept": [
+          "104",
+          "104 beats per minute",
+          "104 bpm"
+        ],
+        "keywords": []
+      },
+      "solution": "Three results are close together, between 76 and 78. The result 104 is much higher, so it is anomalous. She may have miscounted or moved just before measuring. She should measure again and leave 104 out when she works out the mean.",
+      "misconceptions": {
+        "common": "Choosing 76 because it is the smallest number. 76, 77 and 78 are all close together; 104 is the one far away from the others."
+      },
+      "skill": "identifying anomalous results",
+      "source": "original"
+    },
+    {
+      "id": "s01-q027",
+      "subtopicId": "s01-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: After you stop exercising and rest, your heart rate stays high for the rest of the day.",
+      "answer": false,
+      "solution": "False. When you rest, your muscles need less oxygen, so your heart rate and breathing rate slowly go back to normal, usually within minutes. Fitter people usually get back to their resting rate more quickly.",
+      "misconceptions": {
+        "common": "Thinking the body stays at its exercise heart rate. Once your muscles need less oxygen, your heart rate goes back down."
+      },
+      "skill": "effects of exercise",
+      "source": "original"
+    },
+    {
+      "id": "s01-q028",
+      "subtopicId": "s01-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Omar measures his resting pulse rate three times and works out the mean, instead of measuring it just once. Why is this a good idea?",
+      "options": [
+        "It makes his result more reliable, because one single reading could be a mistake or unusual.",
+        "It makes the investigation a fair test.",
+        "Each reading makes his pulse faster, so the mean will be higher.",
+        "The first reading is always wrong."
+      ],
+      "answer": 0,
+      "solution": "Any single measurement might be a little off: you might miscount or have just moved. Measuring several times and finding the mean smooths out small errors and helps you spot a reading that does not fit. This makes the result more reliable.",
+      "misconceptions": {
+        "1": "A fair test is about changing only one variable and keeping the others the same. Repeating readings makes results more reliable, which is a different idea.",
+        "2": "Measuring your pulse does not change it. The reason to repeat is to spot mistakes and get a value you can trust.",
+        "3": "The first reading is not always wrong, but any single reading might be. Repeating helps you spot a reading that does not fit."
+      },
+      "skill": "repeating measurements",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s01-q029",
+      "subtopicId": "s01-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Your class plans an investigation where everyone runs on the spot for 3 minutes and then measures their pulse. Which plan best reduces the risk of someone getting hurt?",
+      "options": [
+        "Run as fast as possible so that the pulse rises a lot.",
+        "Hold your breath while running so breathing does not affect the results.",
+        "Clear a space on a dry floor, wear suitable shoes, and ask anyone with asthma or a heart condition to check with the teacher first.",
+        "Run in a crowded corridor so the teacher can watch everyone."
+      ],
+      "answer": 2,
+      "solution": "A risk is something that could cause harm. A clear, dry space and suitable shoes reduce the risk of slipping and tripping. Some people have health conditions that make hard exercise risky, so they should check with an adult first.",
+      "misconceptions": {
+        "0": "Running flat out makes falls and strains more likely. It makes the investigation less safe, not safer.",
+        "1": "Holding your breath while exercising is unsafe and could make you dizzy. Breathing is not something to stop in this investigation.",
+        "3": "A crowded space makes bumping and tripping more likely. A clear, open space is safer."
+      },
+      "skill": "reducing risks in practical work",
+      "source": "original"
+    },
+    {
+      "id": "s01-q030",
+      "subtopicId": "s01-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel jogs and measures his pulse rate after each minute. His results: 0 minutes (resting): 72 beats per minute; 1 minute: 98; 2 minutes: 112; 3 minutes: 121; 4 minutes: 126. Which conclusion best matches his results?",
+      "options": [
+        "His pulse rate went up by the same amount every minute.",
+        "The longer he jogged, the higher his pulse rate, but it went up by less each minute.",
+        "His pulse rate doubled every minute.",
+        "Jogging made his pulse rate go down."
+      ],
+      "answer": 1,
+      "solution": "Every reading is higher than the one before, so the pulse rate rose the longer he jogged. The rises were 26, 14, 9 and then 5 beats per minute, so it went up by less each minute.",
+      "misconceptions": {
+        "0": "Work out each rise: 98 - 72 = 26, 112 - 98 = 14, 121 - 112 = 9, 126 - 121 = 5. The rises get smaller, so they are not the same.",
+        "2": "Doubling 72 would give 144 after one minute, but it was 98. His pulse rose, but it did not double.",
+        "3": "Every reading after jogging is higher than his resting value of 72, so jogging made his pulse rate go up."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s01-q031",
+      "subtopicId": "s01-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which organs do most fish use to take in oxygen from the water?",
+      "options": [
+        "Lungs",
+        "Fins",
+        "Scales",
+        "Gills"
+      ],
+      "answer": 3,
+      "solution": "Water flows in through a fish's mouth and out over its gills. The gills have thin walls and lots of blood vessels, so oxygen dissolved in the water passes into the fish's blood.",
+      "misconceptions": {
+        "0": "Mammals, birds and reptiles breathe air with lungs. Most fish have gills, which take in oxygen that is dissolved in the water.",
+        "1": "Fins help a fish swim and steer. They are not used for taking in oxygen.",
+        "2": "Scales protect a fish's skin. Oxygen is taken in through the gills."
+      },
+      "skill": "breathing in other vertebrates",
+      "source": "original"
+    },
+    {
+      "id": "s01-q032",
+      "subtopicId": "s01-s5",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Birds have lungs and a heart, just like humans.",
+      "answer": true,
+      "solution": "True. Birds are vertebrates. Like us, they breathe air into lungs, and a heart pumps their blood through blood vessels.",
+      "misconceptions": {
+        "common": "Thinking that because birds look so different from us, their insides must work differently. Many vertebrates have similar breathing and circulatory systems."
+      },
+      "skill": "comparing vertebrates",
+      "source": "original"
+    },
+    {
+      "id": "s01-q033",
+      "subtopicId": "s01-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A dolphin is a mammal that lives in the sea. How does it get the oxygen it needs?",
+      "options": [
+        "It swims to the surface and breathes air into its lungs through its blowhole.",
+        "It takes oxygen from the water using gills, like a shark.",
+        "It takes in all the oxygen it needs from seawater through its skin.",
+        "It swallows seawater and takes the oxygen out in its stomach."
+      ],
+      "answer": 0,
+      "solution": "Dolphins and whales are mammals, so they breathe air with lungs, just like us. A dolphin comes to the surface and breathes in and out through the blowhole on top of its head.",
+      "misconceptions": {
+        "1": "Living in water does not make an animal a fish. Dolphins are mammals: they have lungs, not gills.",
+        "2": "A dolphin's skin cannot take in enough oxygen. It must breathe air into its lungs.",
+        "3": "The stomach digests food; it does not take oxygen into the blood. Oxygen enters a dolphin's blood in its lungs."
+      },
+      "skill": "breathing in other vertebrates",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s01-q034",
+      "subtopicId": "s01-s5",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the animals that breathe air using lungs.",
+      "options": [
+        "Cat",
+        "Eagle",
+        "Crocodile",
+        "Goldfish",
+        "Whale",
+        "Shark"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "solution": "Mammals (cat, whale), birds (eagle) and reptiles (crocodile) all breathe air with lungs. A whale lives in the sea but is a mammal, so it comes up to breathe air. Goldfish and sharks are fish and use gills.",
+      "misconceptions": {
+        "3": "A goldfish is a fish. It takes oxygen from the water with its gills.",
+        "5": "A shark is a fish. It takes oxygen from the water with its gills."
+      },
+      "skill": "breathing in other vertebrates",
+      "source": "original"
+    },
+    {
+      "id": "s01-q035",
+      "subtopicId": "s01-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A scientist says: 'Many vertebrates have a circulatory system similar to ours.' Which fact best supports this?",
+      "options": [
+        "All vertebrates breathe air using lungs.",
+        "All vertebrates have a backbone.",
+        "Fish, birds, reptiles and mammals all have a heart that pumps blood through blood vessels.",
+        "All vertebrates live on land."
+      ],
+      "answer": 2,
+      "solution": "The circulatory system is the heart and blood vessels. The fact that fish, birds, reptiles and mammals all have a heart pumping blood through blood vessels is evidence that their circulatory systems are similar to ours.",
+      "misconceptions": {
+        "0": "This is not true, because most fish use gills. It is also about breathing, not about the heart and blood vessels.",
+        "1": "This is true, but having a backbone is what makes an animal a vertebrate. It tells us nothing about the heart and blood vessels.",
+        "3": "This is not true: fish, whales and many other vertebrates live in water."
+      },
+      "skill": "comparing vertebrates",
+      "source": "original"
+    },
+    {
+      "id": "s01-q036",
+      "subtopicId": "s01-s5",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "True or false: Because fish use gills instead of lungs, a fish's blood does not carry oxygen around its body.",
+      "answer": false,
+      "solution": "False. Gills do the same job as our lungs: oxygen passes from the water into the blood in the gills. The fish's heart then pumps this blood, carrying oxygen all around its body, just like ours.",
+      "misconceptions": {
+        "common": "Thinking gills replace the whole system. Only the place where oxygen enters the blood is different; the blood still carries oxygen around the body."
+      },
+      "skill": "comparing vertebrates",
+      "source": "original"
+    }
+  ]
+}

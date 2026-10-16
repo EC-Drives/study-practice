@@ -1,0 +1,1173 @@
+{
+  "subject": "maths",
+  "topicId": "m10-calculations-with-fractions",
+  "title": "Calculations with Fractions",
+  "order": 10,
+  "bookChapter": "Chapter 10: Calculations with Fractions",
+  "frameworkRefs": [
+    "6Nf.02",
+    "6Nf.05",
+    "6Nf.06",
+    "TWM.04"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will add and subtract fractions and mixed numbers with different denominators. You will find fractions of amounts, and multiply and divide fractions by whole numbers. You will also solve word problems with fractions, step by step.",
+    "whyItMatters": "Exam papers often ask you to calculate with fractions, especially in word problems. Knowing the methods, and estimating to check your answer, will help you earn these marks with confidence.",
+    "realWorld": [
+      "Adding 1/2 cup of milk and 3/4 cup of water in a recipe",
+      "Working out 3/4 of RM 60 pocket money",
+      "Sharing 2/3 of a durian equally among 4 people",
+      "A 1 1/2 hour badminton session followed by 3/4 hour of homework",
+      "Spending 1/3 of your savings and then 1/4 of what is left"
+    ],
+    "subtopics": [
+      {
+        "id": "m10-s1",
+        "title": "Adding and subtracting fractions",
+        "summary": "Change the fractions to a common denominator, then add or subtract the numerators. Simplify the answer."
+      },
+      {
+        "id": "m10-s2",
+        "title": "Adding and subtracting mixed numbers",
+        "summary": "Work with the whole numbers and the fractions, exchanging one whole for fraction pieces when you need to."
+      },
+      {
+        "id": "m10-s3",
+        "title": "Fractions of amounts",
+        "summary": "Use proper and improper fractions as operators, such as 3/4 of 60 or 5/4 of 20."
+      },
+      {
+        "id": "m10-s4",
+        "title": "Multiplying fractions by whole numbers",
+        "summary": "Multiply the numerator by the whole number, keep the denominator, then simplify."
+      },
+      {
+        "id": "m10-s5",
+        "title": "Dividing fractions by whole numbers",
+        "summary": "Dividing a fraction by a whole number shares it into smaller equal parts, so the answer is smaller."
+      },
+      {
+        "id": "m10-s6",
+        "title": "Word problems with fractions",
+        "summary": "Solve multi-step problems, including 'fraction of the remainder' and before-and-after problems."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m10-q001",
+      "subtopicId": "m10-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 1/3 + 1/6? Choose the answer in its simplest form.",
+      "options": [
+        "1/2",
+        "2/9",
+        "1/18",
+        "2/6"
+      ],
+      "answer": 0,
+      "solution": "Make the denominators the same. 1/3 = 2/6. Then 2/6 + 1/6 = 3/6. Simplify: 3/6 = 1/2.",
+      "misconceptions": {
+        "1": "You added the numerators (1 + 1) and the denominators (3 + 6). Make the denominators the same first, then add only the numerators.",
+        "2": "You multiplied the denominators. We are adding, not finding a fraction of a fraction.",
+        "3": "You changed 1/3 into 2/6 (well done!) but forgot to add the 1/6."
+      },
+      "skill": "adding fractions with unlike denominators",
+      "source": "original"
+    },
+    {
+      "id": "m10-q002",
+      "subtopicId": "m10-s1",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 1/2 - 1/8. Give your answer as a fraction or a decimal.",
+      "answer": {
+        "value": 0.375,
+        "tolerance": 0,
+        "accept": [
+          "3/8"
+        ]
+      },
+      "solution": "Change 1/2 into eighths: 1/2 = 4/8. Then 4/8 - 1/8 = 3/8. (As a decimal, 3/8 = 0.375.)",
+      "misconceptions": {
+        "common": "Doing 1 - 1 = 0 on top and 8 - 2 = 6 on the bottom. The denominators must be the same before you subtract: 1/2 = 4/8."
+      },
+      "skill": "subtracting fractions with unlike denominators",
+      "source": "original"
+    },
+    {
+      "id": "m10-q003",
+      "subtopicId": "m10-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 1/2 + 1/3 = 2/5.",
+      "answer": false,
+      "solution": "1/2 = 3/6 and 1/3 = 2/6. 3/6 + 2/6 = 5/6. So 1/2 + 1/3 = 5/6, not 2/5. False. Quick check: 2/5 is less than 1/2, but adding something to 1/2 must give more than 1/2.",
+      "misconceptions": {
+        "common": "Adding tops and bottoms (1 + 1 = 2 and 2 + 3 = 5). The denominator tells you the size of the pieces; you can only add pieces of the same size."
+      },
+      "skill": "adding fractions with unlike denominators",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m10-q004",
+      "subtopicId": "m10-s1",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out 3/4 - 2/3. Give your answer as a fraction in its simplest form.",
+      "answer": {
+        "accept": [
+          "1/12"
+        ],
+        "keywords": []
+      },
+      "solution": "Use 12 as the common denominator. 3/4 = 9/12 and 2/3 = 8/12. 9/12 - 8/12 = 1/12.",
+      "misconceptions": {
+        "common": "Writing 1/1 by doing 3 - 2 on top and 4 - 3 on the bottom. Change both fractions to twelfths first."
+      },
+      "skill": "subtracting fractions with unlike denominators",
+      "source": "original"
+    },
+    {
+      "id": "m10-q005",
+      "subtopicId": "m10-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What is 2/5 + 3/10?",
+      "options": [
+        "5/15",
+        "7/10",
+        "5/10",
+        "6/50"
+      ],
+      "answer": 1,
+      "solution": "2/5 = 4/10 (multiply top and bottom by 2). 4/10 + 3/10 = 7/10.",
+      "misconceptions": {
+        "0": "You added the numerators and the denominators. Change 2/5 into tenths first, then add only the numerators.",
+        "2": "You added 2 + 3 but did not change 2/5 into tenths first. 2/5 = 4/10, so the top should be 4 + 3 = 7.",
+        "3": "You multiplied the numbers. To add, use a common denominator and add the numerators."
+      },
+      "skill": "adding fractions with unlike denominators",
+      "source": "original"
+    },
+    {
+      "id": "m10-q006",
+      "subtopicId": "m10-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "What is 5/6 - 1/4? Choose the answer in its simplest form.",
+      "options": [
+        "4/2",
+        "3/4",
+        "7/12",
+        "1 1/12"
+      ],
+      "answer": 2,
+      "solution": "Use 12 as the common denominator. 5/6 = 10/12 and 1/4 = 3/12. 10/12 - 3/12 = 7/12. 7 and 12 have no common factor, so this is the simplest form.",
+      "misconceptions": {
+        "0": "You subtracted the numerators (5 - 1) and the denominators (6 - 4). Change both fractions to twelfths first.",
+        "1": "You changed 5/6 into 10/12 but took away 1/12 instead of changing 1/4 into 3/12. 10/12 - 3/12 = 7/12.",
+        "3": "You added instead of subtracting: 10/12 + 3/12 = 13/12 = 1 1/12."
+      },
+      "skill": "subtracting fractions with unlike denominators",
+      "source": "original"
+    },
+    {
+      "id": "m10-q007",
+      "subtopicId": "m10-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which is the best estimate for 9/10 + 5/9?",
+      "options": [
+        "About 1/2",
+        "About 1",
+        "About 2",
+        "About 1 1/2"
+      ],
+      "answer": 3,
+      "solution": "9/10 is very close to 1. 5/9 is close to 1/2 (half of 9 is 4.5, and 5 is close to 4.5). So the total is about 1 + 1/2 = 1 1/2. (The exact answer is 1 41/90, which is just under 1 1/2.)",
+      "misconceptions": {
+        "0": "You may have looked only at 5/9. Both fractions are being added, and 9/10 is nearly 1 by itself.",
+        "1": "9/10 is about 1, but you still need to add about 1/2 for the 5/9.",
+        "2": "Rounding both fractions up to 1 gives 2, but 5/9 is much closer to 1/2 than to 1."
+      },
+      "skill": "estimating with fractions",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m10-q008",
+      "subtopicId": "m10-s1",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "What must be added to 3/8 to make 5/6? Give your answer as a fraction in its simplest form.",
+      "answer": {
+        "accept": [
+          "11/24"
+        ],
+        "keywords": []
+      },
+      "solution": "Find the difference: 5/6 - 3/8. Use 24 as the common denominator: 5/6 = 20/24 and 3/8 = 9/24. 20/24 - 9/24 = 11/24. Check: 9/24 + 11/24 = 20/24 = 5/6.",
+      "misconceptions": {
+        "common": "Adding 3/8 + 5/6 instead of subtracting. 'What must be added' means find the difference between the two fractions."
+      },
+      "skill": "subtracting fractions with unlike denominators",
+      "source": "original"
+    },
+    {
+      "id": "m10-q009",
+      "subtopicId": "m10-s1",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Select ALL the calculations whose answer is exactly 1/2.",
+      "options": [
+        "1/3 + 1/6",
+        "1/5 + 1/5",
+        "5/6 - 1/3",
+        "3/4 - 1/8",
+        "7/10 - 1/5"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "1/3 + 1/6 = 2/6 + 1/6 = 3/6 = 1/2. 1/5 + 1/5 = 2/5. 5/6 - 1/3 = 5/6 - 2/6 = 3/6 = 1/2. 3/4 - 1/8 = 6/8 - 1/8 = 5/8. 7/10 - 1/5 = 7/10 - 2/10 = 5/10 = 1/2.",
+      "misconceptions": {
+        "1": "1/5 + 1/5 = 2/5, which is a little less than 1/2.",
+        "3": "3/4 - 1/8 = 6/8 - 1/8 = 5/8, which is more than 1/2."
+      },
+      "skill": "adding fractions with unlike denominators",
+      "source": "original"
+    },
+    {
+      "id": "m10-q010",
+      "subtopicId": "m10-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 2 1/5 + 1 2/5. Give your answer as a mixed number or a decimal.",
+      "answer": {
+        "value": 3.6,
+        "tolerance": 0,
+        "accept": [
+          "3 3/5",
+          "18/5"
+        ]
+      },
+      "solution": "Add the whole numbers: 2 + 1 = 3. Add the fractions: 1/5 + 2/5 = 3/5. So the answer is 3 3/5 (= 3.6).",
+      "misconceptions": {
+        "common": "Writing 3 3/10 by adding the denominators too. The pieces are still fifths, so the denominator stays 5."
+      },
+      "skill": "adding mixed numbers",
+      "source": "original"
+    },
+    {
+      "id": "m10-q011",
+      "subtopicId": "m10-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 3 1/2 - 1 1/4?",
+      "options": [
+        "2 1/4",
+        "4 3/4",
+        "2 1/2",
+        "2"
+      ],
+      "answer": 0,
+      "solution": "Subtract the whole numbers: 3 - 1 = 2. Subtract the fractions: 1/2 - 1/4 = 2/4 - 1/4 = 1/4. Answer: 2 1/4.",
+      "misconceptions": {
+        "1": "You added instead of subtracting.",
+        "2": "You subtracted the whole numbers (3 - 1 = 2) but did not take away the 1/4.",
+        "3": "You did 1 - 1 = 0 with the numerators. Change 1/2 into 2/4 first: 2/4 - 1/4 = 1/4."
+      },
+      "skill": "subtracting mixed numbers",
+      "source": "original"
+    },
+    {
+      "id": "m10-q012",
+      "subtopicId": "m10-s2",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out 1 2/3 + 2 1/2. Give your answer as a mixed number in its simplest form.",
+      "answer": {
+        "accept": [
+          "4 1/6"
+        ],
+        "keywords": []
+      },
+      "solution": "Add the whole numbers: 1 + 2 = 3. Add the fractions: 2/3 + 1/2 = 4/6 + 3/6 = 7/6 = 1 1/6. Total: 3 + 1 1/6 = 4 1/6.",
+      "misconceptions": {
+        "common": "Leaving the answer as 3 7/6. 7/6 is more than 1 whole, so change it to 1 1/6 and add the 1 to the whole number."
+      },
+      "skill": "adding mixed numbers",
+      "source": "original"
+    },
+    {
+      "id": "m10-q013",
+      "subtopicId": "m10-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "What is 4 1/3 - 1 2/3?",
+      "options": [
+        "3 1/3",
+        "2 2/3",
+        "6",
+        "3"
+      ],
+      "answer": 1,
+      "solution": "1/3 is smaller than 2/3, so exchange one whole: 4 1/3 = 3 4/3. Now 3 4/3 - 1 2/3 = 2 2/3. (Or count on: from 1 2/3 to 2 is 1/3, and from 2 to 4 1/3 is 2 1/3. Total 2 2/3.)",
+      "misconceptions": {
+        "0": "You did 2/3 - 1/3 instead of 1/3 - 2/3, swapping the fractions round. When the first fraction is smaller, exchange 1 whole for 3/3 first.",
+        "2": "You added instead of subtracting.",
+        "3": "You subtracted the whole numbers (4 - 1 = 3) and ignored the fractions. The fractions are different, so they do not cancel out."
+      },
+      "skill": "subtracting mixed numbers",
+      "source": "original"
+    },
+    {
+      "id": "m10-q014",
+      "subtopicId": "m10-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 5 - 2 3/4 = 3 1/4.",
+      "answer": false,
+      "solution": "Write 5 as 4 4/4. Then 4 4/4 - 2 3/4 = 2 1/4. So the answer is 2 1/4, not 3 1/4. False. Check: 2 3/4 + 2 1/4 = 5.",
+      "misconceptions": {
+        "common": "Doing 5 - 2 = 3 and then writing 1/4. The 3/4 has to be taken from one of the wholes too, so only 2 whole ones are left."
+      },
+      "skill": "subtracting mixed numbers",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m10-q015",
+      "subtopicId": "m10-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A ribbon is 3 1/2 m long. Priya cuts off 1 3/4 m. How long is the ribbon now?",
+      "options": [
+        "2 1/4 m",
+        "5 1/4 m",
+        "1 3/4 m",
+        "1 1/4 m"
+      ],
+      "answer": 2,
+      "solution": "3 1/2 = 3 2/4. 2/4 is smaller than 3/4, so exchange a whole: 3 2/4 = 2 6/4. Then 2 6/4 - 1 3/4 = 1 3/4 m (= 1.75 m).",
+      "misconceptions": {
+        "0": "You worked out 3/4 - 2/4 instead of 2/4 - 3/4. When the first fraction is smaller, exchange 1 whole first: 3 2/4 = 2 6/4.",
+        "1": "You added the lengths. Cutting off a piece means subtracting.",
+        "3": "You forgot the 1/2 in 3 1/2 and worked out 3 - 1 3/4 = 1 1/4. Remember to include every part of the mixed number."
+      },
+      "skill": "subtracting mixed numbers",
+      "source": "original"
+    },
+    {
+      "id": "m10-q016",
+      "subtopicId": "m10-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "A jug contains 2 3/4 litres of juice. Omar pours in another 1 1/2 litres. Then he pours out 1 5/8 litres. How many litres are in the jug now? Give your answer as a mixed number or a decimal.",
+      "answer": {
+        "value": 2.625,
+        "tolerance": 0,
+        "accept": [
+          "2 5/8",
+          "21/8"
+        ]
+      },
+      "solution": "Use eighths. 2 3/4 = 2 6/8 and 1 1/2 = 1 4/8. Add: 2 6/8 + 1 4/8 = 3 10/8 = 4 2/8. Now subtract 1 5/8: 2/8 is smaller than 5/8, so exchange a whole: 4 2/8 = 3 10/8. 3 10/8 - 1 5/8 = 2 5/8 litres (= 2.625 litres).",
+      "misconceptions": {
+        "common": "Adding the 1 5/8 litres instead of taking it away, or forgetting to exchange a whole when 2/8 is smaller than 5/8."
+      },
+      "skill": "subtracting mixed numbers",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m10-q017",
+      "subtopicId": "m10-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Fill in the missing number: 2 3/5 + ? = 5 1/10. Give your answer as a mixed number or a decimal.",
+      "answer": {
+        "value": 2.5,
+        "tolerance": 0,
+        "accept": [
+          "2 1/2",
+          "5/2",
+          "2 5/10"
+        ]
+      },
+      "solution": "Work out 5 1/10 - 2 3/5. Change to tenths: 2 3/5 = 2 6/10. 1/10 is smaller than 6/10, so exchange a whole: 5 1/10 = 4 11/10. 4 11/10 - 2 6/10 = 2 5/10 = 2 1/2. Check: 2 3/5 + 2 1/2 = 2 6/10 + 2 5/10 = 4 11/10 = 5 1/10.",
+      "misconceptions": {
+        "common": "Doing 6/10 - 1/10 the wrong way round and getting 3 1/2, or adding the two numbers instead of finding the difference."
+      },
+      "skill": "subtracting mixed numbers",
+      "source": "original"
+    },
+    {
+      "id": "m10-q018",
+      "subtopicId": "m10-s3",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 1/5 of 35?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "1/5 of 35 means 35 shared into 5 equal parts: 35 ÷ 5 = 7.",
+      "misconceptions": {
+        "common": "Multiplying 35 x 5 = 175. Finding 1/5 of an amount makes it smaller, so divide by 5."
+      },
+      "skill": "fraction of an amount",
+      "source": "original"
+    },
+    {
+      "id": "m10-q019",
+      "subtopicId": "m10-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 3/4 of 60?",
+      "options": [
+        "15",
+        "80",
+        "20",
+        "45"
+      ],
+      "answer": 3,
+      "solution": "Find 1/4 first: 60 ÷ 4 = 15. Then 3/4 = 3 x 15 = 45.",
+      "misconceptions": {
+        "0": "15 is only 1/4 of 60. Multiply by 3 to get 3/4: 3 x 15 = 45.",
+        "1": "You divided by 3 and multiplied by 4. Divide by the denominator (4), then multiply by the numerator (3).",
+        "2": "60 ÷ 3 = 20. Divide by the bottom number (4), not the top number."
+      },
+      "skill": "fraction of an amount",
+      "source": "original"
+    },
+    {
+      "id": "m10-q020",
+      "subtopicId": "m10-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 2/3 of 12 is 8.",
+      "answer": true,
+      "solution": "1/3 of 12 = 12 ÷ 3 = 4. So 2/3 of 12 = 2 x 4 = 8. True.",
+      "misconceptions": {
+        "common": "Stopping at 4, which is only 1/3 of 12. Remember to multiply by the numerator, 2."
+      },
+      "skill": "fraction of an amount",
+      "source": "original"
+    },
+    {
+      "id": "m10-q021",
+      "subtopicId": "m10-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What is 5/4 of 20?",
+      "options": [
+        "25",
+        "16",
+        "4",
+        "100"
+      ],
+      "answer": 0,
+      "solution": "1/4 of 20 = 20 ÷ 4 = 5. So 5/4 of 20 = 5 x 5 = 25. Because 5/4 is more than 1 whole, the answer is more than 20.",
+      "misconceptions": {
+        "1": "16 is 4/5 of 20: you turned the fraction upside down. Divide by the denominator (4) and multiply by the numerator (5).",
+        "2": "You divided 20 by 5. Divide by the denominator, 4, then multiply by 5.",
+        "3": "You multiplied 20 x 5 but forgot to divide by 4."
+      },
+      "skill": "fraction of an amount",
+      "source": "original"
+    },
+    {
+      "id": "m10-q022",
+      "subtopicId": "m10-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Without working out the answers, which of these is MORE than 40?",
+      "options": [
+        "3/4 of 40",
+        "7/5 of 40",
+        "5/8 of 40",
+        "1/2 of 40"
+      ],
+      "answer": 1,
+      "solution": "A fraction less than 1 of 40 gives less than 40. 7/5 is more than 1 (because 7 > 5), so 7/5 of 40 is more than 40. (It is 56.)",
+      "misconceptions": {
+        "0": "3/4 is less than 1, so 3/4 of 40 is less than 40 (it is 30).",
+        "2": "5/8 is less than 1, so 5/8 of 40 is less than 40 (it is 25).",
+        "3": "1/2 of 40 is 20, which is less than 40."
+      },
+      "skill": "fraction of an amount",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m10-q023",
+      "subtopicId": "m10-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A bag holds 5 kg of rice. Siti uses 3/10 of the rice. How many kilograms does she use? Give your answer as a decimal.",
+      "answer": {
+        "value": 1.5,
+        "tolerance": 0,
+        "accept": [
+          "1 1/2",
+          "3/2",
+          "1.5 kg"
+        ]
+      },
+      "solution": "1/10 of 5 kg = 5 ÷ 10 = 0.5 kg. 3/10 = 3 x 0.5 = 1.5 kg.",
+      "misconceptions": {
+        "common": "Dividing 5 by 3, or multiplying 5 x 10. Divide by the denominator (10) first, then multiply by the numerator (3)."
+      },
+      "skill": "fraction of an amount",
+      "source": "original"
+    },
+    {
+      "id": "m10-q024",
+      "subtopicId": "m10-s3",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each calculation to its answer.",
+      "options": {
+        "left": [
+          "3/8 of 40",
+          "7/4 of 12",
+          "5/6 of 30",
+          "9/10 of 50"
+        ],
+        "right": [
+          "25",
+          "45",
+          "15",
+          "28",
+          "21"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "3/8 of 40: 40 ÷ 8 = 5, 5 x 3 = 15. 7/4 of 12: 12 ÷ 4 = 3, 3 x 7 = 21. 5/6 of 30: 30 ÷ 6 = 5, 5 x 5 = 25. 9/10 of 50: 50 ÷ 10 = 5, 5 x 9 = 45.",
+      "misconceptions": {
+        "common": "For 7/4 of 12, stopping at 12 ÷ 4 = 3, or thinking the answer must be less than 12. 7/4 is more than 1, so the answer (21) is more than 12."
+      },
+      "skill": "fraction of an amount",
+      "source": "original"
+    },
+    {
+      "id": "m10-q025",
+      "subtopicId": "m10-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "2/5 of a number is 18. What is the number?",
+      "options": [
+        "7.2",
+        "36",
+        "45",
+        "90"
+      ],
+      "answer": 2,
+      "solution": "2/5 of the number is 18, so 1/5 is 18 ÷ 2 = 9. The whole number is 5/5 = 5 x 9 = 45. Check: 2/5 of 45 = 45 ÷ 5 x 2 = 18. Correct!",
+      "misconceptions": {
+        "0": "You worked out 2/5 of 18. But 18 is the PART (2/5), and you need the whole number.",
+        "1": "You treated 18 as half the number. 18 is 2 fifths, not 1 half.",
+        "3": "You multiplied 18 by 5 but forgot to divide by 2 first. 18 is 2 fifths, so 1 fifth is 18 ÷ 2 = 9."
+      },
+      "skill": "fraction of an amount",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m10-q026",
+      "subtopicId": "m10-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which is greater: 2/3 of 45 or 3/4 of 36?",
+      "options": [
+        "2/3 of 45",
+        "3/4 of 36",
+        "They are equal"
+      ],
+      "answer": 0,
+      "solution": "2/3 of 45: 45 ÷ 3 = 15, 15 x 2 = 30. 3/4 of 36: 36 ÷ 4 = 9, 9 x 3 = 27. 30 > 27, so 2/3 of 45 is greater.",
+      "misconceptions": {
+        "1": "3/4 is a bigger fraction than 2/3, but here it is a fraction of a smaller number. Work out both: 2/3 of 45 = 30 and 3/4 of 36 = 27.",
+        "2": "Work out both: 2/3 of 45 = 30 and 3/4 of 36 = 27. They are not equal."
+      },
+      "skill": "fraction of an amount",
+      "source": "original"
+    },
+    {
+      "id": "m10-q027",
+      "subtopicId": "m10-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 3 x 2/7?",
+      "options": [
+        "6/7",
+        "6/21",
+        "2/21",
+        "5/7"
+      ],
+      "answer": 0,
+      "solution": "3 x 2/7 means 3 lots of 2/7: 2/7 + 2/7 + 2/7 = 6/7. Multiply the numerator by 3 and keep the denominator.",
+      "misconceptions": {
+        "1": "You multiplied the numerator and the denominator by 3. 6/21 is equal to 2/7, so nothing has really been multiplied.",
+        "2": "You multiplied only the denominator. That makes smaller pieces. Multiply the numerator: 3 x 2 = 6.",
+        "3": "You added 3 to the numerator instead of multiplying."
+      },
+      "skill": "multiplying a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q028",
+      "subtopicId": "m10-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 5 x 1/4?",
+      "options": [
+        "5/20",
+        "1 1/4",
+        "5 1/4",
+        "1/20"
+      ],
+      "answer": 1,
+      "solution": "5 x 1/4 means 5 quarters: 5/4. 4 quarters make 1 whole, so 5/4 = 1 1/4.",
+      "misconceptions": {
+        "0": "You multiplied the denominator as well. 5/20 is the same as 1/4. Only the numerator is multiplied: 5 x 1 = 5, giving 5/4.",
+        "2": "5 1/4 means 5 + 1/4, not 5 x 1/4. Five quarters is 5/4 = 1 1/4.",
+        "3": "You multiplied only the denominator. That makes the pieces smaller, but 5 quarters is more than 1 quarter."
+      },
+      "skill": "multiplying a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q029",
+      "subtopicId": "m10-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out 6 x 3/4. Give your answer as a mixed number or a decimal.",
+      "answer": {
+        "value": 4.5,
+        "tolerance": 0,
+        "accept": [
+          "4 1/2",
+          "18/4",
+          "9/2",
+          "4 2/4"
+        ]
+      },
+      "solution": "6 x 3 = 18, so 6 x 3/4 = 18/4. 18 ÷ 4 = 4 remainder 2, so 18/4 = 4 2/4 = 4 1/2 = 4.5.",
+      "misconceptions": {
+        "common": "Writing 18/24 by multiplying both numbers. Only the numerator is multiplied by the whole number."
+      },
+      "skill": "multiplying a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q030",
+      "subtopicId": "m10-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 4 x 2/9 is less than 1.",
+      "answer": true,
+      "solution": "4 x 2/9 = 8/9. 8/9 is less than 9/9, which is 1 whole. So it is true.",
+      "misconceptions": {
+        "common": "Thinking that multiplying always gives a big answer. 4 lots of 2/9 is 8/9, which is still less than 1 whole."
+      },
+      "skill": "multiplying a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q031",
+      "subtopicId": "m10-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which is the best estimate for 8 x 9/10?",
+      "options": [
+        "About 72",
+        "About 1",
+        "About 8",
+        "About 17"
+      ],
+      "answer": 2,
+      "solution": "9/10 is very close to 1. 8 x 1 = 8, so 8 x 9/10 is a little less than 8. (Exactly, 8 x 9/10 = 72/10 = 7.2.)",
+      "misconceptions": {
+        "0": "You multiplied 8 x 9 and forgot to divide by 10.",
+        "1": "9/10 is about 1, but you still need to multiply it by 8.",
+        "3": "You added 8 + 9. This is a multiplication."
+      },
+      "skill": "estimating with fractions",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m10-q032",
+      "subtopicId": "m10-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Each lap around a park is 3/8 km. Arjun runs 12 laps. How far does he run? Give your answer in km, as a mixed number or a decimal.",
+      "answer": {
+        "value": 4.5,
+        "tolerance": 0,
+        "accept": [
+          "4 1/2",
+          "36/8",
+          "9/2",
+          "4.5 km",
+          "4 1/2 km"
+        ]
+      },
+      "solution": "12 x 3/8 = 36/8. 36 ÷ 8 = 4 remainder 4, so 36/8 = 4 4/8 = 4 1/2 km (= 4.5 km).",
+      "misconceptions": {
+        "common": "Multiplying the denominator as well (36/96). Only the numerator is multiplied by 12."
+      },
+      "skill": "multiplying a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q033",
+      "subtopicId": "m10-s4",
+      "type": "order",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Put these calculations in order of their answers, from smallest to largest.",
+      "options": [
+        "3 x 2/5",
+        "2 x 3/4",
+        "5 x 1/6",
+        "4 x 1/3"
+      ],
+      "answer": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "solution": "Work out each one. 3 x 2/5 = 6/5 = 1 1/5. 2 x 3/4 = 6/4 = 1 1/2. 5 x 1/6 = 5/6 (less than 1). 4 x 1/3 = 4/3 = 1 1/3. Smallest to largest: 5/6, 1 1/5, 1 1/3, 1 1/2, which is 5 x 1/6, 3 x 2/5, 4 x 1/3, 2 x 3/4.",
+      "misconceptions": {
+        "common": "Ordering by the whole numbers (2, 3, 4, 5) without working out the answers. Calculate each one, then compare."
+      },
+      "skill": "multiplying a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q034",
+      "subtopicId": "m10-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Fill in the missing numerator: 7 x ?/8 = 5 1/4",
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Change 5 1/4 into eighths: 5 1/4 = 21/4 = 42/8. So 7 x ? = 42, which means ? = 42 ÷ 7 = 6. Check: 7 x 6/8 = 42/8 = 5 2/8 = 5 1/4.",
+      "misconceptions": {
+        "common": "Answering 42. That is the numerator of the answer in eighths; it still needs to be divided by 7."
+      },
+      "skill": "multiplying a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q035",
+      "subtopicId": "m10-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 1/2 ÷ 2?",
+      "options": [
+        "1",
+        "2/4",
+        "4",
+        "1/4"
+      ],
+      "answer": 3,
+      "solution": "Dividing by 2 means halving. Half of a half is a quarter: 1/2 ÷ 2 = 1/4. (Keep the numerator and multiply the denominator by 2.)",
+      "misconceptions": {
+        "0": "You multiplied: 1/2 x 2 = 1. Dividing by 2 makes the amount smaller.",
+        "1": "2/4 is the same as 1/2, so nothing has been divided. You multiplied both the top and the bottom by 2.",
+        "2": "You worked out 2 ÷ 1/2, the wrong way round."
+      },
+      "skill": "dividing a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q036",
+      "subtopicId": "m10-s5",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Half of 1/3 of a cake is how much of the whole cake? (This is 1/3 ÷ 2.) Give your answer as a fraction.",
+      "answer": {
+        "accept": [
+          "1/6"
+        ],
+        "keywords": []
+      },
+      "solution": "Cut each third into 2 equal pieces. Now the whole cake has 6 equal pieces, so each piece is 1/6. 1/3 ÷ 2 = 1/6.",
+      "misconceptions": {
+        "common": "Answering 2/3. That is 1/3 x 2, which doubles the amount instead of halving it."
+      },
+      "skill": "dividing a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q037",
+      "subtopicId": "m10-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 4/5 ÷ 2?",
+      "options": [
+        "2/5",
+        "8/5",
+        "4/7",
+        "2/10"
+      ],
+      "answer": 0,
+      "solution": "Half of 4 fifths is 2 fifths: 4/5 ÷ 2 = 2/5. (Or keep the numerator and double the denominator: 4/10, which simplifies to 2/5.)",
+      "misconceptions": {
+        "1": "You multiplied by 2 instead of dividing.",
+        "2": "You added 2 to the denominator. To divide by 2, halve the numerator or multiply the denominator by 2.",
+        "3": "You halved the numerator AND doubled the denominator, so you divided by 2 twice. 2/10 = 1/5, which is half of the right answer."
+      },
+      "skill": "dividing a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q038",
+      "subtopicId": "m10-s5",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out 3/4 ÷ 6. Give your answer as a fraction or a decimal.",
+      "answer": {
+        "value": 0.125,
+        "tolerance": 0,
+        "accept": [
+          "1/8",
+          "3/24"
+        ]
+      },
+      "solution": "Keep the numerator and multiply the denominator by 6: 3/4 ÷ 6 = 3/24. Simplify by dividing top and bottom by 3: 3/24 = 1/8. As a decimal, 1/8 = 0.125.",
+      "misconceptions": {
+        "common": "Multiplying 3 x 6 to get 18/4. Dividing by 6 makes the answer smaller, not bigger."
+      },
+      "skill": "dividing a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q039",
+      "subtopicId": "m10-s5",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 2/3 ÷ 2 = 1/3.",
+      "answer": true,
+      "solution": "2 thirds shared into 2 equal parts is 1 third each. 2/3 ÷ 2 = 1/3. True.",
+      "misconceptions": {
+        "common": "Thinking you must always change the denominator. When the numerator divides exactly, you can divide it: 2 ÷ 2 = 1, giving 1/3. (2/6 is the same answer.)"
+      },
+      "skill": "dividing a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q040",
+      "subtopicId": "m10-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A ribbon 6/7 m long is cut into 3 equal pieces. How long is each piece?",
+      "options": [
+        "18/7 m",
+        "2/7 m",
+        "3/7 m",
+        "2/21 m"
+      ],
+      "answer": 1,
+      "solution": "6/7 ÷ 3: 6 sevenths shared into 3 equal pieces is 2 sevenths each. Each piece is 2/7 m. Check: 3 x 2/7 = 6/7.",
+      "misconceptions": {
+        "0": "You multiplied by 3. Cutting into 3 equal pieces means dividing by 3.",
+        "2": "You subtracted 3 from the numerator. Sharing into 3 pieces means dividing by 3.",
+        "3": "You divided the numerator by 3 AND multiplied the denominator by 3, so you divided twice."
+      },
+      "skill": "dividing a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q041",
+      "subtopicId": "m10-s5",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A bottle holds 4/5 litre of juice. It is poured equally into 8 cups. How many litres are in each cup? Give your answer as a decimal or a fraction.",
+      "answer": {
+        "value": 0.1,
+        "tolerance": 0,
+        "accept": [
+          "1/10",
+          "4/40",
+          "0.1 l",
+          "0.1 L"
+        ]
+      },
+      "solution": "4/5 ÷ 8 = 4/40 (keep the numerator, multiply the denominator by 8). 4/40 = 1/10 litre = 0.1 litre. Check: 8 x 1/10 = 8/10 = 4/5.",
+      "misconceptions": {
+        "common": "Multiplying 4/5 x 8 = 32/5. Sharing a small amount among 8 cups must give each cup much less than 4/5 litre."
+      },
+      "skill": "dividing a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q042",
+      "subtopicId": "m10-s5",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Select ALL the calculations whose answer is 1/12.",
+      "options": [
+        "1/3 ÷ 4",
+        "1/6 ÷ 2",
+        "1/4 ÷ 4",
+        "3/4 ÷ 3",
+        "2/3 ÷ 8"
+      ],
+      "answer": [
+        0,
+        1,
+        4
+      ],
+      "solution": "1/3 ÷ 4 = 1/12. 1/6 ÷ 2 = 1/12. 1/4 ÷ 4 = 1/16. 3/4 ÷ 3 = 1/4. 2/3 ÷ 8 = 2/24 = 1/12.",
+      "misconceptions": {
+        "2": "1/4 ÷ 4 = 1/(4 x 4) = 1/16, not 1/12.",
+        "3": "3/4 ÷ 3 = 1/4 (3 quarters shared into 3 is 1 quarter each)."
+      },
+      "skill": "dividing a fraction by a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m10-q043",
+      "subtopicId": "m10-s6",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "There are 30 pupils in a class. 2/5 of them walk to school. How many pupils walk to school?",
+      "options": [
+        "6",
+        "18",
+        "12",
+        "75"
+      ],
+      "answer": 2,
+      "solution": "1/5 of 30 = 30 ÷ 5 = 6. So 2/5 of 30 = 2 x 6 = 12 pupils.",
+      "misconceptions": {
+        "0": "6 is 1/5 of 30. Multiply by 2 to find 2/5: 2 x 6 = 12.",
+        "1": "18 is the number who do NOT walk (3/5 of 30). Read the question again.",
+        "3": "You divided by 2 and multiplied by 5. Divide by the denominator (5), then multiply by the numerator (2)."
+      },
+      "skill": "fraction word problems",
+      "source": "original"
+    },
+    {
+      "id": "m10-q044",
+      "subtopicId": "m10-s6",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A pizza is cut into 8 equal slices. Omar eats 3 slices. What fraction of the pizza is left?",
+      "options": [
+        "3/8",
+        "3/5",
+        "5/3",
+        "5/8"
+      ],
+      "answer": 3,
+      "solution": "8 - 3 = 5 slices are left. Each slice is 1/8 of the pizza, so 5/8 is left.",
+      "misconceptions": {
+        "0": "3/8 is the fraction Omar ate. The question asks what is left.",
+        "1": "3/5 compares the slices eaten with the slices left. A fraction of the pizza must be out of all 8 slices.",
+        "2": "5/3 is more than a whole pizza, which is impossible here. The whole pizza has 8 slices, so 8 is the denominator."
+      },
+      "skill": "fraction word problems",
+      "source": "original"
+    },
+    {
+      "id": "m10-q045",
+      "subtopicId": "m10-s6",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: Rahim spends 1/2 of his money. Then he spends 1/2 of the money he has left. Now he has spent all his money.",
+      "answer": false,
+      "solution": "Try an example: Rahim has RM 40. He spends 1/2 of it, RM 20, so RM 20 is left. Then he spends 1/2 of RM 20, which is RM 10. He still has RM 10 left (1/4 of his money). False.",
+      "misconceptions": {
+        "common": "Adding 1/2 + 1/2 = 1. The second half is half of what is LEFT, not half of all the money he started with."
+      },
+      "skill": "fraction word problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m10-q046",
+      "subtopicId": "m10-s6",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Aisha had RM 60. She spent 1/3 of the RM 60 on a book and 1/4 of the RM 60 on lunch. How much money did she have left?",
+      "options": [
+        "RM 25",
+        "RM 35",
+        "RM 40",
+        "RM 45"
+      ],
+      "answer": 0,
+      "solution": "Book: 1/3 of 60 = 60 ÷ 3 = RM 20. Lunch: 1/4 of 60 = 60 ÷ 4 = RM 15. Spent: 20 + 15 = RM 35. Left: 60 - 35 = RM 25.",
+      "misconceptions": {
+        "1": "RM 35 is how much she spent (RM 20 + RM 15). Take it away from RM 60 to find what is left.",
+        "2": "You took away the book (RM 20) but forgot the lunch (RM 15).",
+        "3": "You took away the lunch (RM 15) but forgot the book (RM 20)."
+      },
+      "skill": "fraction word problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m10-q047",
+      "subtopicId": "m10-s6",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Priya read 2/5 of a book on Monday and 1/3 of the book on Tuesday. What fraction of the book does she still have to read?",
+      "options": [
+        "11/15",
+        "4/15",
+        "3/8",
+        "5/8"
+      ],
+      "answer": 1,
+      "solution": "Read so far: 2/5 + 1/3 = 6/15 + 5/15 = 11/15. Still to read: 15/15 - 11/15 = 4/15 of the book.",
+      "misconceptions": {
+        "0": "11/15 is the part she has already read. Subtract it from 1 whole (15/15).",
+        "2": "You added the numerators and the denominators (2 + 1 and 5 + 3). Use a common denominator, 15.",
+        "3": "You worked out 1 - 3/8, but 3/8 came from adding tops and bottoms. 2/5 + 1/3 = 6/15 + 5/15 = 11/15, so 4/15 is left."
+      },
+      "skill": "fraction word problems",
+      "source": "original"
+    },
+    {
+      "id": "m10-q048",
+      "subtopicId": "m10-s6",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Wei Ming had RM 120. He spent 1/3 of his money on shoes. Then he spent 1/4 of the remaining money on a cap. How much money did he have left? Give your answer in RM.",
+      "answer": {
+        "value": 60,
+        "tolerance": 0,
+        "accept": [
+          "RM 60",
+          "RM60",
+          "60.00",
+          "RM 60.00"
+        ]
+      },
+      "solution": "Shoes: 1/3 of 120 = RM 40. Money remaining: 120 - 40 = RM 80. Cap: 1/4 of 80 = RM 20. Left: 80 - 20 = RM 60.",
+      "misconceptions": {
+        "common": "Taking 1/4 of RM 120 (= RM 30) for the cap, which gives RM 50. 'Of the remaining money' means 1/4 of the RM 80 that was left after buying the shoes."
+      },
+      "skill": "fraction word problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m10-q049",
+      "subtopicId": "m10-s6",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Siti spent 3/5 of her money on a bag. She had RM 36 left. How much money did she have at first?",
+      "options": [
+        "RM 60",
+        "RM 54",
+        "RM 90",
+        "RM 14.40"
+      ],
+      "answer": 2,
+      "solution": "She spent 3/5, so 2/5 is left. 2/5 = RM 36, so 1/5 = 36 ÷ 2 = RM 18. All her money = 5/5 = 5 x 18 = RM 90. Check: 3/5 of 90 = 54 spent, and 90 - 54 = 36 left. Correct!",
+      "misconceptions": {
+        "0": "You treated RM 36 as the 3/5 she spent. But RM 36 is what was LEFT, which is 2/5 of her money.",
+        "1": "RM 54 is the cost of the bag (3 units of RM 18). Add the RM 36 she had left to find what she had at first.",
+        "3": "You found 2/5 of RM 36. But RM 36 is already 2/5 of her money; you need the whole amount."
+      },
+      "skill": "fraction word problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m10-q050",
+      "subtopicId": "m10-s6",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "A water tank is 3/4 full. After 12 litres are used, it is 1/2 full. How many litres does the tank hold when it is completely full?",
+      "answer": {
+        "value": 48,
+        "tolerance": 0,
+        "accept": [
+          "48 l",
+          "48 litres",
+          "48 L"
+        ]
+      },
+      "solution": "The 12 litres used is the difference between 3/4 and 1/2. 3/4 - 1/2 = 3/4 - 2/4 = 1/4. So 1/4 of the tank = 12 litres. The full tank = 4 x 12 = 48 litres.",
+      "misconceptions": {
+        "common": "Answering 24 (thinking 12 litres is half the tank) or 16 (thinking 12 litres is 3/4 of the tank). The 12 litres is the difference between 3/4 and 1/2, which is 1/4."
+      },
+      "skill": "fraction word problems",
+      "source": "inspired-by: Singapore P6"
+    }
+  ]
+}

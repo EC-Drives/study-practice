@@ -1,0 +1,1109 @@
+{
+  "subject": "maths",
+  "topicId": "m05-addition-and-subtraction",
+  "title": "Addition and Subtraction",
+  "order": 5,
+  "bookChapter": "Chapter 5: Addition and Subtraction",
+  "frameworkRefs": [
+    "6Ni.01",
+    "6Nf.09",
+    "6Nc.02",
+    "6Ni.02"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will add and subtract large whole numbers, in your head and in columns, and check your answers with the inverse. You will add and subtract decimals, including ones with different numbers of decimal places. You will also add and subtract with negative numbers, and use letters to stand for unknown numbers in word problems.",
+    "whyItMatters": "Adding and subtracting are the calculations you use most in daily life. Estimating first and checking with the inverse helps you catch mistakes before they cost you marks. These skills also prepare you for algebra in secondary school.",
+    "realWorld": [
+      "Working out your change after buying nasi lemak and teh tarik at a hawker stall",
+      "Finding how much warmer Kuala Lumpur is than a city where it is below 0 °C",
+      "Adding the lengths of pieces of wood or cloth in metres",
+      "Working out how many seats are still free at a concert after two days of ticket sales",
+      "Going up and down floors in a lift, including car park floors below ground"
+    ],
+    "subtopics": [
+      {
+        "id": "m05-s1",
+        "title": "Whole numbers: mental, column, estimating and checking",
+        "summary": "Add and subtract large whole numbers in your head and in columns. Estimate first, then check with the inverse operation."
+      },
+      {
+        "id": "m05-s2",
+        "title": "Adding and subtracting decimals",
+        "summary": "Line up the decimal points to add and subtract decimals with the same or different numbers of decimal places, in money, length and mass."
+      },
+      {
+        "id": "m05-s3",
+        "title": "Adding and subtracting integers",
+        "summary": "Use a number line to add and subtract with negative numbers, for example -7 + 12 and 3 - 9, in contexts such as temperature and lift floors."
+      },
+      {
+        "id": "m05-s4",
+        "title": "Letters for unknowns and word problems",
+        "summary": "Use letters to stand for unknown numbers (a + 15 = 42) and solve multi-step word problems using bar models and working backwards."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m05-q001",
+      "subtopicId": "m05-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 4567 + 2385.",
+      "options": [
+        "6842",
+        "6952",
+        "6852",
+        "2182"
+      ],
+      "answer": 1,
+      "solution": "Add column by column, starting from the ones. Ones: 7 + 5 = 12, write 2 and carry 1. Tens: 6 + 8 + 1 = 15, write 5 and carry 1. Hundreds: 5 + 3 + 1 = 9. Thousands: 4 + 2 = 6. The answer is 6952. Quick check: 4600 + 2400 = 7000, which is close.",
+      "misconceptions": {
+        "0": "You did not carry. 7 + 5 = 12, so write 2 and carry 1 ten. 6 + 8 + 1 = 15, so write 5 and carry 1 hundred. Every carried digit must be added into the next column.",
+        "2": "You carried the 1 from the ones column, but forgot to carry the 1 from the tens column (6 + 8 + 1 = 15) into the hundreds column.",
+        "3": "You subtracted instead of adding. The + sign means add the two numbers together."
+      },
+      "skill": "column addition of whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m05-q002",
+      "subtopicId": "m05-s1",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 8000 - 2746.",
+      "answer": {
+        "value": 5254,
+        "tolerance": 0,
+        "accept": [
+          "5 254",
+          "5,254"
+        ]
+      },
+      "solution": "8000 has no hundreds, tens or ones, so exchange first: 8000 = 7 thousands + 9 hundreds + 9 tens + 10 ones. Ones: 10 - 6 = 4. Tens: 9 - 4 = 5. Hundreds: 9 - 7 = 2. Thousands: 7 - 2 = 5. The answer is 5254. Check with the inverse: 5254 + 2746 = 8000.",
+      "misconceptions": {
+        "common": "Taking the smaller digit from the larger one in each column (8 - 2 = 6, 7 - 0 = 7, 4 - 0 = 4, 6 - 0 = 6) gives 6746. When the top digit is 0 you cannot swap the digits round; you must exchange from the next column."
+      },
+      "skill": "column subtraction of whole numbers",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m05-q003",
+      "subtopicId": "m05-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Round each number to the nearest thousand, then estimate 3892 + 5104.",
+      "options": [
+        "8000",
+        "10 000",
+        "1000",
+        "9000"
+      ],
+      "answer": 3,
+      "solution": "3892 rounds to 4000 because its hundreds digit is 8. 5104 rounds to 5000 because its hundreds digit is 1. 4000 + 5000 = 9000. (The exact answer is 8996, so the estimate is very close.)",
+      "misconceptions": {
+        "0": "You cut 3892 down to 3000 instead of rounding it. Its hundreds digit is 8 (5 or more), so it rounds up to 4000.",
+        "1": "You rounded 5104 up to 6000. Its hundreds digit is 1 (less than 5), so it rounds down to 5000.",
+        "2": "You subtracted the rounded numbers (5000 - 4000). The question is an addition."
+      },
+      "skill": "estimating sums and differences",
+      "source": "original"
+    },
+    {
+      "id": "m05-q004",
+      "subtopicId": "m05-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: You can check that 6315 - 2748 = 3567 by working out 3567 + 2748. If you get 6315, the subtraction is correct.",
+      "answer": true,
+      "solution": "Addition is the inverse (the opposite) of subtraction. 3567 + 2748 = 6315, which is the number you started with, so 6315 - 2748 = 3567 is correct. The statement is true.",
+      "misconceptions": {
+        "common": "Some people think a subtraction must be checked with another subtraction, or by adding the two numbers in the question (6315 + 2748). To undo taking away 2748, you add 2748 back on to the answer."
+      },
+      "skill": "checking with the inverse operation",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m05-q005",
+      "subtopicId": "m05-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the inverse (opposite) operation of subtraction? Answer in one word.",
+      "answer": {
+        "accept": [
+          "addition",
+          "add",
+          "adding",
+          "plus",
+          "Addition"
+        ],
+        "keywords": []
+      },
+      "solution": "Addition undoes subtraction. For example, 50 - 18 = 32, and 32 + 18 = 50 takes you back to the start.",
+      "misconceptions": {
+        "common": "Answering 'division'. Division is the inverse of multiplication, not of subtraction."
+      },
+      "skill": "checking with the inverse operation",
+      "source": "original"
+    },
+    {
+      "id": "m05-q006",
+      "subtopicId": "m05-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which calculation could you use to check that 5280 - 1650 = 3630?",
+      "options": [
+        "3630 + 1650",
+        "3630 - 1650",
+        "5280 + 1650",
+        "1650 - 3630"
+      ],
+      "answer": 0,
+      "solution": "Use the inverse. The answer plus the number taken away should give the starting number. 3630 + 1650 = 5280, so the subtraction is correct.",
+      "misconceptions": {
+        "1": "This is another subtraction, so it does not undo the first one. To undo subtracting 1650, you add 1650.",
+        "2": "This adds the two numbers from the question. It gives 6930, which tells you nothing about whether 3630 is right.",
+        "3": "This takes the bigger number from the smaller one and does not undo anything. Add the answer to the number that was taken away."
+      },
+      "skill": "checking with the inverse operation",
+      "source": "original"
+    },
+    {
+      "id": "m05-q007",
+      "subtopicId": "m05-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Work out 4999 + 3286 in your head by adding 5000 and then adjusting. What is the answer?",
+      "options": [
+        "8287",
+        "8286",
+        "8285",
+        "1713"
+      ],
+      "answer": 2,
+      "solution": "3286 + 5000 = 8286. But you added 5000, which is 1 more than 4999. So take 1 away: 8286 - 1 = 8285.",
+      "misconceptions": {
+        "0": "You adjusted the wrong way. 5000 is 1 more than 4999, so you added 1 too many and must take 1 away, not add 1.",
+        "1": "You added 5000 but forgot to adjust. 5000 is 1 more than 4999, so take 1 away: 8286 - 1 = 8285.",
+        "3": "You subtracted 3286 from 4999. The question asks you to add."
+      },
+      "skill": "mental addition and subtraction",
+      "source": "original"
+    },
+    {
+      "id": "m05-q008",
+      "subtopicId": "m05-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "On Saturday, 48 650 people watched a football match at a stadium in Kuala Lumpur. On Sunday, 39 875 people watched. How many more people watched on Saturday than on Sunday?",
+      "options": [
+        "11 225",
+        "88 525",
+        "8775",
+        "18 775"
+      ],
+      "answer": 2,
+      "solution": "Find the difference: 48 650 - 39 875. Ones: exchange, 10 - 5 = 5. Tens: 4 - 7, exchange, 14 - 7 = 7. Hundreds: 5 - 8, exchange, 15 - 8 = 7. Thousands: 7 - 9, exchange, 17 - 9 = 8. Ten thousands: 3 - 3 = 0. The answer is 8775. Check: 8775 + 39 875 = 48 650.",
+      "misconceptions": {
+        "0": "You took the smaller digit from the larger digit in each column (for example 5 - 0 = 5 in the ones). When the top digit is smaller, you must exchange from the next column.",
+        "1": "You added the two numbers. 'How many more' means find the difference, so subtract.",
+        "3": "You exchanged correctly until the last step, but forgot that the ten thousands digit goes down from 4 to 3 after the exchange, so 3 - 3 = 0, not 1."
+      },
+      "skill": "column subtraction of whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m05-q009",
+      "subtopicId": "m05-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "In this addition one digit is missing, shown by ?:  3?47 + 2586 = 6433. What is the missing digit?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Use the inverse: 6433 - 2586 = 3847. So the first number is 3847 and the missing digit is 8. Check: 3847 + 2586 = 6433.",
+      "misconceptions": {
+        "common": "Forgetting the 1 carried from the tens column (4 + 8 = 12) gives ? + 5 = 14, so ? = 9. Working out 6433 - 2586 with the inverse avoids this slip."
+      },
+      "skill": "missing digits in calculations",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m05-q010",
+      "subtopicId": "m05-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out each calculation. Then put the calculations in order from smallest answer to largest answer.",
+      "options": [
+        "3450 + 1280",
+        "9000 - 4150",
+        "2999 + 1802",
+        "6105 - 1395"
+      ],
+      "answer": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "solution": "3450 + 1280 = 4730. 9000 - 4150 = 4850. 2999 + 1802 = 4801 (3000 + 1802 = 4802, then take 1 away). 6105 - 1395 = 4710. Smallest to largest: 4710, 4730, 4801, 4850.",
+      "misconceptions": {
+        "common": "Ordering the calculations by their first number (or by guessing) instead of working out each answer. The answers are all close together, so each one must be calculated."
+      },
+      "skill": "mixed addition and subtraction of whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m05-q011",
+      "subtopicId": "m05-s1",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Lina thinks of a number. She subtracts her number from 50 000, then adds 12 345 to the result. She ends up with 41 000. What number did Lina think of?",
+      "answer": {
+        "value": 21345,
+        "tolerance": 0,
+        "accept": [
+          "21 345",
+          "21,345"
+        ]
+      },
+      "solution": "Work backwards and undo each step. Last step: she added 12 345, so take it away: 41 000 - 12 345 = 28 655. So 50 000 - her number = 28 655. Her number is the gap between 28 655 and 50 000: 50 000 - 28 655 = 21 345. Check: 50 000 - 21 345 = 28 655, and 28 655 + 12 345 = 41 000.",
+      "misconceptions": {
+        "common": "Undoing the steps in the wrong order, or adding 12 345 instead of taking it away. When you work backwards, undo the last step first and use the inverse operation each time."
+      },
+      "skill": "working backwards with inverse operations",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m05-q012",
+      "subtopicId": "m05-s1",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Select ALL the calculations whose answer is between 5000 and 6000.",
+      "options": [
+        "2987 + 2846",
+        "9004 - 3879",
+        "1999 + 3999",
+        "8210 - 2150",
+        "7500 - 2600"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "Work each one out exactly. 2987 + 2846 = 5833 (yes). 9004 - 3879 = 5125 (yes). 1999 + 3999 = 5998 (yes, just under 6000). 8210 - 2150 = 6060 (no, just over 6000). 7500 - 2600 = 4900 (no, just under 5000).",
+      "misconceptions": {
+        "3": "8210 - 2150 = 6060, which is just over 6000. A rough estimate (8000 - 2000 = 6000) makes it look as if it fits, so near a boundary you must work out the exact answer.",
+        "4": "7500 - 2600 = 4900, which is just under 5000. An estimate like 8000 - 3000 = 5000 can fool you."
+      },
+      "skill": "estimating sums and differences",
+      "source": "original"
+    },
+    {
+      "id": "m05-q013",
+      "subtopicId": "m05-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 3.45 + 2.3.",
+      "options": [
+        "5.75",
+        "3.68",
+        "5.48",
+        "1.15"
+      ],
+      "answer": 0,
+      "solution": "Line up the decimal points and write 2.3 as 2.30. Hundredths: 5 + 0 = 5. Tenths: 4 + 3 = 7. Ones: 3 + 2 = 5. The answer is 5.75.",
+      "misconceptions": {
+        "1": "You lined up the last digits instead of the decimal points, so you really added 0.23. Line up the decimal points and write 2.3 as 2.30.",
+        "2": "You added the whole numbers (3 + 2 = 5) and then added the decimal parts as if they were whole numbers (45 + 3 = 48). The 3 in 2.3 means 3 tenths, which is 30 hundredths, so 0.45 + 0.30 = 0.75.",
+        "3": "You subtracted instead of adding."
+      },
+      "skill": "adding decimals",
+      "source": "original"
+    },
+    {
+      "id": "m05-q014",
+      "subtopicId": "m05-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "You pay for a book costing RM 7.65 with a RM 20 note. How much change do you get?",
+      "options": [
+        "RM 13.35",
+        "RM 12.45",
+        "RM 27.65",
+        "RM 12.35"
+      ],
+      "answer": 3,
+      "solution": "Count on from RM 7.65: add 35 sen to reach RM 8.00, then add RM 12 to reach RM 20.00. The change is RM 12 + 35 sen = RM 12.35.",
+      "misconceptions": {
+        "0": "You did 20 - 7 = 13 and then 100 - 65 = 35 sen, but to get those 100 sen you must exchange one of the ringgit. So it is RM 12 and 35 sen.",
+        "1": "You made each digit of 65 up to 10 (6 + 4, 5 + 5), but 65 + 45 = 110, not 100. The sen that make RM 1 with 65 sen is 35 sen.",
+        "2": "You added the price to RM 20. Change is the money left after paying, so subtract."
+      },
+      "skill": "subtracting decimals",
+      "source": "original"
+    },
+    {
+      "id": "m05-q015",
+      "subtopicId": "m05-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 6.4 - 2.75.",
+      "options": [
+        "4.35",
+        "3.65",
+        "4.65",
+        "9.15"
+      ],
+      "answer": 1,
+      "solution": "Write 6.4 as 6.40 and line up the decimal points. Hundredths: exchange 1 tenth, 10 - 5 = 5. Tenths: now 3 - 7, so exchange 1 one, 13 - 7 = 6. Ones: 5 - 2 = 3. The answer is 3.65. Check: 3.65 + 2.75 = 6.40.",
+      "misconceptions": {
+        "0": "You took the smaller digit from the larger in each column (5 - 0 and 7 - 4). Write 6.4 as 6.40. You cannot take 5 hundredths from 0 hundredths without exchanging a tenth.",
+        "2": "You exchanged correctly but forgot to reduce the ones digit. After exchanging a one for 10 tenths, 6 becomes 5, so the ones are 5 - 2 = 3.",
+        "3": "You added instead of subtracting."
+      },
+      "skill": "subtracting decimals",
+      "source": "original"
+    },
+    {
+      "id": "m05-q016",
+      "subtopicId": "m05-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "At a hawker stall, Siti buys nasi lemak for RM 4.50, teh tarik for RM 2.20 and a piece of kuih for RM 1.85. She pays with a RM 10 note. How much change does she get? Give your answer in RM.",
+      "answer": {
+        "value": 1.45,
+        "tolerance": 0,
+        "accept": [
+          "RM 1.45",
+          "RM1.45",
+          "1.45 RM"
+        ]
+      },
+      "solution": "First find the total: 4.50 + 2.20 = 6.70, and 6.70 + 1.85 = 8.55. She spends RM 8.55. Change: 10.00 - 8.55 = 1.45. Siti gets RM 1.45 change.",
+      "misconceptions": {
+        "common": "Stopping after finding the total (RM 8.55). The question asks for the change, so you must also subtract the total from RM 10."
+      },
+      "skill": "adding and subtracting decimals in context",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m05-q017",
+      "subtopicId": "m05-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A plank of wood is 2.5 m long. Daniel cuts off a piece 0.75 m long, and then another piece 1.2 m long. How long is the plank that is left?",
+      "options": [
+        "0.55 m",
+        "1.75 m",
+        "1.3 m",
+        "4.45 m"
+      ],
+      "answer": 0,
+      "solution": "Length cut off: 0.75 + 1.2 = 1.95 m. Length left: 2.5 - 1.95 = 0.55 m. (Or: 2.5 - 0.75 = 1.75, then 1.75 - 1.2 = 0.55.)",
+      "misconceptions": {
+        "1": "You only took away the first piece (2.5 - 0.75). Two pieces were cut off, so subtract both.",
+        "2": "You only took away the second piece (2.5 - 1.2). Two pieces were cut off, so subtract both.",
+        "3": "You added all three lengths. Cutting pieces off makes the plank shorter, so subtract."
+      },
+      "skill": "adding and subtracting decimals in context",
+      "source": "original"
+    },
+    {
+      "id": "m05-q018",
+      "subtopicId": "m05-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 0.7 + 0.08 = 0.15",
+      "answer": false,
+      "solution": "0.7 is 7 tenths, which is 70 hundredths. 0.08 is 8 hundredths. 70 + 8 = 78 hundredths, so 0.7 + 0.08 = 0.78, not 0.15. The statement is false.",
+      "misconceptions": {
+        "common": "Adding 7 + 8 = 15 and ignoring place value. The 7 means 7 tenths and the 8 means 8 hundredths, so they are different sizes of parts and cannot simply be added as 7 + 8."
+      },
+      "skill": "adding decimals",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m05-q019",
+      "subtopicId": "m05-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Round each number to the nearest whole number, then estimate 19.87 + 6.12.",
+      "options": [
+        "25",
+        "27",
+        "26",
+        "14"
+      ],
+      "answer": 2,
+      "solution": "19.87 rounds to 20 (tenths digit 8). 6.12 rounds to 6 (tenths digit 1). 20 + 6 = 26. (The exact answer is 25.99.)",
+      "misconceptions": {
+        "0": "You dropped the decimal part of 19.87 to get 19. Its tenths digit is 8, so it rounds up to 20.",
+        "1": "You rounded 6.12 up to 7. Its tenths digit is 1, so it rounds down to 6.",
+        "3": "You subtracted (20 - 6). The question is an addition."
+      },
+      "skill": "estimating with decimals",
+      "source": "original"
+    },
+    {
+      "id": "m05-q020",
+      "subtopicId": "m05-s2",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each calculation to its answer.",
+      "options": {
+        "left": [
+          "2.5 + 1.25",
+          "5 - 0.4",
+          "3.08 + 0.92",
+          "7.1 - 2.6"
+        ],
+        "right": [
+          "4.5",
+          "3.75",
+          "4.96",
+          "4",
+          "4.6"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "2.5 + 1.25 = 3.75 (write 2.5 as 2.50). 5 - 0.4 = 4.6 (5 ones = 50 tenths, 50 - 4 = 46 tenths). 3.08 + 0.92 = 4.00 = 4 (8 + 2 = 10 hundredths = 1 tenth, carry). 7.1 - 2.6 = 4.5.",
+      "misconceptions": {
+        "common": "For 5 - 0.4, taking away 4 hundredths instead of 4 tenths gives 4.96. 0.4 means 4 tenths, so 5 - 0.4 = 4.6."
+      },
+      "skill": "adding and subtracting decimals",
+      "source": "original"
+    },
+    {
+      "id": "m05-q021",
+      "subtopicId": "m05-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A parcel holds three items. Their masses are 1.25 kg, 0.6 kg and 875 g. What is the total mass of the three items in kg?",
+      "answer": {
+        "value": 2.725,
+        "tolerance": 0,
+        "accept": [
+          "2.725 kg",
+          "2.725kg"
+        ]
+      },
+      "solution": "Change 875 g into kg first: 1000 g = 1 kg, so 875 g = 0.875 kg. Line up the decimal points: 1.250 + 0.600 + 0.875 = 2.725. The total mass is 2.725 kg.",
+      "misconceptions": {
+        "common": "Adding 875 as if it were kilograms (giving 876.85), or changing 875 g to 0.0875 kg. Since 1 kg = 1000 g, 875 g = 0.875 kg."
+      },
+      "skill": "adding and subtracting decimals in context",
+      "source": "original"
+    },
+    {
+      "id": "m05-q022",
+      "subtopicId": "m05-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "What must you add to 6.45 to make exactly 10?",
+      "options": [
+        "4.65",
+        "3.65",
+        "4.55",
+        "3.55"
+      ],
+      "answer": 3,
+      "solution": "Work out 10 - 6.45 by counting on. 6.45 + 0.05 = 6.5. 6.5 + 0.5 = 7. 7 + 3 = 10. Add the jumps: 0.05 + 0.5 + 3 = 3.55. Check: 6.45 + 3.55 = 10.",
+      "misconceptions": {
+        "0": "You made every digit up to 10 (6 + 4, 4 + 6, 5 + 5). Only the last digit makes 10; the others make 9 because of the carry. 6.45 + 4.65 = 11.1.",
+        "1": "You made the tenths up to 10 (4 + 6) instead of 9. 6.45 + 3.65 = 10.1.",
+        "2": "You made the ones up to 10 (6 + 4) instead of 9. 6.45 + 4.55 = 11."
+      },
+      "skill": "subtracting decimals",
+      "source": "original"
+    },
+    {
+      "id": "m05-q023",
+      "subtopicId": "m05-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Priya runs 1.6 km on Monday. On Tuesday she runs 850 m more than on Monday. How far does she run on the two days altogether, in km?",
+      "options": [
+        "2.45 km",
+        "4.05 km",
+        "3.285 km",
+        "853.2 km"
+      ],
+      "answer": 1,
+      "solution": "Change 850 m into km: 850 m = 0.85 km. Tuesday: 1.6 + 0.85 = 2.45 km. Both days: 1.6 + 2.45 = 4.05 km.",
+      "misconceptions": {
+        "0": "This is only Tuesday's distance (1.6 + 0.85). Add Monday's 1.6 km as well.",
+        "2": "You changed 850 m into 0.085 km. Since 1 km = 1000 m, 850 m = 0.850 km = 0.85 km.",
+        "3": "You added 850 as if it were kilometres. Change 850 m into km first: 850 m = 0.85 km."
+      },
+      "skill": "adding and subtracting decimals in context",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m05-q024",
+      "subtopicId": "m05-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out -7 + 12.",
+      "options": [
+        "-19",
+        "5",
+        "19",
+        "-5"
+      ],
+      "answer": 1,
+      "solution": "Start at -7 on a number line. Move 7 steps up to reach 0. You still have 12 - 7 = 5 steps to go, so you reach 5.",
+      "misconceptions": {
+        "0": "You added 7 and 12 and kept the minus sign. Start at -7 on a number line and move 12 steps up (to the right).",
+        "2": "You ignored the minus sign on the 7. The number -7 is below zero.",
+        "3": "You found 12 - 7 = 5 but gave it the wrong sign. Moving 12 steps up from -7 takes you past zero to +5."
+      },
+      "skill": "adding and subtracting integers",
+      "source": "original"
+    },
+    {
+      "id": "m05-q025",
+      "subtopicId": "m05-s3",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 3 - 9.",
+      "answer": {
+        "value": -6,
+        "tolerance": 0,
+        "accept": [
+          "−6"
+        ]
+      },
+      "solution": "Start at 3 and count back 9. Three steps take you to 0, and 6 more steps take you to -6. So 3 - 9 = -6.",
+      "misconceptions": {
+        "common": "Answering 6 by doing 9 - 3. When you take away more than you have, you go below zero, so the answer is negative."
+      },
+      "skill": "adding and subtracting integers",
+      "source": "original"
+    },
+    {
+      "id": "m05-q026",
+      "subtopicId": "m05-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "At 6 am the temperature in a mountain village was -4 °C. By noon it had risen by 9 °C. What was the temperature at noon?",
+      "options": [
+        "-13 °C",
+        "13 °C",
+        "5 °C",
+        "-5 °C"
+      ],
+      "answer": 2,
+      "solution": "Start at -4. Rising 4 degrees takes you to 0. There are 9 - 4 = 5 more degrees to rise, so the temperature at noon is 5 °C.",
+      "misconceptions": {
+        "0": "You moved down instead of up. 'Risen' means the temperature went up, so add 9.",
+        "1": "You added 4 and 9 and ignored the minus sign. The temperature started 4 degrees below zero.",
+        "3": "You found 9 - 4 = 5 but kept the minus sign. Rising 9 degrees from -4 °C passes 0 °C and reaches +5 °C."
+      },
+      "skill": "integers in context (temperature, floors)",
+      "source": "original"
+    },
+    {
+      "id": "m05-q027",
+      "subtopicId": "m05-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: -3 - 5 = -8",
+      "answer": true,
+      "solution": "Start at -3 and move 5 steps down: -4, -5, -6, -7, -8. So -3 - 5 = -8. The statement is true.",
+      "misconceptions": {
+        "common": "Thinking 'two minus signs make a plus' and answering 2 or 8. Here you start below zero and take 5 away, so you move further below zero."
+      },
+      "skill": "adding and subtracting integers",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m05-q028",
+      "subtopicId": "m05-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "One January morning, the temperature in Seoul was -6 °C and the temperature in Kuala Lumpur was 31 °C. What is the difference between the two temperatures?",
+      "options": [
+        "37 °C",
+        "25 °C",
+        "-37 °C",
+        "-25 °C"
+      ],
+      "answer": 0,
+      "solution": "Count the steps on a number line. From -6 °C up to 0 °C is 6 degrees. From 0 °C up to 31 °C is 31 degrees. Difference: 6 + 31 = 37 °C.",
+      "misconceptions": {
+        "1": "You worked out 31 - 6. But -6 °C is below zero: it is 6 degrees up to 0 °C, then 31 more degrees, so 6 + 31 = 37.",
+        "2": "A difference is the size of the gap between two temperatures, so it is never negative.",
+        "3": "You worked out 6 - 31. Count the steps between -6 and 31 instead: 6 up to zero, then 31 more."
+      },
+      "skill": "integers in context (temperature, floors)",
+      "source": "original"
+    },
+    {
+      "id": "m05-q029",
+      "subtopicId": "m05-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which calculation has the answer -2?",
+      "options": [
+        "5 - 3",
+        "-5 - 3",
+        "-3 + 5",
+        "-5 + 3"
+      ],
+      "answer": 3,
+      "solution": "Start at -5 and move 3 steps up: -4, -3, -2. So -5 + 3 = -2.",
+      "misconceptions": {
+        "0": "5 - 3 = 2. You start at 5, above zero, so taking 3 away stays above zero.",
+        "1": "-5 - 3 = -8. Taking 3 away from -5 moves you further below zero.",
+        "2": "-3 + 5 = 2. Start at -3 and move 5 up: you pass 0 and reach +2."
+      },
+      "skill": "adding and subtracting integers",
+      "source": "original"
+    },
+    {
+      "id": "m05-q030",
+      "subtopicId": "m05-s3",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "These calculations use negative numbers. Work out each one, then put the calculations in order from smallest answer to largest answer.",
+      "options": [
+        "-8 + 3",
+        "2 - 6",
+        "-10 + 12",
+        "-1 - 6"
+      ],
+      "answer": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "solution": "-8 + 3 = -5. 2 - 6 = -4. -10 + 12 = 2. -1 - 6 = -7. Smallest to largest: -7, -5, -4, 2.",
+      "misconceptions": {
+        "common": "Thinking -7 is bigger than -5 because 7 is bigger than 5. With negative numbers, the further below zero a number is, the smaller it is."
+      },
+      "skill": "adding and subtracting integers",
+      "source": "original"
+    },
+    {
+      "id": "m05-q031",
+      "subtopicId": "m05-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "In a shopping centre, the ground floor is floor 0. The car park floors below ground are -1, -2, -3 and so on. A lift starts at floor 3. It goes down 5 floors, then up 8 floors, then down 9 floors. Which floor is the lift on now?",
+      "answer": {
+        "value": -3,
+        "tolerance": 0,
+        "accept": [
+          "−3",
+          "floor -3",
+          "Floor -3"
+        ]
+      },
+      "solution": "Start at floor 3. Down 5: 3 - 5 = -2. Up 8: -2 + 8 = 6. Down 9: 6 - 9 = -3. The lift is on floor -3, the third car park floor below ground.",
+      "misconceptions": {
+        "common": "Missing out floor 0 when counting. Floor 0 is a floor too: going down 1 from floor 0 takes you to floor -1."
+      },
+      "skill": "integers in context (temperature, floors)",
+      "source": "original"
+    },
+    {
+      "id": "m05-q032",
+      "subtopicId": "m05-s3",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each calculation with negative numbers to its answer.",
+      "options": {
+        "left": [
+          "-6 + 4",
+          "-6 - 4",
+          "6 - 14",
+          "-1 + 9"
+        ],
+        "right": [
+          "-10",
+          "8",
+          "-2",
+          "10",
+          "-8",
+          "2"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "-6 + 4: start at -6, move 4 up, reach -2. -6 - 4: start at -6, move 4 down, reach -10. 6 - 14: 6 steps down to 0, then 8 more, reach -8. -1 + 9: 1 step up to 0, then 8 more, reach 8.",
+      "misconceptions": {
+        "common": "Mixing up -6 + 4 and -6 - 4. Adding moves you up the number line (to -2); subtracting moves you down (to -10)."
+      },
+      "skill": "adding and subtracting integers",
+      "source": "original"
+    },
+    {
+      "id": "m05-q033",
+      "subtopicId": "m05-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A freezer is at -18 °C. It is switched off, and its temperature rises by 3 °C every hour. What is its temperature after 5 hours?",
+      "options": [
+        "-33 °C",
+        "3 °C",
+        "-15 °C",
+        "-3 °C"
+      ],
+      "answer": 3,
+      "solution": "In 5 hours the temperature rises 5 x 3 = 15 °C. Start at -18 and move 15 up: -18 + 15 = -3. The freezer is at -3 °C.",
+      "misconceptions": {
+        "0": "You moved down instead of up. The temperature rises, so the 15 degrees are added: -18 + 15.",
+        "1": "You found the right gap (18 - 15 = 3) but lost the minus sign. After rising 15 degrees from -18 °C, it is still 3 degrees below zero.",
+        "2": "This is the temperature after only 1 hour (-18 + 3). In 5 hours it rises 5 x 3 = 15 degrees."
+      },
+      "skill": "integers in context (temperature, floors)",
+      "source": "original"
+    },
+    {
+      "id": "m05-q034",
+      "subtopicId": "m05-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "On a mountain, the temperature drops by 6 °C for every 1000 m you climb. At a hut 500 m above sea level the temperature is 8 °C. What is the temperature at the summit, 3500 m above sea level? Give your answer in °C.",
+      "answer": {
+        "value": -10,
+        "tolerance": 0,
+        "accept": [
+          "−10",
+          "-10 °C",
+          "-10°C",
+          "−10 °C"
+        ]
+      },
+      "solution": "Height climbed from the hut to the summit: 3500 - 500 = 3000 m. That is 3 lots of 1000 m, so the temperature drops 3 x 6 = 18 °C. 8 - 18 = -10. The temperature at the summit is -10 °C.",
+      "misconceptions": {
+        "common": "Using 3500 m instead of the climb from the hut (3000 m). That gives a drop of 21 °C and a wrong answer of -13 °C. Only the height you actually climb from the hut counts."
+      },
+      "skill": "integers in context (temperature, floors)",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m05-q035",
+      "subtopicId": "m05-s3",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Select ALL the calculations that have a negative answer.",
+      "options": [
+        "15 - 23",
+        "-4 + 11",
+        "-9 + 6",
+        "0 - 2",
+        "-12 + 12",
+        "7 - 3 - 5"
+      ],
+      "answer": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "solution": "15 - 23 = -8 (negative). -4 + 11 = 7 (positive). -9 + 6 = -3 (negative). 0 - 2 = -2 (negative). -12 + 12 = 0 (zero, not negative). 7 - 3 - 5 = 4 - 5 = -1 (negative).",
+      "misconceptions": {
+        "1": "-4 + 11 = 7. Moving 11 steps up from -4 takes you past zero to 7.",
+        "4": "-12 + 12 = 0. Zero is neither positive nor negative."
+      },
+      "skill": "adding and subtracting integers",
+      "source": "original"
+    },
+    {
+      "id": "m05-q036",
+      "subtopicId": "m05-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "a + 15 = 42. What is the value of a?",
+      "answer": {
+        "value": 27,
+        "tolerance": 0,
+        "accept": [
+          "a = 27",
+          "a=27"
+        ]
+      },
+      "solution": "To find a, undo 'add 15' by subtracting 15: 42 - 15 = 27. Check: 27 + 15 = 42.",
+      "misconceptions": {
+        "common": "Adding 15 to 42 to get 57. The letter a has 15 added to it to make 42, so a must be 15 less than 42."
+      },
+      "skill": "finding an unknown in an addition or subtraction",
+      "source": "original"
+    },
+    {
+      "id": "m05-q037",
+      "subtopicId": "m05-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "n - 8 = 23. What is the value of n?",
+      "options": [
+        "31",
+        "15",
+        "-15"
+      ],
+      "answer": 0,
+      "solution": "Undo 'subtract 8' by adding 8: n = 23 + 8 = 31. Check: 31 - 8 = 23.",
+      "misconceptions": {
+        "1": "You subtracted 8 from 23. n had 8 taken away to leave 23, so n is 8 more than 23.",
+        "2": "You worked out 8 - 23. Undo 'subtract 8' by adding 8: 23 + 8 = 31."
+      },
+      "skill": "finding an unknown in an addition or subtraction",
+      "source": "original"
+    },
+    {
+      "id": "m05-q038",
+      "subtopicId": "m05-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: If p + q = 20 and p = 7, then q = 13.",
+      "answer": true,
+      "solution": "Put 7 in place of p: 7 + q = 20. So q = 20 - 7 = 13. The statement is true.",
+      "misconceptions": {
+        "common": "Thinking that p and q must be equal (10 each), or adding 7 to 20. The letters can stand for different numbers; here q = 20 - 7."
+      },
+      "skill": "letters for quantities that vary",
+      "source": "original"
+    },
+    {
+      "id": "m05-q039",
+      "subtopicId": "m05-s4",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "a + b = 20. Select ALL the pairs of values of a and b that make this true.",
+      "options": [
+        "a = 12, b = 8",
+        "a = 5, b = 15",
+        "a = 9, b = 12",
+        "a = 6.5, b = 13.5",
+        "a = 14, b = 4"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "Add each pair. 12 + 8 = 20 (yes). 5 + 15 = 20 (yes). 9 + 12 = 21 (no). 6.5 + 13.5 = 20 (yes). 14 + 4 = 18 (no). The letters a and b can take many different values, as long as they add up to 20.",
+      "misconceptions": {
+        "2": "9 + 12 = 21, which is 1 too many.",
+        "4": "14 + 4 = 18, which is 2 too few.",
+        "common": "Thinking a and b must be whole numbers. Decimals such as 6.5 and 13.5 also add up to 20."
+      },
+      "skill": "letters for quantities that vary",
+      "source": "original"
+    },
+    {
+      "id": "m05-q040",
+      "subtopicId": "m05-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "x - y = 6. Which pair of values could x and y have?",
+      "options": [
+        "x = 5 and y = 11",
+        "x = 2 and y = 4",
+        "x = 11 and y = 5",
+        "x = 3 and y = 2"
+      ],
+      "answer": 2,
+      "solution": "Try each pair in x - y. 11 - 5 = 6, which works. The others give 5 - 11 = -6, 2 - 4 = -2 and 3 - 2 = 1.",
+      "misconceptions": {
+        "0": "5 - 11 = -6, not 6. Order matters in subtraction: here x must be the bigger number.",
+        "1": "2 + 4 = 6, but the equation says x minus y, not x plus y. 2 - 4 = -2.",
+        "3": "3 x 2 = 6, but the equation is a subtraction. 3 - 2 = 1."
+      },
+      "skill": "letters for quantities that vary",
+      "source": "original"
+    },
+    {
+      "id": "m05-q041",
+      "subtopicId": "m05-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A bag of rice and a bag of flour have a total mass of 7.5 kg. The rice has a mass of 4.75 kg. Using f for the mass of the flour in kg, 4.75 + f = 7.5. What is f?",
+      "options": [
+        "12.25 kg",
+        "2.75 kg",
+        "3.25 kg",
+        "2.85 kg"
+      ],
+      "answer": 1,
+      "solution": "Undo + 4.75 by subtracting: f = 7.5 - 4.75. Write 7.50 - 4.75. Hundredths: exchange, 10 - 5 = 5. Tenths: 4 - 7, exchange, 14 - 7 = 7. Ones: 6 - 4 = 2. So f = 2.75 kg. Check: 4.75 + 2.75 = 7.5.",
+      "misconceptions": {
+        "0": "You added 4.75 and 7.5. To undo + 4.75, subtract it: f = 7.5 - 4.75.",
+        "2": "You took the smaller digit from the larger in each column. Write 7.5 as 7.50 and exchange when the top digit is smaller.",
+        "3": "You exchanged a one into tenths, but forgot that the tenths digit had already gone down from 5 to 4 when you exchanged for the hundredths. So it is 14 - 7 = 7 tenths, not 15 - 7 = 8."
+      },
+      "skill": "finding an unknown in an addition or subtraction",
+      "source": "original"
+    },
+    {
+      "id": "m05-q042",
+      "subtopicId": "m05-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Daniel had some money. He spent RM 18 and had RM 27 left. Let m stand for the amount of money, in RM, that he had at first. Which equation is correct?",
+      "options": [
+        "m + 18 = 27",
+        "18 - m = 27",
+        "m - 18 = 27",
+        "m = 27 - 18"
+      ],
+      "answer": 2,
+      "solution": "Daniel started with m. He took away 18. He was left with 27. So m - 18 = 27. (Solving it: m = 27 + 18 = 45, so he had RM 45 at first.)",
+      "misconceptions": {
+        "0": "Spending money makes the amount go down, so spending is a subtraction, not an addition.",
+        "1": "This takes m away from 18. Daniel started with m and took 18 away, so m comes first.",
+        "3": "This would mean he had only RM 9 at first, which is less than he spent. He had RM 27 + RM 18 = RM 45 at first."
+      },
+      "skill": "writing an equation with a letter",
+      "source": "original"
+    },
+    {
+      "id": "m05-q043",
+      "subtopicId": "m05-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Wei Ming and Aisha have 85 stickers altogether. Wei Ming has 17 more stickers than Aisha. How many stickers does Aisha have?",
+      "answer": {
+        "value": 34,
+        "tolerance": 0,
+        "accept": [
+          "34 stickers"
+        ]
+      },
+      "solution": "Draw a bar model in your head: Aisha's bar, and Wei Ming's bar which is the same length plus an extra 17. Take away the extra 17: 85 - 17 = 68. Now the two bars are equal, so each is 68 ÷ 2 = 34. Aisha has 34 stickers (and Wei Ming has 34 + 17 = 51). Check: 34 + 51 = 85.",
+      "misconceptions": {
+        "common": "Stopping at 85 - 17 = 68. The 68 is two equal bars (Aisha's amount twice), so it must be halved. Another slip is halving 85 first and then subtracting 17."
+      },
+      "skill": "multi-step word problems (bar models)",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m05-q044",
+      "subtopicId": "m05-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "A concert hall has 1500 seats. On Friday, 386 tickets were sold. On Saturday, 127 more tickets were sold than on Friday. How many seats were still unsold after Saturday?",
+      "options": [
+        "987",
+        "601",
+        "1114",
+        "899"
+      ],
+      "answer": 1,
+      "solution": "Saturday: 386 + 127 = 513 tickets. Total sold: 386 + 513 = 899. Unsold seats: 1500 - 899 = 601.",
+      "misconceptions": {
+        "0": "You took 127 as the number sold on Saturday. Saturday sold 127 MORE than Friday: 386 + 127 = 513.",
+        "2": "You only took away Friday's tickets. Saturday's tickets must be taken away too.",
+        "3": "This is the number of tickets sold. The question asks how many seats were not sold, so you still need 1500 - 899."
+      },
+      "skill": "multi-step word problems (bar models)",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m05-q045",
+      "subtopicId": "m05-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "A tank had some water in it. Arjun used 3.6 L of the water, and then he poured in 5.25 L. The tank now holds 12.4 L. How much water was in the tank at first? Give your answer in litres.",
+      "answer": {
+        "value": 10.75,
+        "tolerance": 0,
+        "accept": [
+          "10.75 l",
+          "10.75 L",
+          "10.75 litres"
+        ]
+      },
+      "solution": "Work backwards and undo each step. Last step: 5.25 L was poured in, so take it away: 12.4 - 5.25 = 7.15 L. Before that, 3.6 L was used, so add it back: 7.15 + 3.6 = 10.75 L. Check: 10.75 - 3.6 = 7.15, and 7.15 + 5.25 = 12.4.",
+      "misconceptions": {
+        "common": "Doing the same operations as in the story instead of the inverse ones (12.4 + 5.25 - 3.6 = 14.05). When you work backwards, take away what was added and add back what was used."
+      },
+      "skill": "working backwards with inverse operations",
+      "source": "inspired-by: Singapore P6"
+    }
+  ]
+}

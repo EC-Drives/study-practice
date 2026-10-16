@@ -1,0 +1,1147 @@
+{
+  "subject": "maths",
+  "topicId": "m14-reflection-and-rotation",
+  "title": "Reflection and Rotation",
+  "order": 14,
+  "bookChapter": "Chapter 14: Reflection and Rotation",
+  "frameworkRefs": [
+    "6Gp.04",
+    "6Gp.05",
+    "6Gg.08"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will reflect points and shapes in horizontal, vertical and diagonal mirror lines and work out the coordinates of the image. You will rotate shapes 90° clockwise or anticlockwise about one of their corners. You will also find symmetry in patterns and tell reflections, rotations and translations apart.",
+    "whyItMatters": "Reflections and rotations help you picture how shapes move and fit together. Designers, engineers and game makers use them every day, and they are the start of transformation geometry in secondary school.",
+    "realWorld": [
+      "Batik and songket patterns often repeat a motif by reflecting or rotating it",
+      "Seeing your reflection in a mirror or a still lake at Putrajaya",
+      "A ceiling fan or a car wheel has rotational symmetry",
+      "Turning a puzzle piece or a block a quarter turn so it fits in a game",
+      "Logos and tiles are designed with lines of symmetry so they look balanced"
+    ],
+    "subtopics": [
+      {
+        "id": "m14-s1",
+        "title": "Reflection in vertical and horizontal lines",
+        "summary": "Reflect points and shapes in the x-axis, the y-axis and lines such as x = 2 or y = 4. Each point ends up the same distance from the mirror line, on the other side."
+      },
+      {
+        "id": "m14-s2",
+        "title": "Reflection in a diagonal line",
+        "summary": "Reflect points in the diagonal line through (0, 0), (1, 1) and (2, 2), where the coordinates swap places. Stretch: the other diagonal, through (1, -1)."
+      },
+      {
+        "id": "m14-s3",
+        "title": "Rotation about a vertex",
+        "summary": "Rotate shapes a quarter turn (90°) clockwise or anticlockwise about one of their corners and find the image coordinates."
+      },
+      {
+        "id": "m14-s4",
+        "title": "Symmetry and comparing transformations",
+        "summary": "Find lines of symmetry and the order of rotational symmetry of patterns, complete symmetrical shapes, and tell reflection, rotation and translation apart."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m14-q001",
+      "subtopicId": "m14-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The point (3, 2) is reflected in the y-axis. What are the coordinates of its image?",
+      "options": [
+        "(3, -2)",
+        "(-3, -2)",
+        "(-3, 2)",
+        "(2, 3)"
+      ],
+      "answer": 2,
+      "solution": "The y-axis is a vertical mirror. (3, 2) is 3 units to the right of it, so the image is 3 units to the LEFT, at the same height. Image = (-3, 2).",
+      "misconceptions": {
+        "0": "This is a reflection in the x-axis (the horizontal axis). The y-axis is the vertical axis, so the point flips from right to left and only x changes.",
+        "1": "Only one coordinate changes in a reflection in an axis. Reflecting in the y-axis changes the sign of x; y stays the same.",
+        "3": "Swapping the numbers is what happens with the diagonal mirror line, not with the y-axis."
+      },
+      "skill": "reflecting in the x-axis or y-axis",
+      "source": "original"
+    },
+    {
+      "id": "m14-q002",
+      "subtopicId": "m14-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The point (4, -5) is reflected in the x-axis. What are the coordinates of its image?",
+      "options": [
+        "(4, 5)",
+        "(-4, -5)",
+        "(-4, 5)",
+        "(-5, 4)"
+      ],
+      "answer": 0,
+      "solution": "The x-axis is a horizontal mirror. (4, -5) is 5 units below it, so the image is 5 units ABOVE it, directly over the point. Image = (4, 5).",
+      "misconceptions": {
+        "1": "This is a reflection in the y-axis. The x-axis is horizontal, so the point flips from below to above and only y changes.",
+        "2": "Both signs have changed. A reflection in the x-axis only changes the sign of the y-coordinate.",
+        "3": "The numbers have been swapped as well. In a reflection in the x-axis, x stays as 4."
+      },
+      "skill": "reflecting in the x-axis or y-axis",
+      "source": "original"
+    },
+    {
+      "id": "m14-q003",
+      "subtopicId": "m14-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: When you reflect a point in the x-axis, its y-coordinate stays the same.",
+      "answer": false,
+      "solution": "The x-axis is a horizontal mirror, so the point flips up or down. That changes the y-coordinate (it changes sign: 3 becomes -3). It is the x-coordinate that stays the same. False.",
+      "misconceptions": {
+        "common": "Thinking 'x-axis' means the y-coordinate is left alone. Picture the mirror: a horizontal mirror flips things up and down, so y changes."
+      },
+      "skill": "reflecting in the x-axis or y-axis",
+      "source": "original"
+    },
+    {
+      "id": "m14-q004",
+      "subtopicId": "m14-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The point (5, 3) is reflected in the vertical mirror line x = 2 (the line through (2, 0), (2, 1), (2, 2) and so on). What are the coordinates of its image?",
+      "options": [
+        "(-5, 3)",
+        "(5, 1)",
+        "(-3, 3)",
+        "(-1, 3)"
+      ],
+      "answer": 3,
+      "solution": "The mirror is the vertical line x = 2. The point is at x = 5, which is 5 - 2 = 3 units to the right of the mirror. The image is 3 units to the left of the mirror: x = 2 - 3 = -1. y does not change. Image = (-1, 3).",
+      "misconceptions": {
+        "0": "This reflects in the y-axis (x = 0). The mirror here is the line x = 2, so measure the distance from that line instead.",
+        "1": "This reflects in a horizontal line y = 2. The line x = 2 is vertical, so the point moves left, not down.",
+        "2": "The point is 3 units from the mirror, but the image must be 3 units on the OTHER side of the mirror line (2 - 3 = -1), not 3 units from the origin."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m14-q005",
+      "subtopicId": "m14-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The point (1, 7) is reflected in the horizontal mirror line y = 4 (the line through (0, 4), (1, 4), (2, 4) and so on). What are the coordinates of its image?",
+      "options": [
+        "(1, -7)",
+        "(1, 1)",
+        "(1, 3)",
+        "(-1, 7)"
+      ],
+      "answer": 1,
+      "solution": "The mirror is the horizontal line y = 4. The point is at y = 7, which is 7 - 4 = 3 units above the mirror. The image is 3 units below the mirror: y = 4 - 3 = 1. x does not change. Image = (1, 1).",
+      "misconceptions": {
+        "0": "This reflects in the x-axis (y = 0). The mirror is the line y = 4, so measure from that line.",
+        "2": "3 is the DISTANCE from the point to the mirror. The image is 3 units below the mirror line: 4 - 3 = 1.",
+        "3": "This reflects in the y-axis. A horizontal mirror line moves the point up or down, so x stays as 1."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q006",
+      "subtopicId": "m14-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The point (-2, 6) is reflected in the horizontal mirror line y = 1. What is the y-coordinate of the image?",
+      "answer": {
+        "value": -4,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "The point is at y = 6, which is 6 - 1 = 5 units above the mirror line y = 1. The image is 5 units below it: 1 - 5 = -4. The image is (-2, -4), so the y-coordinate is -4.",
+      "misconceptions": {
+        "common": "Answering -6 by reflecting in the x-axis instead of the line y = 1, or answering 4 by forgetting that 1 - 5 goes below zero."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q007",
+      "subtopicId": "m14-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the points that stay in exactly the same place when they are reflected in the vertical mirror line x = 3.",
+      "options": [
+        "(3, 0)",
+        "(3, -5)",
+        "(0, 3)",
+        "(3, 3)",
+        "(-3, 3)",
+        "(6, 3)"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "A point stays still only if it is ON the mirror line. Every point on the line x = 3 has x-coordinate 3: (3, 0), (3, -5) and (3, 3). The y-coordinate can be anything.",
+      "misconceptions": {
+        "2": "(0, 3) has y = 3, not x = 3. It is 3 units left of the mirror, so its image is (6, 3).",
+        "4": "(-3, 3) is 6 units left of the mirror line x = 3, so it moves to (9, 3).",
+        "5": "(6, 3) is 3 units right of the mirror line, so it moves to (0, 3)."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q008",
+      "subtopicId": "m14-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Triangle ABC has corners A(1, 2), B(4, 2) and C(4, 5). It is reflected in the x-axis. Which list gives the corners of the image, A', B' and C'?",
+      "options": [
+        "(-1, 2), (-4, 2), (-4, 5)",
+        "(1, -2), (4, -2), (4, -5)",
+        "(1, -2), (4, -2), (4, 5)",
+        "(-2, 1), (-2, 4), (-5, 4)"
+      ],
+      "answer": 1,
+      "solution": "Reflecting in the x-axis: keep each x-coordinate and change the sign of each y-coordinate. A(1, 2) to (1, -2), B(4, 2) to (4, -2), C(4, 5) to (4, -5).",
+      "misconceptions": {
+        "0": "This is a reflection in the y-axis. Reflecting in the x-axis keeps x the same and changes the sign of y.",
+        "2": "Every corner must be reflected. C(4, 5) also moves, to (4, -5).",
+        "3": "The coordinates have been swapped round as well as changing sign. Keep x first and only change the sign of y."
+      },
+      "skill": "reflecting in the x-axis or y-axis",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m14-q009",
+      "subtopicId": "m14-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: Reflecting the point (2, 5) in the horizontal mirror line y = 5 leaves it in the same place.",
+      "answer": true,
+      "solution": "The point (2, 5) has y = 5, so it lies ON the mirror line y = 5. Its distance from the mirror is 0, so its image is itself. True.",
+      "misconceptions": {
+        "common": "Thinking every point must move in a reflection. Points on the mirror line stay where they are."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q010",
+      "subtopicId": "m14-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Point P is reflected in the vertical mirror line x = -1. Its image is (2, 4). What are the coordinates of P?",
+      "options": [
+        "(-4, 4)",
+        "(-2, 4)",
+        "(2, -6)",
+        "(-3, 4)"
+      ],
+      "answer": 0,
+      "solution": "Reflecting back gives the original point. The image (2, 4) is 2 - (-1) = 3 units right of the mirror line x = -1. So P is 3 units left of the mirror: x = -1 - 3 = -4. y stays 4. P = (-4, 4).",
+      "misconceptions": {
+        "1": "This reflects in the y-axis (x = 0). The mirror line is x = -1, one unit to the left of the y-axis.",
+        "2": "This reflects in the horizontal line y = -1. The line x = -1 is vertical, so only x changes.",
+        "3": "The image is 3 units from the mirror (from 2 back to -1). P must be 3 units on the other side of the MIRROR LINE: -1 - 3 = -4, not 3 units from the origin."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m14-q011",
+      "subtopicId": "m14-s1",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The point (1, 3) is reflected in a vertical mirror line and its image is (7, 3). The mirror line is x = ?. Give the missing number.",
+      "answer": {
+        "value": 4,
+        "tolerance": 0,
+        "accept": [
+          "x = 4",
+          "x=4"
+        ]
+      },
+      "solution": "The mirror line is exactly halfway between a point and its image. Halfway between x = 1 and x = 7 is (1 + 7) / 2 = 4. So the mirror line is x = 4. Check: (1, 3) is 3 units left of x = 4, and (7, 3) is 3 units right of it.",
+      "misconceptions": {
+        "common": "Answering 6, the distance between the point and its image. The mirror line is at the halfway point, not at the full distance."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m14-q012",
+      "subtopicId": "m14-s1",
+      "type": "match",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Each point is reflected in the horizontal mirror line y = -2. Match each point to its image.",
+      "options": {
+        "left": [
+          "(0, 1)",
+          "(3, -4)",
+          "(-2, -2)"
+        ],
+        "right": [
+          "(3, 0)",
+          "(0, -1)",
+          "(-2, -2)",
+          "(0, -5)",
+          "(3, 4)"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "solution": "(0, 1) is 3 units above y = -2, so its image is 3 units below: (0, -5). (3, -4) is 2 units below y = -2, so its image is 2 units above: (3, 0). (-2, -2) is ON the mirror line, so it stays at (-2, -2).",
+      "misconceptions": {
+        "common": "Reflecting in the x-axis instead of the line y = -2, which gives (0, -1) and (3, 4). Always measure the distance from the given mirror line."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q013",
+      "subtopicId": "m14-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The point (2, 5) is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). What are the coordinates of its image?",
+      "options": [
+        "(-2, 5)",
+        "(5, 2)",
+        "(2, -5)",
+        "(-5, -2)"
+      ],
+      "answer": 1,
+      "solution": "In the diagonal mirror line through (0, 0), (1, 1) and (2, 2), the x and y coordinates swap places. (2, 5) becomes (5, 2). Check: both points are the same distance from the line, on opposite sides.",
+      "misconceptions": {
+        "0": "This is a reflection in the y-axis. The mirror here is the diagonal line through (0, 0), (1, 1) and (2, 2).",
+        "2": "This is a reflection in the x-axis. In this diagonal mirror, the point does not flip over an axis.",
+        "3": "This uses the OTHER diagonal, the one through (1, -1) and (2, -2). For the line through (1, 1) and (2, 2), just swap the numbers."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q014",
+      "subtopicId": "m14-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The point (4, 4) does not move when it is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2).",
+      "answer": true,
+      "solution": "The mirror line passes through every point whose two coordinates are equal: (0, 0), (1, 1), (2, 2), (3, 3), (4, 4) and so on. (4, 4) is ON the mirror line, so it stays still. True.",
+      "misconceptions": {
+        "common": "Thinking every point must move. A point on the mirror line is its own image."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q015",
+      "subtopicId": "m14-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The point (6, 1) is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). What are the coordinates of the image? Write them like (x, y).",
+      "answer": {
+        "accept": [
+          "(1, 6)",
+          "(1,6)",
+          "1, 6",
+          "1,6",
+          "( 1, 6 )",
+          "(1 ,6)"
+        ],
+        "keywords": []
+      },
+      "solution": "In this diagonal mirror the two coordinates swap. (6, 1) becomes (1, 6).",
+      "misconceptions": {
+        "common": "Changing a sign as if reflecting in an axis, for example writing (-6, 1). With this diagonal mirror the numbers swap places and keep their signs."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q016",
+      "subtopicId": "m14-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The point (-3, 1) is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). What are the coordinates of its image?",
+      "options": [
+        "(-1, 3)",
+        "(3, 1)",
+        "(-3, -1)",
+        "(1, -3)"
+      ],
+      "answer": 3,
+      "solution": "Swap the coordinates and keep their signs: (-3, 1) becomes (1, -3). The point moves from the second quadrant to the fourth quadrant, on the other side of the diagonal mirror.",
+      "misconceptions": {
+        "0": "This swaps the numbers AND changes both signs, which is a reflection in the other diagonal (through (1, -1) and (2, -2)). For this mirror, just swap: (-3, 1) becomes (1, -3).",
+        "1": "This is a reflection in the y-axis. A diagonal mirror swaps the coordinates.",
+        "2": "This is a reflection in the x-axis. A diagonal mirror swaps the coordinates."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q017",
+      "subtopicId": "m14-s2",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the points that lie on the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). (The line carries on in both directions.)",
+      "options": [
+        "(5, 5)",
+        "(-2, -2)",
+        "(2, -2)",
+        "(0, 3)",
+        "(1.5, 1.5)",
+        "(3, 0)"
+      ],
+      "answer": [
+        0,
+        1,
+        4
+      ],
+      "solution": "Every point on this diagonal line has its x-coordinate equal to its y-coordinate. That includes negative and decimal values: (5, 5), (-2, -2) and (1.5, 1.5).",
+      "misconceptions": {
+        "2": "(2, -2) has different coordinates (2 and -2). It lies on the other diagonal, through (1, -1).",
+        "3": "(0, 3) is on the y-axis, not on the diagonal. Its coordinates are not equal.",
+        "5": "(3, 0) is on the x-axis, not on the diagonal. Its coordinates are not equal."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q018",
+      "subtopicId": "m14-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Triangle ABC has corners A(1, 0), B(3, 0) and C(3, 1). It is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). Where is the image of B?",
+      "options": [
+        "(0, 3)",
+        "(3, 0)",
+        "(-3, 0)",
+        "(0, -3)"
+      ],
+      "answer": 0,
+      "solution": "In this diagonal mirror the coordinates swap. B(3, 0) becomes (0, 3). B was on the x-axis, and its image is on the y-axis.",
+      "misconceptions": {
+        "1": "B is not on the mirror line (its coordinates 3 and 0 are not equal), so it must move.",
+        "2": "This reflects B in the y-axis. In the diagonal mirror the coordinates swap.",
+        "3": "This swaps the numbers but also changes a sign. That is the other diagonal mirror. For this one, just swap: (3, 0) becomes (0, 3)."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q019",
+      "subtopicId": "m14-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: Reflecting the point (-2, 5) in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2) gives the image (-5, 2).",
+      "answer": false,
+      "solution": "Swap the coordinates and keep their signs: (-2, 5) becomes (5, -2), not (-5, 2). False.",
+      "misconceptions": {
+        "common": "Swapping the numbers but keeping the minus sign in the first place. The -2 moves to the second place, so the image is (5, -2)."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q020",
+      "subtopicId": "m14-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The point (3, 1) is reflected in the other diagonal mirror line, which passes through (0, 0), (1, -1) and (2, -2) and slopes downwards from left to right. What are the coordinates of its image?",
+      "options": [
+        "(1, 3)",
+        "(-3, -1)",
+        "(-1, -3)",
+        "(3, -1)"
+      ],
+      "answer": 2,
+      "solution": "For this diagonal mirror, swap the coordinates AND change both signs: (3, 1) becomes (-1, -3). Check: halfway between (3, 1) and (-1, -3) is (1, -1), which is on the mirror line.",
+      "misconceptions": {
+        "0": "This uses the diagonal through (1, 1) and (2, 2). This mirror goes through (1, -1) and (2, -2), so as well as swapping, both signs change.",
+        "1": "Both signs have changed, but the numbers also need to swap places.",
+        "3": "This is a reflection in the x-axis, not in a diagonal line."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q021",
+      "subtopicId": "m14-s2",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A point is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). Its image is (-4, 7). What were the coordinates of the original point? Write them like (x, y).",
+      "answer": {
+        "accept": [
+          "(7, -4)",
+          "(7,-4)",
+          "7, -4",
+          "7,-4",
+          "( 7, -4 )",
+          "(7 ,-4)"
+        ],
+        "keywords": []
+      },
+      "solution": "Reflecting in this diagonal swaps the coordinates, and reflecting back swaps them again. So the original point is (7, -4). Check: swapping (7, -4) gives (-4, 7).",
+      "misconceptions": {
+        "common": "Changing the signs as well as swapping, which gives (-7, 4). With this diagonal mirror the signs stay with their numbers."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m14-q022",
+      "subtopicId": "m14-s2",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Each point is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). Match each point to its image.",
+      "options": {
+        "left": [
+          "(1, 3)",
+          "(-2, 0)",
+          "(5, -1)"
+        ],
+        "right": [
+          "(-1, 5)",
+          "(-3, -1)",
+          "(3, 1)",
+          "(2, 0)",
+          "(0, -2)"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "solution": "Swap the coordinates each time. (1, 3) becomes (3, 1). (-2, 0) becomes (0, -2). (5, -1) becomes (-1, 5).",
+      "misconceptions": {
+        "common": "Changing the signs as well as swapping (giving (-3, -1)), or reflecting in the y-axis (giving (2, 0))."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q023",
+      "subtopicId": "m14-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A square has corners (1, 2), (3, 2), (3, 4) and (1, 4). It is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). Which list gives the corners of the image?",
+      "options": [
+        "(-1, 2), (-3, 2), (-3, 4), (-1, 4)",
+        "(2, 1), (2, 3), (4, 3), (4, 1)",
+        "(1, -2), (3, -2), (3, -4), (1, -4)",
+        "(-2, -1), (-2, -3), (-4, -3), (-4, -1)"
+      ],
+      "answer": 1,
+      "solution": "Swap the coordinates of every corner: (1, 2) to (2, 1), (3, 2) to (2, 3), (3, 4) to (4, 3), (1, 4) to (4, 1). The image is still a square with sides of 2 units, now on the other side of the diagonal.",
+      "misconceptions": {
+        "0": "This is a reflection in the y-axis. The diagonal mirror swaps the coordinates of each corner.",
+        "2": "This is a reflection in the x-axis. The diagonal mirror swaps the coordinates of each corner.",
+        "3": "This swaps the numbers and changes the signs, which is the other diagonal mirror (through (1, -1)). Here you only swap."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q024",
+      "subtopicId": "m14-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A line goes from (0, 0) straight up to (0, 3). It is rotated 90° clockwise about (0, 0). Where does the end (0, 3) go?",
+      "options": [
+        "(-3, 0)",
+        "(0, -3)",
+        "(3, 3)",
+        "(3, 0)"
+      ],
+      "answer": 3,
+      "solution": "Think of a clock hand pointing at 12. A quarter turn clockwise makes it point at 3, which is to the right. The line now goes from (0, 0) to (3, 0).",
+      "misconceptions": {
+        "0": "This is a 90° ANTICLOCKWISE turn. Clockwise is the way clock hands move: from 12 o'clock to 3 o'clock, which is from straight up to the right.",
+        "1": "This is a half turn (180°). A 90° turn is only a quarter turn.",
+        "2": "This slides the end 3 units right instead of turning the line. When a line turns about (0, 0), it stays 3 units long and that end stays at (0, 0)."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q025",
+      "subtopicId": "m14-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: When a shape is rotated about one of its vertices (corners), that vertex stays in the same place.",
+      "answer": true,
+      "solution": "The vertex you rotate about is the centre of rotation. The whole shape turns around it, like a door turning on its hinge, so that point does not move. True.",
+      "misconceptions": {
+        "common": "Thinking every point moves in a rotation. The centre of rotation is the one point that stays still."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q026",
+      "subtopicId": "m14-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A line goes from (0, 0) to (4, 0). It is rotated 90° anticlockwise about (0, 0). What are the coordinates of the image of (4, 0)? Write them like (x, y).",
+      "answer": {
+        "accept": [
+          "(0, 4)",
+          "(0,4)",
+          "0, 4",
+          "0,4",
+          "( 0, 4 )",
+          "(0 ,4)"
+        ],
+        "keywords": []
+      },
+      "solution": "The line points to the right. A quarter turn anticlockwise (the opposite way to clock hands) makes it point straight up. It is still 4 units long, so the end is at (0, 4).",
+      "misconceptions": {
+        "common": "Turning clockwise instead, which gives (0, -4). Anticlockwise from pointing right means turning to point up."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q027",
+      "subtopicId": "m14-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Triangle ABC has corners A(1, 1), B(4, 1) and C(1, 3). It is rotated 90° clockwise about A. What are the coordinates of the image of B?",
+      "options": [
+        "(1, 4)",
+        "(1, -4)",
+        "(1, -2)",
+        "(-2, 1)"
+      ],
+      "answer": 2,
+      "solution": "AB goes 3 units right from A. A quarter turn clockwise turns 'right' into 'down'. So the image of B is 3 units DOWN from A: (1, 1 - 3) = (1, -2). A stays at (1, 1).",
+      "misconceptions": {
+        "0": "This is a 90° ANTICLOCKWISE rotation. Clockwise turns side AB (pointing right) to point DOWN.",
+        "1": "This rotates about the origin (0, 0), not about A(1, 1). Use A as the centre.",
+        "3": "This is a half turn (180°), so AB now points left. A 90° turn is only a quarter turn."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q028",
+      "subtopicId": "m14-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Triangle ABC has corners A(1, 1), B(4, 1) and C(1, 3). It is rotated 90° anticlockwise about A. What are the coordinates of the image of C?",
+      "options": [
+        "(-1, 1)",
+        "(3, 1)",
+        "(-3, 1)",
+        "(1, -1)"
+      ],
+      "answer": 0,
+      "solution": "AC goes 2 units UP from A. A quarter turn anticlockwise turns 'up' into 'left'. So the image of C is 2 units LEFT of A: (1 - 2, 1) = (-1, 1).",
+      "misconceptions": {
+        "1": "This is a 90° CLOCKWISE rotation. Anticlockwise turns 'up' into 'left'.",
+        "2": "This rotates about the origin (0, 0). The centre of rotation is A(1, 1).",
+        "3": "This is a half turn (180°), so AC now points down. A 90° turn is a quarter turn."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q029",
+      "subtopicId": "m14-s3",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Rectangle PQRS has corners P(2, 1), Q(6, 1), R(6, 3) and S(2, 3). It is rotated 90° clockwise about P. What are the coordinates of the image of R? Write them like (x, y).",
+      "answer": {
+        "accept": [
+          "(4, -3)",
+          "(4,-3)",
+          "4, -3",
+          "4,-3",
+          "( 4, -3 )",
+          "(4 ,-3)"
+        ],
+        "keywords": []
+      },
+      "solution": "From P to R you go 4 right and 2 up. Turn that movement a quarter turn clockwise: '4 right' becomes '4 down' and '2 up' becomes '2 right'. So from P go 2 right and 4 down: (2 + 2, 1 - 4) = (4, -3).",
+      "misconceptions": {
+        "common": "Turning anticlockwise instead (which gives (0, 5)), or only turning one part of the movement. Both the 'across' and the 'up' parts must turn."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q030",
+      "subtopicId": "m14-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle ABC has corners A(1, 1), B(3, 1) and C(3, 2). After a transformation, the image has corners A'(1, 1), B'(1, 3) and C'(0, 3). Which transformation was it?",
+      "options": [
+        "A rotation of 90° clockwise about (1, 1)",
+        "A reflection in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2)",
+        "A rotation of 180° about (1, 1)",
+        "A rotation of 90° anticlockwise about (1, 1)"
+      ],
+      "answer": 3,
+      "solution": "A stays at (1, 1), so it is the centre. AB pointed right and A'B' points up: that is a quarter turn anticlockwise. Check C: from A, C is 2 right and 1 up. Turned anticlockwise this becomes 2 up and 1 left: (1 - 1, 1 + 2) = (0, 3). It matches C'.",
+      "misconceptions": {
+        "0": "A clockwise turn would send B (to the right of A) to a point BELOW A, at (1, -1). B' is above A.",
+        "1": "This mirror does send A to (1, 1) and B to (1, 3), but it sends C(3, 2) to (2, 3), not (0, 3). Always check every corner.",
+        "2": "A half turn would send B to (-1, 1), to the left of A. B' is above A, which is only a quarter turn."
+      },
+      "skill": "describing a transformation",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m14-q031",
+      "subtopicId": "m14-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: Rotating a shape 90° clockwise about a vertex gives the same image as rotating it 90° anticlockwise about the same vertex.",
+      "answer": false,
+      "solution": "Clockwise and anticlockwise turn in opposite directions, so the images end up on opposite sides. For example, a line from (0, 0) to (2, 0) goes to (0, -2) when turned clockwise, but to (0, 2) when turned anticlockwise. False.",
+      "misconceptions": {
+        "common": "Thinking that only the size of the turn matters. The direction (clockwise or anticlockwise) is part of describing a rotation."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m14-q032",
+      "subtopicId": "m14-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A square has corners (0, 0), (2, 0), (2, 2) and (0, 2). It is rotated 90° clockwise about the corner (2, 0). What are the coordinates of the image of the corner (0, 2)?",
+      "options": [
+        "(0, -2)",
+        "(4, 2)",
+        "(2, 0)",
+        "(4, -2)"
+      ],
+      "answer": 1,
+      "solution": "From the centre (2, 0), the corner (0, 2) is 2 left and 2 up. A quarter turn clockwise turns 'left' into 'up' and 'up' into 'right'. So the image is 2 up and 2 right of (2, 0): (2 + 2, 0 + 2) = (4, 2). The whole square swings over to the right, between x = 2 and x = 4.",
+      "misconceptions": {
+        "0": "This is an ANTICLOCKWISE turn. The square would swing down below the x-axis that way.",
+        "2": "This rotates about the origin (0, 0) instead of about the corner (2, 0).",
+        "3": "This is a half turn (180°) about (2, 0). A 90° turn is only a quarter turn."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m14-q033",
+      "subtopicId": "m14-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle PQR has corners P(-1, 2), Q(2, 2) and R(-1, 4). It is rotated 90° anticlockwise about Q. What are the coordinates of the image of R?",
+      "options": [
+        "(4, 5)",
+        "(-4, -1)",
+        "(0, -1)",
+        "(5, 0)"
+      ],
+      "answer": 2,
+      "solution": "From Q(2, 2), R is 3 left and 2 up. A quarter turn anticlockwise turns 'left' into 'down' and 'up' into 'left'. So the image is 3 down and 2 left of Q: (2 - 2, 2 - 3) = (0, -1).",
+      "misconceptions": {
+        "0": "This is a CLOCKWISE turn about Q. Anticlockwise turns 'left' into 'down'.",
+        "1": "This rotates about the origin. The centre of rotation is Q(2, 2).",
+        "3": "This is a half turn (180°) about Q. A 90° turn is a quarter turn."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q034",
+      "subtopicId": "m14-s3",
+      "type": "order",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "You are rotating a shape 90° clockwise about one of its corners using tracing paper. Put the steps in order, first to last.",
+      "options": [
+        "Turn the tracing paper a quarter turn clockwise",
+        "Trace the shape onto the tracing paper",
+        "Join the marked corners to draw the image",
+        "Hold the chosen corner down with your pencil point",
+        "Mark where the corners of the traced shape are now"
+      ],
+      "answer": [
+        1,
+        3,
+        0,
+        4,
+        2
+      ],
+      "solution": "First trace the shape. Then pin the centre corner with your pencil so it cannot move. Turn the paper a quarter turn (90°) clockwise. Mark the new positions of the corners, then join them up to draw the image.",
+      "misconceptions": {
+        "common": "Turning the paper before holding the corner down. If the centre is not pinned first, the shape slides as well as turning."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q035",
+      "subtopicId": "m14-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A line goes from (2, 1) up to (2, 5). It is rotated 90° clockwise about (2, 1). What is the x-coordinate of the image of (2, 5)?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "The line is 4 units long and points straight up from (2, 1). A quarter turn clockwise makes it point right. So its end is 4 units right of (2, 1): (2 + 4, 1) = (6, 1). The x-coordinate is 6.",
+      "misconceptions": {
+        "common": "Answering -2 by turning anticlockwise (the line would then point left, to (-2, 1)), or answering 4 by giving the length of the line instead of the coordinate."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q036",
+      "subtopicId": "m14-s3",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Triangle ABC is rotated 90° clockwise about its vertex A(2, 2). The image of vertex B is at (5, 2). What were the coordinates of B before the rotation? Write them like (x, y).",
+      "answer": {
+        "accept": [
+          "(2, 5)",
+          "(2,5)",
+          "2, 5",
+          "2,5",
+          "( 2, 5 )",
+          "(2 ,5)"
+        ],
+        "keywords": []
+      },
+      "solution": "The image of B is 3 units right of A. To undo a clockwise quarter turn, turn back anticlockwise: 'right' turns into 'up'. So B was 3 units UP from A: (2, 2 + 3) = (2, 5). Check: turning (2, 5) clockwise about (2, 2) points the line right, to (5, 2).",
+      "misconceptions": {
+        "common": "Turning (5, 2) clockwise again, which gives (2, -1). To find the original, you must turn the opposite way."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m14-q037",
+      "subtopicId": "m14-s4",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each transformation to its description.",
+      "options": {
+        "left": [
+          "Reflection",
+          "Rotation",
+          "Translation"
+        ],
+        "right": [
+          "a slide with no turning or flipping",
+          "a flip over a mirror line",
+          "making the shape bigger",
+          "a turn about a fixed point"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "solution": "A reflection flips a shape over a mirror line. A rotation turns a shape about a fixed point (the centre of rotation). A translation slides a shape without turning or flipping it. None of them changes the size.",
+      "misconceptions": {
+        "common": "Mixing up rotation and reflection. Remember: rotate = turn (like a wheel), reflect = flip (like a mirror), translate = slide."
+      },
+      "skill": "comparing reflection, rotation and translation",
+      "source": "original"
+    },
+    {
+      "id": "m14-q038",
+      "subtopicId": "m14-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A toy windmill has 4 identical blades, equally spaced around its centre. What is the order of rotational symmetry of the windmill (seen from the front)?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "8"
+      ],
+      "answer": 2,
+      "solution": "Turn the windmill slowly. Each blade moves into the next blade's place after a quarter turn, so it looks the same 4 times in one full turn. Order of rotational symmetry = 4.",
+      "misconceptions": {
+        "0": "Order 1 means the shape only looks the same after a full turn. The windmill looks the same after every quarter turn, so its order is higher.",
+        "1": "The windmill looks the same after a half turn, but also after each quarter turn. Count every position in one full turn where it looks the same.",
+        "3": "This counts the blades and the gaps between them. Only count the positions in one full turn where the whole windmill looks exactly the same: 4."
+      },
+      "skill": "symmetry in patterns",
+      "source": "original"
+    },
+    {
+      "id": "m14-q039",
+      "subtopicId": "m14-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: A pattern that only looks the same after a full turn of 360° has rotational symmetry of order 0.",
+      "answer": false,
+      "solution": "Every shape looks the same after a full turn, so the smallest possible order is 1. A pattern that only fits onto itself after a full turn has rotational symmetry of order 1, not 0. False.",
+      "misconceptions": {
+        "common": "Thinking 'no rotational symmetry' means order 0. We describe it as order 1, because the full turn always counts once."
+      },
+      "skill": "symmetry in patterns",
+      "source": "original"
+    },
+    {
+      "id": "m14-q040",
+      "subtopicId": "m14-s4",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name of the transformation that flips a shape over a mirror line?",
+      "answer": {
+        "accept": [
+          "reflection",
+          "a reflection",
+          "reflect",
+          "reflecting",
+          "reflections"
+        ],
+        "keywords": []
+      },
+      "solution": "Flipping a shape over a mirror line is called a reflection. The image is a mirror image of the original.",
+      "misconceptions": {
+        "common": "Writing 'rotation'. A rotation turns a shape; a reflection flips it."
+      },
+      "skill": "comparing reflection, rotation and translation",
+      "source": "original"
+    },
+    {
+      "id": "m14-q041",
+      "subtopicId": "m14-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Siti draws half of a shape. Three of its corners are (1, 2), (3, 2) and (3, 5). She completes the shape so that the y-axis is a line of symmetry. Which of these points must also be a corner of the completed shape?",
+      "options": [
+        "(3, -5)",
+        "(-3, 5)",
+        "(5, 3)",
+        "(-3, -5)"
+      ],
+      "answer": 1,
+      "solution": "The y-axis is the mirror line, so every corner has a partner on the other side at the same height. (3, 5) is 3 units right of the y-axis, so its partner is 3 units left: (-3, 5). (The other new corners are (-1, 2) and (-3, 2).)",
+      "misconceptions": {
+        "0": "This reflects (3, 5) in the x-axis. The line of symmetry here is the y-axis, so the shape is completed on the LEFT side.",
+        "2": "This swaps the coordinates, which is a reflection in a diagonal line, not the y-axis.",
+        "3": "Only the x-coordinate changes sign when reflecting in the y-axis. The height (y = 5) stays the same."
+      },
+      "skill": "symmetry in patterns",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m14-q042",
+      "subtopicId": "m14-s4",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the transformations that always give an image exactly the same size and shape as the original.",
+      "options": [
+        "Reflection",
+        "Rotation",
+        "Translation",
+        "Enlarging the shape to twice its size",
+        "Stretching the shape to make it twice as wide"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "Reflections (flips), rotations (turns) and translations (slides) only move a shape. Its size, angles and side lengths stay exactly the same. Enlarging and stretching change the size.",
+      "misconceptions": {
+        "3": "An enlargement keeps the shape but makes it bigger, so the size changes.",
+        "4": "Stretching in one direction changes both the size and the shape (a square would become a rectangle)."
+      },
+      "skill": "comparing reflection, rotation and translation",
+      "source": "original"
+    },
+    {
+      "id": "m14-q043",
+      "subtopicId": "m14-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Triangle ABC has corners A(1, 1), B(3, 1) and C(1, 2). Its image has corners A'(-1, 1), B'(-3, 1) and C'(-1, 2). Which single transformation maps ABC onto A'B'C'?",
+      "options": [
+        "A translation of 2 units left",
+        "A reflection in the x-axis",
+        "A rotation of 90° anticlockwise about (0, 0)",
+        "A reflection in the y-axis"
+      ],
+      "answer": 3,
+      "solution": "Compare each corner with its image: the y-coordinates are unchanged and every x-coordinate has changed sign (1 to -1, 3 to -3). The triangle has flipped over the y-axis, so it is a reflection in the y-axis. Check all three corners, not just one.",
+      "misconceptions": {
+        "0": "This does move A(1, 1) to (-1, 1), but it moves B(3, 1) to (1, 1), not to (-3, 1). Check every corner.",
+        "1": "That would change the signs of the y-coordinates, sending A to (1, -1). Here the y-coordinates stay the same and the x-coordinates change sign.",
+        "2": "This does send A(1, 1) to (-1, 1), but it sends B(3, 1) to (-1, 3), not (-3, 1). Check every corner."
+      },
+      "skill": "describing a transformation",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m14-q044",
+      "subtopicId": "m14-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A badge design has 3 identical petals equally spaced around its centre, and nothing else. What is the order of rotational symmetry of the design?",
+      "options": [
+        "3",
+        "1",
+        "6",
+        "2"
+      ],
+      "answer": 0,
+      "solution": "Each petal moves into the next petal's place after one third of a full turn (120°). That happens 3 times in a full turn, so the order of rotational symmetry is 3.",
+      "misconceptions": {
+        "1": "The design fits onto itself after one third of a turn, not only after a full turn, so its order is more than 1.",
+        "2": "This counts the petals and the gaps. Only count the positions in one full turn where the whole design looks the same: 3.",
+        "3": "A half turn would move a petal to where a gap is, so the design does not look the same after a half turn."
+      },
+      "skill": "symmetry in patterns",
+      "source": "original"
+    },
+    {
+      "id": "m14-q045",
+      "subtopicId": "m14-s4",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "True or false: A pattern can have rotational symmetry of order 4 but no lines of symmetry at all.",
+      "answer": true,
+      "solution": "Think of a pinwheel with 4 identical arms, each bent the same way round. It looks the same after every quarter turn, so it has order 4. But if you fold it along any line, the bent arms point the wrong way and do not match, so it has no lines of symmetry. True.",
+      "misconceptions": {
+        "common": "Thinking that rotational symmetry and line symmetry always come together. A square has both, but a pinwheel shape has only rotational symmetry."
+      },
+      "skill": "symmetry in patterns",
+      "source": "original"
+    },
+    {
+      "id": "m14-q046",
+      "subtopicId": "m14-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A tile pattern is a square with one identical small triangle stuck onto the middle of two OPPOSITE sides (the top and the bottom). The other two sides have nothing on them. What is the order of rotational symmetry of the whole pattern?",
+      "options": [
+        "2",
+        "4",
+        "1",
+        "3"
+      ],
+      "answer": 0,
+      "solution": "Try each turn. A quarter turn (90°) moves the triangles to the sides, so it does not match. A half turn (180°) swaps the top and bottom triangles, so it matches. A full turn matches. It fits onto itself twice in one full turn: order 2.",
+      "misconceptions": {
+        "1": "A plain square has order 4, but after a quarter turn the triangles would be on the left and right instead of the top and bottom, so the pattern does not look the same.",
+        "2": "After a half turn, the top triangle moves to the bottom and the bottom one moves to the top. The pattern looks the same, so the order is more than 1.",
+        "3": "This counts the pieces (one square and two triangles). The order counts how many times the pattern looks the same in one full turn."
+      },
+      "skill": "symmetry in patterns",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m14-q047",
+      "subtopicId": "m14-s4",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "A dot pattern on a coordinate grid has BOTH the x-axis and the y-axis as lines of symmetry. One of its dots is at (3, 2). Select ALL the points that must also be dots in the pattern.",
+      "options": [
+        "(-3, 2)",
+        "(3, -2)",
+        "(-3, -2)",
+        "(2, 3)",
+        "(-2, -3)"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "Reflect (3, 2) in the y-axis: (-3, 2). Reflect (3, 2) in the x-axis: (3, -2). The dot (-3, 2) must also be reflected in the x-axis: (-3, -2). So there is a dot in every quadrant: (3, 2), (-3, 2), (3, -2) and (-3, -2).",
+      "misconceptions": {
+        "3": "(2, 3) swaps the coordinates, which is a reflection in the diagonal line. The diagonal is not one of the lines of symmetry here.",
+        "4": "(-2, -3) swaps the coordinates as well as changing the signs. The lines of symmetry are the axes, so the numbers stay in their places."
+      },
+      "skill": "symmetry in patterns",
+      "source": "inspired-by: Singapore P6"
+    }
+  ]
+}

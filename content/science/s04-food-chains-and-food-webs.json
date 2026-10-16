@@ -1,0 +1,962 @@
+{
+  "subject": "science",
+  "topicId": "s04-food-chains-and-food-webs",
+  "title": "Food Chains and Food Webs",
+  "order": 4,
+  "bookChapter": "Chapter 4: Food Chains and Food Webs",
+  "frameworkRefs": [
+    "6Be.01",
+    "6Be.02",
+    "6Be.03",
+    "6TWSp.03",
+    "6TWSp.04",
+    "6TWSp.05",
+    "6TWSa.02",
+    "6TWSa.03",
+    "6TWSa.05",
+    "6SIC.05"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will learn how food chains show who eats whom, starting with a producer such as a plant. You will read food webs, find the food chains inside them and predict what happens when one population changes. You will also see how energy from the Sun passes along a food chain, and how harmful substances can build up in animals at the top.",
+    "whyItMatters": "Every living thing depends on others for food, including us. Understanding food webs helps you see why removing one animal or spraying one chemical can affect a whole habitat. It also explains why some large fish are less safe to eat often.",
+    "realWorld": [
+      "Owls and snakes in Malaysian paddy fields catching rats, which helps farmers protect their rice",
+      "Ladybirds eating the aphids on chilli plants in a home garden",
+      "Advice to limit how often you eat large fish such as shark and swordfish because of mercury",
+      "Plastic bags in the sea being swallowed by turtles that mistake them for jellyfish",
+      "The Sun's energy reaching you through the rice and ikan bilis in a plate of nasi lemak"
+    ],
+    "subtopics": [
+      {
+        "id": "s04-s1",
+        "title": "Food chains",
+        "summary": "A food chain starts with a producer and shows which consumers eat which. The arrow means 'is eaten by'. Animals can be herbivores, carnivores or omnivores, and predators or prey."
+      },
+      {
+        "id": "s04-s2",
+        "title": "Food webs",
+        "summary": "A food web is many food chains joined together. You can trace food chains in a web and predict what happens if one population grows or shrinks."
+      },
+      {
+        "id": "s04-s3",
+        "title": "Energy in food chains",
+        "summary": "The Sun is the energy source for food chains. Producers capture light energy, and energy passes along the chain, with less at each step."
+      },
+      {
+        "id": "s04-s4",
+        "title": "Toxic substances in food chains",
+        "summary": "Pesticides, mercury and plastics can enter a food chain. They can build up in the bodies of animals, with the most in top predators."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s04-q001",
+      "subtopicId": "s04-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at this food chain: grass -> deer -> tiger. Which living thing is the producer?",
+      "options": [
+        "Grass",
+        "Deer",
+        "Tiger",
+        "The Sun"
+      ],
+      "answer": 0,
+      "solution": "A producer makes its own food using light energy from the Sun. Grass is a plant, so it is the producer. The deer and the tiger are consumers because they get their food by eating other living things.",
+      "misconceptions": {
+        "1": "The deer is the first animal, but it cannot make its own food. It is a consumer (a primary consumer).",
+        "2": "The tiger is at the end of the chain. It is a consumer, because it gets its food by eating the deer.",
+        "3": "The Sun is the energy source, but it is not a living thing, so it is not the producer. The producer is the plant."
+      },
+      "skill": "producers and consumers",
+      "source": "original"
+    },
+    {
+      "id": "s04-q002",
+      "subtopicId": "s04-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What do we call a living thing, such as a plant, that makes its own food using energy from sunlight? Answer in one word.",
+      "answer": {
+        "accept": [
+          "producer",
+          "a producer",
+          "producers",
+          "the producer"
+        ],
+        "keywords": []
+      },
+      "solution": "A producer makes its own food. Green plants and algae use light energy from the Sun to do this. Every food chain starts with a producer.",
+      "misconceptions": {
+        "common": "Answering 'consumer'. Consumers eat other living things; producers make their own food."
+      },
+      "skill": "producers and consumers",
+      "source": "original"
+    },
+    {
+      "id": "s04-q003",
+      "subtopicId": "s04-s1",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each word to its meaning.",
+      "options": {
+        "left": [
+          "Herbivore",
+          "Carnivore",
+          "Omnivore",
+          "Producer"
+        ],
+        "right": [
+          "Eats both plants and animals",
+          "Makes its own food",
+          "Eats only animals",
+          "Breaks down dead plants and animals",
+          "Eats only plants"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "A herbivore eats only plants. A carnivore eats only animals. An omnivore eats both. A producer makes its own food. ('Breaks down dead things' describes a decomposer, which is not on the left.)",
+      "misconceptions": {
+        "common": "Mixing up herbivore and carnivore. 'Herb' reminds you of plants; 'carn' means meat."
+      },
+      "skill": "feeding vocabulary",
+      "source": "original"
+    },
+    {
+      "id": "s04-q004",
+      "subtopicId": "s04-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: In a food chain, each arrow points from the animal that eats to the thing that it eats.",
+      "answer": false,
+      "solution": "This is false. The arrow means 'is eaten by'. In grass -> deer, the arrow points from the grass to the deer, because the grass is eaten by the deer and its energy passes to the deer.",
+      "misconceptions": {
+        "common": "Drawing the arrow from the eater to its food. The arrow shows where the food and energy go, so it points to the eater."
+      },
+      "skill": "reading food chain arrows",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s04-q005",
+      "subtopicId": "s04-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Your class goes pond dipping to find living things for a food chain. Which plan is the SAFEST?",
+      "options": [
+        "Lean far out over the water to reach the deepest animals.",
+        "Go alone so that you do not scare the animals away.",
+        "Skip washing your hands if the pond water looks clear.",
+        "Stay with an adult, keep back from deep or slippery edges, and wash your hands afterwards."
+      ],
+      "answer": 3,
+      "solution": "Near water the main risks are falling in and picking up microorganisms. An adult, staying back from the edge and washing your hands afterwards reduce both risks.",
+      "misconceptions": {
+        "0": "Leaning over water risks falling in. Use a long-handled net and stay on firm ground.",
+        "1": "You should never go near water alone. An adult must be there in case of an accident.",
+        "2": "Clear water can still carry harmful microorganisms. Always wash your hands after touching pond water."
+      },
+      "skill": "risks in practical work",
+      "source": "original"
+    },
+    {
+      "id": "s04-q006",
+      "subtopicId": "s04-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at this sea food chain: seaweed -> sea snail -> crab -> octopus -> shark. Which animal is the secondary consumer?",
+      "options": [
+        "Sea snail",
+        "Octopus",
+        "Crab",
+        "Seaweed"
+      ],
+      "answer": 2,
+      "solution": "Count the consumers after the producer. Seaweed is the producer. The sea snail is the primary consumer, the crab is the secondary consumer, the octopus is the tertiary consumer, and the shark is the top predator.",
+      "misconceptions": {
+        "0": "The sea snail eats the producer, so it is the primary (first) consumer.",
+        "1": "The octopus is the third consumer, so it is the tertiary consumer.",
+        "3": "Seaweed makes its own food, so it is the producer, not a consumer."
+      },
+      "skill": "consumer levels in a food chain",
+      "source": "original"
+    },
+    {
+      "id": "s04-q007",
+      "subtopicId": "s04-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Put these living things in order to make a food chain, starting with the producer.",
+      "options": [
+        "Hawk",
+        "Caterpillar",
+        "Magpie robin",
+        "Cabbage leaf"
+      ],
+      "answer": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "solution": "The cabbage leaf is the producer. A caterpillar eats the leaf. A magpie robin (a bird) eats the caterpillar. A hawk eats the magpie robin. So: cabbage leaf -> caterpillar -> magpie robin -> hawk.",
+      "misconceptions": {
+        "common": "Starting with the biggest animal. A food chain always starts with the producer (the plant) and ends with the top predator."
+      },
+      "skill": "building a food chain",
+      "source": "original"
+    },
+    {
+      "id": "s04-q008",
+      "subtopicId": "s04-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the consumers in this list.",
+      "options": [
+        "Grasshopper",
+        "Algae",
+        "Frog",
+        "Mango tree",
+        "Human"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Consumers get their energy by eating other living things. The grasshopper, frog and human are consumers. Algae and the mango tree make their own food, so they are producers.",
+      "misconceptions": {
+        "1": "Algae make their own food using sunlight, so they are producers.",
+        "3": "A mango tree is a plant that makes its own food, so it is a producer."
+      },
+      "skill": "producers and consumers",
+      "source": "original"
+    },
+    {
+      "id": "s04-q009",
+      "subtopicId": "s04-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: An animal can be both a predator and prey.",
+      "answer": true,
+      "solution": "This is true. In grass -> grasshopper -> frog -> snake, the frog is a predator because it hunts grasshoppers, and it is also prey because snakes eat it.",
+      "misconceptions": {
+        "common": "Thinking an animal is either a hunter or the hunted. Many animals in the middle of a food chain are both."
+      },
+      "skill": "predators and prey",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s04-q010",
+      "subtopicId": "s04-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Ahmad eats ikan bilis (anchovies). Anchovies eat tiny sea animals, and the tiny animals eat algae. In the food chain algae -> tiny sea animals -> anchovies -> Ahmad, what is Ahmad?",
+      "options": [
+        "A tertiary consumer",
+        "A primary consumer",
+        "A secondary consumer",
+        "A quaternary (fourth) consumer"
+      ],
+      "answer": 0,
+      "solution": "Algae are the producer. Tiny sea animals are the primary consumer. Anchovies are the secondary consumer. Ahmad, who eats the anchovies, is the tertiary consumer in this chain.",
+      "misconceptions": {
+        "1": "Ahmad also eats rice, but in THIS food chain he eats anchovies, which are two steps above the producer.",
+        "2": "This counts one step too few. Tiny sea animals are primary, anchovies are secondary, so Ahmad is tertiary.",
+        "3": "This counts the algae as a consumer. Algae are the producer, so start counting consumers after them."
+      },
+      "skill": "consumer levels in a food chain",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s04-q011",
+      "subtopicId": "s04-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Why does every food chain start with a producer?",
+      "options": [
+        "Producers are always the biggest living things in a habitat.",
+        "Only producers can make food using the Sun's energy; every consumer depends on them for food.",
+        "Producers are eaten by every animal in the habitat.",
+        "Producers live the longest, so they come first."
+      ],
+      "answer": 1,
+      "solution": "Consumers cannot make their own food. Producers capture light energy from the Sun to make food. All the energy in a food chain enters through the producer, so the chain always starts there.",
+      "misconceptions": {
+        "0": "Size has nothing to do with it. Algae are tiny, but they are producers.",
+        "2": "Many animals never eat plants, for example tigers. But their food was fed by plants further down the chain.",
+        "3": "Lifespan does not decide the order. The chain starts where the energy first enters: the producer."
+      },
+      "skill": "producers and consumers",
+      "source": "original"
+    },
+    {
+      "id": "s04-q012",
+      "subtopicId": "s04-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. What do the rats eat in this food web?",
+      "options": [
+        "Rice plants",
+        "Snakes and owls",
+        "Grasshoppers",
+        "Frogs"
+      ],
+      "answer": 0,
+      "solution": "Look for the link that ends with rats. 'Rice plants are eaten by ... rats', so rats eat rice plants. Snakes and owls eat the rats.",
+      "misconceptions": {
+        "1": "This reads the link backwards. Rats are EATEN BY snakes and owls; they do not eat them.",
+        "2": "Grasshoppers are eaten by frogs and sparrows, not by rats, in this web.",
+        "3": "Frogs are eaten by snakes in this web, not by rats."
+      },
+      "skill": "reading a food web",
+      "source": "original"
+    },
+    {
+      "id": "s04-q013",
+      "subtopicId": "s04-s2",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. Select ALL the animals that eat grasshoppers.",
+      "options": [
+        "Frogs",
+        "Snakes",
+        "Sparrows",
+        "Rats",
+        "Hawks"
+      ],
+      "answer": [
+        0,
+        2
+      ],
+      "solution": "The link says 'grasshoppers are eaten by frogs and sparrows'. So frogs and sparrows are the only animals that eat grasshoppers directly.",
+      "misconceptions": {
+        "1": "Snakes eat frogs, which eat grasshoppers. That is not the same as eating grasshoppers directly.",
+        "3": "Rats eat rice plants in this web, not grasshoppers.",
+        "4": "Hawks eat snakes and sparrows. They do not eat grasshoppers in this web."
+      },
+      "skill": "reading a food web",
+      "source": "original"
+    },
+    {
+      "id": "s04-q014",
+      "subtopicId": "s04-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. According to this food web, which animal is an omnivore?",
+      "options": [
+        "Grasshopper",
+        "Sparrow",
+        "Snake",
+        "Hawk"
+      ],
+      "answer": 1,
+      "solution": "An omnivore eats both plants and animals. Sparrows eat rice plants (a plant) and grasshoppers (an animal), so sparrows are omnivores in this web.",
+      "misconceptions": {
+        "0": "Grasshoppers eat only rice plants, so they are herbivores.",
+        "2": "Snakes eat two kinds of animal (frogs and rats), but no plants, so they are carnivores. Eating many foods does not make an animal an omnivore.",
+        "3": "Hawks eat snakes and sparrows, which are both animals, so they are carnivores."
+      },
+      "skill": "feeding vocabulary",
+      "source": "original"
+    },
+    {
+      "id": "s04-q015",
+      "subtopicId": "s04-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. A disease kills all the rats. What is MOST likely to happen to the number of owls?",
+      "options": [
+        "It will go up, because owls will have no competition from rats.",
+        "It will stay the same, because owls can eat snakes instead.",
+        "It will go down, because rats are the only food of owls in this web.",
+        "It will stay the same, because owls will start eating rice plants."
+      ],
+      "answer": 2,
+      "solution": "Find all the links that end in owls: only 'rats are eaten by ... owls'. With no rats, the owls lose their only food. Many will starve or move away, so the number of owls goes down.",
+      "misconceptions": {
+        "0": "Rats are not competing with owls; they are the owls' food. Losing their food makes owls go down.",
+        "1": "In this web owls only eat rats. Nothing says they eat snakes.",
+        "3": "Owls are carnivores. They cannot switch to eating rice plants."
+      },
+      "skill": "predicting changes in a food web",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s04-q016",
+      "subtopicId": "s04-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. Farmers catch and remove all the frogs. What is MOST likely to happen to the number of grasshoppers at first?",
+      "options": [
+        "It will go down, because frogs give grasshoppers food.",
+        "It will go down, because snakes will start eating grasshoppers instead.",
+        "It will not change, because frogs are not linked to grasshoppers.",
+        "It will go up, because fewer grasshoppers are being eaten."
+      ],
+      "answer": 3,
+      "solution": "Frogs are predators of grasshoppers. With no frogs, fewer grasshoppers are eaten, so more survive and breed. At first the number of grasshoppers goes up (sparrows still eat some).",
+      "misconceptions": {
+        "0": "Frogs do not feed grasshoppers; frogs eat them. Removing a predator lets the prey increase.",
+        "1": "In this web snakes eat frogs and rats, not grasshoppers.",
+        "2": "There is a link: grasshoppers are eaten by frogs. So removing frogs does affect grasshoppers."
+      },
+      "skill": "predicting changes in a food web",
+      "source": "original"
+    },
+    {
+      "id": "s04-q017",
+      "subtopicId": "s04-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. How many different food chains are there in this food web? Each chain starts with the rice plants and ends with an animal that nothing else eats. Give your answer as a number.",
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "accept": [
+          "five"
+        ]
+      },
+      "solution": "Follow every path from rice plants to an animal that is not eaten. 1) rice plants -> grasshoppers -> frogs -> snakes -> hawks. 2) rice plants -> grasshoppers -> sparrows -> hawks. 3) rice plants -> rats -> snakes -> hawks. 4) rice plants -> rats -> owls. 5) rice plants -> sparrows -> hawks. That makes 5 food chains.",
+      "misconceptions": {
+        "common": "Missing a chain, often rice plants -> sparrows -> hawks (sparrows eat rice plants as well as grasshoppers) or rice plants -> rats -> owls."
+      },
+      "skill": "finding food chains in a food web",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s04-q018",
+      "subtopicId": "s04-s2",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "True or false: A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. In this web, the snake is a secondary consumer in one food chain and a tertiary consumer in another.",
+      "answer": true,
+      "solution": "This is true. In rice plants -> rats -> snakes -> hawks, the snake is the secondary consumer. In rice plants -> grasshoppers -> frogs -> snakes -> hawks, the snake is the tertiary consumer.",
+      "misconceptions": {
+        "common": "Thinking each animal has only one level. An animal's level depends on which food chain you follow."
+      },
+      "skill": "consumer levels in a food chain",
+      "source": "original"
+    },
+    {
+      "id": "s04-q019",
+      "subtopicId": "s04-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. Which food chain is NOT part of this food web?",
+      "options": [
+        "Rice plants -> rats -> owls",
+        "Rice plants -> sparrows -> hawks",
+        "Rice plants -> grasshoppers -> sparrows -> hawks",
+        "Rice plants -> grasshoppers -> frogs -> owls"
+      ],
+      "answer": 3,
+      "solution": "Check every arrow against the links. Rats eat rice plants and owls eat rats, so the first chain is in the web. Sparrows eat rice plants and grasshoppers, and hawks eat sparrows, so the second and third chains are in the web. But owls only eat rats, and frogs are eaten only by snakes, so 'frogs -> owls' is not a real link. The chain rice plants -> grasshoppers -> frogs -> owls is not part of the web.",
+      "misconceptions": {
+        "0": "This chain is in the web: rats eat rice plants and owls eat rats.",
+        "1": "This chain is in the web: sparrows eat rice plants and hawks eat sparrows.",
+        "2": "This chain is in the web: sparrows eat grasshoppers and hawks eat sparrows."
+      },
+      "skill": "finding food chains in a food web",
+      "source": "original"
+    },
+    {
+      "id": "s04-q020",
+      "subtopicId": "s04-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In a garden, chilli plants are eaten by aphids, and aphids are eaten by ladybirds. Siti counts the aphids and ladybirds on the plants once a week. Week 1: 200 aphids, 5 ladybirds. Week 2: 150 aphids, 9 ladybirds. Week 3: 90 aphids, 14 ladybirds. Week 4: 60 aphids, 15 ladybirds. Which statement BEST describes her results?",
+      "options": [
+        "As the number of ladybirds went up, the number of aphids went down, which fits with ladybirds eating aphids.",
+        "As the number of ladybirds went up, the number of aphids went up too.",
+        "The aphids are eating the ladybirds, so the ladybirds are increasing.",
+        "There is no pattern, because the numbers change every week."
+      ],
+      "answer": 0,
+      "solution": "Aphids: 200, 150, 90, 60 (going down). Ladybirds: 5, 9, 14, 15 (going up). More ladybirds eat more aphids, so the aphid numbers fall. This is a predator-prey pattern.",
+      "misconceptions": {
+        "1": "Look again: aphids fell from 200 to 60 while ladybirds rose from 5 to 15. They moved in opposite directions.",
+        "2": "This reverses the feeding link. Ladybirds are the predators; aphids are the prey.",
+        "3": "The numbers change in a steady way: aphids down every week, ladybirds up every week. That is a pattern."
+      },
+      "skill": "describing patterns in results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s04-q021",
+      "subtopicId": "s04-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "To find out how many snails live in a garden, Omar counts the snails inside a 1 m by 1 m square frame placed in 5 different spots. His counts are 12, 14, 13, 41 and 11. Which result is anomalous?",
+      "options": [
+        "11",
+        "41",
+        "12",
+        "None of them, because snails were really counted every time"
+      ],
+      "answer": 1,
+      "solution": "Four counts are close together (11 to 14). 41 is about three times bigger than the others, so it does not fit the pattern. Omar should check that spot, for example to see if it was unusually damp or shady.",
+      "misconceptions": {
+        "0": "11 is the smallest, but it is close to the other counts. An anomalous result is one that does not fit the pattern.",
+        "2": "12 fits well with 11, 13 and 14, so it is not anomalous.",
+        "3": "Even a real count can be anomalous, for example if the frame landed on a damp pile of leaves. 41 is far from all the others."
+      },
+      "skill": "identifying anomalous results",
+      "source": "original"
+    },
+    {
+      "id": "s04-q022",
+      "subtopicId": "s04-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Omar's snail counts in five 1 m by 1 m squares were 12, 14, 13, 41 and 11. He decides 41 is anomalous and leaves it out. What is the mean of the other four counts? Give your answer as a decimal.",
+      "answer": {
+        "value": 12.5,
+        "tolerance": 0,
+        "accept": [
+          "12 1/2",
+          "25/2"
+        ]
+      },
+      "solution": "Add the four counts: 12 + 14 + 13 + 11 = 50. Divide by how many counts there are: 50 ÷ 4 = 12.5 snails per square.",
+      "misconceptions": {
+        "common": "Dividing by 5 instead of 4. Once 41 is left out, there are only four counts to share between."
+      },
+      "skill": "identifying anomalous results",
+      "source": "original"
+    },
+    {
+      "id": "s04-q023",
+      "subtopicId": "s04-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the source of energy for almost every food chain on Earth?",
+      "options": [
+        "The Sun",
+        "The soil",
+        "Rainwater",
+        "The air"
+      ],
+      "answer": 0,
+      "solution": "Green plants capture light energy from the Sun and store it in the food they make. Animals get this energy when they eat plants, or eat animals that ate plants.",
+      "misconceptions": {
+        "1": "Plants take water and minerals from the soil, but their energy comes from sunlight.",
+        "2": "Plants need water, but water does not give them energy. Light from the Sun does.",
+        "3": "Plants take carbon dioxide from the air to make food, but the energy to do it comes from the Sun."
+      },
+      "skill": "the Sun as the energy source",
+      "source": "original"
+    },
+    {
+      "id": "s04-q024",
+      "subtopicId": "s04-s3",
+      "type": "order",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Put these in order to show how energy flows, from where the energy starts to where it ends up.",
+      "options": [
+        "Deer",
+        "The Sun",
+        "Tiger",
+        "Grass"
+      ],
+      "answer": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "solution": "Light energy from the Sun is captured by the grass (the producer). The deer gets energy by eating grass. The tiger gets energy by eating the deer. So: Sun, grass, deer, tiger.",
+      "misconceptions": {
+        "common": "Leaving the Sun out of the start, or putting the tiger first because it is the biggest. Energy always starts at the Sun and flows to the producer first."
+      },
+      "skill": "the Sun as the energy source",
+      "source": "original"
+    },
+    {
+      "id": "s04-q025",
+      "subtopicId": "s04-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Plants get their energy from the soil.",
+      "answer": false,
+      "solution": "This is false. Plants get their energy from sunlight. They use light energy to make their own food. Soil gives them water and minerals, which they also need to be healthy.",
+      "misconceptions": {
+        "common": "Thinking plants 'eat' soil. The soil gives plants water and minerals, but the energy comes from light."
+      },
+      "skill": "the Sun as the energy source",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s04-q026",
+      "subtopicId": "s04-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Why does less energy pass on at each step of a food chain?",
+      "options": [
+        "Animals higher up the chain are bigger, so they need less energy.",
+        "Each living thing uses much of its energy to live, for example to move and keep warm, and some parts are not eaten.",
+        "Energy grows bigger at each step, because predators eat lots of prey.",
+        "Only the producer gets energy, so animals get none at all."
+      ],
+      "answer": 1,
+      "solution": "A grasshopper uses most of the energy from the leaves it eats to move, grow and keep its body working. Some energy is lost as heat, and parts like droppings are not used. So when a frog eats the grasshopper, it gets only a small part of the energy the grasshopper took in.",
+      "misconceptions": {
+        "0": "Bigger animals usually need MORE energy, not less. The energy is less because some is used up at every step.",
+        "2": "A predator eats many prey, but each prey animal had already used most of its energy to live. Less energy is passed on, not more.",
+        "3": "Animals do get energy, from their food. It is just less than the step before."
+      },
+      "skill": "energy transfer along a food chain",
+      "source": "original"
+    },
+    {
+      "id": "s04-q027",
+      "subtopicId": "s04-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Siti wants to find out if the amount of light affects how fast duckweed (a tiny floating water plant) grows. She puts 10 duckweed plants in each of three identical tubs of pond water. One tub is in full sunlight, one in a shady corner and one in a dark cupboard. After two weeks she counts the plants in each tub. What is the dependent variable (the thing she measures)?",
+      "options": [
+        "The number of duckweed plants after two weeks",
+        "The amount of light",
+        "The amount of pond water in each tub",
+        "The starting number of duckweed plants"
+      ],
+      "answer": 0,
+      "solution": "Siti changes the light (independent variable). She measures how many duckweed plants there are after two weeks (dependent variable). She keeps the water, the tubs and the starting number the same (control variables) so the test is fair.",
+      "misconceptions": {
+        "1": "Siti changes the amount of light, so it is the independent variable.",
+        "2": "The tubs are identical, so this is kept the same. It is a control variable.",
+        "3": "Siti starts with 10 in every tub, so this is a control variable."
+      },
+      "skill": "fair test variables",
+      "source": "original"
+    },
+    {
+      "id": "s04-q028",
+      "subtopicId": "s04-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "In Siti's duckweed test (full sunlight, shade and a dark cupboard), what is the BEST prediction for the tub in the dark cupboard?",
+      "options": [
+        "It will have the most duckweed plants, because plants grow best when they rest in the dark.",
+        "It will have the same number as the sunny tub, because all the tubs have the same water.",
+        "It will have the most duckweed plants, because the water stays cooler.",
+        "It will have the fewest duckweed plants, because plants need light energy to make their food."
+      ],
+      "answer": 3,
+      "solution": "Duckweed is a producer. It uses light energy from the Sun to make its food. In the dark it cannot make food, so it cannot grow and make new plants. The sunny tub should have the most, the shady tub fewer, and the dark tub the fewest.",
+      "misconceptions": {
+        "0": "Plants need light to make food. Without light they cannot make the food they need to grow.",
+        "1": "Water is the same, but light is not. Light is what the plants use to make food, so the dark tub will differ.",
+        "2": "Cooler water does not give plants energy. Without light they cannot make food, so they will not grow well."
+      },
+      "skill": "making predictions",
+      "source": "original"
+    },
+    {
+      "id": "s04-q029",
+      "subtopicId": "s04-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In a food chain, suppose only 1/10 of the energy at one level passes on to the next level. The grass in a field holds 10 000 units of energy. In the food chain grass -> grasshopper -> frog -> snake, how many units of energy reach the snake? Give your answer as a number.",
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "accept": [
+          "10 units"
+        ]
+      },
+      "solution": "There are three arrows. Grass to grasshopper: 10 000 ÷ 10 = 1000. Grasshopper to frog: 1000 ÷ 10 = 100. Frog to snake: 100 ÷ 10 = 10. So only 10 units reach the snake.",
+      "misconceptions": {
+        "common": "Taking 1/10 only once (1000) or twice (100). Energy is lost at every arrow, and there are three arrows from the grass to the snake."
+      },
+      "skill": "energy transfer along a food chain",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s04-q030",
+      "subtopicId": "s04-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Food chains rarely have more than five links. Which is the BEST reason?",
+      "options": [
+        "There are not enough kinds of animals on Earth to make longer chains.",
+        "Top predators are too big for anything else to eat.",
+        "So much energy is lost at each step that there is too little left to support another level of animals.",
+        "The Sun's energy only lasts for five steps and then switches off."
+      ],
+      "answer": 2,
+      "solution": "At each step most of the energy is used by the living thing or lost as heat. After four or five steps, the energy left is so small that it could not feed a large enough population of another predator.",
+      "misconceptions": {
+        "0": "There are millions of kinds of animals. The limit comes from energy, not from a shortage of species.",
+        "1": "Size is not the main reason. Even if something could eat them, there would not be enough energy left to support it.",
+        "3": "The Sun keeps shining. The problem is that some of the energy is used up at every step."
+      },
+      "skill": "energy transfer along a food chain",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s04-q031",
+      "subtopicId": "s04-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A farmer sprays a pesticide on a rice field. What is a pesticide?",
+      "options": [
+        "A chemical that helps crops grow bigger",
+        "A chemical used to kill pests, such as insects, that damage crops",
+        "A medicine given to farm animals",
+        "A type of producer that grows in rice fields"
+      ],
+      "answer": 1,
+      "solution": "'Pest' + '-icide' (killer) = pest killer. Farmers spray pesticides to kill insects and other pests that eat or damage their crops. Some pesticides also harm animals they were not meant for.",
+      "misconceptions": {
+        "0": "That is a fertiliser. A pesticide is used to kill pests.",
+        "2": "A pesticide is sprayed on crops to kill pests, not given to animals as medicine.",
+        "3": "A pesticide is a chemical, not a living thing."
+      },
+      "skill": "toxic substances in food chains",
+      "source": "original"
+    },
+    {
+      "id": "s04-q032",
+      "subtopicId": "s04-s4",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Mercury and some pesticides can damage living things. Which word, starting with the letter t, means 'poisonous'?",
+      "answer": {
+        "accept": [
+          "toxic",
+          "toxin",
+          "toxins"
+        ],
+        "keywords": []
+      },
+      "solution": "Toxic means poisonous. Toxic substances such as mercury and some pesticides can harm or kill living things, and they can pass along food chains.",
+      "misconceptions": {
+        "common": "Answering 'pesticide'. A pesticide is one example of a toxic substance; 'toxic' is the word that means poisonous."
+      },
+      "skill": "toxic substances in food chains",
+      "source": "original"
+    },
+    {
+      "id": "s04-q033",
+      "subtopicId": "s04-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A pesticide that does not break down is sprayed on a rice field. It stays in the body of any animal that eats it. In the food chain rice plants -> grasshoppers -> frogs -> snakes -> hawks, which living thing is likely to have the MOST pesticide in its body?",
+      "options": [
+        "Rice plant",
+        "Grasshopper",
+        "Frog",
+        "Hawk"
+      ],
+      "answer": 3,
+      "solution": "Each animal eats many of the animals below it, and the pesticide stays in their bodies. So the amount builds up at every step. The top predator, the hawk, ends up with the most.",
+      "misconceptions": {
+        "0": "The plants are sprayed directly, but each plant only holds a little. Animals higher up eat many contaminated animals, so they collect more.",
+        "1": "The pesticide is aimed at the grasshoppers, but each grasshopper eats only plants. Predators higher up eat many grasshoppers' worth of pesticide.",
+        "2": "Frogs build up more pesticide than grasshoppers, but snakes eat many frogs and hawks eat many snakes, so hawks collect even more."
+      },
+      "skill": "toxic substances in food chains",
+      "source": "original"
+    },
+    {
+      "id": "s04-q034",
+      "subtopicId": "s04-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A pesticide does not break down. Each grasshopper in a field holds 3 units of pesticide. A frog eats 10 grasshoppers. A snake eats 4 of these frogs. All the pesticide stays in each animal's body. How many units of pesticide are in the snake? Give your answer as a number.",
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "accept": [
+          "120 units"
+        ]
+      },
+      "solution": "One frog eats 10 grasshoppers: 10 x 3 = 30 units. The snake eats 4 frogs: 4 x 30 = 120 units. The amount builds up at each step, so the snake has far more than any grasshopper.",
+      "misconceptions": {
+        "common": "Adding instead of multiplying (3 + 10 + 4 = 17), or stopping at the frog (30 units)."
+      },
+      "skill": "toxic substances in food chains",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s04-q035",
+      "subtopicId": "s04-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: A toxic pesticide sprayed on plants can harm an animal that never eats plants.",
+      "answer": true,
+      "solution": "This is true. A carnivore, such as a snake, never eats plants, but it eats frogs that ate grasshoppers that ate the sprayed plants. The pesticide passes along the food chain to the snake.",
+      "misconceptions": {
+        "common": "Thinking only the animals that eat sprayed plants are affected. Pesticides can pass up the food chain to predators."
+      },
+      "skill": "toxic substances in food chains",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s04-q036",
+      "subtopicId": "s04-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Mercury from factory waste can get into the sea. In the food chain algae -> small fish -> tuna -> humans, why are people advised not to eat large fish like tuna too often?",
+      "options": [
+        "Mercury builds up as it passes along the chain, so large predatory fish contain more of it.",
+        "Large fish have more bones, which contain the mercury.",
+        "Large fish are sprayed with pesticides from rice fields.",
+        "Small fish are poisonous, but large fish are not."
+      ],
+      "answer": 0,
+      "solution": "Algae take in a little mercury from the water. Small fish eat lots of algae, and tuna eat lots of small fish. Mercury stays in their bodies, so it builds up at each step. Big predatory fish such as tuna, shark and swordfish have the most.",
+      "misconceptions": {
+        "1": "The amount of bone is not the reason. Big predatory fish eat many small fish, so mercury builds up in them.",
+        "2": "Fish are not sprayed. The problem in this chain is mercury from waste, which builds up in predators.",
+        "3": "It is the other way round: small fish hold a little mercury, and big fish that eat lots of them hold more."
+      },
+      "skill": "toxic substances in food chains",
+      "source": "original"
+    },
+    {
+      "id": "s04-q037",
+      "subtopicId": "s04-s4",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the ways that plastic waste can harm sea animals.",
+      "options": [
+        "A turtle swallows a plastic bag, mistaking it for a jellyfish",
+        "Tiny bits of plastic are eaten by small fish and passed on to bigger fish that eat them",
+        "Plastic gives fish extra energy to swim",
+        "Seabirds and seals get tangled in plastic rings and fishing line",
+        "Plastic turns into food for algae"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "Plastic can block an animal's gut, it can pass along food chains as tiny pieces (microplastics), and it can trap and injure animals. It does not give animals energy or food.",
+      "misconceptions": {
+        "2": "Animals cannot get energy from plastic. It can fill their stomachs so they feel full and starve.",
+        "4": "Algae make their own food using sunlight. Plastic is not food for them."
+      },
+      "skill": "toxic substances in food chains",
+      "source": "original"
+    },
+    {
+      "id": "s04-q038",
+      "subtopicId": "s04-s4",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each harmful substance to how it usually gets into a food chain.",
+      "options": {
+        "left": [
+          "Pesticide",
+          "Mercury",
+          "Microplastics"
+        ],
+        "right": [
+          "Tiny pieces of broken-down plastic are swallowed by small sea animals",
+          "Sprayed on crops and eaten by insects",
+          "Waste from factories reaches rivers and the sea and is taken in by tiny sea organisms"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "solution": "Pesticides are sprayed on crops and enter the chain through insects that eat the plants. Mercury from factory waste reaches the water and is taken in by tiny organisms. Microplastics are swallowed by small sea animals. In each case the substance can then pass up the food chain.",
+      "misconceptions": {
+        "common": "Thinking mercury is sprayed on crops. Mercury mostly comes from industry and reaches the water; pesticides are sprayed on farms."
+      },
+      "skill": "toxic substances in food chains",
+      "source": "original"
+    },
+    {
+      "id": "s04-q039",
+      "subtopicId": "s04-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. Grasshoppers are damaging the rice. Which plan is MOST likely to protect the rice without harming the owls and hawks?",
+      "options": [
+        "Spray a long-lasting pesticide every week so that the grasshoppers die faster.",
+        "Kill all the snakes so they cannot eat the frogs.",
+        "Encourage natural predators, such as frogs and sparrows, to eat the grasshoppers instead of spraying a long-lasting pesticide.",
+        "Remove the sparrows so they cannot eat the rice plants."
+      ],
+      "answer": 2,
+      "solution": "Frogs and sparrows already eat grasshoppers. Helping them keeps grasshopper numbers down without any toxic chemical. A long-lasting pesticide would build up in the hawks and owls at the top of the web. Removing snakes or sparrows would cut the hawks' food.",
+      "misconceptions": {
+        "0": "A pesticide that does not break down passes up the food chain and builds up in hawks and owls.",
+        "1": "Removing snakes takes away food from the hawks, and more rats would survive to eat the rice.",
+        "3": "Sparrows also eat grasshoppers. Removing them would leave more grasshoppers and less food for hawks."
+      },
+      "skill": "toxic substances in food chains",
+      "source": "inspired-by: Singapore P6"
+    }
+  ]
+}

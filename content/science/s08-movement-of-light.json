@@ -1,0 +1,866 @@
+{
+  "subject": "science",
+  "topicId": "s08-movement-of-light",
+  "title": "Movement of Light",
+  "order": 8,
+  "bookChapter": "Chapter 8: Movement of Light",
+  "frameworkRefs": [
+    "6Ps.01",
+    "6Ps.02",
+    "6TWSp.04",
+    "6TWSc.03",
+    "6TWSa.02",
+    "6TWSa.03"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will learn that light travels in straight lines and that we see objects when light from them enters our eyes. You will find out how a ray of light changes direction when it reflects from a plane mirror, and when it passes from one material into another (refraction). You will also revise how shadows form.",
+    "whyItMatters": "Light lets us see the world, and knowing how it moves explains mirrors, periscopes, glasses, cameras and why a pool can be deeper than it looks. These ideas are the start of optics in secondary science.",
+    "realWorld": [
+      "Rear-view and side mirrors helping a driver see traffic behind on the KL highway",
+      "A swimming pool or river looking shallower than it really is, which is why lifeguards warn you before you jump",
+      "Reading glasses and magnifying glasses that use lenses to refract light",
+      "The word AMBULANCE printed back to front so drivers read it correctly in their mirrors",
+      "Wayang kulit shadow puppets in Kelantan: opaque puppets block lamp light to make shadows"
+    ],
+    "subtopics": [
+      {
+        "id": "s08-s1",
+        "title": "Light travels in straight lines; how we see",
+        "summary": "Light travels in straight lines from a source. We see objects when light from them, given out or reflected, enters our eyes. The Moon is a reflector, not a source."
+      },
+      {
+        "id": "s08-s2",
+        "title": "Reflection from a plane mirror",
+        "summary": "A ray reflected from a plane mirror leaves at the same angle to the normal as it arrived: angle of incidence = angle of reflection. This explains periscopes and mirror writing."
+      },
+      {
+        "id": "s08-s3",
+        "title": "Refraction",
+        "summary": "Light changes direction when it passes at an angle from one medium into another, such as air, water and glass. This is why a straw looks bent and a pool looks shallow."
+      },
+      {
+        "id": "s08-s4",
+        "title": "Shadows and materials",
+        "summary": "Opaque materials block light and make shadows; translucent materials let some light through; transparent materials let light through clearly."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s08-q001",
+      "subtopicId": "s08-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "An object that gives out its own light is called a light ______. What is the missing word?",
+      "answer": {
+        "accept": [
+          "source",
+          "a source",
+          "light source",
+          "sources"
+        ],
+        "keywords": []
+      },
+      "solution": "Objects that make their own light, such as the Sun, a candle flame or a switched-on torch, are light sources.",
+      "misconceptions": {
+        "common": "Writing 'reflector'. A reflector only bounces back light that comes from somewhere else; it does not make its own."
+      },
+      "skill": "light sources and reflectors",
+      "source": "original"
+    },
+    {
+      "id": "s08-q002",
+      "subtopicId": "s08-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these is a light source?",
+      "options": [
+        "the Moon",
+        "a mirror",
+        "a bicycle reflector",
+        "the Sun"
+      ],
+      "answer": 3,
+      "solution": "A light source makes its own light. The Sun gives out huge amounts of light. The Moon, mirrors and reflectors only bounce back light from a source.",
+      "misconceptions": {
+        "0": "The Moon looks bright, but it does not make its own light. It reflects light from the Sun.",
+        "1": "A mirror is shiny, but it only reflects light that falls on it. In a dark room a mirror gives out no light.",
+        "2": "A reflector shines only when light from a car's headlights hits it and bounces back. It makes no light of its own."
+      },
+      "skill": "light sources and reflectors",
+      "source": "original"
+    },
+    {
+      "id": "s08-q003",
+      "subtopicId": "s08-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The Moon is a light source.",
+      "answer": false,
+      "solution": "False. The Moon makes no light of its own. Sunlight hits the Moon and is reflected towards the Earth, which is why we can see it.",
+      "misconceptions": {
+        "common": "Thinking anything that looks bright in the sky must be making light. Bright objects can be reflecting light from a source."
+      },
+      "skill": "light sources and reflectors",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s08-q004",
+      "subtopicId": "s08-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the objects that we see only because they reflect light from somewhere else.",
+      "options": [
+        "the Sun",
+        "the Moon",
+        "a page of a book",
+        "a lit candle flame",
+        "a road safety reflector",
+        "a switched-on phone screen"
+      ],
+      "answer": [
+        1,
+        2,
+        4
+      ],
+      "solution": "The Sun, a candle flame and a switched-on screen are light sources. The Moon, a page and a reflector give out no light; we see them because light from a source bounces off them into our eyes.",
+      "misconceptions": {
+        "0": "The Sun is a light source: it gives out its own light.",
+        "3": "A burning candle flame gives out its own light, so it is a light source.",
+        "5": "A switched-on screen gives out its own light, so it is a light source.",
+        "common": "Thinking shiny or bright objects (the Moon, reflectors) make their own light."
+      },
+      "skill": "light sources and reflectors",
+      "source": "original"
+    },
+    {
+      "id": "s08-q005",
+      "subtopicId": "s08-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "You are reading a book in a room lit by a lamp. How are you able to see the book?",
+      "options": [
+        "Light travels out of your eyes to the book.",
+        "Light from the lamp reflects off the book and travels into your eyes.",
+        "The book gives out its own light.",
+        "Light from the lamp goes into your eyes first and then on to the book."
+      ],
+      "answer": 1,
+      "solution": "Light travels in straight lines from the lamp to the book. Some of it is reflected off the book and travels in straight lines into your eyes. Your brain uses this light to see the book.",
+      "misconceptions": {
+        "0": "Eyes do not send out light. They receive light. If eyes made light, we could see in a completely dark room.",
+        "2": "A book is not a light source. In a dark room you cannot see it at all, so its light must come from the lamp.",
+        "3": "The light must reach the book before it can bring information about the book to your eyes: lamp, then book, then eye."
+      },
+      "skill": "how we see",
+      "source": "original"
+    },
+    {
+      "id": "s08-q006",
+      "subtopicId": "s08-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Put these steps in order to explain how you see a red bus on a sunny day, from first to last.",
+      "options": [
+        "Light reflects off the bus",
+        "Your brain makes sense of the signal from your eye",
+        "Light from the Sun travels to the bus",
+        "The reflected light enters your eye"
+      ],
+      "answer": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "solution": "Light starts at the source (the Sun) and travels in a straight line to the bus. It reflects off the bus. The reflected light travels in a straight line into your eye. Your eye sends a signal to your brain, and you see the bus.",
+      "misconceptions": {
+        "common": "Starting with the eye, as if eyes send light out to objects. Light always starts at a source."
+      },
+      "skill": "how we see",
+      "source": "original"
+    },
+    {
+      "id": "s08-q007",
+      "subtopicId": "s08-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Arjun puts three cards in a row in front of a torch. Each card has a small hole in the middle. He can see the torch light through all three holes only when the holes are exactly lined up. If he moves one card sideways a little, he cannot see the light. What should he conclude?",
+      "options": [
+        "Light travels in straight lines.",
+        "Light can bend around the edges of the cards.",
+        "His eyes send light out through the holes to the torch.",
+        "The cards reflect the light into his eye."
+      ],
+      "answer": 0,
+      "solution": "The light can reach Arjun's eye only along a straight path through all three holes. When a card is moved, it blocks that straight path. This is evidence that light travels in straight lines.",
+      "misconceptions": {
+        "1": "If light could bend around edges, Arjun would still see it when one card is moved. The experiment shows the opposite.",
+        "2": "Eyes receive light; they do not send it out. The light travels from the torch to his eye.",
+        "3": "The light he sees comes straight through the holes. The cards block light; they do not bounce it into his eye in this test."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s08-q008",
+      "subtopicId": "s08-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "You are in a room with no windows and the door shut. There is no light at all. Why can you not see anything, even after waiting for several minutes?",
+      "options": [
+        "Your eyes need longer to get used to the dark, then you will see clearly.",
+        "Your eyes cannot send out light beams in the dark.",
+        "No light is reaching objects, so no light can reflect from them into your eyes.",
+        "The darkness fills the room and blocks your view like a black curtain."
+      ],
+      "answer": 2,
+      "solution": "To see an object, light must travel from a source, reflect off the object and enter your eyes. With no light source, nothing is lit, so no light reaches your eyes and you see nothing.",
+      "misconceptions": {
+        "0": "Eyes can adjust to dim light, but they still need some light to enter them. With no light at all, waiting does not help.",
+        "1": "Eyes never send out light beams. We see because light enters our eyes.",
+        "3": "Darkness is not a substance that blocks things. It is simply the absence of light."
+      },
+      "skill": "how we see",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s08-q009",
+      "subtopicId": "s08-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: Light can travel through empty space, where there is no air.",
+      "answer": true,
+      "solution": "True. Light from the Sun travels about 150 million km through empty space to reach the Earth. Light does not need air to travel, unlike sound.",
+      "misconceptions": {
+        "common": "Thinking light needs air to travel, as sound does. Sunlight crosses space, which has no air."
+      },
+      "skill": "light travels in straight lines",
+      "source": "original"
+    },
+    {
+      "id": "s08-q010",
+      "subtopicId": "s08-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "When light bounces off a surface, what is this called?",
+      "answer": {
+        "accept": [
+          "reflection",
+          "reflecting",
+          "being reflected",
+          "it is reflected",
+          "reflected"
+        ],
+        "keywords": []
+      },
+      "solution": "When light hits a surface and bounces off, it is reflected. Smooth, shiny surfaces such as plane mirrors reflect light very well.",
+      "misconceptions": {
+        "common": "Writing 'refraction'. Refraction is when light changes direction as it passes into a different material; reflection is when it bounces off."
+      },
+      "skill": "reflection",
+      "source": "original"
+    },
+    {
+      "id": "s08-q011",
+      "subtopicId": "s08-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "When drawing how a ray of light reflects from a mirror, scientists draw a line called the normal. What is the normal?",
+      "options": [
+        "The surface of the mirror itself",
+        "The ray of light that bounces off the mirror",
+        "An imaginary line at 90° to the mirror, at the point where the ray hits it",
+        "A line drawn parallel to the mirror"
+      ],
+      "answer": 2,
+      "solution": "The normal is a dashed line drawn at 90° (a right angle) to the mirror where the ray hits. The angle of incidence and the angle of reflection are both measured from the normal.",
+      "misconceptions": {
+        "0": "The mirror surface is the line the ray hits. The normal is drawn at right angles (90°) to it.",
+        "1": "That is the reflected ray. The normal is a construction line we use to measure angles from.",
+        "3": "A line parallel to the mirror would never meet it. The normal is at 90° to the mirror."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "original"
+    },
+    {
+      "id": "s08-q012",
+      "subtopicId": "s08-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A ray of light hits a plane mirror. The angle of incidence, measured from the normal, is 35°. What is the angle of reflection, measured from the normal? Give your answer in degrees.",
+      "answer": {
+        "value": 35,
+        "tolerance": 0,
+        "accept": [
+          "35°",
+          "35 degrees",
+          "35 °"
+        ]
+      },
+      "solution": "For a plane mirror, the angle of reflection always equals the angle of incidence. So the angle of reflection is 35°.",
+      "misconceptions": {
+        "common": "Giving 55° by subtracting from 90°. That is the angle between the ray and the mirror surface, but both angles in the rule are measured from the normal."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "original"
+    },
+    {
+      "id": "s08-q013",
+      "subtopicId": "s08-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: When a ray of light reflects from a plane mirror, the angle of reflection is double the angle of incidence.",
+      "answer": false,
+      "solution": "False. For a plane mirror, the angle of reflection is equal to the angle of incidence, not double. If the ray comes in at 30° to the normal, it leaves at 30° to the normal.",
+      "misconceptions": {
+        "common": "Confusing the angle of reflection with the total angle between the incoming and outgoing rays, which is double the angle of incidence."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "original"
+    },
+    {
+      "id": "s08-q014",
+      "subtopicId": "s08-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A ray of light reflects from a plane mirror. The angle between the incoming ray and the reflected ray is 80°. What is the angle of incidence, measured from the normal? Give your answer in degrees.",
+      "answer": {
+        "value": 40,
+        "tolerance": 0,
+        "accept": [
+          "40°",
+          "40 degrees",
+          "40 °"
+        ]
+      },
+      "solution": "The normal sits exactly in the middle of the incoming and reflected rays, because the two angles are equal. So the angle of incidence is 80 ÷ 2 = 40°.",
+      "misconceptions": {
+        "common": "Giving 80°. The 80° is the angle between the two rays; the normal splits it into two equal angles of 40°."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s08-q015",
+      "subtopicId": "s08-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A ray of light hits a plane mirror. The angle of incidence, measured from the normal, is 50°. What is the angle between the reflected ray and the surface of the mirror?",
+      "options": [
+        "40°",
+        "50°",
+        "130°",
+        "100°"
+      ],
+      "answer": 0,
+      "solution": "The angle of reflection equals the angle of incidence: 50° from the normal. The normal is at 90° to the mirror, so the angle between the reflected ray and the mirror surface is 90° - 50° = 40°.",
+      "misconceptions": {
+        "1": "50° is the angle of reflection measured from the normal. The question asks for the angle to the mirror surface, which is 90° - 50°.",
+        "2": "This subtracts 50° from 180°. The normal is at 90° to the mirror, so the angle to the surface is 90° - 50°.",
+        "3": "100° is the angle between the incoming ray and the reflected ray (50° + 50°), not the angle to the mirror."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "original"
+    },
+    {
+      "id": "s08-q016",
+      "subtopicId": "s08-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A ray of light hits a plane mirror straight on, travelling along the normal (the angle of incidence is 0°). What happens to the ray?",
+      "options": [
+        "It passes straight through the mirror.",
+        "It reflects along the surface of the mirror, at 90° to the normal.",
+        "It reflects at 45° to the normal.",
+        "It reflects straight back along the same path."
+      ],
+      "answer": 3,
+      "solution": "The angle of reflection equals the angle of incidence. The angle of incidence is 0°, so the angle of reflection is 0° too. The ray travels back along the normal, the same way it came.",
+      "misconceptions": {
+        "0": "A mirror is opaque and shiny; light does not pass through it. It is reflected.",
+        "1": "That would make the angle of reflection 90°, but it must equal the angle of incidence, which is 0°.",
+        "2": "The angle of reflection must equal the angle of incidence. 0° in means 0° out, so it goes straight back."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "original"
+    },
+    {
+      "id": "s08-q017",
+      "subtopicId": "s08-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Siti wants to measure the angle of incidence and the angle of reflection on her ray diagram. Which piece of equipment should she use?",
+      "answer": {
+        "accept": [
+          "protractor",
+          "a protractor",
+          "protracter",
+          "a protracter"
+        ],
+        "keywords": []
+      },
+      "solution": "A protractor measures angles in degrees. Siti places its centre where the ray hits the mirror and lines up 0° with the normal.",
+      "misconceptions": {
+        "common": "Choosing a ruler. A ruler measures lengths and helps draw straight rays, but angles are measured with a protractor."
+      },
+      "skill": "choosing equipment",
+      "source": "original"
+    },
+    {
+      "id": "s08-q018",
+      "subtopicId": "s08-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Siti shines a ray of light at a mirror at different angles of incidence and measures the angle of reflection each time. Her results: 20° gives 20°; 30° gives 30°; 40° gives 48°; 50° gives 50°; 60° gives 60°. Which statement is correct?",
+      "options": [
+        "The result for 60° is anomalous, because it is the biggest angle.",
+        "The result for 40° is anomalous, and she should repeat that measurement.",
+        "The result for 40° is anomalous, so she should change her conclusion to say angles are not always equal.",
+        "There is no anomalous result, because all the angles are close to each other."
+      ],
+      "answer": 1,
+      "solution": "The pattern is: angle of reflection = angle of incidence. The 40° result (48°) does not fit, so it is anomalous. It was probably a measuring slip, so Siti should repeat it to check.",
+      "misconceptions": {
+        "0": "The biggest number is not automatically anomalous. 60° in and 60° out fits the pattern perfectly.",
+        "2": "One odd result is more likely to be a measuring mistake than a new rule. Repeat it first; do not change the conclusion because of one result.",
+        "3": "Look for a result that breaks the pattern. In every other row the two angles are equal, but 40° gave 48°."
+      },
+      "skill": "identifying anomalous results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s08-q019",
+      "subtopicId": "s08-s2",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A periscope has a mirror at the top and a mirror at the bottom. Put these stages in order to describe the path of light through a periscope, from first to last.",
+      "options": [
+        "Light hits the bottom mirror and reflects towards the eyepiece",
+        "Light enters your eye",
+        "Light from the object enters the top opening",
+        "Light hits the top mirror and reflects down the tube"
+      ],
+      "answer": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "solution": "Light comes from the object and enters the top of the periscope. The top mirror reflects it down the tube. The bottom mirror reflects it out through the eyepiece into your eye. Two reflections let you see over a wall.",
+      "misconceptions": {
+        "common": "Starting at the eye, as if the eye sends light out. In a periscope, light travels from the object to your eye."
+      },
+      "skill": "periscopes and mirror writing",
+      "source": "original"
+    },
+    {
+      "id": "s08-q020",
+      "subtopicId": "s08-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Why does a periscope need mirrors to let you see over a high wall?",
+      "options": [
+        "Light travels in straight lines, so mirrors are needed to change its direction.",
+        "The mirrors make the light brighter so it can pass through the wall.",
+        "The mirrors give out their own light.",
+        "The mirrors bend (refract) the light round the corner."
+      ],
+      "answer": 0,
+      "solution": "Light cannot go round a corner by itself because it travels in straight lines. Each mirror reflects the light and changes its direction, so the light from over the wall can reach your eye.",
+      "misconceptions": {
+        "1": "Light cannot pass through an opaque wall. The mirrors change the direction of the light so it goes over the wall.",
+        "2": "Mirrors are not light sources. They only reflect light that falls on them.",
+        "3": "Mirrors reflect light (bounce it off); refraction happens when light passes into a different material such as water or glass."
+      },
+      "skill": "periscopes and mirror writing",
+      "source": "original"
+    },
+    {
+      "id": "s08-q021",
+      "subtopicId": "s08-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The word AMBULANCE is often printed back to front on the front of an ambulance. Why?",
+      "options": [
+        "So people walking beside the ambulance can read it more easily.",
+        "Because the ambulance driver reads it in their own mirror.",
+        "So drivers in front see it the right way round in their rear-view mirrors.",
+        "Because mirrors turn words upside down, so it must be printed the other way."
+      ],
+      "answer": 2,
+      "solution": "A plane mirror reverses an image left to right. A driver ahead sees the ambulance in their rear-view mirror, where the back-to-front word is reversed again, so it reads AMBULANCE correctly.",
+      "misconceptions": {
+        "0": "People looking straight at the ambulance see it back to front. It is designed for people looking at a reflection.",
+        "1": "The driver cannot see the front of their own vehicle in their mirrors. It is drivers ahead who see it reflected.",
+        "3": "A plane mirror does not turn writing upside down. It reverses it left to right."
+      },
+      "skill": "periscopes and mirror writing",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s08-q022",
+      "subtopicId": "s08-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "When light changes direction as it passes from one material (medium) into another, such as from air into water, what is this called?",
+      "answer": {
+        "accept": [
+          "refraction",
+          "refracting",
+          "being refracted",
+          "refracted"
+        ],
+        "keywords": []
+      },
+      "solution": "Light changes direction when it passes at an angle from one medium into another, such as air to water or air to glass. This is called refraction.",
+      "misconceptions": {
+        "common": "Writing 'reflection'. Reflection is light bouncing off a surface; refraction is light bending as it goes into a new material."
+      },
+      "skill": "refraction",
+      "source": "original"
+    },
+    {
+      "id": "s08-q023",
+      "subtopicId": "s08-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these is caused by refraction?",
+      "options": [
+        "You see your face in a bathroom mirror.",
+        "A straw in a glass of water looks bent at the water surface.",
+        "A dark shadow forms behind a tree on a sunny day.",
+        "The Moon shines in the night sky."
+      ],
+      "answer": 1,
+      "solution": "Light from the part of the straw under the water changes direction when it passes from water into air on its way to your eye. Your brain thinks light travels in straight lines, so the straw looks bent at the surface.",
+      "misconceptions": {
+        "0": "Seeing yourself in a mirror is caused by reflection: light bouncing off the shiny surface.",
+        "2": "Shadows form because the tree is opaque and light travels in straight lines, so it cannot reach the space behind.",
+        "3": "The Moon shines because it reflects sunlight, not because of refraction."
+      },
+      "skill": "refraction in everyday life",
+      "source": "original"
+    },
+    {
+      "id": "s08-q024",
+      "subtopicId": "s08-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A ray of light travels through air and hits a glass block at an angle (not straight on). What happens to the ray as it enters the glass?",
+      "options": [
+        "It changes direction.",
+        "It bounces straight back.",
+        "It stops at the surface of the glass.",
+        "It carries on in exactly the same direction."
+      ],
+      "answer": 0,
+      "solution": "When light passes from one transparent material into another at an angle, it changes direction. This is refraction. That is why things look shifted when you look at them through a thick glass block.",
+      "misconceptions": {
+        "1": "That would be reflection. Most of the light passes into clear glass, and it changes direction as it enters.",
+        "2": "Glass is transparent, so light passes through it. It does not stop at the surface.",
+        "3": "This only happens when the ray hits the glass straight on (along the normal). At an angle, the ray changes direction."
+      },
+      "skill": "how light refracts",
+      "source": "original"
+    },
+    {
+      "id": "s08-q025",
+      "subtopicId": "s08-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A ray of light hits the flat side of a glass block straight on, at 90° to the surface (along the normal). What happens to the ray as it enters the glass?",
+      "options": [
+        "It bends towards the edge of the block.",
+        "It reflects straight back and none enters the glass.",
+        "It goes straight through without changing direction.",
+        "It splits into two rays going in different directions."
+      ],
+      "answer": 2,
+      "solution": "A ray that meets the surface straight on, along the normal, does not change direction. It changes speed, but it carries on in a straight line. Only rays that arrive at an angle change direction.",
+      "misconceptions": {
+        "0": "Refraction changes the direction of light that hits a surface at an angle. A ray travelling along the normal is not bent.",
+        "1": "Glass is transparent, so most of the light passes into it. Only a little is reflected.",
+        "3": "The ray simply carries on in a straight line. It does not split in two."
+      },
+      "skill": "how light refracts",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s08-q026",
+      "subtopicId": "s08-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: A swimming pool looks shallower than it really is because of refraction.",
+      "answer": true,
+      "solution": "True. Light from the bottom of the pool changes direction as it leaves the water and enters the air. To your eyes, the light seems to come from a higher point, so the pool looks shallower than it is. Take care before jumping in!",
+      "misconceptions": {
+        "common": "Thinking the water 'magnifies' the pool or that the effect is caused by reflection from the surface. It is caused by light bending as it passes from water into air."
+      },
+      "skill": "refraction in everyday life",
+      "source": "original"
+    },
+    {
+      "id": "s08-q027",
+      "subtopicId": "s08-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: Light can be refracted when it passes from air into water, not only when it passes into glass.",
+      "answer": true,
+      "solution": "True. Refraction happens whenever light passes at an angle from one transparent medium into another, such as air to water, water to air, air to glass or glass to air.",
+      "misconceptions": {
+        "common": "Thinking refraction is something special about glass. Any change of medium can change the direction of light."
+      },
+      "skill": "how light refracts",
+      "source": "original"
+    },
+    {
+      "id": "s08-q028",
+      "subtopicId": "s08-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the situations that are caused by refraction.",
+      "options": [
+        "A pencil in a glass of water looks broken at the water surface",
+        "You see your reflection in a still lake",
+        "A fish in a pond looks closer to the surface than it really is",
+        "A magnifying glass makes small print look bigger",
+        "A dark shadow appears behind you on a sunny day"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "solution": "The broken pencil and the shallow-looking fish both happen because light bends as it passes from water into air. A magnifying glass is a lens: it bends light as the light passes through the curved glass. The lake reflection is reflection, and the shadow comes from light being blocked.",
+      "misconceptions": {
+        "1": "A still lake acts like a mirror: this is reflection, light bouncing off the surface.",
+        "4": "Shadows form because your body blocks light, which travels in straight lines. No refraction is involved.",
+        "common": "Mixing up reflection (bouncing off) and refraction (bending as light passes into a new material)."
+      },
+      "skill": "refraction in everyday life",
+      "source": "original"
+    },
+    {
+      "id": "s08-q029",
+      "subtopicId": "s08-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Daniel shines a ray of light into a tank of water at different angles. He wants to find out how the angle of the ray going in affects how much it bends. What is his dependent variable (the thing he measures)?",
+      "options": [
+        "the angle at which he shines the ray into the water",
+        "the liquid in the tank (water every time)",
+        "the number of different angles he tests",
+        "the angle of the ray after it enters the water"
+      ],
+      "answer": 3,
+      "solution": "Daniel changes the angle of the ray going in (independent variable). He measures the angle of the ray inside the water (dependent variable). He keeps the liquid and the tank the same (control variables).",
+      "misconceptions": {
+        "0": "This is the independent variable: the thing Daniel changes on purpose.",
+        "1": "This is a control variable: he keeps it the same so the test is fair.",
+        "2": "This is part of his plan, not a variable he measures in each test."
+      },
+      "skill": "fair test variables",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s08-q030",
+      "subtopicId": "s08-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Omar puts a coin at the bottom of an empty cup. He moves his head back until the coin is just hidden by the rim of the cup. Then Mei Lin slowly pours water into the cup, and the coin comes back into view, although Omar has not moved. Why?",
+      "options": [
+        "The water lifts the coin up so it floats higher in the cup.",
+        "Light from the coin changes direction at the water surface, so it can now reach Omar's eye.",
+        "The water surface reflects light from the coin like a mirror.",
+        "The water gives out light and lights up the coin."
+      ],
+      "answer": 1,
+      "solution": "Before the water is added, the straight path from the coin to Omar's eye is blocked by the rim. With water in the cup, light from the coin changes direction (refracts) as it leaves the water and enters the air. The bent path now passes over the rim into his eye.",
+      "misconceptions": {
+        "0": "A coin sinks in water; it does not float up. The coin stays on the bottom. It is the light from it that changes direction.",
+        "2": "This effect is refraction, not reflection. Light from the coin passes out of the water into the air and changes direction as it does.",
+        "3": "Water is not a light source. The coin is seen by light reflected from it, which bends as it leaves the water."
+      },
+      "skill": "refraction in everyday life",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s08-q031",
+      "subtopicId": "s08-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Arjun is trying to catch a fish with a net in a clear, shallow pond. Where should he aim the net?",
+      "options": [
+        "A little below where the fish appears to be, because refraction makes it look higher than it really is",
+        "Exactly where the fish appears to be, because light travels in straight lines",
+        "A little above where the fish appears to be, because refraction makes it look deeper than it is",
+        "A little above where the fish appears to be, because the water surface reflects its image upwards"
+      ],
+      "answer": 0,
+      "solution": "Light from the fish changes direction as it leaves the water. Your brain assumes the light came in a straight line, so the fish seems higher up than it really is. The real fish is a little deeper, so aim below where it appears.",
+      "misconceptions": {
+        "1": "Light does travel in straight lines in one medium, but it changes direction at the water surface. So the fish is not exactly where it appears.",
+        "2": "Refraction makes things under water look shallower (higher), not deeper. So the fish is really lower than it looks.",
+        "3": "This effect is caused by refraction, not reflection, and the real fish is lower, not higher."
+      },
+      "skill": "refraction in everyday life",
+      "source": "original"
+    },
+    {
+      "id": "s08-q032",
+      "subtopicId": "s08-s4",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each word to the material that best fits it.",
+      "options": {
+        "left": [
+          "Transparent",
+          "Translucent",
+          "Opaque"
+        ],
+        "right": [
+          "greaseproof paper",
+          "cardboard",
+          "clear plastic"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "solution": "Transparent materials let almost all light through, so you can see clearly through them: clear plastic. Translucent materials let some light through, but you cannot see clearly through them: greaseproof paper. Opaque materials let no light through: cardboard.",
+      "misconceptions": {
+        "common": "Mixing up transparent and translucent. Translucent lets some light through, but things look blurry; transparent lets you see clearly."
+      },
+      "skill": "transparent, translucent and opaque",
+      "source": "original"
+    },
+    {
+      "id": "s08-q033",
+      "subtopicId": "s08-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Why does a shadow form behind an opaque object when a torch shines on it?",
+      "options": [
+        "The object gives out darkness, which falls behind it.",
+        "Light bends round the object and leaves a dark gap.",
+        "The object reflects its shadow onto the wall behind it.",
+        "The object blocks the light, and light travels in straight lines so it cannot get round to the space behind."
+      ],
+      "answer": 3,
+      "solution": "Light travels in straight lines from the torch. An opaque object does not let light through, so the area behind it gets no light. That dark area is the shadow.",
+      "misconceptions": {
+        "0": "Objects do not give out darkness. A shadow is simply a place that light cannot reach.",
+        "1": "If light bent round objects, the space behind would be lit and there would be no clear shadow. Light travels in straight lines.",
+        "2": "Reflection sends light back towards the torch side; it does not create a shadow behind. The shadow is where light is blocked."
+      },
+      "skill": "how shadows form",
+      "source": "original"
+    },
+    {
+      "id": "s08-q034",
+      "subtopicId": "s08-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A torch shines on a toy, making a shadow on a wall. The torch and the wall stay still. You move the toy closer to the torch. What happens to the shadow?",
+      "options": [
+        "It gets bigger.",
+        "It gets smaller.",
+        "It stays the same size.",
+        "It disappears."
+      ],
+      "answer": 0,
+      "solution": "Light spreads out from the torch in straight lines. When the toy is close to the torch, it blocks a wide cone of light, so the shadow on the wall is large. When it is further from the torch, the shadow is smaller.",
+      "misconceptions": {
+        "1": "Moving the toy closer to the torch makes it block a wider spread of light, so the shadow grows, not shrinks.",
+        "2": "The size of a shadow depends on how close the object is to the light source. Closer to the torch means bigger.",
+        "3": "The toy is still opaque and still blocks light, so there is still a shadow. It just changes size."
+      },
+      "skill": "how shadows form",
+      "source": "original"
+    },
+    {
+      "id": "s08-q035",
+      "subtopicId": "s08-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: A translucent object, such as tissue paper, makes a darker shadow than an opaque object, such as a book.",
+      "answer": false,
+      "solution": "False. An opaque object blocks all the light, so it makes a dark shadow. A translucent object lets some light through, so its shadow is fainter (paler).",
+      "misconceptions": {
+        "common": "Mixing up translucent and opaque. Opaque means no light gets through, so it gives the darkest shadow."
+      },
+      "skill": "transparent, translucent and opaque",
+      "source": "original"
+    },
+    {
+      "id": "s08-q036",
+      "subtopicId": "s08-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Priya investigates shadows. The torch and the screen stay 60 cm apart. She moves a card between them and records the shadow height. Results: card 10 cm from the torch, shadow 30 cm; 15 cm from the torch, 20 cm; 20 cm from the torch, 15 cm; 30 cm from the torch, 10 cm. Which statement describes the pattern in her results?",
+      "options": [
+        "The further the card is from the torch, the bigger the shadow.",
+        "The distance from the torch does not affect the shadow height.",
+        "The further the card is from the torch, the smaller the shadow.",
+        "The shadow height changes, but there is no pattern."
+      ],
+      "answer": 2,
+      "solution": "As the card moves further from the torch (10, 15, 20, 30 cm), the shadow height falls (30, 20, 15, 10 cm). So the further the card is from the torch, the smaller the shadow. This matches the idea that an object near the light source blocks more of the spreading light.",
+      "misconceptions": {
+        "0": "This reverses the pattern. Read the table again: as the distance goes up (10, 15, 20, 30 cm), the shadow goes down (30, 20, 15, 10 cm).",
+        "1": "The shadow height changes from 30 cm to 10 cm as the card moves, so the distance clearly does affect it.",
+        "3": "Every time the distance increases, the shadow gets smaller. That is a clear pattern."
+      },
+      "skill": "describing patterns in results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    }
+  ]
+}

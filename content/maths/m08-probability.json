@@ -1,0 +1,1091 @@
+{
+  "subject": "maths",
+  "topicId": "m08-probability",
+  "title": "Probability",
+  "order": 8,
+  "bookChapter": "Chapter 8: Probability",
+  "frameworkRefs": [
+    "6Sp.01",
+    "6Sp.02",
+    "6Sp.03",
+    "6Sp.04"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will describe how likely things are using words like impossible, unlikely, even chance, likely and certain, and place them on a scale from 0 to 1. You will write probabilities as fractions, decimals and percentages. You will decide whether events are mutually exclusive, and use experiments to estimate probabilities.",
+    "whyItMatters": "Probability helps you make sensible decisions when you cannot be sure what will happen. Weather forecasts, games and sports all use it. Knowing it also stops you being fooled by 'lucky streaks'.",
+    "realWorld": [
+      "A weather forecast saying there is a 70% chance of thunderstorms in KL this afternoon",
+      "Picking a flavour at random from a packet of mixed sweets",
+      "Board games with dice, like Snakes and Ladders",
+      "A lucky draw at a school fun fair",
+      "Testing whether a dice or spinner is fair by rolling or spinning it many times"
+    ],
+    "subtopics": [
+      {
+        "id": "m08-s1",
+        "title": "The language of probability and the probability scale",
+        "summary": "Describe how likely events are with words, and place them on a scale from 0 (impossible) to 1 (certain)."
+      },
+      {
+        "id": "m08-s2",
+        "title": "Equally likely outcomes",
+        "summary": "Work out probabilities for dice, spinners and bags of counters, and write them as fractions, decimals or percentages."
+      },
+      {
+        "id": "m08-s3",
+        "title": "Mutually exclusive events",
+        "summary": "Decide whether two events can happen at the same time; events that cannot are called mutually exclusive."
+      },
+      {
+        "id": "m08-s4",
+        "title": "Experiments and relative frequency",
+        "summary": "Use results from experiments to estimate probabilities, predict how often something will happen, and see why more trials give better estimates."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m08-q001",
+      "subtopicId": "m08-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "You roll an ordinary 6-sided dice numbered 1 to 6. How likely is it that you roll a 7?",
+      "options": [
+        "impossible",
+        "unlikely",
+        "even chance",
+        "likely"
+      ],
+      "answer": 0,
+      "solution": "The dice only has the numbers 1, 2, 3, 4, 5 and 6. A 7 can never be rolled, so it is impossible. Its probability is 0.",
+      "misconceptions": {
+        "1": "Unlikely means it could happen but probably will not. The dice has no 7 on it, so it can never happen: impossible.",
+        "2": "Even chance means it happens about half the time. There is no 7 on the dice at all, so it is impossible.",
+        "3": "Likely means it will probably happen. The dice only shows 1 to 6, so a 7 can never come up."
+      },
+      "skill": "probability language",
+      "source": "original"
+    },
+    {
+      "id": "m08-q002",
+      "subtopicId": "m08-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "On the probability scale, what number is given to an event that is certain to happen?",
+      "options": [
+        "0",
+        "1/2",
+        "1",
+        "10"
+      ],
+      "answer": 2,
+      "solution": "The probability scale runs from 0 (impossible) to 1 (certain). Even chance is 1/2 in the middle. So a certain event has probability 1.",
+      "misconceptions": {
+        "0": "0 is for impossible events. Certain is at the other end of the scale: 1.",
+        "1": "1/2 is in the middle of the scale. It means even chance, not certain.",
+        "3": "The probability scale goes from 0 to 1, not from 0 to 10. Certain is 1."
+      },
+      "skill": "probability scale",
+      "source": "original"
+    },
+    {
+      "id": "m08-q003",
+      "subtopicId": "m08-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: A probability of 0.5 means there is an even chance of the event happening.",
+      "answer": true,
+      "solution": "The scale goes from 0 to 1, and 0.5 is exactly half way, the same as 1/2 or 50%. That is even chance. True!",
+      "misconceptions": {
+        "common": "Thinking 0.5 is small because 5 looks small. On a scale from 0 to 1, 0.5 is exactly in the middle."
+      },
+      "skill": "probability scale",
+      "source": "original"
+    },
+    {
+      "id": "m08-q004",
+      "subtopicId": "m08-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A fair coin is tossed once. Choose one of these words or phrases to describe how likely it is to land on heads: impossible, unlikely, even chance, likely, certain.",
+      "answer": {
+        "accept": [
+          "even chance",
+          "an even chance",
+          "even",
+          "evens",
+          "equal chance",
+          "fifty-fifty",
+          "fifty fifty",
+          "50-50",
+          "50/50"
+        ],
+        "keywords": []
+      },
+      "solution": "A fair coin has two sides, heads and tails, and both are equally likely. So heads has an even chance (1/2).",
+      "misconceptions": {
+        "common": "Choosing 'likely' or 'unlikely'. Neither side is favoured, so heads is exactly even chance."
+      },
+      "skill": "probability language",
+      "source": "original"
+    },
+    {
+      "id": "m08-q005",
+      "subtopicId": "m08-s1",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each event to the word that best describes how likely it is.",
+      "options": {
+        "left": [
+          "The sun rises tomorrow morning",
+          "Picking a red counter from a bag of 9 red counters and 1 blue counter",
+          "Picking the blue counter from the same bag",
+          "Rolling a 0 on an ordinary 6-sided dice numbered 1 to 6"
+        ],
+        "right": [
+          "unlikely",
+          "impossible",
+          "certain",
+          "even chance",
+          "likely"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "The sun rises every morning: certain. 9 of the 10 counters are red: likely. Only 1 of the 10 is blue: unlikely. A dice has no 0: impossible. 'Even chance' is not used.",
+      "misconceptions": {
+        "common": "Mixing up 'unlikely' and 'impossible'. Unlikely events CAN happen (the blue counter might be picked); impossible events never can."
+      },
+      "skill": "probability language",
+      "source": "original"
+    },
+    {
+      "id": "m08-q006",
+      "subtopicId": "m08-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A spinner has 4 equal sections: 3 are green and 1 is yellow. Where on the probability scale does 'the spinner lands on green' belong?",
+      "options": [
+        "between impossible and even chance",
+        "exactly at even chance",
+        "between even chance and certain",
+        "at certain"
+      ],
+      "answer": 2,
+      "solution": "Green is 3 of the 4 equal sections, so the probability is 3/4. 3/4 is more than 1/2 (even chance) but less than 1 (certain). So it goes between even chance and certain: it is likely.",
+      "misconceptions": {
+        "0": "That is where 'lands on yellow' goes (1 out of 4). Green has 3 out of 4 sections, which is more than half.",
+        "1": "There are two colours, but they are not equally likely. Green covers 3 of the 4 equal sections, so its probability is 3/4, more than 1/2.",
+        "3": "Green is likely, but not certain: the spinner could still land on yellow."
+      },
+      "skill": "probability scale",
+      "source": "original"
+    },
+    {
+      "id": "m08-q007",
+      "subtopicId": "m08-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "You roll an ordinary 6-sided dice numbered 1 to 6 once. Put these events in order from least likely to most likely.",
+      "options": [
+        "Rolling a 6",
+        "Rolling an even number",
+        "Rolling a number less than 7",
+        "Rolling an 8",
+        "Rolling a number greater than 2"
+      ],
+      "answer": [
+        3,
+        0,
+        1,
+        4,
+        2
+      ],
+      "solution": "Rolling an 8: impossible (0). Rolling a 6: 1 out of 6. Even number (2, 4, 6): 3 out of 6. Greater than 2 (3, 4, 5, 6): 4 out of 6. Less than 7: every number, certain (1).",
+      "misconceptions": {
+        "common": "Thinking 'rolling a 6' is very likely because 6 is the biggest number. Each number has only a 1 in 6 chance."
+      },
+      "skill": "comparing probabilities",
+      "source": "original"
+    },
+    {
+      "id": "m08-q008",
+      "subtopicId": "m08-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: An event that is 'unlikely' will never happen.",
+      "answer": false,
+      "solution": "Unlikely means it probably will not happen, but it still can. Only 'impossible' events never happen. False.",
+      "misconceptions": {
+        "common": "Mixing up 'unlikely' and 'impossible'. If you pick from a bag of 9 red and 1 blue counter, blue is unlikely, but you might still pick it."
+      },
+      "skill": "probability language",
+      "source": "original"
+    },
+    {
+      "id": "m08-q009",
+      "subtopicId": "m08-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the probabilities that show an event is LESS likely than even chance.",
+      "options": [
+        "0.3",
+        "3/4",
+        "45%",
+        "1/2",
+        "0.08",
+        "60%"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Even chance is 1/2 = 0.5 = 50%. Compare each one: 0.3 < 0.5, 45% < 50% and 0.08 < 0.5, so these are less likely than even chance. 3/4 = 0.75, 1/2 = 0.5 and 60% = 0.6 are not.",
+      "misconceptions": {
+        "1": "3/4 is more than 1/2, so it is likely, not less likely than even chance.",
+        "3": "1/2 is exactly even chance, not less than it.",
+        "5": "60% is more than 50%, so it is more likely than even chance."
+      },
+      "skill": "probability scale",
+      "source": "original"
+    },
+    {
+      "id": "m08-q010",
+      "subtopicId": "m08-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Bag A has 3 red and 5 blue counters. Bag B has 4 red and 8 blue counters. You want to pick a red counter without looking. Which bag gives you the better chance?",
+      "options": [
+        "Bag A",
+        "Bag B",
+        "Both bags give the same chance",
+        "You cannot tell"
+      ],
+      "answer": 0,
+      "solution": "Bag A: 3 red out of 8 counters = 3/8. Bag B: 4 red out of 12 counters = 4/12 = 1/3. Use 24ths: 3/8 = 9/24 and 1/3 = 8/24. 9/24 is bigger, so Bag A gives the better chance.",
+      "misconceptions": {
+        "1": "Bag B has more red counters, but it also has many more counters altogether. Compare the fraction that is red: 3/8 is more than 4/12.",
+        "2": "Both bags have more blue than red, but the fractions are different: 3/8 = 9/24 and 4/12 = 8/24.",
+        "3": "You can compare chances by writing each one as a fraction of the whole bag."
+      },
+      "skill": "comparing probabilities",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m08-q011",
+      "subtopicId": "m08-s1",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "True or false: Daniel tosses a fair coin and gets heads 5 times in a row. On his next toss, tails is more likely than heads.",
+      "answer": false,
+      "solution": "The coin has no memory. Every toss of a fair coin still has an even chance (1/2) of heads and an even chance of tails, whatever happened before. False.",
+      "misconceptions": {
+        "common": "Thinking tails is 'due' after a run of heads. Past results do not change the chances for a fair coin."
+      },
+      "skill": "probability language",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m08-q012",
+      "subtopicId": "m08-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "You roll an ordinary 6-sided dice numbered 1 to 6. What is the probability of rolling a 4?",
+      "options": [
+        "1/6",
+        "1/4",
+        "4/6",
+        "1/5"
+      ],
+      "answer": 0,
+      "solution": "There are 6 equally likely outcomes (1, 2, 3, 4, 5, 6). One of them is a 4. So the probability is 1/6.",
+      "misconceptions": {
+        "1": "You used the number 4 as the bottom of the fraction. There are 6 equally likely outcomes and only one of them is a 4: 1/6.",
+        "2": "4/6 is the chance of rolling 1, 2, 3 or 4. Only one face shows a 4: 1/6.",
+        "3": "You compared the 4 with the 5 other numbers. Probability compares one outcome with ALL 6 outcomes: 1/6."
+      },
+      "skill": "probability of equally likely outcomes",
+      "source": "original"
+    },
+    {
+      "id": "m08-q013",
+      "subtopicId": "m08-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A bag has 3 red counters and 7 green counters. You pick one without looking. What is the probability that it is red?",
+      "options": [
+        "3/7",
+        "7/10",
+        "1/10",
+        "3/10"
+      ],
+      "answer": 3,
+      "solution": "There are 3 + 7 = 10 counters altogether, and 3 are red. So the probability of red is 3/10.",
+      "misconceptions": {
+        "0": "You compared red with green. Probability compares red with ALL the counters: 3 out of 3 + 7 = 10.",
+        "1": "7/10 is the probability of picking green.",
+        "2": "1/10 is the chance of picking one particular counter. There are 3 red ones: 3/10."
+      },
+      "skill": "probability of equally likely outcomes",
+      "source": "original"
+    },
+    {
+      "id": "m08-q014",
+      "subtopicId": "m08-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: A spinner has 5 equal sections numbered 1 to 5. The probability of landing on 2 is 1/5.",
+      "answer": true,
+      "solution": "There are 5 equal sections, so 5 equally likely outcomes. One of them is 2. So the probability is 1/5. True!",
+      "misconceptions": {
+        "common": "Writing 2/5 because the number is 2. The number on the section does not matter; there is only one section with a 2."
+      },
+      "skill": "probability of equally likely outcomes",
+      "source": "original"
+    },
+    {
+      "id": "m08-q015",
+      "subtopicId": "m08-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A spinner has 8 equal sections. 2 of them are blue. What is the probability of landing on blue, in its simplest form?",
+      "options": [
+        "2/6",
+        "1/4",
+        "1/2",
+        "1/8"
+      ],
+      "answer": 1,
+      "solution": "2 out of 8 equal sections are blue, so the probability is 2/8. Divide the top and bottom by 2: 2/8 = 1/4.",
+      "misconceptions": {
+        "0": "You compared blue with not-blue (2 and 6). Compare with all 8 sections: 2/8 = 1/4.",
+        "2": "'Blue' and 'not blue' are two results, but they are not equally likely. Only 2 of the 8 sections are blue.",
+        "3": "1/8 is the chance for ONE section. There are 2 blue sections: 2/8 = 1/4."
+      },
+      "skill": "probability of equally likely outcomes",
+      "source": "original"
+    },
+    {
+      "id": "m08-q016",
+      "subtopicId": "m08-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A spinner has 10 equal sections: 3 red, 5 green and 2 yellow. Which colour is the spinner LEAST likely to land on?",
+      "answer": {
+        "accept": [
+          "yellow",
+          "Yellow"
+        ],
+        "keywords": []
+      },
+      "solution": "The colour with the fewest sections is least likely. Yellow has only 2 of the 10 sections (2/10), so yellow is least likely.",
+      "misconceptions": {
+        "common": "Choosing green, which is the MOST likely colour. Least likely means the fewest sections."
+      },
+      "skill": "comparing probabilities",
+      "source": "original"
+    },
+    {
+      "id": "m08-q017",
+      "subtopicId": "m08-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Cards numbered 1 to 20 are shuffled and you pick one. What is the probability that it is a multiple of 5? Give your answer as a percentage.",
+      "options": [
+        "20%",
+        "4%",
+        "5%",
+        "80%"
+      ],
+      "answer": 0,
+      "solution": "The multiples of 5 are 5, 10, 15 and 20: 4 cards out of 20. 4/20 = 20/100 = 20%.",
+      "misconceptions": {
+        "1": "There are 4 multiples of 5, but 4 out of 20 is not 4%. 4/20 = 20/100 = 20%.",
+        "2": "5% is 1/20, the chance of ONE particular card. There are 4 multiples of 5 (5, 10, 15, 20).",
+        "3": "80% is the chance of NOT picking a multiple of 5."
+      },
+      "skill": "probability as a fraction, decimal or percentage",
+      "source": "original"
+    },
+    {
+      "id": "m08-q018",
+      "subtopicId": "m08-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A bag has 4 red, 5 blue and 11 yellow marbles. You pick one without looking. What is the probability that it is NOT yellow? Give your answer as a decimal.",
+      "answer": {
+        "value": 0.45,
+        "tolerance": 0,
+        "accept": [
+          "9/20",
+          "45%"
+        ]
+      },
+      "solution": "There are 4 + 5 + 11 = 20 marbles. Not yellow means red or blue: 4 + 5 = 9 marbles. The probability is 9/20 = 45/100 = 0.45.",
+      "misconceptions": {
+        "common": "Finding the probability of yellow (11/20 = 0.55) instead of NOT yellow. 'Not yellow' means count the red and blue marbles."
+      },
+      "skill": "probability as a fraction, decimal or percentage",
+      "source": "original"
+    },
+    {
+      "id": "m08-q019",
+      "subtopicId": "m08-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A bag has only red and blue counters. The probability of picking red is 0.35. What is the probability of picking blue?",
+      "options": [
+        "0.35",
+        "0.75",
+        "0.65",
+        "1.35"
+      ],
+      "answer": 2,
+      "solution": "Every counter is either red or blue, so P(red) + P(blue) = 1. P(blue) = 1 - 0.35 = 0.65.",
+      "misconceptions": {
+        "0": "Red and blue are not equally likely here. The two probabilities must add up to 1: 1 - 0.35 = 0.65.",
+        "1": "A subtraction slip. 1.00 - 0.35 = 0.65. Check: 0.35 + 0.65 = 1.",
+        "3": "You added 1 and 0.35. A probability can never be more than 1. Subtract: 1 - 0.35 = 0.65."
+      },
+      "skill": "probabilities adding to 1",
+      "source": "original"
+    },
+    {
+      "id": "m08-q020",
+      "subtopicId": "m08-s2",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "You roll an ordinary 6-sided dice numbered 1 to 6. Match each event to its probability.",
+      "options": {
+        "left": [
+          "Rolling a 3",
+          "Rolling an odd number",
+          "Rolling a number greater than 4",
+          "Rolling a number less than 10"
+        ],
+        "right": [
+          "1",
+          "1/3",
+          "1/6",
+          "2/3",
+          "1/2"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "Rolling a 3: 1 out of 6 = 1/6. Odd (1, 3, 5): 3/6 = 1/2. Greater than 4 (5, 6): 2/6 = 1/3. Less than 10: every number, so certain = 1. 2/3 is not used.",
+      "misconceptions": {
+        "common": "Counting 4 itself as 'greater than 4'. Greater than 4 means only 5 and 6."
+      },
+      "skill": "probability of equally likely outcomes",
+      "source": "original"
+    },
+    {
+      "id": "m08-q021",
+      "subtopicId": "m08-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A bag has 40 counters. Each counter is red, blue or green. The probability of picking red is 1/4 and the probability of picking blue is 0.35. How many green counters are in the bag?",
+      "options": [
+        "24",
+        "16",
+        "10",
+        "0.4"
+      ],
+      "answer": 1,
+      "solution": "Red: 1/4 of 40 = 10. Blue: 0.35 x 40 = 14. Green: 40 - 10 - 14 = 16. (Or: P(green) = 1 - 0.25 - 0.35 = 0.4, and 0.4 x 40 = 16.)",
+      "misconceptions": {
+        "0": "24 is the number of red and blue counters together (10 + 14). Green is the rest: 40 - 24 = 16.",
+        "2": "10 is the number of red counters (1/4 of 40).",
+        "3": "0.4 is the probability of green. The question asks how many counters: 0.4 x 40 = 16."
+      },
+      "skill": "probabilities adding to 1",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m08-q022",
+      "subtopicId": "m08-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A bag has 6 red counters and some blue counters. The probability of picking a red counter is 2/5. How many blue counters are in the bag?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0,
+        "accept": [
+          "9 blue counters",
+          "9 counters"
+        ]
+      },
+      "solution": "2/5 of the counters are red, and that is 6 counters. So 1/5 of the bag is 6 ÷ 2 = 3 counters, and the whole bag (5/5) is 5 x 3 = 15 counters. Blue = 15 - 6 = 9. Check: 6/15 = 2/5.",
+      "misconceptions": {
+        "common": "Answering 15, which is the total number of counters. Subtract the 6 red ones to find the blue: 15 - 6 = 9."
+      },
+      "skill": "probability as a fraction, decimal or percentage",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m08-q023",
+      "subtopicId": "m08-s2",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "True or false: A spinner has 3 sections coloured red, blue and green, so the probability of landing on red must be 1/3.",
+      "answer": false,
+      "solution": "That is only true if the 3 sections are the same size. If the red section is bigger, red is more likely. You can only say '1 out of 3' when the outcomes are equally likely. False.",
+      "misconceptions": {
+        "common": "Counting the outcomes without checking they are equally likely. Different-sized sections give different chances."
+      },
+      "skill": "probability of equally likely outcomes",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m08-q024",
+      "subtopicId": "m08-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "You roll one ordinary dice numbered 1 to 6. Which pair of events are mutually exclusive (cannot both happen on the same roll)?",
+      "options": [
+        "rolling a 2 and rolling an even number",
+        "rolling a 6 and rolling a number greater than 4",
+        "rolling a 3 and rolling an odd number",
+        "rolling a 2 and rolling a 5"
+      ],
+      "answer": 3,
+      "solution": "One roll shows only one number. It cannot be a 2 and a 5 at the same time, so these are mutually exclusive. In each other pair, one number makes both events happen.",
+      "misconceptions": {
+        "0": "2 is an even number, so rolling a 2 makes both happen at once.",
+        "1": "6 is greater than 4, so both happen if you roll a 6.",
+        "2": "3 is odd, so both happen if you roll a 3."
+      },
+      "skill": "identifying mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q025",
+      "subtopicId": "m08-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Mutually exclusive events are events that cannot happen at the same time.",
+      "answer": true,
+      "solution": "That is exactly what mutually exclusive means. For example, on one coin toss, heads and tails cannot both happen. True!",
+      "misconceptions": {
+        "common": "Thinking mutually exclusive means the events are equally likely. It is about whether they can happen together, not how likely they are."
+      },
+      "skill": "identifying mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q026",
+      "subtopicId": "m08-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "You toss a coin once. It cannot land on heads and tails at the same time. Complete the phrase: heads and tails are mutually ________.",
+      "answer": {
+        "accept": [
+          "exclusive",
+          "Exclusive",
+          "mutually exclusive"
+        ],
+        "keywords": []
+      },
+      "solution": "Events that cannot happen at the same time are called mutually exclusive.",
+      "misconceptions": {
+        "common": "Writing 'inclusive' or 'equal'. Events that shut each other out are mutually EXCLUSIVE."
+      },
+      "skill": "identifying mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q027",
+      "subtopicId": "m08-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "You pick one card from cards numbered 1 to 10. Which event CAN happen at the same time as 'picking an even number'?",
+      "options": [
+        "picking an odd number",
+        "picking a 7",
+        "picking a number less than 2",
+        "picking a number greater than 7"
+      ],
+      "answer": 3,
+      "solution": "The cards greater than 7 are 8, 9 and 10. 8 and 10 are even, so picking an 8 or a 10 makes both events happen. The other three events are mutually exclusive with 'even'.",
+      "misconceptions": {
+        "0": "A number cannot be both odd and even, so these are mutually exclusive.",
+        "1": "7 is odd, so it cannot also be even.",
+        "2": "The only card less than 2 is 1, which is odd."
+      },
+      "skill": "identifying mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q028",
+      "subtopicId": "m08-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A spinner has 8 equal sections numbered 1 to 8. Event A is 'landing on a multiple of 3' (that is 3 or 6). Select ALL the events that are mutually exclusive with event A.",
+      "options": [
+        "landing on 5",
+        "landing on an even number",
+        "landing on 1 or 2",
+        "landing on a number greater than 6",
+        "landing on an odd number",
+        "landing on a number less than 4"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "solution": "Event A happens on 3 or 6. An event is mutually exclusive with A if it can never land on 3 or 6. 'Landing on 5', 'landing on 1 or 2' and 'greater than 6' (7 or 8) never include 3 or 6.",
+      "misconceptions": {
+        "1": "6 is even and a multiple of 3, so both can happen together.",
+        "4": "3 is odd and a multiple of 3, so both can happen together.",
+        "5": "3 is less than 4 and a multiple of 3, so both can happen together."
+      },
+      "skill": "identifying mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q029",
+      "subtopicId": "m08-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "You pick one person at random from your class. Which pair of events are mutually exclusive?",
+      "options": [
+        "picking someone who wears glasses and picking someone who likes football",
+        "picking someone born in March and picking someone born in July",
+        "picking someone with a pet cat and picking someone with a pet dog",
+        "picking someone taller than 140 cm and picking someone born in March"
+      ],
+      "answer": 1,
+      "solution": "Each person has only one birthday month, so nobody is born in both March and July. Those events cannot happen together: they are mutually exclusive.",
+      "misconceptions": {
+        "0": "One person can wear glasses AND like football, so both can happen together.",
+        "2": "Some people have a cat and a dog, so both can happen together.",
+        "3": "A person born in March can also be taller than 140 cm."
+      },
+      "skill": "identifying mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q030",
+      "subtopicId": "m08-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A bag has red, blue and yellow counters. The probability of picking red is 0.2 and the probability of picking blue is 0.5. You pick one counter. Red and blue are mutually exclusive. What is the probability of picking red OR blue?",
+      "options": [
+        "0.1",
+        "0.3",
+        "0.7",
+        "0.35"
+      ],
+      "answer": 2,
+      "solution": "A counter cannot be red and blue at once, so add the probabilities: 0.2 + 0.5 = 0.7.",
+      "misconceptions": {
+        "0": "You multiplied 0.2 x 0.5. For 'red or blue' with mutually exclusive events, add: 0.2 + 0.5 = 0.7.",
+        "1": "0.3 is the probability of yellow (or 0.5 - 0.2). 'Red or blue' means add the two probabilities.",
+        "3": "You found the average of 0.2 and 0.5. The chance of red or blue is the total of both: 0.7."
+      },
+      "skill": "adding probabilities of mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q031",
+      "subtopicId": "m08-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which pair of events CAN happen at the same time?",
+      "options": [
+        "It is raining and the sun is shining",
+        "You are in Kuala Lumpur and in Penang at the same moment",
+        "Today is Monday and today is Friday",
+        "A football match ends in a win for Team A and a win for Team B"
+      ],
+      "answer": 0,
+      "solution": "It can rain while the sun is shining (that is how rainbows form!). So these two events are NOT mutually exclusive. The other pairs cannot happen together.",
+      "misconceptions": {
+        "1": "You can only be in one place at a time, so these are mutually exclusive.",
+        "2": "A day cannot be Monday and Friday at once, so these are mutually exclusive.",
+        "3": "Only one team can win a match, so these are mutually exclusive."
+      },
+      "skill": "identifying mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q032",
+      "subtopicId": "m08-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A card is picked from cards numbered 1 to 20. Event A is 'the number is a multiple of 4'. Which event is mutually exclusive with event A?",
+      "options": [
+        "the number is greater than 15",
+        "the number is odd",
+        "the number is a multiple of 6",
+        "the number ends in 0"
+      ],
+      "answer": 1,
+      "solution": "The multiples of 4 up to 20 are 4, 8, 12, 16 and 20. They are all even, so none of them is odd. 'Odd' and 'multiple of 4' can never happen together: they are mutually exclusive.",
+      "misconceptions": {
+        "0": "16 and 20 are greater than 15 and are multiples of 4, so both can happen.",
+        "2": "12 is a multiple of 4 and of 6, so both can happen.",
+        "3": "20 ends in 0 and is a multiple of 4, so both can happen."
+      },
+      "skill": "identifying mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q033",
+      "subtopicId": "m08-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A spinner has 10 equal sections numbered 1 to 10. What is the probability that it lands on a number less than 3 OR a number greater than 8? Give your answer as a decimal.",
+      "answer": {
+        "value": 0.4,
+        "tolerance": 0,
+        "accept": [
+          "4/10",
+          "2/5",
+          "40%"
+        ]
+      },
+      "solution": "Less than 3: 1 and 2, so 2/10. Greater than 8: 9 and 10, so 2/10. These events are mutually exclusive, so add: 2/10 + 2/10 = 4/10 = 0.4.",
+      "misconceptions": {
+        "common": "Including 3 and 8 (giving 0.6), or using only one of the events (0.2). 'Less than 3' and 'greater than 8' do not include 3 or 8."
+      },
+      "skill": "adding probabilities of mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q034",
+      "subtopicId": "m08-s3",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "True or false: When you roll one dice numbered 1 to 6, 'rolling a number greater than 4' and 'rolling a number less than 4' are mutually exclusive, so one of them is certain to happen.",
+      "answer": false,
+      "solution": "They are mutually exclusive, because no number is both greater than 4 and less than 4. But if you roll a 4, NEITHER event happens. So it is not certain that one of them happens. False.",
+      "misconceptions": {
+        "common": "Thinking that 'mutually exclusive' means one of the events must happen. It only means they cannot both happen at once."
+      },
+      "skill": "identifying mutually exclusive events",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m08-q035",
+      "subtopicId": "m08-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "You roll a fair dice numbered 1 to 6 sixty times. About how many times would you expect to roll a 6?",
+      "options": [
+        "10",
+        "6",
+        "30",
+        "60"
+      ],
+      "answer": 0,
+      "solution": "The probability of a 6 is 1/6. Expected number = 1/6 of 60 = 60 ÷ 6 = 10. You may not get exactly 10, but about 10.",
+      "misconceptions": {
+        "1": "6 is the number on the dice, not how often it comes up. P(6) = 1/6, and 1/6 of 60 = 10.",
+        "2": "You thought 'six' and 'not six' are equally likely. A six is only 1 of the 6 outcomes: 60 ÷ 6 = 10.",
+        "3": "You will not get a 6 on every roll. Expect a 6 on about 1/6 of the rolls: 10."
+      },
+      "skill": "expected frequency",
+      "source": "original"
+    },
+    {
+      "id": "m08-q036",
+      "subtopicId": "m08-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Doing an experiment more times usually gives a better estimate of a probability.",
+      "answer": true,
+      "solution": "With only a few trials, the results can be far from the true probability by chance. With many trials, the relative frequency usually settles close to the true probability. True!",
+      "misconceptions": {
+        "common": "Thinking a small experiment is just as good as a big one. A few lucky or unlucky results matter much more when there are only a few trials."
+      },
+      "skill": "reliability of experiments",
+      "source": "original"
+    },
+    {
+      "id": "m08-q037",
+      "subtopicId": "m08-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Arjun spins a spinner 20 times. It lands on red 8 times. What is the relative frequency of red?",
+      "options": [
+        "8/12",
+        "12/20",
+        "1/8",
+        "8/20"
+      ],
+      "answer": 3,
+      "solution": "Relative frequency = number of times red happened ÷ total number of spins = 8/20 (which is 2/5 or 0.4).",
+      "misconceptions": {
+        "0": "You compared red with not-red. Relative frequency = number of reds ÷ ALL spins: 8/20.",
+        "1": "12/20 is how often it did NOT land on red.",
+        "2": "You put the 8 on the bottom. It is 8 reds out of 20 spins: 8/20."
+      },
+      "skill": "relative frequency",
+      "source": "original"
+    },
+    {
+      "id": "m08-q038",
+      "subtopicId": "m08-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Mei Lin drops a drawing pin 200 times. It lands point up 130 times. Use her results to estimate the probability that the pin lands point up. Give your answer as a decimal.",
+      "answer": {
+        "value": 0.65,
+        "tolerance": 0,
+        "accept": [
+          "13/20",
+          "130/200",
+          "65%"
+        ]
+      },
+      "solution": "Relative frequency = 130 ÷ 200 = 13/20 = 65/100 = 0.65. So the estimated probability is 0.65.",
+      "misconceptions": {
+        "common": "Dividing the wrong way round (200 ÷ 130) or using point down (70/200 = 0.35). Put the number of 'point up' results over the total number of drops."
+      },
+      "skill": "relative frequency",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m08-q039",
+      "subtopicId": "m08-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "For which of these can you ONLY find the probability by doing an experiment with lots of trials?",
+      "options": [
+        "rolling a 5 on a fair dice",
+        "getting heads on a fair coin",
+        "a drawing pin landing point up when it is dropped",
+        "picking a red counter from a bag of 3 red and 2 blue counters"
+      ],
+      "answer": 2,
+      "solution": "A drawing pin is not the same shape on both sides, so 'point up' and 'point down' are not equally likely, and you cannot work out the probability by counting. The only way is to drop it many times and use the relative frequency.",
+      "misconceptions": {
+        "0": "The 6 faces of a fair dice are equally likely, so you can work it out without an experiment: 1/6.",
+        "1": "Heads and tails are equally likely, so the probability is 1/2 without any experiment.",
+        "3": "You can count the counters: 3 out of 5 = 3/5."
+      },
+      "skill": "reliability of experiments",
+      "source": "original"
+    },
+    {
+      "id": "m08-q040",
+      "subtopicId": "m08-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Priya rolls a fair dice 12 times and gets a 6 three times. She says, 'The probability of rolling a 6 is 3/12 = 1/4.' What is the best way for her to get a more reliable estimate?",
+      "options": [
+        "Roll the dice many more times, for example 600 times",
+        "Roll the dice 12 more times and use only the new results",
+        "Do nothing, because 1/4 came from a real experiment",
+        "Roll the dice only until she gets a 6, then stop"
+      ],
+      "answer": 0,
+      "solution": "The more trials, the more reliable the estimate. With hundreds of rolls, her relative frequency of a 6 should get close to 1/6.",
+      "misconceptions": {
+        "1": "12 rolls is still a small number of trials. Results from a few trials can easily be far from the true probability.",
+        "2": "A small experiment can give a result far from the true probability. For a fair dice the probability of a 6 is 1/6, not 1/4.",
+        "3": "Stopping as soon as you get the result you want spoils the experiment; it does not give a fair estimate."
+      },
+      "skill": "reliability of experiments",
+      "source": "original"
+    },
+    {
+      "id": "m08-q041",
+      "subtopicId": "m08-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Siti spins a spinner 150 times and it lands on red 45 times. She is going to spin it another 400 times. Using her results, about how many times should she expect it to land on red?",
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "accept": [
+          "120 times"
+        ]
+      },
+      "solution": "Relative frequency of red = 45 ÷ 150 = 0.3. Expected number in 400 spins = 0.3 x 400 = 120.",
+      "misconceptions": {
+        "common": "Using 45 out of 400 or adding 45 to something. First find the relative frequency (45/150 = 0.3), then multiply by the new number of spins."
+      },
+      "skill": "expected frequency",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m08-q042",
+      "subtopicId": "m08-s4",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Four students each tossed the same coin to estimate the probability of heads. Put them in order from the MOST reliable estimate to the LEAST reliable.",
+      "options": [
+        "Aisha: 12 tosses",
+        "Omar: 500 tosses",
+        "Daniel: 50 tosses",
+        "Siti: 2000 tosses"
+      ],
+      "answer": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "solution": "The more trials, the more reliable the estimate. Siti (2000), then Omar (500), then Daniel (50), then Aisha (12).",
+      "misconceptions": {
+        "common": "Thinking every experiment is equally reliable. A small number of tosses can easily give a result far from 1/2."
+      },
+      "skill": "reliability of experiments",
+      "source": "original"
+    },
+    {
+      "id": "m08-q043",
+      "subtopicId": "m08-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel rolls a dice 300 times. His results: 1 came up 22 times, 2 came up 24 times, 3 came up 25 times, 4 came up 23 times, 5 came up 26 times and 6 came up 180 times. What is the best conclusion?",
+      "options": [
+        "The dice is fair, because every number came up at least once",
+        "The dice is fair, because dice results are always random",
+        "The dice is probably biased (unfair) towards 6",
+        "6 will come up on every roll from now on"
+      ],
+      "answer": 2,
+      "solution": "For a fair dice, each number would come up about 300 ÷ 6 = 50 times. 1 to 5 each came up about 25 times, but 6 came up 180 times. With so many trials, this is strong evidence that the dice is biased towards 6.",
+      "misconceptions": {
+        "0": "A biased dice can still show every number. For a fair dice you would expect each number about 300 ÷ 6 = 50 times, but 6 came up 180 times.",
+        "1": "Results are random, but 180 sixes out of 300 rolls is far too many for a fair dice (expect about 50).",
+        "3": "Even a biased dice does not give the same number every time. The data shows 6 is more likely, not certain."
+      },
+      "skill": "interpreting experimental results",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m08-q044",
+      "subtopicId": "m08-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A bag has 10 counters. Some are red and the rest are white. Omar picks a counter, writes down its colour and puts it back. He does this 200 times and gets red 62 times. What is the best estimate of how many of the 10 counters are red?",
+      "options": [
+        "62",
+        "31",
+        "6",
+        "3"
+      ],
+      "answer": 3,
+      "solution": "Relative frequency of red = 62 ÷ 200 = 0.31. So about 0.31 of the counters are red: 0.31 x 10 = 3.1. The number of counters must be a whole number, so the best estimate is 3 red counters.",
+      "misconceptions": {
+        "0": "62 is how many times red was picked, not how many red counters there are. The relative frequency is 62/200 = 0.31.",
+        "1": "0.31 is 31%, but there are only 10 counters. 0.31 x 10 = 3.1, so about 3.",
+        "2": "You did 62 ÷ 10 instead of using all 200 picks. The relative frequency is 62 ÷ 200 = 0.31, and 0.31 x 10 = 3.1, about 3."
+      },
+      "skill": "interpreting experimental results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m08-q045",
+      "subtopicId": "m08-s4",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A spinner has three sections, A, B and C, which may be different sizes. It is spun 80 times: A comes up 41 times, B 19 times and C 20 times. Select ALL the statements that are sensible conclusions.",
+      "options": [
+        "Section A is probably bigger than section B",
+        "The relative frequency of A is about 0.5",
+        "Sections B and C are probably about the same size",
+        "C will come up exactly 20 times in the next 80 spins",
+        "B is impossible, because it came up least often",
+        "The relative frequency of B is 19/61"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "A came up 41 out of 80 times, about half (41/80 is about 0.51), much more than B, so A is probably the biggest section. B (19) and C (20) came up about equally often, so they are probably about the same size. The other statements are not sensible.",
+      "misconceptions": {
+        "3": "Results change from one experiment to the next. C will come up about 20 times, but probably not exactly 20.",
+        "4": "B came up 19 times, so it is certainly possible.",
+        "5": "Relative frequency is out of ALL 80 spins: 19/80, not 19 out of the other results."
+      },
+      "skill": "interpreting experimental results",
+      "source": "original"
+    }
+  ]
+}

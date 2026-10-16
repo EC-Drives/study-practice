@@ -1,0 +1,1017 @@
+{
+  "subject": "science",
+  "topicId": "s07-effects-of-forces",
+  "title": "Effects of Forces",
+  "order": 7,
+  "bookChapter": "Chapter 7: Effects of Forces",
+  "frameworkRefs": [
+    "6Pf.01",
+    "6Pf.02",
+    "6Pf.03",
+    "6Pf.04",
+    "6Pf.05",
+    "6TWSp.01",
+    "6TWSp.04",
+    "6TWSp.05",
+    "6TWSc.03",
+    "6TWSc.04",
+    "6TWSa.02",
+    "6TWSa.03"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will learn the difference between mass (in kilograms) and weight (in newtons), and how weight changes when gravity changes. You will use force diagrams to show the name, size and direction of forces, and decide whether forces are balanced. You will also see how forces change the way things move, and why some objects float while others sink.",
+    "whyItMatters": "Forces are behind every push, pull, fall and splash. Understanding them explains why cars need brakes, why astronauts bounce on the Moon and why huge ships float. These ideas lead straight on to physics in secondary school.",
+    "realWorld": [
+      "Weighing a bag of rice at the pasar: the scale shows kg (mass), but gravity pulls on it with a force in newtons",
+      "Brakes and tyre grip (friction) stopping a Grab car safely on a wet road during monsoon rain",
+      "A fishing boat made of heavy steel floating in Penang harbour because of its shape",
+      "Astronauts bouncing on the Moon, where their weight is about 1/6 of their weight on Earth",
+      "A badminton shuttlecock slowing down quickly because of air resistance"
+    ],
+    "subtopics": [
+      {
+        "id": "s07-s1",
+        "title": "Mass and weight",
+        "summary": "Mass is the amount of matter in an object (kg); weight is the pull of gravity on it (N). On Earth, 1 kg has a weight of about 10 N, measured with a newton meter."
+      },
+      {
+        "id": "s07-s2",
+        "title": "Gravity on the Earth and the Moon",
+        "summary": "When gravity changes, weight changes but mass does not. The Moon's gravity is about 1/6 of the Earth's."
+      },
+      {
+        "id": "s07-s3",
+        "title": "Force diagrams: balanced and unbalanced forces",
+        "summary": "Arrows show the name, size and direction of forces. Equal and opposite forces are balanced; otherwise there is an overall (unbalanced) force."
+      },
+      {
+        "id": "s07-s4",
+        "title": "Effects of forces on still and moving objects",
+        "summary": "Forces can start, stop, speed up, slow down, turn or change the shape of objects. Friction, air resistance and water resistance act against movement."
+      },
+      {
+        "id": "s07-s5",
+        "title": "Floating and sinking",
+        "summary": "Water pushes up with upthrust. The mass and shape of an object affect whether the upthrust can balance its weight, so whether it floats or sinks."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s07-q001",
+      "subtopicId": "s07-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In science, which unit is weight measured in?",
+      "options": [
+        "kilograms (kg)",
+        "grams (g)",
+        "newtons (N)",
+        "litres (l)"
+      ],
+      "answer": 2,
+      "solution": "Weight is the pull of gravity on an object. It is a force, and all forces are measured in newtons (N). Mass is measured in kilograms (kg).",
+      "misconceptions": {
+        "0": "In everyday talk people say 'I weigh 40 kg', but kilograms measure mass (the amount of matter). Weight is a force, and forces are measured in newtons.",
+        "1": "Grams, like kilograms, are a unit of mass, not weight. Weight is a force, so it is measured in newtons.",
+        "3": "Litres measure volume or capacity (how much space something takes up or holds), not weight. Weight is measured in newtons."
+      },
+      "skill": "mass and weight units",
+      "source": "original"
+    },
+    {
+      "id": "s07-q002",
+      "subtopicId": "s07-s1",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A bag of rice has a mass of 5 kg. On Earth, gravity pulls with 10 N on every 1 kg (g = 10 N/kg). What is the weight of the bag of rice on Earth? Give your answer in newtons (N).",
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "accept": [
+          "50 N",
+          "50N",
+          "50 newtons"
+        ]
+      },
+      "solution": "On Earth each 1 kg has a weight of 10 N. So 5 kg has a weight of 5 x 10 = 50 N.",
+      "misconceptions": {
+        "common": "Writing 5 N (or 5 kg) mixes up mass and weight. The mass is 5 kg; the weight is the force of gravity on it, 5 x 10 = 50 N."
+      },
+      "skill": "calculating weight from mass",
+      "source": "original"
+    },
+    {
+      "id": "s07-q003",
+      "subtopicId": "s07-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Daniel wants to measure the weight of his school bag in newtons. Which piece of equipment should he use?",
+      "options": [
+        "a newton meter (forcemeter)",
+        "a pan balance with kilogram masses",
+        "a measuring cylinder",
+        "a tape measure"
+      ],
+      "answer": 0,
+      "solution": "A newton meter has a spring inside. When the bag hangs from the hook, gravity pulls it down and stretches the spring. The scale shows the force in newtons. Choosing the right measuring instrument is an important science skill.",
+      "misconceptions": {
+        "1": "A pan balance compares masses, so it gives an answer in kilograms or grams. To measure weight, a force, you need a newton meter.",
+        "2": "A measuring cylinder measures volume (the space a liquid takes up), not force. Weight is measured with a newton meter.",
+        "3": "A tape measure measures length. A big bag is not always heavy (think of a bag full of balloons), so size does not tell you weight."
+      },
+      "skill": "choosing equipment",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s07-q004",
+      "subtopicId": "s07-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: In science, mass and weight mean the same thing.",
+      "answer": false,
+      "solution": "False. Mass is the amount of matter in an object, measured in kilograms. Weight is the force of gravity pulling on that mass, measured in newtons. Your mass stays the same wherever you go, but your weight depends on gravity.",
+      "misconceptions": {
+        "common": "In everyday speech we use 'weight' when we mean mass (for example on a bathroom scale), so it is easy to think they are the same. Scientists keep them separate."
+      },
+      "skill": "difference between mass and weight",
+      "source": "original"
+    },
+    {
+      "id": "s07-q005",
+      "subtopicId": "s07-s1",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each word to its correct meaning.",
+      "options": {
+        "left": [
+          "Mass",
+          "Weight",
+          "Newton meter",
+          "Gravity"
+        ],
+        "right": [
+          "The pull of gravity on an object, measured in N",
+          "The force that pulls objects towards the centre of the Earth",
+          "The space an object takes up, measured in cm^3",
+          "The amount of matter in an object, measured in kg",
+          "An instrument with a spring that measures forces"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "Mass is how much matter (stuff) is in an object, in kg. Weight is the pull of gravity on that mass, in N. A newton meter uses a spring to measure forces. Gravity is the force pulling things towards the centre of the Earth. The 'space an object takes up' is volume, which is not on the left.",
+      "misconceptions": {
+        "common": "Swapping mass and weight, or thinking mass means how big something is (that is volume)."
+      },
+      "skill": "difference between mass and weight",
+      "source": "original"
+    },
+    {
+      "id": "s07-q006",
+      "subtopicId": "s07-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A bag of oranges hangs from a newton meter. The newton meter reads 7 N. Use g = 10 N/kg (on Earth each 1 kg has a weight of 10 N). What is the mass of the oranges? Give your answer in kg.",
+      "answer": {
+        "value": 0.7,
+        "tolerance": 0,
+        "accept": [
+          "0.7 kg",
+          "7/10"
+        ]
+      },
+      "solution": "Every 1 kg weighs 10 N. To go from weight to mass, divide by 10: 7 ÷ 10 = 0.7 kg.",
+      "misconceptions": {
+        "common": "Multiplying by 10 instead of dividing gives 70 kg, which is far too heavy for a bag of oranges. Weight to mass: divide by 10."
+      },
+      "skill": "calculating mass from weight",
+      "source": "original"
+    },
+    {
+      "id": "s07-q007",
+      "subtopicId": "s07-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Aisha says, 'My weight is 40 kg.' Which sentence says this correctly, the way a scientist would? (Use g = 10 N/kg.)",
+      "options": [
+        "My weight is 40 kg, and my mass is about 400 N.",
+        "My mass is 40 kg, and my weight on Earth is about 400 N.",
+        "My mass is 40 kg, and my weight on Earth is about 4 N.",
+        "My mass and my weight are both 40 kg."
+      ],
+      "answer": 1,
+      "solution": "Kilograms measure mass, so Aisha's mass is 40 kg. Her weight is the pull of gravity on that mass: 40 x 10 = 400 N.",
+      "misconceptions": {
+        "0": "This swaps the two quantities. Mass is in kilograms; weight is a force in newtons.",
+        "2": "This divides by 10 instead of multiplying. Each 1 kg weighs 10 N, so 40 kg weighs 40 x 10 = 400 N.",
+        "3": "Mass and weight are different quantities with different units. Weight is a force, so it is measured in newtons, not kilograms."
+      },
+      "skill": "calculating weight from mass",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s07-q008",
+      "subtopicId": "s07-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Wei Ming hangs different masses on a newton meter. His results: 100 g gives 1 N; 200 g gives 2 N; 300 g gives 5 N; 400 g gives 4 N; 500 g gives 5 N. Which result is anomalous (does not fit the pattern)?",
+      "options": [
+        "500 g gives 5 N",
+        "100 g gives 1 N",
+        "300 g gives 5 N",
+        "There is no anomalous result."
+      ],
+      "answer": 2,
+      "solution": "The pattern is: every 100 g adds 1 N. So 300 g should give 3 N. The reading of 5 N does not fit, so it is anomalous. Wei Ming should repeat that measurement.",
+      "misconceptions": {
+        "0": "The largest reading is not automatically the odd one out. 500 g = 0.5 kg, and 0.5 x 10 = 5 N, which fits the pattern.",
+        "1": "100 g = 0.1 kg, and 0.1 x 10 = 1 N, so this result fits the pattern. The smallest value is not always the anomaly.",
+        "3": "Look for a result that breaks the pattern. Every extra 100 g adds 1 N, so 300 g should give 3 N, not 5 N."
+      },
+      "skill": "identifying anomalous results",
+      "source": "original"
+    },
+    {
+      "id": "s07-q009",
+      "subtopicId": "s07-s1",
+      "type": "order",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Put these objects in order of their weight on Earth, from smallest to largest. (Use g = 10 N/kg.)",
+      "options": [
+        "a 2 kg bag of rice",
+        "a 500 g bag of sugar",
+        "a box with a weight of 30 N",
+        "an apple with a mass of 100 g"
+      ],
+      "answer": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "solution": "Change everything to newtons. Apple: 100 g = 0.1 kg, so 0.1 x 10 = 1 N. Sugar: 500 g = 0.5 kg, so 0.5 x 10 = 5 N. Rice: 2 x 10 = 20 N. Box: 30 N. Smallest to largest: apple (1 N), sugar (5 N), rice (20 N), box (30 N).",
+      "misconceptions": {
+        "common": "Comparing the numbers without changing the units, for example thinking 30 N is less than 500 g because 30 is smaller than 500."
+      },
+      "skill": "calculating weight from mass",
+      "source": "original"
+    },
+    {
+      "id": "s07-q010",
+      "subtopicId": "s07-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Omar is hanging heavy masses on a newton meter that is clamped to a stand. Which is the safest way to reduce the risk of injury?",
+      "options": [
+        "Stand right under the masses so he can catch them if they fall.",
+        "Add the masses as fast as he can so the test is finished quickly.",
+        "Hold the newton meter high above his head instead of using a stand.",
+        "Put a tray of sand or a soft mat under the masses and keep his feet away."
+      ],
+      "answer": 3,
+      "solution": "Masses can slip off the hook. A tray of sand or a soft mat underneath stops them bouncing or breaking things, and keeping feet away means nobody gets hurt. Thinking about risks before you start is part of planning an investigation.",
+      "misconceptions": {
+        "0": "Falling masses can hurt hands and feet. It is safer to keep your body away and let something soft catch them.",
+        "1": "Rushing makes accidents more likely. Add masses one at a time, carefully.",
+        "2": "Holding heavy masses above your head is more dangerous: they could fall on you, and your arm will shake and spoil the readings."
+      },
+      "skill": "reducing risks in practical work",
+      "source": "original"
+    },
+    {
+      "id": "s07-q011",
+      "subtopicId": "s07-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name of the force that pulls a dropped ball down towards the Earth?",
+      "answer": {
+        "accept": [
+          "gravity",
+          "gravitational force",
+          "the force of gravity",
+          "gravitational pull",
+          "force of gravity",
+          "weight"
+        ],
+        "keywords": []
+      },
+      "solution": "Gravity is the force that pulls objects towards the centre of the Earth. The pull of gravity on an object is its weight.",
+      "misconceptions": {
+        "common": "Saying 'air pressure' or 'the air pushes it down'. Objects fall because gravity pulls them, even where there is no air, such as on the Moon."
+      },
+      "skill": "gravity",
+      "source": "original"
+    },
+    {
+      "id": "s07-q012",
+      "subtopicId": "s07-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: An astronaut's mass is the same on the Moon as on Earth.",
+      "answer": true,
+      "solution": "True. Mass is the amount of matter in the astronaut's body. Travelling to the Moon does not remove any matter, so the mass stays the same. It is her weight that is smaller, because the Moon's gravity is weaker.",
+      "misconceptions": {
+        "common": "Mixing up mass and weight: weight changes on the Moon, but mass does not."
+      },
+      "skill": "mass stays the same when gravity changes",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s07-q013",
+      "subtopicId": "s07-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "An astronaut travels from the Earth to the Moon. What happens to her weight?",
+      "options": [
+        "It stays the same.",
+        "It becomes larger.",
+        "It becomes smaller.",
+        "It becomes zero, because there is no air on the Moon."
+      ],
+      "answer": 2,
+      "solution": "The Moon's gravity is about 1/6 of the Earth's. Weight is the pull of gravity, so her weight becomes about 1/6 of what it was on Earth. Her mass does not change.",
+      "misconceptions": {
+        "0": "It is her mass that stays the same. Weight depends on the pull of gravity, and the Moon's gravity is weaker.",
+        "1": "The Moon is much smaller than the Earth, so its gravity is weaker, not stronger. Her weight goes down.",
+        "3": "Gravity does not need air. The Moon has no air, but it still has gravity (about 1/6 of Earth's), so she still has weight."
+      },
+      "skill": "weight changes when gravity changes",
+      "source": "original"
+    },
+    {
+      "id": "s07-q014",
+      "subtopicId": "s07-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A rock has a weight of 60 N on Earth. The Moon's gravity is about 1/6 of the Earth's gravity. What would the rock's weight be on the Moon? Give your answer in newtons (N).",
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "accept": [
+          "10 N",
+          "10N",
+          "10 newtons"
+        ]
+      },
+      "solution": "The weight on the Moon is 1/6 of the weight on Earth. 60 ÷ 6 = 10 N.",
+      "misconceptions": {
+        "common": "Multiplying by 6 (giving 360 N) would mean the Moon pulls harder than the Earth. The Moon's gravity is weaker, so the weight gets smaller: divide by 6."
+      },
+      "skill": "weight changes when gravity changes",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s07-q015",
+      "subtopicId": "s07-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A bag of rice has a mass of 3 kg on Earth. An astronaut takes it to the Moon, where gravity is about 1/6 of the Earth's. What is its mass on the Moon?",
+      "options": [
+        "0.5 kg",
+        "30 kg",
+        "18 kg",
+        "3 kg"
+      ],
+      "answer": 3,
+      "solution": "Mass is the amount of matter in the rice. Moving to the Moon does not add or remove any rice, so the mass is still 3 kg. Only the weight changes.",
+      "misconceptions": {
+        "0": "This divides the mass by 6. It is the weight that becomes 1/6 as big on the Moon, not the mass.",
+        "1": "This multiplies by 10, as if changing to newtons. The question asks about mass, which stays 3 kg.",
+        "2": "This multiplies by 6. Mass does not change when you move to a place with different gravity."
+      },
+      "skill": "mass stays the same when gravity changes",
+      "source": "original"
+    },
+    {
+      "id": "s07-q016",
+      "subtopicId": "s07-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A robot has a mass of 120 kg. On Earth, g = 10 N/kg. The Moon's gravity is about 1/6 of the Earth's. What is the robot's weight on the Moon? Give your answer in newtons (N).",
+      "answer": {
+        "value": 200,
+        "tolerance": 0,
+        "accept": [
+          "200 N",
+          "200N",
+          "200 newtons"
+        ]
+      },
+      "solution": "First find the weight on Earth: 120 x 10 = 1200 N. On the Moon the weight is 1/6 of this: 1200 ÷ 6 = 200 N. (The mass is still 120 kg.)",
+      "misconceptions": {
+        "common": "Dividing the mass by 6 to get 20 and stopping there. 20 is not a weight in newtons; you still need to change mass to weight by multiplying by 10."
+      },
+      "skill": "weight changes when gravity changes",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s07-q017",
+      "subtopicId": "s07-s2",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A ball is taken from the Earth to the Moon. Select ALL the statements that are true.",
+      "options": [
+        "Its mass stays the same.",
+        "A pan balance would show that it has less mass.",
+        "Its weight becomes smaller.",
+        "It would float away, because there is no gravity on the Moon.",
+        "A newton meter would show a smaller reading than on Earth."
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "The amount of matter in the ball does not change, so its mass is the same. The Moon's gravity is weaker, so its weight is smaller, and a newton meter (which measures the pull of gravity) shows a smaller reading. A pan balance compares masses, so it gives the same answer as on Earth.",
+      "misconceptions": {
+        "1": "A pan balance compares the ball with standard masses. Gravity pulls both sides less on the Moon, so they still balance at the same mass.",
+        "3": "The Moon does have gravity, about 1/6 of the Earth's. Things on the Moon still fall, just more slowly.",
+        "common": "Thinking there is no gravity on the Moon because there is no air. Gravity does not need air."
+      },
+      "skill": "weight changes when gravity changes",
+      "source": "original"
+    },
+    {
+      "id": "s07-q018",
+      "subtopicId": "s07-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In a force diagram, forces are drawn as arrows. What does the length of an arrow show?",
+      "options": [
+        "how big (strong) the force is",
+        "which direction the force acts in",
+        "how fast the object is moving",
+        "what the force is called"
+      ],
+      "answer": 0,
+      "solution": "A force arrow tells you three things: the label gives its name, the arrowhead shows its direction, and the length shows its size. A longer arrow means a bigger force.",
+      "misconceptions": {
+        "1": "The direction is shown by the way the arrowhead points, not by the length of the arrow.",
+        "2": "A force arrow shows a force, not a speed. A long arrow means a large force.",
+        "3": "The name of the force is written as a label next to the arrow. The length shows its size."
+      },
+      "skill": "reading force diagrams",
+      "source": "original"
+    },
+    {
+      "id": "s07-q019",
+      "subtopicId": "s07-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Two forces act on an object. They are equal in size and act in opposite directions. What word describes these forces? Complete: the forces are ______.",
+      "answer": {
+        "accept": [
+          "balanced",
+          "balanced forces"
+        ],
+        "keywords": []
+      },
+      "solution": "Forces that are equal in size and act in opposite directions cancel each other out. We call them balanced forces. They do not change how the object is moving.",
+      "misconceptions": {
+        "common": "Writing 'unbalanced' or 'equal'. 'Equal' is only half the idea; the scientific word for equal and opposite forces is balanced."
+      },
+      "skill": "balanced and unbalanced forces",
+      "source": "original"
+    },
+    {
+      "id": "s07-q020",
+      "subtopicId": "s07-s3",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Each arrow in a force diagram is described in words. Match each arrow to the name of the force it shows.",
+      "options": {
+        "left": [
+          "An arrow pointing down from a falling skydiver",
+          "An arrow pointing up from the skydiver's open parachute",
+          "An arrow pointing up from the water under a floating boat",
+          "An arrow pointing backwards on a sledge sliding forwards over the ground"
+        ],
+        "right": [
+          "upthrust",
+          "friction",
+          "magnetic force",
+          "weight (gravity)",
+          "air resistance"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "Gravity pulls everything downwards, so the downward arrow is weight. Air pushes up against the falling parachute: air resistance. Water pushes up on a floating boat: upthrust. The ground rubs against the sliding sledge and acts against its movement: friction. Nothing here involves a magnet.",
+      "misconceptions": {
+        "common": "Mixing up air resistance and upthrust because both can push upwards. Upthrust is the push from a liquid (or gas) holding an object up; air resistance acts against something moving through air."
+      },
+      "skill": "naming forces",
+      "source": "original"
+    },
+    {
+      "id": "s07-q021",
+      "subtopicId": "s07-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A book rests on a table without moving. Its weight is 5 N. Which description of the forces on the book is correct?",
+      "options": [
+        "Weight 5 N down only; a table cannot push on anything.",
+        "Weight 5 N down and a support force of 10 N up; the forces are unbalanced.",
+        "Weight 5 N down and a support force from the table of 5 N up; the forces are balanced.",
+        "There are no forces on the book, because it is not moving."
+      ],
+      "answer": 2,
+      "solution": "Gravity pulls the book down with 5 N. The table pushes up with an equal force of 5 N. The two forces are equal and opposite, so they are balanced and the book stays still.",
+      "misconceptions": {
+        "0": "A table can push. When the book presses on it, the table pushes back up (the support force). Without it the book would fall through.",
+        "1": "If the upward force were bigger, the overall force would be upwards and the book would start to rise. A book at rest has balanced forces.",
+        "3": "Gravity pulls on the book all the time. Things stay still because the forces on them are balanced, not because there are no forces."
+      },
+      "skill": "balanced and unbalanced forces",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s07-q022",
+      "subtopicId": "s07-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: If the forces on an object are balanced, the object must be standing still.",
+      "answer": false,
+      "solution": "False. Balanced forces do not change how an object moves. If it is still, it stays still. If it is already moving, it keeps moving at the same speed in the same direction, like a car cruising along at a steady speed.",
+      "misconceptions": {
+        "common": "Thinking that a moving object always needs an unbalanced forward force to keep going. An unbalanced force is only needed to change the speed or direction."
+      },
+      "skill": "balanced and unbalanced forces",
+      "source": "original"
+    },
+    {
+      "id": "s07-q023",
+      "subtopicId": "s07-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "In a tug of war, Team A pulls to the left with a force of 450 N. Team B pulls to the right with a force of 380 N. How big is the overall (unbalanced) force on the rope? Give your answer in newtons (N).",
+      "answer": {
+        "value": 70,
+        "tolerance": 0,
+        "accept": [
+          "70 N",
+          "70N",
+          "70 newtons"
+        ]
+      },
+      "solution": "The forces act in opposite directions, so subtract: 450 - 380 = 70 N. The overall force is 70 N to the left, so Team A starts to win.",
+      "misconceptions": {
+        "common": "Adding the two forces (830 N). When forces act in opposite directions they work against each other, so you find the difference."
+      },
+      "skill": "calculating the overall force",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s07-q024",
+      "subtopicId": "s07-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A car is moving to the right along a straight, flat road. A force diagram shows two arrows: the engine's forward force of 2000 N to the right, and friction and air resistance together of 2000 N to the left. Which statement is correct?",
+      "options": [
+        "The forces are balanced, so the car must slow down and stop.",
+        "The forces are balanced, so the car keeps moving at the same speed.",
+        "The forces are unbalanced, so the car speeds up.",
+        "The forces are unbalanced, so the car slows down."
+      ],
+      "answer": 1,
+      "solution": "2000 N to the right and 2000 N to the left are equal and opposite, so the forces are balanced. Balanced forces do not change the motion, so the moving car carries on at a steady speed.",
+      "misconceptions": {
+        "0": "Balanced forces do not stop a moving object. They keep its speed the same. The car would only slow down if the backward forces were bigger.",
+        "2": "The forward and backward forces are both 2000 N, so they are balanced. The car would only speed up if the forward force were bigger.",
+        "3": "Both arrows are 2000 N, so the forces are balanced, not unbalanced. The speed does not change."
+      },
+      "skill": "balanced and unbalanced forces",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s07-q025",
+      "subtopicId": "s07-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A rocket stands on its launch pad. When its engines start, the upward thrust is 50 000 N and its weight is 40 000 N downwards. What happens to the rocket?",
+      "options": [
+        "It rises and speeds up, because there is an overall force of 10 000 N upwards.",
+        "It stays on the launch pad, because its weight is so large.",
+        "It rises at a steady speed, because there is an overall force of 10 000 N upwards.",
+        "It rises and speeds up, because there is an overall force of 90 000 N upwards."
+      ],
+      "answer": 0,
+      "solution": "Compare the forces: 50 000 N up and 40 000 N down. The difference is 50 000 - 40 000 = 10 000 N upwards. The forces are unbalanced, so the rocket starts to move upwards and keeps speeding up.",
+      "misconceptions": {
+        "1": "A large weight does not matter on its own; you must compare the forces. The upward force is bigger, so the rocket moves up.",
+        "2": "An unbalanced force changes speed. A steady speed happens when forces are balanced; an overall upward force makes the rocket go faster and faster.",
+        "3": "The forces act in opposite directions, so subtract them (50 000 - 40 000), do not add them."
+      },
+      "skill": "calculating the overall force",
+      "source": "original"
+    },
+    {
+      "id": "s07-q026",
+      "subtopicId": "s07-s4",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Select ALL the things a force can do to an object.",
+      "options": [
+        "Start it moving",
+        "Change its direction",
+        "Change its mass",
+        "Change its shape",
+        "Slow it down"
+      ],
+      "answer": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "solution": "A force can start or stop an object, speed it up or slow it down, change its direction, or change its shape (squash, stretch, bend or twist). A force cannot change how much matter is in the object, so its mass stays the same.",
+      "misconceptions": {
+        "2": "Squashing or pushing an object does not add or remove any matter, so its mass stays the same."
+      },
+      "skill": "effects of forces",
+      "source": "original"
+    },
+    {
+      "id": "s07-q027",
+      "subtopicId": "s07-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these is an example of a force changing the shape of an object?",
+      "options": [
+        "A football rolling more slowly until it stops",
+        "Pressing a ball of roti dough flat with your hands",
+        "A car turning a corner",
+        "A mango falling faster and faster from a tree"
+      ],
+      "answer": 1,
+      "solution": "When you press the dough, your push squashes it into a new, flat shape. The other examples show forces changing speed or direction instead.",
+      "misconceptions": {
+        "0": "This is a force (friction) slowing an object down, not changing its shape.",
+        "2": "This is a force changing the direction of an object. The car keeps its shape.",
+        "3": "This is gravity speeding an object up. The mango does not change shape as it falls."
+      },
+      "skill": "effects of forces",
+      "source": "original"
+    },
+    {
+      "id": "s07-q028",
+      "subtopicId": "s07-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "You are riding a bicycle on a flat road and you stop pedalling. Why do you slow down?",
+      "options": [
+        "The pushing force from your legs gets used up.",
+        "Gravity pulls you backwards.",
+        "Friction and air resistance act against your movement.",
+        "Upthrust from the road pushes against you."
+      ],
+      "answer": 2,
+      "solution": "When you stop pedalling, there is no forward force. Friction and air resistance still push backwards, so the forces are unbalanced and you slow down.",
+      "misconceptions": {
+        "0": "A moving object does not carry a store of 'push' that runs out. You slow down because backward forces act on you. With no friction or air resistance, you would keep going.",
+        "1": "Gravity pulls downwards, towards the centre of the Earth, not backwards along a flat road.",
+        "3": "Upthrust is the upward push from a liquid or gas on an object in it. The forces slowing you are friction (in the wheels and on the road) and air resistance."
+      },
+      "skill": "friction and air resistance",
+      "source": "original"
+    },
+    {
+      "id": "s07-q029",
+      "subtopicId": "s07-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: Friction always acts in the opposite direction to the way an object is moving (or trying to move).",
+      "answer": true,
+      "solution": "True. Friction comes from two surfaces rubbing together. It always works against the movement, which is why it slows things down, and why it stops your shoes slipping when you walk.",
+      "misconceptions": {
+        "common": "Thinking friction pushes in the same direction as the movement, or that friction only happens when something is already moving fast."
+      },
+      "skill": "friction and air resistance",
+      "source": "original"
+    },
+    {
+      "id": "s07-q030",
+      "subtopicId": "s07-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Priya rolls a toy car down a ramp onto different surfaces and measures how far it travels on each one. Which of these is a control variable that she must keep the same?",
+      "options": [
+        "the type of surface",
+        "the distance the car travels",
+        "the surface that gives the longest distance",
+        "the height of the ramp"
+      ],
+      "answer": 3,
+      "solution": "In a fair test you change only one thing (the surface) and measure one thing (the distance). Everything else must stay the same, such as the ramp height, the car and where it starts. These are control variables.",
+      "misconceptions": {
+        "0": "This is the independent variable: the one thing Priya changes on purpose to see what happens.",
+        "1": "This is the dependent variable: what Priya measures. It changes because of the surface.",
+        "2": "This is a result she finds out at the end, not a variable she controls before the test."
+      },
+      "skill": "fair test variables",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s07-q031",
+      "subtopicId": "s07-s4",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Priya's results table shows how far her toy car rolled on each surface: carpet 60 cm, wooden floor 140 cm, sandpaper 35 cm, tiles 120 cm. Which surface produced the most friction?",
+      "answer": {
+        "accept": [
+          "sandpaper",
+          "the sandpaper"
+        ],
+        "keywords": []
+      },
+      "solution": "More friction slows the car down more, so it stops sooner. The shortest distance (35 cm) was on sandpaper, so sandpaper produced the most friction.",
+      "misconceptions": {
+        "common": "Choosing the wooden floor because it has the biggest number. The car went furthest there because there was the least friction."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "original"
+    },
+    {
+      "id": "s07-q032",
+      "subtopicId": "s07-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Priya rolls the toy car onto the wooden floor four times. It travels 138 cm, 142 cm, 95 cm and 140 cm. One result is anomalous. Leave it out and find the mean (average) of the other three results. Give your answer in cm.",
+      "answer": {
+        "value": 140,
+        "tolerance": 0,
+        "accept": [
+          "140 cm",
+          "140cm"
+        ]
+      },
+      "solution": "95 cm is far from the other results, so it is anomalous (perhaps the car hit something). Mean of the rest: 138 + 142 + 140 = 420. 420 ÷ 3 = 140 cm.",
+      "misconceptions": {
+        "common": "Including the anomalous 95 cm gives (138 + 142 + 95 + 140) ÷ 4 = 128.75 cm, which is pulled down by the odd result. Repeating tests helps you spot and leave out results like this."
+      },
+      "skill": "identifying anomalous results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s07-q033",
+      "subtopicId": "s07-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Why does opening a parachute make a skydiver fall more slowly?",
+      "options": [
+        "The parachute makes the skydiver's weight smaller.",
+        "The parachute is full of air, which floats upwards and lifts the skydiver.",
+        "The large parachute pushes against much more air, so the air resistance becomes much bigger.",
+        "The parachute makes the skydiver's mass smaller."
+      ],
+      "answer": 2,
+      "solution": "A parachute has a very large surface area. As it falls, it pushes against lots of air, so air resistance (acting upwards) gets much bigger. The upward force grows until it balances the skydiver's weight, and then they fall at a slow, steady speed.",
+      "misconceptions": {
+        "0": "The pull of gravity on the skydiver does not change. The parachute adds a much larger upward force, air resistance.",
+        "1": "The air inside is the same air as outside; it does not float up. The slowing force comes from air pushing against the large canopy as it falls.",
+        "3": "The skydiver's mass (amount of matter) stays the same. Only the air resistance changes."
+      },
+      "skill": "friction and air resistance",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s07-q034",
+      "subtopicId": "s07-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "When an object is placed in water, the water pushes up on it. What is this upward push called?",
+      "options": [
+        "friction",
+        "upthrust",
+        "gravity",
+        "air resistance"
+      ],
+      "answer": 1,
+      "solution": "Water pushes up on any object placed in it. This push is called upthrust. If the upthrust can become as big as the object's weight, the object floats.",
+      "misconceptions": {
+        "0": "Friction acts between surfaces rubbing together and works against movement. The upward push of water is upthrust.",
+        "2": "Gravity pulls objects downwards. The water's push is upwards and is called upthrust.",
+        "3": "Air resistance acts on objects moving through air, not the upward push of water."
+      },
+      "skill": "upthrust",
+      "source": "original"
+    },
+    {
+      "id": "s07-q035",
+      "subtopicId": "s07-s5",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Heavy objects always sink and light objects always float.",
+      "answer": false,
+      "solution": "False. A huge steel ship is very heavy but it floats, because its shape pushes aside a lot of water and gives a big upthrust. A small coin is light but it sinks. Both mass and shape matter.",
+      "misconceptions": {
+        "common": "Thinking only mass decides floating. The shape of an object matters too."
+      },
+      "skill": "mass and shape affect floating",
+      "source": "original"
+    },
+    {
+      "id": "s07-q036",
+      "subtopicId": "s07-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Mei Lin drops a ball of modelling clay into a tank of water and it sinks. She then presses the same clay into a wide, hollow boat shape and it floats. Why does the boat shape float?",
+      "options": [
+        "The boat shape has less mass than the ball.",
+        "Gravity does not pull on a boat shape.",
+        "The water becomes thicker when the clay is shaped like a boat.",
+        "The boat shape pushes aside more water, so the upthrust on it is bigger."
+      ],
+      "answer": 3,
+      "solution": "The wide, hollow boat takes up much more space in the water than the small ball, so it pushes aside more water. More water pushed aside means more upthrust. The upthrust becomes big enough to balance the weight, so the boat floats.",
+      "misconceptions": {
+        "0": "It is the same clay, so its mass is exactly the same. Only the shape changed.",
+        "1": "Gravity pulls on all objects, whatever their shape. The boat floats because the upthrust is big enough to balance its weight.",
+        "2": "The water does not change. The difference is the clay's shape, which changes how much water it pushes aside."
+      },
+      "skill": "mass and shape affect floating",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s07-q037",
+      "subtopicId": "s07-s5",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: When you reshape a lump of clay from a ball into a boat, its mass stays the same.",
+      "answer": true,
+      "solution": "True. No clay was added or taken away, so the amount of matter (mass) is the same. Only the shape changed, and that is why it can now float.",
+      "misconceptions": {
+        "common": "Thinking the boat shape is 'lighter' because it floats. It floats because of its shape, not because it lost mass."
+      },
+      "skill": "mass and shape affect floating",
+      "source": "original"
+    },
+    {
+      "id": "s07-q038",
+      "subtopicId": "s07-s5",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A toy duck floats without moving on the water. Its weight is 3 N. What is the size of the upthrust on the duck? Give your answer in newtons (N).",
+      "answer": {
+        "value": 3,
+        "tolerance": 0,
+        "accept": [
+          "3 N",
+          "3N",
+          "3 newtons"
+        ]
+      },
+      "solution": "The duck is floating and not moving up or down, so the forces are balanced. The upthrust must equal the weight: 3 N.",
+      "misconceptions": {
+        "common": "Thinking upthrust must be bigger than the weight for something to float. If upthrust were bigger, the duck would rise up out of the water until the forces balanced again."
+      },
+      "skill": "upthrust",
+      "source": "original"
+    },
+    {
+      "id": "s07-q039",
+      "subtopicId": "s07-s5",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A stone hangs from a newton meter. In air the reading is 12 N. When the stone is lowered completely into a beaker of water, the reading drops to 9 N. What is the upthrust of the water on the stone? Give your answer in newtons (N).",
+      "answer": {
+        "value": 3,
+        "tolerance": 0,
+        "accept": [
+          "3 N",
+          "3N",
+          "3 newtons"
+        ]
+      },
+      "solution": "The water pushes up on the stone, so the newton meter does not need to hold as much. Upthrust = 12 - 9 = 3 N.",
+      "misconceptions": {
+        "common": "Giving 9 N, the new reading. 9 N is how much the newton meter still holds; the upthrust is the difference, 12 - 9 = 3 N. The stone's weight itself has not changed."
+      },
+      "skill": "upthrust",
+      "source": "original"
+    },
+    {
+      "id": "s07-q040",
+      "subtopicId": "s07-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Mei Lin makes boats of different shapes, using a 10 cm square of foil each time. She counts how many coins each boat holds before it sinks. Which question is she investigating?",
+      "options": [
+        "Does the mass of foil affect how many coins a boat can hold?",
+        "Do heavier coins sink faster than lighter coins?",
+        "Does foil float better in salty water than in tap water?",
+        "Does the shape of a boat affect how many coins it can hold before it sinks?"
+      ],
+      "answer": 3,
+      "solution": "The variable Mei Lin changes on purpose (independent variable) is the shape of the boat. What she measures (dependent variable) is the number of coins. So her question is about shape and the number of coins.",
+      "misconceptions": {
+        "0": "She uses the same size of foil every time, so the mass of foil is kept the same (a control variable). She is changing the shape.",
+        "1": "She does not change the coins or time how fast they sink. She counts how many coins each boat holds.",
+        "2": "She does not change the type of water. The thing she changes on purpose is the boat's shape."
+      },
+      "skill": "fair test variables",
+      "source": "original"
+    },
+    {
+      "id": "s07-q041",
+      "subtopicId": "s07-s5",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A solid lump of material sinks in water. Select ALL the changes that would make it more likely to float.",
+      "options": [
+        "Shape it into a wide, hollow boat shape (same mass)",
+        "Squash it into a smaller, tighter ball",
+        "Tie an empty, sealed plastic bottle to it",
+        "Stick some heavy metal weights to it",
+        "Make it hollow inside, so it has less mass but the same outside size"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "An object floats when the upthrust can balance its weight. A wide boat shape pushes aside more water (more upthrust). An empty bottle adds lots of size but very little mass (more upthrust, hardly any extra weight). Making it hollow keeps the size but lowers the mass (less weight).",
+      "misconceptions": {
+        "1": "A smaller ball pushes aside less water, so the upthrust gets smaller. It will still sink.",
+        "3": "Adding weights increases the mass and the weight, so it is even more likely to sink.",
+        "common": "Thinking only lighter objects can float. The shape, and how much water it pushes aside, matters too."
+      },
+      "skill": "mass and shape affect floating",
+      "source": "original"
+    }
+  ]
+}

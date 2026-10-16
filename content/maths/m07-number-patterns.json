@@ -1,0 +1,1058 @@
+{
+  "subject": "maths",
+  "topicId": "m07-number-patterns",
+  "title": "Number Patterns",
+  "order": 7,
+  "bookChapter": "Chapter 7: Number Patterns",
+  "frameworkRefs": [
+    "6Nc.01",
+    "6Nc.03",
+    "6Nc.04",
+    "6Nc.02",
+    "TWM.02"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will find missing terms in sequences that go up or down in equal steps, including fractions, decimals and negative numbers. You will use position-to-term rules to find any term, like the 50th, without listing them all. You will also explore square and cube number patterns, matchstick and tile patterns, and function machines.",
+    "whyItMatters": "Spotting a pattern lets you predict what comes next instead of counting one by one. Position-to-term rules and letters for unknown numbers are the start of algebra, which you will use a lot in secondary school. Patterns also train you to explain why a rule works.",
+    "realWorld": [
+      "An LRT train that arrives every 6 minutes: when do the next trains come?",
+      "Saving RM 5 more each week in a savings jar",
+      "Rows of seats in a stadium that grow by the same number each row",
+      "The temperature dropping by the same amount each hour on top of Mount Kinabalu at night",
+      "Floor tiles laid in growing square patterns"
+    ],
+    "subtopics": [
+      {
+        "id": "m07-s1",
+        "title": "Sequences with constant steps",
+        "summary": "Count on and back in equal steps, including fractions, decimals and negative numbers, and find the term-to-term rule."
+      },
+      {
+        "id": "m07-s2",
+        "title": "Position-to-term rules",
+        "summary": "Use a rule like term = 4 x position + 1 to find any term, and work backwards to test whether a number is in a sequence."
+      },
+      {
+        "id": "m07-s3",
+        "title": "Square, cube and spatial patterns",
+        "summary": "Use square and cube numbers to make sequences, and find rules for matchstick and tile patterns."
+      },
+      {
+        "id": "m07-s4",
+        "title": "Function machines and letters",
+        "summary": "Find outputs and inputs of function machines, and use letters for unknown numbers in addition and subtraction."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m07-q001",
+      "subtopicId": "m07-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the next term in this sequence? 3, 7, 11, 15, ...",
+      "options": [
+        "18",
+        "19",
+        "16",
+        "30"
+      ],
+      "answer": 1,
+      "solution": "Find the step: 7 - 3 = 4, 11 - 7 = 4, 15 - 11 = 4. The rule is 'add 4'. The next term is 15 + 4 = 19. Well done if you checked every gap!",
+      "misconceptions": {
+        "0": "You added 3. Check the step: 7 - 3 = 4, so the sequence goes up by 4 each time, and 15 + 4 = 19.",
+        "2": "You counted on by 1. The step between the terms is 4, not 1, so the next term is 15 + 4 = 19.",
+        "3": "You doubled 15. This sequence does not multiply; it adds 4 each time, so the next term is 15 + 4 = 19."
+      },
+      "skill": "finding the next term (constant step)",
+      "source": "original"
+    },
+    {
+      "id": "m07-q002",
+      "subtopicId": "m07-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A sequence counts back in steps of 4: 10, 6, 2, ... What is the next term?",
+      "options": [
+        "2",
+        "0",
+        "-6",
+        "-2"
+      ],
+      "answer": 3,
+      "solution": "The rule is 'subtract 4'. From 2, count back 4 steps on a number line: 1, 0, -1, -2. So the next term is -2.",
+      "misconceptions": {
+        "0": "You worked out 4 - 2 instead of 2 - 4. Counting back 4 from 2 takes you past zero: 1, 0, -1, -2.",
+        "1": "You stopped at zero. Sequences can carry on below zero into negative numbers: 2 - 4 = -2.",
+        "2": "You added the 2 and the 4 and made it negative. Count back 4 steps from 2: 1, 0, -1, -2. The answer is -2."
+      },
+      "skill": "counting on and back past zero",
+      "source": "original"
+    },
+    {
+      "id": "m07-q003",
+      "subtopicId": "m07-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the term-to-term rule for this sequence? 2.5, 3, 3.5, 4, ... Write your answer like 'add 2' or 'subtract 2'.",
+      "answer": {
+        "accept": [
+          "add 0.5",
+          "add 1/2",
+          "+0.5",
+          "+ 0.5",
+          "plus 0.5",
+          "add a half",
+          "add one half",
+          "add half",
+          "+1/2",
+          "+ 1/2",
+          "add 0.50",
+          "plus a half",
+          "add on 0.5"
+        ],
+        "keywords": []
+      },
+      "solution": "Each term is 0.5 more than the one before: 3 - 2.5 = 0.5, 3.5 - 3 = 0.5, 4 - 3.5 = 0.5. So the rule is 'add 0.5' (add a half).",
+      "misconceptions": {
+        "common": "Writing 'add 1' because the whole numbers 3 and 4 appear. Check the gap between every pair of terms: it is 0.5."
+      },
+      "skill": "finding the term-to-term rule",
+      "source": "original"
+    },
+    {
+      "id": "m07-q004",
+      "subtopicId": "m07-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The sequence 1/4, 1/2, 3/4, 1, ... goes up in equal steps of 1/4.",
+      "answer": true,
+      "solution": "Write every term as quarters: 1/4, 2/4, 3/4, 4/4. Each term is one more quarter, so the step is always 1/4. True!",
+      "misconceptions": {
+        "common": "Thinking that 1/4 to 1/2 is a bigger jump than 1/2 to 3/4. But 1/2 is the same as 2/4, so every step is 1/4."
+      },
+      "skill": "sequences with fractions and decimals",
+      "source": "original"
+    },
+    {
+      "id": "m07-q005",
+      "subtopicId": "m07-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Find the missing term in this sequence: 0.7, 0.9, ___, 1.3, 1.5",
+      "options": [
+        "1.1",
+        "0.11",
+        "0.10",
+        "1.0"
+      ],
+      "answer": 0,
+      "solution": "The step is 0.9 - 0.7 = 0.2. So the missing term is 0.9 + 0.2 = 1.1. Check: 1.1 + 0.2 = 1.3, which matches the next term.",
+      "misconceptions": {
+        "1": "You added 9 tenths and 2 tenths and wrote 11 after the point. 11 tenths is 1 whole and 1 tenth, which is 1.1.",
+        "2": "You counted 0.8, 0.9, 0.10 as if decimals work like whole numbers. After 0.9 comes 1.0, and 0.9 + 0.2 = 1.1.",
+        "3": "You added 0.1. The step is 0.9 - 0.7 = 0.2, so the missing term is 0.9 + 0.2 = 1.1. Check: 1.1 + 0.2 = 1.3."
+      },
+      "skill": "sequences with fractions and decimals",
+      "source": "original"
+    },
+    {
+      "id": "m07-q006",
+      "subtopicId": "m07-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "At midnight the temperature on top of a high mountain is 5 °C. It falls by 3 °C every hour. What is the temperature 4 hours after midnight?",
+      "options": [
+        "7 °C",
+        "-12 °C",
+        "-7 °C",
+        "-4 °C"
+      ],
+      "answer": 2,
+      "solution": "Count back 3 each hour: 5, 2, -1, -4, -7. After 4 hours it is -7 °C. Or: the total fall is 4 x 3 = 12 degrees, and 5 - 12 = -7.",
+      "misconceptions": {
+        "0": "You worked out 12 - 5 instead of 5 - 12. The temperature falls below zero, so the answer is negative: -7 °C.",
+        "1": "You found the total fall (4 x 3 = 12 degrees) but forgot it started at 5 °C. 5 - 12 = -7.",
+        "3": "You counted only 3 hours (5, 2, -1, -4). After 4 hours there is one more step: -4 - 3 = -7."
+      },
+      "skill": "counting on and back past zero",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m07-q007",
+      "subtopicId": "m07-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "These are the first five terms of a sequence that starts at 2 and counts back in steps of 0.25, but they are mixed up. Put them in order from first term to last term.",
+      "options": [
+        "1.25",
+        "2",
+        "1",
+        "1.75",
+        "1.5"
+      ],
+      "answer": [
+        1,
+        3,
+        4,
+        0,
+        2
+      ],
+      "solution": "Start at 2 and subtract 0.25 each time: 2, 1.75, 1.5, 1.25, 1.",
+      "misconceptions": {
+        "common": "Thinking 1.25 is bigger than 1.5 because 25 is bigger than 5. Compare the tenths: 1.5 has 5 tenths but 1.25 has only 2 tenths, so 1.5 is bigger and comes first."
+      },
+      "skill": "sequences with fractions and decimals",
+      "source": "original"
+    },
+    {
+      "id": "m07-q008",
+      "subtopicId": "m07-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which sequence has the term-to-term rule 'subtract 3'?",
+      "options": [
+        "8, 11, 14, 17, ...",
+        "3, 6, 9, 12, ...",
+        "8, 5, 2, -1, ...",
+        "8, 5, 2, 0, ..."
+      ],
+      "answer": 2,
+      "solution": "Check each gap. In 8, 5, 2, -1 every step is 'subtract 3': 8 - 3 = 5, 5 - 3 = 2, 2 - 3 = -1.",
+      "misconceptions": {
+        "0": "This sequence adds 3 each time. Subtracting makes the terms get smaller.",
+        "1": "These are the multiples of 3. The rule is 'add 3', not 'subtract 3'.",
+        "3": "The last step, 2 to 0, is only 2. Sequences can go below zero: 2 - 3 = -1."
+      },
+      "skill": "finding the term-to-term rule",
+      "source": "original"
+    },
+    {
+      "id": "m07-q009",
+      "subtopicId": "m07-s1",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A sequence goes up in equal steps. The 1st term is 3/4 and the 4th term is 3. What is the 2nd term? Give your answer as a mixed number.",
+      "answer": {
+        "value": 1.5,
+        "tolerance": 0,
+        "accept": [
+          "1 1/2",
+          "3/2",
+          "1.5"
+        ]
+      },
+      "solution": "From the 1st term to the 4th term there are 3 steps. The total increase is 3 - 3/4 = 2 1/4 = 9/4. Each step is 9/4 ÷ 3 = 3/4. The 2nd term is 3/4 + 3/4 = 6/4 = 1 1/2. Check: 3/4, 1 1/2, 2 1/4, 3.",
+      "misconceptions": {
+        "common": "Dividing by 4 because it is the 4th term. From the 1st term to the 4th term there are only 3 jumps, so divide the increase by 3."
+      },
+      "skill": "sequences with fractions and decimals",
+      "source": "original"
+    },
+    {
+      "id": "m07-q010",
+      "subtopicId": "m07-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "A sequence starts at 20 and counts back in steps of 6: 20, 14, 8, ... What is the first term that is less than -10?",
+      "options": [
+        "-16",
+        "-10",
+        "-4",
+        "-22"
+      ],
+      "answer": 0,
+      "solution": "Keep subtracting 6: 20, 14, 8, 2, -4, -10, -16. -10 is not less than -10, so the first term less than -10 is -16.",
+      "misconceptions": {
+        "1": "-10 is in the sequence, but it is equal to -10, not less than it. The next term, -16, is the first one below -10.",
+        "2": "-4 is the first negative term, but -4 is greater than -10. Keep counting back: -4, -10, -16.",
+        "3": "You went one step too far. -16 is already less than -10, so it is the first one."
+      },
+      "skill": "counting on and back past zero",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m07-q011",
+      "subtopicId": "m07-s1",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "True or false: If you start at -2.5 and count on in steps of 1.5, one of the terms will be exactly 4.",
+      "answer": false,
+      "solution": "Count on 1.5 each time: -2.5, -1, 0.5, 2, 3.5, 5, ... The terms jump from 3.5 to 5, so 4 is never a term. False.",
+      "misconceptions": {
+        "common": "Thinking 4 must be a term because the sequence goes past it. A sequence only lands on the numbers it steps to."
+      },
+      "skill": "counting on and back past zero",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m07-q012",
+      "subtopicId": "m07-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The position-to-term rule for a sequence is: term = 3 x position. What is the 5th term?",
+      "options": [
+        "8",
+        "35",
+        "18",
+        "15"
+      ],
+      "answer": 3,
+      "solution": "Put the position, 5, into the rule: term = 3 x 5 = 15.",
+      "misconceptions": {
+        "0": "You added 3 and 5. The rule says multiply: 3 x 5 = 15.",
+        "1": "You wrote 3 and 5 side by side. The rule says multiply the position by 3: 3 x 5 = 15.",
+        "2": "You used position 6. The 5th term uses position 5: 3 x 5 = 15."
+      },
+      "skill": "using a position-to-term rule",
+      "source": "original"
+    },
+    {
+      "id": "m07-q013",
+      "subtopicId": "m07-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The position-to-term rule for a sequence is: term = 2 x position + 1. What is the 10th term?",
+      "options": [
+        "22",
+        "21",
+        "13",
+        "20"
+      ],
+      "answer": 1,
+      "solution": "Put 10 into the rule. Multiply first: 2 x 10 = 20. Then add 1: 20 + 1 = 21.",
+      "misconceptions": {
+        "0": "You added 1 to the position first (2 x 11 = 22). Multiply first, then add: 2 x 10 = 20, 20 + 1 = 21.",
+        "2": "You added all the numbers: 2 + 10 + 1. The rule says multiply the position by 2 first.",
+        "3": "You did 2 x 10 = 20 but forgot the '+ 1' at the end of the rule."
+      },
+      "skill": "using a position-to-term rule",
+      "source": "original"
+    },
+    {
+      "id": "m07-q014",
+      "subtopicId": "m07-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The sequence 5, 10, 15, 20, ... has the position-to-term rule: term = position + 5.",
+      "answer": false,
+      "solution": "Test the rule. Position 1: 1 + 5 = 6, but the 1st term is 5. So the rule is wrong. The correct rule is term = 5 x position (5 x 1 = 5, 5 x 2 = 10, 5 x 3 = 15).",
+      "misconceptions": {
+        "common": "Seeing 'goes up by 5' and writing '+ 5'. When a sequence goes up in steps of 5, the position-to-term rule starts with 5 x position."
+      },
+      "skill": "finding a position-to-term rule",
+      "source": "original"
+    },
+    {
+      "id": "m07-q015",
+      "subtopicId": "m07-s2",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each position-to-term rule to the first four terms of the sequence it makes.",
+      "options": {
+        "left": [
+          "term = 2 x position",
+          "term = 2 x position + 3",
+          "term = 3 x position - 1"
+        ],
+        "right": [
+          "5, 7, 9, 11",
+          "2, 5, 8, 11",
+          "3, 5, 7, 9",
+          "2, 4, 6, 8"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "solution": "Put positions 1, 2, 3, 4 into each rule. 2 x position: 2, 4, 6, 8. 2 x position + 3: 5, 7, 9, 11. 3 x position - 1: 2, 5, 8, 11. The sequence 3, 5, 7, 9 (rule 2 x position + 1) is not used.",
+      "misconceptions": {
+        "common": "Looking only at the step. Two sequences go up in 2s, so also check the first term: 2 x 1 + 3 = 5."
+      },
+      "skill": "using a position-to-term rule",
+      "source": "original"
+    },
+    {
+      "id": "m07-q016",
+      "subtopicId": "m07-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the sequence 4, 7, 10, 13, ... Which is its position-to-term rule?",
+      "options": [
+        "term = 3 x position + 1",
+        "term = position + 3",
+        "term = 3 x position",
+        "term = 3 x position + 4"
+      ],
+      "answer": 0,
+      "solution": "The step is 3, so start with 3 x position: 3, 6, 9, 12. Each term is 1 more than these, so term = 3 x position + 1. Check: 3 x 4 + 1 = 13.",
+      "misconceptions": {
+        "1": "'Add 3' is the term-to-term rule. As a position-to-term rule, position + 3 gives 4, 5, 6, ... A step of 3 means 3 x position.",
+        "2": "This gives 3, 6, 9, 12, which is 1 less than every term. You need to add 1.",
+        "3": "This gives 7, 10, 13, ... and starts one term too late. Test position 1: 3 x 1 + 4 = 7, not 4."
+      },
+      "skill": "finding a position-to-term rule",
+      "source": "original"
+    },
+    {
+      "id": "m07-q017",
+      "subtopicId": "m07-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A sequence starts 6, 11, 16, 21, ... What is the 20th term?",
+      "answer": {
+        "value": 101,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "The step is 5, so compare with 5 x position: 5, 10, 15, 20. Each term is 1 more, so term = 5 x position + 1. The 20th term is 5 x 20 + 1 = 100 + 1 = 101.",
+      "misconceptions": {
+        "common": "Adding 20 steps of 5 to the first term (6 + 100 = 106). From the 1st term to the 20th term there are only 19 steps: 6 + 19 x 5 = 101. Another slip is forgetting the + 1 and answering 100."
+      },
+      "skill": "using a position-to-term rule",
+      "source": "original"
+    },
+    {
+      "id": "m07-q018",
+      "subtopicId": "m07-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A sequence has the rule term = 4 x position + 3, so it starts 7, 11, 15, 19, ... Which of these numbers is in the sequence?",
+      "options": [
+        "72",
+        "77",
+        "75",
+        "81"
+      ],
+      "answer": 2,
+      "solution": "Undo the rule: subtract 3, then divide by 4. If you get a whole number, that is the position. 75 - 3 = 72 and 72 ÷ 4 = 18. So 75 is the 18th term. Check: 4 x 18 + 3 = 75.",
+      "misconceptions": {
+        "0": "72 is a multiple of 4, but every term is a multiple of 4 plus 3. 72 - 3 = 69, which is not a multiple of 4.",
+        "1": "77 ends in 7 like the first term, but that does not make it a term. 77 - 3 = 74, and 74 ÷ 4 = 18.5, which is not a whole number.",
+        "3": "Every term is odd, but not every odd number is a term. 81 - 3 = 78, and 78 ÷ 4 = 19.5, which is not a whole number."
+      },
+      "skill": "testing if a number is in a sequence",
+      "source": "original"
+    },
+    {
+      "id": "m07-q019",
+      "subtopicId": "m07-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The rule for a sequence is term = 5 x position - 2. Which position has the term 48?",
+      "options": [
+        "9.2",
+        "10",
+        "238",
+        "50"
+      ],
+      "answer": 1,
+      "solution": "Work backwards using inverse operations. Undo '- 2': 48 + 2 = 50. Undo 'x 5': 50 ÷ 5 = 10. Check: 5 x 10 - 2 = 48.",
+      "misconceptions": {
+        "0": "You took away 2 and then divided by 5. To undo '- 2' you must add 2: 48 + 2 = 50, and 50 ÷ 5 = 10.",
+        "2": "You put 48 into the rule as if it were a position (5 x 48 - 2). 48 is a term, so work backwards to find its position.",
+        "3": "You added 2 to undo the '- 2', but forgot to undo the 'x 5'. 50 ÷ 5 = 10."
+      },
+      "skill": "testing if a number is in a sequence",
+      "source": "original"
+    },
+    {
+      "id": "m07-q020",
+      "subtopicId": "m07-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In a school hall, Row 1 has 12 chairs. Each row has 3 more chairs than the row in front of it. How many chairs are in Row 25?",
+      "answer": {
+        "value": 84,
+        "tolerance": 0,
+        "accept": [
+          "84 chairs"
+        ]
+      },
+      "solution": "From Row 1 to Row 25 there are 24 steps of 3. 24 x 3 = 72. So Row 25 has 12 + 72 = 84 chairs. (As a rule: chairs = 3 x row number + 9. Check Row 1: 3 + 9 = 12.)",
+      "misconceptions": {
+        "common": "Adding 25 steps of 3 (12 + 75 = 87). Row 1 already has its 12 chairs, so there are only 24 jumps to get to Row 25."
+      },
+      "skill": "using a position-to-term rule",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m07-q021",
+      "subtopicId": "m07-s2",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "True or false: The number 100 is a term in the sequence with the rule term = 6 x position - 4.",
+      "answer": false,
+      "solution": "Undo the rule: 100 + 4 = 104, and 104 ÷ 6 = 17 remainder 2, which is not a whole number. The 17th term is 6 x 17 - 4 = 98 and the 18th is 6 x 18 - 4 = 104, so the sequence jumps over 100. False.",
+      "misconceptions": {
+        "common": "Thinking 100 is a term because all the terms are even. Every term is 4 less than a multiple of 6, and 100 + 4 = 104 is not a multiple of 6."
+      },
+      "skill": "testing if a number is in a sequence",
+      "source": "original"
+    },
+    {
+      "id": "m07-q022",
+      "subtopicId": "m07-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A sequence starts 3, 7, 11, 15, ... Omar says, 'The 50th term is 200, because 50 x 4 = 200.' What is the 50th term?",
+      "options": [
+        "200",
+        "203",
+        "196",
+        "199"
+      ],
+      "answer": 3,
+      "solution": "The step is 4, so compare with 4 x position: 4, 8, 12, 16. Each term is 1 less, so term = 4 x position - 1. The 50th term is 4 x 50 - 1 = 199. Omar forgot the '- 1'.",
+      "misconceptions": {
+        "0": "This is Omar's mistake. 4 x position gives 4, 8, 12, ..., but the 1st term is 3, so every term is 1 less: 4 x 50 - 1 = 199.",
+        "1": "You started at 3 and added 50 steps of 4. From the 1st term to the 50th term there are only 49 steps: 3 + 49 x 4 = 199.",
+        "2": "You worked out 49 x 4 = 196 but forgot to add the first term, 3."
+      },
+      "skill": "finding a position-to-term rule",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m07-q023",
+      "subtopicId": "m07-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the next number in this sequence of square numbers? 1, 4, 9, 16, 25, ...",
+      "options": [
+        "34",
+        "12",
+        "49",
+        "36"
+      ],
+      "answer": 3,
+      "solution": "The square numbers are 1 x 1, 2 x 2, 3 x 3, 4 x 4, 5 x 5. The next one is 6 x 6 = 36.",
+      "misconceptions": {
+        "0": "You added 9 again. The gaps grow by 2 each time (3, 5, 7, 9), so the next gap is 11: 25 + 11 = 36.",
+        "1": "You did 6 x 2. A square number is a number times itself: 6 x 6 = 36.",
+        "2": "49 = 7 x 7 is a square number, but you skipped 6 x 6 = 36."
+      },
+      "skill": "square and cube number sequences",
+      "source": "original"
+    },
+    {
+      "id": "m07-q024",
+      "subtopicId": "m07-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The sequence 1, 4, 9, 16, ... has the rule term = position x position. What is the 12th term?",
+      "options": [
+        "24",
+        "144",
+        "121",
+        "1728"
+      ],
+      "answer": 1,
+      "solution": "Put position 12 into the rule: 12 x 12 = 144.",
+      "misconceptions": {
+        "0": "12 x 2 = 24 is doubling. Square numbers multiply the position by itself: 12 x 12 = 144.",
+        "2": "121 = 11 x 11 is the 11th term. The 12th term is 12 x 12 = 144.",
+        "3": "1728 = 12 x 12 x 12 is a cube number. The rule only multiplies twice: 12 x 12 = 144."
+      },
+      "skill": "square and cube number sequences",
+      "source": "original"
+    },
+    {
+      "id": "m07-q025",
+      "subtopicId": "m07-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The cube numbers start 1, 8, 27, 64, ...",
+      "answer": true,
+      "solution": "1 x 1 x 1 = 1, 2 x 2 x 2 = 8, 3 x 3 x 3 = 27, 4 x 4 x 4 = 64. True!",
+      "misconceptions": {
+        "common": "Thinking '2 cubed' means 2 x 3 = 6. Cubing means multiplying the number by itself three times: 2 x 2 x 2 = 8."
+      },
+      "skill": "square and cube number sequences",
+      "source": "original"
+    },
+    {
+      "id": "m07-q026",
+      "subtopicId": "m07-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Pattern 1 is a triangle made from 3 matchsticks. To make each new pattern, you join one more triangle onto the end, sharing a side, which uses 2 more matchsticks. How many matchsticks are in Pattern 4?",
+      "options": [
+        "12",
+        "8",
+        "9",
+        "11"
+      ],
+      "answer": 2,
+      "solution": "Start with 3 and add 2 for each new pattern: Pattern 1 = 3, Pattern 2 = 5, Pattern 3 = 7, Pattern 4 = 9.",
+      "misconceptions": {
+        "0": "You counted 3 sticks for every triangle. The triangles share sides, so each new one needs only 2 more sticks.",
+        "1": "You did 4 x 2 = 8. Pattern 1 needs 3 sticks, not 2, so the total is 3 + 2 + 2 + 2 = 9.",
+        "3": "11 is Pattern 5. The patterns go 3, 5, 7, 9, so Pattern 4 has 9."
+      },
+      "skill": "spatial patterns",
+      "source": "original"
+    },
+    {
+      "id": "m07-q027",
+      "subtopicId": "m07-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Pattern 1 is 1 tile. Pattern 2 is a square 2 tiles by 2 tiles. Pattern 3 is a square 3 tiles by 3 tiles, and so on. How many tiles are in Pattern 9?",
+      "options": [
+        "81",
+        "18",
+        "27",
+        "64"
+      ],
+      "answer": 0,
+      "solution": "Pattern n is an n by n square, so it has n x n tiles (a square number). Pattern 9 has 9 x 9 = 81 tiles.",
+      "misconceptions": {
+        "1": "You did 9 x 2. Pattern 9 is a 9 by 9 square, so it has 9 x 9 = 81 tiles.",
+        "2": "You did 9 x 3. A 9 by 9 square has 9 rows of 9 tiles: 9 x 9 = 81.",
+        "3": "64 = 8 x 8 is Pattern 8. Pattern 9 is 9 x 9 = 81."
+      },
+      "skill": "spatial patterns",
+      "source": "original"
+    },
+    {
+      "id": "m07-q028",
+      "subtopicId": "m07-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the numbers that are in the sequence of cube numbers 1, 8, 27, ...",
+      "options": [
+        "64",
+        "100",
+        "125",
+        "9",
+        "1000",
+        "16"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "64 = 4 x 4 x 4, 125 = 5 x 5 x 5 and 1000 = 10 x 10 x 10 are cube numbers. 100, 9 and 16 are square numbers, not cube numbers.",
+      "misconceptions": {
+        "1": "100 = 10 x 10 is a square number. 10 cubed is 10 x 10 x 10 = 1000.",
+        "3": "9 = 3 x 3 is a square number. 3 cubed is 3 x 3 x 3 = 27.",
+        "5": "16 = 4 x 4 is a square number. 4 cubed is 4 x 4 x 4 = 64."
+      },
+      "skill": "square and cube number sequences",
+      "source": "original"
+    },
+    {
+      "id": "m07-q029",
+      "subtopicId": "m07-s3",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Work out the value of each, then put them in order from smallest to largest.",
+      "options": [
+        "5^2",
+        "2^3",
+        "3^3",
+        "4^2",
+        "1^3"
+      ],
+      "answer": [
+        4,
+        1,
+        3,
+        0,
+        2
+      ],
+      "solution": "1^3 = 1, 2^3 = 2 x 2 x 2 = 8, 4^2 = 4 x 4 = 16, 5^2 = 5 x 5 = 25, 3^3 = 3 x 3 x 3 = 27. So the order is 1^3, 2^3, 4^2, 5^2, 3^3.",
+      "misconceptions": {
+        "common": "Thinking 3^3 means 3 x 3 = 9 or 3 + 3 + 3 = 9. 3^3 = 3 x 3 x 3 = 27, which is bigger than 5^2 = 25."
+      },
+      "skill": "square and cube number sequences",
+      "source": "original"
+    },
+    {
+      "id": "m07-q030",
+      "subtopicId": "m07-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Squares are made from matchsticks in a row. Pattern 1 is 1 square made from 4 matchsticks. Each new pattern joins one more square onto the end of the row, sharing a side, so it uses 3 more matchsticks. How many matchsticks are in Pattern 10?",
+      "answer": {
+        "value": 31,
+        "tolerance": 0,
+        "accept": [
+          "31 matchsticks"
+        ]
+      },
+      "solution": "The patterns go 4, 7, 10, 13, ... The step is 3, so compare with 3 x pattern number: 3, 6, 9, 12. Each is 1 more, so matchsticks = 3 x pattern number + 1. Pattern 10: 3 x 10 + 1 = 31. (Or: 4 + 9 x 3 = 31.)",
+      "misconceptions": {
+        "common": "Doing 4 x 10 = 40. That counts every shared side twice; each new square needs only 3 new matchsticks."
+      },
+      "skill": "spatial patterns",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m07-q031",
+      "subtopicId": "m07-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The sequence 2, 5, 10, 17, 26, ... is made by adding 1 to each square number (1 + 1, 4 + 1, 9 + 1, ...). Which position in the sequence has the term 145?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "accept": [
+          "12th"
+        ]
+      },
+      "solution": "Take away the 1 that was added: 145 - 1 = 144. 144 = 12 x 12, so 144 is the 12th square number. That means 145 is the 12th term. Check: 12 x 12 + 1 = 145.",
+      "misconceptions": {
+        "common": "Answering 144 (that is a square number, not a position) or forgetting to take away the 1 first. Subtract 1, then find which number times itself makes 144."
+      },
+      "skill": "square and cube number sequences",
+      "source": "original"
+    },
+    {
+      "id": "m07-q032",
+      "subtopicId": "m07-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Pattern 1 is a 1 by 1 square of tiles, Pattern 2 is a 2 by 2 square, Pattern 3 is a 3 by 3 square, and so on. How many more tiles does Pattern 8 have than Pattern 7?",
+      "options": [
+        "8",
+        "15",
+        "16",
+        "64"
+      ],
+      "answer": 1,
+      "solution": "Pattern 8 has 8 x 8 = 64 tiles. Pattern 7 has 7 x 7 = 49 tiles. The difference is 64 - 49 = 15.",
+      "misconceptions": {
+        "0": "You added just one row of 8. To grow a 7 by 7 square into an 8 by 8 square you add a row AND a column: 8 + 7 = 15.",
+        "2": "You added a row of 8 and a column of 8, but the corner tile was counted twice. 8 + 8 - 1 = 15.",
+        "3": "64 is the total number of tiles in Pattern 8. The question asks how many MORE than Pattern 7: 64 - 49 = 15."
+      },
+      "skill": "spatial patterns",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m07-q033",
+      "subtopicId": "m07-s3",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "True or false: The gaps between the square numbers 1, 4, 9, 16, 25, 36, ... are the odd numbers 3, 5, 7, 9, 11, ...",
+      "answer": true,
+      "solution": "4 - 1 = 3, 9 - 4 = 5, 16 - 9 = 7, 25 - 16 = 9, 36 - 25 = 11. The gaps are the odd numbers, each 2 more than the last. True! (To grow one square into the next you add a row and a column, which always makes an odd number of tiles.)",
+      "misconceptions": {
+        "common": "Thinking the gaps between square numbers are all the same. For square numbers each gap is 2 more than the one before."
+      },
+      "skill": "square and cube number sequences",
+      "source": "original"
+    },
+    {
+      "id": "m07-q034",
+      "subtopicId": "m07-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A function machine does: x 4, then + 3. The input is 5. What is the output?",
+      "options": [
+        "23",
+        "32",
+        "12",
+        "35"
+      ],
+      "answer": 0,
+      "solution": "Do the steps in order. First 5 x 4 = 20. Then 20 + 3 = 23.",
+      "misconceptions": {
+        "1": "You did the steps in the wrong order: (5 + 3) x 4 = 32. Follow the machine in order: 5 x 4 = 20, then 20 + 3 = 23.",
+        "2": "You added 4 instead of multiplying: 5 + 4 + 3 = 12.",
+        "3": "You joined the 4 and the 3 into 'x 7': 5 x 7 = 35. Do one step at a time."
+      },
+      "skill": "function machines",
+      "source": "original"
+    },
+    {
+      "id": "m07-q035",
+      "subtopicId": "m07-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A function machine subtracts 6. The output is 14. What was the input?",
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Work backwards with the inverse. The machine subtracts 6, so add 6: 14 + 6 = 20. Check: 20 - 6 = 14.",
+      "misconceptions": {
+        "common": "Subtracting 6 again (14 - 6 = 8). To go backwards through a machine, do the opposite operation: add 6."
+      },
+      "skill": "inverse operations in function machines",
+      "source": "original"
+    },
+    {
+      "id": "m07-q036",
+      "subtopicId": "m07-s4",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A function machine changes 3 into 12, 5 into 20 and 8 into 32. It does one operation. What is it? Write your answer like 'add 2' or 'multiply by 2'.",
+      "answer": {
+        "accept": [
+          "multiply by 4",
+          "x 4",
+          "x4",
+          "×4",
+          "× 4",
+          "times 4",
+          "times by 4",
+          "multiplied by 4",
+          "multiply by four",
+          "times four",
+          "* 4",
+          "*4"
+        ],
+        "keywords": []
+      },
+      "solution": "Test 'multiply by 4' on every pair: 3 x 4 = 12, 5 x 4 = 20, 8 x 4 = 32. It works every time.",
+      "misconceptions": {
+        "common": "Answering 'add 9'. It works for 3 into 12, but 5 + 9 = 14, not 20. A rule must work for every pair."
+      },
+      "skill": "function machines",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m07-q037",
+      "subtopicId": "m07-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: If a + 15 = 42, then a = 27.",
+      "answer": true,
+      "solution": "Use the inverse: a = 42 - 15 = 27. Check: 27 + 15 = 42. True!",
+      "misconceptions": {
+        "common": "Adding 15 instead of subtracting it (42 + 15 = 57). To find a, undo the '+ 15' by subtracting 15."
+      },
+      "skill": "letters for unknown quantities",
+      "source": "original"
+    },
+    {
+      "id": "m07-q038",
+      "subtopicId": "m07-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "a and b are two whole numbers. a + b = 20, and a is 6 more than b. What is a?",
+      "options": [
+        "14",
+        "7",
+        "10",
+        "13"
+      ],
+      "answer": 3,
+      "solution": "Think of two bars: b, and a = b + 6. Take away the extra 6: 20 - 6 = 14. Share 14 between the two equal bars: b = 7. Then a = 7 + 6 = 13. Check: 13 + 7 = 20 and 13 - 7 = 6.",
+      "misconceptions": {
+        "0": "You worked out 20 - 6 = 14 and stopped. 14 is two equal parts (b + b), so b = 14 ÷ 2 = 7 and a = 7 + 6 = 13.",
+        "1": "7 is b, the smaller number. a is 6 more: 7 + 6 = 13.",
+        "2": "You halved 20. That would make a and b equal, but a must be 6 more than b."
+      },
+      "skill": "letters for unknown quantities",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m07-q039",
+      "subtopicId": "m07-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A function machine does: x 3, then - 5. The output is 31. What was the input?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Work backwards, undoing the steps in reverse order. Undo '- 5': 31 + 5 = 36. Undo 'x 3': 36 ÷ 3 = 12. Check: 12 x 3 = 36, 36 - 5 = 31.",
+      "misconceptions": {
+        "common": "Undoing the steps in the wrong order (dividing 31 by 3 first) or using the same operations instead of the inverses. Undo the LAST step first."
+      },
+      "skill": "inverse operations in function machines",
+      "source": "original"
+    },
+    {
+      "id": "m07-q040",
+      "subtopicId": "m07-s4",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A function machine does: ÷ 2, then + 7. Match each input to its output.",
+      "options": {
+        "left": [
+          "10",
+          "4",
+          "18"
+        ],
+        "right": [
+          "9",
+          "16",
+          "12",
+          "8.5"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "solution": "10 ÷ 2 = 5, 5 + 7 = 12. 4 ÷ 2 = 2, 2 + 7 = 9. 18 ÷ 2 = 9, 9 + 7 = 16. 8.5 is not used.",
+      "misconceptions": {
+        "common": "Doing + 7 before ÷ 2 (10 + 7 = 17, 17 ÷ 2 = 8.5). Follow the steps in the order the machine does them."
+      },
+      "skill": "function machines",
+      "source": "original"
+    },
+    {
+      "id": "m07-q041",
+      "subtopicId": "m07-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A function machine turns 2 into 5, 3 into 7 and 6 into 13. Which rule works for ALL three?",
+      "options": [
+        "+ 3",
+        "x 3, then - 1",
+        "x 2, then + 1",
+        "+ 4"
+      ],
+      "answer": 2,
+      "solution": "Test each rule on all three pairs. x 2, then + 1: 2 x 2 + 1 = 5, 3 x 2 + 1 = 7, 6 x 2 + 1 = 13. It works every time.",
+      "misconceptions": {
+        "0": "'+ 3' works for 2 into 5, but 3 + 3 = 6, not 7. A rule must work for every pair.",
+        "1": "This works for 2 into 5, but 3 x 3 - 1 = 8, not 7.",
+        "3": "This works for 3 into 7, but 2 + 4 = 6, not 5."
+      },
+      "skill": "function machines",
+      "source": "original"
+    },
+    {
+      "id": "m07-q042",
+      "subtopicId": "m07-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A function machine does: x 0.5, then + 2.5. The output is 9. What was the input?",
+      "answer": {
+        "value": 13,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Work backwards. Undo '+ 2.5': 9 - 2.5 = 6.5. Multiplying by 0.5 halves a number, so undo it by doubling: 6.5 x 2 = 13. Check: 13 x 0.5 = 6.5, 6.5 + 2.5 = 9.",
+      "misconceptions": {
+        "common": "Undoing 'x 0.5' by multiplying by 0.5 again (6.5 x 0.5 = 3.25). Multiplying by 0.5 is the same as halving, so the inverse is doubling."
+      },
+      "skill": "inverse operations in function machines",
+      "source": "original"
+    },
+    {
+      "id": "m07-q043",
+      "subtopicId": "m07-s4",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "a and b are positive whole numbers (1, 2, 3, ...). a + b = 12 and a is greater than b. Select ALL the values that a could be.",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "9",
+        "11",
+        "12"
+      ],
+      "answer": [
+        2,
+        3,
+        4
+      ],
+      "solution": "List the pairs that add to 12 with a bigger than b and b at least 1: a = 7, b = 5; a = 8, b = 4; a = 9, b = 3; a = 10, b = 2; a = 11, b = 1. From the list, a could be 7, 9 or 11.",
+      "misconceptions": {
+        "0": "If a = 5 then b = 7, so a would be smaller than b.",
+        "1": "If a = 6 then b = 6. a must be greater than b, not equal to it.",
+        "5": "If a = 12 then b = 0, but b must be a positive whole number (1 or more)."
+      },
+      "skill": "letters for unknown quantities",
+      "source": "original"
+    },
+    {
+      "id": "m07-q044",
+      "subtopicId": "m07-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Wei Ming is w years old. His sister Mei Lin is 4 years younger than him. Which expression gives Mei Lin's age in 5 years' time?",
+      "options": [
+        "w + 1",
+        "w - 9",
+        "w + 9",
+        "w - 4"
+      ],
+      "answer": 0,
+      "solution": "Mei Lin's age now is w - 4. In 5 years she will be w - 4 + 5 = w + 1. Check with a number: if Wei Ming is 10, Mei Lin is 6 now and 11 in 5 years, and 10 + 1 = 11.",
+      "misconceptions": {
+        "1": "You subtracted both numbers (w - 4 - 5). In 5 years Mei Lin will be OLDER, so add the 5: w - 4 + 5 = w + 1.",
+        "2": "You added both numbers. Mei Lin is 4 years YOUNGER, so subtract 4 and then add 5: w - 4 + 5 = w + 1.",
+        "3": "That is Mei Lin's age now. In 5 years she will be 5 years older: w - 4 + 5 = w + 1."
+      },
+      "skill": "letters for unknown quantities",
+      "source": "inspired-by: Singapore P6"
+    }
+  ]
+}

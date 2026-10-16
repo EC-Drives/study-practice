@@ -1,0 +1,14 @@
+# Screenshots may show test progress data: keep them on the laptop
+screenshots/
+
+# Progress exports and reports must never be committed
+study-practice-progress-*.json
+practice-report-*.html
+practice-report-*.json
+
+# Local clutter
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+desktop.ini

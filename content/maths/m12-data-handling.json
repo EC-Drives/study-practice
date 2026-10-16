@@ -1,0 +1,1043 @@
+{
+  "subject": "maths",
+  "topicId": "m12-data-handling",
+  "title": "Data Handling and Statistical Inquiry",
+  "order": 12,
+  "bookChapter": "Chapter 12: Data Handling and Statistical Inquiry",
+  "frameworkRefs": [
+    "6Ss.01",
+    "6Ss.02",
+    "6Ss.03",
+    "6Ss.04"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will plan a statistical investigation and decide what data to collect. You will read charts and diagrams and choose the best one for your data. You will find the mode, median, mean and range, and use data to draw sensible conclusions.",
+    "whyItMatters": "Data helps people make good decisions instead of guessing. Knowing how to read graphs and averages helps you spot when a chart or a claim is misleading. Statistics questions also appear in every Cambridge maths exam.",
+    "realWorld": [
+      "Checking a rainfall graph before planning an outing in the monsoon season",
+      "A hawker stall owner counting which dishes sell best to decide how much to cook",
+      "Comparing your test scores across the year using the mean and the range",
+      "Reading a pie chart in the news about how people in KL travel to work",
+      "Using a Venn diagram to sort classmates who play football, badminton or both"
+    ],
+    "subtopics": [
+      {
+        "id": "m12-s1",
+        "title": "Planning an investigation",
+        "summary": "Ask statistical questions and decide what data to collect. Data can be categorical (groups), discrete (counted) or continuous (measured)."
+      },
+      {
+        "id": "m12-s2",
+        "title": "Representing data",
+        "summary": "Record and show data with tally charts, frequency tables, bar, pie and waffle charts, line graphs, scatter graphs, dot plots, and Venn and Carroll diagrams, and choose the best one."
+      },
+      {
+        "id": "m12-s3",
+        "title": "Averages and range",
+        "summary": "Find the mode, median, mean and range of a data set, and decide which average describes the data best."
+      },
+      {
+        "id": "m12-s4",
+        "title": "Interpreting data and drawing conclusions",
+        "summary": "Spot patterns and trends, compare data sets, see how an unusual value changes the results, and judge whether a conclusion is reliable."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m12-q001",
+      "subtopicId": "m12-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these is continuous data?",
+      "options": [
+        "The number of pets each pupil has",
+        "The heights of pupils in your class",
+        "Pupils' favourite fruits",
+        "The shoe sizes of pupils in your class"
+      ],
+      "answer": 1,
+      "solution": "Continuous data is measured and can be any value in a range, such as 142.5 cm. Height is measured, so it is continuous. Number of pets is counted (discrete), fruits are groups (categorical) and shoe sizes come in fixed steps (discrete).",
+      "misconceptions": {
+        "0": "Pets are counted in whole numbers (0, 1, 2 ...), so this is discrete data, not continuous.",
+        "2": "Favourite fruits are names or groups, not numbers. This is categorical data.",
+        "3": "Shoe sizes only come in fixed steps (such as 4, 4 1/2, 5), so they are discrete. Foot LENGTH would be continuous, but shoe SIZE is not."
+      },
+      "skill": "types of data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q002",
+      "subtopicId": "m12-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Pupils are asked for their favourite colour. Is this data categorical, discrete or continuous?",
+      "answer": {
+        "accept": [
+          "categorical",
+          "Categorical",
+          "categorical data",
+          "Categorical data"
+        ],
+        "keywords": []
+      },
+      "solution": "The answers are words such as red, blue or green, not numbers. Data sorted into groups or categories is called categorical data.",
+      "misconceptions": {
+        "common": "Calling it discrete because you can count how many pupils chose each colour. The data itself is colour names, which are categories."
+      },
+      "skill": "types of data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q003",
+      "subtopicId": "m12-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: the number of goals scored in a football match is discrete data.",
+      "answer": true,
+      "solution": "Goals are counted in whole numbers: 0, 1, 2, 3 ... You cannot score 2.5 goals. Counted data is discrete, so the statement is true.",
+      "misconceptions": {
+        "common": "Thinking all number data is continuous. Measured data (length, mass, time) is continuous; counted data is discrete."
+      },
+      "skill": "types of data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q004",
+      "subtopicId": "m12-s1",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each set of data to its type.",
+      "options": {
+        "left": [
+          "The mass of each watermelon at a market",
+          "The number of people in each car at a toll plaza",
+          "The type of transport pupils use to get to school"
+        ],
+        "right": [
+          "discrete",
+          "categorical",
+          "continuous"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "solution": "Mass is measured, so it is continuous. The number of people is counted, so it is discrete. Type of transport (car, bus, walk) is a group name, so it is categorical.",
+      "misconceptions": {
+        "common": "Matching mass with discrete because it is a number. Measured quantities such as mass, length and time are continuous."
+      },
+      "skill": "types of data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q005",
+      "subtopicId": "m12-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Priya wants to answer the question: 'Do pupils who sleep more get higher scores in a spelling test?' Which data should she collect?",
+      "options": [
+        "Only the spelling test scores of the class",
+        "The favourite subject of each pupil",
+        "The hours of sleep of the 3 pupils with the highest scores only",
+        "Each pupil's hours of sleep and that same pupil's spelling score"
+      ],
+      "answer": 3,
+      "solution": "Her question links two things: sleep and spelling scores. So she needs both pieces of data for each pupil, kept together as pairs, so she can compare them.",
+      "misconceptions": {
+        "0": "This shows how well pupils spelled, but not how much they slept, so it cannot show a link with sleep.",
+        "1": "Favourite subject has nothing to do with this question. Collect data about the two things being compared: sleep and scores.",
+        "2": "Looking only at the top 3 pupils leaves out everyone else. You need data from all the pupils to see whether more sleep goes with higher scores."
+      },
+      "skill": "planning an investigation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q006",
+      "subtopicId": "m12-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A statistical question is one you answer by collecting data that varies. Which of these is a statistical question?",
+      "options": [
+        "How many minutes do pupils in Year 6 spend reading each day?",
+        "How many minutes are there in one hour?",
+        "How old is Arjun today?",
+        "What is 15 x 4?"
+      ],
+      "answer": 0,
+      "solution": "Different Year 6 pupils read for different amounts of time, so you would need to collect data from many pupils to answer it. That makes it a statistical question. The other questions each have one fixed answer.",
+      "misconceptions": {
+        "1": "This has one fixed answer (60) that never changes. No data needs to be collected.",
+        "2": "This has just one answer about one person. A statistical question collects many answers that differ from each other.",
+        "3": "This is a calculation with one answer (60). No data needs to be collected."
+      },
+      "skill": "statistical questions",
+      "source": "original"
+    },
+    {
+      "id": "m12-q007",
+      "subtopicId": "m12-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Arjun is investigating the question: 'How do pupils in our school travel to school?' Select ALL the sensible things he should do.",
+      "options": [
+        "Ask pupils from every year group, not just his own class",
+        "Ask only his best friends",
+        "Make a tally chart with groups such as walk, car, bus and bicycle",
+        "Include an 'other' group for pupils who travel in a different way",
+        "Measure each pupil's height"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "solution": "To answer a question about the whole school, he should ask pupils from all year groups. A tally chart with clear groups makes recording quick, and an 'other' group catches answers such as motorbike or train. Asking only friends, or measuring heights, does not help answer the question.",
+      "misconceptions": {
+        "1": "Asking only his friends gives a small group who may all travel the same way, so the results would not represent the whole school.",
+        "4": "Height has nothing to do with how pupils travel to school. Only collect data that helps answer the question."
+      },
+      "skill": "planning an investigation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q008",
+      "subtopicId": "m12-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: Siti times how long each pupil takes to run 100 m, for example 15.4 seconds. This is discrete data.",
+      "answer": false,
+      "solution": "Time is measured, not counted, and it can be any value (15.4 s, 15.43 s and so on). That makes it continuous data, so the statement is false.",
+      "misconceptions": {
+        "common": "Thinking that a number written with one decimal place is discrete. Measurements such as time, length and mass are continuous, even when they are rounded."
+      },
+      "skill": "types of data",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m12-q009",
+      "subtopicId": "m12-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Omar wants to find out the most popular hawker food among the 600 pupils in his school. Which plan will give him the most reliable answer?",
+      "options": [
+        "Ask the 10 pupils in his football team",
+        "Ask 60 pupils who are queuing at the noodle stall",
+        "Ask 60 pupils, chosen from every class in the school",
+        "Ask his parents which food they think pupils like"
+      ],
+      "answer": 2,
+      "solution": "A reliable sample is big enough and includes all kinds of pupils. 60 pupils chosen from every class gives a fair mix, so it represents the whole school best.",
+      "misconceptions": {
+        "0": "10 pupils from one team is a very small group, and they may not like the same food as the rest of the school.",
+        "1": "Pupils queuing for noodles probably like noodles, so the results would unfairly favour noodles. This is called a biased sample.",
+        "3": "This is a guess by two adults, not data from the pupils themselves."
+      },
+      "skill": "planning an investigation",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q010",
+      "subtopicId": "m12-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel predicts: 'Pupils who spend more time on their phones sleep for fewer hours.' Which is the best way to record his data so he can test his prediction?",
+      "options": [
+        "Two separate lists: all the phone times in order, and all the sleep times in order",
+        "A tally chart of pupils' favourite phone apps",
+        "A table with one row for each pupil, showing that pupil's phone time and sleep time",
+        "A Carroll diagram sorting pupils into boys and girls"
+      ],
+      "answer": 2,
+      "solution": "To test a link between two things, keep each pupil's two values together as a pair. A table with one row per pupil does this. Later, the pairs can be plotted on a scatter graph.",
+      "misconceptions": {
+        "0": "Sorting the two lists separately breaks the pairs. You would no longer know which sleep time belongs to which pupil, so you cannot test the link.",
+        "1": "Favourite apps do not measure phone time or sleep, so this cannot test his prediction.",
+        "3": "This sorts pupils into groups but records no phone times or sleep times."
+      },
+      "skill": "planning an investigation",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q011",
+      "subtopicId": "m12-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In a tally chart, each group of five is drawn as four lines with a fifth line across them. The tally for blue cars is 3 complete groups of five plus 2 more single lines. How many blue cars is that?",
+      "options": [
+        "17",
+        "5",
+        "15",
+        "14"
+      ],
+      "answer": 0,
+      "solution": "Each group = 5. 3 groups = 3 x 5 = 15. Add the 2 single lines: 15 + 2 = 17 blue cars.",
+      "misconceptions": {
+        "1": "You counted each group as 1. Each group stands for 5 cars: 3 x 5 = 15, then add the 2 single lines.",
+        "2": "You counted the groups (3 x 5 = 15) but forgot the 2 single lines.",
+        "3": "You counted each group as 4 lines. The line drawn across the four is the fifth, so each group is 5."
+      },
+      "skill": "reading tally charts and frequency tables",
+      "source": "original"
+    },
+    {
+      "id": "m12-q012",
+      "subtopicId": "m12-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which representation is best for showing how the temperature in a classroom changes every hour during one day?",
+      "options": [
+        "A pie chart",
+        "A Venn diagram",
+        "A tally chart",
+        "A line graph"
+      ],
+      "answer": 3,
+      "solution": "Temperature is continuous data that changes over time. A line graph joins the readings in time order, so you can see the temperature rise and fall during the day.",
+      "misconceptions": {
+        "0": "A pie chart shows how one whole is split into parts. It does not show change over time.",
+        "1": "A Venn diagram sorts items into groups that may overlap. It does not show change over time.",
+        "2": "A tally chart is for counting how often something happens. Temperature is measured, not counted."
+      },
+      "skill": "choosing a representation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q013",
+      "subtopicId": "m12-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A frequency table shows how many brothers and sisters (siblings) pupils in a class have. 0 siblings: 4 pupils. 1 sibling: 9 pupils. 2 siblings: 6 pupils. 3 siblings: 3 pupils. How many pupils are in the class?",
+      "answer": {
+        "value": 22,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Add the frequencies (the numbers of pupils): 4 + 9 + 6 + 3 = 22 pupils.",
+      "misconceptions": {
+        "common": "Adding the numbers of siblings (0 + 1 + 2 + 3 = 6) instead of the numbers of pupils. The frequency tells you how many pupils are in each group."
+      },
+      "skill": "reading tally charts and frequency tables",
+      "source": "original"
+    },
+    {
+      "id": "m12-q014",
+      "subtopicId": "m12-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A Venn diagram has two overlapping circles. One circle is labelled 'Multiples of 3' and the other is labelled 'Even numbers'. Where should the number 12 go?",
+      "options": [
+        "In the 'Multiples of 3' circle only",
+        "In the overlap, inside both circles",
+        "In the 'Even numbers' circle only",
+        "Outside both circles"
+      ],
+      "answer": 1,
+      "solution": "12 = 3 x 4, so 12 is a multiple of 3. 12 is also even. It belongs to both groups, so it goes in the overlap where the two circles cross.",
+      "misconceptions": {
+        "0": "12 is a multiple of 3, but it is also even. A number that fits both labels goes in the overlap.",
+        "2": "12 is even, but it is also a multiple of 3 (3 x 4 = 12). It belongs in both circles at once.",
+        "3": "Numbers outside the circles fit neither label. 12 fits both labels."
+      },
+      "skill": "Venn and Carroll diagrams",
+      "source": "original"
+    },
+    {
+      "id": "m12-q015",
+      "subtopicId": "m12-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A Carroll diagram has two columns, 'Even' and 'Not even', and two rows, 'Greater than 50' and 'Not greater than 50'. In which box should the number 50 go?",
+      "options": [
+        "Even and not greater than 50",
+        "Even and greater than 50",
+        "Not even and not greater than 50",
+        "Not even and greater than 50"
+      ],
+      "answer": 0,
+      "solution": "50 is even, because it ends in 0. 50 is not greater than 50, because it is equal to 50. So it goes in the box for 'Even' and 'Not greater than 50'.",
+      "misconceptions": {
+        "1": "50 is not greater than 50; it is equal to 50. 'Greater than 50' means 51 or more.",
+        "2": "50 ends in 0, so it is even.",
+        "3": "50 is even, and it is not greater than 50, so both parts of this box are wrong for 50."
+      },
+      "skill": "Venn and Carroll diagrams",
+      "source": "original"
+    },
+    {
+      "id": "m12-q016",
+      "subtopicId": "m12-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A pie chart shows how 120 pupils travel to school. The sector for 'bus' has an angle of 90°. How many pupils travel by bus?",
+      "options": [
+        "90",
+        "108",
+        "30",
+        "60"
+      ],
+      "answer": 2,
+      "solution": "A full pie chart is 360°. 90° is 90/360 = 1/4 of the circle. 1/4 of 120 pupils = 120 ÷ 4 = 30 pupils.",
+      "misconceptions": {
+        "0": "90 is the angle in degrees, not the number of pupils. Work out what fraction of the whole circle 90° is.",
+        "1": "You treated the pie chart as if it were out of 100 and found 90% of 120. A full circle is 360°, so 90° is 90/360 = 1/4 of it.",
+        "3": "You treated 90° as half of the circle. Half a circle is 180°; 90° is a quarter."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m12-q017",
+      "subtopicId": "m12-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A waffle chart is a grid of 100 small squares. A waffle chart shows the favourite drinks of 200 pupils, and 35 squares are shaded for teh tarik. How many pupils chose teh tarik?",
+      "options": [
+        "35",
+        "70",
+        "165",
+        "17.5"
+      ],
+      "answer": 1,
+      "solution": "100 squares stand for 200 pupils, so 1 square = 200 ÷ 100 = 2 pupils. 35 squares = 35 x 2 = 70 pupils. (35 squares out of 100 is 35%, and 35% of 200 = 70.)",
+      "misconceptions": {
+        "0": "35 is the number of squares. There are 200 pupils but only 100 squares, so each square stands for 2 pupils.",
+        "2": "You subtracted 35 from 200. The 35 shaded squares show teh tarik, and each square stands for 2 pupils, so multiply: 35 x 2.",
+        "3": "You divided 35 by 2 instead of multiplying. Each square stands for 2 pupils, so multiply. You also cannot have half a pupil, which is a clue to check."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q018",
+      "subtopicId": "m12-s2",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Pupils in a class each choose their favourite fruit from durian, mango, banana and papaya. Select ALL the representations that would be suitable for showing the results.",
+      "options": [
+        "Bar chart",
+        "Pie chart",
+        "Line graph",
+        "Scatter graph",
+        "Frequency table"
+      ],
+      "answer": [
+        0,
+        1,
+        4
+      ],
+      "solution": "Favourite fruit is categorical data. A frequency table records how many pupils chose each fruit, a bar chart compares the groups, and a pie chart shows each fruit as a share of the class. Line graphs and scatter graphs are for number data.",
+      "misconceptions": {
+        "2": "A line graph shows how something changes over time or along a number scale. Fruits are categories with no order, so joining points with lines makes no sense.",
+        "3": "A scatter graph needs two sets of number data for each person (such as height and arm span). Favourite fruit is one set of categories."
+      },
+      "skill": "choosing a representation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q019",
+      "subtopicId": "m12-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A dot plot shows how many books some pupils read in a month. Each dot is one pupil. Above '1 book' there are 2 dots, above '2 books' there are 5 dots, above '3 books' there are 3 dots and above '4 books' there is 1 dot. How many books did these pupils read altogether?",
+      "answer": {
+        "value": 25,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Multiply each number of books by the number of pupils, then add. 1 x 2 = 2. 2 x 5 = 10. 3 x 3 = 9. 4 x 1 = 4. Total = 2 + 10 + 9 + 4 = 25 books.",
+      "misconceptions": {
+        "common": "Adding the dots (2 + 5 + 3 + 1 = 11). That gives the number of PUPILS, not the number of books."
+      },
+      "skill": "reading dot plots",
+      "source": "original"
+    },
+    {
+      "id": "m12-q020",
+      "subtopicId": "m12-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: a scatter graph is a good way to see whether there is a link between pupils' heights and their arm spans.",
+      "answer": true,
+      "solution": "A scatter graph plots two measurements for each pupil as one point. If the points go up from left to right, taller pupils tend to have longer arm spans. So the statement is true.",
+      "misconceptions": {
+        "common": "Thinking a bar chart or pie chart would be better. Those show one set of data; a scatter graph compares two sets of number data in pairs."
+      },
+      "skill": "choosing a representation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q021",
+      "subtopicId": "m12-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "School A has 200 pupils, and the football sector is 1/4 of its pie chart of favourite sports. School B has 400 pupils, and the football sector is 1/5 of its pie chart. Which statement is correct?",
+      "options": [
+        "More pupils chose football in School A, because its sector is bigger.",
+        "The same number of pupils chose football in both schools.",
+        "You cannot tell how many pupils chose football in either school.",
+        "More pupils chose football in School B, even though its sector is smaller."
+      ],
+      "answer": 3,
+      "solution": "School A: 1/4 of 200 = 200 ÷ 4 = 50 pupils. School B: 1/5 of 400 = 400 ÷ 5 = 80 pupils. 80 is more than 50, so more pupils chose football in School B, even though its sector is smaller. Pie charts show fractions, so always check the totals.",
+      "misconceptions": {
+        "0": "A bigger sector means a bigger FRACTION, not more pupils. School A: 1/4 of 200 = 50. School B: 1/5 of 400 = 80.",
+        "1": "Work out each one: 1/4 of 200 = 50 and 1/5 of 400 = 80. They are not the same.",
+        "2": "You can, because you know the total number of pupils in each school. Multiply the fraction by the total."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m12-q022",
+      "subtopicId": "m12-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In a survey, 36 pupils chose their favourite sport and 5 of them chose swimming. What angle should the swimming sector be on a pie chart? Give your answer in degrees.",
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "accept": [
+          "50°",
+          "50 °",
+          "50 degrees"
+        ]
+      },
+      "solution": "A full circle is 360°, shared among 36 pupils. Each pupil gets 360 ÷ 36 = 10°. Swimming: 5 x 10° = 50°.",
+      "misconceptions": {
+        "common": "Treating the pie chart as if it were out of 100, or writing 5° for 5 pupils. A pie chart is a full circle of 360°, so first find the angle for one pupil."
+      },
+      "skill": "drawing pie charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q023",
+      "subtopicId": "m12-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "In a class of 30 pupils, 18 have a cat, 12 have a dog and 5 have both a cat and a dog. Draw a Venn diagram to help you. How many pupils have neither a cat nor a dog?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Put 5 in the overlap (both pets). Cat only = 18 - 5 = 13. Dog only = 12 - 5 = 7. Pupils with a cat, a dog or both = 13 + 5 + 7 = 25. Neither = 30 - 25 = 5.",
+      "misconceptions": {
+        "common": "Adding 18 + 12 = 30 and answering 0. The 5 pupils with both pets are counted twice that way, once in each circle."
+      },
+      "skill": "Venn and Carroll diagrams",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m12-q024",
+      "subtopicId": "m12-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Find the mode of these numbers: 5, 9, 3, 9, 11, 4, 9, 6",
+      "options": [
+        "3",
+        "7.5",
+        "8",
+        "9"
+      ],
+      "answer": 3,
+      "solution": "The mode is the value that appears most often. 9 appears three times, more than any other number. So the mode is 9.",
+      "misconceptions": {
+        "0": "3 is how many times 9 appears. The mode is the value itself, not how often it appears.",
+        "1": "7.5 is the median (the middle of the ordered list). The mode is the value that appears most often.",
+        "2": "8 is the range (11 - 3). The mode is the value that appears most often."
+      },
+      "skill": "finding the mode",
+      "source": "original"
+    },
+    {
+      "id": "m12-q025",
+      "subtopicId": "m12-s3",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "These are the midday temperatures, in °C, in Penang over five days: 31, 28, 33, 30, 26. Find the range. Give your answer in °C.",
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": [
+          "7 °C",
+          "7°C"
+        ]
+      },
+      "solution": "Range = highest value - lowest value = 33 - 26 = 7 °C.",
+      "misconceptions": {
+        "common": "Subtracting the first and last numbers in the list (31 - 26 = 5). Find the highest and lowest values first."
+      },
+      "skill": "finding the range",
+      "source": "original"
+    },
+    {
+      "id": "m12-q026",
+      "subtopicId": "m12-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Find the mean of these numbers: 6, 9, 4, 11, 10",
+      "options": [
+        "40",
+        "8",
+        "9",
+        "7"
+      ],
+      "answer": 1,
+      "solution": "Add the numbers: 6 + 9 + 4 + 11 + 10 = 40. There are 5 numbers. Mean = 40 ÷ 5 = 8.",
+      "misconceptions": {
+        "0": "40 is the total. To find the mean, divide the total by how many numbers there are: 40 ÷ 5.",
+        "2": "9 is the median (the middle number when the list is in order: 4, 6, 9, 10, 11).",
+        "3": "7 is the range (11 - 4). The mean is the total shared out equally."
+      },
+      "skill": "finding the mean",
+      "source": "original"
+    },
+    {
+      "id": "m12-q027",
+      "subtopicId": "m12-s3",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Find the median of these numbers: 12, 5, 15, 9, 7",
+      "answer": {
+        "value": 9,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "First put the numbers in order: 5, 7, 9, 12, 15. The median is the middle value, which is 9.",
+      "misconceptions": {
+        "common": "Taking the middle number of the list without putting the list in order first, which gives 15."
+      },
+      "skill": "finding the median",
+      "source": "original"
+    },
+    {
+      "id": "m12-q028",
+      "subtopicId": "m12-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Find the median of these numbers: 14, 8, 11, 20, 5, 16",
+      "options": [
+        "11",
+        "25",
+        "12.5",
+        "15"
+      ],
+      "answer": 2,
+      "solution": "In order: 5, 8, 11, 14, 16, 20. There are 6 values, so there are two middle values: 11 and 14. The median is halfway between them: (11 + 14) ÷ 2 = 25 ÷ 2 = 12.5.",
+      "misconceptions": {
+        "0": "11 is one of the two middle values. With an even number of values, the median is halfway between the two middle values.",
+        "1": "You added the two middle values (11 + 14 = 25) but forgot to halve.",
+        "3": "15 is the range (20 - 5), not the median."
+      },
+      "skill": "finding the median",
+      "source": "original"
+    },
+    {
+      "id": "m12-q029",
+      "subtopicId": "m12-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Select ALL the modes of this data set: 3, 5, 5, 6, 8, 8, 9",
+      "options": [
+        "3",
+        "5",
+        "6",
+        "8",
+        "9"
+      ],
+      "answer": [
+        1,
+        3
+      ],
+      "solution": "5 appears twice and 8 appears twice. Every other value appears once. So there are two modes, 5 and 8. Data with two modes is called bimodal.",
+      "misconceptions": {
+        "common": "Choosing only one mode. When two values are tied for appearing most often, the data is bimodal and both values are modes.",
+        "2": "6 is the median (the middle value), not a mode. It appears only once."
+      },
+      "skill": "finding the mode",
+      "source": "original"
+    },
+    {
+      "id": "m12-q030",
+      "subtopicId": "m12-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The mean of four numbers is 15. Three of the numbers are 12, 18 and 10. What is the fourth number?",
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Total of the four numbers = mean x 4 = 15 x 4 = 60. The three known numbers add up to 12 + 18 + 10 = 40. Fourth number = 60 - 40 = 20.",
+      "misconceptions": {
+        "common": "Answering 15 because the mean is 15. The mean is the total shared out equally, so work with the total: 15 x 4 = 60."
+      },
+      "skill": "using the mean to find a missing value",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m12-q031",
+      "subtopicId": "m12-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The weekly pocket money of 6 friends is RM 10, RM 12, RM 11, RM 10, RM 13 and RM 80. Which average best describes how much a typical friend gets?",
+      "options": [
+        "The median, because the RM 80 pulls the mean up",
+        "The mean, because it uses every value",
+        "The range, because it shows the biggest and smallest amounts",
+        "The mode, because the mode is always the best average"
+      ],
+      "answer": 0,
+      "solution": "Put the amounts in order: 10, 10, 11, 12, 13, 80. The median is (11 + 12) ÷ 2 = RM 11.50, which is close to what most friends get. The mean is 136 ÷ 6, about RM 22.67, pulled up by the unusual RM 80. So the median is the best average here.",
+      "misconceptions": {
+        "1": "The mean is RM 136 ÷ 6, about RM 22.67, which is more than five of the six friends get. One very large value (RM 80) pulls the mean up, so it is not typical.",
+        "2": "The range (RM 80 - RM 10 = RM 70) measures how spread out the data is. It is not an average.",
+        "3": "No average is always the best. Here the mode (RM 10) is the lowest amount, so it does not show the middle of the data as well as the median."
+      },
+      "skill": "choosing an average",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q032",
+      "subtopicId": "m12-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: for the numbers 2, 4, 6 and 100, the mean is less than the median.",
+      "answer": false,
+      "solution": "Mean = (2 + 4 + 6 + 100) ÷ 4 = 112 ÷ 4 = 28. Median = (4 + 6) ÷ 2 = 5. The mean (28) is MORE than the median (5), so the statement is false. The large value 100 pulls the mean up.",
+      "misconceptions": {
+        "common": "Forgetting that one very large value pulls the mean up a lot but hardly changes the median."
+      },
+      "skill": "choosing an average",
+      "source": "original"
+    },
+    {
+      "id": "m12-q033",
+      "subtopicId": "m12-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "The mean mass of 5 durians is 1.8 kg. A sixth durian is added, and the mean mass of all 6 durians becomes 2 kg. What is the mass of the sixth durian? Give your answer in kg.",
+      "answer": {
+        "value": 3,
+        "tolerance": 0,
+        "accept": [
+          "3 kg",
+          "3kg"
+        ]
+      },
+      "solution": "Total mass of 5 durians = 5 x 1.8 = 9 kg. Total mass of 6 durians = 6 x 2 = 12 kg. Sixth durian = 12 - 9 = 3 kg.",
+      "misconceptions": {
+        "common": "Answering 0.2 kg (2 - 1.8), which is only the change in the mean. Work with the totals instead: the new durian has to raise the mean of all six durians."
+      },
+      "skill": "using the mean to find a missing value",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m12-q034",
+      "subtopicId": "m12-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A set of five whole numbers has a mode of 4, a median of 6 and a mean of 7. Which set could it be?",
+      "options": [
+        "4, 4, 6, 8, 10",
+        "4, 4, 6, 9, 12",
+        "4, 6, 6, 9, 10",
+        "4, 4, 7, 9, 11"
+      ],
+      "answer": 1,
+      "solution": "Check all three averages for 4, 4, 6, 9, 12. 4 appears twice, so the mode is 4. The middle value is 6, so the median is 6. The total is 4 + 4 + 6 + 9 + 12 = 35, and 35 ÷ 5 = 7, so the mean is 7. All three match.",
+      "misconceptions": {
+        "0": "The mode (4) and median (6) are right, but the total is 32 and 32 ÷ 5 = 6.4, so the mean is not 7.",
+        "2": "6 appears twice, so the mode is 6, not 4. (The median is 6 and the mean is 35 ÷ 5 = 7, so only the mode is wrong.)",
+        "3": "The mode (4) and mean (35 ÷ 5 = 7) are right, but the middle value is 7, so the median is 7, not 6."
+      },
+      "skill": "mode, median and mean together",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q035",
+      "subtopicId": "m12-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Priya's mean score in 4 spelling tests is 16. Each test is marked out of 25. What score does she need in the 5th test to make her mean score for all 5 tests exactly 17?",
+      "answer": {
+        "value": 21,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Total so far = 4 x 16 = 64. For a mean of 17 over 5 tests, the total must be 5 x 17 = 85. Score needed = 85 - 64 = 21. (21 is less than 25, so it is possible.)",
+      "misconceptions": {
+        "common": "Answering 17 or 18, thinking she only needs to score a little above her mean. The extra marks are shared over all 5 tests, so work with the totals."
+      },
+      "skill": "using the mean to find a missing value",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m12-q036",
+      "subtopicId": "m12-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A table shows the number of ice creams sold at a stall: Mon 24, Tue 18, Wed 30, Thu 27, Fri 35. How many more ice creams were sold on the best day than on the worst day?",
+      "answer": {
+        "value": 17,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "The best day is Friday with 35. The worst day is Tuesday with 18. 35 - 18 = 17 more ice creams.",
+      "misconceptions": {
+        "common": "Using Monday as the worst day because it comes first. Look at all the values to find the smallest, which is 18 on Tuesday."
+      },
+      "skill": "reading and comparing data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q037",
+      "subtopicId": "m12-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: a table shows the rainfall in a Malaysian town: October 250 mm, November 290 mm, December 220 mm. The rainfall increased every month from October to December.",
+      "answer": false,
+      "solution": "From October (250 mm) to November (290 mm) the rainfall increased. But from November (290 mm) to December (220 mm) it decreased. So it did not increase every month, and the statement is false.",
+      "misconceptions": {
+        "common": "Checking only the first two months. Check every step of a pattern before deciding."
+      },
+      "skill": "identifying trends",
+      "source": "original"
+    },
+    {
+      "id": "m12-q038",
+      "subtopicId": "m12-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A scatter graph shows the temperature on different days (across the bottom) and the number of cold drinks a school canteen sold on those days (up the side). The points go up from left to right. Which statement best describes the graph?",
+      "options": [
+        "The hotter the day, the more cold drinks were sold.",
+        "The hotter the day, the fewer cold drinks were sold.",
+        "There is no link between temperature and cold drink sales.",
+        "Selling cold drinks makes the weather hotter."
+      ],
+      "answer": 0,
+      "solution": "Points going up from left to right show that when one value goes up, the other tends to go up too. So hotter days go with more cold drinks sold.",
+      "misconceptions": {
+        "1": "Points going up from left to right mean both values get bigger together. Fewer drinks on hotter days would show points going DOWN from left to right.",
+        "2": "No link would look like points scattered everywhere with no pattern. Here the points go up together.",
+        "3": "The graph shows that the two things go together, but drinks cannot change the weather. A link between two things does not mean one causes the other."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "original"
+    },
+    {
+      "id": "m12-q039",
+      "subtopicId": "m12-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A line graph shows the height of a plant each week. Week 0: 2 cm. Week 1: 5 cm. Week 2: 9 cm. Week 3: 14 cm. Week 4: 16 cm. Between which two weeks did the plant grow the most?",
+      "options": [
+        "Between Week 3 and Week 4",
+        "Between Week 0 and Week 1",
+        "Between Week 2 and Week 3",
+        "Between Week 1 and Week 2"
+      ],
+      "answer": 2,
+      "solution": "Find each increase. Week 0 to 1: 3 cm. Week 1 to 2: 4 cm. Week 2 to 3: 5 cm. Week 3 to 4: 2 cm. The biggest increase is 5 cm, between Week 2 and Week 3. This is the steepest part of the line.",
+      "misconceptions": {
+        "0": "Week 4 has the greatest height, but the plant only grew 16 - 14 = 2 cm that week. Look at the increase, not the height.",
+        "1": "The plant grew 5 - 2 = 3 cm here, which is less than 14 - 9 = 5 cm.",
+        "3": "The plant grew 9 - 5 = 4 cm here, which is less than 14 - 9 = 5 cm."
+      },
+      "skill": "identifying trends",
+      "source": "original"
+    },
+    {
+      "id": "m12-q040",
+      "subtopicId": "m12-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Two classes took the same quiz, marked out of 20. Class A: mean 14, range 3. Class B: mean 14, range 12. Which statement is correct?",
+      "options": [
+        "Class B did better, because its range is bigger.",
+        "Class A did better on average, because its range is smaller.",
+        "Class B's scores were more consistent, because its range is bigger.",
+        "On average both classes did equally well, but Class A's scores were more consistent."
+      ],
+      "answer": 3,
+      "solution": "The means are the same (14), so on average the classes did equally well. Class A's range (3) is much smaller than Class B's (12), so Class A's scores were closer together, which means more consistent.",
+      "misconceptions": {
+        "0": "The range shows how spread out the scores are, not how high they are. Both classes have the same mean, 14.",
+        "1": "A smaller range means the scores were closer together, not higher. The means are the same, so on average the classes did equally well.",
+        "2": "A bigger range means the scores were MORE spread out, so Class B was less consistent."
+      },
+      "skill": "comparing data sets",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q041",
+      "subtopicId": "m12-s4",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A table shows the number of visitors to a park each year. 2022: 1200. 2023: 1500. 2024: 1500. 2025: 1900. Select ALL the statements that are true.",
+      "options": [
+        "The number of visitors never went down from one year to the next.",
+        "The biggest increase was from 2024 to 2025.",
+        "The number of visitors doubled from 2022 to 2025.",
+        "The mean number of visitors per year was 1525.",
+        "The number of visitors went up every year."
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "Changes: 2022 to 2023: up 300. 2023 to 2024: no change. 2024 to 2025: up 400. So the number never went down, and the biggest increase (400) was from 2024 to 2025. It did not go up every year, because 2023 and 2024 were the same. Double 1200 is 2400, not 1900. Mean = (1200 + 1500 + 1500 + 1900) ÷ 4 = 6100 ÷ 4 = 1525. The true statements are the first, second and fourth.",
+      "misconceptions": {
+        "2": "Double 1200 is 2400. The visitors grew to 1900, which is less than double.",
+        "4": "From 2023 to 2024 the number stayed the same (1500), so it did not go up every year. 'Never went down' and 'went up every year' mean different things."
+      },
+      "skill": "identifying trends",
+      "source": "original"
+    },
+    {
+      "id": "m12-q042",
+      "subtopicId": "m12-s4",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Put these sets of data in order from most consistent (smallest range) to least consistent (largest range).",
+      "options": [
+        "Set A: 4, 9, 12, 7",
+        "Set B: 20, 22, 25, 21",
+        "Set C: 1, 15, 8, 3",
+        "Set D: 30, 31, 45, 33"
+      ],
+      "answer": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "solution": "Range = highest - lowest. A: 12 - 4 = 8. B: 25 - 20 = 5. C: 15 - 1 = 14. D: 45 - 30 = 15. From smallest to largest range: B (5), A (8), C (14), D (15).",
+      "misconceptions": {
+        "common": "Ordering by the size of the numbers instead of by the range. Set B has bigger numbers than Set A, but its values are closer together."
+      },
+      "skill": "comparing data sets",
+      "source": "original"
+    },
+    {
+      "id": "m12-q043",
+      "subtopicId": "m12-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Aisha asked 5 pupils in her class to name their favourite subject, and 3 of them said art. She concludes: 'Art is the favourite subject of most pupils in our school.' What is the best reason why her conclusion may not be reliable?",
+      "options": [
+        "She asked only 5 pupils from one class, so the sample is too small to represent the whole school.",
+        "3 out of 5 is less than half, so art is not the most popular.",
+        "She should have drawn a pie chart instead of writing the numbers down.",
+        "Art cannot be a favourite subject because it is not tested in exams."
+      ],
+      "answer": 0,
+      "solution": "A conclusion about a whole school needs data from many pupils in different classes. 5 pupils from one class is too few and may not be typical, so her conclusion may not be reliable. She could ask more pupils from every class to check her idea.",
+      "misconceptions": {
+        "1": "3 out of 5 is 60%, which is more than half. The problem is not the fraction but how few pupils were asked.",
+        "2": "Changing the chart does not change the data. A pie chart of 5 answers is still based on only 5 pupils.",
+        "3": "Any subject can be someone's favourite. This is an opinion, not a problem with the data."
+      },
+      "skill": "judging conclusions",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m12-q044",
+      "subtopicId": "m12-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Five pupils took 8, 10, 9, 11 and 12 minutes to walk to school. A sixth pupil took 40 minutes. By how many minutes does the mean time go up when the sixth pupil is included?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "accept": [
+          "5 minutes",
+          "5 min"
+        ]
+      },
+      "solution": "Mean of the first five = (8 + 10 + 9 + 11 + 12) ÷ 5 = 50 ÷ 5 = 10 minutes. Mean of all six = (50 + 40) ÷ 6 = 90 ÷ 6 = 15 minutes. The mean goes up by 15 - 10 = 5 minutes. One unusual value (an outlier) can change the mean a lot.",
+      "misconceptions": {
+        "common": "Answering 15, the new mean, instead of how much the mean went up. Another slip is dividing 90 by 5 instead of 6: there are now 6 pupils."
+      },
+      "skill": "effect of an outlier",
+      "source": "original"
+    },
+    {
+      "id": "m12-q045",
+      "subtopicId": "m12-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "The mean of 6 test scores is 70. One score of 40 turns out to be a recording mistake, so it is removed. What is the mean of the 5 scores that are left?",
+      "answer": {
+        "value": 76,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Total of the 6 scores = 6 x 70 = 420. Remove the 40: 420 - 40 = 380. Mean of the 5 scores = 380 ÷ 5 = 76.",
+      "misconceptions": {
+        "common": "Dividing by 6 again after removing a score. There are only 5 scores left, so divide by 5."
+      },
+      "skill": "effect of an outlier",
+      "source": "original"
+    }
+  ]
+}

@@ -1,0 +1,1046 @@
+{
+  "subject": "maths",
+  "topicId": "m11-ratio-and-proportion",
+  "title": "Ratio and Proportion",
+  "order": 11,
+  "bookChapter": "Chapter 11: Ratio and Proportion",
+  "frameworkRefs": [
+    "6Nf.12",
+    "6Nf.13"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will write ratios and simplify them, and find equivalent ratios. You will share an amount in a given ratio and link ratios to fractions. You will also solve direct proportion problems such as recipes, unit prices and best buys.",
+    "whyItMatters": "Ratio and proportion help you compare amounts fairly and scale things up or down. They are used in cooking, shopping, maps and science. They also appear in many exam word problems, so a clear method saves you marks.",
+    "realWorld": [
+      "Mixing a jug of rose syrup drink with the right amount of syrup to water",
+      "Sharing the cost of a Grab ride or a hawker meal fairly among friends",
+      "Scaling a nasi lemak recipe for 4 people up to 10 people",
+      "Comparing two sizes of the same cereal at the supermarket to find the best buy",
+      "Reading a map where 1 cm stands for 2 km"
+    ],
+    "subtopics": [
+      {
+        "id": "m11-s1",
+        "title": "Writing and simplifying ratios",
+        "summary": "A ratio compares amounts, such as 3 : 5. The order matters, and you simplify a ratio by dividing every part by the same number."
+      },
+      {
+        "id": "m11-s2",
+        "title": "Equivalent ratios",
+        "summary": "Equivalent ratios show the same comparison, like 2 : 3 and 8 : 12. Multiply or divide both parts by the same number to find a missing value."
+      },
+      {
+        "id": "m11-s3",
+        "title": "Sharing in a ratio",
+        "summary": "Add the parts, find the value of one part, then multiply. A ratio of 2 : 3 means the first share is 2/5 of the total."
+      },
+      {
+        "id": "m11-s4",
+        "title": "Direct proportion",
+        "summary": "When two quantities are in direct proportion, doubling one doubles the other. Use the unitary method (find the value of one) for recipes, prices and best buys."
+      },
+      {
+        "id": "m11-s5",
+        "title": "Multi-step ratio problems",
+        "summary": "Solve longer problems where amounts change, or where you need several ratio steps, using parts like a bar model."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m11-q001",
+      "subtopicId": "m11-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A fruit bowl has 3 apples and 5 oranges. What is the ratio of apples to oranges?",
+      "options": [
+        "5 : 3",
+        "3 : 8",
+        "3 : 5",
+        "5 : 8"
+      ],
+      "answer": 2,
+      "solution": "Apples are named first, so write the number of apples first: 3. Then write the oranges: 5. The ratio is 3 : 5.",
+      "misconceptions": {
+        "0": "This is oranges to apples. The order in a ratio follows the order of the words: apples first, then oranges.",
+        "1": "This compares the apples with ALL the fruit (3 + 5 = 8). The question asks for apples to oranges, not apples to the total.",
+        "3": "This compares the oranges with all the fruit. The question asks for apples to oranges."
+      },
+      "skill": "writing a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q002",
+      "subtopicId": "m11-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A box has 7 red pens and 4 blue pens. Write the ratio of blue pens to red pens.",
+      "answer": {
+        "accept": [
+          "4 : 7",
+          "4:7",
+          "4 :7",
+          "4: 7",
+          "4 to 7"
+        ],
+        "keywords": []
+      },
+      "solution": "Blue pens are named first, so start with the 4 blue pens, then the 7 red pens: 4 : 7. It cannot be simplified, because 4 and 7 have no common factor except 1.",
+      "misconceptions": {
+        "common": "Writing 7 : 4. The question says blue pens first, so the 4 blue pens must come first."
+      },
+      "skill": "writing a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q003",
+      "subtopicId": "m11-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: the ratio 6 : 9 written in its simplest form is 2 : 3.",
+      "answer": true,
+      "solution": "The highest common factor of 6 and 9 is 3. 6 ÷ 3 = 2 and 9 ÷ 3 = 3, so 6 : 9 = 2 : 3. The statement is true.",
+      "misconceptions": {
+        "common": "Dividing only one part, or dividing the two parts by different numbers, changes the ratio. Both parts must be divided by the same number."
+      },
+      "skill": "simplifying a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q004",
+      "subtopicId": "m11-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Write the ratio 24 : 36 in its simplest form.",
+      "options": [
+        "2 : 3",
+        "12 : 18",
+        "4 : 6",
+        "3 : 2"
+      ],
+      "answer": 0,
+      "solution": "The highest common factor of 24 and 36 is 12. 24 ÷ 12 = 2 and 36 ÷ 12 = 3. So 24 : 36 = 2 : 3.",
+      "misconceptions": {
+        "1": "Dividing both parts by 2 is a good start, but 12 and 18 still share the factor 6. Keep going, or divide by the highest common factor (12) in one step.",
+        "2": "Dividing by 6 is a good start, but 4 and 6 can both still be divided by 2. In simplest form the only common factor is 1.",
+        "3": "The numbers are right but the order is reversed. Keep the parts in the same order as the question: 24 first, then 36."
+      },
+      "skill": "simplifying a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q005",
+      "subtopicId": "m11-s1",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Aisha is 12 years old and her grandfather is 66 years old. Write the ratio of Aisha's age to her grandfather's age in its simplest form.",
+      "answer": {
+        "accept": [
+          "2 : 11",
+          "2:11",
+          "2 :11",
+          "2: 11",
+          "2 to 11"
+        ],
+        "keywords": []
+      },
+      "solution": "The ratio is 12 : 66. Both numbers are in the 6 times table. 12 ÷ 6 = 2 and 66 ÷ 6 = 11. 2 and 11 have no other common factor, so the answer is 2 : 11.",
+      "misconceptions": {
+        "common": "Stopping at 6 : 33 (dividing by 2 only) or 4 : 22 (dividing by 3 only). Divide by the highest common factor, 6, to reach the simplest form."
+      },
+      "skill": "simplifying a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q006",
+      "subtopicId": "m11-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A bag has 8 green marbles and 12 yellow marbles. What is the ratio of green marbles to the total number of marbles, in its simplest form?",
+      "options": [
+        "2 : 3",
+        "3 : 5",
+        "5 : 2",
+        "2 : 5"
+      ],
+      "answer": 3,
+      "solution": "Total marbles = 8 + 12 = 20. Green : total = 8 : 20. Divide both parts by 4 to get 2 : 5.",
+      "misconceptions": {
+        "0": "This is green to yellow (8 : 12). The question asks for green to the TOTAL, so first add: 8 + 12 = 20.",
+        "1": "This is yellow to the total (12 : 20). The question asks about the green marbles.",
+        "2": "Here the total is written first. Green is named first in the question, so it must come first: 2 : 5."
+      },
+      "skill": "ratio of part to whole",
+      "source": "original"
+    },
+    {
+      "id": "m11-q007",
+      "subtopicId": "m11-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the ratios that are already in their simplest form.",
+      "options": [
+        "3 : 7",
+        "4 : 10",
+        "9 : 16",
+        "15 : 25",
+        "8 : 21"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "A ratio is in simplest form when the only common factor of its parts is 1. 3 : 7: yes. 4 : 10: no, both divide by 2 (2 : 5). 9 : 16: yes, 9 = 3 x 3 and 16 = 2 x 2 x 2 x 2 share no factor. 15 : 25: no, both divide by 5 (3 : 5). 8 : 21: yes, 8 = 2 x 2 x 2 and 21 = 3 x 7 share no factor. So choose 3 : 7, 9 : 16 and 8 : 21.",
+      "misconceptions": {
+        "1": "4 and 10 are both even, so 4 : 10 simplifies to 2 : 5.",
+        "3": "15 and 25 are both multiples of 5, so 15 : 25 simplifies to 3 : 5.",
+        "common": "9 : 16 and 8 : 21 look as if they might simplify, but their parts share no factor except 1. Check the factors, not how big the numbers are."
+      },
+      "skill": "simplifying a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q008",
+      "subtopicId": "m11-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A fruit drink is made from 300 ml of orange juice, 450 ml of mango juice and 150 ml of lime juice. What is the ratio orange : mango : lime in its simplest form?",
+      "options": [
+        "3 : 2 : 1",
+        "2 : 3 : 1",
+        "6 : 9 : 3",
+        "2 : 3 : 6"
+      ],
+      "answer": 1,
+      "solution": "The ratio is 300 : 450 : 150. The highest common factor of all three numbers is 150. 300 ÷ 150 = 2, 450 ÷ 150 = 3 and 150 ÷ 150 = 1. So orange : mango : lime = 2 : 3 : 1.",
+      "misconceptions": {
+        "0": "The numbers are right but orange and mango are swapped. Keep the same order as the question: orange, mango, lime.",
+        "2": "Dividing by 50 is a good start, but 6, 9 and 3 can all still be divided by 3. Divide by the highest common factor, 150.",
+        "3": "300 ÷ 150 = 2 and 450 ÷ 150 = 3 are right, but 6 is the total (900 ÷ 150), not the lime part. Lime is 150 ÷ 150 = 1."
+      },
+      "skill": "simplifying a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q009",
+      "subtopicId": "m11-s1",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Write the ratio 45 minutes : 2 hours in its simplest form.",
+      "answer": {
+        "accept": [
+          "3 : 8",
+          "3:8",
+          "3 :8",
+          "3: 8",
+          "3 to 8"
+        ],
+        "keywords": []
+      },
+      "solution": "First use the same unit for both parts. 2 hours = 120 minutes, so the ratio is 45 : 120. The highest common factor of 45 and 120 is 15. 45 ÷ 15 = 3 and 120 ÷ 15 = 8. The answer is 3 : 8.",
+      "misconceptions": {
+        "common": "Writing 45 : 2 and simplifying from there. Both parts must be in the same unit first: 2 hours = 120 minutes."
+      },
+      "skill": "ratio with different units",
+      "source": "original"
+    },
+    {
+      "id": "m11-q010",
+      "subtopicId": "m11-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which ratio is equivalent to 2 : 5?",
+      "options": [
+        "5 : 2",
+        "4 : 7",
+        "6 : 15",
+        "6 : 10"
+      ],
+      "answer": 2,
+      "solution": "Multiply both parts of 2 : 5 by 3: 2 x 3 = 6 and 5 x 3 = 15. So 2 : 5 = 6 : 15.",
+      "misconceptions": {
+        "0": "The same numbers in the reverse order make a different ratio. 5 : 2 compares the parts the other way round.",
+        "1": "You added 2 to both parts. Equivalent ratios come from multiplying or dividing both parts by the same number, not adding.",
+        "3": "You multiplied the first part by 3 but the second part by 2. Both parts must be multiplied by the same number: 2 x 3 = 6 and 5 x 3 = 15."
+      },
+      "skill": "equivalent ratios",
+      "source": "original"
+    },
+    {
+      "id": "m11-q011",
+      "subtopicId": "m11-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Find the missing number: 3 : 4 = 12 : ?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "3 has been multiplied by 4 to make 12. Do the same to the other part: 4 x 4 = 16. So 3 : 4 = 12 : 16.",
+      "misconceptions": {
+        "common": "Adding 9 to both parts (3 + 9 = 12, so 4 + 9 = 13). Equivalent ratios are made by multiplying: 3 x 4 = 12, so 4 x 4 = 16."
+      },
+      "skill": "finding a missing value in equivalent ratios",
+      "source": "original"
+    },
+    {
+      "id": "m11-q012",
+      "subtopicId": "m11-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 4 : 6 is equivalent to 6 : 8.",
+      "answer": false,
+      "solution": "4 : 6 simplifies to 2 : 3. 6 : 8 simplifies to 3 : 4. These are different ratios, so the statement is false. Adding 2 to both parts does not keep a ratio the same.",
+      "misconceptions": {
+        "common": "Thinking that adding the same number to both parts keeps a ratio equivalent. Only multiplying or dividing both parts by the same number does that."
+      },
+      "skill": "equivalent ratios",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m11-q013",
+      "subtopicId": "m11-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The ratio of cats to dogs at an animal shelter is 5 : 3. There are 35 cats. How many dogs are there?",
+      "options": [
+        "21",
+        "33",
+        "56",
+        "7"
+      ],
+      "answer": 0,
+      "solution": "Cats are 5 parts = 35, so 1 part = 35 ÷ 5 = 7. Dogs are 3 parts = 3 x 7 = 21.",
+      "misconceptions": {
+        "1": "You saw that 35 is 30 more than 5 and added 30 to 3. Ratios grow by multiplying: 35 ÷ 5 = 7, so dogs = 3 x 7.",
+        "2": "56 is the total number of cats and dogs (8 parts x 7). The question asks for the dogs only.",
+        "3": "7 is the value of one part (35 ÷ 5). Dogs are 3 parts, so multiply: 3 x 7 = 21."
+      },
+      "skill": "finding a missing value in equivalent ratios",
+      "source": "original"
+    },
+    {
+      "id": "m11-q014",
+      "subtopicId": "m11-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "To make a shade of paint, Wei Ming mixes blue paint and white paint in the ratio 2 : 7. He uses 8 tins of blue paint. How many tins of white paint does he need?",
+      "options": [
+        "13",
+        "36",
+        "14",
+        "28"
+      ],
+      "answer": 3,
+      "solution": "Blue : white = 2 : 7. Blue went from 2 to 8, which is x 4. So white = 7 x 4 = 28 tins. Check: 8 : 28 simplifies to 2 : 7.",
+      "misconceptions": {
+        "0": "You added 6 to both parts (2 + 6 = 8, so 7 + 6 = 13). Ratios must be multiplied: 8 ÷ 2 = 4, then 7 x 4 = 28.",
+        "1": "36 is the total number of tins (9 parts x 4). The question asks for the white paint only.",
+        "2": "You multiplied 7 by 2, the blue number in the ratio. Multiply by the scale factor instead: 8 ÷ 2 = 4, so 7 x 4 = 28."
+      },
+      "skill": "finding a missing value in equivalent ratios",
+      "source": "original"
+    },
+    {
+      "id": "m11-q015",
+      "subtopicId": "m11-s2",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each ratio on the left to the equivalent ratio on the right. One ratio on the right is not used.",
+      "options": {
+        "left": [
+          "1 : 3",
+          "2 : 5",
+          "4 : 3",
+          "3 : 8"
+        ],
+        "right": [
+          "9 : 24",
+          "8 : 6",
+          "6 : 18",
+          "10 : 25",
+          "3 : 4"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "1 : 3 x 6 = 6 : 18. 2 : 5 x 5 = 10 : 25. 4 : 3 x 2 = 8 : 6. 3 : 8 x 3 = 9 : 24. 3 : 4 is left over: it is 4 : 3 the wrong way round, so it is not equivalent to any of them.",
+      "misconceptions": {
+        "common": "Matching 4 : 3 with 3 : 4. Swapping the order changes the ratio, so 3 : 4 is not equivalent to 4 : 3."
+      },
+      "skill": "equivalent ratios",
+      "source": "original"
+    },
+    {
+      "id": "m11-q016",
+      "subtopicId": "m11-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these ratios is NOT equivalent to 3 : 5?",
+      "options": [
+        "6 : 10",
+        "8 : 10",
+        "15 : 25",
+        "30 : 50"
+      ],
+      "answer": 1,
+      "solution": "Simplify each one. 6 : 10 ÷ 2 = 3 : 5. 15 : 25 ÷ 5 = 3 : 5. 30 : 50 ÷ 10 = 3 : 5. But 8 : 10 ÷ 2 = 4 : 5, which is different. So 8 : 10 is not equivalent to 3 : 5.",
+      "misconceptions": {
+        "0": "6 : 10 is 3 : 5 with both parts multiplied by 2, so it IS equivalent. Look for the ratio that does not simplify to 3 : 5.",
+        "2": "15 : 25 is 3 : 5 with both parts multiplied by 5, so it IS equivalent.",
+        "3": "30 : 50 is 3 : 5 with both parts multiplied by 10, so it IS equivalent."
+      },
+      "skill": "equivalent ratios",
+      "source": "original"
+    },
+    {
+      "id": "m11-q017",
+      "subtopicId": "m11-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In these equivalent ratios, a and b are missing numbers: 4 : 7 = 20 : a = b : 63. What is a + b?",
+      "answer": {
+        "value": 71,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "4 x 5 = 20, so a = 7 x 5 = 35. 7 x 9 = 63, so b = 4 x 9 = 36. a + b = 35 + 36 = 71.",
+      "misconceptions": {
+        "common": "Using the same multiplier for both missing numbers. 4 : 7 to 20 : a uses x 5, but 4 : 7 to b : 63 uses x 9 (because 7 x 9 = 63)."
+      },
+      "skill": "finding a missing value in equivalent ratios",
+      "source": "original"
+    },
+    {
+      "id": "m11-q018",
+      "subtopicId": "m11-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Mei Lin says: 'The ratio 5 : 8 is equivalent to 10 : 13, because I added 5 to both numbers.' Which is the best reply?",
+      "options": [
+        "She is right. Doing the same thing to both parts always keeps a ratio equivalent.",
+        "She is wrong. Only the first part should change, so the answer is 10 : 8.",
+        "She is right, because 10 : 13 cannot be simplified.",
+        "She is wrong. Both parts must be multiplied by the same number, so 5 : 8 = 10 : 16."
+      ],
+      "answer": 3,
+      "solution": "To get from 5 to 10 you multiply by 2, so 8 must also be multiplied by 2: 8 x 2 = 16. So 5 : 8 = 10 : 16. Adding 5 to both parts gives 10 : 13, which is a different ratio. Mei Lin is wrong.",
+      "misconceptions": {
+        "0": "Adding the same number to both parts changes the ratio. Only multiplying or dividing both parts by the same number keeps ratios equivalent.",
+        "1": "Changing only one part changes the comparison. Both parts must be multiplied by the same number.",
+        "2": "Being in simplest form does not make two ratios equivalent. 10 : 13 is in simplest form, but it is a different ratio from 5 : 8."
+      },
+      "skill": "equivalent ratios",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m11-q019",
+      "subtopicId": "m11-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Share RM 60 in the ratio 2 : 3. How much is the smaller share?",
+      "options": [
+        "RM 36",
+        "RM 24",
+        "RM 30",
+        "RM 40"
+      ],
+      "answer": 1,
+      "solution": "Total parts = 2 + 3 = 5. One part = RM 60 ÷ 5 = RM 12. Smaller share = 2 x RM 12 = RM 24. Check: the larger share is 3 x RM 12 = RM 36, and RM 24 + RM 36 = RM 60.",
+      "misconceptions": {
+        "0": "RM 36 is the larger share (3 parts). The question asks for the smaller share, which is 2 parts.",
+        "2": "You split the money equally between 2 people. A ratio of 2 : 3 means the shares are not equal.",
+        "3": "You found 2/3 of RM 60. The ratio 2 : 3 has 5 parts altogether, so the smaller share is 2/5 of RM 60."
+      },
+      "skill": "sharing in a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q020",
+      "subtopicId": "m11-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: if the ratio of boys to girls in a class is 2 : 3, then 2/3 of the children are boys.",
+      "answer": false,
+      "solution": "There are 2 + 3 = 5 parts altogether. Boys are 2 of the 5 parts, so 2/5 of the children are boys, not 2/3. The statement is false.",
+      "misconceptions": {
+        "common": "Turning the ratio 2 : 3 straight into the fraction 2/3. A fraction of the whole class needs the TOTAL number of parts (5) as the denominator."
+      },
+      "skill": "ratio and fractions",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m11-q021",
+      "subtopicId": "m11-s3",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Siti and Omar share 35 stickers in the ratio 3 : 4. How many stickers does Siti get?",
+      "answer": {
+        "value": 15,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Total parts = 3 + 4 = 7. One part = 35 ÷ 7 = 5. Siti gets 3 parts = 3 x 5 = 15 stickers.",
+      "misconceptions": {
+        "common": "Dividing 35 by 3 or by 4 instead of by the total number of parts. Add the parts first: 3 + 4 = 7."
+      },
+      "skill": "sharing in a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q022",
+      "subtopicId": "m11-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "In a library, the ratio of fiction books to non-fiction books is 5 : 3. What fraction of the books are non-fiction?",
+      "options": [
+        "3/5",
+        "5/8",
+        "3/8",
+        "5/3"
+      ],
+      "answer": 2,
+      "solution": "Total parts = 5 + 3 = 8. Non-fiction is 3 of the 8 parts, so 3/8 of the books are non-fiction.",
+      "misconceptions": {
+        "0": "3/5 compares non-fiction with fiction (part to part). A fraction of ALL the books needs the total: 5 + 3 = 8 parts.",
+        "1": "5/8 is the fraction of books that are fiction. The question asks about non-fiction.",
+        "3": "5/3 is more than 1 whole, so it cannot be a fraction of the books. Non-fiction is 3 parts out of 8."
+      },
+      "skill": "ratio and fractions",
+      "source": "original"
+    },
+    {
+      "id": "m11-q023",
+      "subtopicId": "m11-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Daniel and Priya share RM 150 in the ratio 7 : 3. How much more money does Daniel get than Priya? Give your answer in RM.",
+      "answer": {
+        "value": 60,
+        "tolerance": 0,
+        "accept": [
+          "RM 60",
+          "RM60",
+          "60.00",
+          "RM 60.00"
+        ]
+      },
+      "solution": "Total parts = 7 + 3 = 10. One part = RM 150 ÷ 10 = RM 15. Daniel has 7 - 3 = 4 more parts than Priya. 4 x RM 15 = RM 60. (Daniel gets RM 105 and Priya gets RM 45.)",
+      "misconceptions": {
+        "common": "Giving Daniel's share (RM 105) instead of the difference. The question asks how much MORE he gets than Priya."
+      },
+      "skill": "sharing in a ratio",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m11-q024",
+      "subtopicId": "m11-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Three friends share 72 marbles in the ratio 1 : 2 : 5. How many marbles does the friend with the largest share get?",
+      "options": [
+        "45",
+        "9",
+        "24",
+        "18"
+      ],
+      "answer": 0,
+      "solution": "Total parts = 1 + 2 + 5 = 8. One part = 72 ÷ 8 = 9. Largest share = 5 x 9 = 45 marbles.",
+      "misconceptions": {
+        "1": "9 is one part (72 ÷ 8). The largest share is 5 parts: 5 x 9 = 45.",
+        "2": "You shared the marbles equally among the 3 friends (72 ÷ 3). The ratio 1 : 2 : 5 means the shares are different sizes.",
+        "3": "18 is the middle share (2 parts). The largest share is the one with 5 parts."
+      },
+      "skill": "sharing in a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q025",
+      "subtopicId": "m11-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The ratio of red counters to blue counters in a bag is 3 : 5. There are 40 counters altogether. Select ALL the statements that are true.",
+      "options": [
+        "There are 15 red counters.",
+        "There are 24 red counters.",
+        "3/5 of the counters are red.",
+        "5/8 of the counters are blue.",
+        "There are 10 more blue counters than red counters."
+      ],
+      "answer": [
+        0,
+        3,
+        4
+      ],
+      "solution": "Total parts = 3 + 5 = 8. One part = 40 ÷ 8 = 5. Red = 3 x 5 = 15. Blue = 5 x 5 = 25. Blue is 5 parts out of 8, so 5/8 of the counters are blue. Blue - red = 25 - 15 = 10. The true statements are: 15 red counters, 5/8 are blue, and 10 more blue than red.",
+      "misconceptions": {
+        "1": "24 is 3/5 of 40. Red is 3 parts out of 8, not 3 out of 5, so red = 3/8 of 40 = 15.",
+        "2": "3/5 compares red with blue. As a fraction of ALL the counters, red is 3/8."
+      },
+      "skill": "ratio and fractions",
+      "source": "original"
+    },
+    {
+      "id": "m11-q026",
+      "subtopicId": "m11-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Arjun and Mei Lin share some money in the ratio 4 : 5. Mei Lin gets RM 12 more than Arjun. How much money do they share altogether? Give your answer in RM.",
+      "answer": {
+        "value": 108,
+        "tolerance": 0,
+        "accept": [
+          "RM 108",
+          "RM108"
+        ]
+      },
+      "solution": "Mei Lin has 5 parts and Arjun has 4 parts, so the difference is 5 - 4 = 1 part. So 1 part = RM 12. Total parts = 4 + 5 = 9. Total = 9 x RM 12 = RM 108. Check: Arjun gets RM 48 and Mei Lin gets RM 60, a difference of RM 12.",
+      "misconceptions": {
+        "common": "Treating RM 12 as the total, or sharing the RM 12 in the ratio 4 : 5. The difference between the shares is exactly 1 part, so 1 part = RM 12."
+      },
+      "skill": "ratio problems using the difference",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m11-q027",
+      "subtopicId": "m11-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Some money is shared between Aisha and Wei Ming in the ratio 3 : 5. Wei Ming receives RM 45. How much does Aisha receive?",
+      "options": [
+        "RM 75",
+        "RM 27",
+        "RM 43",
+        "RM 72"
+      ],
+      "answer": 1,
+      "solution": "Wei Ming has 5 parts = RM 45, so 1 part = RM 45 ÷ 5 = RM 9. Aisha has 3 parts = 3 x RM 9 = RM 27.",
+      "misconceptions": {
+        "0": "You treated RM 45 as Aisha's 3 parts. RM 45 is Wei Ming's money, and he has 5 parts, so 1 part = RM 45 ÷ 5 = RM 9.",
+        "2": "You took away 2 because 5 - 3 = 2. Ratio problems are solved by multiplying and dividing, not by subtracting the ratio numbers.",
+        "3": "RM 72 is the total amount shared (8 parts x RM 9). The question asks for Aisha's share only."
+      },
+      "skill": "sharing in a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q028",
+      "subtopicId": "m11-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Fruit punch is made from orange juice, pineapple juice and soda water in the ratio 2 : 3 : 5. Omar makes 1.5 litres of punch. How many millilitres of pineapple juice does he use?",
+      "answer": {
+        "value": 450,
+        "tolerance": 0,
+        "accept": [
+          "450 ml",
+          "450ml"
+        ]
+      },
+      "solution": "First change litres to millilitres: 1.5 litres = 1500 ml. Total parts = 2 + 3 + 5 = 10. One part = 1500 ÷ 10 = 150 ml. Pineapple juice = 3 parts = 3 x 150 = 450 ml.",
+      "misconceptions": {
+        "common": "Forgetting to change 1.5 litres into 1500 ml, which gives 0.45 instead of 450. The answer must be in millilitres, so multiply the litres by 1000 first."
+      },
+      "skill": "sharing in a ratio",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m11-q029",
+      "subtopicId": "m11-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "4 pencils cost RM 2. At the same price, how much do 12 pencils cost? Give your answer in RM.",
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": [
+          "RM 6",
+          "RM6",
+          "6.00",
+          "RM 6.00"
+        ]
+      },
+      "solution": "12 pencils is 3 times as many as 4 pencils (4 x 3 = 12). So they cost 3 times as much: RM 2 x 3 = RM 6.",
+      "misconceptions": {
+        "common": "Adding RM 8 because 8 more pencils are bought, giving RM 10. In direct proportion, when the number of pencils is multiplied by 3, the cost is multiplied by 3 too."
+      },
+      "skill": "direct proportion",
+      "source": "original"
+    },
+    {
+      "id": "m11-q030",
+      "subtopicId": "m11-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A recipe for 4 people uses 200 g of rice. How much rice is needed for 8 people?",
+      "options": [
+        "204 g",
+        "100 g",
+        "800 g",
+        "400 g"
+      ],
+      "answer": 3,
+      "solution": "8 people is double 4 people (4 x 2 = 8). So double the rice: 200 g x 2 = 400 g.",
+      "misconceptions": {
+        "0": "You added 4 because there are 4 more people. In direct proportion you multiply: twice as many people need twice as much rice.",
+        "1": "You halved the amount. More people need more rice, not less.",
+        "2": "You multiplied 200 g by 4, the number of people in the recipe. The number of people doubles (4 to 8), so multiply by 2."
+      },
+      "skill": "scaling a recipe",
+      "source": "original"
+    },
+    {
+      "id": "m11-q031",
+      "subtopicId": "m11-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: bananas cost RM 4 for 1 kg. At the same price, 3 kg of bananas cost RM 12.",
+      "answer": true,
+      "solution": "The cost is in direct proportion to the mass. 3 kg is 3 times 1 kg, so the cost is 3 x RM 4 = RM 12. The statement is true.",
+      "misconceptions": {
+        "common": "Adding instead of multiplying (RM 4 + 3 = RM 7). When the mass is multiplied by 3, the cost is multiplied by 3 as well."
+      },
+      "skill": "direct proportion",
+      "source": "original"
+    },
+    {
+      "id": "m11-q032",
+      "subtopicId": "m11-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "3 notebooks cost RM 7.50. At the same price, how much do 5 notebooks cost? Give your answer in RM.",
+      "answer": {
+        "value": 12.5,
+        "tolerance": 0,
+        "accept": [
+          "12.50",
+          "RM 12.50",
+          "RM12.50",
+          "RM 12.5"
+        ]
+      },
+      "solution": "Find the cost of 1 notebook first (the unitary method): RM 7.50 ÷ 3 = RM 2.50. Then 5 notebooks cost 5 x RM 2.50 = RM 12.50.",
+      "misconceptions": {
+        "common": "Adding RM 2 because 2 more notebooks are bought (giving RM 9.50). Find the cost of ONE notebook first, then multiply by 5."
+      },
+      "skill": "unitary method",
+      "source": "original"
+    },
+    {
+      "id": "m11-q033",
+      "subtopicId": "m11-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A shop sells the same cereal in four pack sizes. Which pack is the best value for money?",
+      "options": [
+        "500 g for RM 5.50",
+        "200 g for RM 2.40",
+        "1 kg for RM 12.00",
+        "400 g for RM 4.60"
+      ],
+      "answer": 0,
+      "solution": "Find the price of 100 g for each pack. 200 g: RM 2.40 ÷ 2 = RM 1.20. 500 g: RM 5.50 ÷ 5 = RM 1.10. 1 kg (1000 g): RM 12.00 ÷ 10 = RM 1.20. 400 g: RM 4.60 ÷ 4 = RM 1.15. The 500 g pack is cheapest for each 100 g, so it is the best value.",
+      "misconceptions": {
+        "1": "This pack has the lowest price, but you also get the least cereal. Compare the price of the same amount: RM 2.40 for 200 g is RM 1.20 for 100 g.",
+        "2": "The biggest pack is not always the best value. 1 kg = 1000 g, so the price for 100 g is RM 12.00 ÷ 10 = RM 1.20.",
+        "3": "Very close! RM 4.60 ÷ 4 = RM 1.15 for 100 g. But the 500 g pack costs only RM 1.10 for 100 g, which is cheaper."
+      },
+      "skill": "best buy",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m11-q034",
+      "subtopicId": "m11-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A car uses 6 litres of petrol to travel 75 km. At the same rate, how far can it travel on 10 litres?",
+      "options": [
+        "79 km",
+        "45 km",
+        "125 km",
+        "12.5 km"
+      ],
+      "answer": 2,
+      "solution": "Distance for 1 litre = 75 ÷ 6 = 12.5 km. Distance for 10 litres = 12.5 x 10 = 125 km.",
+      "misconceptions": {
+        "0": "You added 4 km because there are 4 more litres. Find the distance for 1 litre first: 75 ÷ 6 = 12.5 km.",
+        "1": "You worked out 75 ÷ 10 x 6, which is the wrong way round. More petrol means the car can go further, so the answer must be more than 75 km.",
+        "3": "12.5 km is the distance for 1 litre. Now multiply by 10 litres."
+      },
+      "skill": "unitary method",
+      "source": "original"
+    },
+    {
+      "id": "m11-q035",
+      "subtopicId": "m11-s4",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Put these juice deals in order from best value (cheapest for each litre) to worst value.",
+      "options": [
+        "2 L for RM 9.00",
+        "1 L for RM 4.20",
+        "3 L for RM 13.20",
+        "500 ml for RM 2.40"
+      ],
+      "answer": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "solution": "Find the price of 1 litre for each deal. 2 L: RM 9.00 ÷ 2 = RM 4.50. 1 L: RM 4.20. 3 L: RM 13.20 ÷ 3 = RM 4.40. 500 ml is half a litre, so 1 litre costs RM 2.40 x 2 = RM 4.80. Cheapest per litre first: 1 L (RM 4.20), 3 L (RM 4.40), 2 L (RM 4.50), 500 ml (RM 4.80).",
+      "misconceptions": {
+        "common": "Ordering by the price on the label instead of the price for each litre. A bigger bottle costs more in total but can still be better value."
+      },
+      "skill": "best buy",
+      "source": "original"
+    },
+    {
+      "id": "m11-q036",
+      "subtopicId": "m11-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Which pair of quantities is in direct proportion?",
+      "options": [
+        "A child's age and the child's height",
+        "The number of workers painting a fence and the time it takes them",
+        "The number of identical concert tickets bought and their total cost",
+        "The temperature outside and the number of ice creams a shop sells"
+      ],
+      "answer": 2,
+      "solution": "In direct proportion, if one quantity doubles, the other doubles too, and if one is 0, so is the other. Tickets that all cost the same: 2 tickets cost twice as much as 1 ticket, 10 tickets cost 10 times as much. So the number of tickets and the total cost are in direct proportion.",
+      "misconceptions": {
+        "0": "Both get bigger, but not in proportion. A 10-year-old is not twice as tall as a 5-year-old.",
+        "1": "More workers means LESS time. When one quantity goes up and the other goes down, it is not direct proportion.",
+        "3": "There may be a link, but doubling the temperature does not exactly double the sales. In direct proportion both quantities always change by the same multiplier."
+      },
+      "skill": "recognising direct proportion",
+      "source": "original"
+    },
+    {
+      "id": "m11-q037",
+      "subtopicId": "m11-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A recipe for 6 pancakes uses 150 ml of milk. Priya wants to make 15 pancakes. How many millilitres of milk does she need?",
+      "answer": {
+        "value": 375,
+        "tolerance": 0,
+        "accept": [
+          "375 ml",
+          "375ml"
+        ]
+      },
+      "solution": "Milk for 1 pancake = 150 ÷ 6 = 25 ml. Milk for 15 pancakes = 15 x 25 = 375 ml. (Or: 15 pancakes is 2.5 times 6 pancakes, and 150 x 2.5 = 375.)",
+      "misconceptions": {
+        "common": "Adding instead of multiplying, for example 150 + 9 = 159 because 9 more pancakes are made. Use the unitary method: find the milk for 1 pancake, then multiply by 15."
+      },
+      "skill": "scaling a recipe",
+      "source": "original"
+    },
+    {
+      "id": "m11-q038",
+      "subtopicId": "m11-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "The ratio of boys to girls in a choir is 2 : 3. There are 10 boys. How many children are in the choir altogether?",
+      "options": [
+        "15",
+        "25",
+        "5",
+        "50"
+      ],
+      "answer": 1,
+      "solution": "Boys are 2 parts = 10, so 1 part = 10 ÷ 2 = 5. Total parts = 2 + 3 = 5. Total children = 5 x 5 = 25 (10 boys and 15 girls).",
+      "misconceptions": {
+        "0": "15 is the number of girls. The question asks for all the children: 10 boys + 15 girls.",
+        "2": "5 is the value of one part (10 ÷ 2). There are 2 + 3 = 5 parts altogether, so the total is 5 x 5 = 25.",
+        "3": "You treated the 10 boys as 1 part. The boys are 2 parts, so 1 part = 10 ÷ 2 = 5."
+      },
+      "skill": "multi-step ratio problems",
+      "source": "original"
+    },
+    {
+      "id": "m11-q039",
+      "subtopicId": "m11-s5",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The ratio of Aisha's stamps to Daniel's stamps is 3 : 7. Together they have 120 stamps. Then Daniel gives 6 of his stamps to Aisha. How many stamps does Aisha have now?",
+      "answer": {
+        "value": 42,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Total parts = 3 + 7 = 10. One part = 120 ÷ 10 = 12. At first Aisha has 3 x 12 = 36 stamps. After Daniel gives her 6, she has 36 + 6 = 42 stamps.",
+      "misconceptions": {
+        "common": "Stopping at 36, Aisha's stamps before Daniel gives her any. Read to the end of the question: her number goes up by 6."
+      },
+      "skill": "multi-step ratio problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m11-q040",
+      "subtopicId": "m11-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A school has 360 pupils. The ratio of pupils who walk to school to pupils who do not walk is 1 : 5. Half of the pupils who do not walk come by bus. How many pupils come by bus?",
+      "options": [
+        "180",
+        "60",
+        "30",
+        "150"
+      ],
+      "answer": 3,
+      "solution": "Total parts = 1 + 5 = 6. One part = 360 ÷ 6 = 60. Pupils who do not walk = 5 x 60 = 300. Half of them come by bus: 300 ÷ 2 = 150.",
+      "misconceptions": {
+        "0": "180 is half of ALL 360 pupils. Only the pupils who do not walk (300) are split in half.",
+        "1": "60 is the number of pupils who walk (1 part). The question asks about the bus.",
+        "2": "30 is half of the walkers. The bus riders are half of the pupils who do NOT walk."
+      },
+      "skill": "multi-step ratio problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m11-q041",
+      "subtopicId": "m11-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "At first, the ratio of Wei Ming's money to Siti's money is 5 : 3. Wei Ming spends RM 30 and Siti spends nothing. Now they both have the same amount of money. How much money did Wei Ming have at first?",
+      "options": [
+        "RM 75",
+        "RM 45",
+        "RM 15",
+        "RM 150"
+      ],
+      "answer": 0,
+      "solution": "Siti's money does not change, so she still has 3 parts. To have the same as Siti, Wei Ming goes from 5 parts down to 3 parts, so he spent 2 parts. 2 parts = RM 30, so 1 part = RM 15. At first Wei Ming had 5 x RM 15 = RM 75. Check: RM 75 - RM 30 = RM 45, and Siti has 3 x RM 15 = RM 45.",
+      "misconceptions": {
+        "1": "RM 45 is how much each of them has at the END. The question asks how much Wei Ming had at first, before he spent RM 30.",
+        "2": "RM 15 is the value of one part. Wei Ming had 5 parts at first: 5 x RM 15.",
+        "3": "You treated RM 30 as 1 part. Wei Ming had to drop from 5 parts to 3 parts to match Siti, so RM 30 = 2 parts and 1 part = RM 15."
+      },
+      "skill": "before-and-after ratio problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m11-q042",
+      "subtopicId": "m11-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "A box has red apples and green apples in the ratio 4 : 3. After 8 red apples are eaten, the ratio of red apples to green apples becomes 2 : 3. How many green apples are in the box?",
+      "options": [
+        "16",
+        "12",
+        "4",
+        "24"
+      ],
+      "answer": 1,
+      "solution": "The green apples do not change, and they are 3 parts in both ratios, so the parts stay the same size. Red goes from 4 parts to 2 parts, so 2 parts were eaten. 2 parts = 8 apples, so 1 part = 4 apples. Green = 3 x 4 = 12. Check: at first red 16, green 12 (16 : 12 = 4 : 3). After 8 are eaten: red 8, green 12, and 8 : 12 = 2 : 3.",
+      "misconceptions": {
+        "0": "16 is the number of red apples at first (4 x 4). The question asks for the green apples.",
+        "2": "4 is the value of one part. Green apples are 3 parts: 3 x 4 = 12.",
+        "3": "You treated the 8 apples as 1 part. The red apples went from 4 parts to 2 parts, so 8 apples = 2 parts and 1 part = 4."
+      },
+      "skill": "before-and-after ratio problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m11-q043",
+      "subtopicId": "m11-s5",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "The ratio of the length to the width of a rectangle is 5 : 2. The perimeter of the rectangle is 56 cm. What is its area? Give your answer in cm^2.",
+      "answer": {
+        "value": 160,
+        "tolerance": 0,
+        "accept": [
+          "160 cm^2",
+          "160 cm2",
+          "160cm^2"
+        ]
+      },
+      "solution": "The perimeter goes all the way round: length + width + length + width, which is 5 + 2 + 5 + 2 = 14 parts. 1 part = 56 ÷ 14 = 4 cm. Length = 5 x 4 = 20 cm and width = 2 x 4 = 8 cm. Area = 20 x 8 = 160 cm^2.",
+      "misconceptions": {
+        "common": "Sharing 56 cm in the ratio 5 : 2 (7 parts) as if the perimeter were one length plus one width. That gives 40 cm by 16 cm and an area of 640 cm^2. The perimeter is 2 lengths + 2 widths = 14 parts."
+      },
+      "skill": "multi-step ratio problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m11-q044",
+      "subtopicId": "m11-s5",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "True or false: Omar and Priya share some sweets in the ratio 2 : 1. Then each of them is given 5 more sweets. The ratio of Omar's sweets to Priya's sweets is still 2 : 1.",
+      "answer": false,
+      "solution": "Try an example. Omar has 10 and Priya has 5 (ratio 2 : 1). Give each 5 more: Omar 15, Priya 10. 15 : 10 = 3 : 2, which is not 2 : 1. Adding the same number to both parts always changes a ratio like this, so the statement is false.",
+      "misconceptions": {
+        "common": "Thinking that giving both people the same extra amount keeps the ratio the same. It keeps the DIFFERENCE the same, but not the ratio."
+      },
+      "skill": "before-and-after ratio problems",
+      "source": "inspired-by: KS2"
+    }
+  ]
+}

@@ -1,0 +1,1205 @@
+{
+  "subject": "maths",
+  "topicId": "m15-time-and-measures",
+  "title": "Time and Measures",
+  "order": 15,
+  "bookChapter": "No separate book chapter: Stage 6 time objective 6Gt.01, plus measure conversions used throughout the book",
+  "frameworkRefs": [
+    "6Gt.01",
+    "6Np.02",
+    "6Nf.09"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will change times between decimals and hours and minutes, like 2.5 hours = 2 hours 30 minutes. You will work out how long things take using the 24-hour clock and timetables, even past midnight. You will convert lengths, masses and capacities, and solve perimeter and area problems with mixed units.",
+    "whyItMatters": "Time does not work like ordinary decimals, because an hour has 60 minutes, not 100. Knowing this stops a very common mistake. Changing units correctly is needed in almost every measurement question in your exams.",
+    "realWorld": [
+      "Working out how long a bus from KL to Penang takes using the timetable",
+      "Changing a recipe's 1.5 kg of rice into grams for the kitchen scale",
+      "Counting how many floor tiles are needed for a room",
+      "Knowing a 0.75-hour badminton session is 45 minutes, not 75",
+      "Working out what time a night flight lands after crossing midnight"
+    ],
+    "subtopics": [
+      {
+        "id": "m15-s1",
+        "title": "Time as decimals and mixed units",
+        "summary": "Convert time between decimal hours and hours and minutes, for example 1.75 h = 1 h 45 min and 0.2 h = 12 min."
+      },
+      {
+        "id": "m15-s2",
+        "title": "Time calculations and timetables",
+        "summary": "Find durations and end times using the 12-hour and 24-hour clock, timetables and times that go past midnight."
+      },
+      {
+        "id": "m15-s3",
+        "title": "Converting metric units",
+        "summary": "Change between mm, cm, m and km; g and kg; ml and l by multiplying or dividing by 10, 100 or 1000."
+      },
+      {
+        "id": "m15-s4",
+        "title": "Measurement word problems",
+        "summary": "Solve problems about perimeter, area and distances where the measurements are given in different units."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m15-q001",
+      "subtopicId": "m15-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How long is 2.5 hours in hours and minutes?",
+      "options": [
+        "2 hours 50 minutes",
+        "250 minutes",
+        "2 hours 30 minutes",
+        "2 hours 5 minutes"
+      ],
+      "answer": 2,
+      "solution": "The 2 is 2 whole hours. The 0.5 means half an hour. Half of 60 minutes is 30 minutes. So 2.5 hours = 2 hours 30 minutes.",
+      "misconceptions": {
+        "0": "You read the .5 as 50 minutes. But an hour has 60 minutes, not 100, so 0.5 of an hour is half of 60 = 30 minutes.",
+        "1": "You multiplied 2.5 by 100. There are 60 minutes in an hour, so 2.5 hours = 2.5 x 60 = 150 minutes.",
+        "3": "You read the digit 5 as 5 minutes. The 5 is 5 tenths of an hour, and 0.5 x 60 = 30 minutes."
+      },
+      "skill": "converting decimal hours to hours and minutes",
+      "source": "original"
+    },
+    {
+      "id": "m15-q002",
+      "subtopicId": "m15-s1",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How many minutes are there in 0.75 hours? Give your answer in minutes.",
+      "answer": {
+        "value": 45,
+        "tolerance": 0,
+        "accept": [
+          "45 minutes",
+          "45 min",
+          "45 mins"
+        ]
+      },
+      "solution": "0.75 is the same as 3/4. One quarter of an hour is 60 / 4 = 15 minutes, so three quarters is 3 x 15 = 45 minutes. Or work it out as 0.75 x 60 = 45.",
+      "misconceptions": {
+        "common": "Answering 75 minutes by reading the decimal digits as minutes. An hour has 60 minutes, so multiply by 60: 0.75 x 60 = 45."
+      },
+      "skill": "converting decimal hours to minutes",
+      "source": "original"
+    },
+    {
+      "id": "m15-q003",
+      "subtopicId": "m15-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which shows 1 hour 45 minutes as a decimal number of hours?",
+      "options": [
+        "1.45 h",
+        "1.75 h",
+        "1.25 h",
+        "105 h"
+      ],
+      "answer": 1,
+      "solution": "45 minutes is 45 out of 60 minutes, which is 45/60 = 3/4 of an hour. 3/4 = 0.75. So 1 hour 45 minutes = 1.75 hours.",
+      "misconceptions": {
+        "0": "You copied the 45 minutes straight after the decimal point. Minutes are sixtieths of an hour, not hundredths, so 45 minutes = 45/60 = 0.75 h.",
+        "2": "0.25 h is only a quarter of an hour, which is 15 minutes. 45 minutes is three quarters of an hour, so it is 0.75 h.",
+        "3": "1 hour 45 minutes is 105 MINUTES, not 105 hours. To change minutes to hours, divide by 60: 105 / 60 = 1.75 h."
+      },
+      "skill": "converting hours and minutes to decimal hours",
+      "source": "original"
+    },
+    {
+      "id": "m15-q004",
+      "subtopicId": "m15-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How many minutes is 0.2 hours?",
+      "options": [
+        "12 minutes",
+        "20 minutes",
+        "2 minutes",
+        "120 minutes"
+      ],
+      "answer": 0,
+      "solution": "0.2 hours means 2 tenths of an hour. One tenth of 60 minutes is 6 minutes, so 2 tenths is 2 x 6 = 12 minutes. Or: 0.2 x 60 = 12.",
+      "misconceptions": {
+        "1": "You read 0.2 as 20 minutes, as if an hour had 100 minutes. An hour has 60 minutes, so 0.2 x 60 = 12 minutes.",
+        "2": "You read the digit 2 as 2 minutes. The 2 means 2 tenths of an hour, and one tenth of an hour is 6 minutes.",
+        "3": "You worked out 2 x 60 and lost the decimal point. 0.2 is much less than 1 hour, so the answer must be less than 60 minutes."
+      },
+      "skill": "converting decimal hours to minutes",
+      "source": "original"
+    },
+    {
+      "id": "m15-q005",
+      "subtopicId": "m15-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 3.3 hours is the same as 3 hours 30 minutes.",
+      "answer": false,
+      "solution": "0.3 hours is 3 tenths of an hour. One tenth of an hour is 6 minutes, so 0.3 h = 3 x 6 = 18 minutes. So 3.3 hours = 3 hours 18 minutes, not 3 hours 30 minutes. The statement is false.",
+      "misconceptions": {
+        "common": "Reading the digits after the decimal point as minutes. Hours are split into 60 minutes, not 100, so 0.3 h = 0.3 x 60 = 18 minutes. (3 hours 30 minutes would be 3.5 hours.)"
+      },
+      "skill": "converting decimal hours to hours and minutes",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m15-q006",
+      "subtopicId": "m15-s1",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Write 4.25 hours in hours and minutes.",
+      "answer": {
+        "accept": [
+          "4 h 15 min",
+          "4 hours 15 minutes",
+          "4h 15min",
+          "4h15min",
+          "4 hours and 15 minutes",
+          "4 hr 15 min",
+          "4 hrs 15 mins",
+          "4 h 15 mins",
+          "4 hours 15 mins",
+          "4h 15m",
+          "4 h 15 m",
+          "4 hour 15 minutes",
+          "4 hours 15 min",
+          "4 hr 15 mins",
+          "4hrs 15mins",
+          "4 hrs 15 min",
+          "4hr 15min"
+        ],
+        "keywords": []
+      },
+      "solution": "4 whole hours stay as 4 hours. 0.25 = 1/4, and a quarter of 60 minutes is 15 minutes. So 4.25 hours = 4 hours 15 minutes.",
+      "misconceptions": {
+        "common": "Writing 4 hours 25 minutes. The .25 is a quarter of an hour, which is 15 minutes, because an hour has 60 minutes, not 100."
+      },
+      "skill": "converting decimal hours to hours and minutes",
+      "source": "original"
+    },
+    {
+      "id": "m15-q007",
+      "subtopicId": "m15-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Write 2 hours 24 minutes as a decimal number of hours. Give your answer as a decimal.",
+      "answer": {
+        "value": 2.4,
+        "tolerance": 0,
+        "accept": [
+          "2.40",
+          "2.4 h",
+          "2.4 hours",
+          "2 2/5"
+        ]
+      },
+      "solution": "Change the minutes to a fraction of an hour: 24/60. Divide top and bottom by 12 to get 2/5. 2/5 = 0.4. So 2 hours 24 minutes = 2.4 hours.",
+      "misconceptions": {
+        "common": "Writing 2.24 hours by putting the minutes after the decimal point. Minutes are sixtieths of an hour, so 24 minutes = 24/60 = 0.4 h."
+      },
+      "skill": "converting hours and minutes to decimal hours",
+      "source": "original"
+    },
+    {
+      "id": "m15-q008",
+      "subtopicId": "m15-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A film lasts 96 minutes. How long is that as a decimal number of hours?",
+      "options": [
+        "1.36 h",
+        "0.96 h",
+        "9.6 h",
+        "1.6 h"
+      ],
+      "answer": 3,
+      "solution": "Divide by 60 to change minutes to hours: 96 / 60 = 1.6. Check: 1.6 h = 1 hour + 0.6 x 60 minutes = 1 hour 36 minutes = 96 minutes.",
+      "misconceptions": {
+        "0": "96 minutes is 1 hour 36 minutes, but 36 minutes is not 0.36 h. 36 minutes = 36/60 = 0.6 h, so the answer is 1.6 h.",
+        "1": "You divided by 100 as if an hour had 100 minutes. Divide by 60: 96 / 60 = 1.6 h. (96 minutes is more than 1 hour, so the answer must be more than 1.)",
+        "2": "You divided by 10 instead of 60. 9.6 hours would be almost 10 hours, far too long for a film of 96 minutes."
+      },
+      "skill": "converting minutes to decimal hours",
+      "source": "original"
+    },
+    {
+      "id": "m15-q009",
+      "subtopicId": "m15-s1",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each time in decimal hours to the same time in hours and minutes.",
+      "options": {
+        "left": [
+          "1.5 h",
+          "1.1 h",
+          "1.25 h",
+          "1.9 h"
+        ],
+        "right": [
+          "1 h 10 min",
+          "1 h 30 min",
+          "1 h 15 min",
+          "1 h 50 min",
+          "1 h 6 min",
+          "1 h 54 min"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "solution": "Multiply the decimal part by 60. 0.5 x 60 = 30, so 1.5 h = 1 h 30 min. 0.1 x 60 = 6, so 1.1 h = 1 h 6 min. 0.25 x 60 = 15, so 1.25 h = 1 h 15 min. 0.9 x 60 = 54, so 1.9 h = 1 h 54 min.",
+      "misconceptions": {
+        "common": "Copying the decimal digits as minutes, for example matching 1.1 h with 1 h 10 min or 1.5 h with 1 h 50 min. Multiply the decimal part by 60 instead."
+      },
+      "skill": "converting decimal hours to hours and minutes",
+      "source": "original"
+    },
+    {
+      "id": "m15-q010",
+      "subtopicId": "m15-s1",
+      "type": "order",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Put these lengths of time in order from shortest to longest.",
+      "options": [
+        "1.3 hours",
+        "1 hour 20 minutes",
+        "75 minutes",
+        "1.2 hours"
+      ],
+      "answer": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "solution": "Change them all to minutes. 1.2 hours = 1.2 x 60 = 72 minutes. 75 minutes stays 75. 1.3 hours = 1.3 x 60 = 78 minutes. 1 hour 20 minutes = 60 + 20 = 80 minutes. Shortest to longest: 1.2 hours, 75 minutes, 1.3 hours, 1 hour 20 minutes.",
+      "misconceptions": {
+        "common": "Thinking 1.3 hours is 1 hour 30 minutes and putting it last. 0.3 h is only 0.3 x 60 = 18 minutes, so 1.3 hours = 78 minutes."
+      },
+      "skill": "comparing times in different units",
+      "source": "original"
+    },
+    {
+      "id": "m15-q011",
+      "subtopicId": "m15-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Aisha practised the piano for 0.4 hours on Monday and for 1 hour 35 minutes on Tuesday. How long did she practise altogether?",
+      "options": [
+        "2 h 15 min",
+        "1 h 59 min",
+        "1.75 h",
+        "1 h 39 min"
+      ],
+      "answer": 1,
+      "solution": "First change 0.4 hours to minutes: 0.4 x 60 = 24 minutes. Then add: 24 minutes + 1 hour 35 minutes = 1 hour 59 minutes. Well done if you changed to the same units first!",
+      "misconceptions": {
+        "0": "You took 0.4 hours to be 40 minutes. An hour has 60 minutes, so 0.4 h = 0.4 x 60 = 24 minutes, not 40.",
+        "2": "You added 0.4 + 1.35, treating 1 hour 35 minutes as 1.35 hours. 35 minutes is not 0.35 h. Change both to minutes before adding.",
+        "3": "You took 0.4 hours to be 4 minutes. 0.4 is 4 tenths of an hour, and each tenth is 6 minutes, so 0.4 h = 24 minutes."
+      },
+      "skill": "adding times given in different forms",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m15-q012",
+      "subtopicId": "m15-s1",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Select ALL the lengths of time that are LONGER than 2.4 hours.",
+      "options": [
+        "2 h 30 min",
+        "2 h 20 min",
+        "145 minutes",
+        "2.35 hours",
+        "2 h 25 min"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Change everything to minutes. 2.4 hours = 2 x 60 + 0.4 x 60 = 120 + 24 = 144 minutes. 2 h 30 min = 150 (longer). 2 h 20 min = 140 (shorter). 145 minutes (longer). 2.35 hours = 120 + 0.35 x 60 = 120 + 21 = 141 (shorter). 2 h 25 min = 145 (longer).",
+      "misconceptions": {
+        "1": "2 h 20 min = 140 minutes, which is less than 2.4 h = 144 minutes.",
+        "3": "2.35 hours = 141 minutes, which is less than 144 minutes. Compare 2.35 and 2.40 as decimals: 2.35 is smaller.",
+        "common": "Thinking 2.4 hours means 2 hours 40 minutes (160 minutes). Then nothing on the list would look longer. 0.4 h is 24 minutes, so 2.4 h = 2 h 24 min."
+      },
+      "skill": "comparing times in different units",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m15-q013",
+      "subtopicId": "m15-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 7:45 pm written in the 24-hour clock?",
+      "options": [
+        "07:45",
+        "17:45",
+        "19:45"
+      ],
+      "answer": 2,
+      "solution": "For times after midday (pm), add 12 to the hour. 7 + 12 = 19. So 7:45 pm = 19:45.",
+      "misconceptions": {
+        "0": "07:45 is 7:45 in the MORNING (am). For pm times you add 12 to the hour.",
+        "1": "A common mix-up: 17:45 looks like it has a 7, but 17:45 is 5:45 pm. Add 12, not 10: 7 + 12 = 19."
+      },
+      "skill": "converting between 12-hour and 24-hour clock",
+      "source": "original"
+    },
+    {
+      "id": "m15-q014",
+      "subtopicId": "m15-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A lesson starts at 09:20 and ends at 10:05. How long is the lesson? Give your answer in minutes.",
+      "answer": {
+        "value": 45,
+        "tolerance": 0,
+        "accept": [
+          "45 minutes",
+          "45 min",
+          "45 mins"
+        ]
+      },
+      "solution": "Count on. From 09:20 to 10:00 is 40 minutes. From 10:00 to 10:05 is 5 minutes. 40 + 5 = 45 minutes.",
+      "misconceptions": {
+        "common": "Taking away the times like ordinary numbers: 1005 - 920 = 85. Times do not work like that because an hour has 60 minutes, not 100. Count on to the next hour instead."
+      },
+      "skill": "finding a duration",
+      "source": "original"
+    },
+    {
+      "id": "m15-q015",
+      "subtopicId": "m15-s2",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A bus leaves at 14:35 and arrives at 17:10. How long is the journey? Give your answer in hours and minutes.",
+      "answer": {
+        "accept": [
+          "2 h 35 min",
+          "2 hours 35 minutes",
+          "2h 35min",
+          "2h35min",
+          "2 hours and 35 minutes",
+          "2 hr 35 min",
+          "2 hrs 35 mins",
+          "2 h 35 mins",
+          "2 hours 35 mins",
+          "2h 35m",
+          "2 h 35 m",
+          "2 hour 35 minutes",
+          "2 hours 35 min",
+          "2 hr 35 mins",
+          "2hrs 35mins",
+          "2 hrs 35 min",
+          "2hr 35min"
+        ],
+        "keywords": []
+      },
+      "solution": "Count on. 14:35 to 16:35 is 2 hours. 16:35 to 17:00 is 25 minutes. 17:00 to 17:10 is 10 minutes. 2 hours + 25 minutes + 10 minutes = 2 hours 35 minutes.",
+      "misconceptions": {
+        "common": "Subtracting like ordinary numbers (1710 - 1435 = 275) and writing 2 hours 75 minutes. A time cannot have 75 minutes; count on through the hour instead."
+      },
+      "skill": "finding a duration",
+      "source": "original"
+    },
+    {
+      "id": "m15-q016",
+      "subtopicId": "m15-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A night flight leaves Kuala Lumpur at 22:50. It lands 6 hours 25 minutes later. Both times are Kuala Lumpur time. What time does it land?",
+      "options": [
+        "29:15",
+        "04:15",
+        "05:15",
+        "16:25"
+      ],
+      "answer": 2,
+      "solution": "Add the hours first: 22:50 + 6 hours = 28:50. A day only has 24 hours, so take away 24: 28:50 is 04:50 the next morning. Now add 25 minutes: 04:50 + 10 minutes = 05:00, then 15 more minutes = 05:15.",
+      "misconceptions": {
+        "0": "You added correctly but forgot that the clock starts again at 00:00 after midnight. Take away 24 hours: 29:15 - 24:00 = 05:15.",
+        "1": "50 + 25 = 75 minutes, which is 1 hour 15 minutes. You wrote the 15 but forgot to carry the extra hour.",
+        "3": "You subtracted 6 h 25 min instead of adding. The plane lands AFTER it leaves, so the time must be later."
+      },
+      "skill": "adding time across midnight",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m15-q017",
+      "subtopicId": "m15-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Wei Ming falls asleep at 22:40 and wakes up at 06:15 the next morning. How long does he sleep?",
+      "options": [
+        "7 h 35 min",
+        "16 h 25 min",
+        "8 h 25 min",
+        "7 h 20 min"
+      ],
+      "answer": 0,
+      "solution": "Count on in steps. 22:40 to 23:00 is 20 minutes. 23:00 to 06:00 is 7 hours. 06:00 to 06:15 is 15 minutes. 7 hours + 20 minutes + 15 minutes = 7 hours 35 minutes.",
+      "misconceptions": {
+        "1": "You worked out 22:40 - 06:15, which is the time from 06:15 to 22:40, when he is awake. He sleeps from 22:40 through midnight to 06:15, so count on from 22:40.",
+        "2": "You took away the hours (30 - 22 = 8) and the minutes (40 - 15 = 25) separately. The minutes go the wrong way, so you must count on through the hour.",
+        "3": "You counted 22:40 to 23:00 (20 minutes) and 23:00 to 06:00 (7 hours) but forgot the last 15 minutes from 06:00 to 06:15."
+      },
+      "skill": "finding a duration across midnight",
+      "source": "original"
+    },
+    {
+      "id": "m15-q018",
+      "subtopicId": "m15-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Part of a bus timetable shows: Ipoh 07:40, Tapah 08:25, Rawang 09:50, Kuala Lumpur 10:15. How long does the bus take from Tapah to Kuala Lumpur?",
+      "options": [
+        "2 h 35 min",
+        "1 h 90 min",
+        "2 h 10 min",
+        "1 h 50 min"
+      ],
+      "answer": 3,
+      "solution": "Tapah is 08:25 and Kuala Lumpur is 10:15. Count on: 08:25 to 09:25 is 1 hour. 09:25 to 10:00 is 35 minutes. 10:00 to 10:15 is 15 minutes. 1 hour + 35 + 15 minutes = 1 hour 50 minutes.",
+      "misconceptions": {
+        "0": "That is the time from Ipoh (07:40), the first stop. The question starts at Tapah (08:25). Read the timetable carefully.",
+        "1": "You subtracted 1015 - 825 = 190 like ordinary numbers. An hour has 60 minutes, so '90 minutes' is not possible here. Count on instead.",
+        "2": "You took away the hours (10 - 8 = 2) and then took 15 from 25 the wrong way round. Count on through the hour instead."
+      },
+      "skill": "reading a timetable",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m15-q019",
+      "subtopicId": "m15-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 00:30 on the 24-hour clock is half an hour after midnight.",
+      "answer": true,
+      "solution": "On the 24-hour clock, midnight is 00:00. So 00:30 is 30 minutes after midnight, which is 12:30 am. The statement is true.",
+      "misconceptions": {
+        "common": "Thinking 00:30 is 12:30 in the afternoon. Half past twelve in the afternoon is 12:30 on the 24-hour clock; 00:30 is just after midnight."
+      },
+      "skill": "converting between 12-hour and 24-hour clock",
+      "source": "original"
+    },
+    {
+      "id": "m15-q020",
+      "subtopicId": "m15-s2",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "These times are all on the same day. Put them in order from earliest to latest.",
+      "options": [
+        "2:15 pm",
+        "09:40",
+        "11:30 am",
+        "00:45",
+        "18:05"
+      ],
+      "answer": [
+        3,
+        1,
+        2,
+        0,
+        4
+      ],
+      "solution": "Change them all to the 24-hour clock: 2:15 pm = 14:15, 09:40, 11:30 am = 11:30, 00:45, 18:05. Earliest to latest: 00:45, 09:40, 11:30 am, 2:15 pm, 18:05.",
+      "misconceptions": {
+        "common": "Putting 2:15 pm early because 2 is a small number. pm means after midday, so 2:15 pm is 14:15. Also, 00:45 is just after midnight, so it is the earliest."
+      },
+      "skill": "converting between 12-hour and 24-hour clock",
+      "source": "original"
+    },
+    {
+      "id": "m15-q021",
+      "subtopicId": "m15-s2",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A cooking class has 3 sessions. Each session lasts 1 hour 40 minutes. There is a 15-minute break between sessions (2 breaks in total). The class starts at 09:30. At what time does it finish? Use the 24-hour clock.",
+      "answer": {
+        "accept": [
+          "15:00",
+          "1500",
+          "15.00",
+          "15:00 hours",
+          "3:00 pm",
+          "3 pm",
+          "3pm",
+          "3:00pm",
+          "3.00 pm"
+        ],
+        "keywords": []
+      },
+      "solution": "Sessions: 3 x 1 h 40 min = 3 h 120 min = 5 hours. Breaks: 2 x 15 min = 30 minutes. Total time = 5 hours 30 minutes. 09:30 + 5 hours = 14:30. 14:30 + 30 minutes = 15:00.",
+      "misconceptions": {
+        "common": "Counting 3 breaks instead of 2. With 3 sessions there are only 2 gaps between them. Another slip is writing 3 x 1 h 40 min as 3 h 40 min; remember to multiply the minutes too."
+      },
+      "skill": "multi-step time problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m15-q022",
+      "subtopicId": "m15-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A ferry leaves at 21:35 on Friday. The trip takes 9 hours 50 minutes. When does the ferry arrive?",
+      "options": [
+        "07:25 on Friday",
+        "06:25 on Saturday",
+        "31:25 on Friday",
+        "07:25 on Saturday"
+      ],
+      "answer": 3,
+      "solution": "21:35 + 9 hours = 30:35. That is past midnight, so take away 24 hours: 06:35 on Saturday. Now add 50 minutes: 06:35 + 25 minutes = 07:00, then 25 more minutes = 07:25. The ferry arrives at 07:25 on Saturday.",
+      "misconceptions": {
+        "0": "The time is right, but the ferry travels through midnight, so it arrives the next day, Saturday.",
+        "1": "35 + 50 = 85 minutes, which is 1 hour 25 minutes. You wrote 25 but forgot to carry the extra hour.",
+        "2": "The 24-hour clock only goes up to 23:59. After midnight it starts again at 00:00 on the next day: 31:25 - 24:00 = 07:25 on Saturday."
+      },
+      "skill": "adding time across midnight",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m15-q023",
+      "subtopicId": "m15-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A movie marathon starts at 19:45 and ends at 01:20 the next morning. How long does it last? Give your answer in minutes.",
+      "answer": {
+        "value": 335,
+        "tolerance": 0,
+        "accept": [
+          "335 minutes",
+          "335 min",
+          "335 mins"
+        ]
+      },
+      "solution": "19:45 to 20:00 is 15 minutes. 20:00 to midnight (24:00) is 4 hours = 240 minutes. Midnight to 01:20 is 80 minutes. Total = 15 + 240 + 80 = 335 minutes (that is 5 hours 35 minutes).",
+      "misconceptions": {
+        "common": "Doing 19:45 - 01:20 and getting 18 h 25 min. The marathon goes past midnight, so count on from 19:45 to midnight, then from midnight to 01:20."
+      },
+      "skill": "finding a duration across midnight",
+      "source": "original"
+    },
+    {
+      "id": "m15-q024",
+      "subtopicId": "m15-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 16:20 written in the 12-hour clock?",
+      "options": [
+        "4:20 pm",
+        "6:20 pm",
+        "4:20 am"
+      ],
+      "answer": 0,
+      "solution": "Hours bigger than 12 are in the afternoon or evening. Take away 12: 16 - 12 = 4. So 16:20 is 4:20 pm.",
+      "misconceptions": {
+        "1": "You took away 10 instead of 12 (16 - 10 = 6). Always take away 12 to change a pm time back to the 12-hour clock.",
+        "2": "4:20 am is early morning, which is 04:20. Any hour of 13 or more is after midday, so it is pm."
+      },
+      "skill": "converting between 12-hour and 24-hour clock",
+      "source": "original"
+    },
+    {
+      "id": "m15-q025",
+      "subtopicId": "m15-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How many grams are there in 3.5 kg?",
+      "options": [
+        "350 g",
+        "35 g",
+        "3005 g",
+        "3500 g"
+      ],
+      "answer": 3,
+      "solution": "1 kg = 1000 g, so multiply by 1000. 3.5 x 1000 = 3500. So 3.5 kg = 3500 g.",
+      "misconceptions": {
+        "0": "You multiplied by 100. There are 1000 grams in 1 kilogram, so multiply by 1000.",
+        "1": "You multiplied by 10. There are 1000 grams in 1 kilogram, so multiply by 1000.",
+        "2": "You read 3.5 kg as 3 kg and 5 g. The 5 is 5 tenths of a kilogram, which is 500 g, so 3.5 kg = 3 kg 500 g = 3500 g."
+      },
+      "skill": "converting units of mass",
+      "source": "original"
+    },
+    {
+      "id": "m15-q026",
+      "subtopicId": "m15-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How many centimetres are there in 2.4 m?",
+      "options": [
+        "24 cm",
+        "240 cm",
+        "2400 cm",
+        "0.024 cm"
+      ],
+      "answer": 1,
+      "solution": "1 m = 100 cm, so multiply by 100. 2.4 x 100 = 240. So 2.4 m = 240 cm.",
+      "misconceptions": {
+        "0": "You multiplied by 10. There are 100 cm in 1 m, so multiply by 100.",
+        "2": "You multiplied by 1000. That is the rule for metres to millimetres. There are 100 cm in 1 m.",
+        "3": "You divided by 100 instead of multiplying. Centimetres are smaller than metres, so you need MORE of them: the number gets bigger."
+      },
+      "skill": "converting units of length",
+      "source": "original"
+    },
+    {
+      "id": "m15-q027",
+      "subtopicId": "m15-s3",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Write 750 ml in litres. Give your answer as a decimal.",
+      "answer": {
+        "value": 0.75,
+        "tolerance": 0,
+        "accept": [
+          "0.75 l",
+          "0.75 litres",
+          "0.75 L",
+          "3/4",
+          "3/4 l",
+          "3/4 L"
+        ]
+      },
+      "solution": "1 L = 1000 ml, so divide by 1000. 750 / 1000 = 0.75. So 750 ml = 0.75 L.",
+      "misconceptions": {
+        "common": "Dividing by 100 and getting 7.5 L. There are 1000 ml in a litre, so divide by 1000. (A 750 ml bottle is less than 1 litre, so 7.5 L cannot be right.)"
+      },
+      "skill": "converting units of capacity",
+      "source": "original"
+    },
+    {
+      "id": "m15-q028",
+      "subtopicId": "m15-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Write 4 km 60 m in kilometres.",
+      "options": [
+        "4.06 km",
+        "4.6 km",
+        "4.006 km",
+        "4060 km"
+      ],
+      "answer": 0,
+      "solution": "1 km = 1000 m, so 60 m = 60/1000 km = 0.060 km = 0.06 km. 4 km + 0.06 km = 4.06 km.",
+      "misconceptions": {
+        "1": "4.6 km would be 4 km 600 m. 60 m is 60 thousandths of a km, so it is 0.060 km, not 0.6 km. Use a zero to hold the tenths place.",
+        "2": "0.006 km is only 6 m. 60 m = 60/1000 km = 0.06 km.",
+        "3": "4 km 60 m is 4060 METRES. In kilometres it is 4060 / 1000 = 4.06 km."
+      },
+      "skill": "converting units of length",
+      "source": "original"
+    },
+    {
+      "id": "m15-q029",
+      "subtopicId": "m15-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 1 litre is the same as 1000 millilitres.",
+      "answer": true,
+      "solution": "Milli means one thousandth. 1 millilitre is 1/1000 of a litre, so 1000 millilitres make 1 litre. The statement is true.",
+      "misconceptions": {
+        "common": "Thinking 1 litre = 100 ml, mixing it up with 1 m = 100 cm. For litres and millilitres the number is 1000."
+      },
+      "skill": "converting units of capacity",
+      "source": "original"
+    },
+    {
+      "id": "m15-q030",
+      "subtopicId": "m15-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Fill in the missing unit: 5 cm = 50 ___",
+      "answer": {
+        "accept": [
+          "mm",
+          "millimetres",
+          "millimeters",
+          "millimetre",
+          "millimeter"
+        ],
+        "keywords": []
+      },
+      "solution": "1 cm = 10 mm. So 5 cm = 5 x 10 = 50 mm. The missing unit is millimetres (mm).",
+      "misconceptions": {
+        "common": "Writing m (metres). 50 m is a whole running track, much longer than 5 cm. The unit must be smaller than a centimetre: millimetres."
+      },
+      "skill": "converting units of length",
+      "source": "original"
+    },
+    {
+      "id": "m15-q031",
+      "subtopicId": "m15-s3",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Put these masses in order from lightest to heaviest.",
+      "options": [
+        "1.2 kg",
+        "950 g",
+        "1 kg 25 g",
+        "1050 g",
+        "0.9 kg"
+      ],
+      "answer": [
+        4,
+        1,
+        2,
+        3,
+        0
+      ],
+      "solution": "Change them all to grams. 1.2 kg = 1200 g, 950 g, 1 kg 25 g = 1025 g, 1050 g, 0.9 kg = 900 g. Lightest to heaviest: 0.9 kg (900 g), 950 g, 1 kg 25 g (1025 g), 1050 g, 1.2 kg (1200 g).",
+      "misconceptions": {
+        "common": "Comparing the numbers without changing units, so 1.2 kg looks lighter than 950 g because 1.2 is a smaller number than 950. Change everything to grams first: 1.2 kg = 1200 g is actually the heaviest."
+      },
+      "skill": "comparing measures in different units",
+      "source": "original"
+    },
+    {
+      "id": "m15-q032",
+      "subtopicId": "m15-s3",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each length to the same length in a different unit.",
+      "options": {
+        "left": [
+          "3.2 cm",
+          "0.45 m",
+          "2.5 km",
+          "1.08 m"
+        ],
+        "right": [
+          "32 mm",
+          "320 mm",
+          "45 cm",
+          "2500 m",
+          "250 m",
+          "108 cm"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "solution": "cm to mm: x 10, so 3.2 cm = 32 mm. m to cm: x 100, so 0.45 m = 45 cm and 1.08 m = 108 cm. km to m: x 1000, so 2.5 km = 2500 m.",
+      "misconceptions": {
+        "common": "Using the wrong number, for example x 100 for cm to mm (3.2 cm = 320 mm is wrong) or x 100 for km to m (2.5 km = 250 m is wrong). Remember: 10 mm = 1 cm, 100 cm = 1 m, 1000 m = 1 km."
+      },
+      "skill": "converting units of length",
+      "source": "original"
+    },
+    {
+      "id": "m15-q033",
+      "subtopicId": "m15-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A jug holds 1.75 L of juice. Siti pours 4 cups of juice from the jug. Each cup holds 280 ml. How much juice is left in the jug?",
+      "options": [
+        "630 ml",
+        "1120 ml",
+        "1.47 L",
+        "0.63 ml"
+      ],
+      "answer": 0,
+      "solution": "Change litres to millilitres: 1.75 L = 1750 ml. Juice poured: 4 x 280 ml = 1120 ml. Juice left: 1750 - 1120 = 630 ml.",
+      "misconceptions": {
+        "1": "That is the juice Siti POURED OUT (4 x 280 ml). The question asks how much is LEFT, so subtract it from 1750 ml.",
+        "2": "You took away only one cup (1.75 - 0.28 = 1.47). She pours 4 cups, so take away 4 x 280 ml = 1120 ml.",
+        "3": "0.63 is the right number of LITRES, but you wrote ml. 0.63 L = 630 ml. Always check the unit matches your number."
+      },
+      "skill": "measurement word problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m15-q034",
+      "subtopicId": "m15-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the masses that are equal to 2.05 kg.",
+      "options": [
+        "2050 g",
+        "2 kg 50 g",
+        "2 kg 5 g",
+        "205 g",
+        "2.050 kg"
+      ],
+      "answer": [
+        0,
+        1,
+        4
+      ],
+      "solution": "2.05 kg = 2.05 x 1000 g = 2050 g. That is 2 kg and 50 g. 2.050 kg is also the same, because a zero on the end of a decimal does not change its value. 2 kg 5 g = 2005 g and 205 g are different.",
+      "misconceptions": {
+        "2": "2 kg 5 g = 2005 g. The 5 in 2.05 is in the hundredths place, so 0.05 kg = 50 g, not 5 g.",
+        "3": "205 g is what you get if you multiply by 100. There are 1000 g in 1 kg, so 2.05 kg = 2050 g.",
+        "common": "Thinking 2.050 kg is different from 2.05 kg. Adding a zero at the END of a decimal does not change its value."
+      },
+      "skill": "converting units of mass",
+      "source": "original"
+    },
+    {
+      "id": "m15-q035",
+      "subtopicId": "m15-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Mei Lin has 2 bags of flour. Each bag holds 1.5 kg. Each cake needs 450 g of flour. She bakes as many whole cakes as she can. How much flour is left over? Give your answer in grams.",
+      "answer": {
+        "value": 300,
+        "tolerance": 0,
+        "accept": [
+          "300 g",
+          "300 grams"
+        ]
+      },
+      "solution": "Total flour: 2 x 1.5 kg = 3 kg = 3000 g. Cakes: 450 g each. 6 x 450 = 2700 g and 7 x 450 = 3150 g, which is too much. So she bakes 6 cakes. Flour left: 3000 - 2700 = 300 g.",
+      "misconceptions": {
+        "common": "Using only one bag (1500 g) or forgetting to change kg to g. Change 3 kg to 3000 g first, then see how many 450 g lots fit."
+      },
+      "skill": "measurement word problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m15-q036",
+      "subtopicId": "m15-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A rectangle is 8 cm long and 5 cm wide. What is its area? Give your answer in cm^2.",
+      "answer": {
+        "value": 40,
+        "tolerance": 0,
+        "accept": [
+          "40 cm^2",
+          "40 cm2",
+          "40 square cm"
+        ]
+      },
+      "solution": "Area of a rectangle = length x width = 8 x 5 = 40 cm^2.",
+      "misconceptions": {
+        "common": "Adding the sides (8 + 5 + 8 + 5 = 26) gives the perimeter, not the area. Area means how many 1 cm squares cover the shape, so multiply."
+      },
+      "skill": "area of a rectangle",
+      "source": "original"
+    },
+    {
+      "id": "m15-q037",
+      "subtopicId": "m15-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A rectangular garden is 12 m long and 7 m wide. What is its perimeter?",
+      "options": [
+        "19 m",
+        "84 m",
+        "38 m",
+        "31 m"
+      ],
+      "answer": 2,
+      "solution": "Perimeter is the distance all the way round. 12 + 7 + 12 + 7 = 38 m. Or 2 x (12 + 7) = 2 x 19 = 38 m.",
+      "misconceptions": {
+        "0": "You added only one length and one width. A rectangle has 4 sides, so double it: 2 x 19 = 38 m.",
+        "1": "12 x 7 = 84 is the AREA (in m^2). Perimeter is the distance around the edge, so add the four sides.",
+        "3": "You added only three sides (12 + 12 + 7). Go all the way round: there are two widths as well as two lengths."
+      },
+      "skill": "perimeter of a rectangle",
+      "source": "original"
+    },
+    {
+      "id": "m15-q038",
+      "subtopicId": "m15-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A rectangle is 1.2 m long and 40 cm wide. What is its perimeter in centimetres?",
+      "options": [
+        "82.4 cm",
+        "160 cm",
+        "4800 cm",
+        "320 cm"
+      ],
+      "answer": 3,
+      "solution": "First make the units the same: 1.2 m = 120 cm. Perimeter = 120 + 40 + 120 + 40 = 320 cm.",
+      "misconceptions": {
+        "0": "You added 1.2 and 40 without changing the units. 1.2 m is 120 cm, so change it first.",
+        "1": "120 + 40 = 160 is only one length and one width. Double it for all four sides: 320 cm.",
+        "2": "120 x 40 = 4800 is the area (in cm^2), not the perimeter. For perimeter, add the sides."
+      },
+      "skill": "perimeter of a rectangle",
+      "source": "original"
+    },
+    {
+      "id": "m15-q039",
+      "subtopicId": "m15-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A rug is 2.5 m long and 1.6 m wide. What is its area?",
+      "options": [
+        "4 m^2",
+        "8.2 m^2",
+        "4.1 m^2",
+        "40 m^2"
+      ],
+      "answer": 0,
+      "solution": "Area = length x width = 2.5 x 1.6. Work out 25 x 16 = 400. There are 2 decimal places in the question (one in each number), so the answer is 4.00 = 4 m^2.",
+      "misconceptions": {
+        "1": "8.2 is the PERIMETER (2.5 + 1.6 + 2.5 + 1.6 = 8.2 m). Area needs length x width.",
+        "2": "You added 2.5 + 1.6 = 4.1. For area you multiply length by width.",
+        "3": "25 x 16 = 400 is right, but you put the decimal point in the wrong place. 2.5 x 1.6 is about 2 x 2 = 4, so 4 m^2 makes sense."
+      },
+      "skill": "area of a rectangle",
+      "source": "original"
+    },
+    {
+      "id": "m15-q040",
+      "subtopicId": "m15-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: A rectangle 2 m long and 50 cm wide has an area of 100 m^2.",
+      "answer": false,
+      "solution": "Make the units the same first. 50 cm = 0.5 m. Area = 2 x 0.5 = 1 m^2. So the statement is false. (2 x 50 = 100 mixes metres and centimetres.)",
+      "misconceptions": {
+        "common": "Multiplying 2 by 50 without changing the units. You must use the same unit for both sides before you multiply."
+      },
+      "skill": "area with mixed units",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m15-q041",
+      "subtopicId": "m15-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A rectangular floor is 4.8 m long and 3.6 m wide. It is covered with square tiles, each 60 cm by 60 cm, with no gaps. How many tiles are needed?",
+      "options": [
+        "14 tiles",
+        "28 tiles",
+        "48 tiles",
+        "17 tiles"
+      ],
+      "answer": 2,
+      "solution": "Change to centimetres: 4.8 m = 480 cm and 3.6 m = 360 cm. Tiles along the length: 480 / 60 = 8. Tiles along the width: 360 / 60 = 6. Number of tiles = 8 x 6 = 48.",
+      "misconceptions": {
+        "0": "You found 8 tiles along the length and 6 along the width, but then added them. The tiles fill rows and columns, so multiply: 8 x 6 = 48.",
+        "1": "You used the perimeter (16.8 m) and divided by 0.6 m. That counts tiles around the edge only. The floor is covered, so you need the area.",
+        "3": "You worked out the area (17.28 m^2) and treated each tile as 1 m^2. Each tile is only 60 cm by 60 cm, which is much smaller than 1 m^2."
+      },
+      "skill": "area with mixed units",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m15-q042",
+      "subtopicId": "m15-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A rectangle has an area of 54 cm^2. Its length is 9 cm. What is its perimeter?",
+      "options": [
+        "15 cm",
+        "24 cm",
+        "126 cm",
+        "30 cm"
+      ],
+      "answer": 3,
+      "solution": "Area = length x width, so width = 54 / 9 = 6 cm. Perimeter = 9 + 6 + 9 + 6 = 30 cm.",
+      "misconceptions": {
+        "0": "9 + 6 = 15 is only one length and one width. A rectangle has two of each: 2 x 15 = 30 cm.",
+        "1": "You found the width (6 cm) but then did 4 x 6, as if it were a square. The length is 9 cm, not 6 cm.",
+        "2": "You used the area (54) as if it were a side length: 2 x (54 + 9). First find the width: 54 / 9 = 6 cm."
+      },
+      "skill": "perimeter of a rectangle",
+      "source": "original"
+    },
+    {
+      "id": "m15-q043",
+      "subtopicId": "m15-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A square has a perimeter of 3.2 m. What is its area? Give your answer in cm^2.",
+      "answer": {
+        "value": 6400,
+        "tolerance": 0,
+        "accept": [
+          "6400 cm^2",
+          "6,400",
+          "6400 cm2",
+          "6 400"
+        ]
+      },
+      "solution": "Change to centimetres: 3.2 m = 320 cm. A square has 4 equal sides, so each side = 320 / 4 = 80 cm. Area = 80 x 80 = 6400 cm^2.",
+      "misconceptions": {
+        "common": "Dividing the perimeter by 4 and stopping (80), or squaring the perimeter. Find the side first (320 / 4 = 80 cm), then multiply side x side."
+      },
+      "skill": "area with mixed units",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m15-q044",
+      "subtopicId": "m15-s4",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A rectangular playground is 25 m long and 18 m wide. Select ALL the statements that are true.",
+      "options": [
+        "The perimeter is 86 m",
+        "The area is 450 m^2",
+        "The area is 43 m^2",
+        "The perimeter is 8600 cm",
+        "The perimeter is 43 m"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "Perimeter = 25 + 18 + 25 + 18 = 86 m. In centimetres: 86 x 100 = 8600 cm, so that statement is also true. Area = 25 x 18 = 450 m^2. 43 is just 25 + 18, half the perimeter.",
+      "misconceptions": {
+        "2": "43 = 25 + 18. Adding gives part of the perimeter, not the area. Area = 25 x 18 = 450 m^2.",
+        "4": "25 + 18 = 43 m is only one length and one width. The full perimeter is 2 x 43 = 86 m.",
+        "common": "Missing that 8600 cm is the same as 86 m (1 m = 100 cm, so 86 m = 8600 cm)."
+      },
+      "skill": "perimeter and area of rectangles",
+      "source": "original"
+    },
+    {
+      "id": "m15-q045",
+      "subtopicId": "m15-s4",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name for the total distance around the edge of a shape?",
+      "answer": {
+        "accept": [
+          "perimeter",
+          "the perimeter",
+          "perimeters"
+        ],
+        "keywords": []
+      },
+      "solution": "The perimeter is the distance all the way around the edge of a shape. You find it by adding the lengths of all the sides.",
+      "misconceptions": {
+        "common": "Mixing up perimeter and area. Area is the space INSIDE a shape; perimeter is the distance AROUND it."
+      },
+      "skill": "perimeter and area vocabulary",
+      "source": "original"
+    },
+    {
+      "id": "m15-q046",
+      "subtopicId": "m15-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel wants to put a fence all the way around a rectangular field that is 15 m long and 9.5 m wide. Fencing costs RM 12 per metre. How much will the fencing cost?",
+      "options": [
+        "RM 294",
+        "RM 588",
+        "RM 1710",
+        "RM 49"
+      ],
+      "answer": 1,
+      "solution": "The fence goes around the edge, so find the perimeter: 15 + 9.5 + 15 + 9.5 = 49 m. Cost = 49 x RM 12 = RM 588.",
+      "misconceptions": {
+        "0": "You used 15 + 9.5 = 24.5 m, which is only half the perimeter. The fence goes all the way round: 49 m.",
+        "2": "You used the area (15 x 9.5 = 142.5 m^2). A fence goes around the edge, so you need the perimeter.",
+        "3": "49 m is the perimeter, but you stopped there. Each metre costs RM 12, so multiply: 49 x 12 = RM 588."
+      },
+      "skill": "perimeter word problems",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m15-q047",
+      "subtopicId": "m15-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Priya walks 1.2 km from home to school, then 850 m from school to the library. How far does she walk altogether, in metres?",
+      "options": [
+        "851.2 m",
+        "2050 m",
+        "970 m",
+        "2.05 m"
+      ],
+      "answer": 1,
+      "solution": "Change to the same unit first: 1.2 km = 1.2 x 1000 = 1200 m. Then add: 1200 + 850 = 2050 m.",
+      "misconceptions": {
+        "0": "You added 1.2 and 850 without changing the units. 1.2 km is 1200 m, so change it first.",
+        "2": "You changed 1.2 km to 120 m by multiplying by 100. There are 1000 m in a km, so 1.2 km = 1200 m.",
+        "3": "2.05 is the answer in KILOMETRES. The question asks for metres: 2.05 km = 2050 m."
+      },
+      "skill": "measurement word problems",
+      "source": "original"
+    }
+  ]
+}

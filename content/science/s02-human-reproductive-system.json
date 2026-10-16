@@ -1,0 +1,906 @@
+{
+  "subject": "science",
+  "topicId": "s02-human-reproductive-system",
+  "title": "The Human Reproductive System",
+  "order": 2,
+  "bookChapter": "Chapter 2: The Human Reproductive System",
+  "frameworkRefs": [
+    "6Bs.03",
+    "6Bp.01",
+    "6TWSp.02",
+    "6TWSc.04",
+    "6TWSc.05",
+    "6TWSc.07",
+    "6TWSa.02",
+    "6TWSa.05"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will learn the names and jobs of the parts of the female and male reproductive systems. You will learn about the physical changes of puberty and why they happen. You will also see where puberty fits in the stages of human life.",
+    "whyItMatters": "Reproduction is one of the life processes of all living things. Puberty happens to everyone, so knowing the facts helps you understand your own body and know that the changes are normal. It also helps you use the correct scientific words.",
+    "realWorld": [
+      "Growing out of your school uniform or shoes during a growth spurt",
+      "A nurse at a klinik kesihatan measuring a baby's height and mass to check healthy growth",
+      "Choosing a reliable health book or website when you want to find out about your body",
+      "Family photos showing the stages of life, from babies to grandparents"
+    ],
+    "subtopics": [
+      {
+        "id": "s02-s1",
+        "title": "The female reproductive system",
+        "summary": "The ovaries, oviducts, uterus, cervix and vagina, and what each one does. Eggs are made in the ovaries and a baby develops in the uterus."
+      },
+      {
+        "id": "s02-s2",
+        "title": "The male reproductive system",
+        "summary": "The testes, scrotum, sperm ducts, glands and penis, and what each one does. Sperm are made in the testes."
+      },
+      {
+        "id": "s02-s3",
+        "title": "Puberty",
+        "summary": "The physical changes in boys and girls during puberty, caused by hormones. Puberty starts at different ages for different people."
+      },
+      {
+        "id": "s02-s4",
+        "title": "Stages of human life and growth",
+        "summary": "The stages from baby to elderly person, where puberty fits in, and how to measure and interpret growth."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s02-q001",
+      "subtopicId": "s02-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In which organ are a woman's eggs made?",
+      "options": [
+        "Uterus",
+        "Ovary",
+        "Oviduct",
+        "Vagina"
+      ],
+      "answer": 1,
+      "solution": "A woman has two ovaries, one on each side of the uterus. Eggs are made and stored in the ovaries. After puberty, an egg is usually released about once a month.",
+      "misconceptions": {
+        "0": "The uterus (womb) is where a baby grows and develops. Eggs are made in the ovaries.",
+        "2": "The oviducts carry eggs from the ovaries to the uterus, but they do not make them.",
+        "3": "The vagina is the muscular tube leading from the cervix to the outside of the body. Eggs are made in the ovaries."
+      },
+      "skill": "female reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q002",
+      "subtopicId": "s02-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is another name for the uterus?",
+      "answer": {
+        "accept": [
+          "womb",
+          "the womb",
+          "a womb"
+        ],
+        "keywords": []
+      },
+      "solution": "The uterus is also called the womb. It is a hollow, muscular organ where a baby grows and develops before it is born.",
+      "misconceptions": {
+        "common": "Calling it the stomach because both are in the lower part of the body. The uterus is a separate organ, part of the reproductive system."
+      },
+      "skill": "female reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q003",
+      "subtopicId": "s02-s1",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How many ovaries does a woman usually have? Give your answer as a whole number.",
+      "answer": {
+        "value": 2,
+        "tolerance": 0,
+        "accept": [
+          "two"
+        ]
+      },
+      "solution": "A woman usually has 2 ovaries, one on each side of the uterus. Each ovary is linked to the uterus by an oviduct.",
+      "misconceptions": {
+        "common": "Answering 1. There are two ovaries, one on each side of the uterus, just as a man has two testes."
+      },
+      "skill": "female reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q004",
+      "subtopicId": "s02-s1",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each part of the female reproductive system to its job or description.",
+      "options": {
+        "left": [
+          "Ovary",
+          "Oviduct (fallopian tube)",
+          "Uterus (womb)",
+          "Cervix",
+          "Vagina"
+        ],
+        "right": [
+          "Ring of muscle at the lower end of the uterus",
+          "Makes and releases eggs",
+          "Makes sperm",
+          "Muscular tube leading from the cervix to the outside of the body",
+          "Carries an egg from the ovary to the uterus",
+          "Where a baby grows and develops"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "solution": "Ovary: makes and releases eggs. Oviduct: the tube that carries an egg to the uterus. Uterus: where a baby develops. Cervix: the ring of muscle at the bottom of the uterus. Vagina: the tube from the cervix to the outside of the body. 'Makes sperm' is the job of the testes in males.",
+      "misconceptions": {
+        "common": "Mixing up the ovary and the oviduct because the names look alike. The ovary makes eggs; the oviduct is the tube that carries them."
+      },
+      "skill": "female reproductive parts and functions",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s02-q005",
+      "subtopicId": "s02-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Put these parts of the female reproductive system in order, starting with the ovary and ending with the part that opens to the outside of the body.",
+      "options": [
+        "Uterus",
+        "Vagina",
+        "Ovary",
+        "Cervix",
+        "Oviduct"
+      ],
+      "answer": [
+        2,
+        4,
+        0,
+        3,
+        1
+      ],
+      "solution": "An egg is released from the ovary and travels along the oviduct to the uterus. The cervix is the narrow lower end of the uterus, and it leads into the vagina, which opens to the outside of the body.",
+      "misconceptions": {
+        "common": "Putting the cervix before the uterus. The cervix is at the lower end of the uterus, so it comes after the uterus and before the vagina."
+      },
+      "skill": "female reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q006",
+      "subtopicId": "s02-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "After puberty, about how often is an egg usually released from a woman's ovaries?",
+      "options": [
+        "About once a month",
+        "About once a day",
+        "About once a year",
+        "Only once in her whole life"
+      ],
+      "answer": 0,
+      "solution": "From puberty, the ovaries usually release one egg about every 28 days, so about once a month. This monthly cycle is also linked to periods.",
+      "misconceptions": {
+        "1": "Eggs are not released every day. Usually one egg is released about once a month, as part of the monthly cycle.",
+        "2": "That is far too rarely. An egg is usually released about once a month.",
+        "3": "Many eggs are released over the years, usually about one each month, from puberty until about middle age."
+      },
+      "skill": "female reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q007",
+      "subtopicId": "s02-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: The cervix is found between the ovary and the oviduct.",
+      "answer": false,
+      "solution": "False. The cervix is the narrow lower end of the uterus. It sits between the uterus and the vagina. The ovary is joined to the uterus by the oviduct.",
+      "misconceptions": {
+        "common": "Mixing up the order of the parts. Starting from an ovary, the order is: oviduct, uterus, cervix, vagina."
+      },
+      "skill": "female reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q008",
+      "subtopicId": "s02-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The walls of the uterus are made of thick, strong muscle. How does this help?",
+      "options": [
+        "The muscle makes the eggs.",
+        "The muscle makes milk to feed the baby.",
+        "The muscle pushes eggs out of the ovaries.",
+        "The muscle can squeeze to help push the baby out when it is born."
+      ],
+      "answer": 3,
+      "solution": "A baby grows in the uterus for about nine months. The strong muscle stretches as the baby grows, and when the baby is born it squeezes hard to push the baby out through the cervix and the vagina.",
+      "misconceptions": {
+        "0": "Muscle cannot make eggs. Eggs are made in the ovaries.",
+        "1": "Milk is made in the breasts after a baby is born, not in the uterus.",
+        "2": "Eggs are released by the ovaries themselves and then travel along the oviducts. The muscle of the uterus does not do this."
+      },
+      "skill": "female reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q009",
+      "subtopicId": "s02-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In which organs are sperm made?",
+      "options": [
+        "Scrotum",
+        "Sperm ducts",
+        "Testes",
+        "Ovaries"
+      ],
+      "answer": 2,
+      "solution": "A man has two testes (also called testicles). Sperm are made in the testes. The testes are held in a bag of skin called the scrotum.",
+      "misconceptions": {
+        "0": "The scrotum is the bag of skin that holds the testes. The sperm are made inside the testes themselves.",
+        "1": "The sperm ducts carry sperm away from the testes; they do not make them.",
+        "3": "Ovaries are part of the female reproductive system and make eggs. Sperm are made in the testes."
+      },
+      "skill": "male reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q010",
+      "subtopicId": "s02-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The scrotum is a bag of skin that holds the testes.",
+      "answer": true,
+      "solution": "True. The scrotum is a bag of skin that holds and protects the two testes outside the main part of the body.",
+      "misconceptions": {
+        "common": "Thinking the scrotum makes sperm. It only holds the testes; the testes make the sperm."
+      },
+      "skill": "male reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q011",
+      "subtopicId": "s02-s2",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Select ALL the parts of the male reproductive system.",
+      "options": [
+        "Testes",
+        "Sperm ducts",
+        "Ovaries",
+        "Penis",
+        "Uterus",
+        "Scrotum"
+      ],
+      "answer": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "solution": "The male reproductive system includes the testes (which make sperm), the scrotum (which holds the testes), the sperm ducts (which carry sperm) and the penis. Ovaries and the uterus belong to the female system.",
+      "misconceptions": {
+        "2": "Ovaries are part of the female reproductive system. They make eggs.",
+        "4": "The uterus (womb) is part of the female reproductive system. It is where a baby grows."
+      },
+      "skill": "naming reproductive parts",
+      "source": "original"
+    },
+    {
+      "id": "s02-q012",
+      "subtopicId": "s02-s2",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What is the name of the tubes that carry sperm away from the testes?",
+      "answer": {
+        "accept": [
+          "sperm ducts",
+          "sperm duct",
+          "the sperm ducts",
+          "the sperm duct",
+          "vas deferens",
+          "sperm tube",
+          "sperm tubes",
+          "the sperm tubes"
+        ],
+        "keywords": []
+      },
+      "solution": "Sperm travel from the testes along the sperm ducts. Along the way, glands add a liquid to the sperm, and they then leave the body through the penis.",
+      "misconceptions": {
+        "common": "Answering 'oviducts'. The oviducts are tubes in the female body that carry eggs. In males, the tubes that carry sperm are the sperm ducts."
+      },
+      "skill": "male reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q013",
+      "subtopicId": "s02-s2",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each part of the male reproductive system to its job or description.",
+      "options": {
+        "left": [
+          "Testis",
+          "Scrotum",
+          "Sperm duct",
+          "Penis"
+        ],
+        "right": [
+          "Bag of skin that holds the testes outside the body",
+          "Makes eggs",
+          "Makes sperm",
+          "Organ through which sperm and urine leave the body",
+          "Tube that carries sperm away from a testis"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "solution": "Testis: makes sperm. Scrotum: the bag of skin that holds the testes. Sperm duct: the tube that carries sperm away from a testis. Penis: the organ through which sperm and urine leave the body. 'Makes eggs' is the job of the ovaries in females.",
+      "misconceptions": {
+        "common": "Thinking the scrotum makes sperm because the testes are inside it. The scrotum only holds the testes."
+      },
+      "skill": "male reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q014",
+      "subtopicId": "s02-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Eggs and sperm are both sex cells. Which pair of organs makes them?",
+      "options": [
+        "Oviducts and sperm ducts",
+        "Uterus and penis",
+        "Uterus and scrotum",
+        "Ovaries and testes"
+      ],
+      "answer": 3,
+      "solution": "Eggs are made in the ovaries and sperm are made in the testes. So the ovaries and the testes do a similar job in females and males: they make the sex cells.",
+      "misconceptions": {
+        "0": "These tubes carry eggs and sperm, but they do not make them.",
+        "1": "The uterus is where a baby grows, and the penis is the organ through which sperm leave the body. Neither makes sex cells.",
+        "2": "The uterus is where a baby grows, and the scrotum only holds the testes. Neither makes sex cells."
+      },
+      "skill": "naming reproductive parts",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s02-q015",
+      "subtopicId": "s02-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The testes hang outside the main part of the body, in the scrotum. Why is this useful?",
+      "options": [
+        "Sperm are made best at a temperature a little cooler than the inside of the body.",
+        "There is no space for them inside the body.",
+        "Sperm need to take in oxygen straight from the air.",
+        "It lets the testes make eggs as well as sperm."
+      ],
+      "answer": 0,
+      "solution": "The inside of your body is about 37 °C. Sperm are made best at a slightly cooler temperature, so the testes are held outside the main part of the body in the scrotum, where it is a little cooler.",
+      "misconceptions": {
+        "1": "This is a guess, not the scientific reason. The real reason is temperature: sperm develop best slightly below body temperature.",
+        "2": "Cells in the testes get their oxygen from the blood, like all body cells, not straight from the air. The reason is temperature.",
+        "3": "Testes never make eggs. Only ovaries make eggs."
+      },
+      "skill": "male reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q016",
+      "subtopicId": "s02-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Glands along the path of the sperm ducts add a liquid to the sperm. What does this liquid do?",
+      "options": [
+        "It makes new sperm.",
+        "It gives the sperm a liquid to swim in and nutrients for energy.",
+        "It keeps the testes cool.",
+        "It carries urine out of the body."
+      ],
+      "answer": 1,
+      "solution": "Sperm cannot travel without a liquid around them. The glands add a liquid that the sperm can swim in, and it contains nutrients that give the sperm energy.",
+      "misconceptions": {
+        "0": "Sperm are made only in the testes. The glands add liquid to sperm that have already been made.",
+        "2": "The testes are kept cool by hanging outside the main part of the body in the scrotum, not by this liquid.",
+        "3": "Urine is made by the kidneys and stored in the bladder. The liquid from the glands is mixed with sperm, not urine."
+      },
+      "skill": "male reproductive parts and functions",
+      "source": "original"
+    },
+    {
+      "id": "s02-q017",
+      "subtopicId": "s02-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is puberty?",
+      "options": [
+        "The time when a baby learns to walk and talk",
+        "The time when an adult's hair starts to turn grey",
+        "An illness that teenagers catch from each other",
+        "The time when a child's body changes into an adult's body"
+      ],
+      "answer": 3,
+      "solution": "Puberty is the stage when a child's body changes into an adult's body and the reproductive organs start to work. It happens to everyone, usually starting somewhere between about 8 and 14 years old.",
+      "misconceptions": {
+        "0": "That happens in early childhood. Puberty usually starts somewhere between about 8 and 14 years old.",
+        "1": "That is a change that comes with getting older, not puberty.",
+        "2": "Puberty is not an illness and cannot be caught. It is a normal, healthy stage of growing up that everyone goes through."
+      },
+      "skill": "puberty",
+      "source": "original"
+    },
+    {
+      "id": "s02-q018",
+      "subtopicId": "s02-s3",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Select ALL the changes that happen to BOTH boys and girls during puberty.",
+      "options": [
+        "A growth spurt (growing taller quickly)",
+        "Hair grows under the arms and in the pubic area",
+        "More sweat and stronger body odour",
+        "The voice breaks and becomes much deeper",
+        "Breasts develop",
+        "Periods start"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "Boys and girls both have a growth spurt, grow hair under the arms and in the pubic area, and sweat more. A much deeper voice happens mainly in boys; breasts developing and periods starting happen in girls.",
+      "misconceptions": {
+        "3": "The voice becomes much deeper mainly in boys, because their voice box grows a lot. Girls' voices change only a little.",
+        "4": "Breasts develop in girls during puberty.",
+        "5": "Only girls have periods, because only girls have a uterus."
+      },
+      "skill": "puberty changes in boys and girls",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s02-q019",
+      "subtopicId": "s02-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Puberty starts at exactly the same age for everyone.",
+      "answer": false,
+      "solution": "False. Puberty starts at different ages for different people, usually somewhere between about 8 and 14. Girls often start a little earlier than boys. Starting earlier or later than your friends is completely normal.",
+      "misconceptions": {
+        "common": "Thinking everyone changes at the same time as their classmates. Each person's body has its own timing."
+      },
+      "skill": "puberty",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s02-q020",
+      "subtopicId": "s02-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which change happens only in boys during puberty?",
+      "options": [
+        "The voice breaks and becomes much deeper",
+        "A growth spurt",
+        "The skin becomes oilier",
+        "Hair grows under the arms"
+      ],
+      "answer": 0,
+      "solution": "During puberty a boy's voice box grows larger, so his voice 'breaks' and becomes much deeper. Growth spurts, oilier skin and underarm hair happen to both boys and girls.",
+      "misconceptions": {
+        "1": "Both boys and girls have a growth spurt during puberty.",
+        "2": "The skin becomes oilier in both boys and girls, which can lead to spots.",
+        "3": "Both boys and girls grow hair under their arms during puberty."
+      },
+      "skill": "puberty changes in boys and girls",
+      "source": "original"
+    },
+    {
+      "id": "s02-q021",
+      "subtopicId": "s02-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What causes the body changes of puberty?",
+      "options": [
+        "Eating more food",
+        "Doing lots of exercise",
+        "Hormones, which are chemical messengers made by the body",
+        "Catching germs from other people"
+      ],
+      "answer": 2,
+      "solution": "Hormones are chemical messengers carried in the blood. At puberty, signals from the brain make the ovaries or testes produce more sex hormones, and these hormones cause the body changes.",
+      "misconceptions": {
+        "0": "Growing children do need good food, but food does not start puberty. Hormones do.",
+        "1": "Exercise is healthy, but it does not cause puberty.",
+        "3": "Puberty is not an illness and is not caused by germs."
+      },
+      "skill": "puberty",
+      "source": "original"
+    },
+    {
+      "id": "s02-q022",
+      "subtopicId": "s02-s3",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "During puberty, girls start to lose a small amount of blood from the uterus through the vagina, about once a month. What is this commonly called?",
+      "answer": {
+        "accept": [
+          "period",
+          "periods",
+          "a period",
+          "the period",
+          "menstruation",
+          "menstrual period"
+        ],
+        "keywords": []
+      },
+      "solution": "This is called a period (or menstruation). Each month the lining of the uterus thickens, ready in case a baby starts to develop. If no baby develops, the lining breaks down and leaves the body through the vagina over a few days.",
+      "misconceptions": {
+        "common": "Thinking it is an injury or an illness. A period is a normal, healthy part of the monthly cycle."
+      },
+      "skill": "periods and the monthly cycle",
+      "source": "original"
+    },
+    {
+      "id": "s02-q023",
+      "subtopicId": "s02-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Many teenagers get spots during puberty. What is the main reason?",
+      "options": [
+        "Hormones make the skin produce more oil, which can block tiny holes (pores) in the skin.",
+        "Eating chocolate always causes spots.",
+        "Spots are an infection caught from other teenagers.",
+        "Washing your face causes spots."
+      ],
+      "answer": 0,
+      "solution": "During puberty, hormones make the skin produce more oil. The oil, together with dead skin cells, can block the pores and cause spots. Gently washing your face helps.",
+      "misconceptions": {
+        "1": "This is a common myth. Food is not the main cause; the hormones of puberty are.",
+        "2": "Spots cannot be caught from other people.",
+        "3": "Gently washing your face helps keep your skin clean. It does not cause spots."
+      },
+      "skill": "puberty",
+      "source": "original"
+    },
+    {
+      "id": "s02-q024",
+      "subtopicId": "s02-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Siti wants reliable information about the changes that happen during puberty. Which source is most likely to be reliable?",
+      "options": [
+        "A comment under a video on social media",
+        "A health book written for schools, or a government health website",
+        "An advert for a skin cream",
+        "Something an older cousin's friend heard"
+      ],
+      "answer": 1,
+      "solution": "Reliable sources are written or checked by experts and are not trying to sell you something. School health books and government health websites are checked carefully. Parents, teachers and doctors are also good people to ask.",
+      "misconceptions": {
+        "0": "Anyone can write a comment, and it is not checked by experts.",
+        "2": "Adverts are written to sell a product, so they may not give the full, balanced facts.",
+        "3": "Information passed from person to person often gets changed, and it has not been checked."
+      },
+      "skill": "choosing reliable sources",
+      "source": "original"
+    },
+    {
+      "id": "s02-q025",
+      "subtopicId": "s02-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Why is it especially important to wash every day and use deodorant during puberty?",
+      "options": [
+        "Fresh sweat has a strong smell as soon as it comes out.",
+        "Body hair makes its own smell.",
+        "Sweat glands become more active, and bacteria on the skin break down sweat, which causes body odour.",
+        "Puberty stops the skin from fighting germs."
+      ],
+      "answer": 2,
+      "solution": "During puberty, hormones make some sweat glands (especially under the arms) much more active. Bacteria living on the skin break down this sweat, and that makes the smell. Washing removes sweat and bacteria, and deodorant helps reduce the smell.",
+      "misconceptions": {
+        "0": "Fresh sweat has almost no smell. The smell comes when bacteria on the skin break the sweat down.",
+        "1": "Hair can trap sweat, which helps bacteria grow, but the hair itself does not make a smell.",
+        "3": "Your skin still protects you during puberty. The change is that more sweat is made, and bacteria feed on it."
+      },
+      "skill": "puberty",
+      "source": "original"
+    },
+    {
+      "id": "s02-q026",
+      "subtopicId": "s02-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "During puberty, a boy's voice becomes deeper. What causes this?",
+      "options": [
+        "His lungs grow bigger and push out more air.",
+        "His throat gets sore from shouting.",
+        "He copies the voices of the adults around him.",
+        "His voice box (larynx) grows larger, and his vocal cords become longer and thicker."
+      ],
+      "answer": 3,
+      "solution": "Hormones make the voice box (larynx) grow larger during puberty. The vocal cords inside it become longer and thicker, so they vibrate more slowly and make a deeper sound. While this is happening, the voice may 'crack' or 'break'.",
+      "misconceptions": {
+        "0": "Bigger lungs can make a voice louder, but how deep a voice sounds depends on the voice box and vocal cords.",
+        "1": "A sore throat can make a voice croaky for a few days, but the deeper voice of puberty stays because the voice box has grown.",
+        "2": "The voice changes because of growth caused by hormones, not by copying anyone."
+      },
+      "skill": "puberty changes in boys and girls",
+      "source": "original"
+    },
+    {
+      "id": "s02-q027",
+      "subtopicId": "s02-s3",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "True or false: Periods happen because the thickened lining of the uterus breaks down and leaves the body when no baby is developing.",
+      "answer": true,
+      "solution": "True. Each month the lining of the uterus thickens. If no baby develops, the lining breaks down and leaves the body through the vagina as a period. Then the cycle starts again.",
+      "misconceptions": {
+        "common": "Thinking periods are a sign of illness or injury. They are a normal, healthy part of the monthly cycle."
+      },
+      "skill": "periods and the monthly cycle",
+      "source": "original"
+    },
+    {
+      "id": "s02-q028",
+      "subtopicId": "s02-s4",
+      "type": "order",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Put these stages of human life in order, from first to last.",
+      "options": [
+        "Adult",
+        "Child",
+        "Elderly person",
+        "Baby",
+        "Adolescent (teenager)"
+      ],
+      "answer": [
+        3,
+        1,
+        4,
+        0,
+        2
+      ],
+      "solution": "A baby grows into a child. During puberty the child becomes an adolescent (teenager), who then becomes an adult. In later life an adult becomes an elderly person.",
+      "misconceptions": {
+        "common": "Putting adolescent before child. A child grows into an adolescent during puberty, and then into an adult."
+      },
+      "skill": "stages of human life",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s02-q029",
+      "subtopicId": "s02-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "During which stage of life does puberty usually happen?",
+      "options": [
+        "Babyhood",
+        "Adolescence (the teenage years)",
+        "Adulthood",
+        "Old age"
+      ],
+      "answer": 1,
+      "solution": "Puberty usually happens during adolescence, the stage between childhood and adulthood. It is when the body changes from a child's body into an adult's body.",
+      "misconceptions": {
+        "0": "Babies grow very quickly, but their bodies do not change into adult bodies yet.",
+        "2": "By adulthood the body has already finished the changes of puberty.",
+        "3": "Bodies change in old age too (for example, hair turning grey), but these are not the changes of puberty."
+      },
+      "skill": "stages of human life",
+      "source": "original"
+    },
+    {
+      "id": "s02-q030",
+      "subtopicId": "s02-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The adolescent stage comes between childhood and adulthood.",
+      "answer": true,
+      "solution": "True. The stages are baby, child, adolescent, adult and elderly. Adolescence comes after childhood and before adulthood, and it is the stage when puberty usually happens.",
+      "misconceptions": {
+        "common": "Thinking you go straight from child to adult. Adolescence is the stage in between."
+      },
+      "skill": "stages of human life",
+      "source": "original"
+    },
+    {
+      "id": "s02-q031",
+      "subtopicId": "s02-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Aisha's height was measured on each birthday. Age 9: 132 cm. Age 10: 137 cm. Age 11: 143 cm. Age 12: 151 cm. Age 13: 157 cm. Between which two birthdays did she grow the most?",
+      "options": [
+        "Between age 9 and age 10",
+        "Between age 10 and age 11",
+        "Between age 11 and age 12",
+        "Between age 12 and age 13"
+      ],
+      "answer": 2,
+      "solution": "Find the growth for each year: 9 to 10: 137 - 132 = 5 cm. 10 to 11: 143 - 137 = 6 cm. 11 to 12: 151 - 143 = 8 cm. 12 to 13: 157 - 151 = 6 cm. The biggest growth, 8 cm, was between 11 and 12, which shows her growth spurt.",
+      "misconceptions": {
+        "0": "Work out each change. From 9 to 10 she grew 137 - 132 = 5 cm, which is the smallest growth, not the largest.",
+        "1": "From 10 to 11 she grew 143 - 137 = 6 cm. From 11 to 12 she grew more: 8 cm.",
+        "3": "She was tallest at 13, but the growth that year was only 157 - 151 = 6 cm. Being tallest is not the same as growing the most."
+      },
+      "skill": "interpreting growth data",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s02-q032",
+      "subtopicId": "s02-s4",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A class records the heights of four 12-year-olds in centimetres: 150, 147, 15.2, 153. Which result is anomalous?",
+      "answer": {
+        "accept": [
+          "15.2",
+          "15.2 cm"
+        ],
+        "keywords": []
+      },
+      "solution": "150, 147 and 153 cm are all normal heights for 12-year-olds. 15.2 cm is about the length of a pencil, far too short for a person. It was probably meant to be 152 cm, with the decimal point written in the wrong place. The class should measure that person again.",
+      "misconceptions": {
+        "common": "Picking 147 or 153 because they are the smallest or largest of the normal heights. Those are reasonable; 15.2 cm is impossible for a 12-year-old."
+      },
+      "skill": "identifying anomalous results",
+      "source": "original"
+    },
+    {
+      "id": "s02-q033",
+      "subtopicId": "s02-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Arjun measures his height three times: 148.1 cm, 148.4 cm and 148.4 cm. What is the mean of his three measurements? Give your answer in cm.",
+      "answer": {
+        "value": 148.3,
+        "tolerance": 0,
+        "accept": [
+          "148.3 cm"
+        ]
+      },
+      "solution": "Add the three measurements: 148.1 + 148.4 + 148.4 = 444.9. Divide by 3: 444.9 ÷ 3 = 148.3 cm. Using the mean of repeated measurements gives a more reliable result.",
+      "misconceptions": {
+        "common": "Dividing by 2 instead of 3, or forgetting to divide at all. The mean is the total divided by how many measurements there are (3)."
+      },
+      "skill": "repeating measurements",
+      "source": "original"
+    },
+    {
+      "id": "s02-q034",
+      "subtopicId": "s02-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which method will give the most accurate measurement of your height?",
+      "options": [
+        "Keep your shoes on so that the measurement is the same every day.",
+        "Use a 30 cm ruler, moving it up the wall again and again.",
+        "Stand next to a friend whose height you know and estimate.",
+        "Take off your shoes, stand straight against a wall, put a flat book on your head, mark the wall and measure from the floor to the mark with a tape measure."
+      ],
+      "answer": 3,
+      "solution": "To measure accurately, remove anything that adds height (shoes), stand straight, use a flat object to mark exactly where the top of your head is, and measure with one long tape measure marked in centimetres.",
+      "misconceptions": {
+        "0": "Shoes add extra height, and different shoes add different amounts. Measure without shoes.",
+        "1": "Each time you move the ruler you can make a small error, and the errors add up. One long tape measure is more accurate.",
+        "2": "An estimate is a sensible guess, not an accurate measurement."
+      },
+      "skill": "taking accurate measurements",
+      "source": "original"
+    },
+    {
+      "id": "s02-q035",
+      "subtopicId": "s02-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Wei Ming measures the heights of 100 children aged 6 to 16 at a school, all on the same day. He wants to find out if there is a link between age and height. Which type of scientific enquiry is this?",
+      "options": [
+        "Pattern seeking",
+        "Fair test",
+        "Observing over time",
+        "Identifying and classifying"
+      ],
+      "answer": 0,
+      "solution": "Wei Ming collects lots of data and looks for a link between two variables (age and height) that he cannot control. This is pattern seeking. He might find that, in general, older children are taller.",
+      "misconceptions": {
+        "1": "In a fair test you change one variable and keep all the others the same. Wei Ming cannot control things like each child's diet or family, so he looks for a pattern in lots of data instead.",
+        "2": "That would mean measuring the same children again and again over months or years. Wei Ming measures different children once, on one day.",
+        "3": "That means sorting things into groups, for example with a key. Wei Ming is looking for a link between two things: age and height."
+      },
+      "skill": "types of scientific enquiry",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s02-q036",
+      "subtopicId": "s02-s4",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "True or false: People grow taller faster during puberty than at any other time in their lives.",
+      "answer": false,
+      "solution": "False. Babies grow fastest. In their first year, most babies grow about 25 cm. During the puberty growth spurt, a teenager may grow about 7 to 10 cm in a year. So the fastest growth happens in babyhood, not puberty.",
+      "misconceptions": {
+        "common": "Thinking the growth spurt is the fastest growth ever because we notice it most. Babies grow even faster in their first year."
+      },
+      "skill": "stages of human life",
+      "source": "inspired-by: KS2"
+    }
+  ]
+}

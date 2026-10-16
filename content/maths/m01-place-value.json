@@ -1,0 +1,1092 @@
+{
+  "subject": "maths",
+  "topicId": "m01-place-value",
+  "title": "Place Value",
+  "order": 1,
+  "bookChapter": "Chapter 1: Place Value",
+  "frameworkRefs": [
+    "6Np.01",
+    "6Np.02",
+    "6Np.03",
+    "6Np.04",
+    "6Nf.08"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will find the value of each digit in whole numbers up to millions and in decimals up to thousandths. You will multiply and divide by 10, 100 and 1000, and split numbers into parts in different ways. You will also round decimals and put them in order.",
+    "whyItMatters": "Place value is the base of all number work. When you know what each digit is worth, written calculations, money and measures become much easier. Many exam mistakes come from a digit in the wrong place, so this skill saves marks in every topic.",
+    "realWorld": [
+      "Reading a price like RM 12.85 as 12 ringgit and 85 sen",
+      "Changing 1.25 kg of rice into 1250 g by multiplying by 1000",
+      "Comparing 100 m sprint times like 12.08 s and 12.3 s on sports day",
+      "Rounding a Grab fare of RM 17.46 to about RM 17.50 or about RM 17 to estimate",
+      "Reading big numbers in the news, such as a city with 1 800 000 people"
+    ],
+    "subtopics": [
+      {
+        "id": "m01-s1",
+        "title": "Value of digits",
+        "summary": "Find what each digit is worth in whole numbers up to millions and in decimals with tenths, hundredths and thousandths."
+      },
+      {
+        "id": "m01-s2",
+        "title": "Multiplying and dividing by 10, 100 and 1000",
+        "summary": "Digits move one place for each zero: to the left when you multiply and to the right when you divide."
+      },
+      {
+        "id": "m01-s3",
+        "title": "Composing, decomposing and regrouping",
+        "summary": "Split a number into parts, such as 4.307 = 4 + 0.3 + 0.007, and regroup it in other ways, such as 2.45 = 24 tenths + 5 hundredths."
+      },
+      {
+        "id": "m01-s4",
+        "title": "Rounding",
+        "summary": "Round decimals with two decimal places to the nearest tenth or whole number, and whole numbers to the nearest 10, 100 or 1000."
+      },
+      {
+        "id": "m01-s5",
+        "title": "Comparing and ordering decimals",
+        "summary": "Compare decimals place by place from the left, and use the symbols <, > and =."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m01-q001",
+      "subtopicId": "m01-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the value of the digit 8 in 5.384?",
+      "options": [
+        "0.8",
+        "0.008",
+        "80",
+        "0.08"
+      ],
+      "answer": 3,
+      "solution": "Look at the places after the decimal point: 3 is in the tenths, 8 is in the hundredths, 4 is in the thousandths. So the 8 is worth 8 hundredths, which is 0.08.",
+      "misconceptions": {
+        "0": "This is the value of a digit in the tenths place. The first place after the decimal point is tenths (3), the second is hundredths (8). So the 8 is worth 8 hundredths = 0.08.",
+        "1": "This would be the value in the thousandths place, the third place after the point. The 8 is in the second place, hundredths.",
+        "2": "This treats the digits after the point like a whole number (384). Digits after the decimal point are worth less than 1, so the 8 is worth 0.08."
+      },
+      "skill": "value of a digit in a decimal",
+      "source": "original"
+    },
+    {
+      "id": "m01-q002",
+      "subtopicId": "m01-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Write the number seven million, forty thousand and six in figures.",
+      "answer": {
+        "value": 7040006,
+        "tolerance": 0,
+        "accept": [
+          "7 040 006",
+          "7,040,006"
+        ]
+      },
+      "solution": "Millions: 7. Hundred thousands: 0. Ten thousands: 4. Thousands: 0. Hundreds: 0. Tens: 0. Ones: 6. So the number is 7 040 006. Well done if you remembered the zeros as placeholders!",
+      "misconceptions": {
+        "common": "Writing 7 406 or 7 40 006 by leaving out the zeros. Each place (millions, hundred thousands, ten thousands, thousands, hundreds, tens, ones) needs a digit, so empty places need a 0."
+      },
+      "skill": "reading and writing large numbers",
+      "source": "original"
+    },
+    {
+      "id": "m01-q003",
+      "subtopicId": "m01-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In the number 6.259, which place is the digit 9 in? (For example: ones, tenths, hundredths or thousandths)",
+      "answer": {
+        "accept": [
+          "thousandths",
+          "thousandth",
+          "thousandths place",
+          "the thousandths",
+          "the thousandths place",
+          "thousandths column"
+        ],
+        "keywords": []
+      },
+      "solution": "After the decimal point the places go tenths, hundredths, thousandths. In 6.259 the 2 is in the tenths, the 5 in the hundredths and the 9 in the thousandths place.",
+      "misconceptions": {
+        "common": "Saying hundredths because 9 is the last digit. Count the places after the point: 2 is tenths, 5 is hundredths, 9 is thousandths."
+      },
+      "skill": "value of a digit in a decimal",
+      "source": "original"
+    },
+    {
+      "id": "m01-q004",
+      "subtopicId": "m01-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "In which number is the digit 4 worth 4 hundredths?",
+      "options": [
+        "2.418",
+        "4.123",
+        "3.142",
+        "0.004"
+      ],
+      "answer": 2,
+      "solution": "4 hundredths means the 4 must be the second digit after the decimal point. In 3.142: 1 is tenths, 4 is hundredths, 2 is thousandths. So 3.142 is the answer.",
+      "misconceptions": {
+        "0": "Here the 4 is the first digit after the point, so it is worth 4 tenths (0.4), not 4 hundredths.",
+        "1": "Here the 4 is in front of the decimal point, so it is worth 4 ones.",
+        "3": "Here the 4 is the third digit after the point, so it is worth 4 thousandths (0.004). Hundredths is the second place."
+      },
+      "skill": "value of a digit in a decimal",
+      "source": "original"
+    },
+    {
+      "id": "m01-q005",
+      "subtopicId": "m01-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: In 3.333, each digit 3 is worth ten times as much as the 3 just to its right.",
+      "answer": true,
+      "solution": "The 3s are worth 3, 0.3, 0.03 and 0.003. Moving one place to the left makes a digit worth 10 times as much: 3 = 10 x 0.3, 0.3 = 10 x 0.03, 0.03 = 10 x 0.003. So the statement is true.",
+      "misconceptions": {
+        "common": "Thinking all the 3s are worth the same because they are the same digit. The place a digit is in decides its value."
+      },
+      "skill": "value of a digit in a decimal",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m01-q006",
+      "subtopicId": "m01-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the value of the digit 2 in 6 250 000?",
+      "options": [
+        "20 000",
+        "200 000",
+        "2 000 000",
+        "200"
+      ],
+      "answer": 1,
+      "solution": "Split the number into groups of three from the right: 6 | 250 | 000. The 6 is 6 million. 250 is 250 thousand, so the 2 is worth 200 thousand = 200 000.",
+      "misconceptions": {
+        "0": "This is one place too far to the right. In 6 250 000 the 6 is millions, the 2 is hundred thousands and the 5 is ten thousands.",
+        "2": "This is the millions place, where the 6 is. The 2 is one place to the right of the millions, in the hundred thousands place.",
+        "3": "This reads the '250' group as if it were hundreds. The group straight after the millions is the thousands group, so 250 here means 250 thousand."
+      },
+      "skill": "value of a digit in a whole number",
+      "source": "original"
+    },
+    {
+      "id": "m01-q007",
+      "subtopicId": "m01-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "A number has 3 thousandths, 5 ones, 8 hundredths and no tenths. What is the number?",
+      "options": [
+        "5.308",
+        "5.803",
+        "5.083",
+        "5.38"
+      ],
+      "answer": 2,
+      "solution": "Put each digit in its place: ones 5, tenths 0, hundredths 8, thousandths 3. That gives 5.083. The 0 is important: it holds the tenths place so the 8 and 3 stay in the right places.",
+      "misconceptions": {
+        "0": "The 3 has been put in the tenths place and the 8 in the thousandths place. Thousandths is the THIRD place after the point, not the first.",
+        "1": "The 8 has been put in the tenths place. Hundredths is the second place after the point, and the tenths place needs a 0.",
+        "3": "The 'no tenths' has been missed out, so the 3 and 8 have slid into the wrong places. Use a 0 to hold the tenths place."
+      },
+      "skill": "composing a decimal from place values",
+      "source": "original"
+    },
+    {
+      "id": "m01-q008",
+      "subtopicId": "m01-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the numbers in which a digit 6 is worth 6 tenths (0.6).",
+      "options": [
+        "0.6",
+        "6.06",
+        "12.65",
+        "0.06",
+        "3.016",
+        "60.6"
+      ],
+      "answer": [
+        0,
+        2,
+        5
+      ],
+      "solution": "The tenths place is the first place after the decimal point. 0.6: yes. 6.06: no (6 ones and 6 hundredths). 12.65: yes. 0.06: no (hundredths). 3.016: no (thousandths). 60.6: yes, the last 6 is in the tenths place.",
+      "misconceptions": {
+        "1": "In 6.06 one 6 is worth 6 ones and the other is worth 6 hundredths. Neither is in the tenths place.",
+        "3": "In 0.06 the 6 is the second digit after the point, so it is worth 6 hundredths.",
+        "4": "In 3.016 the 6 is the third digit after the point, so it is worth 6 thousandths."
+      },
+      "skill": "value of a digit in a decimal",
+      "source": "original"
+    },
+    {
+      "id": "m01-q009",
+      "subtopicId": "m01-s1",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In the number 9.999, how many times greater is the value of the 9 in the tenths place than the value of the 9 in the thousandths place?",
+      "answer": {
+        "value": 100,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "The 9 in the tenths place is worth 0.9. The 9 in the thousandths place is worth 0.009. From thousandths to hundredths is x 10, and from hundredths to tenths is x 10 again. 10 x 10 = 100. Check: 0.009 x 100 = 0.9.",
+      "misconceptions": {
+        "common": "Answering 10 or 2. Each place to the left is worth 10 times more, and the tenths place is TWO places to the left of the thousandths place, so it is 10 x 10 = 100 times more."
+      },
+      "skill": "value of a digit in a decimal",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m01-q010",
+      "subtopicId": "m01-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 3.47 x 100.",
+      "answer": {
+        "value": 347,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Multiplying by 100 moves each digit two places to the left. 3.47 becomes 347. Check: 3.47 is about 3, and 3 x 100 = 300, so 347 makes sense.",
+      "misconceptions": {
+        "common": "Writing 3.4700 by adding two zeros. Multiplying by 100 moves every digit two places to the left; it does not just add zeros after the point."
+      },
+      "skill": "multiplying by 10, 100 and 1000",
+      "source": "original"
+    },
+    {
+      "id": "m01-q011",
+      "subtopicId": "m01-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 52 ÷ 1000.",
+      "options": [
+        "0.052",
+        "0.52",
+        "52 000",
+        "0.0052"
+      ],
+      "answer": 0,
+      "solution": "Dividing by 1000 moves each digit three places to the right. 52 -> 5.2 (÷10) -> 0.52 (÷100) -> 0.052 (÷1000). So 52 ÷ 1000 = 0.052.",
+      "misconceptions": {
+        "1": "This is 52 ÷ 100. Dividing by 1000 moves the digits THREE places to the right, not two.",
+        "2": "This is 52 x 1000. When you divide, the answer gets smaller, so the digits move to the right.",
+        "3": "This moves the digits four places, which is dividing by 10 000. 1000 has three zeros, so move three places."
+      },
+      "skill": "dividing by 10, 100 and 1000",
+      "source": "original"
+    },
+    {
+      "id": "m01-q012",
+      "subtopicId": "m01-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 0.6 x 10.",
+      "options": [
+        "0.60",
+        "0.06",
+        "6",
+        "60"
+      ],
+      "answer": 2,
+      "solution": "Multiplying by 10 moves each digit one place to the left. 6 tenths x 10 = 60 tenths = 6. So 0.6 x 10 = 6.",
+      "misconceptions": {
+        "0": "Adding a zero on the end does not multiply a decimal by 10. 0.60 is the same as 0.6.",
+        "1": "This divides by 10 instead of multiplying. Multiplying by 10 makes the number bigger.",
+        "3": "This moves the digit two places, which is multiplying by 100. Multiplying by 10 moves digits just one place."
+      },
+      "skill": "multiplying by 10, 100 and 1000",
+      "source": "original"
+    },
+    {
+      "id": "m01-q013",
+      "subtopicId": "m01-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Work out 4.5 ÷ 100.",
+      "options": [
+        "450",
+        "0.45",
+        "0.0045",
+        "0.045"
+      ],
+      "answer": 3,
+      "solution": "Dividing by 100 moves each digit two places to the right. 4.5 -> 0.45 (÷10) -> 0.045 (÷100). A zero is needed in the tenths place.",
+      "misconceptions": {
+        "0": "This is 4.5 x 100. Dividing makes the number smaller, so the digits move to the right.",
+        "1": "This is 4.5 ÷ 10. Dividing by 100 moves the digits two places, not one.",
+        "2": "This moves the digits three places, which is dividing by 1000."
+      },
+      "skill": "dividing by 10, 100 and 1000",
+      "source": "original"
+    },
+    {
+      "id": "m01-q014",
+      "subtopicId": "m01-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Find the missing number: 0.307 x ? = 307",
+      "answer": {
+        "value": 1000,
+        "tolerance": 0,
+        "accept": [
+          "1 000",
+          "1,000"
+        ]
+      },
+      "solution": "The 7 moves from the thousandths place to the ones place. That is three places to the left, so you multiply by 1000. Check: 0.307 x 1000 = 307.",
+      "misconceptions": {
+        "common": "Answering 100. Count how many places the digits move: the 3 moves from tenths to hundreds, which is three places, so the number is 1000."
+      },
+      "skill": "multiplying by 10, 100 and 1000",
+      "source": "original"
+    },
+    {
+      "id": "m01-q015",
+      "subtopicId": "m01-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 2.5 x 10 = 2.50",
+      "answer": false,
+      "solution": "Multiplying by 10 moves each digit one place to the left, so 2.5 x 10 = 25. 2.50 is just another way to write 2.5, so the statement is false.",
+      "misconceptions": {
+        "common": "Thinking 'multiply by 10 means add a zero'. That trick only works for whole numbers. Adding a zero after the decimal point does not change the value: 2.50 = 2.5."
+      },
+      "skill": "multiplying by 10, 100 and 1000",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m01-q016",
+      "subtopicId": "m01-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "One sheet of paper is 0.08 mm thick. How thick is a pile of 1000 sheets? Give your answer in mm.",
+      "answer": {
+        "value": 80,
+        "tolerance": 0,
+        "accept": [
+          "80 mm",
+          "80mm"
+        ]
+      },
+      "solution": "1000 sheets x 0.08 mm. Multiplying by 1000 moves each digit three places to the left: 0.08 -> 0.8 -> 8 -> 80. The pile is 80 mm thick (that is 8 cm).",
+      "misconceptions": {
+        "common": "Answering 8 mm (multiplying by 100) or 0.80 mm (adding a zero). Multiplying by 1000 moves the digits three places to the left."
+      },
+      "skill": "multiplying by 10, 100 and 1000",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m01-q017",
+      "subtopicId": "m01-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Which calculation has the same answer as 56 ÷ 100?",
+      "options": [
+        "0.56 ÷ 10",
+        "560 ÷ 100",
+        "5.6 ÷ 10",
+        "0.0056 x 1000"
+      ],
+      "answer": 2,
+      "solution": "56 ÷ 100 = 0.56. Now test each one: 0.56 ÷ 10 = 0.056. 560 ÷ 100 = 5.6. 5.6 ÷ 10 = 0.56. 0.0056 x 1000 = 5.6. Only 5.6 ÷ 10 gives 0.56.",
+      "misconceptions": {
+        "0": "0.56 is already the answer to 56 ÷ 100. Dividing it by 10 again gives 0.056, which is 10 times too small.",
+        "1": "560 is ten times bigger than 56, so 560 ÷ 100 = 5.6, which is 10 times too big.",
+        "3": "Multiplying by 1000 moves the digits three places left: 0.0056 x 1000 = 5.6, not 0.56."
+      },
+      "skill": "dividing by 10, 100 and 1000",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m01-q018",
+      "subtopicId": "m01-s2",
+      "type": "order",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Work out each calculation, then put them in order of their answers from smallest to largest.",
+      "options": [
+        "3.6 x 100",
+        "3600 ÷ 1000",
+        "0.036 x 1000",
+        "36 ÷ 100"
+      ],
+      "answer": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "solution": "3.6 x 100 = 360. 3600 ÷ 1000 = 3.6. 0.036 x 1000 = 36. 36 ÷ 100 = 0.36. From smallest to largest: 36 ÷ 100 (0.36), 3600 ÷ 1000 (3.6), 0.036 x 1000 (36), 3.6 x 100 (360).",
+      "misconceptions": {
+        "common": "Ordering by the numbers you can see (36, 3.6, 0.036...) instead of working out each answer first."
+      },
+      "skill": "multiplying and dividing by 10, 100 and 1000",
+      "source": "original"
+    },
+    {
+      "id": "m01-q019",
+      "subtopicId": "m01-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Fill in the missing part: 4.307 = 4 + 0.3 + ?",
+      "options": [
+        "0.07",
+        "0.007",
+        "7",
+        "0.7"
+      ],
+      "answer": 1,
+      "solution": "4.307 has 4 ones, 3 tenths, 0 hundredths and 7 thousandths. So 4.307 = 4 + 0.3 + 0.007. The 0 holds the hundredths place.",
+      "misconceptions": {
+        "0": "The 0 in 4.307 is in the hundredths place, so the 7 is in the thousandths place. 0.07 would be 7 hundredths.",
+        "2": "This is the digit, not its value. The 7 is after the decimal point, so it is worth less than 1.",
+        "3": "0.7 is 7 tenths, but the tenths place in 4.307 holds the 3."
+      },
+      "skill": "decomposing decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q020",
+      "subtopicId": "m01-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out 6 + 0.4 + 0.09.",
+      "options": [
+        "6.409",
+        "6.13",
+        "6.49",
+        "6.94"
+      ],
+      "answer": 2,
+      "solution": "6 is 6 ones, 0.4 is 4 tenths and 0.09 is 9 hundredths. Put each digit in its place: 6.49.",
+      "misconceptions": {
+        "0": "The 9 has been put in the thousandths place. 0.09 is 9 hundredths, so the 9 goes in the second place after the point.",
+        "1": "This adds 4 and 9 as if they were the same kind of part. 4 tenths and 9 hundredths are different places, so they sit side by side: 0.49.",
+        "3": "The tenths and hundredths have been swapped. 0.4 gives 4 tenths and 0.09 gives 9 hundredths."
+      },
+      "skill": "composing decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q021",
+      "subtopicId": "m01-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Find the missing number: 2.45 = ? tenths + 5 hundredths",
+      "answer": {
+        "value": 24,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "2.45 = 2 ones + 4 tenths + 5 hundredths. Each one is 10 tenths, so 2 ones = 20 tenths. 20 tenths + 4 tenths = 24 tenths. So 2.45 = 24 tenths + 5 hundredths. Check: 2.4 + 0.05 = 2.45.",
+      "misconceptions": {
+        "common": "Answering 4 by looking only at the tenths digit. The 2 ones also have to become tenths: 2 ones = 20 tenths, and 20 + 4 = 24 tenths."
+      },
+      "skill": "regrouping decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q022",
+      "subtopicId": "m01-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which of these is equal to 3.08?",
+      "options": [
+        "3 ones and 8 tenths",
+        "308 tenths",
+        "3 ones and 8 thousandths",
+        "30 tenths and 8 hundredths"
+      ],
+      "answer": 3,
+      "solution": "3.08 = 3 ones + 0 tenths + 8 hundredths. 3 ones = 30 tenths, so 3.08 = 30 tenths + 8 hundredths. Check: 3.0 + 0.08 = 3.08.",
+      "misconceptions": {
+        "0": "3 ones and 8 tenths is 3.8. In 3.08 the 8 is in the hundredths place, because of the 0 in the tenths place.",
+        "1": "308 tenths = 30.8. To make 3.08 you would need 308 hundredths.",
+        "2": "3 ones and 8 thousandths is 3.008. The 8 in 3.08 is only two places after the point, so it is hundredths."
+      },
+      "skill": "regrouping decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q023",
+      "subtopicId": "m01-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 5.6 is the same as 56 tenths.",
+      "answer": true,
+      "solution": "Every 10 tenths make 1. 56 tenths = 50 tenths + 6 tenths = 5 + 0.6 = 5.6. So the statement is true.",
+      "misconceptions": {
+        "common": "Thinking 56 tenths is 56 or 0.56. Ten tenths make 1 whole, so 56 tenths is 5 wholes and 6 tenths."
+      },
+      "skill": "regrouping decimals",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m01-q024",
+      "subtopicId": "m01-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "How many hundredths are there in 3.7 altogether?",
+      "options": [
+        "37",
+        "370",
+        "3 700",
+        "307"
+      ],
+      "answer": 1,
+      "solution": "1 whole = 100 hundredths, so 3 = 300 hundredths. 0.7 = 70 hundredths. 300 + 70 = 370 hundredths. Another way: 3.7 x 100 = 370.",
+      "misconceptions": {
+        "0": "37 is the number of tenths in 3.7. Each tenth is 10 hundredths, so there are 37 x 10 = 370 hundredths.",
+        "2": "3 700 is the number of thousandths in 3.7. Hundredths are bigger than thousandths, so you need fewer of them.",
+        "3": "This writes the digits with a 0 between them. Count instead: 1 whole = 100 hundredths, so 3 wholes = 300 hundredths, and 7 tenths = 70 hundredths. 300 + 70 = 370."
+      },
+      "skill": "regrouping decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q025",
+      "subtopicId": "m01-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which of these is NOT equal to 1.25?",
+      "options": [
+        "1 + 0.2 + 0.05",
+        "125 hundredths",
+        "1 one and 25 tenths",
+        "12 tenths and 5 hundredths"
+      ],
+      "answer": 2,
+      "solution": "Check each one. 1 + 0.2 + 0.05 = 1.25. 125 hundredths = 1.25. 12 tenths and 5 hundredths = 1.2 + 0.05 = 1.25. But 25 tenths = 2.5, so 1 one and 25 tenths = 1 + 2.5 = 3.5. That is the one that is NOT equal to 1.25.",
+      "misconceptions": {
+        "0": "This one is equal: 1 + 0.2 + 0.05 = 1.25. It shows 1.25 split by place value.",
+        "1": "This one is equal: 100 hundredths = 1 and 25 hundredths = 0.25, so 125 hundredths = 1.25.",
+        "3": "This one is equal: 12 tenths = 1.2 and 5 hundredths = 0.05, so the total is 1.25."
+      },
+      "skill": "regrouping decimals",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m01-q026",
+      "subtopicId": "m01-s3",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each number to what it is worth.",
+      "options": {
+        "left": [
+          "0.4",
+          "0.04",
+          "0.004",
+          "4"
+        ],
+        "right": [
+          "4 hundredths",
+          "4 ones",
+          "4 tenths",
+          "4 thousandths",
+          "4 tens"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "0.4: the 4 is in the 1st place after the point, 4 tenths. 0.04: 2nd place, 4 hundredths. 0.004: 3rd place, 4 thousandths. 4 has no decimal part, so it is 4 ones. '4 tens' (40) is not used.",
+      "misconceptions": {
+        "common": "Mixing up tenths and hundredths. Count the places after the point: 1st place tenths, 2nd hundredths, 3rd thousandths."
+      },
+      "skill": "value of a digit in a decimal",
+      "source": "original"
+    },
+    {
+      "id": "m01-q027",
+      "subtopicId": "m01-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A number is made of 2 ones, 15 tenths, 23 hundredths and 4 thousandths. What is the number? Give your answer as a decimal.",
+      "answer": {
+        "value": 3.734,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "Change each part into a decimal: 2 ones = 2. 15 tenths = 1.5. 23 hundredths = 0.23. 4 thousandths = 0.004. Add them: 2 + 1.5 = 3.5. 3.5 + 0.23 = 3.73. 3.73 + 0.004 = 3.734.",
+      "misconceptions": {
+        "common": "Writing the parts side by side (like 2.15234). When a place has 10 or more, you must regroup: 15 tenths = 1 one and 5 tenths."
+      },
+      "skill": "composing decimals",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m01-q028",
+      "subtopicId": "m01-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Round 6.47 to the nearest tenth.",
+      "options": [
+        "6.4",
+        "6",
+        "6.5",
+        "7.0"
+      ],
+      "answer": 2,
+      "solution": "6.47 is between 6.4 and 6.5. Look at the hundredths digit: it is 7, which is 5 or more, so round up. 6.47 rounds to 6.5.",
+      "misconceptions": {
+        "0": "This just chops off the last digit. Look at the hundredths digit: 7 is 5 or more, so the tenths digit goes up from 4 to 5.",
+        "1": "6 is 6.47 rounded to the nearest WHOLE number. The question asks for the nearest tenth, which needs one decimal place.",
+        "3": "This rounds the ones digit up. When rounding to the nearest tenth, only the tenths digit can change: 6.47 is between 6.4 and 6.5."
+      },
+      "skill": "rounding to the nearest tenth",
+      "source": "original"
+    },
+    {
+      "id": "m01-q029",
+      "subtopicId": "m01-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Round 12.83 to the nearest whole number.",
+      "options": [
+        "12",
+        "13",
+        "12.8",
+        "10"
+      ],
+      "answer": 1,
+      "solution": "12.83 is between 12 and 13. The tenths digit is 8, which is 5 or more, so round up. 12.83 rounds to 13.",
+      "misconceptions": {
+        "0": "This just drops the decimal part. Look at the tenths digit: 8 is 5 or more, so round up to 13.",
+        "2": "12.8 is rounded to the nearest tenth. A whole number has no decimal part.",
+        "3": "10 is 12.83 rounded to the nearest ten, not the nearest whole number."
+      },
+      "skill": "rounding to the nearest whole number",
+      "source": "original"
+    },
+    {
+      "id": "m01-q030",
+      "subtopicId": "m01-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Round 4 652 to the nearest hundred.",
+      "options": [
+        "5 000",
+        "4 650",
+        "4 600",
+        "4 700"
+      ],
+      "answer": 3,
+      "solution": "4 652 is between 4 600 and 4 700. Look at the tens digit: 5. That is 5 or more, so round up to 4 700.",
+      "misconceptions": {
+        "0": "5 000 is 4 652 rounded to the nearest thousand.",
+        "1": "4 650 is 4 652 rounded to the nearest ten.",
+        "2": "This rounds down. The tens digit is 5, and 5 or more means round up, so the hundreds digit goes from 6 to 7."
+      },
+      "skill": "rounding whole numbers",
+      "source": "original"
+    },
+    {
+      "id": "m01-q031",
+      "subtopicId": "m01-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Round 3.96 to the nearest tenth.",
+      "options": [
+        "3.9",
+        "3.10",
+        "3.0",
+        "4.0"
+      ],
+      "answer": 3,
+      "solution": "3.96 is between 3.9 and 4.0. The hundredths digit is 6, so round up. 3.9 + 0.1 = 4.0. We write 4.0 to show it is rounded to the nearest tenth.",
+      "misconceptions": {
+        "0": "This rounds down. The hundredths digit is 6, so you must round UP to the next tenth after 3.9, which is 4.0.",
+        "1": "9 tenths + 1 tenth = 10 tenths, but you cannot write 10 in one place. 10 tenths = 1 whole, so 3 becomes 4 and the tenths digit is 0.",
+        "2": "When the tenths become 10 tenths, that makes 1 more whole. The ones digit must go up from 3 to 4."
+      },
+      "skill": "rounding to the nearest tenth",
+      "source": "original"
+    },
+    {
+      "id": "m01-q032",
+      "subtopicId": "m01-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 7.45 rounded to the nearest whole number is 8.",
+      "answer": false,
+      "solution": "To round to the nearest whole number, look at the tenths digit. In 7.45 it is 4, which is less than 5, so round down to 7. The statement is false.",
+      "misconceptions": {
+        "common": "Rounding twice: first 7.45 to 7.5, then 7.5 to 8. Always round the ORIGINAL number in one step, looking only at the digit just after the place you are rounding to."
+      },
+      "skill": "rounding to the nearest whole number",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m01-q033",
+      "subtopicId": "m01-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A durian has a mass of 2.68 kg. Round its mass to the nearest tenth of a kilogram. Give your answer in kg.",
+      "answer": {
+        "value": 2.7,
+        "tolerance": 0,
+        "accept": [
+          "2.7 kg",
+          "2.70"
+        ]
+      },
+      "solution": "2.68 is between 2.6 and 2.7. The hundredths digit is 8, which is 5 or more, so round up. The mass is about 2.7 kg.",
+      "misconceptions": {
+        "common": "Answering 2.6 kg by chopping off the 8, or 3 kg by rounding to the nearest whole kilogram."
+      },
+      "skill": "rounding to the nearest tenth",
+      "source": "original"
+    },
+    {
+      "id": "m01-q034",
+      "subtopicId": "m01-s4",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the numbers that round to 5.3 when rounded to the nearest tenth.",
+      "options": [
+        "5.25",
+        "5.34",
+        "5.35",
+        "5.29",
+        "5.24",
+        "5.03"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "Numbers from 5.25 up to 5.34 round to 5.3. 5.25 rounds up to 5.3 (5 hundredths means round up). 5.34 rounds down to 5.3. 5.29 rounds up to 5.3. 5.35 -> 5.4, 5.24 -> 5.2, 5.03 -> 5.0.",
+      "misconceptions": {
+        "2": "5.35 has 5 hundredths, so it rounds UP to 5.4.",
+        "4": "5.24 has 4 hundredths, so it rounds DOWN to 5.2.",
+        "5": "5.03 is 5.0 and 3 hundredths, so it rounds to 5.0. It is nowhere near 5.3."
+      },
+      "skill": "rounding to the nearest tenth",
+      "source": "original"
+    },
+    {
+      "id": "m01-q035",
+      "subtopicId": "m01-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A number has two decimal places. When it is rounded to the nearest tenth, the answer is 8.4. What is the SMALLEST the number could be?",
+      "options": [
+        "8.35",
+        "8.44",
+        "8.40",
+        "8.34"
+      ],
+      "answer": 0,
+      "solution": "Numbers round up to 8.4 when the hundredths digit is 5 or more, starting from 8.35. 8.34 rounds down to 8.3. So the smallest is 8.35.",
+      "misconceptions": {
+        "1": "8.44 is the LARGEST number with two decimal places that rounds to 8.4. The question asks for the smallest.",
+        "2": "Numbers a little below 8.4 also round up to 8.4. For example 8.39 rounds to 8.4, so 8.40 is not the smallest.",
+        "3": "8.34 has 4 hundredths, so it rounds DOWN to 8.3, not 8.4."
+      },
+      "skill": "rounding to the nearest tenth",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m01-q036",
+      "subtopicId": "m01-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The number of people living in a town is 48 000 when rounded to the nearest thousand. What is the LARGEST number of people that could live in the town?",
+      "answer": {
+        "value": 48499,
+        "tolerance": 0,
+        "accept": [
+          "48 499",
+          "48,499"
+        ]
+      },
+      "solution": "To round to the nearest thousand, look at the hundreds digit. Numbers from 47 500 to 48 499 round to 48 000. 48 500 would round up to 49 000. So the largest possible number of people is 48 499.",
+      "misconceptions": {
+        "common": "Answering 48 500 or 48 999. 48 500 rounds UP to 49 000, so the largest number that still rounds to 48 000 is 48 499."
+      },
+      "skill": "rounding whole numbers",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m01-q037",
+      "subtopicId": "m01-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which number is the largest?",
+      "options": [
+        "0.65",
+        "0.069",
+        "0.7",
+        "0.608"
+      ],
+      "answer": 2,
+      "solution": "Compare the tenths digits first: 0.65 has 6, 0.069 has 0, 0.7 has 7, 0.608 has 6. The biggest tenths digit is 7, so 0.7 is the largest. Tip: 0.7 = 0.700, 0.65 = 0.650, 0.608 = 0.608, 0.069 = 0.069.",
+      "misconceptions": {
+        "0": "65 looks bigger than 7, but compare the tenths first: 0.65 has 6 tenths and 0.7 has 7 tenths, so 0.7 is larger.",
+        "1": "69 looks big, but 0.069 has 0 tenths. It is the smallest of all.",
+        "3": "Having more digits does not make a decimal bigger. 0.608 has 6 tenths, and 0.7 has 7 tenths."
+      },
+      "skill": "comparing decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q038",
+      "subtopicId": "m01-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which symbol goes in the box to make this true?  3.5 □ 3.49",
+      "options": [
+        ">",
+        "<",
+        "="
+      ],
+      "answer": 0,
+      "solution": "Both have 3 ones. Compare the tenths: 5 is more than 4. So 3.5 > 3.49. You can also write 3.5 as 3.50: 3.50 > 3.49.",
+      "misconceptions": {
+        "1": "49 looks bigger than 5, but compare tenths: 3.5 has 5 tenths, 3.49 has only 4 tenths. So 3.5 is bigger.",
+        "2": "3.49 is close to 3.5 (it rounds to 3.5), but it is not equal. 3.5 = 3.50, which is 1 hundredth more than 3.49."
+      },
+      "skill": "comparing decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q039",
+      "subtopicId": "m01-s5",
+      "type": "order",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Put these numbers in order from smallest to largest.",
+      "options": [
+        "2.3",
+        "2.03",
+        "2.33",
+        "2.303"
+      ],
+      "answer": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "solution": "Write each with three decimal places: 2.300, 2.030, 2.330, 2.303. Now compare: 2.030 < 2.300 < 2.303 < 2.330. So the order is 2.03, 2.3, 2.303, 2.33.",
+      "misconceptions": {
+        "common": "Thinking the number with the most digits (2.303) is largest. Write them all with three decimal places: 2.300, 2.030, 2.330, 2.303."
+      },
+      "skill": "ordering decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q040",
+      "subtopicId": "m01-s5",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 0.5 = 0.50",
+      "answer": true,
+      "solution": "0.5 is 5 tenths. 0.50 is 5 tenths and 0 hundredths, which is still 5 tenths. So 0.5 = 0.50 is true. (Like RM 0.50 is 50 sen, and so is RM 0.5.)",
+      "misconceptions": {
+        "common": "Thinking 0.50 is bigger because 50 is bigger than 5. A zero at the end of a decimal does not change its value."
+      },
+      "skill": "comparing decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q041",
+      "subtopicId": "m01-s5",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 4.125 > 4.13",
+      "answer": false,
+      "solution": "Both have 4 ones and 1 tenth. Now compare hundredths: 4.125 has 2 hundredths, 4.13 has 3 hundredths. So 4.13 is bigger, and 4.125 < 4.13. The statement is false.",
+      "misconceptions": {
+        "common": "Thinking 125 is bigger than 13, so 4.125 must be bigger. Compare place by place instead."
+      },
+      "skill": "comparing decimals",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m01-q042",
+      "subtopicId": "m01-s5",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Put these numbers in order from LARGEST to smallest.",
+      "options": [
+        "0.8",
+        "0.088",
+        "0.81",
+        "0.808",
+        "0.18"
+      ],
+      "answer": [
+        2,
+        3,
+        0,
+        4,
+        1
+      ],
+      "solution": "Write each with three decimal places: 0.800, 0.088, 0.810, 0.808, 0.180. Largest to smallest: 0.810, 0.808, 0.800, 0.180, 0.088. So: 0.81, 0.808, 0.8, 0.18, 0.088.",
+      "misconceptions": {
+        "common": "Ordering by how long the numbers are, or reading 0.088 as 88. Write them all with three decimal places to compare."
+      },
+      "skill": "ordering decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q043",
+      "subtopicId": "m01-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Four friends ran 100 m on sports day. Their times were: Siti 15.1 s, Priya 15.09 s, Aisha 15.4 s, Mei Lin 15.38 s. Who was the fastest?",
+      "options": [
+        "Siti (15.1 s)",
+        "Priya (15.09 s)",
+        "Aisha (15.4 s)",
+        "Mei Lin (15.38 s)"
+      ],
+      "answer": 1,
+      "solution": "The fastest runner takes the least time, so find the smallest number. All start with 15. Compare tenths: 15.1 (1), 15.09 (0), 15.4 (4), 15.38 (3). 15.09 has the fewest tenths, so Priya was fastest.",
+      "misconceptions": {
+        "0": "1 looks smaller than 09, but compare tenths: 15.1 has 1 tenth and 15.09 has 0 tenths. So 15.09 is the smaller time.",
+        "2": "15.4 s is the LONGEST time. In a race, the fastest runner has the smallest time.",
+        "3": "15.38 looks smallest if you read 38 and 4 as whole numbers, but 15.38 has 3 tenths. In a race the smallest time wins, and 15.09 has 0 tenths."
+      },
+      "skill": "comparing decimals",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m01-q044",
+      "subtopicId": "m01-s5",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "How many numbers with exactly two decimal places are greater than 3.4 but less than 3.5?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0,
+        "accept": [
+          "nine"
+        ]
+      },
+      "solution": "The numbers are 3.41, 3.42, 3.43, 3.44, 3.45, 3.46, 3.47, 3.48, 3.49. That is 9 numbers. 3.40 (= 3.4) and 3.50 (= 3.5) do not count because they are not greater than 3.4 or less than 3.5.",
+      "misconceptions": {
+        "common": "Answering 10 by counting 3.40 or 3.50. 3.40 is equal to 3.4, not greater than it, and 3.50 is equal to 3.5."
+      },
+      "skill": "comparing decimals",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m01-q045",
+      "subtopicId": "m01-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which number is exactly halfway between 6.3 and 6.4?",
+      "options": [
+        "6.35",
+        "6.305",
+        "6.5",
+        "6.7"
+      ],
+      "answer": 0,
+      "solution": "Write the numbers as hundredths: 6.30 and 6.40. Halfway between 30 and 40 hundredths is 35 hundredths. So the answer is 6.35.",
+      "misconceptions": {
+        "1": "This puts the 5 in the thousandths place. Halfway between 3 tenths and 4 tenths is 3 tenths and 5 hundredths: 6.35.",
+        "2": "6.5 is not between 6.3 and 6.4 at all. It is bigger than 6.4.",
+        "3": "This adds the tenths (3 + 4 = 7). 6.7 is bigger than both numbers, so it cannot be between them."
+      },
+      "skill": "comparing decimals",
+      "source": "original"
+    },
+    {
+      "id": "m01-q046",
+      "subtopicId": "m01-s5",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the statements that are true.",
+      "options": [
+        "0.4 > 0.39",
+        "1.05 < 1.5",
+        "2.7 = 2.70",
+        "0.09 > 0.1",
+        "3.256 < 3.25"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "0.4 = 0.40 > 0.39: true. 1.05 < 1.50: true (0 tenths < 5 tenths). 2.7 = 2.70: true. 0.09 > 0.1: false, 0.09 < 0.10. 3.256 < 3.25: false, 3.256 > 3.250.",
+      "misconceptions": {
+        "3": "0.09 has 0 tenths and 0.1 has 1 tenth, so 0.09 is SMALLER than 0.1. The digit 9 is big, but it is only 9 hundredths.",
+        "4": "3.256 = 3.256 and 3.25 = 3.250. 256 thousandths is more than 250 thousandths, so 3.256 > 3.25."
+      },
+      "skill": "comparing decimals",
+      "source": "original"
+    }
+  ]
+}

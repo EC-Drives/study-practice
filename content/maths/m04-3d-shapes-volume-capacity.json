@@ -1,0 +1,1186 @@
+{
+  "subject": "maths",
+  "topicId": "m04-3d-shapes-volume-capacity",
+  "title": "3D Shapes, Volume and Capacity",
+  "order": 4,
+  "bookChapter": "Chapter 4: 3D Shapes, Volume and Capacity",
+  "frameworkRefs": [
+    "6Gg.04",
+    "6Gg.05",
+    "6Gg.06",
+    "6Gg.07"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will count the faces, edges and vertices of 3D shapes, including shapes made by joining two solids. You will match nets to cubes, cuboids, prisms and pyramids. You will find surface area by adding the areas of the faces, and work out volume and capacity, knowing that 1 cm³ holds 1 ml.",
+    "whyItMatters": "Boxes, tanks, bottles and buildings are all 3D shapes. Surface area tells you how much card, paint or wrapping paper you need. Volume and capacity tell you how much fits inside, from a lunch box to a swimming pool.",
+    "realWorld": [
+      "Working out how much wrapping paper covers a present box",
+      "Checking how many litres of water fill a fish tank or a water tank on a roof",
+      "Unfolding a cereal or tissue box to see its net",
+      "Choosing between a 1.5 litre bottle and three 500 ml bottles of drink",
+      "Seeing compound 3D shapes in buildings, such as a pyramid roof on a cuboid tower"
+    ],
+    "subtopics": [
+      {
+        "id": "m04-s1",
+        "title": "3D shapes and compound 3D shapes",
+        "summary": "Faces, edges and vertices of prisms, pyramids, cylinders, cones and spheres, and of shapes made by joining two solids."
+      },
+      {
+        "id": "m04-s2",
+        "title": "Nets",
+        "summary": "Nets of cubes, cuboids, prisms and pyramids: which arrangements fold into a cube, and which faces a net needs."
+      },
+      {
+        "id": "m04-s3",
+        "title": "Surface area",
+        "summary": "The surface area of a cube or cuboid is the total area of its faces, the same as the area of its net."
+      },
+      {
+        "id": "m04-s4",
+        "title": "Volume and capacity",
+        "summary": "Volume is the space a shape takes up (length x width x height for a cuboid); capacity is how much a container holds. 1 cm³ = 1 ml and 1000 cm³ = 1 litre."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "m04-q001",
+      "subtopicId": "m04-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How many faces does a cube have?",
+      "options": [
+        "8",
+        "6",
+        "12",
+        "4"
+      ],
+      "answer": 1,
+      "solution": "A cube has a top, a bottom and four sides: 1 + 1 + 4 = 6 square faces.",
+      "misconceptions": {
+        "0": "8 is the number of vertices (corners) of a cube, not faces.",
+        "2": "12 is the number of edges of a cube, not faces.",
+        "3": "You counted only the four side faces. Do not forget the top and the bottom."
+      },
+      "skill": "faces, edges and vertices",
+      "source": "original"
+    },
+    {
+      "id": "m04-q002",
+      "subtopicId": "m04-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How many edges does a triangular prism have?",
+      "options": [
+        "6",
+        "5",
+        "12",
+        "9"
+      ],
+      "answer": 3,
+      "solution": "Each triangular end has 3 edges: 3 + 3 = 6. Three more edges join the two ends: 6 + 3 = 9 edges.",
+      "misconceptions": {
+        "0": "6 is the number of vertices (corners) of a triangular prism.",
+        "1": "5 is the number of faces (2 triangles and 3 rectangles).",
+        "2": "12 is the number of edges of a cube or cuboid, not a triangular prism."
+      },
+      "skill": "faces, edges and vertices",
+      "source": "original"
+    },
+    {
+      "id": "m04-q003",
+      "subtopicId": "m04-s1",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each 3D shape to its number of vertices (corners).",
+      "options": {
+        "left": [
+          "cube",
+          "triangular prism",
+          "square-based pyramid",
+          "triangular pyramid (tetrahedron)"
+        ],
+        "right": [
+          "4",
+          "5",
+          "6",
+          "8",
+          "12"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "Cube: 4 corners on top + 4 on the bottom = 8. Triangular prism: 3 + 3 = 6. Square-based pyramid: 4 round the base + 1 at the top = 5. Triangular pyramid: 3 round the base + 1 at the top = 4.",
+      "misconceptions": {
+        "common": "Mixing up edges and vertices. A cube has 12 edges but only 8 vertices (corners)."
+      },
+      "skill": "faces, edges and vertices",
+      "source": "original"
+    },
+    {
+      "id": "m04-q004",
+      "subtopicId": "m04-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which 3D shape has one curved surface and no flat faces at all?",
+      "options": [
+        "sphere",
+        "cylinder",
+        "cone",
+        "hemisphere"
+      ],
+      "answer": 0,
+      "solution": "A sphere (like a ball) is curved all over, with no flat faces, edges or corners.",
+      "misconceptions": {
+        "1": "A cylinder has a curved surface but also two flat circular faces.",
+        "2": "A cone has a curved surface but also one flat circular face (its base).",
+        "3": "A hemisphere is half a sphere, so it has a flat circular face where it was cut."
+      },
+      "skill": "3D shapes with curved surfaces",
+      "source": "original"
+    },
+    {
+      "id": "m04-q005",
+      "subtopicId": "m04-s1",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A 3D shape has exactly 5 faces: 2 of them are triangles and 3 are rectangles. What is the name of the shape?",
+      "answer": {
+        "accept": [
+          "triangular prism",
+          "a triangular prism",
+          "triangular prisms"
+        ],
+        "keywords": []
+      },
+      "solution": "Two identical triangular ends joined by three rectangles make a triangular prism (like a Toblerone box or a tent).",
+      "misconceptions": {
+        "common": "Calling it a triangular pyramid. A pyramid has triangles meeting at one point; a prism has two identical ends joined by rectangles."
+      },
+      "skill": "naming 3D shapes",
+      "source": "original"
+    },
+    {
+      "id": "m04-q006",
+      "subtopicId": "m04-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A pyramid has a hexagon (6 sides) as its base. How many faces does it have altogether?",
+      "options": [
+        "6",
+        "8",
+        "7",
+        "12"
+      ],
+      "answer": 2,
+      "solution": "There is one triangle for each side of the base: 6 triangles. Add the hexagon base: 6 + 1 = 7 faces.",
+      "misconceptions": {
+        "0": "You counted the 6 triangles but forgot the hexagon base is a face too.",
+        "1": "You counted it like a hexagonal prism (2 hexagons + 6 rectangles = 8). A pyramid has only one base.",
+        "3": "12 is the number of edges (6 round the base + 6 going up to the point), not faces."
+      },
+      "skill": "faces, edges and vertices",
+      "source": "original"
+    },
+    {
+      "id": "m04-q007",
+      "subtopicId": "m04-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: A square-based pyramid has 8 edges.",
+      "answer": true,
+      "solution": "There are 4 edges round the square base and 4 edges going up to the point: 4 + 4 = 8. The statement is true.",
+      "misconceptions": {
+        "common": "Answering 5, which is the number of faces or the number of vertices, not the number of edges."
+      },
+      "skill": "faces, edges and vertices",
+      "source": "original"
+    },
+    {
+      "id": "m04-q008",
+      "subtopicId": "m04-s1",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A square-based pyramid is glued on top of a cube. The pyramid's square base is exactly the same size as the cube's top face and covers it completely, and the pyramid's point is directly above the centre of the cube. How many faces does the new solid have?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0,
+        "accept": [
+          "nine"
+        ]
+      },
+      "solution": "The cube's top face is now hidden inside, so the cube gives 6 - 1 = 5 faces. The pyramid's square base is hidden too, so the pyramid gives its 4 triangles. 5 + 4 = 9 faces.",
+      "misconceptions": {
+        "common": "Adding all the faces, 6 + 5 = 11. The two faces that are glued together are inside the solid and are no longer faces."
+      },
+      "skill": "compound 3D shapes",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m04-q009",
+      "subtopicId": "m04-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A square-based pyramid is glued exactly on top of a cube, so that the pyramid's base covers the cube's top face completely. How many vertices (corners) does the new solid have?",
+      "options": [
+        "13",
+        "8",
+        "9",
+        "5"
+      ],
+      "answer": 2,
+      "solution": "The cube has 8 vertices. The pyramid's 4 base corners are the same points as the cube's top corners. Only the pyramid's point is new: 8 + 1 = 9 vertices.",
+      "misconceptions": {
+        "0": "You added 8 + 5. But the pyramid's 4 base corners sit on the cube's 4 top corners, so they are not new corners.",
+        "1": "You forgot the new corner at the point of the pyramid.",
+        "3": "You counted only the pyramid's corners and forgot the cube's 4 bottom corners."
+      },
+      "skill": "compound 3D shapes",
+      "source": "original"
+    },
+    {
+      "id": "m04-q010",
+      "subtopicId": "m04-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Two identical cubes are joined together face to face. What 3D shape do they make?",
+      "options": [
+        "a cuboid",
+        "a bigger cube",
+        "a square-based pyramid",
+        "a triangular prism"
+      ],
+      "answer": 0,
+      "solution": "The two cubes make a box shape with 6 rectangular faces: 2 squares at the ends and 4 long rectangles. That is a cuboid.",
+      "misconceptions": {
+        "1": "The new shape is twice as long as it is wide and tall, so its edges are not all equal. It takes 8 small cubes to make a bigger cube.",
+        "2": "A pyramid has triangles meeting at a point. Two cubes joined together have no triangles.",
+        "3": "A triangular prism has triangular ends. Two cubes joined together have only square and rectangular faces."
+      },
+      "skill": "compound 3D shapes",
+      "source": "original"
+    },
+    {
+      "id": "m04-q011",
+      "subtopicId": "m04-s1",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A building block is made by joining two cuboids to make an L-shaped solid. Its front face and its back face are both L-shapes, and each L-shape has 6 straight sides. All the other faces are rectangles. How many faces does the block have altogether?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0,
+        "accept": [
+          "eight"
+        ]
+      },
+      "solution": "Front and back: 2 faces. Each of the 6 sides of the L-shape has its own rectangle joining the front to the back: 6 faces. 2 + 6 = 8 faces.",
+      "misconceptions": {
+        "common": "Adding the faces of two cuboids, 6 + 6 = 12. The faces where the cuboids join are hidden, and some faces line up to make one flat face."
+      },
+      "skill": "compound 3D shapes",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m04-q012",
+      "subtopicId": "m04-s1",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Select ALL the 3D shapes that have at least one curved surface.",
+      "options": [
+        "cylinder",
+        "cube",
+        "cone",
+        "triangular prism",
+        "sphere",
+        "square-based pyramid"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Cylinders, cones and spheres all have a curved surface. Cubes, prisms and pyramids have only flat faces.",
+      "misconceptions": {
+        "1": "A cube has only flat square faces.",
+        "3": "A triangular prism has only flat faces: 2 triangles and 3 rectangles.",
+        "5": "A square-based pyramid has only flat faces: 1 square and 4 triangles."
+      },
+      "skill": "3D shapes with curved surfaces",
+      "source": "original"
+    },
+    {
+      "id": "m04-q013",
+      "subtopicId": "m04-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A prism has 7 faces altogether. How many edges does it have?",
+      "options": [
+        "14",
+        "12",
+        "10",
+        "15"
+      ],
+      "answer": 3,
+      "solution": "A prism has 2 end faces, so the other 7 - 2 = 5 faces are rectangles. That means each end is a pentagon (5 sides). Edges: 5 round the front + 5 round the back + 5 joining them = 15.",
+      "misconceptions": {
+        "0": "You doubled the number of faces. There is no rule like that; work out the shape of the ends first.",
+        "1": "12 is the number of edges of a cube or cuboid, which have 6 faces, not 7.",
+        "2": "10 is the number of vertices (5 on each end), not edges."
+      },
+      "skill": "faces, edges and vertices",
+      "source": "original"
+    },
+    {
+      "id": "m04-q014",
+      "subtopicId": "m04-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How many squares make up the net of a cube?",
+      "options": [
+        "5",
+        "6",
+        "8",
+        "12"
+      ],
+      "answer": 1,
+      "solution": "A net has one shape for each face. A cube has 6 square faces, so its net has 6 squares.",
+      "misconceptions": {
+        "0": "5 squares make an open box with no lid. A closed cube needs 6.",
+        "2": "8 is the number of vertices of a cube, not faces.",
+        "3": "12 is the number of edges of a cube, not faces."
+      },
+      "skill": "nets of 3D shapes",
+      "source": "original"
+    },
+    {
+      "id": "m04-q015",
+      "subtopicId": "m04-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A net is made of 1 square and 4 identical triangles, with one triangle attached to each side of the square. What 3D shape does it fold into?",
+      "options": [
+        "square-based pyramid",
+        "triangular prism",
+        "cube",
+        "triangular pyramid"
+      ],
+      "answer": 0,
+      "solution": "The square is the base. The 4 triangles fold up and meet at a point. That is a square-based pyramid.",
+      "misconceptions": {
+        "1": "A triangular prism's net has 2 triangles and 3 rectangles.",
+        "2": "A cube's net has 6 squares and no triangles.",
+        "3": "A triangular pyramid's net has 4 triangles and no square."
+      },
+      "skill": "nets of 3D shapes",
+      "source": "original"
+    },
+    {
+      "id": "m04-q016",
+      "subtopicId": "m04-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A net is made of 2 identical circles and 1 rectangle. What 3D shape does it fold into?",
+      "answer": {
+        "accept": [
+          "cylinder",
+          "a cylinder",
+          "cylinders"
+        ],
+        "keywords": []
+      },
+      "solution": "The rectangle rolls up to make the curved surface, and the two circles close the top and bottom. That is a cylinder, like a tin can.",
+      "misconceptions": {
+        "common": "Saying a cone. A cone's net has only one circle, plus a curved fan-shaped piece."
+      },
+      "skill": "nets of 3D shapes",
+      "source": "original"
+    },
+    {
+      "id": "m04-q017",
+      "subtopicId": "m04-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "True or false: These 6 squares fold up to make a cube: 4 squares in a straight row, with one more square attached to the top edge of the 2nd square in the row, and one more square attached to the bottom edge of the 3rd square in the row.",
+      "answer": true,
+      "solution": "The row of 4 squares wraps round to make 4 sides of the cube (the 1st and 4th squares meet). The square on top of the 2nd square folds over to make the top, and the square under the 3rd square folds to make the bottom. No faces overlap, so it is a cube net. The statement is true.",
+      "misconceptions": {
+        "common": "Thinking the two extra squares must be attached to the same square of the row. They can be on any squares of the row, as long as one is above the row and one is below it."
+      },
+      "skill": "nets of a cube",
+      "source": "original"
+    },
+    {
+      "id": "m04-q018",
+      "subtopicId": "m04-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 6 squares arranged in 2 rows of 3 (making a 2 by 3 rectangle) can be folded to make a cube.",
+      "answer": false,
+      "solution": "No cube net contains a 2 by 2 block of squares, because those 4 squares would all meet at one corner, and only 3 faces of a cube meet at a corner. Try it with paper: two faces overlap and one face is missing. The statement is false.",
+      "misconceptions": {
+        "common": "Thinking that any 6 squares joined edge to edge will fold into a cube."
+      },
+      "skill": "nets of a cube",
+      "source": "original"
+    },
+    {
+      "id": "m04-q019",
+      "subtopicId": "m04-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which of these arrangements of 6 squares is NOT the net of a cube?",
+      "options": [
+        "A row of 4 squares, with one square above the 2nd square and one square below the 2nd square (a cross shape)",
+        "A row of 4 squares, with one square above the 1st square and one square below the 4th square",
+        "Two rows of 3 squares, with the bottom row moved 2 squares to the right, so only the 3rd square of the top row touches the 1st square of the bottom row",
+        "A row of 4 squares, with one square above the 1st square of the row and one more square above the 2nd square of the row"
+      ],
+      "answer": 3,
+      "solution": "When a row of 4 squares wraps round, it makes the 4 sides of the cube. The two extra squares must become the top and the bottom, so one must be above the row and one below it. If both are above the row, they both fold onto the top and overlap, leaving the bottom open. So that arrangement is not a cube net.",
+      "misconceptions": {
+        "0": "This cross shape is a cube net: the row wraps round and the two extra squares become the top and the bottom.",
+        "1": "This one does fold into a cube: one extra square is above the row and one is below, so they become the top and the bottom.",
+        "2": "This 'staircase' of two rows of 3 does fold into a cube. Try it with paper."
+      },
+      "skill": "nets of a cube",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m04-q020",
+      "subtopicId": "m04-s2",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A cuboid measures 5 cm by 3 cm by 2 cm. Select ALL the statements about its net that are true.",
+      "options": [
+        "It is made of 6 rectangles",
+        "All 6 rectangles are the same size",
+        "It has two rectangles measuring 5 cm by 3 cm",
+        "It has two rectangles measuring 3 cm by 2 cm",
+        "It has 12 rectangles, one for each edge"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "solution": "A cuboid has 6 faces in 3 matching pairs: two 5 cm by 3 cm (top and bottom), two 5 cm by 2 cm (front and back) and two 3 cm by 2 cm (the ends). So the true statements are the 1st, 3rd and 4th.",
+      "misconceptions": {
+        "1": "Only a cube has 6 identical faces. A cuboid has 3 pairs of matching rectangles.",
+        "4": "A cuboid has 12 edges but only 6 faces, so its net has 6 rectangles."
+      },
+      "skill": "nets of 3D shapes",
+      "source": "original"
+    },
+    {
+      "id": "m04-q021",
+      "subtopicId": "m04-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "How many rectangles are there in the net of a pentagonal prism?",
+      "options": [
+        "7",
+        "5",
+        "2",
+        "10"
+      ],
+      "answer": 1,
+      "solution": "A pentagonal prism has 2 pentagon ends. Each of the 5 sides of the pentagon has a rectangle joining the two ends. So its net has 5 rectangles (and 2 pentagons).",
+      "misconceptions": {
+        "0": "7 is the total number of faces, including the 2 pentagons. The question asks only for the rectangles.",
+        "2": "2 is the number of pentagons (the two ends), not rectangles.",
+        "3": "10 is the number of vertices of a pentagonal prism, not rectangles."
+      },
+      "skill": "nets of 3D shapes",
+      "source": "original"
+    },
+    {
+      "id": "m04-q022",
+      "subtopicId": "m04-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A cube net is made of 4 squares in a row, labelled A, B, C and D from left to right. Square E is attached above square B, and square F is attached below square B. When the net is folded into a cube, which face is opposite face A?",
+      "options": [
+        "B",
+        "D",
+        "E",
+        "C"
+      ],
+      "answer": 3,
+      "solution": "The row A, B, C, D wraps round the cube like a band. Neighbours in the band touch, and D comes round to touch A. So the face opposite A is the one two places along: C. (Also, B is opposite D, and E is opposite F.)",
+      "misconceptions": {
+        "0": "B is right next to A in the net, so they share an edge on the cube too.",
+        "1": "D is furthest from A in the net, but when the row wraps round, D folds back to touch A.",
+        "2": "E is attached to B and folds over to become the top, which touches A along an edge."
+      },
+      "skill": "nets of a cube",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m04-q023",
+      "subtopicId": "m04-s2",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Put these nets in order of the number of faces they have, from fewest to most.",
+      "options": [
+        "net of a cube",
+        "net of a triangular pyramid",
+        "net of a pentagonal prism",
+        "net of a square-based pyramid"
+      ],
+      "answer": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "solution": "Triangular pyramid: 4 triangles = 4 faces. Square-based pyramid: 1 square + 4 triangles = 5. Cube: 6 squares = 6. Pentagonal prism: 2 pentagons + 5 rectangles = 7.",
+      "misconceptions": {
+        "common": "Mixing up faces with edges or vertices. A net has exactly one shape for each face."
+      },
+      "skill": "nets of 3D shapes",
+      "source": "original"
+    },
+    {
+      "id": "m04-q024",
+      "subtopicId": "m04-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: A cube has only one possible net.",
+      "answer": false,
+      "solution": "There are 11 different nets of a cube, for example the cross shape and the 'staircase' shape. So the statement is false.",
+      "misconceptions": {
+        "common": "Thinking the cross shape is the only cube net because it is the one we see most often."
+      },
+      "skill": "nets of a cube",
+      "source": "original"
+    },
+    {
+      "id": "m04-q025",
+      "subtopicId": "m04-s3",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A cube has edges 3 cm long. What is the area of one of its faces? Give your answer in cm².",
+      "answer": {
+        "value": 9,
+        "tolerance": 0,
+        "accept": [
+          "9 cm²",
+          "9 cm^2"
+        ]
+      },
+      "solution": "Each face is a square 3 cm by 3 cm. Area = 3 x 3 = 9 cm².",
+      "misconceptions": {
+        "common": "Adding 3 + 3 = 6 instead of multiplying. Area of a square = side x side."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q026",
+      "subtopicId": "m04-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A cube has edges 4 cm long. What is its total surface area? Give your answer in cm².",
+      "answer": {
+        "value": 96,
+        "tolerance": 0,
+        "accept": [
+          "96 cm²",
+          "96 cm^2"
+        ]
+      },
+      "solution": "One face: 4 x 4 = 16 cm². A cube has 6 faces: 6 x 16 = 96 cm².",
+      "misconceptions": {
+        "common": "Working out the volume, 4 x 4 x 4 = 64, instead. Surface area adds the areas of all 6 faces."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q027",
+      "subtopicId": "m04-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A cuboid is 5 cm long, 4 cm wide and 2 cm high. What is its total surface area?",
+      "options": [
+        "40 cm²",
+        "76 cm²",
+        "38 cm²",
+        "11 cm²"
+      ],
+      "answer": 1,
+      "solution": "Faces: top and bottom 5 x 4 = 20 each; front and back 5 x 2 = 10 each; ends 4 x 2 = 8 each. Total = 2 x (20 + 10 + 8) = 2 x 38 = 76 cm².",
+      "misconceptions": {
+        "0": "5 x 4 x 2 = 40 is the volume (in cm³), not the surface area.",
+        "2": "You added each different face once (20 + 10 + 8 = 38). A cuboid has two of each face, so double it.",
+        "3": "You added the three lengths. Surface area adds the areas of the faces."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q028",
+      "subtopicId": "m04-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What does the surface area of a 3D shape mean?",
+      "options": [
+        "the amount of space inside it",
+        "the area of its base only",
+        "the total length of all its edges",
+        "the total area of all its faces"
+      ],
+      "answer": 3,
+      "solution": "Surface area is the total area of all the faces, the same as the area of its net. It is measured in square units such as cm².",
+      "misconceptions": {
+        "0": "That is the volume (or capacity) of the shape, measured in cm³ or ml.",
+        "1": "The base is just one face. Surface area includes every face.",
+        "2": "Adding edge lengths gives a length in cm, not an area."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q029",
+      "subtopicId": "m04-s3",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: A cube with edges 2 cm long has a surface area of 8 cm².",
+      "answer": false,
+      "solution": "One face: 2 x 2 = 4 cm². Six faces: 6 x 4 = 24 cm². So the statement is false. (8 is the volume, 2 x 2 x 2 = 8 cm³.)",
+      "misconceptions": {
+        "common": "Working out 2 x 2 x 2 = 8, which is the volume, not the surface area."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m04-q030",
+      "subtopicId": "m04-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Siti makes an open box (it has no lid) from card. The box is a cuboid 10 cm long, 6 cm wide and 4 cm high. What area of card does she need, with no overlaps? Give your answer in cm².",
+      "answer": {
+        "value": 188,
+        "tolerance": 0,
+        "accept": [
+          "188 cm²",
+          "188 cm^2"
+        ]
+      },
+      "solution": "Base: 10 x 6 = 60 cm². Front and back: 2 x (10 x 4) = 80 cm². Two ends: 2 x (6 x 4) = 48 cm². No lid. Total: 60 + 80 + 48 = 188 cm².",
+      "misconceptions": {
+        "common": "Including a lid gives 248 cm². An open box has only 5 faces."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m04-q031",
+      "subtopicId": "m04-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A cube has a total surface area of 216 cm². How long is each edge?",
+      "options": [
+        "6 cm",
+        "36 cm",
+        "18 cm",
+        "54 cm"
+      ],
+      "answer": 0,
+      "solution": "One face = 216 ÷ 6 = 36 cm². The face is a square, and 6 x 6 = 36, so each edge is 6 cm.",
+      "misconceptions": {
+        "1": "36 cm² is the area of ONE face (216 ÷ 6). The edge is the number that times itself makes 36.",
+        "2": "You divided 216 by 12 (the number of edges). Surface area is about faces: 216 ÷ 6 = 36 cm² per face.",
+        "3": "You divided by 4, as if a cube had 4 faces. A cube has 6 faces."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q032",
+      "subtopicId": "m04-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Wei Ming paints all the outside faces of a box shaped like a cuboid, 20 cm long, 10 cm wide and 10 cm high. One small tin of paint covers 200 cm². How many tins does he need? Give a whole number.",
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "accept": [
+          "5 tins",
+          "five"
+        ]
+      },
+      "solution": "Top and bottom: 2 x (20 x 10) = 400 cm². Front and back: 2 x (20 x 10) = 400 cm². Two ends: 2 x (10 x 10) = 200 cm². Total: 1000 cm². Tins: 1000 ÷ 200 = 5.",
+      "misconceptions": {
+        "common": "Using the volume, 20 x 10 x 10 = 2000, gives 10 tins. Paint covers the surface area, not the space inside."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m04-q033",
+      "subtopicId": "m04-s3",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each cube to its total surface area.",
+      "options": {
+        "left": [
+          "cube with edges 1 cm",
+          "cube with edges 2 cm",
+          "cube with edges 3 cm",
+          "cube with edges 5 cm"
+        ],
+        "right": [
+          "54 cm²",
+          "150 cm²",
+          "6 cm²",
+          "125 cm²",
+          "24 cm²"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "Surface area = 6 x (edge x edge). 1 cm: 6 x 1 = 6. 2 cm: 6 x 4 = 24. 3 cm: 6 x 9 = 54. 5 cm: 6 x 25 = 150 cm².",
+      "misconceptions": {
+        "common": "Working out the volume instead: 5 x 5 x 5 = 125 is in cm³, not the surface area."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q034",
+      "subtopicId": "m04-s3",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A cuboid is 6 cm long, 4 cm wide and 3 cm high. Select ALL the calculations that give its total surface area.",
+      "options": [
+        "2 x (6 x 4) + 2 x (6 x 3) + 2 x (4 x 3)",
+        "2 x (24 + 18 + 12)",
+        "6 x 4 x 3",
+        "6 x (6 x 4)",
+        "48 + 36 + 24"
+      ],
+      "answer": [
+        0,
+        1,
+        4
+      ],
+      "solution": "The faces come in pairs: 6 x 4 = 24, 6 x 3 = 18 and 4 x 3 = 12. Surface area = 2 x 24 + 2 x 18 + 2 x 12 = 48 + 36 + 24 = 108 cm². The 1st, 2nd and 5th calculations all give 108.",
+      "misconceptions": {
+        "2": "6 x 4 x 3 = 72 is the volume in cm³, not the surface area.",
+        "3": "This treats all six faces as 6 cm by 4 cm. Only a cube has six identical faces."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m04-q035",
+      "subtopicId": "m04-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Each face of a cube has an area of 25 cm². What is the cube's total surface area?",
+      "options": [
+        "25 cm²",
+        "100 cm²",
+        "150 cm²",
+        "125 cm²"
+      ],
+      "answer": 2,
+      "solution": "A cube has 6 identical faces. 6 x 25 = 150 cm².",
+      "misconceptions": {
+        "0": "That is the area of just one face. A cube has 6 faces.",
+        "1": "You counted only 4 faces. Do not forget the top and bottom: 6 faces.",
+        "3": "You worked out 5 x 5 x 5, which is the volume in cm³, not the surface area."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q036",
+      "subtopicId": "m04-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A cuboid is built from 1 cm cubes. It is 5 cubes long, 2 cubes wide and 3 cubes high. What is its volume?",
+      "options": [
+        "10 cm³",
+        "62 cm³",
+        "30 cm³",
+        "15 cm³"
+      ],
+      "answer": 2,
+      "solution": "Each layer has 5 x 2 = 10 cubes. There are 3 layers: 10 x 3 = 30 cubes. Each cube is 1 cm³, so the volume is 30 cm³.",
+      "misconceptions": {
+        "0": "You counted only the bottom layer (5 x 2 = 10 cubes). There are 3 layers: 10 x 3 = 30.",
+        "1": "62 is the number of square faces showing on the outside (the surface area in cm²), not the number of cubes.",
+        "3": "You multiplied only the length and height (5 x 3), which is just the front layer."
+      },
+      "skill": "volume of cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q037",
+      "subtopicId": "m04-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A cuboid is 6 cm long, 4 cm wide and 2 cm high. What is its volume? Give your answer in cm³.",
+      "answer": {
+        "value": 48,
+        "tolerance": 0,
+        "accept": [
+          "48 cm³",
+          "48 cm^3"
+        ]
+      },
+      "solution": "Volume = length x width x height = 6 x 4 x 2 = 48 cm³.",
+      "misconceptions": {
+        "common": "Adding the lengths (6 + 4 + 2 = 12) instead of multiplying them."
+      },
+      "skill": "volume of cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q038",
+      "subtopicId": "m04-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which unit is the most sensible for measuring the capacity of a drinking glass?",
+      "options": [
+        "millilitres (ml)",
+        "kilograms (kg)",
+        "square centimetres (cm²)",
+        "kilometres (km)"
+      ],
+      "answer": 0,
+      "solution": "Capacity is how much liquid a container can hold. A glass holds a few hundred millilitres, so ml is the best unit.",
+      "misconceptions": {
+        "1": "Kilograms measure mass (how heavy something is), not how much a container holds.",
+        "2": "Square centimetres measure area (a flat surface), not capacity.",
+        "3": "Kilometres measure long distances."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q039",
+      "subtopicId": "m04-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: A container with a capacity of 1 cm³ holds 1 ml of liquid.",
+      "answer": true,
+      "solution": "1 cm³ and 1 ml are the same amount of space. So 1000 cm³ = 1000 ml = 1 litre. The statement is true.",
+      "misconceptions": {
+        "common": "Thinking cm³ and ml cannot be compared because one is for solids and one is for liquids. They measure the same amount of space."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q040",
+      "subtopicId": "m04-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which sentence best describes the CAPACITY of a water bottle?",
+      "options": [
+        "the amount of space the bottle itself takes up",
+        "how heavy the bottle is",
+        "the area of the bottle's base",
+        "the amount of liquid the bottle can hold"
+      ],
+      "answer": 3,
+      "solution": "Capacity is the amount a container can hold when it is full. Volume is the amount of space an object takes up.",
+      "misconceptions": {
+        "0": "That is the bottle's volume: the space it takes up. Capacity is how much it can hold inside.",
+        "1": "That is the bottle's mass, measured in g or kg.",
+        "2": "That is an area, measured in cm². Capacity is measured in ml or l."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q041",
+      "subtopicId": "m04-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The inside of a fish tank is a cuboid 50 cm long, 30 cm wide and 40 cm high. What is the capacity of the tank in litres?",
+      "options": [
+        "60 000 L",
+        "60 L",
+        "600 L",
+        "6 L"
+      ],
+      "answer": 1,
+      "solution": "Capacity = 50 x 30 x 40 = 60 000 cm³ = 60 000 ml. 1000 ml = 1 litre, so 60 000 ÷ 1000 = 60 litres.",
+      "misconceptions": {
+        "0": "You found 60 000 cm³ but did not change it to litres. 1 litre = 1000 cm³, so divide by 1000.",
+        "2": "You divided by 100. 1 litre = 1000 cm³, so divide by 1000.",
+        "3": "You divided by 10 000. 1 litre = 1000 cm³, so 60 000 ÷ 1000 = 60."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q042",
+      "subtopicId": "m04-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A jug has a capacity of 2 litres. It already holds 1250 ml of juice. How many more millilitres of juice will fill it to the top? Give your answer in ml.",
+      "answer": {
+        "value": 750,
+        "tolerance": 0,
+        "accept": [
+          "750 ml"
+        ]
+      },
+      "solution": "Change litres to ml: 2 litres = 2000 ml. 2000 - 1250 = 750 ml.",
+      "misconceptions": {
+        "common": "Subtracting without changing 2 litres into 2000 ml first. Both amounts must be in the same unit."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q043",
+      "subtopicId": "m04-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A tank has a rectangular base 20 cm long and 15 cm wide. It contains some water. Priya lowers a stone into the water until it is completely under water, and the water level rises by 2 cm. What is the volume of the stone?",
+      "options": [
+        "600 cm³",
+        "37 cm³",
+        "300 cm³",
+        "6000 cm³"
+      ],
+      "answer": 0,
+      "solution": "The stone pushes the water up. The volume of the stone equals the volume of the extra water: 20 x 15 x 2 = 600 cm³.",
+      "misconceptions": {
+        "1": "You added 20 + 15 + 2. Volume needs multiplying.",
+        "2": "You found only the base area (20 x 15 = 300 cm²). Multiply by the 2 cm rise: 300 x 2 = 600.",
+        "3": "Place value slip: 20 x 15 = 300, and 300 x 2 = 600, not 6000."
+      },
+      "skill": "volume of cuboids",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m04-q044",
+      "subtopicId": "m04-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A container is a cuboid with inside measurements 10 cm long, 10 cm wide and 20 cm high. It is filled with water to 3/4 of its height. How many millilitres of water are in it? Give your answer in ml.",
+      "answer": {
+        "value": 1500,
+        "tolerance": 0,
+        "accept": [
+          "1500 ml",
+          "1,500"
+        ]
+      },
+      "solution": "3/4 of 20 cm = 15 cm. Volume of water = 10 x 10 x 15 = 1500 cm³. 1 cm³ = 1 ml, so there are 1500 ml.",
+      "misconceptions": {
+        "common": "Using the full height gives 2000 ml. Only 3/4 of the height is filled with water."
+      },
+      "skill": "capacity and volume",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m04-q045",
+      "subtopicId": "m04-s4",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the amounts that are equal to 1 litre.",
+      "options": [
+        "1000 ml",
+        "100 ml",
+        "1000 cm³",
+        "100 cm³",
+        "the capacity of a hollow cube whose inside edges are 10 cm"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "1 litre = 1000 ml, and 1 ml = 1 cm³, so 1 litre = 1000 cm³. A hollow cube with inside edges 10 cm holds 10 x 10 x 10 = 1000 cm³ = 1 litre.",
+      "misconceptions": {
+        "1": "100 ml is only one tenth of a litre.",
+        "3": "100 cm³ = 100 ml, which is only one tenth of a litre."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q046",
+      "subtopicId": "m04-s4",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A jug can hold 2 litres of water when it is full. Is '2 litres' the jug's volume or its capacity? Answer with one word.",
+      "answer": {
+        "accept": [
+          "capacity",
+          "its capacity",
+          "the capacity"
+        ],
+        "keywords": []
+      },
+      "solution": "The amount a container can hold is its capacity. So 2 litres is the jug's capacity. (The jug's volume is the space the jug itself takes up.)",
+      "misconceptions": {
+        "common": "Saying volume. Volume is the space an object takes up; capacity is how much a container can hold."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q047",
+      "subtopicId": "m04-s4",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Put these capacities in order from smallest to largest.",
+      "options": [
+        "1.2 L",
+        "750 ml",
+        "0.5 L",
+        "1 L",
+        "900 cm³"
+      ],
+      "answer": [
+        2,
+        1,
+        4,
+        3,
+        0
+      ],
+      "solution": "Change everything to ml: 1.2 L = 1200 ml, 750 ml, 0.5 L = 500 ml, 1 L = 1000 ml, 900 cm³ = 900 ml. Smallest to largest: 500, 750, 900, 1000, 1200, so 0.5 L, 750 ml, 900 cm³, 1 L, 1.2 L.",
+      "misconceptions": {
+        "common": "Comparing the numbers without changing the units, which puts 0.5 L and 1 L first. Change everything to ml first: 1 L = 1000 ml and 1 cm³ = 1 ml."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q048",
+      "subtopicId": "m04-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A cuboid has a volume of 120 cm³. It is 6 cm long and 5 cm wide. How high is it?",
+      "options": [
+        "20 cm",
+        "24 cm",
+        "4 cm",
+        "109 cm"
+      ],
+      "answer": 2,
+      "solution": "Volume = length x width x height. 6 x 5 = 30, so 30 x height = 120. Height = 120 ÷ 30 = 4 cm. Check: 6 x 5 x 4 = 120.",
+      "misconceptions": {
+        "0": "You divided by the length only (120 ÷ 6). Divide by length x width: 120 ÷ 30 = 4.",
+        "1": "You divided by the width only (120 ÷ 5). Divide by length x width: 120 ÷ 30 = 4.",
+        "3": "You subtracted 6 and 5 from 120. Volume comes from multiplying, so work backwards by dividing."
+      },
+      "skill": "volume of cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q049",
+      "subtopicId": "m04-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A box shaped like a cube has inside edges of 10 cm. It is half full of water. Ahmad pours in another 300 ml. How much more water is needed to fill the box to the top?",
+      "options": [
+        "500 ml",
+        "200 ml",
+        "700 ml",
+        "800 ml"
+      ],
+      "answer": 1,
+      "solution": "Capacity = 10 x 10 x 10 = 1000 cm³ = 1000 ml. Half full = 500 ml. After pouring: 500 + 300 = 800 ml. Still needed: 1000 - 800 = 200 ml.",
+      "misconceptions": {
+        "0": "You forgot the 300 ml that Ahmad poured in.",
+        "2": "You took 300 from 1000 but forgot the box was already half full.",
+        "3": "800 ml is how much water is in the box now, not how much more is needed."
+      },
+      "skill": "capacity and volume",
+      "source": "inspired-by: Singapore P6"
+    }
+  ]
+}

@@ -1,0 +1,864 @@
+{
+  "subject": "science",
+  "topicId": "s11-soil",
+  "title": "Soil",
+  "order": 11,
+  "bookChapter": "Chapter 11: Soil",
+  "frameworkRefs": [
+    "6ESp.03",
+    "6ESp.04",
+    "6TWSp.04",
+    "6TWSp.05",
+    "6TWSc.03",
+    "6TWSc.04",
+    "6TWSa.02",
+    "6TWSa.03",
+    "6TWSa.04"
+  ],
+  "preamble": {
+    "whatYouWillLearn": "You will find out what soil is made of and how clay, sandy, loam and peat soils are different. You will learn how soil can change in ways that help or harm plants. You will also plan and judge fair tests on soil drainage.",
+    "whyItMatters": "Almost all of our food grows in soil, so healthy soil means healthy crops. Soil forms very slowly, so it is important to look after it. Knowing how soils behave helps farmers and gardeners choose the right soil and care for it.",
+    "realWorld": [
+      "Oil palm and rubber estates in Malaysia adding fertiliser and planting cover crops to protect the soil",
+      "Terraced vegetable and tea farms in Cameron Highlands that stop monsoon rain washing soil down the hills",
+      "Gardeners turning kitchen scraps into compost to grow chillies and pandan at home",
+      "Sports fields with sandy soil so that the pitch drains quickly after a heavy storm",
+      "Builders testing soil before building houses and roads"
+    ],
+    "subtopics": [
+      {
+        "id": "s11-s1",
+        "title": "What soil is made of",
+        "summary": "Soil is a mixture of rock particles (clay, silt and sand), humus, air, water and living things."
+      },
+      {
+        "id": "s11-s2",
+        "title": "Types of soil",
+        "summary": "Clay, sandy, loam and peat soils have different particle sizes and amounts of humus, so they drain and hold water and nutrients differently."
+      },
+      {
+        "id": "s11-s3",
+        "title": "Soil and plant growth",
+        "summary": "Soil composition can change, through compost, earthworms, erosion, overuse, trampling or pollution, and this can help or hinder plant growth."
+      },
+      {
+        "id": "s11-s4",
+        "title": "Investigating soils",
+        "summary": "Plan fair tests on soils, choose equipment, and read results tables, including spotting anomalous results."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "s11-q001",
+      "subtopicId": "s11-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Soil is a mixture. Which list best describes what soil is made of?",
+      "options": [
+        "Only tiny pieces of rock",
+        "Only rotted leaves and plant roots",
+        "Rock particles, humus, air, water and living things",
+        "Rock particles and water only"
+      ],
+      "answer": 2,
+      "solution": "Soil is not just 'dirt'. It is a mixture of rock particles (sand, silt and clay), humus from dead plants and animals, air in the gaps, water, and living things like earthworms, insects, fungi and bacteria.",
+      "misconceptions": {
+        "0": "Rock particles are the biggest part of most soil, but soil also has humus (rotted plant and animal material), air, water and living things in it.",
+        "1": "Rotted leaves make humus, but most of the soil is actually tiny pieces of broken-down rock. Soil also holds air and water.",
+        "3": "This forgets the air spaces between the particles, the humus and the living things such as earthworms and bacteria."
+      },
+      "skill": "what soil is made of",
+      "source": "original"
+    },
+    {
+      "id": "s11-q002",
+      "subtopicId": "s11-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name of the dark material in soil that is made from the rotted remains of dead plants and animals? Answer in one word.",
+      "answer": {
+        "accept": [
+          "humus",
+          "the humus",
+          "organic matter"
+        ],
+        "keywords": []
+      },
+      "solution": "This material is called humus. It forms when decomposers such as bacteria, fungi and earthworms break down dead leaves, roots and animals. Humus is full of nutrients that plants need.",
+      "misconceptions": {
+        "common": "Calling it 'compost' or 'fertiliser'. Compost is something gardeners make and add to soil; when it rots down in the soil it becomes humus. The natural material in soil is called humus."
+      },
+      "skill": "what soil is made of",
+      "source": "original"
+    },
+    {
+      "id": "s11-q003",
+      "subtopicId": "s11-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Put these soil particles in order of size, from smallest to largest.",
+      "options": [
+        "sand",
+        "clay",
+        "gravel",
+        "silt"
+      ],
+      "answer": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "solution": "Clay particles are the smallest (too small to see one on its own). Silt particles are a little bigger and feel smooth like flour. Sand grains are bigger and feel gritty. Gravel is small stones, the largest of these. So: clay, silt, sand, gravel.",
+      "misconceptions": {
+        "common": "Mixing up clay and silt, or thinking sticky clay must be made of big particles. Clay feels sticky because its particles are so tiny and pack together closely."
+      },
+      "skill": "soil particle sizes",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s11-q004",
+      "subtopicId": "s11-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: All the rock particles in soil are the same size.",
+      "answer": false,
+      "solution": "False. Soil has rock particles of many sizes: tiny clay particles, slightly bigger silt, gritty sand and sometimes small stones. Different soils have different amounts of each size.",
+      "misconceptions": {
+        "common": "Thinking soil is one even powder. If you rub soil between your fingers you can feel gritty bits (sand) and smooth or sticky bits (silt and clay)."
+      },
+      "skill": "soil particle sizes",
+      "source": "original"
+    },
+    {
+      "id": "s11-q005",
+      "subtopicId": "s11-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Where does the humus in soil come from?",
+      "options": [
+        "Dead plants and animals that have been broken down by decomposers such as bacteria, fungi and earthworms",
+        "Rocks that have been broken up by rain, wind and ice",
+        "Fertiliser that farmers spread on their fields",
+        "Rainwater that soaks into the ground"
+      ],
+      "answer": 0,
+      "solution": "When leaves, roots and animals die, decomposers (bacteria, fungi, earthworms and other small animals) break them down. What is left is humus, a dark material rich in nutrients.",
+      "misconceptions": {
+        "1": "Broken-down rock makes the sand, silt and clay particles in soil. Humus comes from living things that have died and rotted.",
+        "2": "Fertiliser is something people add to give plants nutrients. Humus forms naturally in soil from dead plants and animals.",
+        "3": "Rainwater fills some of the spaces in soil, but it does not turn into humus. Humus comes from rotted plant and animal material."
+      },
+      "skill": "what soil is made of",
+      "source": "original"
+    },
+    {
+      "id": "s11-q006",
+      "subtopicId": "s11-s1",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Select ALL the living things you might find in a handful of garden soil.",
+      "options": [
+        "Earthworms",
+        "Sand grains",
+        "Bacteria",
+        "Air",
+        "Fungi"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Earthworms, bacteria and fungi are all living things that live in soil. Bacteria and fungi are decomposers: they break down dead material into humus. Sand grains and air are part of soil but they are not alive.",
+      "misconceptions": {
+        "1": "Sand grains are tiny pieces of rock. They are part of soil but they are not alive.",
+        "3": "Air fills the spaces between soil particles, but air is not a living thing."
+      },
+      "skill": "what soil is made of",
+      "source": "original"
+    },
+    {
+      "id": "s11-q007",
+      "subtopicId": "s11-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "You put some garden soil and water in a clear jar, put the lid on, shake it well and leave it to settle for a few days. What will you most likely see?",
+      "options": [
+        "The finest clay at the bottom and the stones on top",
+        "Stones and sand at the bottom, silt above them, the finest clay on top of the layers, and bits of humus floating on the water",
+        "Everything stays evenly mixed with no layers",
+        "A layer of humus at the very bottom, under the sand"
+      ],
+      "answer": 1,
+      "solution": "When the jar is left still, the largest and heaviest particles sink first. Stones and sand settle at the bottom, then silt, then clay. Clay is so fine that the water may stay cloudy for a while. Light bits of humus float on top. This test shows that soil is a mixture of particles of different sizes.",
+      "misconceptions": {
+        "0": "This is upside down. Bigger, heavier particles such as stones and sand sink fastest, so they end up at the bottom. Tiny clay particles sink slowest and settle on top.",
+        "2": "Particles of different sizes sink at different speeds, so the soil separates into layers when it is left still.",
+        "3": "Humus is light, so it sinks slowly or floats. It does not end up under the heavy sand."
+      },
+      "skill": "separating soil by settling",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s11-q008",
+      "subtopicId": "s11-s1",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A 250 g sample of soil is tested. It contains 120 g of sand, 60 g of silt and 45 g of clay. The rest is humus. What percentage of the sample is humus? Give your answer as a percentage.",
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "accept": [
+          "10%",
+          "10 %"
+        ]
+      },
+      "solution": "First find the mass of humus: 120 + 60 + 45 = 225 g of rock particles. 250 - 225 = 25 g of humus. Then find the percentage: 25/250 = 1/10 = 10%.",
+      "misconceptions": {
+        "common": "Giving 25 (the mass in grams) instead of the percentage. 25 g out of 250 g is 1/10, which is 10%."
+      },
+      "skill": "soil composition calculations",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s11-q009",
+      "subtopicId": "s11-s1",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: When a lump of dry soil is dropped into a beaker of water, bubbles rise from it. This shows that soil contains air.",
+      "answer": true,
+      "solution": "True. Water moves into the spaces between the soil particles and pushes out the air that was there. The air rises as bubbles. This is evidence that soil has air in it, which plant roots and soil animals need.",
+      "misconceptions": {
+        "common": "Thinking the bubbles are the soil 'boiling' or a chemical reaction. The water is not hot; the bubbles are simply air being pushed out of the gaps."
+      },
+      "skill": "what soil is made of",
+      "source": "original"
+    },
+    {
+      "id": "s11-q010",
+      "subtopicId": "s11-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which type of soil has the largest particles and lets water drain through it quickly?",
+      "options": [
+        "Clay soil",
+        "Loam",
+        "Peat soil",
+        "Sandy soil"
+      ],
+      "answer": 3,
+      "solution": "Sandy soil is made mostly of large sand grains. There are big spaces between the grains, so water runs through quickly.",
+      "misconceptions": {
+        "0": "Clay soil has the smallest particles. They pack closely together, so water drains through very slowly.",
+        "1": "Loam is a mixture of sand, silt, clay and humus. It drains well but holds some water too. It does not have the largest particles.",
+        "2": "Peat soil is mostly rotted plant material. It soaks up and holds a lot of water, so it does not drain quickly."
+      },
+      "skill": "properties of soil types",
+      "source": "original"
+    },
+    {
+      "id": "s11-q011",
+      "subtopicId": "s11-s2",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Match each type of soil to its description.",
+      "options": {
+        "left": [
+          "Clay soil",
+          "Sandy soil",
+          "Loam"
+        ],
+        "right": [
+          "Large gritty particles, drains quickly, dries out fast",
+          "Has no air or water in it at all",
+          "A mixture of sand, silt, clay and humus; good for most plants",
+          "Tiny particles, sticky when wet, drains slowly"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "solution": "Clay soil has tiny particles that stick together and hold water. Sandy soil has big gritty grains with large gaps, so water drains away fast. Loam is a mixture of sand, silt, clay and humus, so it holds some water and nutrients but still drains, which suits most plants. Every soil has some air and water in it, so the extra description fits none of them.",
+      "misconceptions": {
+        "common": "Swapping clay and sandy soil. Remember: tiny particles = small gaps = slow drainage (clay); big particles = big gaps = fast drainage (sand)."
+      },
+      "skill": "properties of soil types",
+      "source": "original"
+    },
+    {
+      "id": "s11-q012",
+      "subtopicId": "s11-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Sandy soil holds more water than clay soil.",
+      "answer": false,
+      "solution": "False. Clay soil holds more water. Its tiny particles leave only very small gaps, so water drains slowly and stays in the soil. Sandy soil has big gaps, so water drains through quickly.",
+      "misconceptions": {
+        "common": "Thinking that sand soaks up water like a sponge. Sand grains are hard bits of rock; water runs past them through the big spaces."
+      },
+      "skill": "properties of soil types",
+      "source": "original"
+    },
+    {
+      "id": "s11-q013",
+      "subtopicId": "s11-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Why does water drain quickly through sandy soil?",
+      "options": [
+        "Its particles soak up the water like a sponge",
+        "It has more humus than other soils",
+        "Its large particles leave big spaces between them for water to flow through",
+        "Its particles are so tiny that water slips easily between them"
+      ],
+      "answer": 2,
+      "solution": "Think of a jar of marbles and a jar of flour. Water pours easily through the marbles because there are big gaps between them. Sand grains are like the marbles: big particles, big gaps, fast drainage.",
+      "misconceptions": {
+        "0": "Sand grains are hard pieces of rock and do not soak up water. Water flows through the gaps between them.",
+        "1": "Sandy soil usually has little humus. Humus actually helps soil hold on to water, not drain it.",
+        "3": "Tiny particles pack closely and leave only tiny gaps, which slows water down. That describes clay soil, not sandy soil."
+      },
+      "skill": "explaining drainage with particle size",
+      "source": "original"
+    },
+    {
+      "id": "s11-q014",
+      "subtopicId": "s11-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Sandy soil is often low in the nutrients that plants need. What is the best explanation?",
+      "options": [
+        "Sand grains are too big for plant roots to grow between",
+        "Water drains through it quickly and washes the nutrients away",
+        "Sandy soil has no air in it",
+        "Sand is a kind of humus that has already been used up"
+      ],
+      "answer": 1,
+      "solution": "Nutrients dissolve in water. Because water rushes quickly through sandy soil, it carries the dissolved nutrients down and away from the plant roots. Sandy soils also usually have little humus to hold nutrients.",
+      "misconceptions": {
+        "0": "Roots can grow easily between sand grains. The problem is that nutrients are washed away, not that roots are blocked.",
+        "2": "Sandy soil has lots of air because of its big spaces. Lack of air is a problem in waterlogged clay soil, not sandy soil.",
+        "3": "Sand is made of tiny pieces of rock, not humus. Humus comes from dead plants and animals."
+      },
+      "skill": "explaining drainage with particle size",
+      "source": "original"
+    },
+    {
+      "id": "s11-q015",
+      "subtopicId": "s11-s2",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the statements that are true about loam.",
+      "options": [
+        "It is a mixture of sand, silt and clay particles",
+        "It is made only of sand",
+        "It usually contains a good amount of humus",
+        "It holds some water but still drains well",
+        "It becomes waterlogged more easily than any other soil"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "solution": "Loam is a balanced mixture of sand, silt and clay, usually with plenty of humus. The sand helps water drain, while the clay and humus help it hold water and nutrients. That is why loam is the best soil for most garden plants.",
+      "misconceptions": {
+        "1": "Soil made mostly of sand is sandy soil. Loam is a mixture of different particle sizes.",
+        "4": "Clay soil is the one that becomes waterlogged easily. Loam drains well because it has sand in it."
+      },
+      "skill": "properties of soil types",
+      "source": "original"
+    },
+    {
+      "id": "s11-q016",
+      "subtopicId": "s11-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Soils can be classified by how much clay, sand and organic matter (humus) they contain. A soil sample is tested and found to be 75% organic matter, 15% clay and 10% sand. Which type of soil is it most likely to be?",
+      "options": [
+        "Clay soil",
+        "Sandy soil",
+        "Peat soil",
+        "Loam"
+      ],
+      "answer": 2,
+      "solution": "Look for the biggest part: 75% is organic matter, which is three-quarters of the sample. A soil made mostly of partly rotted plant material is peat soil. Peat is dark, holds a lot of water and is found in wet, boggy places.",
+      "misconceptions": {
+        "0": "Clay is the biggest rock part of this sample, but only 15%. Clay soil would be mostly clay particles. This sample is mostly organic matter.",
+        "1": "Sandy soil is mostly sand. Here sand is only 10%, the smallest part.",
+        "3": "Loam is a balanced mixture of sand, silt and clay with some humus. A soil that is three-quarters organic matter is not balanced; it is peat."
+      },
+      "skill": "classifying soils by composition",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s11-q017",
+      "subtopicId": "s11-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Clay soil is rich in nutrients, but after many days of heavy monsoon rain, plants growing in it often do badly. What is the best explanation?",
+      "options": [
+        "Water fills the tiny spaces between the particles, so the roots cannot get the air they need",
+        "Clay soil has no nutrients at all",
+        "The rain washes all the clay away, leaving bare rock",
+        "Roots only need dry soil, so any water harms them"
+      ],
+      "answer": 0,
+      "solution": "Clay soil drains very slowly. After lots of rain the small spaces fill with water and the soil becomes waterlogged. Plant roots need oxygen from the air in the soil, so in waterlogged soil they struggle and can rot.",
+      "misconceptions": {
+        "1": "Clay soil is actually rich in nutrients, because its tiny particles hold on to them. The problem after heavy rain is too much water and too little air.",
+        "2": "Clay particles stick together and are not easily washed away. Heavy rain makes clay soil waterlogged, not bare.",
+        "3": "Roots need both water and air. The trouble is that clay soil holds too much water, which pushes out the air."
+      },
+      "skill": "explaining drainage with particle size",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s11-q018",
+      "subtopicId": "s11-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What happens when a gardener mixes compost into the soil?",
+      "options": [
+        "It pollutes the soil with rubbish",
+        "It adds humus and nutrients that help plants grow",
+        "It makes the soil unable to hold any water",
+        "It removes the nutrients so that weeds cannot grow"
+      ],
+      "answer": 1,
+      "solution": "Compost is rotted plant and food waste. Mixing it into soil adds humus and nutrients. Humus also helps sandy soil hold water and helps clay soil drain and let in air. This change in the soil's composition helps plants grow.",
+      "misconceptions": {
+        "0": "Compost is made from rotted plant material such as vegetable peelings and leaves. It is not litter; it improves the soil.",
+        "2": "Humus from compost actually helps soil hold on to water, especially sandy soil.",
+        "3": "Compost adds nutrients; it does not remove them."
+      },
+      "skill": "how soil composition affects plant growth",
+      "source": "original"
+    },
+    {
+      "id": "s11-q019",
+      "subtopicId": "s11-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Earthworms are bad for soil because they eat the roots of living plants.",
+      "answer": false,
+      "solution": "False. Earthworms eat soil and dead plant material, not living roots. They are very good for soil: their tunnels let in air and water, and they help turn dead leaves into humus.",
+      "misconceptions": {
+        "common": "Thinking that any animal living in soil must be a pest. Earthworms are among the gardener's best helpers."
+      },
+      "skill": "how living things change soil",
+      "source": "original"
+    },
+    {
+      "id": "s11-q020",
+      "subtopicId": "s11-s3",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name for the wearing away and carrying away of soil by wind or moving water? Answer in one word.",
+      "answer": {
+        "accept": [
+          "erosion",
+          "soil erosion"
+        ],
+        "keywords": []
+      },
+      "solution": "This is called erosion. Rain, rivers and wind can carry away the top layer of soil, especially where there are no plants to hold it in place.",
+      "misconceptions": {
+        "common": "Answering 'weathering'. Weathering breaks rock into small pieces where it is; erosion carries the pieces or the soil away."
+      },
+      "skill": "soil erosion",
+      "source": "original"
+    },
+    {
+      "id": "s11-q021",
+      "subtopicId": "s11-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the ways that earthworms help soil.",
+      "options": [
+        "They add new sand particles to the soil",
+        "Their tunnels let air and water into the soil",
+        "They pull dead leaves underground, helping to make humus",
+        "They make the soil waterlogged",
+        "They mix the layers of soil together"
+      ],
+      "answer": [
+        1,
+        2,
+        4
+      ],
+      "solution": "Earthworms dig tunnels that let air and water reach roots. They drag dead leaves down and help break them down into humus. As they move, they mix the soil layers. All of this makes soil better for plants.",
+      "misconceptions": {
+        "0": "Earthworms do not make sand. Sand comes from rocks broken down over a very long time.",
+        "3": "Earthworm tunnels actually help water drain away, so they reduce waterlogging."
+      },
+      "skill": "how living things change soil",
+      "source": "original"
+    },
+    {
+      "id": "s11-q022",
+      "subtopicId": "s11-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "On a steep hillside, many trees were cut down. After heavy monsoon rain, the top layer of soil was washed down the hill. Why is this bad for plants that try to grow there later?",
+      "options": [
+        "Plant roots need to touch bare rock to get their nutrients",
+        "The rain has turned the remaining soil into sandy soil",
+        "It does not matter, because new topsoil forms in a few days",
+        "The topsoil held most of the humus and nutrients, so the soil left behind is poorer"
+      ],
+      "answer": 3,
+      "solution": "The top layer of soil (topsoil) is where most humus, nutrients and living things are. Tree roots used to hold it in place. Without trees, rain washes it away (erosion), leaving poorer soil underneath where plants struggle to grow.",
+      "misconceptions": {
+        "0": "Plants take in nutrients dissolved in the water in soil. Bare rock gives roots almost nothing to grow in.",
+        "1": "Erosion carries soil away; it does not change one soil type into another overnight.",
+        "2": "Soil forms very slowly. It can take hundreds of years to make a few centimetres of new topsoil."
+      },
+      "skill": "soil erosion",
+      "source": "original"
+    },
+    {
+      "id": "s11-q023",
+      "subtopicId": "s11-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A farmer grows maize in the same field every year and never adds compost, manure or fertiliser. Each year the plants grow smaller. What is the most likely reason?",
+      "options": [
+        "The crops have used up the nutrients in the soil",
+        "The soil has run out of sand",
+        "The plants are getting too much sunlight",
+        "Humus has built up and is poisoning the plants"
+      ],
+      "answer": 0,
+      "solution": "Each crop takes nutrients out of the soil as it grows, and when the maize is harvested those nutrients leave the field. If nothing is added back, the soil's composition changes and it holds fewer nutrients each year, so plants grow less well.",
+      "misconceptions": {
+        "1": "Sand is not food for plants. Plants need nutrients, not sand grains.",
+        "2": "The sunlight is the same each year. The change that has happened is in the soil: its nutrients are being used up.",
+        "3": "Humus is good for plants. Here, nothing is being added to the soil, so humus and nutrients go down, not up."
+      },
+      "skill": "how soil composition affects plant growth",
+      "source": "original"
+    },
+    {
+      "id": "s11-q024",
+      "subtopicId": "s11-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Spilling oil or dumping chemicals on the ground can harm the living things in the soil and make it harder for plants to grow.",
+      "answer": true,
+      "solution": "True. Pollution such as oil, chemicals and some waste changes the soil's composition. It can kill earthworms and decomposers and can damage plant roots, so plants grow less well.",
+      "misconceptions": {
+        "common": "Thinking that soil cleans itself straight away. Some pollutants stay in soil for many years."
+      },
+      "skill": "soil pollution",
+      "source": "original"
+    },
+    {
+      "id": "s11-q025",
+      "subtopicId": "s11-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Your family wants to grow vegetables in a garden with heavy, sticky clay soil that stays wet for days. Which change would most likely improve the soil for growing vegetables?",
+      "options": [
+        "Press the soil down hard with a heavy roller",
+        "Mix in more fine clay",
+        "Dig in plenty of compost and some coarse sand so that water drains better and air can reach the roots",
+        "Water it more often"
+      ],
+      "answer": 2,
+      "solution": "Clay soil's problem is tiny particles packed closely, so it drains slowly and holds little air. Coarse sand opens up bigger spaces, and compost adds humus, which helps clay particles form crumbs with gaps between them. Water drains better, air reaches the roots and nutrients are added.",
+      "misconceptions": {
+        "0": "Pressing soil down squashes the particles together and removes air spaces. That makes clay soil drain even more slowly.",
+        "1": "More clay would make the soil even stickier and slower to drain. The soil needs bigger particles and humus, not more clay.",
+        "3": "The clay soil already holds too much water. Extra water would make it more waterlogged."
+      },
+      "skill": "how soil composition affects plant growth",
+      "source": "original"
+    },
+    {
+      "id": "s11-q026",
+      "subtopicId": "s11-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "On a school field, the grass dies along the path where many people walk every day. What is the best explanation?",
+      "options": [
+        "Walking adds too many nutrients to the soil",
+        "Trampling squashes the soil particles together, so there is less space for air and water to reach the roots",
+        "Walking turns the soil into sandy soil",
+        "Walking makes water drain through the soil faster"
+      ],
+      "answer": 1,
+      "solution": "When soil is trampled or driven over, it becomes compacted: the particles are pressed together and the air spaces shrink. Roots cannot get enough air and water, and they find it hard to push through hard soil, so the grass dies.",
+      "misconceptions": {
+        "0": "Feet do not add nutrients. The change is to the soil's structure: it is squashed.",
+        "2": "Walking does not change the type of particles in the soil. It presses the particles closer together.",
+        "3": "This is the opposite. Squashed soil has smaller gaps, so water drains more slowly and may lie in puddles."
+      },
+      "skill": "how soil composition affects plant growth",
+      "source": "original"
+    },
+    {
+      "id": "s11-q027",
+      "subtopicId": "s11-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Aisha wants to find out which soil lets water drain through it fastest. She tests clay soil, sandy soil and loam. What is the independent variable (the thing she changes on purpose)?",
+      "options": [
+        "The volume of water that drains through",
+        "The type of soil",
+        "The volume of water she pours on",
+        "The size of the funnel"
+      ],
+      "answer": 1,
+      "solution": "The independent variable is the one thing you change on purpose. Aisha's question is about different soils, so she changes the type of soil. Everything else is kept the same so the test is fair.",
+      "misconceptions": {
+        "0": "This is what she measures, so it is the dependent variable. It changes because of the soil type.",
+        "2": "She must keep this the same for every soil, so it is a control variable.",
+        "3": "She must use the same size of funnel each time, so it is a control variable."
+      },
+      "skill": "identifying variables in a fair test",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "s11-q028",
+      "subtopicId": "s11-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which piece of equipment is best for measuring the volume of water that drips through a soil sample?",
+      "options": [
+        "A measuring cylinder",
+        "A ruler",
+        "A stopwatch",
+        "A balance (weighing scale)"
+      ],
+      "answer": 0,
+      "solution": "A measuring cylinder has a scale in millilitres (ml), so it measures the volume of a liquid accurately. Read it at eye level, at the bottom of the curved water surface.",
+      "misconceptions": {
+        "1": "A ruler measures length, such as the height of a plant, not the volume of a liquid.",
+        "2": "A stopwatch measures time. It is useful for timing the test, but it cannot tell you how much water was collected.",
+        "3": "A balance measures mass in grams. Volume of a liquid is measured in ml with a measuring cylinder."
+      },
+      "skill": "choosing equipment",
+      "source": "original"
+    },
+    {
+      "id": "s11-q029",
+      "subtopicId": "s11-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: You should wash your hands after handling soil in an investigation, because soil can contain harmful microorganisms.",
+      "answer": true,
+      "solution": "True. Soil is full of microorganisms. Most are harmless, but some can cause illness if they get into your mouth or a cut. Washing your hands (and covering any cuts or wearing gloves) keeps the risk low.",
+      "misconceptions": {
+        "common": "Thinking that soil is completely clean because it is natural. It is safe to handle with care, but you should always wash your hands afterwards."
+      },
+      "skill": "risks and safety",
+      "source": "original"
+    },
+    {
+      "id": "s11-q030",
+      "subtopicId": "s11-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Wei Ming tests how well different soils drain. He puts each soil in a funnel and pours 100 ml of water on it. What should he measure as his dependent variable?",
+      "options": [
+        "The type of soil in each funnel",
+        "The mass of soil in each funnel",
+        "The colour of each soil",
+        "The volume of water that drips through in 5 minutes"
+      ],
+      "answer": 3,
+      "solution": "The dependent variable is what you measure to see the effect of your change. Here he wants to know how well water drains, so he measures the volume of water collected in a fixed time, such as 5 minutes.",
+      "misconceptions": {
+        "0": "The soil type is what he changes on purpose, so it is the independent variable, not the dependent variable.",
+        "1": "He should keep the mass of soil the same for each test, so it is a control variable.",
+        "2": "Colour is not a measure of drainage. The dependent variable must measure how well water drains through."
+      },
+      "skill": "identifying variables in a fair test",
+      "source": "original"
+    },
+    {
+      "id": "s11-q031",
+      "subtopicId": "s11-s4",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the things Priya must keep the same (control variables) to make her soil drainage test fair.",
+      "options": [
+        "The mass of soil in each funnel",
+        "The volume of water poured onto each soil",
+        "The type of soil",
+        "The time she allows for the water to drain",
+        "The volume of water that drips through"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "In a fair test you change only ONE thing (the type of soil) and measure ONE thing (the water that drips through). Everything else, such as the mass of soil, the volume of water poured on and the time allowed, must stay the same.",
+      "misconceptions": {
+        "2": "The type of soil is what she changes on purpose. It is the independent variable, so it must not be kept the same.",
+        "4": "This is what she measures (the dependent variable). It is expected to be different for each soil."
+      },
+      "skill": "identifying variables in a fair test",
+      "source": "original"
+    },
+    {
+      "id": "s11-q032",
+      "subtopicId": "s11-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Daniel pours 100 ml of water onto a soil sample in a funnel. When the dripping stops, 35 ml of water has collected in the measuring cylinder. Assuming no water was lost in any other way, how many ml of water is the soil holding? Give your answer in ml.",
+      "answer": {
+        "value": 65,
+        "tolerance": 0,
+        "accept": [
+          "65 ml",
+          "65ml"
+        ]
+      },
+      "solution": "The water that did not drip through must still be in the soil. 100 ml - 35 ml = 65 ml held by the soil.",
+      "misconceptions": {
+        "common": "Giving 35 ml. That is the water that drained through, not the water the soil kept."
+      },
+      "skill": "interpreting soil test results",
+      "source": "original"
+    },
+    {
+      "id": "s11-q033",
+      "subtopicId": "s11-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Siti pours 100 ml of water onto three soils and measures the water collected after 5 minutes. Results: Soil A 82 ml, Soil B 20 ml, Soil C 55 ml. Which soil is most likely to be clay soil?",
+      "options": [
+        "Soil A",
+        "Soil B",
+        "Soil C",
+        "All three are the same type, because the differences are just chance"
+      ],
+      "answer": 1,
+      "solution": "Clay soil has tiny particles and small spaces, so it holds water and lets the least water through. Soil B let only 20 ml through out of 100 ml, the smallest amount, so it is most likely clay soil.",
+      "misconceptions": {
+        "0": "Soil A let the MOST water through, so it drains fastest. That is most like sandy soil, not clay.",
+        "2": "Soil C is in the middle. It drains moderately, which fits loam better than clay.",
+        "3": "The differences are large (20 ml to 82 ml), so they are caused by the soils, not by chance."
+      },
+      "skill": "interpreting soil test results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s11-q034",
+      "subtopicId": "s11-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Omar repeats his drainage test on the same sandy soil three times. The volumes of water collected are 78 ml, 52 ml and 80 ml. Which result is anomalous, and why?",
+      "options": [
+        "80 ml, because it is the largest result",
+        "78 ml, because it was the first result",
+        "52 ml, because it is very different from the other two results",
+        "None of them, because measured results are never wrong"
+      ],
+      "answer": 2,
+      "solution": "An anomalous result is one that does not fit the pattern of the others. 78 ml and 80 ml are close together, but 52 ml is much lower. Perhaps some water spilled or the soil was packed down more. Omar should check it and repeat that test.",
+      "misconceptions": {
+        "0": "The largest result is not automatically wrong. 80 ml is very close to 78 ml, so it fits the pattern.",
+        "1": "Being first does not make a result anomalous. 78 ml is close to 80 ml, so it fits the pattern.",
+        "3": "Mistakes can happen, such as a spill or a wrongly read scale. A result that does not fit the pattern should be checked and repeated."
+      },
+      "skill": "spotting anomalous results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s11-q035",
+      "subtopicId": "s11-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Omar tests the same sandy soil three times and collects 78 ml, 52 ml and 80 ml of water. He decides that 52 ml is anomalous and leaves it out. What is the mean of the other two results? Give your answer in ml.",
+      "answer": {
+        "value": 79,
+        "tolerance": 0,
+        "accept": [
+          "79 ml",
+          "79ml"
+        ]
+      },
+      "solution": "Leave out 52 ml. Add the other two: 78 + 80 = 158 ml. Divide by the number of results used: 158 / 2 = 79 ml.",
+      "misconceptions": {
+        "common": "Including the anomalous result: (78 + 52 + 80) / 3 = 70 ml, which is pulled down by the mistake. Another slip is dividing by 3 after leaving one result out; divide by the number of results you actually added."
+      },
+      "skill": "spotting anomalous results",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s11-q036",
+      "subtopicId": "s11-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Mei Lin plants ONE bean seedling in a pot of sandy soil, ONE in clay soil and ONE in loam. She gives each the same water and light, and measures their heights after 3 weeks. Which change would best improve her investigation?",
+      "options": [
+        "Use a different kind of plant in each type of soil",
+        "Measure the plants only once, on the first day",
+        "Put each pot in a different place around the school",
+        "Plant several seedlings in each type of soil and find the mean height for each soil"
+      ],
+      "answer": 3,
+      "solution": "With only one plant per soil, one weak or damaged seedling could give a misleading result. Using several plants in each soil and working out the mean height makes the results more reliable. Keeping the plant type, water, light and pot size the same keeps it fair.",
+      "misconceptions": {
+        "0": "That would make the test unfair. She would not know whether the soil or the kind of plant caused the difference.",
+        "1": "On the first day the soil has not had time to make a difference. She needs to measure after the plants have grown.",
+        "2": "Different places have different light and temperature, which would make the test unfair."
+      },
+      "skill": "improving an investigation",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    }
+  ]
+}
