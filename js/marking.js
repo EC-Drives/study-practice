@@ -185,6 +185,37 @@ export function numbersEqual(a, b, tolerance = 0) {
   return Math.abs(a - b) <= tolerance + 1e-9 * Math.max(1, Math.abs(b));
 }
 
+/** Does the question ask for the answer in simplest form (lowest terms)? */
+export function asksSimplestForm(q) {
+  return /simplest form|lowest terms/i.test(q.prompt || '');
+}
+
+const gcd = (a, b) => (b ? gcd(b, a % b) : a);
+
+/**
+ * Is a typed number written in simplest form? A fraction must have no common factor and a
+ * denominator above 1 (3/4 yes; 6/8, 4/2 and 3/1 no); an improper fraction is fine unless a
+ * mixed number is asked for; a mixed number needs a proper fraction part (1 1/4 yes, 1 5/4 no);
+ * a whole number is fine; a decimal is not a fraction, so it does not count.
+ */
+export function inSimplestForm(input, mixedWanted = false) {
+  const t = String(input ?? '').normalize('NFKC').toLowerCase().replace(/[−–—]/g, '-').replace(/⁄/g, '/').trim()
+    .replace(/^[-+]\s*/, '').replace(/\s*[a-zµ°%²³^]+[23]?\.?\s*$/, '').trim();
+  let m;
+  if ((m = t.match(/^(\d+)\s+(\d+)\s*\/\s*(\d+)$/))) {
+    const n = Number(m[2]);
+    const d = Number(m[3]);
+    return d > 1 && n > 0 && n < d && gcd(n, d) === 1;
+  }
+  if ((m = t.match(/^(\d+)\s*\/\s*(\d+)$/))) {
+    const n = Number(m[1]);
+    const d = Number(m[2]);
+    if (d <= 1 || n === 0 || gcd(n, d) !== 1) return false;
+    return !(mixedWanted && n > d);
+  }
+  return /^\d+$/.test(t.replace(/[ ,]/g, ''));
+}
+
 // ---------------------------------------------------------------- answered?
 
 export function isAnswered(q, r) {
@@ -311,6 +342,8 @@ export function markQuestion(q, r, opts = {}) {
       const a = q.answer || {};
       const v = parseNumber(r);
       let ok = v != null && typeof a.value === 'number' && numbersEqual(v, a.value, Number(a.tolerance) || 0);
+      // "simplest form" / "lowest terms": an equal but unsimplified answer (6/8 for 3/4) is not enough
+      if (ok && asksSimplestForm(q)) ok = inSimplestForm(r, /mixed number/i.test(q.prompt || ''));
       if (!ok && Array.isArray(a.accept)) {
         const rn = normaliseText(r).replace(/\s/g, '');
         ok = a.accept.some((x) => normaliseText(x).replace(/\s/g, '') === rn);

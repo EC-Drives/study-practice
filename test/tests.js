@@ -1,6 +1,6 @@
 // Study Practice test suite. Open test/index.html through the local server (tools/serve.py).
 
-import { markQuestion, parseNumber, textMatches, normaliseText, isAnswered, responseText, correctAnswerText, levenshtein, powers } from '../js/marking.js';
+import { markQuestion, parseNumber, textMatches, normaliseText, isAnswered, responseText, correctAnswerText, levenshtein, powers, inSimplestForm } from '../js/marking.js';
 import { selectQuestions, makeRng, estimateSeconds, budgetSeconds, estimateCount, MIN_QUESTIONS } from '../js/sampler.js';
 import { Countdown, QuestionClock, formatClock } from '../js/timer.js';
 import { planSession, finishSession, submitSession } from '../js/practice.js';
@@ -92,6 +92,19 @@ group = 'marking: numbers';
   check('numeric specific wrong-answer note', wm.misconceptions[0].note === 'multiplied');
   check('numeric other wrong answer gets the common note', markQuestion(num(6, [], 0, { 150: 'multiplied', common: 'general' }), '7').misconceptions[0].note === 'general');
   check('numeric blank is unanswered', !markQuestion(num(6), '   ').answered);
+  const sf = (value, prompt, accept = []) => ({ ...num(value, accept), prompt });
+  const q34 = sf(0.75, 'Write 18/24 as a fraction in its simplest form.');
+  check('simplest form: 3/4 right', markQuestion(q34, '3/4').correct);
+  check('simplest form: 6/8 (equal but not simplified) wrong', !markQuestion(q34, '6/8').correct);
+  check('simplest form: decimal 0.75 is not a fraction, wrong', !markQuestion(q34, '0.75').correct);
+  check('simplest form: a form in the accept list is still right', markQuestion(sf(0.75, 'Give 0.75 in lowest terms.', ['0.75']), '0.75').correct);
+  check('lowest terms wording also triggers the rule', !markQuestion(sf(0.5, 'Write 4/8 in lowest terms.'), '2/4').correct && markQuestion(sf(0.5, 'Write 4/8 in lowest terms.'), '1/2').correct);
+  const qMixed = sf(4 + 1 / 6, 'Work out 1 2/3 + 2 1/2. Give your answer as a mixed number in its simplest form.');
+  check('mixed number in simplest form right; unsimplified or improper wrong', markQuestion(qMixed, '4 1/6').correct && !markQuestion(qMixed, '4 2/12').correct && !markQuestion(qMixed, '25/6').correct && !markQuestion(qMixed, '3 7/6').correct);
+  check('simplest form: whole-number answer, 4/2 wrong and 2 right', !markQuestion(sf(2, 'Simplify 8/4 to its simplest form.'), '4/2').correct && markQuestion(sf(2, 'Simplify 8/4 to its simplest form.'), '2').correct);
+  check('simplest form: improper fraction allowed unless a mixed number is asked', markQuestion(sf(1.25, 'Write 10/8 in its simplest form.'), '5/4').correct && markQuestion(sf(1.25, 'Write 10/8 in its simplest form.'), '1 1/4').correct);
+  check('simplest form: negative and with a unit', markQuestion(sf(-0.75, 'Simplest form please.'), '−3/4').correct && inSimplestForm('3/4 kg') && !inSimplestForm('3/1'));
+  check('without the wording, equal values stay accepted', markQuestion(num(0.75), '6/8').correct);
 }
 
 group = 'marking: short answers';
