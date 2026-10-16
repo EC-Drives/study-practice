@@ -1,9 +1,9 @@
 // The practice screen: countdown, one question at a time, question map, flag for review,
 // finish early. Answers are saved on the device as she goes, so closing the page loses nothing.
 
-import { h, clear, icon, button, dialog, announce, toast } from '../ui.js';
+import { h, clear, icon, button, dialog, announce, toast, rovingRadios, closeDialogs } from '../ui.js';
 import { loadSubject, indexQuestions, indexTopics, subjectTitle } from '../content.js';
-import { isAnswered } from '../marking.js';
+import { isAnswered, startingOrder } from '../marking.js';
 import { Countdown, QuestionClock, formatClock } from '../timer.js';
 import { submitSession } from '../practice.js';
 
@@ -118,7 +118,9 @@ export async function sessionView(el, app, sessionId) {
     });
     const answered = questions.filter((q) => isAnswered(q, st.responses[q.id])).length;
     nav.append(grid, h('p', { class: 'small muted', text: `${answered} of ${questions.length} answered${flagged.size ? `, ${flagged.size} flagged to check again` : ''}.` }));
-    progressEl.textContent = `Question ${index + 1} of ${questions.length}`;
+    // a live region: only touch it when it changes, or a screen reader repeats it at every key press
+    const progress = `Question ${index + 1} of ${questions.length}`;
+    if (progressEl.textContent !== progress) progressEl.textContent = progress;
   }
 
   function toggleFlag() {
@@ -180,7 +182,7 @@ export async function sessionView(el, app, sessionId) {
           h('span', { class: 'opt-text', text }));
           group.append(b);
         });
-        return group;
+        return rovingRadios(group);
       }
       case 'multi': {
         const picked = new Set(Array.isArray(r) ? r : []);
@@ -236,8 +238,8 @@ export async function sessionView(el, app, sessionId) {
 
   function orderWidget(q, r) {
     const wrap = h('div', { class: 'order' });
-    let arr = Array.isArray(r) && r.length === q.options.length ? r.slice() : q.options.map((_, i) => i);
-    const touched = Array.isArray(r);
+    // before she moves anything, no item is in its correct place (no free marks)
+    let arr = Array.isArray(r) && r.length === q.options.length ? r.slice() : startingOrder(q);
     function draw(focusSel) {
       clear(wrap);
       const list = h('ol', { class: 'order-list' });
@@ -273,7 +275,6 @@ export async function sessionView(el, app, sessionId) {
       announce(`${q.options[arr[to]]} is now number ${to + 1}`);
       draw(key);
     }
-    void touched;
     draw();
     return wrap;
   }
@@ -287,11 +288,19 @@ export async function sessionView(el, app, sessionId) {
       clear(wrap);
       q.options.left.forEach((L, i) => {
         const chosen = Number.isInteger(cur[i]) ? q.options.right[cur[i]] : null;
-        const toggle = h('button', { type: 'button', class: `match-pick${chosen ? ' is-set' : ''}`, 'aria-expanded': String(open === i), 'data-i': String(i), onClick: () => { open = open === i ? -1 : i; draw(i); } },
-          h('span', { text: chosen || 'Choose a match' }), icon(open === i ? 'up' : 'down', { size: 20 }));
+        const listId = `match-${q.id}-${i}`;
+        const toggle = h('button', {
+          type: 'button',
+          class: `match-pick${chosen ? ' is-set' : ''}`,
+          'aria-expanded': String(open === i),
+          'aria-controls': open === i ? listId : null,
+          'aria-label': `Match for ${L}: ${chosen || 'not chosen yet'}`,
+          'data-i': String(i),
+          onClick: () => { open = open === i ? -1 : i; draw(i); },
+        }, h('span', { text: chosen || 'Choose a match' }), icon(open === i ? 'up' : 'down', { size: 20 }));
         const row = h('div', { class: 'match-row' }, h('div', { class: 'match-left', text: L }), toggle);
         if (open === i) {
-          const list = h('div', { class: 'match-options', role: 'radiogroup', 'aria-label': `Match for ${L}` });
+          const list = h('div', { class: 'match-options', id: listId, role: 'radiogroup', 'aria-label': `Match for ${L}` });
           q.options.right.forEach((R, j) => {
             const usedBy = cur.findIndex((x, k) => x === j && k !== i);
             list.append(h('button', { type: 'button', role: 'radio', class: 'opt opt-small', 'aria-checked': String(cur[i] === j), onClick: () => {
@@ -302,12 +311,12 @@ export async function sessionView(el, app, sessionId) {
               draw(i);
             } }, h('span', { class: 'opt-text', text: R }), usedBy >= 0 ? h('small', { class: 'muted', text: `(now with ${q.options.left[usedBy]})` }) : null));
           });
-          row.append(list);
+          row.append(rovingRadios(list, { select: false }));
         }
         wrap.append(row);
       });
       if (focusIdx != null) {
-        const t = open >= 0 ? wrap.querySelector('.match-options .opt') : wrap.querySelector(`.match-pick[data-i="${focusIdx}"]`);
+        const t = open >= 0 ? wrap.querySelector('.match-options .opt[tabindex="0"]') : wrap.querySelector(`.match-pick[data-i="${focusIdx}"]`);
         if (t) t.focus();
       }
     }
@@ -333,6 +342,7 @@ export async function sessionView(el, app, sessionId) {
 
   async function finish(how) {
     if (finishing) return;
+    closeDialogs(); // e.g. the "Finish?" question still open when time runs out
     qclock.stop();
     countdown.pause();
     st.times = qclock.snapshot();
@@ -345,8 +355,16 @@ export async function sessionView(el, app, sessionId) {
       await submitSession(app.db, session, { questions: qmap, topics: indexTopics(topics), topicOrder: [...topics].sort((a, b) => a.order - b.order) }, { ...how, elapsedSec });
       location.hash = `#/results/${encodeURIComponent(session.id)}`;
     } catch (e) {
-      finishing = false;
       console.error(e);
+      // carry on as before: clock running, answers still saved as she goes, Finish can be tried again
+      finishing = false;
+      retryAt = Date.now() + 5000;
+      if (!document.hidden) {
+        countdown.start();
+        qclock.resume();
+      }
+      tick = startTick();
+      saveNow();
       toast('Your answers could not be saved. Please try Finish again.');
     }
   }
@@ -358,22 +376,27 @@ export async function sessionView(el, app, sessionId) {
     timerEl.classList.toggle('warn', rem <= 300 && rem > 60);
     timerEl.classList.toggle('urgent', rem <= 60);
     for (const t of countdown.newWarnings([300, 60])) {
-      const msg = t === 300 ? 'Five minutes left.' : 'One minute left.';
-      toast(msg);
-      announce(msg);
+      toast(t === 300 ? 'Five minutes left.' : 'One minute left.'); // the toast is a live region: it is read out once
     }
   }
   let ticks = 0;
-  const tick = setInterval(() => {
-    if (finishing) return;
-    drawClock();
-    if (countdown.expired()) {
-      toast("Time's up! Let's see how you did.");
-      finish({ early: false, timedOut: true });
-      return;
-    }
-    if (++ticks % 20 === 0) saveNow();
-  }, 250);
+  let timeUpShown = false;
+  let retryAt = 0;
+  function startTick() {
+    return setInterval(() => {
+      if (finishing) return;
+      drawClock();
+      if (countdown.expired()) {
+        if (Date.now() < retryAt) return; // a save just failed: wait a moment before trying again
+        if (!timeUpShown) toast("Time's up! Let's see how you did.");
+        timeUpShown = true;
+        finish({ early: false, timedOut: true });
+        return;
+      }
+      if (++ticks % 20 === 0) saveNow();
+    }, 250);
+  }
+  let tick = startTick();
 
   function onVisibility() {
     if (finishing) return;

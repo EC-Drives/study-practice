@@ -9,7 +9,8 @@ A practice website for Cambridge Primary Stage 6 Mathematics and Science (Year 6
 - Choose 15 minutes, 30 minutes, 1 hour or 1.5 hours, and the whole chapter, one part, or "my weak spots". "Mixed revision" mixes every chapter of a subject, like a practice exam.
 - Questions are drawn fresh each time: ones she has not seen recently, ones she got wrong before, and parts where she is weaker come up more often. Easier questions come first. The number of questions fits the time (harder questions are given more time).
 - During practice: a countdown (it pauses if the app is put away), a question map, "flag to check again", back and next, and Finish at any time. Answers are saved as she goes, so closing the page loses nothing.
-- Question types: multiple choice, choose-all, short answer, number answer (fractions such as 3/4 and mixed numbers such as 2 1/2 are fine), true/false, put in order, and match up. Everything is large and touch-friendly.
+- Question types: multiple choice, choose-all, short answer, number answer (fractions such as 3/4 and mixed numbers such as 2 1/2 are fine), true/false, put in order, and match up. Everything is large and touch-friendly, and works with a keyboard (arrow keys move between choices).
+- Marking forgives case, spacing and punctuation, and one typing slip in a word of five or more letters (a letter missed, an extra letter, or two letters swapped). A changed letter does not count as a slip, and look-alike words never pass for each other (reflection and refraction, waxing and waning, thousands and thousandths). In number answers, when the answer gives a unit, a unit she types must be that one (109 m is not 109 cm); a bare number is fine.
 - Afterwards: a score ring, a star for every question, personal bests, improvement on last time and streaks; then every question with her answer, the correct answer, the worked solution and, for a wrong choice, "why you might have picked this"; then "what to work on" grouped by skill.
 
 **For you (the parent area, behind a PIN):**
@@ -29,7 +30,7 @@ After each session the app makes a report on the device: score, what she underst
 ## Things to know
 
 - **Progress is stored on each device separately** (laptop, tablet and phone each keep their own). To move or combine progress: Parent area, Settings, **Export progress** on one device, then **Import progress** on the other. Import only adds what is missing and never deletes. Export now and then as a backup: a browser can clear site data if the device runs very short of space.
-- **The PIN is a light lock, not real security.** It keeps the parent area out of casual reach. The PIN is never stored, only a salted PBKDF2-SHA-256 hash of it, but someone with the device and technical know-how could still read or clear the browser's stored data. "Forgot the PIN?" resets it and also clears the saved email (progress is kept).
+- **The PIN is a light lock, not real security.** It keeps the parent area out of casual reach. The PIN is never stored, only a salted PBKDF2-SHA-256 hash of it, but someone with the device and technical know-how could still read or clear the browser's stored data. "Forgot the PIN?" resets it and also clears the saved email (progress is kept). A reset is recorded with its date: a warning sits at the top of the parent area, and a "NOTE FOR DAD" line opens every report email, until you press "I know about this reset". If you see it and did not reset the PIN, check the email address in Settings.
 - **Your email address is stored only on the device**, in the browser's storage. It is not in the code, the repository or the export files.
 - **No online accounts, no server, no tracking.** Nothing is fetched from any other website. There is no AI key in the app.
 - **Deeper analysis by Claude:** export progress and pass the file to the Chief Learning Officer. The export has every answer with its question id, the answer given, right or wrong, marks, time on the question and the session details. (`js/ai.js` is the single place where a future back-end could add live AI explanations; it is switched off in version 1.)
@@ -48,6 +49,8 @@ python tools\build_content.py
 
 It checks every file with the CLO's `validate.py` (a file with errors is left out and listed), copies the good ones into `content\`, writes `content\manifest.json`, and refreshes the offline list in `sw.js`, so devices pick up the new questions the next time they open the site online. Then commit and publish.
 
+**Run the same command after any change to the app itself** (HTML, CSS or JavaScript), not only after new questions. Published devices keep their offline copy until `sw.js` changes, and the build is what stamps `sw.js` with a new version. When a device finds the new version it shows "A new version of Study Practice is ready" with a Reload button (a practice in progress is saved first).
+
 ## Tests
 
 With the laptop server running, open http://localhost:8766/test/ . The test page checks the marking of every question type and the edge cases for number and short answers, marks every question in the built banks with its own right answer and with a wrong one, and checks question sampling, the timer, reports and the email link, statistics, the PIN, and the export/import round trip (in a temporary database).
@@ -55,6 +58,8 @@ With the laptop server running, open http://localhost:8766/test/ . The test page
 ## Publishing (GitHub Pages)
 
 Everything uses relative paths, so the site works at a project address such as `https://ec-drives.github.io/study-practice/`. Push this folder to a repository, then in the repository's Settings, Pages, choose "Deploy from a branch", branch `main`, folder `/ (root)`. The `.nojekyll` file makes Pages serve the files as they are.
+
+**Shared site address.** Every EC-Drives Pages project is served from the same origin, `https://ec-drives.github.io` (Drive Timer is at `/drive-timer/`). Browsers keep storage per origin, so the two apps share one storage area on a device. They cannot get in each other's way: Study Practice uses the IndexedDB database `study-practice` and offline caches named `study-practice-<version>`, and its service worker only reads its own cache; Drive Timer uses `drive-timer` and `drive-timer-<version>`. Two things are shared: the browser's "keep this data" permission, and the storage figure shown in Settings, which counts both apps. Clearing site data for `ec-drives.github.io` in a browser clears both apps, so export progress first.
 
 ## Files
 

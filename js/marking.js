@@ -14,17 +14,31 @@ const NEGATIONS = new Set(['not', 'no', 'never', 'none', "don't", 'dont', "doesn
   "aren't", 'arent', "can't", 'cant', 'cannot', "won't", 'wont', "didn't", 'didnt', 'nothing', 'neither', 'nor']);
 const ARTICLES = /^(the|a|an) /;
 
+const VULGAR = { '½': '1/2', '⅓': '1/3', '⅔': '2/3', '¼': '1/4', '¾': '3/4', '⅕': '1/5', '⅖': '2/5', '⅗': '3/5', '⅘': '4/5', '⅙': '1/6', '⅚': '5/6', '⅐': '1/7', '⅛': '1/8', '⅜': '3/8', '⅝': '5/8', '⅞': '7/8', '⅑': '1/9', '⅒': '1/10' };
+const SUPERSCRIPT = { '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁻': '-' };
+
+/**
+ * Before Unicode NFKC folding: a vulgar fraction becomes " n/d" (so "1½" reads as 1 1/2, not 11/2)
+ * and a superscript becomes "^n" (so "5²" never reads as 52).
+ */
+function preFold(input) {
+  return String(input ?? '')
+    .replace(/[½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅐⅛⅜⅝⅞⅑⅒]/g, (c) => ` ${VULGAR[c]}`)
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+/g, (s) => `^${[...s].map((c) => SUPERSCRIPT[c]).join('')}`)
+    .normalize('NFKC');
+}
+
 /** Lower-case, tidy spacing and punctuation so that trivial differences do not matter. */
 export function normaliseText(input) {
-  return String(input ?? '')
-    .normalize('NFKC')
+  return preFold(input)
     .toLowerCase()
     .replace(/[‘’‛`´]/g, "'")
     .replace(/[“”]/g, '"')
     .replace(/[−–—]/g, '-')
     .replace(/⁄/g, '/')
-    .replace(/×/g, 'x')
-    .replace(/[^\p{L}\p{N}\s.\-'/%°:]/gu, ' ')
+    .replace(/[×*]/g, 'x')
+    // keep the symbols that change a meaning (+ ÷ < > =); drop other punctuation
+    .replace(/[^\p{L}\p{N}\s.\-'/%°:+÷<>=]/gu, ' ')
     .replace(/\s+/g, ' ')
     .trim()
     .replace(/[.]+$/, '')
@@ -56,11 +70,60 @@ export function levenshtein(a, b, max = Infinity) {
   return prev[b.length];
 }
 
-/** How many typing slips a word of this length may have and still count. */
+/** How many typing slips a word of this length may have and still count (never more than one). */
 export function typoAllowance(len) {
-  if (len <= 4) return 0;
-  if (len <= 8) return 1;
-  return 2;
+  return len <= 4 ? 0 : 1;
+}
+
+/**
+ * Is `b` one typing slip away from `a`: one letter missed out, one extra letter, or two
+ * neighbouring letters swapped? A changed letter does not count as a slip, because one changed
+ * letter is often a different word (waxing / waning).
+ */
+export function oneSlip(a, b) {
+  if (a === b) return false;
+  const la = a.length;
+  const lb = b.length;
+  if (Math.abs(la - lb) > 1) return false;
+  let i = 0;
+  while (i < la && i < lb && a[i] === b[i]) i++;
+  if (la === lb) return i + 1 < la && a[i] === b[i + 1] && a[i + 1] === b[i] && a.slice(i + 2) === b.slice(i + 2);
+  const [long, short] = la > lb ? [a, b] : [b, a];
+  return long.slice(i + 1) === short.slice(i);
+}
+
+// Pairs of words that look alike but mean different things. A slip never turns one into the other.
+const CONFUSABLE = [
+  [/reflect/, /refract/],
+  [/\bwax/, /\bwan(e|ing)/],
+  [/\bthousands?\b/, /\bthousandths?\b/],
+  [/\bhundreds?\b/, /\bhundredths?\b/],
+  [/\btens?\b/, /\btenths?\b/],
+  [/millilit/, /millimet/],
+  [/condens/, /evapor/],
+  [/\bseries\b/, /\bparallel\b/],
+  [/convex/, /concave/],
+  [/\bincreas/, /\bdecreas/],
+  [/\bmelt/, /\bfreez/],
+];
+// a slip that only adds or drops one of these endings makes a different word (eight / eighth)
+const SUFFIXES = ['h', 'th', 'ths'];
+const PREFIXES = ['un', 'in', 'im', 'ir', 'il', 'dis', 'non'];
+
+function confusable(r, a) {
+  for (const pair of CONFUSABLE) {
+    const ia = pair.findIndex((p) => p.test(a));
+    const ir = pair.findIndex((p) => p.test(r));
+    if (ia >= 0 && ir >= 0 && ia !== ir && !pair[ia].test(r)) return true;
+  }
+  return false;
+}
+
+function affixOnly(x, y) {
+  const [long, short] = x.length >= y.length ? [x, y] : [y, x];
+  if (long.startsWith(short) && SUFFIXES.includes(long.slice(short.length))) return true;
+  if (long.endsWith(short) && PREFIXES.includes(long.slice(0, long.length - short.length))) return true;
+  return false;
 }
 
 const digitsOf = (s) => (s.match(/-?\d+(?:[.:]\d+)?/g) || []).join('|');
@@ -77,11 +140,14 @@ function squash(s) {
 }
 
 /**
- * Do two pieces of text say the same thing, allowing for case, spacing, punctuation, a leading
- * "the/a/an" and small typing slips? Slips are never allowed in numbers, and the first letter
- * must match (so "decrease" never passes for "increase", nor "soluble" for "insoluble").
+ * Do two pieces of text say the same thing, allowing for case, spacing, punctuation and a leading
+ * "the/a/an", and (unless `fuzzy` is false) one small typing slip in a word of 5 or more letters?
+ * A slip is one letter missed, one extra, or two neighbouring letters swapped. Slips are never
+ * allowed in numbers, the first letter must match (so "decrease" never passes for "increase",
+ * nor "soluble" for "insoluble"), a slip may not just add or drop an ending such as "-th"
+ * (eight / eighth), and look-alike words (reflection / refraction, waxing / waning) never match.
  */
-export function textMatches(response, accepted) {
+export function textMatches(response, accepted, fuzzy = true) {
   const r = stripArticles(normaliseText(response));
   const a = stripArticles(normaliseText(accepted));
   if (!r || !a) return false;
@@ -89,12 +155,14 @@ export function textMatches(response, accepted) {
   const rs = squash(r);
   const as = squash(a);
   if (rs === as) return true;
+  if (!fuzzy) return false;
   if (digitsOf(r) !== digitsOf(a)) return false;
   if (!/\p{L}/u.test(as)) return false;
   if (rs[0] !== as[0]) return false;
-  const allow = typoAllowance(as.length);
-  if (allow === 0) return false;
-  return levenshtein(rs, as, allow) <= allow;
+  if (typoAllowance(as.length) === 0) return false;
+  if (!oneSlip(rs, as)) return false;
+  if (affixOnly(rs, as) || confusable(r, a)) return false;
+  return true;
 }
 
 function wordsOf(s) {
@@ -133,9 +201,17 @@ const UNIT_TAIL = /^\s*(?:[a-zµ°%²³^]+[23]?(?:\s*(?:\/|per)\s*[a-zµ°²³^]
  * 1 3/4, ½, 25%, 12 cm, RM 4.50, a Unicode minus. Units and a currency are ignored.
  */
 export function parseNumber(input) {
+  const p = parseNumberParts(input);
+  return p ? p.value : null;
+}
+
+/** Like parseNumber, but returns { value, unit } (unit '' when none was typed), or null. */
+export function parseNumberParts(input) {
   if (input == null) return null;
-  let t = String(input)
-    .normalize('NFKC')
+  const folded = preFold(input);
+  // a power typed after a number ("5²", "5^2") is not a plain number
+  if (/\d\s*\^/.test(folded)) return null;
+  let t = folded
     .toLowerCase()
     .replace(/[−–—]/g, '-')
     .replace(/⁄/g, '/')
@@ -178,7 +254,27 @@ export function parseNumber(input) {
   }
   if (!Number.isFinite(value)) return null;
   if (!UNIT_TAIL.test(rest) || /^\s*e\d/.test(rest)) return null; // "2e3" is not a pupil's number
-  return sign * value;
+  return { value: sign * value, unit: rest.trim().replace(/\.$/, '') };
+}
+
+const UNIT_ALIASES = [
+  ['min', 'mins', 'minute', 'minutes'], ['h', 'hr', 'hrs', 'hour', 'hours'], ['s', 'sec', 'secs', 'second', 'seconds'],
+  ['day', 'days'], ['week', 'weeks'], ['mm', 'millimetre', 'millimetres', 'millimeter', 'millimeters'],
+  ['cm', 'centimetre', 'centimetres', 'centimeter', 'centimeters'], ['m', 'metre', 'metres', 'meter', 'meters'],
+  ['km', 'kilometre', 'kilometres', 'kilometer', 'kilometers'], ['g', 'gram', 'grams'], ['kg', 'kilogram', 'kilograms', 'kilo', 'kilos'],
+  ['ml', 'millilitre', 'millilitres', 'milliliter', 'milliliters'], ['l', 'litre', 'litres', 'liter', 'liters'],
+  ['n', 'newton', 'newtons'], ['deg', '°', '°c', 'degree', 'degrees', 'degrees c', 'degrees celsius', 'c'],
+  ['%', 'percent', 'per cent'], ['cm2', 'cm^2', 'sq cm', 'square cm', 'square centimetres', 'square centimeters'],
+  ['m2', 'm^2', 'sq m', 'square m', 'square metres', 'square meters'], ['cm3', 'cm^3', 'cubic cm', 'cubic centimetres', 'cubic centimeters'],
+  ['bpm', 'beats per minute', 'beats/min'],
+];
+const UNIT_CANON = new Map(UNIT_ALIASES.flatMap((list) => list.map((u) => [u, list[0]])));
+
+/** A unit in one standard spelling ("minutes" -> "min", "cm²" -> "cm2"), so forms can be compared. */
+export function canonicalUnit(u) {
+  const t = String(u || '').toLowerCase().replace(/[²]/g, '2').replace(/[³]/g, '3').replace(/\s+/g, ' ').replace(/\.$/, '').trim();
+  if (UNIT_CANON.has(t)) return UNIT_CANON.get(t);
+  return t.length > 3 && t.endsWith('s') ? t.slice(0, -1) : t; // "counters" -> "counter"
 }
 
 export function numbersEqual(a, b, tolerance = 0) {
@@ -199,7 +295,7 @@ const gcd = (a, b) => (b ? gcd(b, a % b) : a);
  * a whole number is fine; a decimal is not a fraction, so it does not count.
  */
 export function inSimplestForm(input, mixedWanted = false) {
-  const t = String(input ?? '').normalize('NFKC').toLowerCase().replace(/[−–—]/g, '-').replace(/⁄/g, '/').trim()
+  const t = preFold(input).toLowerCase().replace(/[−–—]/g, '-').replace(/⁄/g, '/').trim()
     .replace(/^[-+]\s*/, '').replace(/\s*[a-zµ°%²³^]+[23]?\.?\s*$/, '').trim();
   let m;
   if ((m = t.match(/^(\d+)\s+(\d+)\s*\/\s*(\d+)$/))) {
@@ -214,6 +310,40 @@ export function inSimplestForm(input, mixedWanted = false) {
     return !(mixedWanted && n > d);
   }
   return /^\d+$/.test(t.replace(/[ ,]/g, ''));
+}
+
+// ---------------------------------------------------------------- order: where the items start
+
+/**
+ * The order an "order" question's items are shown in before she moves any. No item starts in its
+ * correct place, so "This order is my answer" without moving anything earns nothing. The bank's
+ * own (scrambled) order is kept when it already has nothing in place; otherwise the items are
+ * shuffled with a seed from the question id, so the start is the same every time it is shown.
+ */
+export function startingOrder(q) {
+  const n = Array.isArray(q.options) ? q.options.length : 0;
+  const ans = Array.isArray(q.answer) ? q.answer : [];
+  const base = Array.from({ length: n }, (_, i) => i);
+  const noneInPlace = (arr) => arr.every((x, i) => x !== ans[i]);
+  if (n < 2 || ans.length !== n || noneInPlace(base)) return base;
+  let seed = 2166136261;
+  for (const c of String(q.id || '')) seed = Math.imul(seed ^ c.charCodeAt(0), 16777619) >>> 0;
+  const rng = () => {
+    seed = (seed + 0x6d2b79f5) >>> 0;
+    let t = seed;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  for (let tries = 0; tries < 100; tries++) {
+    const arr = base.slice();
+    for (let i = n - 1; i > 0; i--) {
+      const j = Math.floor(rng() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    if (noneInPlace(arr)) return arr;
+  }
+  return ans.map((_, i) => ans[(i + 1) % n]); // a rotation of the answer: nothing in place
 }
 
 // ---------------------------------------------------------------- answered?
@@ -340,13 +470,22 @@ export function markQuestion(q, r, opts = {}) {
     }
     case 'numeric': {
       const a = q.answer || {};
-      const v = parseNumber(r);
-      let ok = v != null && typeof a.value === 'number' && numbersEqual(v, a.value, Number(a.tolerance) || 0);
+      const accept = Array.isArray(a.accept) ? a.accept.filter((x) => typeof x === 'string') : [];
+      const p = parseNumberParts(r);
+      const tol = Number(a.tolerance) || 0;
+      let ok = p != null && typeof a.value === 'number' && numbersEqual(p.value, a.value, tol);
+      // a unit typed with the right number must be one the answer uses ("109 m" is not 109 cm)
+      if (ok && p.unit) {
+        const units = new Set(accept.map(parseNumberParts).filter((x) => x && x.unit && numbersEqual(x.value, a.value, tol)).map((x) => canonicalUnit(x.unit)));
+        if (units.size && !units.has(canonicalUnit(p.unit))) ok = false;
+      }
       // "simplest form" / "lowest terms": an equal but unsimplified answer (6/8 for 3/4) is not enough
       if (ok && asksSimplestForm(q)) ok = inSimplestForm(r, /mixed number/i.test(q.prompt || ''));
-      if (!ok && Array.isArray(a.accept)) {
-        const rn = normaliseText(r).replace(/\s/g, '');
-        ok = a.accept.some((x) => normaliseText(x).replace(/\s/g, '') === rn);
+      // a form written out in the accept list ("none", "1.09 m"). Spaces between two numbers
+      // stay, so "21/2" never matches "2 1/2" and "4,8499" never matches "48 499".
+      if (!ok && accept.length) {
+        const rn = squash(normaliseText(r));
+        ok = rn !== '' && accept.some((x) => squash(normaliseText(x)) === rn);
       }
       fraction = ok ? 1 : 0;
       break;
@@ -354,7 +493,11 @@ export function markQuestion(q, r, opts = {}) {
     case 'short': {
       const a = q.answer || {};
       const accept = Array.isArray(a.accept) ? a.accept : [];
-      let ok = accept.some((x) => textMatches(r, x));
+      // an exact match always counts; a typing slip only counts if the answer is not one of the
+      // known wrong answers (a misconception key)
+      const wrongKeys = Object.keys(q.misconceptions || {}).filter((k) => !['common', 'general', 'default'].includes(k));
+      let ok = accept.some((x) => textMatches(r, x, false))
+        || (!wrongKeys.some((k) => textMatches(r, k)) && accept.some((x) => textMatches(r, x)));
       const kws = Array.isArray(a.keywords) ? a.keywords.filter((k) => typeof k === 'string' && k.trim()) : [];
       if (!ok && kws.length) {
         const mode = opts.keywordMode || 'all';

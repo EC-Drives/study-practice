@@ -38,7 +38,12 @@ async function route() {
     try { await app.cleanup(); } catch { /* ignore */ }
     app.cleanup = null;
   }
-  const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
+  let parts;
+  try {
+    parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
+  } catch {
+    parts = ['bad-address']; // a damaged link ("%E0%A4"): go home rather than stop
+  }
   const [page, a, b] = parts;
   if (page !== 'parent') app.parentUnlockedUntil = 0; // leaving the parent area locks it again
   document.body.dataset.page = page || 'home';
@@ -111,8 +116,31 @@ async function start() {
   window.addEventListener('hashchange', route);
   await route();
   if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-    navigator.serviceWorker.register('sw.js').catch((e) => console.warn('Offline mode unavailable:', e));
+    // an update: the new version takes over in the background; offer a reload rather than
+    // reloading by itself (she may be in the middle of a question)
+    // (the very first install also takes control, and that is not an update)
+    let controlled = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (controlled) offerReload();
+      controlled = true;
+    });
+    navigator.serviceWorker.register('sw.js').then((reg) => {
+      // an app left open for days still finds updates when it comes back to the screen
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) reg.update().catch(() => {}); });
+    }).catch((e) => console.warn('Offline mode unavailable:', e));
   }
+}
+
+function offerReload() {
+  if (document.getElementById('update-bar')) return;
+  const bar = h('div', { id: 'update-bar', class: 'update-bar', role: 'status' },
+    h('span', { text: 'A new version of Study Practice is ready.' }),
+    h('button', { type: 'button', class: 'btn btn-primary btn-small', onClick: async () => {
+      if (app.cleanup) { try { await app.cleanup(); } catch { /* ignore */ } } // saves a practice in progress
+      location.reload();
+    } }, icon('again', { size: 20 }), h('span', { text: 'Reload' })),
+    h('button', { type: 'button', class: 'btn btn-ghost btn-small', onClick: () => bar.remove() }, h('span', { text: 'Later' })));
+  document.body.append(bar);
 }
 
 start();

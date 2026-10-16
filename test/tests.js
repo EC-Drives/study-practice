@@ -1,6 +1,8 @@
 // Study Practice test suite. Open test/index.html through the local server (tools/serve.py).
 
-import { markQuestion, parseNumber, textMatches, normaliseText, isAnswered, responseText, correctAnswerText, levenshtein, powers, inSimplestForm } from '../js/marking.js';
+import { markQuestion, parseNumber, textMatches, normaliseText, isAnswered, responseText, correctAnswerText, levenshtein, powers, inSimplestForm, oneSlip, startingOrder, canonicalUnit } from '../js/marking.js';
+import { pinResetNotice } from '../js/report.js';
+import { dialog, closeDialogs, rovingRadios } from '../js/ui.js';
 import { selectQuestions, makeRng, estimateSeconds, budgetSeconds, estimateCount, MIN_QUESTIONS } from '../js/sampler.js';
 import { Countdown, QuestionClock, formatClock } from '../js/timer.js';
 import { planSession, finishSession, submitSession } from '../js/practice.js';
@@ -113,7 +115,7 @@ group = 'marking: short answers';
   check('case and spaces', markQuestion(q, '  EVAPORATION ').correct);
   check('trailing full stop', markQuestion(q, 'Evaporation.').correct);
   check('one typo in a long word', markQuestion(q, 'evaporaton').correct);
-  check('two typos in a long word', markQuestion(q, 'evapuraton').correct);
+  check('two typos in a long word are no longer accepted (one slip at most)', !markQuestion(q, 'evapuraton').correct);
   check('three typos rejected', !markQuestion(q, 'evapuratan x').correct);
   check('different word rejected', !markQuestion(q, 'condensation').correct);
   check('increase is not decrease', !markQuestion(short(['increase']), 'decrease').correct);
@@ -181,6 +183,110 @@ try {
   check(`${bankTopics.length} chapters, ${bankTopics.reduce((s, t) => s + t.questions.length, 0)} questions: every right answer marks right and every wrong one marks wrong (${n} checks)`, bad.length === 0, bad.slice(0, 12).join(' | '));
 } catch (e) {
   check('banks loaded', false, String(e));
+}
+
+// ---------------------------------------------------------------- review fixes (17 Oct 2026)
+const bankQ = new Map(bankTopics.flatMap((t) => t.questions).map((q) => [q.id, q]));
+const realMark = (id, r) => {
+  const q = bankQ.get(id);
+  return q ? markQuestion(q, r) : { correct: null, earned: null };
+};
+const isWrong = (id, r) => realMark(id, r).correct === false;
+const isRight = (id, r) => realMark(id, r).correct === true;
+
+group = 'review fixes: typing slips never turn one word into another';
+{
+  check('one slip is still forgiven: a missed letter, an extra letter, two letters swapped', markQuestion(short(['evaporation']), 'evaporaton').correct && markQuestion(short(['evaporation']), 'evaporattion').correct && markQuestion(short(['evaporation']), 'evaproation').correct);
+  check('a changed letter is not a slip (waning is not waxing)', !markQuestion(short(['waxing']), 'waning').correct && !oneSlip('waning', 'waxing') && oneSlip('waxnig', 'waxing'));
+  check('s12-q023: "waning" marked wrong, "waxing" right', isWrong('s12-q023', 'waning') && isRight('s12-q023', 'Waxing'));
+  check('s08-q010: "refraction" is not "reflection"', isWrong('s08-q010', 'refraction') && isWrong('s08-q010', 'refracted') && isRight('s08-q010', 'reflection'));
+  check('s08-q022: "reflection" is not "refraction"', isWrong('s08-q022', 'reflection') && isWrong('s08-q022', 'reflected') && isRight('s08-q022', 'refraction'));
+  check('m14-q040: "refraction" is not "reflection"', isWrong('m14-q040', 'refraction') && isRight('m14-q040', 'a reflection'));
+  check('m01-q003: "thousands" is not "thousandths"', isWrong('m01-q003', 'thousands') && isWrong('m01-q003', 'thousand') && isRight('m01-q003', 'thousandths') && isRight('m01-q003', 'thousanths'));
+  check('hundreds / hundredths and tens / tenths never match', !markQuestion(short(['hundredths']), 'hundreds').correct && !markQuestion(short(['hundredth']), 'hundreds').correct && !markQuestion(short(['tenths']), 'tens').correct && !markQuestion(short(['tens']), 'tenths').correct);
+  check('m15-q030: "millilitres" is not "millimetres"', isWrong('m15-q030', 'millilitres') && isWrong('m15-q030', 'millilitre') && isRight('m15-q030', 'millimetres'));
+  check('look-alike pairs never match (condensation/evaporation, series/parallel, convex/concave)', !textMatches('condensation', 'evaporation') && !textMatches('series', 'parallel') && !textMatches('concave', 'convex') && !textMatches('convex lens', 'concave lens'));
+  check('a slip may not just add or drop "-th" (eight / eighth)', !markQuestion(short(['eighth']), 'eight').correct && !markQuestion(short(['eight']), 'eighth').correct && markQuestion(short(['eighth']), 'eigth').correct);
+  check('a known wrong answer (misconception key) is never accepted as a slip', !markQuestion(short(['magnetic'], [], { magnetics: 'not a word here', common: 'c' }), 'magnetics').correct && markQuestion(short(['magnetic'], [], { common: 'c' }), 'magnetics').correct);
+  check('exact answers still match (case, spacing, punctuation)', markQuestion(short(['water vapour']), 'Water Vapour.').correct && markQuestion(short(['non magnetic']), 'non-magnetic').correct);
+}
+
+group = 'review fixes: symbols keep their meaning';
+{
+  check('m07-q036 (multiply by 4): "4", "+ 4" and "÷ 4" wrong; "x 4", "×4" and "*4" right', isWrong('m07-q036', '4') && isWrong('m07-q036', '+ 4') && isWrong('m07-q036', '÷ 4') && isRight('m07-q036', 'x 4') && isRight('m07-q036', '×4') && isRight('m07-q036', '*4'));
+  check('m07-q003 (add 0.5): "÷0.5" wrong, "+0.5" right', isWrong('m07-q003', '÷0.5') && isRight('m07-q003', '+0.5') && isRight('m07-q003', 'add 0.5'));
+  check('< and > are different', !markQuestion(short(['3/4 > 2/3']), '3/4 < 2/3').correct);
+}
+
+group = 'review fixes: number answers';
+{
+  check('accept fallback: "21/2" is not "2 1/2" (m10-q017)', isWrong('m10-q017', '21/2') && isRight('m10-q017', '2 1/2') && isRight('m10-q017', '2.5'));
+  check('accept fallback: run-together mixed numbers are wrong (m10-q029, m10-q016, m10-q010, m07-q009, m09-q002, m10-q032)',
+    isWrong('m10-q029', '41/2') && isWrong('m10-q016', '25/8') && isWrong('m10-q010', '33/5') && isWrong('m07-q009', '11/2') && isWrong('m09-q002', '31/2') && isWrong('m10-q032', '41/2')
+    && isRight('m10-q029', '4 1/2') && isRight('m10-q016', '2 5/8') && isRight('m10-q010', '3 3/5') && isRight('m07-q009', '1 1/2') && isRight('m09-q002', '3 1/2') && isRight('m10-q032', '4 1/2 km'));
+  check('m01-q036: "4,8499" is not 48 499; "48 499", "48,499" and "48499" are', isWrong('m01-q036', '4,8499') && isRight('m01-q036', '48 499') && isRight('m01-q036', '48,499') && isRight('m01-q036', '48499'));
+  check('a written-out time still matches with any spacing', markQuestion(num(155, ['2 h 35 min']), '2h 35min').correct && markQuestion(num(155, ['2 h 35 min']), '2H35MIN').correct && !markQuestion(num(155, ['2 h 35 min']), '2 h 36 min').correct);
+  check('vulgar fractions: "1½" is 1.5 (not 11/2), "2 ¾" is 2.75, "⅓" is a third', parseNumber('1½') === 1.5 && parseNumber('2 ¾') === 2.75 && Math.abs(parseNumber('⅓') - 1 / 3) < 1e-12 && markQuestion(num(1.5), '1½').correct && !markQuestion(num(5.5), '1½').correct);
+  check('powers are not plain numbers: "5²" and "5^2" are not 52 or 25', parseNumber('5²') === null && parseNumber('5^2') === null && !markQuestion(num(52), '5²').correct && !markQuestion(num(25), '5^2').correct && parseNumber('40 cm²') === 40);
+  check('units: s12-q033 "109 m" wrong; "109 cm", "109" and "1.09 m" right', isWrong('s12-q033', '109 m') && isRight('s12-q033', '109 cm') && isRight('s12-q033', '109') && isRight('s12-q033', '1.09 m') && isWrong('s12-q033', '1.09'));
+  check('units: m15-q023 "335 hours" wrong; "335 minutes", "335 mins" and "335" right', isWrong('m15-q023', '335 hours') && isRight('m15-q023', '335 minutes') && isRight('m15-q023', '335 mins') && isRight('m15-q023', '335'));
+  check('units: other spellings of the same unit count', markQuestion(num(45, ['45 minutes']), '45 min').correct && !markQuestion(num(45, ['45 minutes']), '45 hours').correct && canonicalUnit('cm²') === 'cm2' && canonicalUnit('square cm') === 'cm2' && canonicalUnit('Newtons') === 'n');
+}
+
+group = 'review fixes: order questions start with nothing in place';
+{
+  const orders = [...bankQ.values()].filter((q) => q.type === 'order');
+  const bad = orders.filter((q) => { const s = startingOrder(q); return s.some((x, i) => x === q.answer[i]) || [...s].sort().join() !== q.options.map((_, i) => i).join(); });
+  check(`all ${orders.length} order questions in the banks: the starting order is a full shuffle with no item in its place`, orders.length > 0 && bad.length === 0, bad.map((q) => q.id).join(', '));
+  check('m01-q018, m06-q031, m12-q042: submitting the starting order earns nothing', ['m01-q018', 'm06-q031', 'm12-q042'].every((id) => realMark(id, startingOrder(bankQ.get(id))).earned === 0));
+  const ident = { id: 'x-q9', type: 'order', marks: 2, options: ['a', 'b', 'c', 'd', 'e'], answer: [0, 1, 2, 3, 4] };
+  check('an answer in the shown order gets shuffled, the same way every time', startingOrder(ident).every((x, i) => x !== i) && eq(startingOrder(ident), startingOrder(ident)));
+  check('a bank order with nothing in place is kept as it is', eq(startingOrder(order), [0, 1, 2, 3]));
+}
+
+group = 'review fixes: reports and email';
+{
+  const base = { score: { earned: 1, max: 2, pct: 0.5, correct: 1, total: 2, answered: 2, unanswered: 0 }, comparison: {}, understands: [], needsWork: [], strongSkills: [], weakSkills: [], misconceptions: [], recommendations: ['Keep going.'], bySubtopic: [], bySkill: [], byDifficulty: { 1: { total: 0, correct: 0 }, 2: { total: 0, correct: 0 }, 3: { total: 0, correct: 0 } }, mistakes: [], masteryAfter: [], startedAt: Date.UTC(2026, 9, 10), title: 'T', focus: 'whole chapter', sessionId: 's1', limitSec: 900, timeUsedSec: 600, avgSecPerAnswer: 3, quickWrong: 0 };
+  const evil = '<img src=x onerror=alert(1)>';
+  const bad = { ...base, durationMin: evil, quickWrong: evil, score: { ...base.score, earned: evil, total: evil, unanswered: evil }, mistakes: [{ position: `1"><img src=x>`, earned: evil, marks: 2, prompt: 'p', subtopic: '', skill: '', yourAnswer: 'a', correctAnswer: 'b' }] };
+  const out = reportBodyHtml(bad);
+  check('numbers in a report are always plain numbers in the HTML (an imported report cannot inject markup)', !out.includes('<img') && !out.includes('onerror'));
+  check('the saved report web page carries a strict Content-Security-Policy', reportHtmlDocument(base).includes("Content-Security-Policy\" content=\"default-src 'none'"));
+  const long = { ...base, title: 'Long title '.repeat(400), recommendations: Array.from({ length: 300 }, (_, i) => `Short ${i}`), misconceptions: Array.from({ length: 50 }, () => ({ note: 'n' })) };
+  const t0 = performance.now();
+  const url = reportMailto(long, TEST_EMAIL);
+  check('mailto shortening always ends and fits, even with a huge title and hundreds of short lines', url.length <= MAILTO_LIMIT && performance.now() - t0 < 2000, `${url.length} characters in ${Math.round(performance.now() - t0)} ms`);
+  const notice = pinResetNotice(Date.UTC(2026, 9, 16, 6));
+  const withNote = reportMailto({ ...base, durationMin: 15 }, TEST_EMAIL, notice);
+  check('after a PIN reset, the report email opens with the reset note and still fits', decodeURIComponent(withNote.split('&body=')[1]).startsWith('NOTE FOR DAD: the parent PIN') && withNote.length <= MAILTO_LIMIT && pinResetNotice(null) === '');
+}
+
+group = 'review fixes: dialogs and keyboard';
+{
+  const p = dialog('Test dialog', 'body', [{ label: 'OK', value: true }]);
+  closeDialogs();
+  const res = await Promise.race([p, new Promise((r) => setTimeout(() => r('timeout'), 1000))]);
+  check('closing open dialogs (time ran out) resolves them as dismissed and removes them', res === null && !document.querySelector('dialog.dlg[open]'));
+  const g = document.createElement('div');
+  g.setAttribute('role', 'radiogroup');
+  for (let i = 0; i < 3; i++) {
+    const b = document.createElement('button');
+    b.setAttribute('role', 'radio');
+    b.setAttribute('aria-checked', 'false');
+    b.addEventListener('click', () => { g.querySelectorAll('button').forEach((x) => x.setAttribute('aria-checked', String(x === b))); });
+    g.append(b);
+  }
+  document.body.append(g);
+  rovingRadios(g);
+  const btns = [...g.querySelectorAll('button')];
+  const tabStops1 = btns.filter((b) => b.tabIndex === 0).length;
+  btns[0].focus();
+  btns[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+  const moved = document.activeElement === btns[1] && btns[1].getAttribute('aria-checked') === 'true' && btns[1].tabIndex === 0 && btns[0].tabIndex === -1;
+  btns[1].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true }));
+  btns[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true }));
+  check('choices: one Tab stop, arrow keys move and choose, wrapping round', tabStops1 === 1 && moved && document.activeElement === btns[2] && btns[2].getAttribute('aria-checked') === 'true');
+  g.remove();
 }
 
 // ---------------------------------------------------------------- sampling
@@ -430,6 +536,32 @@ group = 'export and import';
     damaged.attempts[0] = { id: 5 };
     const dmg = parseExport(JSON.stringify(damaged));
     check('counts damaged records instead of importing them', dmg.bad === 1);
+    // deeper checks: records that would break a page are left out (review fix)
+    const broken = JSON.parse(text);
+    delete broken.reports[0].score;
+    delete broken.reports[1].understands;
+    broken.sessions[0].score = { pct: 'lots' };
+    broken.sessions[1].subject = '<b>maths</b>';
+    broken.attempts[0].response = { evil: true };
+    broken.attempts[1].misconceptions = 'not a list';
+    broken.attempts[2].fraction = 'NaN';
+    const C = `study-practice-test-c-${Date.now()}`;
+    const dbC = await Db.open(C);
+    try {
+      const resC = await importExport(dbC, JSON.stringify(broken));
+      const repC = await dbC.getAll('reports');
+      check('import leaves out reports, sessions and answers with missing or wrong-typed fields', resC.invalid === 7 && resC.added.reports === 0 && resC.added.sessions === 0 && resC.added.attempts === 11 && repC.length === 0, JSON.stringify(resC));
+      let big = '';
+      try { parseExport(42); } catch (e) { big = e.message; }
+      check('import refuses something that is not text', big.includes('too large'));
+      await dbC.setSetting('parentEmail', TEST_EMAIL);
+      await importExport(dbC, text);
+      await dbC.clearStores(['sessions', 'attempts', 'reports']);
+      check('erase empties sessions, answers and reports in one go, and keeps the settings', (await dbC.getAll('sessions')).length === 0 && (await dbC.getAll('attempts')).length === 0 && (await dbC.getAll('reports')).length === 0 && (await dbC.getSetting('parentEmail')) === TEST_EMAIL);
+    } finally {
+      dbC.close();
+      await Db.deleteDatabase(C);
+    }
   } finally {
     dbA.close();
     dbB.close();

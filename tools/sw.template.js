@@ -7,6 +7,12 @@ const PREFIX = 'study-practice-';
 const DEV = ['localhost', '127.0.0.1', '[::1]'].includes(self.location.hostname);
 const FILES = __FILES__;
 
+// Look only in this app's own cache. Other apps on the same site address (ec-drives.github.io
+// also serves drive-timer) keep their own caches, and their files are never served from here.
+function fromCache(req) {
+  return caches.open(VERSION).then((c) => c.match(req, { ignoreSearch: true }));
+}
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
@@ -35,11 +41,11 @@ self.addEventListener('fetch', (event) => {
   if (rel.startsWith('test/') || rel.startsWith('tools/')) return; // development files
   if (DEV) {
     // on the laptop: newest files first, the cache only when offline
-    event.respondWith(fetch(req).catch(() => caches.match(req, { ignoreSearch: true }).then((hit) => hit || Response.error())));
+    event.respondWith(fetch(req).catch(() => fromCache(req).then((hit) => hit || Response.error())));
     return;
   }
   event.respondWith(
-    caches.match(req, { ignoreSearch: true }).then((hit) => {
+    fromCache(req).then((hit) => {
       if (hit) return hit;
       return fetch(req).then((res) => {
         if (res.ok && res.type === 'basic') {
@@ -47,7 +53,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(VERSION).then((c) => c.put(req, copy));
         }
         return res;
-      }).catch(() => (req.mode === 'navigate' ? caches.match('index.html') : Response.error()));
+      }).catch(() => (req.mode === 'navigate' ? fromCache('index.html') : Response.error()));
     }),
   );
 });

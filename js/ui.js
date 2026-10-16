@@ -93,6 +93,35 @@ export function link(label, href, o = {}) {
   return h('a', { href, class: `btn ${o.cls || ''}`.trim() }, o.icon ? icon(o.icon) : null, h('span', { text: label }));
 }
 
+/**
+ * Keyboard use for a group of role="radio" buttons, as screen-reader users expect: Tab enters the
+ * group at the chosen option (or the first), the arrow keys, Home and End move between options.
+ * With `select` the arrow keys also choose (the usual radio behaviour).
+ */
+export function rovingRadios(group, { select = true } = {}) {
+  const items = () => [...group.querySelectorAll('[role="radio"]')];
+  const sync = () => {
+    const list = items();
+    const on = list.find((b) => b.getAttribute('aria-checked') === 'true') || list[0];
+    list.forEach((b) => { b.tabIndex = b === on ? 0 : -1; });
+  };
+  group.addEventListener('keydown', (e) => {
+    const list = items();
+    const i = list.indexOf(document.activeElement);
+    if (i < 0) return;
+    const n = list.length;
+    const j = { ArrowDown: (i + 1) % n, ArrowRight: (i + 1) % n, ArrowUp: (i - 1 + n) % n, ArrowLeft: (i - 1 + n) % n, Home: 0, End: n - 1 }[e.key];
+    if (j == null) return;
+    e.preventDefault();
+    if (select) list[j].click();
+    else list.forEach((b, k) => { b.tabIndex = k === j ? 0 : -1; });
+    list[j].focus();
+  });
+  group.addEventListener('click', sync);
+  sync();
+  return group;
+}
+
 let toastTimer = null;
 export function toast(msg) {
   let t = document.getElementById('toast');
@@ -125,16 +154,22 @@ export function dialog(title, body, buttons) {
     const content = typeof body === 'string' ? h('p', { text: body }) : body;
     const row = h('div', { class: 'dlg-buttons' });
     for (const b of buttons) {
-      row.appendChild(button(b.label, { cls: b.cls || '', icon: b.icon, onClick: () => { dlg.close(); resolve(b.value); } }));
+      row.appendChild(button(b.label, { cls: b.cls || '', icon: b.icon, onClick: () => { resolve(b.value); dlg.close(); } }));
     }
     dlg.append(h('h2', { id: 'dlg-title', text: title }), content, row);
     dlg.addEventListener('cancel', () => resolve(null));
-    dlg.addEventListener('close', () => setTimeout(() => dlg.remove(), 0));
+    // closed some other way (closeDialogs, below): nothing was chosen
+    dlg.addEventListener('close', () => { resolve(null); setTimeout(() => dlg.remove(), 0); });
     document.body.appendChild(dlg);
     dlg.showModal();
     const first = row.querySelector('button');
     if (first) first.focus();
   });
+}
+
+/** Close every open dialog (each resolves as dismissed). */
+export function closeDialogs() {
+  document.querySelectorAll('dialog.dlg[open]').forEach((d) => d.close());
 }
 
 /** Offer a file to save. */

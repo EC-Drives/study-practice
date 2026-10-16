@@ -44,21 +44,69 @@ export async function buildExport(db, meta = {}) {
   };
 }
 
+// An imported file is checked field by field: every value the app reads or shows must have the
+// right type, so a damaged or hand-edited file can never break a page. Records that fail are
+// counted and left out.
+export const MAX_IMPORT_BYTES = 50 * 1024 * 1024;
+
+const isObj = (x) => x !== null && typeof x === 'object' && !Array.isArray(x);
 const isStr = (x) => typeof x === 'string' && x.length > 0 && x.length < 300;
+const isText = (x, max = 5000) => typeof x === 'string' && x.length <= max;
+const optText = (x, max = 5000) => x == null || isText(x, max);
 const isNum = (x) => typeof x === 'number' && Number.isFinite(x);
+const optNum = (x) => x == null || isNum(x);
+const isBool = (x) => typeof x === 'boolean';
+const optBool = (x) => x == null || isBool(x);
+const listOf = (x, check, max = 5000) => Array.isArray(x) && x.length <= max && x.every(check);
+const SUBJECTS = ['maths', 'science'];
+const MODES = ['topic', 'subtopic', 'weak', 'mixed'];
+
+function checkScore(s) {
+  return isObj(s) && ['earned', 'max', 'pct', 'correct', 'total', 'answered'].every((k) => isNum(s[k])) && optNum(s.unanswered);
+}
 
 function checkSession(s) {
-  return s && isStr(s.id) && isStr(s.subject) && isNum(s.startedAt) && s.status === 'complete' && Array.isArray(s.questionIds);
+  return isObj(s) && isStr(s.id) && SUBJECTS.includes(s.subject) && MODES.includes(s.mode) && s.status === 'complete'
+    && isNum(s.startedAt) && optNum(s.endedAt) && isNum(s.durationMin) && optNum(s.limitSec) && optNum(s.timeUsedSec)
+    && optText(s.topicId, 300) && optText(s.topicTitle, 500) && optText(s.subtopicId, 300) && optText(s.subtopicTitle, 500)
+    && optBool(s.submittedEarly) && optBool(s.timedOut)
+    && listOf(s.questionIds, isStr, 1000) && checkScore(s.score);
 }
+
+const isResponse = (r) => r == null || isBool(r) || isNum(r) || isText(r, 1000) || listOf(r, (x) => x == null || isNum(x), 50);
+
 function checkAttempt(a) {
-  return a && isStr(a.id) && isStr(a.sessionId) && isStr(a.questionId) && isNum(a.answeredAt) && typeof a.correct === 'boolean';
+  return isObj(a) && isStr(a.id) && isStr(a.sessionId) && isStr(a.questionId) && isNum(a.answeredAt)
+    && isBool(a.correct) && optBool(a.answered) && optBool(a.flagged)
+    && optText(a.topicId, 300) && optText(a.subtopicId, 300) && optText(a.subject, 50) && optText(a.skill, 500) && optText(a.type, 50)
+    && optNum(a.difficulty) && optNum(a.marks) && optNum(a.position) && optNum(a.earned) && optNum(a.fraction) && optNum(a.timeSec)
+    && isResponse(a.response) && optText(a.responseText)
+    && (a.misconceptions == null || listOf(a.misconceptions, (m) => isObj(m) && isText(m.note) && optText(m.key, 300), 50));
 }
+
+const isGroup = (g) => isObj(g) && isText(g.title, 500) && ['total', 'correct', 'pct'].every((k) => isNum(g[k])) && optText(g.topicTitle, 500);
+const isStrList = (x) => listOf(x, (s) => isText(s), 200);
+
 function checkReport(r) {
-  return r && isStr(r.sessionId) && isNum(r.startedAt) && r.score && typeof r.score === 'object';
+  if (!(isObj(r) && isStr(r.sessionId) && isNum(r.startedAt) && isText(r.title, 500) && isText(r.focus, 500))) return false;
+  if (!(checkScore(r.score) && isNum(r.score.unanswered))) return false;
+  if (!(isNum(r.durationMin) && isNum(r.limitSec) && isNum(r.timeUsedSec) && isNum(r.avgSecPerAnswer) && isNum(r.quickWrong))) return false;
+  if (!(isObj(r.byDifficulty) && [1, 2, 3].every((d) => isObj(r.byDifficulty[d]) && isNum(r.byDifficulty[d].total) && isNum(r.byDifficulty[d].correct)))) return false;
+  if (!(listOf(r.bySubtopic, isGroup, 200) && listOf(r.bySkill, isGroup, 200))) return false;
+  if (!(isStrList(r.understands) && isStrList(r.needsWork) && isStrList(r.recommendations))) return false;
+  if (!(r.strongSkills == null || isStrList(r.strongSkills)) || !(r.weakSkills == null || isStrList(r.weakSkills))) return false;
+  if (!listOf(r.misconceptions, (m) => isObj(m) && isText(m.note) && optText(m.subtopic, 500), 200)) return false;
+  if (!listOf(r.mistakes, (m) => isObj(m) && isNum(m.position) && isNum(m.earned) && isNum(m.marks)
+    && ['prompt', 'subtopic', 'yourAnswer', 'correctAnswer'].every((k) => isText(m[k])) && optText(m.skill, 500), 1000)) return false;
+  if (!listOf(r.masteryAfter, (m) => isObj(m) && isText(m.title, 500) && isNum(m.score) && optText(m.level, 100), 200)) return false;
+  const c = r.comparison;
+  if (!(isObj(c) && optNum(c.previousPct) && optNum(c.improvement) && optNum(c.previousBest) && (c.personalBest == null || isBool(c.personalBest) || c.personalBest === 'first'))) return false;
+  return optNum(r.streakDays) && optBool(r.timedOut) && optBool(r.submittedEarly);
 }
 
 /** Read and check an export file's text. Throws an Error with a plain message if it is not one. */
 export function parseExport(text) {
+  if (typeof text !== 'string' || text.length > MAX_IMPORT_BYTES) throw new Error('This file is too large to be a progress file.');
   let data;
   try {
     data = JSON.parse(text);

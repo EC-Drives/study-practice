@@ -13,10 +13,17 @@ export function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
+/** A number for HTML: always a plain finite number (a report can come from an imported file). */
+const num = (x) => {
+  const v = Number(x);
+  return Number.isFinite(v) ? String(Math.round(v * 100) / 100) : '0';
+};
+
 const pctText = (x) => `${Math.round((x || 0) * 100)}%`;
+// cuts by characters, never inside a surrogate pair (which would break encodeURIComponent)
 const shorten = (s, n) => {
-  const t = String(s || '').replace(/\s+/g, ' ').trim();
-  return t.length > n ? `${t.slice(0, n - 1).trimEnd()}…` : t;
+  const t = [...String(s || '').replace(/\s+/g, ' ').trim()];
+  return t.length > n ? `${t.slice(0, Math.max(0, n - 1)).join('').trimEnd()}…` : t.join('');
 };
 
 export function focusLabel(session) {
@@ -210,9 +217,10 @@ function comparisonLine(r) {
 }
 
 /** Plain-text body, in order of importance. Each entry is [priority, line]; lower is kept longer. */
-function emailLines(r) {
+function emailLines(r, notice = '') {
   const s = r.score;
   const L = [];
+  if (notice) L.push([0, notice], [0, '']);
   L.push([0, `Practice report, ${formatDate(r.startedAt, true)} at ${formatTime(r.startedAt)}`]);
   L.push([0, `${r.title} (${r.focus}), ${r.durationMin}-minute session`]);
   L.push([0, `Score: ${s.earned} of ${s.max} marks (${pctText(s.pct)}); ${s.correct} of ${s.total} questions fully right${s.unanswered ? `, ${s.unanswered} not answered` : ''}.`]);
@@ -242,28 +250,58 @@ export function mailtoUrl(to, subject, body) {
   return `mailto:${to ? encodeURIComponent(to).replace(/%40/g, '@') : ''}?subject=${enc(subject)}&body=${enc(body.replace(/\r?\n/g, '\r\n'))}`;
 }
 
-/** Email body text that keeps the whole mailto: link under `limit` characters. */
-export function emailBody(r, to = '', limit = MAILTO_LIMIT) {
-  let lines = emailLines(r);
-  const subject = emailSubject(r);
+/** The subject, shortened if it alone would push the link over the limit. */
+function fittedSubject(r, to, limit) {
+  let subject = emailSubject(r);
+  while (subject.length > 20 && mailtoUrl(to, subject, '').length > limit * 0.5) subject = shorten(subject, Math.floor(subject.length * 0.8));
+  return subject;
+}
+
+/**
+ * Email body text that keeps the whole mailto: link under `limit` characters. `notice` is a line
+ * that must come first (for example that the parent PIN was reset).
+ */
+export function emailBody(r, to = '', limit = MAILTO_LIMIT, notice = '') {
+  let lines = emailLines(r, notice);
+  const subject = fittedSubject(r, to, limit);
+  const fits = (b) => mailtoUrl(to, subject, b).length <= limit;
   const build = (ls) => ls.map((x) => x[1]).join('\n').replace(/\n{3,}/g, '\n\n').trim();
   for (let p = 3; p >= 1; p--) {
-    if (mailtoUrl(to, subject, build(lines)).length <= limit) break;
+    if (fits(build(lines))) break;
     lines = lines.filter((x) => x[0] < p);
   }
   let body = build(lines);
-  // last resort: shorten line by line from the bottom
-  while (mailtoUrl(to, subject, body).length > limit && body.length > 80) {
+  // next: shorten the longest lines (a fixed number of rounds, so this always ends)
+  for (let round = 0; round < 60 && !fits(body) && body.length > 80; round++) {
     const parts = body.split('\n');
     const i = parts.reduce((bi, x, k) => (x.length > parts[bi].length ? k : bi), 0);
+    if (parts[i].length <= 30) break;
     parts[i] = shorten(parts[i], Math.max(30, Math.floor(parts[i].length * 0.7)));
     body = parts.join('\n');
+  }
+  // last resort: cut the body to the longest start that fits
+  if (!fits(body)) {
+    const chars = [...body];
+    let lo = 0;
+    let hi = chars.length;
+    while (lo < hi) {
+      const mid = Math.ceil((lo + hi) / 2);
+      if (fits(`${chars.slice(0, mid).join('')}…`)) lo = mid;
+      else hi = mid - 1;
+    }
+    body = lo > 0 ? `${chars.slice(0, lo).join('')}…` : '';
   }
   return body;
 }
 
-export function reportMailto(r, to) {
-  return mailtoUrl(to || '', emailSubject(r), emailBody(r, to || ''));
+export function reportMailto(r, to, notice = '') {
+  const t = to || '';
+  return mailtoUrl(t, fittedSubject(r, t, MAILTO_LIMIT), emailBody(r, t, MAILTO_LIMIT, notice));
+}
+
+/** The line that goes first in every report email after the parent PIN was reset on the device. */
+export function pinResetNotice(at) {
+  return at ? `NOTE FOR DAD: the parent PIN on this device was reset on ${formatDate(at, true)} at ${formatTime(at)}, which also cleared the saved email address. If you did not do this, open the parent area and check Settings.` : '';
 }
 
 // ---------------------------------------------------------------- HTML
@@ -277,15 +315,15 @@ function bar(p) {
 export function reportBodyHtml(r) {
   const s = r.score;
   const cmp = comparisonLine(r);
-  const rows = (list) => list.map((g) => `<tr><td>${esc(g.title)}${g.topicTitle && r.mode === 'mixed' ? `<br><small>${esc(g.topicTitle)}</small>` : ''}</td><td class="num">${g.correct} / ${g.total}</td><td class="num">${pctText(g.pct)}</td><td>${bar(g.pct)}</td></tr>`).join('');
+  const rows = (list) => list.map((g) => `<tr><td>${esc(g.title)}${g.topicTitle && r.mode === 'mixed' ? `<br><small>${esc(g.topicTitle)}</small>` : ''}</td><td class="num">${num(g.correct)} / ${num(g.total)}</td><td class="num">${pctText(g.pct)}</td><td>${bar(g.pct)}</td></tr>`).join('');
   const li = (xs) => xs.map((x) => `<li>${esc(x)}</li>`).join('');
   const out = [];
-  out.push(`<p class="rmeta">${esc(formatDate(r.startedAt, true))}, ${esc(formatTime(r.startedAt))}. ${esc(r.focus)}; ${r.durationMin}-minute session.</p>`);
+  out.push(`<p class="rmeta">${esc(formatDate(r.startedAt, true))}, ${esc(formatTime(r.startedAt))}. ${esc(r.focus)}; ${num(r.durationMin)}-minute session.</p>`);
   out.push(`<div class="rtiles">
-    <div class="rtile"><b>${pctText(s.pct)}</b><span>score (${s.earned} of ${s.max} marks)</span></div>
-    <div class="rtile"><b>${s.correct} / ${s.total}</b><span>questions fully right</span></div>
+    <div class="rtile"><b>${pctText(s.pct)}</b><span>score (${num(s.earned)} of ${num(s.max)} marks)</span></div>
+    <div class="rtile"><b>${num(s.correct)} / ${num(s.total)}</b><span>questions fully right</span></div>
     <div class="rtile"><b>${esc(formatDuration(r.timeUsedSec))}</b><span>time used of ${esc(formatDuration(r.limitSec))}${r.timedOut ? ', time ran out' : ''}</span></div>
-    <div class="rtile"><b>${s.unanswered}</b><span>not answered</span></div>
+    <div class="rtile"><b>${num(s.unanswered)}</b><span>not answered</span></div>
   </div>`);
   if (cmp) out.push(`<p class="rcmp">${esc(cmp)}</p>`);
   out.push('<h3>What she understands, and what she does not yet</h3>');
@@ -294,13 +332,13 @@ export function reportBodyHtml(r) {
   out.push(`<h3>By subtopic</h3><table class="rtable"><thead><tr><th>Subtopic</th><th class="num">Right</th><th class="num">Marks</th><th><span class="sr">Bar</span></th></tr></thead><tbody>${rows(r.bySubtopic)}</tbody></table>`);
   out.push(`<h3>By skill</h3><table class="rtable"><thead><tr><th>Skill</th><th class="num">Right</th><th class="num">Marks</th><th><span class="sr">Bar</span></th></tr></thead><tbody>${rows(r.bySkill)}</tbody></table>`);
   const d = r.byDifficulty;
-  out.push(`<p class="rmeta">By difficulty: easier ${d[1].correct}/${d[1].total}, medium ${d[2].correct}/${d[2].total}, harder ${d[3].correct}/${d[3].total}. Average ${Math.round(r.avgSecPerAnswer)} s per answered question.${r.quickWrong ? ` ${r.quickWrong} wrong answer(s) in under 15 s.` : ''}</p>`);
+  out.push(`<p class="rmeta">By difficulty: easier ${num(d[1].correct)}/${num(d[1].total)}, medium ${num(d[2].correct)}/${num(d[2].total)}, harder ${num(d[3].correct)}/${num(d[3].total)}. Average ${num(Math.round(r.avgSecPerAnswer))} s per answered question.${r.quickWrong ? ` ${num(r.quickWrong)} wrong answer(s) in under 15 s.` : ''}</p>`);
   if (r.misconceptions.length) {
     out.push(`<h3>Misconceptions her wrong answers showed</h3><ul>${r.misconceptions.map((m) => `<li>${esc(m.note)}${m.subtopic ? ` <small>(${esc(m.subtopic)})</small>` : ''}</li>`).join('')}</ul>`);
   }
   out.push(`<h3>What to practise next</h3><ol>${li(r.recommendations)}</ol>`);
   if (r.mistakes.length) {
-    out.push(`<h3>Questions not fully right</h3><ol class="rmist">${r.mistakes.map((m) => `<li value="${m.position}"><p>${esc(m.prompt)}</p><p><small>${esc(m.subtopic)} · ${esc(m.skill)}</small></p><p>Her answer: <strong>${esc(m.yourAnswer)}</strong>${m.earned ? ` (${m.earned} of ${m.marks} marks)` : ''}<br>Correct answer: <strong>${esc(m.correctAnswer)}</strong></p></li>`).join('')}</ol>`);
+    out.push(`<h3>Questions not fully right</h3><ol class="rmist">${r.mistakes.map((m) => `<li value="${num(m.position)}"><p>${esc(m.prompt)}</p><p><small>${esc(m.subtopic)} · ${esc(m.skill)}</small></p><p>Her answer: <strong>${esc(m.yourAnswer)}</strong>${m.earned ? ` (${num(m.earned)} of ${num(m.marks)} marks)` : ''}<br>Correct answer: <strong>${esc(m.correctAnswer)}</strong></p></li>`).join('')}</ol>`);
   }
   if (r.masteryAfter.length) {
     out.push(`<h3>Mastery after this session</h3><table class="rtable"><tbody>${r.masteryAfter.map((m) => `<tr><td>${esc(m.title)}</td><td class="num">${pctText(m.score)}</td><td>${esc(m.level)}</td><td>${bar(m.score)}</td></tr>`).join('')}</tbody></table>`);
@@ -325,6 +363,7 @@ small{color:#55534e}
 export function reportHtmlDocument(r) {
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
 <title>${esc(emailSubject(r))}</title><style>${REPORT_CSS}</style></head>
 <body><h1>${esc(r.title)}</h1>
 ${reportBodyHtml(r)}

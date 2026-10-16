@@ -6,7 +6,7 @@ import { loadSubject, indexQuestions, subjectTitle } from '../content.js';
 import { responseText, correctAnswerText } from '../marking.js';
 import { scoreRing, pictograms, attemptKind, meter } from '../charts.js';
 import { formatDuration } from '../timer.js';
-import { reportMailto, reportHtmlDocument, reportFileName, emailSubject } from '../report.js';
+import { reportMailto, reportHtmlDocument, reportFileName, emailSubject, pinResetNotice } from '../report.js';
 import { streak } from '../stats.js';
 import { aiAvailable } from '../ai.js';
 
@@ -26,7 +26,8 @@ export async function sendReport(app, report) {
       [{ label: 'Cancel', value: false, cls: 'btn-ghost' }, { label: 'Open email', value: true, cls: 'btn-primary', icon: 'mail' }]);
     if (!ok) return;
   }
-  const a = h('a', { href: reportMailto(report, to), style: { display: 'none' } });
+  const resetAt = await app.db.getSetting('pinResetAt', null);
+  const a = h('a', { href: reportMailto(report, to, pinResetNotice(resetAt)), style: { display: 'none' } });
   document.body.append(a);
   a.click();
   a.remove();
@@ -79,7 +80,8 @@ export async function resultsView(el, app, sessionId) {
   const jump = (i) => {
     const item = reviewList.children[i];
     if (item) {
-      item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      item.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' });
       item.querySelector('h3').focus({ preventScroll: true });
     }
   };

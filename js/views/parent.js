@@ -10,7 +10,7 @@ import { progressAnalysis } from '../analysis.js';
 import { columnChart, levelBadge, meter } from '../charts.js';
 import { formatDuration } from '../timer.js';
 import { reportBodyHtml, reportFileName } from '../report.js';
-import { buildExport, importExport, exportFileName } from '../exportimport.js';
+import { buildExport, importExport, exportFileName, MAX_IMPORT_BYTES } from '../exportimport.js';
 import { APP_VERSION } from '../practice.js';
 import { sendReport, shareReport } from './results.js';
 
@@ -31,11 +31,25 @@ export async function parentView(el, app, tab, arg) {
   const current = tab === 'report' ? 'reports' : TABS.some((t) => t[0] === tab) ? tab : 'overview';
   const nav = h('nav', { class: 'tabs', 'aria-label': 'Parent area' }, ...TABS.map(([id, label, ic]) => h('a', { href: `#/parent/${id}`, class: `tab${id === current ? ' is-on' : ''}`, 'aria-current': id === current ? 'page' : null }, icon(ic, { size: 20 }), h('span', { text: label }))));
   const body = h('div', { class: 'stack' });
+  const resetAt = await app.db.getSetting('pinResetAt', null);
+  let resetNote = null;
+  if (resetAt) {
+    const history = (await app.db.getSetting('pinResetHistory', [])) || [];
+    resetNote = h('section', { class: 'card alert', role: 'alert' },
+      h('h2', {}, icon('info'), h('span', { text: 'The parent PIN was reset' })),
+      h('p', { text: `The PIN on this device was reset on ${formatDate(resetAt, true)} at ${formatTime(resetAt)}. Resetting also cleared the saved email address, so check that the address in Settings is yours.${history.length > 1 ? ` It has been reset ${history.length} times in all.` : ''}` }),
+      h('p', { class: 'small muted', text: 'Until you confirm below, this note also goes at the top of every report email.' }),
+      button('I know about this reset', { icon: 'check', cls: 'btn-ghost', onClick: async () => {
+        await app.db.deleteSetting('pinResetAt');
+        resetNote.remove();
+        toast('Noted.');
+      } }));
+  }
   clear(el).append(h('div', { class: 'stack parent' },
     h('div', { class: 'row space' },
       h('h1', {}, icon('lock', { size: 28 }), h('span', { text: 'Parent area' })),
       h('a', { href: '#/', class: 'btn btn-ghost btn-small' }, icon('home', { size: 20 }), h('span', { text: 'Lock and leave' }))),
-    nav, body));
+    resetNote, nav, body));
   const [sessions, attempts, topics] = await Promise.all([app.db.getAll('sessions'), app.db.getAll('attempts'), loadAll()]);
   const data = { sessions: sessions.filter((s) => s.status === 'complete'), attempts, topics };
   if (tab === 'report') await reportPage(body, app, arg);
@@ -112,9 +126,16 @@ async function gate(el, app, onOpen) {
     const box = h('input', { type: 'text', class: 'answer-input', 'aria-label': 'Type RESET to confirm', autocomplete: 'off' });
     const ok = await dialog('Reset the parent PIN?', h('div', {},
       h('p', { text: 'Resetting removes the PIN and the saved parent email address from this device. Progress and reports are kept. You will then set a new PIN and enter the email again.' }),
+      h('p', { class: 'small muted', text: 'The reset is recorded with its date. It is shown at the top of the parent area and in report emails until a parent confirms it.' }),
       h('p', { text: 'Type RESET to confirm.' }), box), [{ label: 'Cancel', value: false, cls: 'btn-ghost' }, { label: 'Reset', value: true, cls: 'btn-primary' }]);
     if (ok && box.value.trim().toUpperCase() === 'RESET') {
       for (const k of ['pinHash', 'parentEmail', 'pinFailures', 'pinLockUntil']) await app.db.deleteSetting(k);
+      // keep a record: shown at the top of the parent area and in every report email until a
+      // parent confirms it, so a reset (and a changed email address) cannot go unnoticed
+      const at = Date.now();
+      const history = (await app.db.getSetting('pinResetHistory', [])) || [];
+      await app.db.setSetting('pinResetHistory', [...history, at].slice(-50));
+      await app.db.setSetting('pinResetAt', at);
       toast('PIN removed. Please set a new one.');
       gate(el, app, onOpen);
     } else if (ok) toast('Nothing changed (RESET was not typed).');
@@ -305,6 +326,7 @@ async function settingsPage(body, app, data) {
     const f = fileIn.files && fileIn.files[0];
     if (!f) return;
     try {
+      if (f.size > MAX_IMPORT_BYTES) throw new Error('This file is too large to be a progress file.');
       const res = await importExport(db, await f.text());
       const a = res.added;
       await dialog('Progress imported', `Added ${a.sessions} sessions, ${a.attempts} answers and ${a.reports} reports${res.fromDevice ? ` from "${res.fromDevice}"` : ''}. ${res.skipped.sessions} sessions were already on this device and were kept as they were.${res.invalid ? ` ${res.invalid} damaged records were skipped.` : ''}`, [{ label: 'OK', value: true, cls: 'btn-primary' }]);
@@ -355,8 +377,7 @@ async function settingsPage(body, app, data) {
       const box = h('input', { type: 'text', class: 'answer-input', 'aria-label': 'Type ERASE to confirm', autocomplete: 'off' });
       const ok = await dialog('Erase all progress?', h('div', {}, h('p', { text: 'This removes every session, answer and report from this device. It cannot be undone. Export first if you may want them later. The PIN and email stay.' }), h('p', { text: 'Type ERASE to confirm.' }), box), [{ label: 'Cancel', value: false, cls: 'btn-ghost' }, { label: 'Erase', value: true, cls: 'btn-primary' }]);
       if (ok && box.value.trim().toUpperCase() === 'ERASE') {
-        const all = [...(await db.getAll('sessions')).map((s) => ['sessions', s.id]), ...(await db.getAll('attempts')).map((a) => ['attempts', a.id]), ...(await db.getAll('reports')).map((r) => ['reports', r.sessionId])];
-        for (const [store, key] of all) await db.delete(store, key);
+        await db.clearStores(['sessions', 'attempts', 'reports']); // one transaction: all or nothing
         toast('All progress erased from this device.');
         location.hash = '#/parent/overview';
       } else if (ok) toast('Nothing erased (ERASE was not typed).');

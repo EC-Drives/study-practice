@@ -1,6 +1,6 @@
 // Chapter page (preamble and practice set-up) and mixed revision set-up.
 
-import { h, clear, icon, button, toast } from '../ui.js';
+import { h, clear, icon, button, toast, dialog } from '../ui.js';
 import { SUBJECTS, loadTopic, loadSubject, subjectTitle } from '../content.js';
 import { subtopicMastery, levelFor } from '../stats.js';
 import { levelBadge, meter } from '../charts.js';
@@ -40,8 +40,17 @@ async function startSession(app, opts) {
     toast('There are no questions for that choice yet.');
     return;
   }
-  // only one unfinished session at a time: an older unfinished one is replaced
+  // only one unfinished session at a time: an older unfinished one is replaced, after asking
+  // if it has any answers in it
   const old = (await app.db.getAll('sessions')).filter((s) => s.status === 'in-progress');
+  const answered = old.reduce((n, s) => n + Object.values((s.state && s.state.responses) || {}).filter((r) => r != null && r !== '' && !(Array.isArray(r) && !r.length)).length, 0);
+  if (answered) {
+    const ok = await dialog('Start a new practice?', `You have an unfinished practice with ${answered} answer${answered === 1 ? '' : 's'}. Starting a new one removes it. To keep it, go Home and press Continue.`, [
+      { label: 'Keep it', value: false, cls: 'btn-ghost' },
+      { label: 'Start new', value: true, cls: 'btn-primary' },
+    ]);
+    if (!ok) return;
+  }
   for (const s of old) await app.db.delete('sessions', s.id);
   await app.db.put('sessions', ses);
   location.hash = `#/session/${encodeURIComponent(ses.id)}`;

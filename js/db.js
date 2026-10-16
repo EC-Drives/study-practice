@@ -116,7 +116,11 @@ export class Db {
   }
 
   async clearAll() {
-    const names = ['sessions', 'attempts', 'reports', 'settings'];
+    return this.clearStores(['sessions', 'attempts', 'reports', 'settings']);
+  }
+
+  /** Empty several stores in one transaction: all or nothing. */
+  async clearStores(names) {
     const tx = this.idb.transaction(names, 'readwrite');
     for (const n of names) tx.objectStore(n).clear();
     await done(tx);
