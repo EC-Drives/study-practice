@@ -7,12 +7,18 @@
 
 // ---------------------------------------------------------------- randomness
 
+export const MAX_DRAWS = 200000;
+
 /** A seeded random number generator (mulberry32) from any number of seed parts. */
 export function makeRng(...parts) {
   let h = 2166136261;
   for (const p of parts) for (const c of String(p)) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0;
   let a = h >>> 0;
+  let draws = 0;
   const next = () => {
+    // a safety net: a generator that keeps redrawing without finding numbers that fit must not
+    // freeze the page; generate() reports it as an error instead
+    if (++draws > MAX_DRAWS) throw new Error('generator ran too long without finding suitable numbers');
     a = (a + 0x6d2b79f5) >>> 0;
     let t = a;
     t = Math.imul(t ^ (t >>> 15), t | 1);

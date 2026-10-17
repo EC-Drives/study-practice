@@ -64,6 +64,7 @@ export function generate(generatorId, seed, difficulty) {
       return finish({ id: g.id, prefix: prefixOf(g.topicId), subtopicId: g.subtopicId, skill: g.skill }, s, d, body);
     } catch (e) {
       lastErr = e; // rare: not enough distinct distractors for these numbers; draw again from the same stream
+      if (/ran too long/.test(e.message)) break;
     }
   }
   throw new Error(`${generatorId} seed ${s}: ${lastErr && lastErr.message}`);
@@ -93,7 +94,8 @@ export function generateSet(topicId, count, seed, opts = {}) {
   const seen = new Set();
   let s = Math.abs(Math.trunc(Number(seed) || 0)) >>> 0;
   for (let tries = 0; out.length < count && tries < count * 20; tries++, s = (s + 1) >>> 0) {
-    const q = generateFor(topicId, opts.subtopicId || null, opts.difficulty || null, s);
+    let q;
+    try { q = generateFor(topicId, opts.subtopicId || null, opts.difficulty || null, s); } catch { continue; } // a seed that cannot be built is skipped
     if (!q) break;
     const key = `${q.prompt}|${JSON.stringify(q.options || '')}`;
     if (seen.has(key)) continue;

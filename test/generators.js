@@ -203,7 +203,7 @@ async function run() {
         row.questions++;
         try { q = generate(g.id, s, d); } catch (e) { row.failed++; if (!row.first) row.first = `seed ${s} d${d}: ${e.message}`; continue; }
         prompts.add(`${q.prompt}|${JSON.stringify(q.options || '')}|${JSON.stringify(q.diagram || '')}`);
-        levelPrompts.add(`${q.prompt}|${JSON.stringify(q.diagram || '')}`);
+        levelPrompts.add(`${q.prompt}|${q.type === 'order' || /Which of these/.test(q.prompt) ? JSON.stringify([...(q.options || [])].sort()) : ''}|${JSON.stringify(q.diagram || '')}`);
         const probs = checkQuestion(g.id, q, solver);
         if (s % 97 === 0 && JSON.stringify(generate(g.id, s, d)) !== JSON.stringify(q)) probs.push('not reproducible');
         if (q.difficulty !== d) probs.push('difficulty differs');
@@ -237,7 +237,7 @@ async function run() {
         const filled = secs >= target;
         // and straight from consecutive seeds, without the de-duplication: how many repeats?
         const raw = []; let rs = 0;
-        for (let k = 0; rs < target && k < 80; k++) { const q = generateFor(t, sub, null, seed + k); raw.push(`${q.prompt}|${JSON.stringify(q.options || '')}`); rs += estimateSeconds(q); }
+        for (let k = 0; rs < target && k < 80; k++) { let q; try { q = generateFor(t, sub, null, seed + k); } catch (e) { failures.push(`${sub || t} seed ${seed + k}: ${e.message}`); continue; } raw.push(`${q.prompt}|${JSON.stringify(q.options || '')}`); rs += estimateSeconds(q); }
         const repeats = raw.length - new Set(raw).size;
         sessions.push({ scope: sub ? `${t} / ${sub}` : t, seed, need, filled, repeats, gens: generatorsFor(t, sub).length });
         if (!filled) failures.push(`${sub || t} seed ${seed}: a 30-minute session could not be filled without repeats (${set.length} different questions)`);
