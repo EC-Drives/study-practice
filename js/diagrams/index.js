@@ -7,7 +7,7 @@
 //   validateDiagram(spec)      -> list of error strings ([] when the spec is good)
 //   DIAGRAM_TYPES              -> the type names
 
-import { el, toDom, toHtml, fields, escapeHtml } from './core.js';
+import { el, toDom, toHtml, fields, escapeHtml, tidy } from './core.js';
 import { DIAGRAM_CSS, ensureStyles } from './style.js';
 import { GEOMETRY } from './geometry.js';
 import { CHARTS } from './charts.js';
@@ -73,7 +73,7 @@ function build(spec, opts = {}) {
   const out = t.render(spec, ctx);
   const description = describeDiagram(spec);
   const size = spec.size || t.size || 'medium';
-  const caption = [spec.caption, spec.notToScale ? 'Not drawn to scale' : null].filter(Boolean).join('. ');
+  const caption = [spec.caption ? tidy(spec.caption) : null, spec.notToScale ? 'Not drawn to scale' : null].filter(Boolean).join('. ');
   let main;
   if (out.html) {
     main = out.html;
