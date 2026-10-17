@@ -319,7 +319,8 @@ const isPrime = (n) => PRIMES.includes(n);
 const factorsOf = (n) => Array.from({ length: n }, (_, i) => i + 1).filter((k) => n % k === 0);
 
 const factorsPrimes = {
-  id: 'm02.factors-primes', topicId: T, subtopicId: 'm02-s2', skill: SKILL.fm,
+  id: 'm06.factors-primes', topicId: 'm06-multiplication-and-division', subtopicId: 'm06-s6', // moved from m02.factors-primes (m02-s2), book map 17 Oct 2026
+  skill: SKILL.fm,
   title: 'Factors, multiples and primes (D1 pick one; D2 select all, common factors; D3 number riddles)',
   difficulties: [1, 2, 3],
   check: { min: 0 },
@@ -498,7 +499,8 @@ const BEADS = [
 ];
 
 const hcfLcm = {
-  id: 'm02.hcf-lcm', topicId: T, subtopicId: 'm02-s2', skill: SKILL.hcf,
+  id: 'm06.hcf-lcm', topicId: 'm06-multiplication-and-division', subtopicId: 'm06-s6', // moved from m02.hcf-lcm (m02-s2), book map 17 Oct 2026
+  skill: SKILL.hcf,
   title: 'Highest common factor and lowest common multiple (D2 two numbers; D3 word problems: buses, lights, beads, packs)',
   difficulties: [2, 3],
   check: { min: 0, integer: true },
@@ -598,7 +600,8 @@ const digitSum = (n) => String(n).split('').reduce((s, c) => s + Number(c), 0);
 const fmtN = (n) => fmtInt(n);
 
 const divisibility = {
-  id: 'm02.divisibility', topicId: T, subtopicId: 'm02-s3', skill: SKILL.div369,
+  id: 'm06.divisibility', topicId: 'm06-multiplication-and-division', subtopicId: 'm06-s7', // moved from m02.divisibility (m02-s3), book map 17 Oct 2026
+  skill: SKILL.div369,
   title: 'Divisibility tests for 3, 4, 6 and 9 (D1 which number; D2 true or false, missing digit for 9; D3 largest or smallest digit for 6)',
   difficulties: [1, 2, 3],
   check: { min: 0 },
@@ -764,7 +767,8 @@ function missingDigit(rng, n) {
 // ---------------------------------------------------------------- g10, g11 squares and cubes
 
 const squaresCubes = {
-  id: 'm02.squares-cubes', topicId: T, subtopicId: 'm02-s4', skill: SKILL.sq,
+  id: 'm07.squares-cubes', topicId: 'm07-number-patterns', subtopicId: 'm07-s5', // moved from m02.squares-cubes (m02-s4), book map 17 Oct 2026
+  skill: SKILL.sq,
   title: 'Square and cube numbers (D1 values and which is a cube; D2 side from area, sums of powers, order; D3 counting squares, cube blocks)',
   difficulties: [1, 2, 3],
   check: { min: 0 },
@@ -929,7 +933,7 @@ function cubeBlock(rng) {
       { text: String(take ? n * 3 - take * 3 : n * 3), code: 'POW-MULT', why: `It looks like you worked out ${n} x 3${take ? ` and ${take} x 3` : ''}. A cube ${n} long, wide and high has ${n} x ${n} x ${n} small cubes.` },
       { text: String(6 * n * n), code: 'SA-FACES-NOT-CUBES', why: `It looks like you counted the squares on the outside faces. Count the cubes in the whole solid: ${n} x ${n} x ${n}.` },
       take ? { text: String(n ** 3), code: 'ONE-STEP-ONLY', why: `${n ** 3} is the number of cubes before any were taken away. Take away the ${take ** 3} cube${take ** 3 === 1 ? '' : 's'} in the corner block.` } : { text: String(n * n), code: 'SQ-CUBE-MIX', why: `${n * n} is one layer (${n} x ${n}). There are ${n} layers, so multiply by ${n} again.` },
-      take ? { text: String(n ** 3 - take), code: 'POW-MULT', why: `The corner block is ${take} x ${take} x ${take} = ${take ** 3} cube${take ** 3 === 1 ? '' : 's'}, not ${take}.` } : null,
+      take ? nearMiss(String(n ** 3 - take), `Check the corner block: it is ${take} x ${take} x ${take} = ${take ** 3} cube${take ** 3 === 1 ? '' : 's'}.`) : null,
     ];
     if (take === 1) items.pop();
     try {

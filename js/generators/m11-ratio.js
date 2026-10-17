@@ -266,7 +266,7 @@ const difference = {
       const noun = rng.pick(['stamps', 'marbles', 'stickers', 'beads', 'cards']);
       const ask = d === 2 ? rng.pick(['small', 'big']) : 'total';
       const ans = ask === 'small' ? a * unit : ask === 'big' ? b * unit : (a + b) * unit;
-      const prompt = `The ratio of ${p}'s ${noun} to ${q}'s ${noun} is ${R(a, b)}. ${q} has ${diff} more ${noun} than ${p}. How many ${noun} ${ask === 'total' ? 'do they have altogether' : `does ${ask === 'small' ? p : q} have`}?`;
+      const prompt = `The ratio of ${p}'s ${noun} to ${q}'s ${noun} is ${R(a, b)}. ${q} has ${diff} more ${noun} than ${p}, as the bar model shows. How many ${noun} ${ask === 'total' ? 'do they have altogether' : `does ${ask === 'small' ? p : q} have`}?`;
       const diagram = { type: 'barModel', bars: [{ label: p, units: a }, { label: q, units: b }], braces: [{ bar: 1, from: a, to: b, label: String(diff), side: 'below' }] };
       if (ask === 'total') diagram.totalBrace = { label: '?' };
       else diagram.bars[ask === 'small' ? 0 : 1].right = '?';
@@ -434,7 +434,7 @@ const bestBuy = {
       const letter = (i) => String.fromCharCode(65 + i);
       const label = (i) => `Pack ${letter(i)}: ${fmtInt(packs[i])} ${unit} for ${rm(prices[i] / 100)}`;
       const unitWord = per === 1 ? `1 ${unit}` : `100 ${unit}`;
-      const prompt = `A shop sells ${name} in ${count} packs. Which pack is the best buy?`;
+      const prompt = `A shop sells ${name} in ${count} packs, shown in the table. Which pack is the best buy?`;
       const solution = `Find the price of ${unitWord} in each pack: ${packs.map((sz, i) => `Pack ${letter(i)}: ${rm(prices[i] / 100)} ÷ ${sz / per} = ${rm(rates[i] / 100)}`).join('; ')}. The lowest price for ${unitWord} is the best buy. Answer: ${label(best)}`;
       const distractors = packs.map((_, i) => i).filter((i) => i !== best).map((i) => (i === cheapest
         ? { text: label(i), code: 'BUY-CHEAPEST-PRICE', why: `Pack ${letter(i)} has the lowest price, but it also has the least ${name}. Compare the price of ${unitWord}: here it is ${rm(rates[i] / 100)}, more than ${rm(rates[best] / 100)}.` }

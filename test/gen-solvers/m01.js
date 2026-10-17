@@ -286,7 +286,7 @@ export const MIS = {
   'm01.times-divide-10-100-1000': {
     'PV-SHIFT-WRONG': (q) => {
       const p = timesParts(q);
-      if (p.kind === 'one') return [ap(p.x, p.op, qdiv(p.p, Q(10))), ap(p.x, p.op, qmul(p.p, Q(10))), ap(p.x, inv(p.op), p.p)].map(v);
+      if (p.kind === 'one') return [ap(p.x, p.op, qdiv(p.p, Q(10))), ap(p.x, p.op, qmul(p.p, Q(10)))].map(v);
       if (p.kind === 'power') return [10, 100, 1000, 10000];
       if (p.kind === 'start') return [ap(p.r, inv(p.op), qdiv(p.p, Q(10))), ap(p.r, inv(p.op), qmul(p.p, Q(10)))].map(v);
       // chain: one of the two steps one place out
@@ -296,7 +296,7 @@ export const MIS = {
     'PV-ADD-ZERO': (q) => [v(timesParts(q).x)],
     'INVERSE-WRONG': (q) => { const p = timesParts(q); return [v(ap(p.r, p.op, p.p))]; },
     'ONE-STEP-ONLY': (q) => { const p = timesParts(q); return [v(ap(p.x, p.o1, p.p1))]; },
-    'OP-SWAP': (q) => { const p = timesParts(q); return [v(ap(ap(p.x, p.o1, p.p1), p.o1, p.p2))]; },
+    'OP-SWAP': (q) => { const p = timesParts(q); if (p.kind === 'one') return [v(ap(p.x, inv(p.op), p.p))]; return [v(ap(ap(p.x, p.o1, p.p1), p.o1, p.p2))]; },
   },
   'm01.compose-regroup': {
     'PV-PLACEHOLDER-DROPPED': (q) => {

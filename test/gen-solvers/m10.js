@@ -127,10 +127,16 @@ export const MIS = {
       const r = SOLVERS['m10.mixed-add-sub'](q).value;
       if (t && !/\//.test(t.a)) { // whole minus mixed
         const w = parseQ(t.a); const wb = whole(t.b); const fb = fracPart(t.b);
-        return [v(qadd(qsub(w, wb), fb)), v(qadd(qsub(w, wb), qsub(one, fb)))];
+        return [v(qadd(qsub(w, wb), fb))];
       }
-      if (t) { const wa = whole(t.a); const wb = whole(t.b); return [v(qadd(qsub(wa, wb), qsub(fracPart(t.b), fracPart(t.a)))), r + 1]; }
-      return [r + 1];
+      if (t) { const wa = whole(t.a); const wb = whole(t.b); return [v(qadd(qsub(wa, wb), qsub(fracPart(t.b), fracPart(t.a))))]; }
+      return [];
+    },
+    // exchanged 1 whole for fraction pieces but did not take it from the whole numbers
+    'COL-EXCHANGE-NOT-REDUCED': (q) => {
+      const t = twoTerms(q);
+      if (t && !/\//.test(t.a)) { const w = parseQ(t.a); return [v(qadd(qsub(w, whole(t.b)), qsub(one, fracPart(t.b))))]; }
+      return [SOLVERS['m10.mixed-add-sub'](q).value + 1];
     },
     'FR-MIXED-NO-CARRY': (q) => { const r = SOLVERS['m10.mixed-add-sub'](q).value; return [r - 1, r - 2]; },
     'ONE-STEP-ONLY': (q) => { const m = threeTerms(q); return [v(qadd(parseQ(m.a), parseQ(m.b)))]; },
@@ -173,7 +179,8 @@ export const MIS = {
     'FR-MULT-DEN': (q) => { const p = timesParts(q); return [v(Q(p.f[0], p.f[1] * p.n[0]))]; },
     'FR-MULT-ADDS': (q) => { const p = timesParts(q); return [v(Q(p.f[0] + p.n[0], p.f[1]))]; },
     'FR-MISSING-NO-DIVIDE': (q) => { const p = timesParts(q); return [v(qmul(p.r, p.den))]; },
-    'FR-MISSING-WRONG-DEN': (q) => { const p = timesParts(q); return [v(qdiv(Q(p.r[0]), p.w)), Number(p.r[0])]; },
+    'FR-MISSING-WRONG-DEN': (q) => { const p = timesParts(q); return [v(qdiv(Q(p.r[0]), p.w))]; },
+    'WRONG-QUANTITY': (q) => [Number(timesParts(q).r[0])],
   },
   'm10.fraction-divide-whole': {
     'FR-DIV-WRONG-PART': (q) => { const p = divParts(q); return [v(qmul(p.f, p.n)), v(qmul(p.f, p.n))].concat(p.f[1] % p.n[0] === 0n ? [v(Q(p.f[0], p.f[1] / p.n[0]))] : []); },

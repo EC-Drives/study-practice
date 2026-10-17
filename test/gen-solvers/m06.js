@@ -90,13 +90,13 @@ function near10(q) {
 // ---------------------------------------------------------------- solvers
 
 export const SOLVERS = {
-  'm06.order-of-operations': (q) => {
+  'm02.order-of-operations': (q) => {
     let m;
     if ((m = q.prompt.match(/so that (.*) equals (\d+)\?/))) return { text: q.options.find((o) => v(calc(o)) === N(m[2])) };
     m = q.prompt.match(/^Work out (.*)\.$/);
     return { value: v(calc(m[1])) };
   },
-  'm06.laws': (q) => {
+  'm02.laws': (q) => {
     let m;
     if ((m = q.prompt.match(/same answer as (\d+) × (\d+)\?/))) return { text: q.options.find((o) => v(calc(o)) === N(m[1]) * N(m[2])) };
     m = q.prompt.match(/^Work out (\d+) × (\d+) in your head/);
@@ -153,14 +153,14 @@ export const SOLVERS = {
 const decParts = (q) => { const m = q.prompt.match(new RegExp(`^Work out (${NUM}) ([×÷]) (\\d+)\\.$`)); return m ? { a: m[1], n: N(m[3]) } : null; };
 
 export const MIS = {
-  'm06.order-of-operations': {
+  'm02.order-of-operations': {
     'BODMAS-LEFT-RIGHT': (q) => [v(calc(q.prompt.match(/^Work out (.*)\.$/)[1], 'lr'))],
     'BRACKETS-IGNORED': (q) => [v(calc(q.prompt.match(/^Work out (.*)\.$/)[1], 'nobr'))],
     'DIV-LEFT-RIGHT': (q) => [v(calc(q.prompt.match(/^Work out (.*)\.$/)[1], 'mulfirst'))],
     'ONE-STEP-ONLY': (q) => [v(firstStep(q.prompt.match(/^Work out (.*)\.$/)[1]))],
     'BRACKETS-WRONG-PLACE': (q) => { const T = N(q.prompt.match(/equals (\d+)\?/)[1]); return q.options.filter((o) => v(calc(o)) !== T); },
   },
-  'm06.laws': {
+  'm02.laws': {
     'DIST-PARTIAL': (q) => {
       let m;
       if ((m = q.prompt.match(/same answer as (\d+) × (\d+)\?/))) return q.options.filter((o) => (o.match(/×/g) || []).length === 1 && o.startsWith(`${m[1]} × `));

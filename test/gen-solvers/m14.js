@@ -26,7 +26,7 @@ const halfTurn = (c) => ([x, y]) => [2 * c[0] - x, 2 * c[1] - y];
 // ---------------------------------------------------------------- reflect in an axis
 
 function axisAsk(q) {
-  let m = q.prompt.match(/Point \w(\(.*?\)) is reflected in the (x|y)-axis\./);
+  let m = q.prompt.match(/Point \w(\(.*?\))(?: on the grid)? is reflected in the (x|y)-axis\./);
   if (m) return { P: pairs(m[1])[0], axis: m[2] };
   m = q.prompt.match(/has corners (.*?)\. It is reflected in the (x|y)-axis\./);
   return { tri: pairs(m[1]), axis: m[2] };
@@ -43,10 +43,10 @@ function lineAsk(q) {
     const f = k === 0 ? mirrorV(a) : mirrorH(a);
     return { tri, a, k, f, ans: tri.map(f) };
   }
-  let m = q.prompt.match(/Point \w(\(.*?\)) is reflected in the (vertical|horizontal) mirror line (x|y) = (-?\d+)\./);
+  let m = q.prompt.match(/Point \w(\(.*?\))(?: on the grid)? is reflected in the (vertical|horizontal) mirror line (x|y) = (-?\d+)\./);
   let from; let c; let a;
   if (m) { from = pairs(m[1])[0]; c = m[3]; a = num(m[4]); } else {
-    m = q.prompt.match(/is reflected in the (vertical|horizontal) mirror line (x|y) = (-?\d+)\. Its image is (\(.*?\))\./);
+    m = q.prompt.match(/is reflected in the (vertical|horizontal) mirror line (x|y) = (-?\d+)\. Its image(?: on the grid)? is (\(.*?\))\./);
     c = m[2]; a = num(m[3]); from = pairs(m[4])[0];
   }
   const k = c === 'x' ? 0 : 1;
@@ -73,9 +73,9 @@ function diagAsk(q) {
     const tri = pairs(t[1]);
     return { tri, other, ans: tri.map(([x, y]) => (other ? [-y, -x] : [y, x])) };
   }
-  let m = q.prompt.match(/Point \w(\(.*?\)) is reflected/);
+  let m = q.prompt.match(/Point \w(\(.*?\))(?: on the grid)? is reflected/);
   const back = !m;
-  if (!m) m = q.prompt.match(/Its image is (\(.*?\))\./);
+  if (!m) m = q.prompt.match(/Its image(?: on the grid)? is (\(.*?\))\./);
   const P = pairs(m[1])[0];
   const [x, y] = P;
   return { P, x, y, ans: other ? [-y, -x] : [y, x], other, back };

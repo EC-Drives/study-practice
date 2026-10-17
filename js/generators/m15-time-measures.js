@@ -58,7 +58,8 @@ function pick(rng, { ans, accept, ds, fallback, common, typed, type = 'short', p
 // ---------------------------------------------------------------- g01 decimal hours
 
 const decimalHours = {
-  id: 'm15.decimal-hours', topicId: T, subtopicId: 'm15-s1', skill: SK.dec2hm,
+  id: 'm09.decimal-hours', topicId: 'm09-fractions-percentages-decimals', subtopicId: 'm09-s6', // moved from m15.decimal-hours (m15-s1), book map 17 Oct 2026
+  skill: SK.dec2hm,
   title: 'Decimal hours to hours and minutes or minutes (D1), back to decimal hours (D2), adding and comparing times in different forms (D3)',
   difficulties: [1, 2, 3],
   check: { min: 0, maxDp: 2 },
@@ -80,7 +81,9 @@ const decimalHours = {
           prompt = rng.pick([`How long is ${xs} hours in hours and minutes?`, `${p.name} spent ${xs} hours on a school project. Write this time in hours and minutes.`, `A train journey takes ${xs} hours. How long is that in hours and minutes?`, ...(h <= 2 ? [`A film lasts ${xs} hours. How long is that in hours and minutes?`] : [])]);
           solution = `The ${h} is ${h} whole hour${h > 1 ? 's' : ''}. The ${part.decimal()} is ${part} of an hour: ${part} of 60 minutes = ${part.mul(60).n} minutes. So ${xs} hours = ${ans}. Answer: ${ans}`;
           const digits = xs.split('.')[1];
-          ds.push({ text: hm(h * 60 + Number(digits)), code: 'TIME-DECIMAL-AS-MINUTES', why: `It looks like you read the digits after the point (${digits}) as minutes. ${part.decimal()} of an hour is ${part.mul(60).n} minutes, because an hour has 60 minutes, not 100.` });
+          ds.push(digits.length === 1
+            ? { text: hm(h * 60 + Number(digits)), code: 'TIME-DEC-X10', why: `It looks like you read the ${digits} after the point as ${digits} minutes, which is ${part.decimal()} x 10. ${part.decimal()} of an hour is ${part.decimal()} x 60 = ${part.mul(60).n} minutes.` }
+            : { text: hm(h * 60 + Number(digits)), code: 'TIME-DECIMAL-AS-MINUTES', why: `It looks like you read the digits after the point (${digits}) as minutes. ${part.decimal()} of an hour is ${part.mul(60).n} minutes, because an hour has 60 minutes, not 100.` });
           ds.push({ text: `${Math.round(x.value * 100)} min`, code: 'TIME-DECIMAL-AS-MINUTES', why: `It looks like you multiplied by 100. An hour is 60 minutes: ${xs} x 60 = ${mins} minutes = ${ans}.` });
         } else {
           skill = SK.dec2min;
@@ -91,7 +94,7 @@ const decimalHours = {
           solution = `1 hour = 60 minutes, so multiply by 60: ${xs} x 60 = ${mins} minutes.${h ? ` (${h} x 60 = ${h * 60}, and ${part.decimal()} x 60 = ${part.mul(60).n}.)` : ''} Answer: ${mins} min`;
           const digits = xs.split('.')[1];
           const dm = h * 60 + Number(digits);
-          ds.push({ text: `${dm} min`, code: 'TIME-DECIMAL-AS-MINUTES', why: `It looks like you read ${xs} hours as ${h ? `${h} h ` : ''}${Number(digits)} min. ${part.decimal()} of an hour is ${part.mul(60).n} minutes, not ${Number(digits)}.` });
+          ds.push({ text: `${dm} min`, code: digits.length === 1 ? 'TIME-DEC-X10' : 'TIME-DECIMAL-AS-MINUTES', why: `It looks like you read ${xs} hours as ${h ? `${h} h ` : ''}${Number(digits)} min. ${part.decimal()} of an hour is ${part.mul(60).n} minutes, not ${Number(digits)}.` });
           ds.push({ text: `${Math.round(x.value * 100)} min`, code: 'TIME-DECIMAL-AS-MINUTES', why: `It looks like you multiplied by 100. An hour has 60 minutes, so multiply by 60.` });
           ds.push({ text: `${Math.round(x.value * 10)} min`, code: 'TIME-DEC-X10', why: `It looks like you multiplied by 10. An hour has 60 minutes, so multiply by 60.` });
           const base = mins;
@@ -205,7 +208,7 @@ const clock = {
         ans = t24(t); accept = t24Forms(t);
         prompt = rng.pick([`What is ${t12(t)} written in the 24-hour clock?`, `${p.name}'s train leaves at ${t12(t)}. Write this time in the 24-hour clock.`, `A concert starts at ${t12(t)}. What is this in the 24-hour clock?`]);
         solution = `For times after midday (pm), add 12 to the hour: ${Math.floor(t / 60) - 12} + 12 = ${Math.floor(t / 60)}. So ${t12(t)} = ${ans}. Answer: ${ans}`;
-        ds.push({ text: t24(t - 720), code: 'TIME-24H-PLUS-12-WRONG', why: `${t24(t - 720)} is in the morning. For a pm time, add 12 to the hour.` });
+        ds.push({ text: t24(t - 720), code: 'TIME-AM-PM-SWAP', why: `${t24(t - 720)} is in the morning. For a pm time, add 12 to the hour.` });
         ds.push({ text: t24(t - 120), code: 'TIME-24H-PLUS-12-WRONG', why: `It looks like you added 10 to the hour. Add 12: ${Math.floor(t / 60) - 12} + 12 = ${Math.floor(t / 60)}.` });
         if (Math.floor(t / 60) + 2 < 24) ds.push({ text: t24(t + 120), code: 'TIME-24H-PLUS-12-WRONG', why: `It looks like you added 14 to the hour. Add exactly 12 for a pm time.` });
       } else if (kind === 'to12') {
@@ -301,7 +304,7 @@ const duration = {
         ds.push({ text: hm(back), code: 'TIME-MIDNIGHT', why: `${hm(back)} is the time from ${t24(e)} to ${t24(s)} on the same day. This time goes past midnight: count on from ${t24(s)} to midnight, then on to ${t24(e)}.` });
         const raw = sv - ev;
         if (raw > 0 && raw % 100 < 60 === false) ds.push({ text: `${Math.floor(raw / 100)} h ${raw % 100} min`, code: 'TIME-100-MINUTES', why: 'It looks like you subtracted the times as ordinary numbers. Count on past midnight instead.' });
-        ds.push({ text: hm(dur + 60), code: 'TIME-MIDNIGHT', why: `It looks like you counted one hour too many around midnight. ${t24(s)} to midnight is ${hm(1440 - s)}.` });
+        ds.push({ text: hm(dur + 60), code: 'NEAR-MISS', why: `This is close, but it is one hour too many. ${t24(s)} to midnight is ${hm(1440 - s)}.` });
       }
       try {
         const dsx = ds.filter((x) => !/^-|-/.test(x.text));
@@ -415,7 +418,7 @@ const timetable = {
         const dur = e - s;
         if (Math.floor(s / 60) === Math.floor(e / 60) || e % 60 >= s % 60) continue;
         ans = hm(dur); accept = hmForms(dur);
-        prompt = `${p.name} takes Bus ${bus + 1} from ${stops[a]} to ${stops[b2]}. How long is ${p.his} journey?`;
+        prompt = `Look at the bus timetable. ${p.name} takes Bus ${bus + 1} from ${stops[a]} to ${stops[b2]}. How long is ${p.his} journey?`;
         solution = `Bus ${bus + 1} leaves ${stops[a]} at ${t24(s)} and reaches ${stops[b2]} at ${t24(e)}. Count on: ${t24(s)} to ${t24(s + 60 - (s % 60))} is ${60 - (s % 60)} min, then to ${t24(e)} is ${hm(e - s - 60 + (s % 60))}. Total: ${ans}. Answer: ${ans}`;
         const sv = Math.floor(s / 60) * 100 + (s % 60); const ev = Math.floor(e / 60) * 100 + (e % 60);
         const raw = ev - sv;
@@ -430,7 +433,7 @@ const timetable = {
         const need = times[ok][b2] + 5 * rng.int(0, Math.max(0, Math.floor((times[ok + 1][b2] - times[ok][b2]) / 5) - 1));
         if (need >= times[ok + 1][b2]) continue;
         ans = t24(times[ok][a]); accept = t24Forms(times[ok][a]);
-        prompt = `${p.name} is at ${stops[a]}. ${p.He} must be in ${stops[b2]} by ${t24(need)}. What time does the latest bus ${p.he} can catch leave ${stops[a]}?`;
+        prompt = `Look at the bus timetable. ${p.name} is at ${stops[a]}. ${p.He} must be in ${stops[b2]} by ${t24(need)}. What time does the latest bus ${p.he} can catch leave ${stops[a]}?`;
         solution = `Look along the ${stops[b2]} row for buses that arrive by ${t24(need)}: ${times.filter((t) => t[b2] <= need).map((t) => t24(t[b2])).join(' and ')}. The latest of these is Bus ${ok + 1} (arrives ${t24(times[ok][b2])}). It leaves ${stops[a]} at ${ans}. Answer: ${ans}`;
         ds.push({ text: t24(times[ok + 1][a]), code: 'TIME-TABLE-TOO-LATE', why: `The bus leaving at ${t24(times[ok + 1][a])} reaches ${stops[b2]} at ${t24(times[ok + 1][b2])}, which is after ${t24(need)}.` });
         ds.push({ text: t24(times[ok][b2]), code: 'TIME-TABLE-WRONG-STOP', why: `${t24(times[ok][b2])} is when that bus ARRIVES in ${stops[b2]}. The question asks when it leaves ${stops[a]}.` });
@@ -556,7 +559,7 @@ const readScale = {
         const toBig = d === 2;
         skill = kind === 'jug' ? SK.cap : SK.mass;
         ansV = toBig ? v / 1000 : v; unit = toBig ? big : u;
-        const what = kind === 'jug' ? 'How much water is in the jug?' : `What is the mass of the ${rng.pick(max <= 1000 ? ['flour', 'rice', 'sugar', 'butter', 'peanuts', 'tea leaves'] : ['mangoes', 'durian', 'parcel', 'rambutans', 'potatoes', 'rice'])}?`;
+        const what = kind === 'jug' ? 'How much water is in the jug?' : `What is the mass of the ${rng.pick(max <= 1000 ? ['flour', 'rice', 'sugar', 'butter', 'peanuts', 'tea leaves'] : ['mangoes', 'durian', 'parcel', 'rambutans', 'potatoes', 'rice'])} on the scale?`;
         prompt = `${what} Give your answer in ${toBig ? (big === 'L' ? 'litres' : 'kilograms') : (u === 'ml' ? 'millilitres' : 'grams')}.`;
         solution = `The numbers go up in ${major}s, and there are ${major / minor} small divisions between them, so each small division is ${major} ÷ ${major / minor} = ${minor} ${u}. The ${kind === 'jug' ? 'level' : 'pointer'} is ${kk} small division${kk > 1 ? 's' : ''} past ${base}: ${base} + ${kk} x ${minor} = ${v} ${u}.${toBig ? ` In ${big === 'L' ? 'litres' : 'kilograms'}: ${v} ÷ 1000 = ${dec(v / 1000)} ${big}.` : ''} Answer: ${dec(ansV)} ${unit}`;
         const conv = (x) => (toBig ? x / 1000 : x);
@@ -575,7 +578,7 @@ const readScale = {
         skill = SK.length;
         const mm = rng.chance(d === 2 ? 0.5 : 0.3);
         ansV = mm ? Math.round(len * 10) : len; unit = mm ? 'mm' : 'cm';
-        prompt = `How long is the ${diagram.object}? Give your answer in ${mm ? 'millimetres' : 'centimetres'}.`;
+        prompt = `The ${diagram.object} lies along the ruler shown. How long is the ${diagram.object}? Give your answer in ${mm ? 'millimetres' : 'centimetres'}.`;
         solution = `${from ? `The ${diagram.object} starts at ${from} cm and ends at ${dec(end)} cm, so its length is ${dec(end)} - ${from} = ${dec(len)} cm.` : `The ${diagram.object} starts at 0 and ends at ${dec(end)} cm. Each small division is 1 mm = 0.1 cm.`}${mm ? ` 1 cm = 10 mm, so ${dec(len)} cm = ${ansV} mm.` : ''} Answer: ${dec(ansV)} ${unit}`;
         const c = (x) => (mm ? Math.round(x * 10000) / 1000 : x);
         if (from) ds.push({ text: `${dec(c(end))} ${unit}`, code: 'SCALE-RULER-END', why: `${dec(end)} cm is where the ${diagram.object} ENDS. It starts at ${from} cm, so take ${from} away.` });
@@ -633,7 +636,7 @@ const rectangle = {
         diagram = rectDiagram(L, W, `${L} ${u}`, `${W} ${u}`);
         skill = findArea ? SK.area : SK.perim;
         ansV = findArea ? L * W : 2 * (L + W); unit = findArea ? `${u}^2` : u;
-        prompt = `${what} is ${L} ${u} long and ${W} ${u} wide. What is its ${findArea ? 'area' : 'perimeter'}?`;
+        prompt = `${what}, shown in the diagram, is ${L} ${u} long and ${W} ${u} wide. What is its ${findArea ? 'area' : 'perimeter'}?`;
         solution = findArea ? `Area of a rectangle = length x width = ${L} x ${W} = ${fmtInt(ansV)} ${u}^2. Answer: ${fmtInt(ansV)} ${u}^2` : `Perimeter is the distance all the way round: ${L} + ${W} + ${L} + ${W} = ${ansV} ${u}, or 2 x (${L} + ${W}) = ${ansV} ${u}. Answer: ${ansV} ${u}`;
         if (findArea) {
           ds.push({ v: 2 * (L + W), code: 'AREA-PERIM-SWAP', why: `${2 * (L + W)} is the perimeter (the distance round the edge). Area = length x width.` });
@@ -651,7 +654,7 @@ const rectangle = {
           skill = findArea ? SK.area : SK.perim;
           diagram = rectDiagram(L, W, `${dec(L)} m`, `${dec(W)} m`);
           ansV = findArea ? Math.round(L * W * 100) / 100 : Math.round(2 * (L + W) * 10) / 10; unit = findArea ? 'm^2' : 'm';
-          prompt = `${what} is ${dec(L)} m long and ${dec(W)} m wide. What is its ${findArea ? 'area' : 'perimeter'}?`;
+          prompt = `${what}, shown in the diagram, is ${dec(L)} m long and ${dec(W)} m wide. What is its ${findArea ? 'area' : 'perimeter'}?`;
           solution = findArea ? `Area = ${dec(L)} x ${dec(W)}. Work out ${Math.round(L * 10)} x ${Math.round(W * 10)} = ${Math.round(L * 10) * Math.round(W * 10)}. There are 2 decimal places in the question, so the area is ${dec(ansV)} m^2. Answer: ${dec(ansV)} m^2` : `Perimeter = 2 x (${dec(L)} + ${dec(W)}) = 2 x ${dec(L + W)} = ${dec(ansV)} m. Answer: ${dec(ansV)} m`;
           if (findArea) { ds.push({ v: Math.round(2 * (L + W) * 10) / 10, code: 'AREA-PERIM-SWAP', why: 'That is the perimeter. Area = length x width.' }); ds.push({ v: Math.round(L * 10) * Math.round(W * 10) / 10, code: 'DEC-MULT-POINT', why: `Count the decimal places: ${dec(L)} has 1 and ${dec(W)} has 1, so the answer has 2.` }); } else { ds.push({ v: Math.round((L + W) * 10) / 10, code: 'PERIM-TWO-SIDES', why: `${dec(L + W)} m is only two sides. Double it.` }); ds.push({ v: Math.round(L * W * 100) / 100, code: 'AREA-PERIM-SWAP', why: 'That is the area. The perimeter is the distance round the edge.' }); }
         } else {
@@ -663,7 +666,7 @@ const rectangle = {
           if (findArea) {
             skill = SK.areaMixed;
             ansV = Lcm * Wcm; unit = 'cm^2';
-            prompt = `${what} is ${dec(Lm)} m long and ${Wcm} cm wide. What is its area in cm^2?`;
+            prompt = `${what}, shown in the diagram, is ${dec(Lm)} m long and ${Wcm} cm wide. What is its area in cm^2?`;
             solution = `Make the units the same first: ${dec(Lm)} m = ${Lcm} cm. Area = ${Lcm} x ${Wcm} = ${fmtInt(ansV)} cm^2. Answer: ${fmtInt(ansV)} cm^2`;
             ds.push({ v: Math.round(Lm * Wcm * 100) / 100, code: 'UNIT-MIXED', why: `It looks like you multiplied ${dec(Lm)} by ${Wcm} without changing the metres to centimetres.` });
             ds.push({ v: 2 * (Lcm + Wcm), code: 'AREA-PERIM-SWAP', why: 'That is the perimeter in cm. Area = length x width.' });
@@ -671,7 +674,7 @@ const rectangle = {
           } else {
             skill = SK.perim;
             ansV = 2 * (Lcm + Wcm); unit = 'cm';
-            prompt = `${what} is ${dec(Lm)} m long and ${Wcm} cm wide. What is its perimeter in centimetres?`;
+            prompt = `${what}, shown in the diagram, is ${dec(Lm)} m long and ${Wcm} cm wide. What is its perimeter in centimetres?`;
             solution = `Make the units the same first: ${dec(Lm)} m = ${Lcm} cm. Perimeter = ${Lcm} + ${Wcm} + ${Lcm} + ${Wcm} = ${fmtInt(ansV)} cm. Answer: ${fmtInt(ansV)} cm`;
             ds.push({ v: Math.round(2 * (Lm + Wcm) * 10) / 10, code: 'UNIT-MIXED', why: `It looks like you added ${dec(Lm)} and ${Wcm} without changing the metres to centimetres first.` });
             ds.push({ v: Lcm + Wcm, code: 'PERIM-TWO-SIDES', why: `${Lcm + Wcm} cm is only two sides. A rectangle has four.` });
@@ -687,7 +690,7 @@ const rectangle = {
           skill = SK.perim;
           ansV = 2 * (L + W); unit = u;
           diagram = rectDiagram(L, W, `${L} ${u}`, '?');
-          prompt = `A rectangle has an area of ${L * W} ${u}^2. Its length is ${L} ${u}. What is its perimeter?`;
+          prompt = `The rectangle shown has an area of ${L * W} ${u}^2. Its length is ${L} ${u}. What is its perimeter?`;
           solution = `Area = length x width, so width = ${L * W} ÷ ${L} = ${W} ${u}. Perimeter = ${L} + ${W} + ${L} + ${W} = ${ansV} ${u}. Answer: ${ansV} ${u}`;
           ds.push({ v: W, code: 'RECT-SIDE-ONLY', why: `${W} ${u} is the width. Use it to find the perimeter.` });
           ds.push({ v: L + W, code: 'PERIM-TWO-SIDES', why: `${L + W} is only two sides. Add all four.` });
@@ -699,7 +702,7 @@ const rectangle = {
           skill = SK.perimWords;
           ansV = P * price; unit = 'RM';
           diagram = rectDiagram(L, W, `${L} m`, `${dec(W)} m`);
-          prompt = `${p.name} wants to put a fence all the way round a rectangular field that is ${L} m long and ${dec(W)} m wide. Fencing costs RM ${price} per metre. How much will the fencing cost?`;
+          prompt = `${p.name} wants to put a fence all the way round the rectangular field shown, which is ${L} m long and ${dec(W)} m wide. Fencing costs RM ${price} per metre. How much will the fencing cost?`;
           solution = `The fence goes round the edge, so find the perimeter: ${L} + ${dec(W)} + ${L} + ${dec(W)} = ${dec(P)} m. Cost = ${dec(P)} x RM ${price} = ${rm(ansV)}. Answer: ${rm(ansV)}`;
           ds.push({ v: (L + W) * price, code: 'PERIM-TWO-SIDES', why: `It looks like you used only one length and one width (${dec(L + W)} m). The fence goes all the way round.` });
           ds.push({ v: L * W * price, code: 'AREA-PERIM-SWAP', why: 'It looks like you used the area. A fence goes round the edge: use the perimeter.' });

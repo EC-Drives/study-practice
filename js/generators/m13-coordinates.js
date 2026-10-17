@@ -95,7 +95,7 @@ const readPoint = {
         }
       }
       const diagram = { ...grid(pts.map((p) => p.at)), points: rng.shuffle(pts), alt: `A coordinate grid with ${pts.length === 1 ? `point ${L}` : `points ${pts.map((p) => p.label).sort().join(', ')}`} plotted.` };
-      const prompt = `What are the coordinates of point ${L}?`;
+      const prompt = `What are the coordinates of point ${L} on the grid?`;
       const solution = `Start at the origin (0, 0). Point ${L} is ${where(P)}. Write the x-coordinate (across) first, then the y-coordinate (up or down)${d === 2 ? '. A point halfway between two grid lines has a coordinate ending in .5' : ''}. Answer: ${C(P)}`;
       const half = [];
       if (d === 2) {
@@ -158,7 +158,7 @@ const whichPoint = {
       const diagram = { ...grid(all), points: items.map((it) => ({ at: it.at, label: it.label })), alt: 'A coordinate grid with four labelled points, A, B, C and D.' };
       const L = options[answer];
       const solution = `${C(P)} means ${where(P)} from the origin. x comes first (across), then y (up or down). That is point ${L}. Answer: ${L}`;
-      return { type: 'mcq', prompt: `Which point is at ${C(P)}?`, options, answer, misconceptions, codes, solution, diagram };
+      return { type: 'mcq', prompt: `Which point on the grid is at ${C(P)}?`, options, answer, misconceptions, codes, solution, diagram };
     }
     throw new Error('no question');
   },
@@ -256,7 +256,7 @@ const axisDistance = {
         const fromY = rng.chance(0.5); // distance from the y-axis is |x|
         const used = fromY ? x : y; const other = fromY ? y : x;
         const ans = Math.abs(used);
-        const prompt = `Point ${L} is at ${C(P)}. How many units is ${L} from the ${fromY ? 'y' : 'x'}-axis?`;
+        const prompt = `Point ${L}, shown on the grid, is at ${C(P)}. How many units is ${L} from the ${fromY ? 'y' : 'x'}-axis?`;
         const solution = `The distance from the ${fromY ? 'y-axis (the vertical axis) is given by the x-coordinate' : 'x-axis (the horizontal axis) is given by the y-coordinate'}. ${fromY ? 'x' : 'y'} = ${n(used)}, so ${L} is ${countOf(n(ans), 'unit')} ${fromY ? (x < 0 ? 'left of' : 'right of') : (y < 0 ? 'below' : 'above')} it. A distance is never negative. Answer: ${n(ans)}`;
         const items = [
           { text: n(Math.abs(other)), code: 'COORD-SWAP', why: `${n(Math.abs(other))} comes from the ${fromY ? 'y' : 'x'}-coordinate, which gives the distance from the ${fromY ? 'x' : 'y'}-axis. The distance from the ${fromY ? 'y' : 'x'}-axis comes from the ${fromY ? 'x' : 'y'}-coordinate.` },
@@ -349,7 +349,7 @@ const missingVertex = {
         const [a, b, c, dd] = name.split('');
         const sideWord = horiz ? (side > 0 ? 'above' : 'below') : (side > 0 ? 'to the right of' : 'to the left of');
         const crosses = horiz ? A[0] * B[0] < 0 : A[1] * B[1] < 0;
-        const prompt = `${name} is a square with its corners in that order. ${a} is ${C(A)} and ${b} is ${C(B)}. Corners ${c} and ${dd} are ${sideWord} ${a}${b}. What are the coordinates of ${askC ? c : dd}?`;
+        const prompt = `${name} is a square with its corners in that order. ${a} is ${C(A)} and ${b} is ${C(B)}. Corners ${c} and ${dd} are ${sideWord} ${a}${b}. What are the coordinates of ${askC ? c : dd}? Use the grid to help you.`;
         const step = horiz ? `${a}${b} goes from x = ${n(A[0])} to x = ${n(B[0])}, so each side is ${len} units` : `${a}${b} goes from y = ${n(A[1])} to y = ${n(B[1])}, so each side is ${len} units`;
         const solution = `${step}${crosses ? ' (count across zero)' : ''}. ${askC ? c : dd} is ${len} units ${horiz ? (side > 0 ? 'up' : 'down') : (side > 0 ? 'right' : 'left')} from ${askC ? b : a}${C(from)}. Answer: ${C(ans)}`;
         const wrongSide = sub(from, off);
@@ -397,7 +397,7 @@ const missingVertex = {
       const ans = P[m];
       const given = [1, 2, 3].map((j) => (m + j) % 4);
       const listed = given.slice().sort((a, b) => a - b);
-      const prompt = `${name} is a ${shape} with its corners in that order${shape === 'rectangle' ? '. Its sides are horizontal and vertical' : ''}. ${listed.map((j, i) => `${i === listed.length - 1 ? 'and ' : ''}${letters[j]} is ${C(P[j])}`).join(', ').replace(', and', ' and')}. What are the coordinates of ${letters[m]}?`;
+      const prompt = `${name} is a ${shape} with its corners in that order${shape === 'rectangle' ? '. Its sides are horizontal and vertical' : ''}. ${listed.map((j, i) => `${i === listed.length - 1 ? 'and ' : ''}${letters[j]} is ${C(P[j])}`).join(', ').replace(', and', ' and')}. What are the coordinates of ${letters[m]}? Use the grid to help you.`;
       const mv = sub(prev, opp);
       const solution = shape === 'rectangle'
         ? `${letters[m]} is opposite ${letters[(m + 2) % 4]}. It lines up with ${letters[(m + 3) % 4]}${C(prev)} on one side and with ${letters[(m + 1) % 4]}${C(next)} on the other. From ${letters[(m + 2) % 4]} to ${letters[(m + 3) % 4]} is ${moveText(mv)}; do the same from ${letters[(m + 1) % 4]}: ${C(next)} → ${C(ans)}. Answer: ${C(ans)}`
@@ -457,7 +457,7 @@ const lineLength = {
         const B = horiz ? [A[0] + sgn * len, A[1]] : [A[0], A[1] + sgn * len];
         if (Math.abs(B[0]) > 8 || Math.abs(B[1]) > 8) continue;
         const dirWord = horiz ? (sgn > 0 ? 'to the right of' : 'to the left of') : (sgn > 0 ? 'directly above' : 'directly below');
-        const prompt = `${p} is at ${C(A)}. ${q} is ${dirWord} ${p}, and the line ${p}${q} is ${len} units long. What are the coordinates of ${q}?`;
+        const prompt = `${p} is at ${C(A)}. ${q} is ${dirWord} ${p}, and the line ${p}${q} is ${len} units long. What are the coordinates of ${q}? Use the grid to help you.`;
         const solution = `${horiz ? 'Moving across changes only x' : 'Moving up or down changes only y'}. ${horiz ? 'x' : 'y'} = ${n(horiz ? A[0] : A[1])} ${sgn > 0 ? '+' : '-'} ${len} = ${n(horiz ? B[0] : B[1])}${(horiz ? A[0] * B[0] : A[1] * B[1]) < 0 ? ' (this crosses zero)' : ''}; ${horiz ? 'y' : 'x'} stays ${n(horiz ? A[1] : A[0])}. Answer: ${C(B)}`;
         const off = horiz ? [sgn * len, 0] : [0, sgn * len];
         const distractors = [
@@ -513,7 +513,7 @@ const midpoint = {
         const B = horiz ? [A[0] + 2 * half, A[1]] : [A[0], A[1] + 2 * half];
         if (Math.abs(B[0]) > 8 || Math.abs(B[1]) > 8 || Math.abs(M[0]) > 8 || Math.abs(M[1]) > 8) continue;
         if (!(A[0] * B[0] < 0 || A[1] * B[1] < 0) && rng.chance(0.6)) continue; // mostly across an axis
-        const prompt = `M is the midpoint of the line ${p}${q}. ${p} is ${C(A)} and M is ${C(M)}. What are the coordinates of ${q}?`;
+        const prompt = `M is the midpoint of the line ${p}${q}. ${p} is ${C(A)} and M is ${C(M)}. What are the coordinates of ${q}? Use the grid to help you.`;
         const step = sub(M, A);
         const solution = `From ${p} to M is ${moveText(step)}. M is halfway, so ${q} is the same distance again past M: ${C(M)} → ${C(B)}. Answer: ${C(B)}`;
         const mid2 = [(A[0] + M[0]) / 2, (A[1] + M[1]) / 2];
@@ -534,7 +534,7 @@ const midpoint = {
       const fixed = s.horiz ? s.A[1] : s.A[0];
       const mk = (v) => (s.horiz ? [v, fixed] : [fixed, v]);
       const axis = s.horiz ? 'x' : 'y';
-      const prompt = `What is the midpoint of the line joining ${C(s.A)} and ${C(s.B)}?`;
+      const prompt = `What is the midpoint of the line joining ${C(s.A)} and ${C(s.B)} on the grid?`;
       const lo = Math.min(s.a, s.b);
       const solution = `The line is ${s.horiz ? 'horizontal' : 'vertical'}, so the midpoint has ${s.horiz ? 'y' : 'x'} = ${n(fixed)}. Halfway between ${axis} = ${n(s.a)} and ${axis} = ${n(s.b)}: (${n(s.a)} + ${term(n(s.b))}) ÷ 2 = ${n(m)}. (Or: the length is ${diff}, half of it is ${n(diff / 2)}, and ${n(lo)} + ${n(diff / 2)} = ${n(m)}.) Answer: ${C(P)}`;
       const distractors = [
@@ -637,7 +637,7 @@ const translate = {
         const ans = add(P, m);
         if (Math.abs(ans[0]) > 8 || Math.abs(ans[1]) > 8 || (ans[0] === 0 && ans[1] === 0)) continue;
         const L = rng.pick(['P', 'A', 'Q', 'K', 'T']);
-        const prompt = `Point ${L}${C(P)} is translated ${moveText(m)}. What are the coordinates of its image?`;
+        const prompt = `Point ${L}${C(P)} on the grid is translated ${moveText(m)}. What are the coordinates of its image?`;
         const solution = `Moving ${horiz ? (s > 0 ? 'right adds to' : 'left takes away from') : (s > 0 ? 'up adds to' : 'down takes away from')} the ${horiz ? 'x' : 'y'}-coordinate: ${n(horiz ? P[0] : P[1])} ${s > 0 ? '+' : '-'} ${k} = ${n(horiz ? ans[0] : ans[1])}. The ${horiz ? 'y' : 'x'}-coordinate does not change. Answer: ${C(ans)}`;
         const distractors = [
           { text: C(add(P, [m[1], m[0]])), code: 'TRANS-WRONG-AXIS', why: `This moves the point ${horiz ? (s > 0 ? 'up' : 'down') : (s > 0 ? 'right' : 'left')}. Moving ${horiz ? 'left or right changes x' : 'up or down changes y'}, not ${horiz ? 'y' : 'x'}.` },
@@ -667,7 +667,7 @@ const translate = {
       const listed = `${shp.map((p, i) => `${names[i]}${C(p)}`).slice(0, -1).join(', ')} and ${names[shp.length - 1]}${C(shp[shp.length - 1])}`;
       const diagram = { ...grid([...shp, ...img]), polygons: [{ points: shp }], points: shp.map((p, i) => ({ at: p, label: names[i] })) };
       if (d === 2) {
-        const prompt = `${shapeName} ${names} has corners ${listed}. It is translated ${moveText(m)}. What are the coordinates of the image of ${label}?`;
+        const prompt = `${shapeName} ${names} on the grid has corners ${listed}. It is translated ${moveText(m)}. What are the coordinates of the image of ${label}?`;
         const solution = `${moveText(m)}: x changes by ${m[0] > 0 ? '+' : '-'}${Math.abs(m[0])} and y by ${m[1] > 0 ? '+' : '-'}${Math.abs(m[1])}. ${label}${C(V)} → (${n(V[0])} ${m[0] > 0 ? '+' : '-'} ${Math.abs(m[0])}, ${n(V[1])} ${m[1] > 0 ? '+' : '-'} ${Math.abs(m[1])}) = ${C(ans)}. Answer: ${C(ans)}`;
         const distractors = [
           { text: C(add(V, [-m[0], m[1]])), code: 'TRANS-WRONG-DIRECTION', why: `This moves ${units(Math.abs(m[0]))} ${m[0] > 0 ? 'LEFT' : 'RIGHT'}. ${m[0] > 0 ? 'Right means add to x' : 'Left means take away from x'}.` },
@@ -682,7 +682,7 @@ const translate = {
       }
       // D3: one corner's image is given; find another corner's image
       const k0 = 0;
-      const prompt = `${shapeName} ${names} has corners ${listed}. It is translated so that ${names[k0]} moves to ${C(img[k0])}. What are the coordinates of the image of ${label}?`;
+      const prompt = `${shapeName} ${names} on the grid has corners ${listed}. It is translated so that ${names[k0]} moves to ${C(img[k0])}. What are the coordinates of the image of ${label}?`;
       const solution = `First find the translation: ${names[k0]}${C(shp[k0])} to ${C(img[k0])} is ${moveText(m)}. Every corner moves the same way: ${label}${C(V)} → ${C(ans)}. Answer: ${C(ans)}`;
       const distractors = [
         { text: C(sub(V, m)), code: 'TRANS-WRONG-DIRECTION', why: `This moves ${label} the opposite way (${moveText([-m[0], -m[1]])}). ${names[k0]} went ${moveText(m)}, so ${label} does the same.` },
@@ -718,7 +718,7 @@ const describe = {
         const Q = add(P, m);
         if (Math.abs(Q[0]) > 8 || Math.abs(Q[1]) > 8 || Q[0] === 0 || Q[1] === 0 || Math.abs(m[0]) === Math.abs(m[1])) continue;
         const crossX = P[0] * Q[0] < 0; const crossY = P[1] * Q[1] < 0;
-        const prompt = `Point P${C(P)} moves to its image P'${C(Q)} by a translation. Describe the translation.`;
+        const prompt = `Point P${C(P)} moves to its image P'${C(Q)} by a translation, as shown on the grid. Describe the translation.`;
         const solution = `Change in x: ${n(Q[0])} - ${term(n(P[0]))} = ${n(m[0])}, so ${units(Math.abs(m[0]))} ${m[0] > 0 ? 'right' : 'left'}. Change in y: ${n(Q[1])} - ${term(n(P[1]))} = ${n(m[1])}, so ${units(Math.abs(m[1]))} ${m[1] > 0 ? 'up' : 'down'}.${crossX || crossY ? ' When the point crosses an axis, count the units on both sides of zero.' : ''} Answer: ${moveText(m)}`;
         const distractors = [
           { text: moveText([-m[0], -m[1]]), code: 'TRANS-WRONG-DIRECTION', why: `This is the move from the image back to the start. From ${C(P)} to ${C(Q)}, x ${m[0] > 0 ? 'gets bigger (right)' : 'gets smaller (left)'} and y ${m[1] > 0 ? 'gets bigger (up)' : 'gets smaller (down)'}.` },
@@ -739,7 +739,7 @@ const describe = {
       if (!net[0] || !net[1] || Math.abs(net[0]) === Math.abs(net[1])) continue;
       const P1 = add(P, m1); const P2 = add(P1, m2);
       if ([P1, P2].some((p) => Math.abs(p[0]) > 8 || Math.abs(p[1]) > 8)) continue;
-      const prompt = `Point P${C(P)} is translated ${moveText(m1)} to P'. Then P' is translated ${moveText(m2)} to P''. Which single translation would move P straight to P''?`;
+      const prompt = `Point P${C(P)} is translated ${moveText(m1)} to P'. Then P' is translated ${moveText(m2)} to P''. Which single translation would move P straight to P''? Use the grid to help you.`;
       const solution = `Across: ${moveText([m1[0], 0])} then ${moveText([m2[0], 0])} leaves ${moveText([net[0], 0])}. Up/down: ${moveText([0, m1[1]])} then ${moveText([0, m2[1]])} leaves ${moveText([0, net[1]])}. (Check: P' is ${C(P1)} and P'' is ${C(P2)}.) Answer: ${moveText(net)}`;
       const all = [Math.sign(net[0]) * (Math.abs(m1[0]) + Math.abs(m2[0])), Math.sign(net[1]) * (Math.abs(m1[1]) + Math.abs(m2[1]))];
       const distractors = [
@@ -770,7 +770,7 @@ const original = {
       if (d === 2) {
         const I = add(O, m1);
         if (Math.abs(I[0]) > 8 || Math.abs(I[1]) > 8) continue;
-        const prompt = `A point is translated ${moveText(m1)}. Its image is at ${C(I)}. Where was the point before the translation?`;
+        const prompt = `A point is translated ${moveText(m1)}. Its image, shown on the grid, is at ${C(I)}. Where was the point before the translation?`;
         const solution = `Work backwards: undo ${moveText([m1[0], 0])} by going ${moveText([-m1[0], 0])}, and undo ${moveText([0, m1[1]])} by going ${moveText([0, -m1[1]])}. x = ${n(I[0])} ${m1[0] > 0 ? '-' : '+'} ${Math.abs(m1[0])} = ${n(O[0])}, y = ${n(I[1])} ${m1[1] > 0 ? '-' : '+'} ${Math.abs(m1[1])} = ${n(O[1])}. Check by translating it forwards. Answer: ${C(O)}`;
         const distractors = [
           { text: C(add(I, m1)), code: 'TRANS-WRONG-DIRECTION', why: `This applies the translation to the image again. To go back, undo it: ${moveText([-m1[0], -m1[1]])}.` },
@@ -787,7 +787,7 @@ const original = {
       const m2 = [nz(rng, -5, 5), nz(rng, -5, 5)];
       const I1 = add(O, m1); const I2 = add(I1, m2);
       if ([I1, I2].some((p) => Math.abs(p[0]) > 8 || Math.abs(p[1]) > 8) || eqP(add(m1, m2), [0, 0]) || eqP(m1, m2)) continue;
-      const prompt = `A point P is translated ${moveText(m1)}, and then ${moveText(m2)}. It ends at Q${C(I2)}. What were the coordinates of P at the start?`;
+      const prompt = `A point P is translated ${moveText(m1)}, and then ${moveText(m2)}. It ends at Q${C(I2)}, shown on the grid. What were the coordinates of P at the start?`;
       const net = add(m1, m2);
       const solution = `Undo both moves. Undo ${moveText(m2)}: ${C(I2)} → ${C(I1)}. Undo ${moveText(m1)}: ${C(I1)} → ${C(O)}. Check: ${C(O)} moved ${moveText(m1)} and then ${moveText(m2)} ends at ${C(I2)}. Answer: ${C(O)}`;
       const distractors = [

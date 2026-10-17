@@ -20,7 +20,7 @@ const TOPIC_FILES = ['m01-place-value', 'm02-number-system', 'm03-shapes-angles'
 export const LOAD_ERRORS = [];
 /** Changes whenever a generator's output for a given (id, seed, difficulty) may change, so an app
  * only rebuilds a saved question from its recipe with the same generators that made it. */
-export const GENERATOR_VERSION = '2026-10-17.2';
+export const GENERATOR_VERSION = '2026-10-17.3';
 const MODULES = await Promise.all(TOPIC_FILES.map((f) => import(`./${f}.js`).catch((e) => {
   LOAD_ERRORS.push(`${f}: ${e && e.message}`);
   console.error(`Generators: could not load ${f}.js`, e);
@@ -40,7 +40,8 @@ const prefixOf = (topicId) => topicId.slice(0, 3);
 export const GENERATORS = ALL.map((g) => ({ id: g.id, topicId: g.topicId, subtopicId: g.subtopicId, skill: g.skill, title: g.title, difficulties: [...g.difficulties], check: { ...(g.check || {}) } }));
 
 export const REGISTRY = {};
-for (const g of ALL) {
+// topics in topic order (a moved generator lives in an earlier topic's file, book map 17 Oct 2026)
+for (const g of [...ALL].sort((a, b) => a.topicId.localeCompare(b.topicId))) {
   REGISTRY[g.topicId] ||= {};
   (REGISTRY[g.topicId][g.subtopicId] ||= []).push(g.id);
 }

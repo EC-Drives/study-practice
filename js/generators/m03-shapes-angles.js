@@ -5,7 +5,7 @@
 // numbers as the answer and drawn true (an angle labelled 65° is drawn at 65°); the unknown is "?".
 // Every wrong option is made by one named misconception and carries its code.
 
-import { choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, person, valueOf } from './core.js';
+import { choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, person, valueOf, countOf } from './core.js';
 
 const T = 'm03-2d-shapes-and-angles';
 const SK = {
@@ -79,7 +79,7 @@ const radius = {
           const distractors = [
             { text: L(r * nC), code: 'CIRC-DIAM-FOR-RAD', why: `You used the radius instead of the diameter: ${nC} x ${fmtLen(r)}. Each one takes up a whole diameter (${fmtLen(2 * r)} ${unit}) of the length.` },
             { text: L(2 * r * (nC - 1)), code: 'CIRC-CENTRES-ONLY', why: `That is from the centre of the first circle to the centre of the last. Add a radius at each end as well.` },
-            { text: L(2 * r), code: 'CIRC-DIAM-FOR-RAD', why: `${fmtLen(2 * r)} ${unit} is the diameter of ONE of them. The ${boxName} holds ${nC} of them in a row.` },
+            { text: L(2 * r), code: 'ONE-STEP-ONLY', why: `${fmtLen(2 * r)} ${unit} is the diameter of ONE of them. The ${boxName} holds ${nC} of them in a row.` },
           ];
           try { return { type: 'mcq', prompt, ...choices(rng, L(len), distractors, (i) => nearFor(prompt)(L(len + i * r), `Count how many diameters fit along the ${boxName}.`)), solution, marks: 2 }; } catch { continue; }
         }
@@ -166,7 +166,7 @@ const angleType = {
         for (const code of CODES_T) for (const w of misTypes(code, a)) if (w !== ty) distractors.push({ text: w, code, why: MIS_WHY[code](a, w) });
         const turn = rng.pick([0, 0, 15, 30, -20, 45, 90, 120]);
         const diagram = { type: 'angle', rays: [turn, turn + a], arcs: [a === 90 ? { from: turn, to: turn + a, right: true, label: '90°' } : { from: turn, to: turn + a, label: deg(a) }] };
-        const prompt = `An angle measures ${deg(a)}. What type of angle is it?`;
+        const prompt = `An angle measures ${deg(a)}, as shown in the diagram. What type of angle is it?`;
         const solution = `${RULE[ty]} ${deg(a)} is ${ty === 'right' || ty === 'straight' ? `exactly ${a === 90 ? '90°' : '180°'}` : ty === 'acute' ? 'less than 90°' : ty === 'obtuse' ? 'between 90° and 180°' : 'between 180° and 360°'}, so it is ${ty === 'acute' || ty === 'obtuse' ? 'an' : 'a'} ${ty} angle. Answer: ${ty}`;
         try {
           // only named misconceptions: 3 or 4 options
@@ -216,7 +216,7 @@ const straightLine = {
         if (ans < 15 || a === 90) continue;
         const unkFirst = rng.chance(0.5);
         parts = unkFirst ? [ans, a] : [a, ans]; labels = unkFirst ? ['?', deg(a)] : [deg(a), '?'];
-        prompt = `Two angles sit next to each other on a straight line. One of them is ${deg(a)}. What is the size of the other angle?`;
+        prompt = `Two angles sit next to each other on a straight line, as shown. One of them is ${deg(a)}. What is the size of the other angle?`;
         solution = `Angles on a straight line add up to 180°. 180 - ${a} = ${ans}. Answer: ${deg(ans)}`;
         distractors = [
           { text: deg(360 - a), code: 'ANG-180-360-SWAP', why: `You used 360°. Angles on a straight line add up to 180°, because a straight line is a half turn.` },
@@ -229,7 +229,7 @@ const straightLine = {
         const pos = rng.int(0, 2);
         parts = [a, b]; parts.splice(pos, 0, ans);
         labels = parts.map((p, i) => (i === pos ? '?' : deg(p)));
-        prompt = `Three angles sit side by side on a straight line. Two of them are ${deg(a)} and ${deg(b)}. What is the size of the third angle?`;
+        prompt = `Three angles sit side by side on a straight line, as shown. Two of them are ${deg(a)} and ${deg(b)}. What is the size of the third angle?`;
         solution = `Angles on a straight line add up to 180°. ${a} + ${b} = ${a + b}. 180 - ${a + b} = ${ans}. Answer: ${deg(ans)}`;
         distractors = [
           { text: deg(360 - a - b), code: 'ANG-180-360-SWAP', why: `You used 360°. Angles on a straight line add up to 180°: 180 - ${a + b} = ${ans}.` },
@@ -262,7 +262,7 @@ const straightLine = {
           if (ans < 15) continue;
           parts = [a, b, ans]; labels = [deg(a), 'b', '?'];
           if (rng.chance(0.5)) { parts.reverse(); labels.reverse(); }
-          prompt = `Three angles, a, b and c, sit side by side on a straight line. Angle a is ${deg(a)}. Angle b is ${kind === 'twice' ? 'twice the size of angle a' : `${extra}° more than angle a`}. What is the size of angle c?`;
+          prompt = `Three angles, a, b and c, sit side by side on a straight line, as shown. Angle a is ${deg(a)}. Angle b is ${kind === 'twice' ? 'twice the size of angle a' : `${extra}° more than angle a`}. What is the size of angle c?`;
           solution = `b = ${kind === 'twice' ? `2 x ${a}` : `${a} + ${extra}`} = ${b}°. a + b = ${a} + ${b} = ${a + b}°. Angles on a straight line add up to 180°, so c = 180 - ${a + b} = ${ans}°. Answer: ${deg(ans)}`;
           distractors = [
             { text: deg(180 - 2 * a), code: 'ANG-ASSUME-EQUAL', why: `It looks like you made b the same as a (${a}°). Angle b is ${kind === 'twice' ? 'twice' : `${extra}° more than`} a, so b = ${b}°.` },
@@ -313,7 +313,7 @@ const aroundPoint = {
         const pos = rng.int(0, nGiven);
         parts = given.slice(); parts.splice(pos, 0, ans);
         labels = parts.map((p, i) => (i === pos ? '?' : deg(p)));
-        prompt = `${Cap(WORD[nGiven + 1])} angles meet at a point. ${nGiven === 2 ? 'Two' : 'Three'} of them are ${given.slice(0, -1).map(deg).join(', ')} and ${deg(given[nGiven - 1])}. What is the size of the other angle?`;
+        prompt = `${Cap(WORD[nGiven + 1])} angles meet at a point, as shown. ${nGiven === 2 ? 'Two' : 'Three'} of them are ${given.slice(0, -1).map(deg).join(', ')} and ${deg(given[nGiven - 1])}. What is the size of the other angle?`;
         solution = `Angles around a point add up to 360°. ${sumText(given)} = ${sum}. 360 - ${sum} = ${ans}. Answer: ${deg(ans)}`;
         distractors = [
           sum < 180 ? { text: deg(180 - sum), code: 'ANG-180-360-SWAP', why: 'You used 180° (a straight line). Angles around a point make a full turn, so they add up to 360°.' } : null,
@@ -368,7 +368,7 @@ const protractor = {
       const rays = fromRight ? [0, a] : [180, 180 - a];
       const diagram = { type: 'angle', rays, protractor: true, vertexLabel: V, rayLabels: [R1, R2] };
       const scale = fromRight ? 'inner' : 'outer';
-      const prompt = `A protractor is placed on angle ${R1}${V}${R2}. What is the size of angle ${R1}${V}${R2}?`;
+      const prompt = `A protractor is placed on angle ${R1}${V}${R2}, as shown. What is the size of angle ${R1}${V}${R2}?`;
       const solution = `The arm ${V}${R1} lies along the ${fromRight ? 'right' : 'left'}-hand zero line, so read the scale that starts at 0 on that side (the ${scale} scale). The other arm crosses it at ${a}. The angle is ${a < 90 ? 'acute (less than 90°)' : 'obtuse (more than 90°)'}, which fits. Answer: ${deg(a)}`;
       const distractors = [
         { text: deg(180 - a), code: 'ANG-PROTRACTOR-SCALE', why: `You read the wrong scale. Start from the 0 on the arm ${V}${R1}. The angle is ${a < 90 ? 'smaller' : 'bigger'} than a right angle, so it must be ${a < 90 ? 'less' : 'more'} than 90°.` },
@@ -400,7 +400,7 @@ const triangleAngle = {
         // every angle at least 25° so the drawing has room for its labels
         if (Cc < 25 || A === B || A === Cc || B === Cc || A === 90 || B === 90 || Cc === 90) continue;
         labels = [deg(A), deg(B), '?'];
-        prompt = `Two angles of triangle ${names} are ${deg(A)} and ${deg(B)}. What is the size of the third angle?`;
+        prompt = `In the diagram, two angles of triangle ${names} are ${deg(A)} and ${deg(B)}. What is the size of the third angle?`;
         solution = `The angles in a triangle add up to 180°. ${A} + ${B} = ${A + B}. 180 - ${A + B} = ${ans}. Answer: ${deg(ans)}`;
         distractors = [
           { text: deg(360 - A - B), code: 'ANG-180-360-SWAP', why: `You used 360°. The angles in a triangle add up to 180°, so ${360 - A - B}° is impossible here.` },
@@ -412,7 +412,7 @@ const triangleAngle = {
         A = rng.int(25, 65); B = 90; Cc = 90 - A; ans = Cc; right = 1;
         if (A === 45) continue;
         labels = [deg(A), '', '?'];
-        prompt = `Triangle ${names} has a right angle at ${names[1]}. Angle ${names[0]} is ${deg(A)}. What is the size of angle ${names[2]}?`;
+        prompt = `Triangle ${names}, shown in the diagram, has a right angle at ${names[1]}. Angle ${names[0]} is ${deg(A)}. What is the size of angle ${names[2]}?`;
         solution = `The angles add up to 180° and the right angle is 90°. 90 + ${A} = ${90 + A}. 180 - ${90 + A} = ${ans}. Answer: ${deg(ans)}`;
         distractors = [
           { text: deg(180 - A), code: 'ANG-FORGETS-RIGHT', why: `You worked out 180 - ${A} but forgot the right angle (90°) is also in the triangle.` },
@@ -430,7 +430,7 @@ const triangleAngle = {
         if (Bv < 25 || Cc < 25 || Bv === Cc || Av === Cc) continue;
         A = Av; B = Bv; ans = Bv;
         labels = ['', '?', deg(Cc)];
-        prompt = `In triangle ${names}, angle ${names[2]} is ${deg(Cc)}. Angle ${names[0]} is ${kind === 'twice' ? `twice the size of angle ${names[1]}` : `${extra}° more than angle ${names[1]}`}. What is the size of angle ${names[1]}?`;
+        prompt = `In the triangle ${names} shown, angle ${names[2]} is ${deg(Cc)}. Angle ${names[0]} is ${kind === 'twice' ? `twice the size of angle ${names[1]}` : `${extra}° more than angle ${names[1]}`}. What is the size of angle ${names[1]}?`;
         solution = kind === 'twice'
           ? `${names[0]} + ${names[1]} = 180 - ${Cc} = ${rest}°. Think of ${names[1]} as 1 part and ${names[0]} as 2 parts: 3 parts = ${rest}°, so 1 part = ${rest} ÷ 3 = ${Bv}°. Check: ${Bv} + ${Av} + ${Cc} = 180. Answer: ${deg(Bv)}`
           : `${names[0]} + ${names[1]} = 180 - ${Cc} = ${rest}°. Take away the extra ${extra}°: ${rest} - ${extra} = ${rest - extra}, which is two equal parts, so ${names[1]} = ${rest - extra} ÷ 2 = ${Bv}°. Check: ${Bv} + ${Av} + ${Cc} = 180. Answer: ${deg(Bv)}`;
@@ -472,7 +472,7 @@ const special = {
         apex = 10 * rng.int(2, 14); base = (180 - apex) / 2; ans = base;
         if (apex === 60) continue;
         labels = ['?', null, deg(apex)];
-        prompt = `Triangle ${names} is isosceles, with ${R}${P} = ${R}${Q}. The angle between the equal sides, angle ${R}, is ${deg(apex)}. What is the size of angle ${P}?`;
+        prompt = `Triangle ${names} in the diagram is isosceles, with ${R}${P} = ${R}${Q}. The angle between the equal sides, angle ${R}, is ${deg(apex)}. What is the size of angle ${P}?`;
         solution = `The angles opposite the equal sides are equal, so angle ${P} = angle ${Q}. 180 - ${apex} = ${180 - apex}. ${180 - apex} ÷ 2 = ${base}. Check: ${apex} + ${base} + ${base} = 180. Answer: ${deg(base)}`;
         distractors = [
           { text: deg(180 - apex), code: 'ANG-NO-SHARE', why: `You found 180 - ${apex} = ${180 - apex} but forgot that this is shared between the two equal angles.` },
@@ -484,7 +484,7 @@ const special = {
         base = rng.int(25, 77); apex = 180 - 2 * base; ans = apex;
         if (base === 60 || base === 45) continue;
         labels = [deg(base), null, '?'];
-        prompt = `Triangle ${names} is isosceles, with ${R}${P} = ${R}${Q}. Angle ${P} is ${deg(base)}. What is the size of angle ${R}?`;
+        prompt = `Triangle ${names} in the diagram is isosceles, with ${R}${P} = ${R}${Q}. Angle ${P} is ${deg(base)}. What is the size of angle ${R}?`;
         solution = `${R}${P} = ${R}${Q}, so the angles at ${P} and ${Q} are equal: both ${deg(base)}. ${base} + ${base} = ${2 * base}. 180 - ${2 * base} = ${apex}. Answer: ${deg(apex)}`;
         distractors = [
           { text: deg((180 - base) / 2), code: 'ANG-ISO-WRONG-PAIR', why: `You treated ${deg(base)} as the odd angle and shared the rest: (180 - ${base}) ÷ 2. But ${P} is one of the two EQUAL angles, so there are two ${deg(base)} angles.` },
@@ -505,7 +505,7 @@ const special = {
         const askApex = rng.chance(0.5);
         ans = askApex ? apex : base;
         labels = askApex ? [null, null, '?'] : ['?', null, null];
-        prompt = `Triangle ${names} is isosceles, with ${R}${P} = ${R}${Q}. ${rel[0].toUpperCase()}${rel.slice(1)}. What is the size of angle ${askApex ? R : P}?`;
+        prompt = `Triangle ${names} in the diagram is isosceles, with ${R}${P} = ${R}${Q}. ${rel[0].toUpperCase()}${rel.slice(1)}. What is the size of angle ${askApex ? R : P}?`;
         const parts = kind === 'times' ? `Angles ${P} and ${Q} are equal; call each 1 part. Then angle ${R} is ${apex / base} parts, and the triangle has ${apex / base + 2} parts = 180°. 1 part = 180 ÷ ${apex / base + 2} = ${base}°, so ${P} = ${base}° and ${R} = ${apex}°.`
           : kind === 'apexMore' ? `${P} and ${Q} are equal. If each is one part, ${R} is one part + ${apex - base}°. Three parts + ${apex - base} = 180, so 3 parts = ${180 - (apex - base)} and 1 part = ${base}°. ${R} = ${base} + ${apex - base} = ${apex}°.`
             : `${P} and ${Q} are equal, each ${base - apex}° more than ${R}. Three equal parts + ${2 * (base - apex)} = 180, so 3 parts = ${180 - 2 * (base - apex)} and ${R} = ${apex}°. ${P} = ${apex} + ${base - apex} = ${base}°.`;
@@ -552,7 +552,7 @@ const areaRight = {
         const a = rng.int(2, 15); const b = rng.int(2, 15);
         if (a === b || (a * b) % 2) continue;
         const area = (a * b) / 2;
-        const prompt = `A right-angled triangle has an area of ${A2(area)}. One of the two sides that meet at the right angle is ${L(a)} long. How long is the other side that meets at the right angle?`;
+        const prompt = `The right-angled triangle shown has an area of ${A2(area)}. One of the two sides that meet at the right angle is ${L(a)} long. How long is the other side that meets at the right angle?`;
         const solution = `The triangle is half of a rectangle, so the rectangle's area is ${fmtA(area)} x 2 = ${fmtA(2 * area)} ${sq(u)}. ${fmtA(2 * area)} ÷ ${a} = ${b}. Check: ${a} x ${b} ÷ 2 = ${fmtA(area)}. Answer: ${L(b)}`;
         const distractors = [
           (area / a) * 10 % 1 === 0 ? { text: L(area / a), code: 'AREA-TRI-NO-DOUBLE', why: `You did ${fmtA(area)} ÷ ${a} but forgot the triangle is only half a rectangle. Double the area first: ${fmtA(2 * area)} ÷ ${a} = ${b}.` } : null,
@@ -572,7 +572,7 @@ const areaRight = {
       }
       if (d === 1 && (a > 12 || b > 12) && !c) continue;
       const area = (a * b) / 2;
-      const prompt = `A right-angled triangle has two shorter sides of ${L(a)} and ${L(b)}, which meet at the right angle.${c ? ` Its longest side is ${about ? 'about ' : ''}${L(c)}.` : ''} What is its area?`;
+      const prompt = `The right-angled triangle shown has two shorter sides of ${L(a)} and ${L(b)}, which meet at the right angle.${c ? ` Its longest side is ${about ? 'about ' : ''}${L(c)}.` : ''} What is its area?`;
       const solution = `Use the two sides that meet at the right angle. The triangle is half of a ${a} by ${b} rectangle: ${a} x ${b} = ${a * b}, and ${a * b} ÷ 2 = ${fmtA(area)} ${sq(u)}.${c ? ` The longest side (${fmtA(c)} ${u}) is not used.` : ''} Answer: ${A2(area)}`;
       const distractors = [
         { text: A2(a * b), code: 'AREA-TRI-NO-HALF', why: `You multiplied ${a} x ${b} but forgot to halve. ${a * b} ${sq(u)} is the area of the whole rectangle; the triangle is half of it.` },
@@ -611,7 +611,7 @@ const compound = {
         if ((h * tt) % 2 || w === h) continue; // a rectangle, not a square (CLO review m03 item 8)
         const rect = w * h; const tri = (h * tt) / 2; const ans = rect + tri;
         const pts = [[0, 0], [w, 0], [w + tt, 0], [w, h], [0, h]];
-        const prompt = `A shape is made of a rectangle and a right-angled triangle. The rectangle is ${L(w)} long and ${L(h)} tall. The triangle is joined to its right-hand side: one of the triangle's shorter sides is the rectangle's ${L(h)} side, and the other runs ${L(tt)} along the bottom. What is the total area of the shape?`;
+        const prompt = `The shape shown is made of a rectangle and a right-angled triangle. The rectangle is ${L(w)} long and ${L(h)} tall. The triangle is joined to its right-hand side: one of the triangle's shorter sides is the rectangle's ${L(h)} side, and the other runs ${L(tt)} along the bottom. What is the total area of the shape?`;
         const solution = `Rectangle: ${w} x ${h} = ${rect} ${sq(u)}. Triangle: ${h} x ${tt} ÷ 2 = ${tri} ${sq(u)}. Total: ${rect} + ${tri} = ${ans} ${sq(u)}. Answer: ${A2(ans)}`;
         const distractors = [
           { text: A2(rect + h * tt), code: 'AREA-TRI-NO-HALF', why: `You did not halve the triangle: ${h} x ${tt} = ${h * tt} is a whole rectangle. The triangle is ${tri} ${sq(u)}.` },
@@ -634,9 +634,9 @@ const compound = {
       // left (CLO review m03 item 6)
       const topLeft = W - a; const sideLeft = H - b;
       const ctx = [
-        { what: `A rectangle of card measures ${L3(W)} by ${L3(H)}. A right-angled triangle is cut off the top right-hand corner. After the cut, ${L3(topLeft)} of the top edge is left and ${L3(sideLeft)} of the right-hand edge is left. What is the area of the card that is left?`, unit: 'cm' },
-        { what: `A rectangular garden is ${L3(W)} by ${L3(H)}. A flower bed shaped like a right-angled triangle fills the top right-hand corner, with two sides along the edges of the garden. The grass reaches ${L3(topLeft)} along the top edge and ${L3(sideLeft)} along the right-hand edge. What is the area of the grass?`, unit: 'm' },
-        { what: `A rectangular floor is ${L3(W)} by ${L3(H)}. A right-angled triangle in the top right-hand corner is not tiled. The tiles reach ${L3(topLeft)} along the top wall and ${L3(sideLeft)} along the right-hand wall. What area is tiled?`, unit: 'm' },
+        { what: `The diagram shows a rectangle of card that measures ${L3(W)} by ${L3(H)}. A right-angled triangle is cut off the top right-hand corner. After the cut, ${L3(topLeft)} of the top edge is left and ${L3(sideLeft)} of the right-hand edge is left. What is the area of the card that is left?`, unit: 'cm' },
+        { what: `The diagram shows a rectangular garden, ${L3(W)} by ${L3(H)}. A flower bed shaped like a right-angled triangle fills the top right-hand corner, with two sides along the edges of the garden. The grass reaches ${L3(topLeft)} along the top edge and ${L3(sideLeft)} along the right-hand edge. What is the area of the grass?`, unit: 'm' },
+        { what: `The diagram shows a rectangular floor, ${L3(W)} by ${L3(H)}. A right-angled triangle in the top right-hand corner is not tiled. The tiles reach ${L3(topLeft)} along the top wall and ${L3(sideLeft)} along the right-hand wall. What area is tiled?`, unit: 'm' },
       ][ci];
       const pts = [[0, 0], [W, 0], [W, H - b], [W - a, H], [0, H]];
       const solution = `The triangle's shorter sides: ${W} - ${topLeft} = ${a} ${uu} and ${H} - ${sideLeft} = ${b} ${uu}. Rectangle: ${W} x ${H} = ${rect} ${sq(uu)}. Triangle: ${a} x ${b} ÷ 2 = ${tri} ${sq(uu)}. What is left: ${rect} - ${tri} = ${ans} ${sq(uu)}. Answer: ${A3(ans)}`;
@@ -653,8 +653,9 @@ const compound = {
 };
 
 // ---------------------------------------------------------------- g11, g12 rotational symmetry
+// Stage 6 stops at order 4 (6Gg.08, CLO book map 17 Oct 2026): every shape and pattern here has
+// order 1, 2, 3 or 4, so a smallest turn is always 90°, 120° or 180°.
 
-const SHAPE_NAME = { 3: 'equilateral triangle', 4: 'square', 5: 'regular pentagon', 6: 'regular hexagon', 7: 'regular heptagon', 8: 'regular octagon' };
 /** A pattern of `k` copies of a motif of points (polar [radius, angle]) turned round the centre. */
 function pattern(k, motif, start) {
   const pts = [];
@@ -670,22 +671,49 @@ function orderOf(pts) {
   }
   return 1;
 }
+const article = (w) => (/^[aeiou]/i.test(w) ? `an ${w}` : `a ${w}`);
+/**
+ * The named Stage 6 shapes, each drawn true from its own measurements (then tilted a little).
+ * order: order of rotational symmetry; lines: lines of symmetry; ticks: equal-side marks per side;
+ * right: every corner is a right angle.
+ */
+const NAMED = {
+  'equilateral triangle': { order: 3, lines: 3, make: (rng) => ({ pts: pattern(3, [[rng.pick([4, 4.5, 5]), 0]], 90), ticks: [1, 1, 1] }) },
+  square: { order: 4, lines: 4, make: (rng) => { const h = rng.pick([2, 2.5, 3]); return { pts: [[-h, -h], [h, -h], [h, h], [-h, h]], ticks: [1, 1, 1, 1], right: true }; } },
+  rectangle: { order: 2, lines: 2, make: (rng) => { const w = rng.pick([3, 3.5, 4]); const h = rng.pick([1.5, 2, 2.5]); return { pts: [[-w, -h], [w, -h], [w, h], [-w, h]], right: true }; } },
+  rhombus: { order: 2, lines: 2, make: (rng) => { const p = rng.pick([3.5, 4, 4.5]); const q = rng.pick([2, 2.5]); return { pts: [[-p, 0], [0, -q], [p, 0], [0, q]], ticks: [1, 1, 1, 1] }; } },
+  parallelogram: { order: 2, lines: 0, make: (rng) => { const w = rng.pick([5, 6]); const h = rng.pick([2.5, 3]); const sl = rng.pick([1.5, 2]); return { pts: [[-w / 2 - sl / 2, -h / 2], [w / 2 - sl / 2, -h / 2], [w / 2 + sl / 2, h / 2], [-w / 2 + sl / 2, h / 2]], ticks: [1, 2, 1, 2] }; } },
+  kite: { order: 1, lines: 1, make: (rng) => { const w = rng.pick([2, 2.5, 3]); const t = rng.pick([2, 2.5]); const b = rng.pick([4, 4.5, 5]); return { pts: [[0, t], [-w, 0], [0, -b], [w, 0]], ticks: [1, 2, 2, 1] }; } },
+  'isosceles trapezium': { order: 1, lines: 1, make: (rng) => { const a = rng.pick([3, 3.5, 4]); const b = rng.pick([1.5, 2]); const h = rng.pick([2.5, 3]); return { pts: [[-a, 0], [a, 0], [b, h], [-b, h]], ticks: [null, 1, null, 1] }; } },
+};
+const namesOfOrder = (ks) => Object.keys(NAMED).filter((n) => ks.includes(NAMED[n].order));
 
 const rotSym = {
-  id: 'm03.rotational-symmetry', topicId: T, subtopicId: 'm03-s5', skill: SK.rot,
-  title: 'Order of rotational symmetry of a regular polygon or star (D1), a pinwheel or irregular shape (D2); smallest turn (D3)',
+  id: 'm14.rotational-symmetry', topicId: 'm14-reflection-and-rotation', subtopicId: 'm14-s5', // moved from m03.rotational-symmetry (m03-s5), book map 17 Oct 2026
+  skill: SK.rot,
+  title: 'Order of rotational symmetry (1 to 4) of a named shape or a star (D1), of a pattern (D2); smallest turn: 90°, 120° or 180° (D3)',
   difficulties: [1, 2, 3],
   check: { min: 0 },
   make(rng, d) {
     for (let t = 0; t < 300; t++) {
-      let k; let pts; let name = null; let mirror = false;
+      let k; let pts; let name = null; let mirror = false; let shape = null;
       const start = rng.int(0, 89);
-      if (d === 1) {
-        k = rng.pick([3, 4, 5, 6, 8, 3, 4, 5, 6]);
-        if (rng.chance(0.4) || k === 8) { pts = pattern(k, [[5, 0]], start); name = SHAPE_NAME[k]; } else { pts = pattern(k, [[5, 0], [5 * rng.pick([0.4, 0.45, 0.5, 0.55, 0.6]), 180 / k]], start); }
+      // D1: a named shape (order 1-4) or a star of order 3 or 4; D2: a pattern of order 1-4;
+      // D3: a named shape or a pattern of order 2-4 (smallest turn 180°, 120° or 90°)
+      const named = d === 1 ? rng.chance(0.7) : d === 3 ? rng.chance(0.35) : false;
+      if (named) {
+        name = rng.pick(namesOfOrder(d === 3 ? [2, 3, 4] : [1, 2, 3, 4]));
+        shape = NAMED[name].make(rng);
+        k = NAMED[name].order;
+        mirror = NAMED[name].lines === k;
+        const tilt = rng.pick([0, 0, 10, -10, 15, -15, 20, -20]);
+        pts = shape.pts.map((p) => rot(p, tilt));
+      } else if (d === 1) {
+        k = rng.pick([3, 4]);
+        pts = pattern(k, [[5, 0], [5 * rng.pick([0.4, 0.45, 0.5, 0.55, 0.6]), 180 / k]], start);
         mirror = true;
       } else {
-        k = d === 2 ? rng.pick([1, 2, 3, 4, 5, 6]) : rng.pick([2, 3, 4, 5, 6]);
+        k = d === 2 ? rng.pick([1, 2, 2, 3, 3, 4, 4]) : rng.pick([2, 3, 4]);
         if (k === 1) {
           const m = rng.int(5, 8);
           const angs = rng.sample([...Array(24).keys()].map((i) => i * 15), m).sort((x, y) => x - y);
@@ -699,32 +727,36 @@ const rotSym = {
           pts = pattern(k, motif, start);
         }
       }
-      if (pts.length > 12 || pts.length < 3 || orderOf(pts) !== k) continue;
+      if (k > 4 || pts.length > 12 || pts.length < 3 || orderOf(pts) !== k) continue;
       const nPts = pts.length;
-      const diagram = { type: 'polygon', points: pts, shaded: true, alt: name ? `A ${name}.` : `A shape with ${nPts} corners.` };
+      const diagram = { type: 'polygon', points: pts, shaded: true, alt: name ? `${Cap(article(name))}.` : `A shape with ${nPts} corners.` };
+      if (shape && shape.ticks) diagram.sides = shape.ticks.map((x) => (x ? { ticks: x } : null));
+      if (shape && shape.right) diagram.angles = pts.map(() => ({ right: true }));
       if (d === 3) {
         const ans = 360 / k;
-        const prompt = `What is the smallest angle you can turn this shape through, about its centre, so that it looks exactly the same again?`;
+        const prompt = name
+          ? `The diagram shows ${article(name)}. What is the smallest angle you can turn it through, about its centre, so that it looks exactly the same again?`
+          : 'What is the smallest angle you can turn the shape shown through, about its centre, so that it looks exactly the same again?';
         const solution = `The shape fits onto itself ${k} times in a full turn (order ${k}). A full turn is 360°, so the smallest turn is 360 ÷ ${k} = ${ans}°. Answer: ${deg(ans)}`;
         const distractors = [
           { text: deg(k), code: 'ROT-ORDER-FOR-ANGLE', why: `${k} is the ORDER (how many times it fits in a full turn). The angle is 360 ÷ ${k}.` },
           k !== 4 ? { text: deg(90), code: 'ROT-ALWAYS-QUARTER', why: `A quarter turn works only for order 4. This shape fits ${k} times in a full turn, so turn 360 ÷ ${k}.` } : null,
-          nPts !== k && 360 % nPts === 0 ? { text: deg(360 / nPts), code: 'ROT-ORDER-CORNERS', why: `You divided by the number of corners (${nPts}). Not every corner is the same: the shape only fits ${k} times in a full turn.` } : null,
+          nPts !== k && 360 % nPts === 0 ? { text: deg(360 / nPts), code: 'ROT-ORDER-CORNERS', why: `You divided by the number of corners (${nPts}). Turning it on to the next corner does not always make the whole shape look the same: it only fits ${k} times in a full turn.` } : null,
           k !== 2 ? { text: deg(180), code: 'ROT-ORDER-HALF-TURN', why: `A half turn is not the smallest turn here. The shape already fits after 360 ÷ ${k} = ${ans}°.` } : null,
         ];
-        try { return { type: 'mcq', prompt, ...choices(rng, deg(ans), distractors, nearDeg(prompt, ans, 'Find the order first, then 360 ÷ order.', 15)), solution, diagram, marks: 2, skill: SK.rotPattern }; } catch { continue; }
+        try { return { type: 'mcq', prompt, ...choices(rng, deg(ans), distractors, (i) => (i === 1 ? nearFor(prompt)(deg(360), 'A full turn always works. Find the SMALLEST turn: 360 ÷ order.') : nearDeg(prompt, ans, 'Find the order first, then 360 ÷ order.', 15)(i - 1))), solution, diagram, marks: 2, skill: SK.rotPattern }; } catch { continue; }
       }
-      const prompt = name ? `What is the order of rotational symmetry of this ${name}?` : 'What is the order of rotational symmetry of this shape?';
+      const prompt = name ? `What is the order of rotational symmetry of the ${name} shown?` : 'What is the order of rotational symmetry of the shape shown?';
       const turn = 360 / k;
       const solution = k === 1
         ? 'Turn the shape about its centre. It only looks the same again after a full turn (360°). That counts once, so the order is 1 (no rotational symmetry). Answer: 1'
         : `Turn the shape about its centre. It looks the same after every ${turn}° turn: ${Array.from({ length: k }, (_, i) => `${turn * (i + 1)}°`).join(', ')}. That is ${k} times in a full turn, so the order is ${k}. Answer: ${k}`;
       const distractors = [
         k > 1 ? { text: String(turn), code: 'ROT-ORDER-ANGLE', why: `${turn}° is the angle of the smallest turn. The order is how many times it fits in a full turn: 360 ÷ ${turn} = ${k}.` } : null,
-        nPts !== k ? { text: String(nPts), code: 'ROT-ORDER-CORNERS', why: `The shape has ${nPts} corners, but not all of them are alike. Count the turns that make the WHOLE shape look the same: ${k}.` } : null,
+        nPts !== k ? { text: String(nPts), code: 'ROT-ORDER-CORNERS', why: `The shape has ${nPts} corners, but turning it on to the next corner does not always make the whole shape look the same. Count the turns that do: ${k}.` } : null,
         k === 1 ? { text: '0', code: 'ROT-ORDER-ZERO', why: 'Every shape looks the same after a full turn, so the smallest order is 1, not 0.' } : null,
         k % 2 === 0 && k > 2 ? { text: '2', code: 'ROT-ORDER-HALF-TURN', why: `You counted only the half turn and the full turn. It also fits after ${turn}°.` } : null,
-        mirror ? { text: String(2 * k), code: 'ROT-ORDER-ADD-LINES', why: `It looks like you added the ${k} lines of symmetry to the ${k} turns. The order only counts the turns.` } : null,
+        mirror ? { text: String(2 * k), code: 'ROT-ORDER-ADD-LINES', why: `It looks like you added the ${countOf(k, 'line')} of symmetry to the ${countOf(k, 'turn')}. The order only counts the turns.` } : null,
       ];
       try {
         return { type: 'mcq', prompt, ...choices(rng, String(k), distractors, (i) => nearMiss(String(k + i), 'Count how many times it fits onto itself in one full turn.')), solution, diagram, ...(name ? {} : { skill: SK.rotPattern }) };

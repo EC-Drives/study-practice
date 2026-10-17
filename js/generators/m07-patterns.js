@@ -27,7 +27,8 @@ const fresh = (prompt, d) => { if (!d) return null; const v = valueOf(d.text); r
 // ---------------------------------------------------------------- g01 next / missing term
 
 const nextTerm = {
-  id: 'm07.next-term', topicId: T, subtopicId: 'm07-s1', skill: SKILL.next,
+  id: 'm02.next-term', topicId: 'm02-number-system', subtopicId: 'm02-s5', // moved from m07.next-term (m07-s1), book map 17 Oct 2026
+  skill: SKILL.next,
   title: 'Next or missing term with a constant step (D1 whole numbers, also past zero; D2 decimals and fractions; D3 terms from far apart, first term below a value)',
   difficulties: [1, 2, 3],
   check: { min: -200 },
@@ -99,7 +100,7 @@ function fromFarApart(rng) {
     const solution = `From the 1st term to the 4th term there are 3 equal steps (not 4). ${fr(b)} - ${fr(a)} = ${fr(b.sub(a))}, so one step is ${fr(b.sub(a))} ÷ 3 = ${fr(step)}. 2nd term: ${fr(a)} + ${fr(step)} = ${fr(ans)}. Answer: ${fr(ans)}`;
     const items = [
       { text: fr(a.add(b.sub(a).div(4))), code: 'SEQ-OFF-BY-ONE', why: 'It looks like you divided the difference by 4. From the 1st to the 4th term there are only 3 steps.' },
-      { text: fr(step), code: 'WRONG-QUANTITY', why: `${fr(step)} is the size of each step. Add it to the 1st term to get the 2nd term.` },
+      { text: fr(step), code: 'ONE-STEP-ONLY', why: `${fr(step)} is the size of each step. Add it to the 1st term to get the 2nd term.` },
       { text: fr(a.add(step.mul(2))), code: 'WRONG-QUANTITY', why: `${fr(a.add(step.mul(2)))} is the 3rd term. The question asks for the 2nd.` },
     ];
     try {
@@ -132,7 +133,8 @@ function firstBelow(rng) {
 // ---------------------------------------------------------------- g02 term-to-term rule
 
 const termToTerm = {
-  id: 'm07.term-to-term', topicId: T, subtopicId: 'm07-s1', skill: SKILL.ttt,
+  id: 'm02.term-to-term', topicId: 'm02-number-system', subtopicId: 'm02-s5', // moved from m07.term-to-term (m07-s1), book map 17 Oct 2026
+  skill: SKILL.ttt,
   title: 'The term-to-term rule (D1 whole-number steps; D2 decimal steps, or which sequence has a given rule)',
   difficulties: [1, 2],
   check: {},

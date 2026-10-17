@@ -337,7 +337,7 @@ const timesDivide = {
       if (n > 1 && ok(alt(op, P / 10))) cands.push({ text: show(alt(op, P / 10)), code: 'PV-SHIFT-WRONG', why: `It looks like you moved the digits ${n - 1} place${n - 1 > 1 ? 's' : ''}. ${op === 'x' ? 'Multiplying' : 'Dividing'} by ${fmtInt(P)} moves them ${n} places.` });
       if (ok(alt(op, P * 10))) cands.push({ text: show(alt(op, P * 10)), code: 'PV-SHIFT-WRONG', why: `It looks like you moved the digits ${n + 1} places. ${fmtInt(P)} has ${n} zero${n > 1 ? 's' : ''}, so the digits move ${n} place${n > 1 ? 's' : ''}.` });
       const other = op === 'x' ? '÷' : 'x';
-      if (ok(alt(other, P))) cands.push({ text: show(alt(other, P)), code: 'PV-SHIFT-WRONG', why: `It looks like you ${op === 'x' ? 'divided' : 'multiplied'}. ${op === 'x' ? 'Multiplying makes the number bigger' : 'Dividing makes the number smaller'}, so the digits move to the ${bigger ? 'left' : 'right'}.` });
+      if (ok(alt(other, P))) cands.push({ text: show(alt(other, P)), code: 'OP-SWAP', why: `It looks like you ${op === 'x' ? 'divided' : 'multiplied'}. ${op === 'x' ? 'Multiplying makes the number bigger' : 'Dividing makes the number smaller'}, so the digits move to the ${bigger ? 'left' : 'right'}.` });
       const xdp = dpsOf(xu, 3);
       if (op === 'x' && xdp > 0 && xdp + n <= 3) cands.push({ text: `${x}${'0'.repeat(n)}${u}`, code: 'PV-ADD-ZERO', why: `It looks like you added ${n === 1 ? 'a zero' : `${n} zeros`} on the end. Zeros on the end of a decimal do not change it: ${x}${'0'.repeat(n)} is still ${x}. Move the digits ${n} place${n > 1 ? 's' : ''} to the left.` });
       const distractors = op === 'x' && cands.length && cands[cands.length - 1].code === 'PV-ADD-ZERO' ? [cands.pop(), ...rng.shuffle(cands)] : rng.shuffle(cands);

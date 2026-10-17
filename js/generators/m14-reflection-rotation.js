@@ -84,7 +84,7 @@ const reflectAxis = {
         if (Math.abs(P[0]) === Math.abs(P[1])) continue;
         const L = rng.pick(['P', 'A', 'Q', 'K', 'T', 'R']);
         const ans = f(P);
-        const prompt = `Point ${L}${C(P)} is reflected in the ${ax}. What are the coordinates of its image?`;
+        const prompt = `Point ${L}${C(P)} on the grid is reflected in the ${ax}. What are the coordinates of its image?`;
         const solution = `${how} ${C(P)} → ${C(ans)}. Answer: ${C(ans)}`;
         const distractors = [
           { text: C(g(P)), code: 'REFL-WRONG-AXIS', why: `This is a reflection in the ${inY ? 'x' : 'y'}-axis. The ${ax} is ${inY ? 'vertical, so only x changes' : 'horizontal, so only y changes'}.` },
@@ -103,7 +103,7 @@ const reflectAxis = {
       const img = tri.map(f);
       const k = rng.int(0, 2);
       const part = img.map((p, i) => (i === k ? tri[i] : p));
-      const prompt = `Triangle ABC has corners ${named('ABC', tri)}. It is reflected in the ${ax}. Which list gives the corners of the image, A', B' and C'?`;
+      const prompt = `Triangle ABC on the grid has corners ${named('ABC', tri)}. It is reflected in the ${ax}. Which list gives the corners of the image, A', B' and C'?`;
       const solution = `Reflecting in the ${ax}: keep each ${inY ? 'y' : 'x'}-coordinate and change the sign of each ${inY ? 'x' : 'y'}-coordinate. ${tri.map((p, i) => `${'ABC'[i]}${C(p)} → ${C(img[i])}`).join(', ')}. Answer: ${list(img)}`;
       const distractors = [
         { text: list(tri.map(g)), code: 'REFL-WRONG-AXIS', why: `This is a reflection in the ${inY ? 'x' : 'y'}-axis. Reflecting in the ${ax} changes the sign of ${inY ? 'x' : 'y'} and keeps ${inY ? 'y' : 'x'}.` },
@@ -136,7 +136,7 @@ const reflectLine = {
         if ([...tri, ...img].some((p) => Math.abs(p[0]) > 8 || Math.abs(p[1]) > 8)) continue;
         const lineName = `${vert ? 'x' : 'y'} = ${n(a)}`;
         const kk = rng.int(0, 2);
-        const prompt = `Triangle ABC has corners ${named('ABC', tri)}. It is reflected in the ${vert ? 'vertical' : 'horizontal'} mirror line ${lineName}. Which list gives the corners of the image, A', B' and C'?`;
+        const prompt = `Triangle ABC on the grid has corners ${named('ABC', tri)}. It is reflected in the ${vert ? 'vertical' : 'horizontal'} mirror line ${lineName}. Which list gives the corners of the image, A', B' and C'?`;
         const solution = `Each corner goes the same distance to the other side of ${lineName}, and its ${vert ? 'y' : 'x'}-coordinate does not change. ${tri.map((p, i) => `${'ABC'[i]}${C(p)} is ${units(Math.abs(p[k] - a))} from the line, so ${'ABC'[i]}' is ${C(img[i])}`).join('; ')}. Answer: ${list(img)}`;
         const distractors = [
           { text: list(tri.map(vert ? reflY : reflX)), code: 'REFL-FROM-ORIGIN', why: `This reflects the triangle in the ${vert ? 'y' : 'x'}-axis. The mirror here is the line ${lineName}, so measure each distance from that line.` },
@@ -165,8 +165,8 @@ const reflectLine = {
       const from = d === 2 ? P : Q; const ans = d === 2 ? Q : P;
       const L = rng.pick(['P', 'A', 'B', 'K', 'R']);
       const prompt = d === 2
-        ? `Point ${L}${C(from)} is reflected in the ${kind} mirror line ${lineName}. What are the coordinates of its image?`
-        : `Point ${L} is reflected in the ${kind} mirror line ${lineName}. Its image is ${C(from)}. What are the coordinates of ${L}?`;
+        ? `Point ${L}${C(from)} on the grid is reflected in the ${kind} mirror line ${lineName}. What are the coordinates of its image?`
+        : `Point ${L} is reflected in the ${kind} mirror line ${lineName}. Its image on the grid is ${C(from)}. What are the coordinates of ${L}?`;
       const fv = from[k];
       const solution = `${d === 3 ? 'Reflecting the image back gives the original point. ' : ''}The ${c}-coordinate ${n(fv)} is ${dist} ${dist === 1 ? 'unit' : 'units'} ${side(fv)} the mirror line ${lineName}. The ${d === 2 ? 'image' : 'point'} is ${dist} ${dist === 1 ? 'unit' : 'units'} on the other side: ${c} = ${n(a)} ${ans[k] > a ? '+' : '-'} ${dist} = ${n(ans[k])}. ${o} does not change. Answer: ${C(ans)}`;
       const distractors = [
@@ -203,7 +203,7 @@ const findMirror = {
       const [u, v] = rng.chance(0.5) ? [p, q] : [q, p];
       const P = vert ? [u, other] : [other, u]; const Q = vert ? [v, other] : [other, v];
       const c = vert ? 'x' : 'y';
-      const prompt = `The point ${C(P)} is reflected in a ${vert ? 'vertical' : 'horizontal'} mirror line and its image is ${C(Q)}. The mirror line is ${c} = ?. What is the missing number?`;
+      const prompt = `The point ${C(P)} on the grid is reflected in a ${vert ? 'vertical' : 'horizontal'} mirror line and its image is ${C(Q)}. The mirror line is ${c} = ?. What is the missing number?`;
       const solution = `The mirror line is exactly halfway between a point and its image. Halfway between ${c} = ${n(u)} and ${c} = ${n(v)}: (${n(u)} + ${term(n(v))}) ÷ 2 = ${n(a)}. Check: both points are ${dist} ${dist === 1 ? 'unit' : 'units'} from ${c} = ${n(a)}. Answer: ${n(a)}`;
       const items = [
         { text: n(2 * dist), code: 'MIRROR-DIST', why: `${2 * dist} is the distance between the point and its image. The mirror line is halfway between them.` },
@@ -249,7 +249,7 @@ const reflectDiagonal = {
         const img = tri.map(f);
         const kk = rng.int(0, 2);
         const mirror = neg ? 'y = -x' : 'y = x';
-        const tprompt = `Triangle ABC has corners ${named('ABC', tri)}. It is reflected in the line ${mirror}. Which list gives the corners of the image, A', B' and C'?`;
+        const tprompt = `Triangle ABC on the grid has corners ${named('ABC', tri)}. It is reflected in the line ${mirror}. Which list gives the corners of the image, A', B' and C'?`;
         const tsol = `${neg ? 'For the line y = -x, swap the coordinates of each corner AND change both signs' : 'For the line y = x, swap the coordinates of each corner and keep their signs'}: ${tri.map((q, i) => `${'ABC'[i]}${C(q)} → ${C(img[i])}`).join(', ')}. Answer: ${list(img)}`;
         const tds = [
           neg ? { text: list(tri.map(([u, v]) => [v, u])), code: 'REFL-DIAG-SWAP-ONLY', why: 'This only swaps the numbers, which is the reflection in the line y = x. For the line y = -x, both signs change as well.' }
@@ -265,7 +265,7 @@ const reflectDiagonal = {
       let prompt; let ans; let solution; let distractors;
       if (other) {
         ans = [-y, -x];
-        prompt = `Point ${L}${C(P)} is reflected in ${DIAG2}. What are the coordinates of its image?`;
+        prompt = `Point ${L}${C(P)} on the grid is reflected in ${DIAG2}. What are the coordinates of its image?`;
         solution = `For the line y = -x, swap the coordinates AND change both signs: ${C(P)} → ${C(ans)}. Check: halfway between them is ${C([(x - y) / 2, (y - x) / 2])}, which is on the mirror line. Answer: ${C(ans)}`;
         distractors = [
           { text: C([y, x]), code: 'REFL-DIAG-SWAP-ONLY', why: 'This only swaps the numbers, which is the reflection in the line y = x. For the line y = -x, both signs change as well.' },
@@ -275,7 +275,7 @@ const reflectDiagonal = {
         ];
       } else {
         ans = [y, x];
-        prompt = `Point ${L}${C(P)} is reflected in ${DIAG}. What are the coordinates of its image?`;
+        prompt = `Point ${L}${C(P)} on the grid is reflected in ${DIAG}. What are the coordinates of its image?`;
         solution = `In the line y = x, the x and y coordinates swap places${d === 2 ? ' and keep their signs' : ''}: ${C(P)} → ${C(ans)}. Answer: ${C(ans)}`;
         distractors = [
           d === 2 ? { text: C([Math.sign(x) * Math.abs(y), Math.sign(y) * Math.abs(x)]), code: 'REFL-DIAG-SIGN-STAYS', why: 'The numbers have swapped, but the minus sign stayed in the same place. Each sign moves with its number.' } : null,
@@ -450,7 +450,7 @@ const identify = {
       }[kind];
       const diagram = { ...grid([...A, ...B]), polygons: [{ points: A, label: 'A' }, { points: B, label: 'B', style: 'dashed' }] };
       try {
-        return { type: 'mcq', prompt: 'Which single transformation maps shape A onto shape B?', ...choices(rng, text, distractors, null), solution: `${solution} Check all the corners, not just one. Answer: ${text}`, diagram, marks: d === 3 ? 2 : 1 };
+        return { type: 'mcq', prompt: 'Which single transformation maps shape A onto shape B on the grid?', ...choices(rng, text, distractors, null), solution: `${solution} Check all the corners, not just one. Answer: ${text}`, diagram, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
     }
     throw new Error('no question');
@@ -483,7 +483,7 @@ const completeSym = {
       const done = [...pts, ...pts.map(f)];
       const lineName = d === 2 ? (vert ? 'the y-axis' : 'the x-axis') : `the ${vert ? 'vertical' : 'horizontal'} line ${vert ? 'x' : 'y'} = ${n(a)}`;
       const who = person(rng);
-      const prompt = `${who.name} draws half of a shape. Three of its corners are ${list(pts.slice(0, 2))} and ${C(pts[2])}. ${who.He} completes the shape so that ${lineName} is a line of symmetry. Which of these points must also be a corner of the completed shape?`;
+      const prompt = `${who.name} draws half of a shape on the grid. Three of its corners are ${list(pts.slice(0, 2))} and ${C(pts[2])}. ${who.He} completes the shape so that ${lineName} is a line of symmetry. Which of these points must also be a corner of the completed shape?`;
       const dist = Math.abs(P[k] - a);
       const solution = `${lineName[0].toUpperCase()}${lineName.slice(1)} is the mirror line, so every corner has a partner on the other side, the same distance away. ${C(P)} is ${dist} ${dist === 1 ? 'unit' : 'units'} from the line, so its partner is ${dist} ${dist === 1 ? 'unit' : 'units'} on the other side: ${C(ans)}. Answer: ${C(ans)}`;
       const g = vert ? reflYb(a) : reflXa(a);

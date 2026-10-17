@@ -275,7 +275,10 @@ export const MIS = {
   'm12.read-bar-chart': {
     'SCALE-INTERVAL-WRONG': (q) => { const r = barRead(q); return [r.ans / r.line]; },
     'SCALE-NEXT-MARK': (q) => { const r = barRead(q); return [r.ans + r.line, r.ans - r.line]; },
-    'DATA-WRONG-ITEM': (q) => { const r = barRead(q); return [r.v[r.i - 1], r.v[r.i + 1]].filter((x) => x != null); },
+    'DATA-WRONG-ITEM': (q) => {
+      if ((q.diagram.series || []).length > 1 && /fraction/.test(q.prompt)) { const r = dualRead(q); return [r.other / (r.mine + r.other)]; } // the other group's bar
+      const r = barRead(q); return [r.v[r.i - 1], r.v[r.i + 1]].filter((x) => x != null);
+    },
     'DATA-ONE-VALUE': (q) => { const r = barRead(q); return [r.a, r.b]; },
     'OP-SWAP': (q) => { const r = barRead(q); return [r.a + r.b]; },
     'DATA-TOTAL-MISSED-ITEM': (q) => { const r = barRead(q); return r.v.map((x) => r.ans - x); },
@@ -286,7 +289,7 @@ export const MIS = {
       return [r.cats[all.indexOf(Math.max(...all)) % r.cats.length], r.cats[tots.indexOf(Math.max(...tots))]];
     },
     'RATIO-PART-AS-WHOLE': (q) => { const r = dualRead(q); return [r.mine / r.other]; },
-    'PCT-OF-WRONG-WHOLE': (q) => { const r = dualRead(q); return [r.other / (r.mine + r.other), r.mine / r.all]; },
+    'PCT-OF-WRONG-WHOLE': (q) => { const r = dualRead(q); return [r.mine / r.all]; },
   },
   'm12.line-graph': {
     'SCALE-NEXT-MARK': (q) => { const r = lineRead(q); return [r.ans + r.line, r.ans - r.line]; },

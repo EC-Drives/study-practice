@@ -117,7 +117,7 @@ export const SOLVERS = {
     return { text: q.options[vals.indexOf(want)] };
   },
   'm02.midpoint': (q) => { const [a, b] = ends(q); return { value: (a + b) / 2 }; },
-  'm02.factors-primes': (q) => {
+  'm06.factors-primes': (q) => {
     const t = q.prompt; let m;
     if ((m = t.match(/is a multiple of (\d+)\?/))) return { text: q.options.find((o) => N(o) % N(m[1]) === 0) };
     if (/Which of these is a prime number\?/.test(t)) return { text: q.options.find((o) => isPrime(N(o))) };
@@ -129,13 +129,13 @@ export const SOLVERS = {
     const out = []; for (let x = r.lo + 1; x < r.hi; x++) if (r.first(x) && r.clue(x)) out.push(x);
     return { value: out.length === 1 ? out[0] : NaN };
   },
-  'm02.hcf-lcm': (q) => {
+  'm06.hcf-lcm': (q) => {
     const p = hl(q);
     if (p.ask === 'hcf') return { value: g(p.a, p.b) };
     if (p.ask === 'lcm') return { value: l(p.a, p.b) };
     return { value: p.n / g(p.a, p.b) };
   },
-  'm02.divisibility': (q) => {
+  'm06.divisibility': (q) => {
     let m;
     if ((m = q.prompt.match(/True or false: ([\d ]+) is divisible by (\d+)/))) return { bool: N(m[1]) % N(m[2]) === 0 };
     if ((m = q.prompt.match(/Which of these numbers is divisible by (\d+)\?/))) return { text: q.options.find((o) => N(o) % N(m[1]) === 0) };
@@ -144,7 +144,7 @@ export const SOLVERS = {
     if (/SMALLEST/.test(q.prompt)) return { value: Math.min(...mm.ok) };
     return { value: mm.ok.length === 1 ? mm.ok[0] : NaN };
   },
-  'm02.squares-cubes': (q) => {
+  'm07.squares-cubes': (q) => {
     const t = q.prompt; let m;
     if ((m = t.match(/^What is (\d+)\^(\d+)\?/))) return { value: N(m[1]) ** N(m[2]) };
     if (/is a square number\?/.test(t)) return { text: q.options.find((o) => Number.isInteger(Math.sqrt(N(o)))) };
@@ -195,7 +195,7 @@ export const MIS = {
     'MID-WRONG-END': (q) => { const [a, b] = ends(q); const h = (b - a) / 2; return [b + h, a - h]; },
     'NEG-SIGN-DROP': (q) => { const [a, b] = ends(q); return [-(a + b) / 2]; },
   },
-  'm02.factors-primes': {
+  'm06.factors-primes': {
     'MULT-LAST-DIGIT': (q) => { const n = N(q.prompt.match(/is a multiple of (\d+)\?/)[1]); return q.options.filter((o) => N(o) % 10 === n && N(o) % n); },
     'FACTOR-MULTIPLE-SWAP': (q) => {
       const t = q.prompt; let m;
@@ -214,7 +214,7 @@ export const MIS = {
       return out;
     },
   },
-  'm02.hcf-lcm': {
+  'm06.hcf-lcm': {
     'HCF-LCM-SWAP': (q) => { const p = hl(q); return [p.ask === 'hcf' ? l(p.a, p.b) : g(p.a, p.b)]; },
     'HCF-NOT-HIGHEST': (q) => { const p = hl(q); const h = g(p.a, p.b); return p.ask === 'each' ? [p.n / lowerFactor(h)] : divisors(h).filter((x) => x < h); },
     'LCM-PRODUCT': (q) => { const p = hl(q); return [p.a * p.b]; },
@@ -222,7 +222,7 @@ export const MIS = {
     'WRONG-QUANTITY': (q) => { const p = hl(q); const h = g(p.a, p.b); return p.ask === 'each' ? [p.other / h] : [(p.a + p.b) / h]; },
     'ONE-STEP-ONLY': (q) => { const p = hl(q); return [g(p.a, p.b)]; },
   },
-  'm02.divisibility': {
+  'm06.divisibility': {
     'DIV-LAST-DIGIT': (q) => {
       const n = N(q.prompt.match(/divisible by (\d+)/)[1]); const ld = n === 3 ? [3, 6, 9] : [9];
       if (!q.options) { const p = missing(q); return p.all.filter((x) => ld.includes(x.n % 10) && x.n % n).map((x) => x.x); }
@@ -243,14 +243,14 @@ export const MIS = {
     },
     'DIV4-LAST-DIGIT': (q) => q.options.filter((o) => N(o) % 2 === 0 && N(o) % 4),
   },
-  'm02.squares-cubes': {
+  'm07.squares-cubes': {
     'POW-MULT': (q) => {
       const t = q.prompt; let m;
       if ((m = t.match(/^What is (\d+)\^(\d+)\?/))) return [N(m[1]) * N(m[2])];
       if (/is a cube number\?/.test(t)) return q.options.filter((o) => N(o) % 3 === 0);
       if (/is a square number\?/.test(t)) return q.options.filter((o) => N(o) % 2 === 0 && !Number.isInteger(Math.sqrt(N(o))));
       if ((m = t.match(/^Work out (\d+)\^2 ([+-]) (\d+)\^3/))) return [m[2] === '+' ? N(m[1]) * 2 + N(m[3]) * 3 : N(m[1]) * 2 - N(m[3]) * 3];
-      const b = block(q); return [b.n * 3 - b.t * 3, b.n ** 3 - b.t];
+      const b = block(q); return [b.n * 3 - b.t * 3];
     },
     'POW-SWAP': (q) => {
       let m;

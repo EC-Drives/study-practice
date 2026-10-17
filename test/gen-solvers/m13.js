@@ -45,7 +45,7 @@ const optPairs = (q) => q.options.map((o) => ({ o, p: pairs(o)[0] }));
 
 // ---------------------------------------------------------------- read the point / which point
 
-const readLabel = (q) => q.prompt.match(/coordinates of point (\w+)\?/)[1];
+const readLabel = (q) => q.prompt.match(/coordinates of point (\w+)(?: on the grid)?\?/)[1];
 const readP = (q) => at(q, readLabel(q));
 const whichTarget = (q) => pairs(q.prompt)[0];
 const labelsAt = (q, list) => (q.diagram.points || []).filter((p) => list.some((t) => same(p.at.map(Number), t))).map((p) => p.label);
@@ -153,7 +153,7 @@ function shapeOf(q) {
 // ---------------------------------------------------------------- translations
 
 function transAsk(q) {
-  let m = q.prompt.match(/Point (\w)(\(.*?\)) is translated (.*?)\. What are the coordinates of its image\?/);
+  let m = q.prompt.match(/Point (\w)(\(.*?\))(?: on the grid)? is translated (.*?)\. What are the coordinates of its image\?/);
   if (m) { const P = pairs(m[2])[0]; const v = moveOf(m[3]); return { V: P, v, ans: plus(P, v) }; }
   m = q.prompt.match(/It is translated so that (\w) moves to (\(.*?\))\. What are the coordinates of the image of (\w)\?/);
   if (m) { const v = minus(pairs(m[2])[0], at(q, m[1])); const V = at(q, m[3]); return { V, v, ans: plus(V, v), d3: true }; }
@@ -173,9 +173,9 @@ function describeAsk(q) {
   return { P, Q, net: minus(Q, P) };
 }
 function originalAsk(q) {
-  let m = q.prompt.match(/A point is translated (.*?)\. Its image is at (\(.*?\))\./);
+  let m = q.prompt.match(/A point is translated (.*?)\. Its image(?:, shown on the grid,)? is at (\(.*?\))\./);
   if (m) { const v = moveOf(m[1]); const I = pairs(m[2])[0]; return { v, I, ans: minus(I, v) }; }
-  m = q.prompt.match(/A point P is translated (.*?), and then (.*?)\. It ends at Q(\(.*?\))\./);
+  m = q.prompt.match(/A point P is translated (.*?), and then (.*?)\. It ends at Q(\(.*?\))(?:, shown on the grid)?\./);
   const m1 = moveOf(m[1]); const m2 = moveOf(m[2]); const I = pairs(m[3])[0];
   return { two: true, m1, m2, I, ans: minus(minus(I, m2), m1) };
 }

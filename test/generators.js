@@ -13,6 +13,8 @@
 //   catalogue, and recomputing it through that misconception's rule (test/gen-solvers) gives
 //   exactly that wrong answer; two different wrong answers never share one explanation;
 // - the skill tag is one the bank already uses for that subtopic (so reports merge them);
+// - the bookSection is one of the topic's bookSections, and the id and generatorId carry the
+//   topic's prefix (CLO book map, 17 Oct 2026);
 // - the same (generator, seed, difficulty) gives the same question again.
 // Then: can every topic fill a 30-minute session without repeating a question?
 
@@ -72,6 +74,11 @@ function checkQuestion(g, q, solver) {
   if (!VALID_TYPES.has(q.type)) p.push(`bad type ${q.type}`);
   if (!Number.isInteger(q.marks) || q.marks < 1 || q.marks > 5) p.push('marks out of range');
   if (q.subtopicId !== meta.subtopicId) p.push('wrong subtopic');
+  // book map (17 Oct 2026): the topic's prefix in both ids, and one of the topic's book sections
+  const prefix = meta.topicId.slice(0, 3);
+  if (!String(q.id).startsWith(`${prefix}-g-`) || !String(q.generatorId).startsWith(`${prefix}.`)) p.push(`id ${q.id} or generatorId ${q.generatorId} does not carry the topic prefix ${prefix}`);
+  if (Object.keys(q)[2] !== 'bookSection') p.push('bookSection is not the key after subtopicId');
+  if (BANK_SECTIONS[meta.topicId] && !BANK_SECTIONS[meta.topicId].has(q.bookSection)) p.push(`bookSection ${q.bookSection} is not one of the topic's bookSections`);
   const texts = [q.prompt, q.solution, ...(q.options || []), ...Object.values(q.misconceptions || {}), ...(q.type === 'short' || q.type === 'numeric' ? q.answer.accept : [])];
   for (const t of texts) if (BAD_TEXT.test(String(t))) { p.push(`bad text: ${String(t).slice(0, 80)}`); break; }
   for (const t of texts) if (NOISE.test(String(t))) { p.push(`number noise: ${String(t).slice(0, 80)}`); break; }
@@ -197,12 +204,14 @@ const rows = [];
 const failures = [];
 let total = 0;
 const BANK_SKILLS = {};
+const BANK_SECTIONS = {};
 async function loadBankSkills() {
   const topics = [...new Set(GENERATORS.map((g) => g.topicId))];
   for (const t of topics) {
     try {
       const data = await (await fetch(`../content/maths/${t}.json`)).json();
       for (const q of data.questions) (BANK_SKILLS[q.subtopicId] ||= new Set()).add(q.skill);
+      if (Array.isArray(data.bookSections)) BANK_SECTIONS[t] = new Set(data.bookSections.map((s) => s.id));
     } catch { /* no bank file: skill not checked */ }
   }
 }
@@ -315,7 +324,7 @@ function render(sessions) {
   const byTopic = {};
   for (const r of rows) { byTopic[r.topic] ||= { gens: 0, questions: 0, failed: 0 }; byTopic[r.topic].gens++; byTopic[r.topic].questions += r.questions; byTopic[r.topic].failed += r.failed; }
   window.__genResults = { ok, total, generators: rows.length, failures: failures.slice(0, 300), byTopic, sessions: sessions.length, sessionsShort: sessFail };
-  // for runs from the command line (tools/run_tests.py): report the result to the local server
+  // for runs from the command line (a headless runner, if one is used): report the result to the local server
   if (params.has('beacon')) fetch(`./__result?${encodeURIComponent(JSON.stringify({ total, generators: rows.length, sessions: sessions.length, failed: failures.slice(0, 120).map((f) => f.slice(0, 220)) }))}`).catch(() => {});
   document.body.dataset.done = '1';
 }

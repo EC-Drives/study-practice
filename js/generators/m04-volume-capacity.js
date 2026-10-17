@@ -84,6 +84,7 @@ const fev = {
           prompt = `${intro}How many ${ask} does a ${s.name} have?`;
           if (rng.chance(0.7)) diagram = { type: 'solid', shape: s.solid, alt: `A drawing of a ${s.name}, with hidden edges dashed.` };
           if (rng.chance(0.25)) { prompt = `Look at this 3D shape. Count carefully, including the edges and corners you cannot see. How many ${ask} does it have?`; diagram = { type: 'solid', shape: s.solid, alt: 'A drawing of a 3D shape, with hidden edges dashed.' }; }
+          else if (diagram) prompt += ` The diagram shows ${/^[aeiou]/.test(s.name) ? 'an' : 'a'} ${s.name}.`;
         } else {
           kind = rng.pick(['prism', 'pyramid']); n = rng.int(3, 8);
           ask = rng.pick(QWORD);
@@ -96,6 +97,7 @@ const fev = {
           ]);
           const sol = SOLID_OF[`${kind}-${n}`];
           if (sol && rng.chance(0.5)) diagram = { type: 'solid', shape: sol, alt: `A drawing of a ${adj} ${kind}, with hidden edges dashed.` };
+          if (diagram) prompt += ` The diagram shows ${/^[aeiou]/.test(adj) ? 'an' : 'a'} ${adj} ${kind}.`;
         }
         const f = FEV[kind](n);
         const ans = f[ask];
@@ -207,7 +209,7 @@ const cubeNet = {
       if (d === 2) {
         if (!!f !== want) continue;
         const p = person(rng);
-        const prompt = rng.pick([`True or false: these 6 squares can be folded to make a cube.`, `${p.name} cuts out these 6 squares in one piece. True or false: ${p.he} can fold them to make a cube.`, `True or false: this is the net of a cube.`]);
+        const prompt = rng.pick([`True or false: the 6 squares shown can be folded to make a cube.`, `${p.name} cuts out the 6 squares shown, in one piece. True or false: ${p.he} can fold them to make a cube.`, `True or false: this is the net of a cube.`]);
         const diagram = { type: 'net', shape: 'custom', cells, alt: 'Six squares joined edge to edge.' };
         const solution = want
           ? 'Imagine folding it: choose one square as the base and fold the others up round it. Every square lands on a different face of the cube, and no face is left empty, so it folds into a cube. The statement is true.'
@@ -325,7 +327,7 @@ const surfaceArea = {
         const what2 = u === 'm' ? rng.pick(['a storeroom', 'a water tank', 'a shipping container']) : rng.pick(['a gift box', 'a wooden block', 'a tissue box', 'a storage box']);
         if (u === 'm' && e > 4) continue; // a cube-shaped room or tank of 2-4 m (CLO review X6)
         const faceGiven = rng.chance(0.25);
-        if (faceGiven) { prompt = `Each face of a cube has an area of ${e * e} ${u}^2. What is the cube's total surface area?`; diagram = undefined; } else prompt = `${rng.chance(0.5) ? `${what2.charAt(0).toUpperCase() + what2.slice(1)} is a cube with edges ${e} ${u} long.` : `A cube has edges ${e} ${u} long.`} What is its total surface area?`;
+        if (faceGiven) { prompt = `Each face of a cube has an area of ${e * e} ${u}^2. What is the cube's total surface area?`; diagram = undefined; } else prompt = `${rng.chance(0.5) ? `${what2.charAt(0).toUpperCase() + what2.slice(1)} is a cube with edges ${e} ${u} long, as shown.` : `The cube shown has edges ${e} ${u} long.`} What is its total surface area?`;
         solution = faceGiven
           ? `A cube has 6 faces, each ${e * e} ${u}^2: 6 x ${e * e} = ${ans} ${u}^2. Answer: ${ans} ${u}^2`
           : `Each face is a square ${e} ${u} by ${e} ${u}: ${e} x ${e} = ${e * e} ${u}^2. A cube has 6 faces: 6 x ${e * e} = ${ans} ${u}^2. Answer: ${ans} ${u}^2`;
@@ -342,7 +344,7 @@ const surfaceArea = {
         ans = 2 * (a + b + c);
         if (ans > 2000) continue;
         diagram = { type: 'cuboid', l, w, h, labels: { l: `${l} cm`, w: `${w} cm`, h: `${h} cm` } };
-        prompt = `${what.charAt(0).toUpperCase() + what.slice(1)} is a cuboid ${l} cm long, ${w} cm wide and ${h} cm high. What is its total surface area?`;
+        prompt = `${what.charAt(0).toUpperCase() + what.slice(1)} is a cuboid ${l} cm long, ${w} cm wide and ${h} cm high, as shown. What is its total surface area?`;
         solution = `The faces come in 3 pairs. Top and bottom: ${l} x ${w} = ${a} cm^2 each. Front and back: ${l} x ${h} = ${b} cm^2 each. The two ends: ${w} x ${h} = ${c} cm^2 each. Total = 2 x (${a} + ${b} + ${c}) = 2 x ${a + b + c} = ${ans} cm^2. Answer: ${ans} cm^2`;
         ds.push({ v: a + b + c, code: 'SA-ONE-FACE-EACH', why: `It looks like you counted each different face once. Every face has a matching opposite face, so double it: 2 x ${a + b + c}.` });
         ds.push({ v: l * w * h, code: 'SA-VOLUME-SWAP', why: `${l} x ${w} x ${h} = ${l * w * h} is the volume (cm^3). Surface area adds the areas of all 6 faces.` });
@@ -355,7 +357,7 @@ const surfaceArea = {
         if (ans > 2000) continue;
         const p = person(rng);
         diagram = { type: 'cuboid', l, w, h, labels: { l: `${l} cm`, w: `${w} cm`, h: `${h} cm` }, caption: 'An open box: it has no lid.' };
-        prompt = `${p.name} makes an open box (it has no lid) from card. The box is a cuboid ${l} cm long, ${w} cm wide and ${h} cm high. What area of card does ${p.he} need, with no overlaps?`;
+        prompt = `${p.name} makes an open box (it has no lid) from card. The box is a cuboid ${l} cm long, ${w} cm wide and ${h} cm high, as shown. What area of card does ${p.he} need, with no overlaps?`;
         solution = `Base: ${l} x ${w} = ${a} cm^2. Front and back: 2 x (${l} x ${h}) = ${2 * b} cm^2. Two ends: 2 x (${w} x ${h}) = ${2 * c} cm^2. There is no lid. Total: ${a} + ${2 * b} + ${2 * c} = ${ans} cm^2. Answer: ${ans} cm^2`;
         ds.push({ v: 2 * (a + b + c), code: 'SA-OPEN-AS-CLOSED', why: `${2 * (a + b + c)} cm^2 includes a lid. The box is open, so leave out the top (${l} x ${w}).` });
         ds.push({ v: 2 * b + 2 * c, code: 'SA-OPEN-WRONG-FACE', why: `It looks like you left out the base as well as the lid. An open box still has a bottom (${l} x ${w}).` });
@@ -377,7 +379,7 @@ const surfaceArea = {
         } else {
           ds.push({ v: e * e, code: 'SA-EDGE-NO-ROOT', why: `${e * e} cm^2 is the area of one face. The edge is the number that multiplies by itself to make ${e * e}.` });
           ds.push({ v: A / 4, code: 'SA-FOUR-FACES', why: 'It looks like you divided by 4, as if the cube had 4 faces. A cube has 6 faces, so divide by 6 first.' });
-          ds.push({ v: (e * e) / 2, code: 'SA-EDGE-NO-ROOT', why: `It looks like you halved the area of one face (${e * e}). The edge is the number that multiplies by ITSELF to make ${e * e}.` });
+          ds.push({ v: (e * e) / 2, code: 'SQ-SIDE-HALF', why: `It looks like you halved the area of one face (${e * e}). The edge is the number that multiplies by ITSELF to make ${e * e}.` });
         }
         try {
           const unit = askVol ? 'cm^3' : 'cm';
@@ -408,8 +410,8 @@ const volume = {
         const [l, w, h] = [rng.int(2, 6), rng.int(2, 5), rng.int(2, 5)];
         ans = l * w * h;
         diagram = { type: 'cuboid', l, w, h, unitCubes: true, alt: `A cuboid built from 1 cm cubes.` };
-        prompt = `This cuboid is built from 1 cm cubes. It is ${l} cubes long, ${w} cubes wide and ${h} cubes high. What is its volume?`;
-        if (rng.chance(0.4)) prompt = `${person(rng).name} builds this cuboid from 1 cm cubes: ${l} cubes long, ${w} cubes wide and ${h} cubes high. What is the volume of the cuboid?`;
+        prompt = `The cuboid shown is built from 1 cm cubes. It is ${l} cubes long, ${w} cubes wide and ${h} cubes high. What is its volume?`;
+        if (rng.chance(0.4)) prompt = `${person(rng).name} builds the cuboid shown from 1 cm cubes: ${l} cubes long, ${w} cubes wide and ${h} cubes high. What is the volume of the cuboid?`;
         solution = `Each layer has ${l} x ${w} = ${l * w} cubes. There are ${h} layers: ${l * w} x ${h} = ${ans} cubes. Each cube is 1 cm^3, so the volume is ${ans} cm^3. Answer: ${ans} cm^3`;
         ds.push({ v: l + w + h, code: 'VOL-ADD-SIDES', why: `It looks like you added ${l} + ${w} + ${h}. Volume multiplies: length x width x height.` });
         ds.push({ v: l * w, code: 'VOL-BASE-ONLY', why: `${l * w} is one layer of cubes. There are ${h} layers.` });
@@ -422,7 +424,7 @@ const volume = {
         ans = l * w * h;
         if (ans > 3000 || new Set([l, w, h]).size < 3) continue;
         diagram = { type: 'cuboid', l, w, h, labels: { l: `${l} cm`, w: `${w} cm`, h: `${h} cm` } };
-        prompt = `${obj} is a cuboid ${l} cm long, ${w} cm wide and ${h} cm high. What is its volume?`;
+        prompt = `${obj} is a cuboid ${l} cm long, ${w} cm wide and ${h} cm high, as shown. What is its volume?`;
         solution = `Volume = length x width x height = ${l} x ${w} x ${h} = ${l * w} x ${h} = ${ans} cm^3. Answer: ${fmtInt(ans)} cm^3`;
         ds.push({ v: l + w + h, code: 'VOL-ADD-SIDES', why: `It looks like you added the lengths. Volume = length x width x height.` });
         ds.push({ v: l * w, code: 'VOL-BASE-ONLY', why: `${l} x ${w} = ${l * w} is the area of the base. Multiply by the height (${h}) too.` });
@@ -433,7 +435,7 @@ const volume = {
         if (V > 3000 || new Set([l, w, h]).size < 3) continue;
         ans = h; unit = 'cm';
         diagram = { type: 'cuboid', l, w, h, labels: { l: `${l} cm`, w: `${w} cm`, h: '?' } };
-        prompt = `A cuboid has a volume of ${fmtInt(V)} cm^3. It is ${l} cm long and ${w} cm wide. How high is it?`;
+        prompt = `A cuboid has a volume of ${fmtInt(V)} cm^3. It is ${l} cm long and ${w} cm wide, as shown. How high is it?`;
         solution = `Volume = length x width x height, so ${l} x ${w} x height = ${V}. ${l} x ${w} = ${l * w}, and ${V} ÷ ${l * w} = ${h}. Check: ${l} x ${w} x ${h} = ${V}. Answer: ${h} cm`;
         if (V - l - w > 0) ds.push({ v: V - l - w, code: 'VOL-MISSING-SUBTRACT', why: `It looks like you subtracted ${l} and ${w} from ${V}. Volume multiplies the lengths, so divide: ${V} ÷ (${l} x ${w}).` });
         if (V % (l + w) === 0) ds.push({ v: V / (l + w), code: 'VOL-MISSING-ADD-SIDES', why: `It looks like you divided by ${l} + ${w}. Divide by ${l} x ${w} = ${l * w} instead.` });
@@ -445,7 +447,7 @@ const volume = {
         ans = l * w * r;
         if (ans > 3000) continue;
         const p = person(rng);
-        prompt = `A tank has a rectangular base ${l} cm long and ${w} cm wide. The water in it is ${h0} cm deep. ${p.name} lowers a stone into the water until it is completely under water, and the water level rises to ${h0 + r} cm. What is the volume of the stone?`;
+        prompt = `The tank shown has a rectangular base ${l} cm long and ${w} cm wide. The water in it is ${h0} cm deep. ${p.name} lowers a stone into the water until it is completely under water, and the water level rises to ${h0 + r} cm. What is the volume of the stone?`;
         diagram = { type: 'cuboid', l, w, h: h0 + r + 4, labels: { l: `${l} cm`, w: `${w} cm` }, alt: `A tank shaped like a cuboid, ${l} cm long and ${w} cm wide.` };
         solution = `The stone pushes the water up by ${h0 + r} - ${h0} = ${r} cm. The volume of the stone equals the volume of the extra water: ${l} x ${w} x ${r} = ${ans} cm^3. Answer: ${fmtInt(ans)} cm^3`;
         ds.push({ v: l * w * (h0 + r), code: 'VOL-WHOLE-WATER', why: `${l} x ${w} x ${h0 + r} is all the water and the stone together. Use only the RISE in the water level: ${h0 + r} - ${h0} = ${r} cm.` });
@@ -516,7 +518,7 @@ const capacity = {
         if (V % 1000 || V > 60000) continue;
         ans = V / 1000; unit = 'L';
         diagram = { type: 'cuboid', l, w, h, labels: { l: `${l} cm`, w: `${w} cm`, h: `${h} cm` } };
-        prompt = `The inside of a ${rng.pick(['fish tank', 'water tank', 'storage box', 'cooler box'])} is a cuboid ${l} cm long, ${w} cm wide and ${h} cm high. What is its capacity in litres?`;
+        prompt = `The inside of a ${rng.pick(['fish tank', 'water tank', 'storage box', 'cooler box'])} is a cuboid ${l} cm long, ${w} cm wide and ${h} cm high, as shown. What is its capacity in litres?`;
         solution = `Capacity = ${l} x ${w} x ${h} = ${fmtInt(V)} cm^3 = ${fmtInt(V)} ml. 1000 ml = 1 litre, so ${fmtInt(V)} ÷ 1000 = ${ans} litres. Answer: ${ans} L`;
         ds.push({ v: V, code: 'UNIT-NOT-CONVERTED', why: `${fmtInt(V)} is the capacity in cm^3 (or ml). Change it to litres: divide by 1000.` });
         ds.push({ v: V / 100, code: 'UNIT-FACTOR-WRONG', why: `It looks like you divided by 100. 1000 ml = 1 litre.` });
@@ -529,7 +531,7 @@ const capacity = {
         const depth = (h * fr[0]) / fr[1];
         ans = l * w * depth; unit = 'ml';
         diagram = { type: 'cuboid', l, w, h, labels: { l: `${l} cm`, w: `${w} cm`, h: `${h} cm` } };
-        prompt = `A container is a cuboid with inside measurements ${l} cm long, ${w} cm wide and ${h} cm high. It is filled with water to ${fr[0]}/${fr[1]} of its height. How many millilitres of water are in it?`;
+        prompt = `A container is a cuboid with inside measurements ${l} cm long, ${w} cm wide and ${h} cm high, as shown. It is filled with water to ${fr[0]}/${fr[1]} of its height. How many millilitres of water are in it?`;
         solution = `${fr[0]}/${fr[1]} of ${h} cm = ${depth} cm. Volume of water = ${l} x ${w} x ${depth} = ${fmtInt(ans)} cm^3. 1 cm^3 = 1 ml, so there are ${fmtInt(ans)} ml. Answer: ${fmtInt(ans)} ml`;
         ds.push({ v: l * w * h, code: 'CAP-FULL-NOT-PART', why: `${fmtInt(l * w * h)} ml is the capacity when it is full. It is filled to only ${fr[0]}/${fr[1]} of its height.` });
         ds.push({ v: l * w * h - ans, code: 'PCT-OF-WRONG-WHOLE', why: `${fmtInt(l * w * h - ans)} ml is the empty space above the water.` });
@@ -542,7 +544,7 @@ const capacity = {
         if (ans <= 0) continue;
         const p = person(rng);
         diagram = { type: 'cuboid', l: e, w: e, h: e, labels: { l: `${e} cm`, w: `${e} cm`, h: `${e} cm` }, caption: 'Inside measurements' };
-        prompt = `A box shaped like a cube has inside edges of ${e} cm. It is half full of water. ${p.name} pours in another ${fmtInt(add)} ml. How much more water is needed to fill the box to the top?`;
+        prompt = `A box shaped like a cube has inside edges of ${e} cm, as shown. It is half full of water. ${p.name} pours in another ${fmtInt(add)} ml. How much more water is needed to fill the box to the top?`;
         solution = `Capacity = ${e} x ${e} x ${e} = ${fmtInt(cap)} cm^3 = ${fmtInt(cap)} ml. Half full = ${fmtInt(cap / 2)} ml. After pouring: ${fmtInt(cap / 2)} + ${fmtInt(add)} = ${fmtInt(cap / 2 + add)} ml. Still needed: ${fmtInt(cap)} - ${fmtInt(cap / 2 + add)} = ${fmtInt(ans)} ml. Answer: ${fmtInt(ans)} ml`;
         ds.push({ v: cap / 2 + add, code: 'PCT-OF-WRONG-WHOLE', why: `${fmtInt(cap / 2 + add)} ml is how much water is IN the box now. The question asks how much more will fill it.` });
         ds.push({ v: cap - add, code: 'CAP-STEP-MISSED', why: `It looks like you forgot that the box was already half full. Take away the half (${fmtInt(cap / 2)} ml) as well.` });

@@ -73,12 +73,12 @@ function sumDiff(q) { const m = q.prompt.match(/([a-z]) \+ ([a-z]) = (\d+), and 
 // ---------------------------------------------------------------- solvers
 
 export const SOLVERS = {
-  'm07.next-term': (q) => {
+  'm02.next-term': (q) => {
     if (/The 1st term is/.test(q.prompt)) { const p = farApart(q); return { value: v(qadd(p.a, qdiv(qsub(p.b, p.a), Q(3)))) }; }
     if (/first term that is less than/.test(q.prompt)) return { value: below(q).ans };
     return { value: v(seq(q).ans) };
   },
-  'm07.term-to-term': (q) => {
+  'm02.term-to-term': (q) => {
     let m;
     if ((m = q.prompt.match(/term-to-term rule '(add|subtract) (\d+)'/))) {
       const s = (m[1] === 'add' ? 1 : -1) * N(m[2]);
@@ -131,7 +131,7 @@ export const SOLVERS = {
 // ---------------------------------------------------------------- misconception rules
 
 export const MIS = {
-  'm07.next-term': {
+  'm02.next-term': {
     'OP-SWAP': (q) => { const p = seq(q); return [v(qsub(p.prev, p.step))]; },
     'SEQ-STEP-ONE': (q) => { const p = seq(q); return [v(p.prev) + sgn(p.step), v(p.prev) + 1]; },
     'NEG-SIGN-DROP': (q) => [-v(seq(q).ans)],
@@ -146,10 +146,11 @@ export const MIS = {
       if (/The 1st term is/.test(q.prompt)) { const p = farApart(q); return [v(qadd(p.a, qdiv(qsub(p.b, p.a), Q(4))))]; }
       const b = below(q); return [b.ans + b.k, b.ans - b.k];
     },
-    'WRONG-QUANTITY': (q) => { const p = farApart(q); const s = qdiv(qsub(p.b, p.a), Q(3)); return [v(s), v(qadd(p.a, qmul(s, Q(2))))]; },
+    'WRONG-QUANTITY': (q) => { const p = farApart(q); const s = qdiv(qsub(p.b, p.a), Q(3)); return [v(qadd(p.a, qmul(s, Q(2))))]; },
+    'ONE-STEP-ONLY': (q) => { const p = farApart(q); return [v(qdiv(qsub(p.b, p.a), Q(3)))]; },
     'NEG-ORDER': (q) => { const b = below(q); return [-(b.ans + b.k)]; },
   },
-  'm07.term-to-term': {
+  'm02.term-to-term': {
     'OP-SWAP': (q) => {
       let m;
       if ((m = q.prompt.match(/term-to-term rule '(add|subtract) (\d+)'/))) { const s = (m[1] === 'add' ? -1 : 1) * N(m[2]); return q.options.filter((o) => { const x = listNums(o.replace(', ...', '')); return x.slice(1).every((y, i) => y - x[i] === s); }); }

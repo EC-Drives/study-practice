@@ -110,7 +110,7 @@ function orInfo(q) {
   let m;
   if ((m = q.prompt.match(/numbered 1 to (\d+)/))) {
     const N = Number(m[1]);
-    const e = q.prompt.match(/(?:lands on|you pick) ([^.?]+?) or ([^.?]+?)\? Give/);
+    const e = q.prompt.match(/(?:lands on|you pick) ([^.?]+?) or ([^.?]+?)\?/);
     const k1 = eventSet(e[1], N).length; const k2 = eventSet(e[2], N).length;
     return { a: Q(k1, N), b: Q(k2, N), tb: Q(k1 + k2, 2 * N) };
   }

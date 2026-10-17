@@ -62,7 +62,8 @@ const show = (tokens) => tokens.join(' ').replace(/\( /g, '(').replace(/ \)/g, '
 // ---------------------------------------------------------------- g01, g02 order of operations
 
 const orderOps = {
-  id: 'm06.order-of-operations', topicId: T, subtopicId: 'm06-s1', skill: SKILL.order,
+  id: 'm02.order-of-operations', topicId: 'm02-number-system', subtopicId: 'm02-s6', // moved from m06.order-of-operations (m06-s1), book map 17 Oct 2026
+  skill: SKILL.order,
   title: 'Order of operations (D1 one × or ÷ with + or -; D2 brackets and four numbers; D3 ÷ and × in a row, or where the brackets go)',
   difficulties: [1, 2, 3],
   check: { min: 0 },
@@ -132,7 +133,8 @@ function whereBrackets(rng) {
 // ---------------------------------------------------------------- g03 laws of arithmetic (distributive)
 
 const laws = {
-  id: 'm06.laws', topicId: T, subtopicId: 'm06-s1', skill: SKILL.laws,
+  id: 'm02.laws', topicId: 'm02-number-system', subtopicId: 'm02-s6', // moved from m06.laws (m06-s1), book map 17 Oct 2026
+  skill: SKILL.laws,
   title: 'The distributive law (D2 which calculation gives the same answer; D3 use it to work out a product in your head)',
   difficulties: [2, 3],
   check: { min: 0 },

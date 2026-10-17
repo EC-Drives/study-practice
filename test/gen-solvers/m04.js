@@ -153,7 +153,8 @@ export const MIS = {
     'SA-MISSED-PAIR': (q) => { const s = saInfo(q); return [2 * (s.l * s.w + s.l * s.h), 2 * (s.l * s.w + s.w * s.h), 2 * (s.l * s.h + s.w * s.h)]; },
     'SA-OPEN-AS-CLOSED': (q) => [saInfo(q).full],
     'SA-OPEN-WRONG-FACE': (q) => { const s = saInfo(q); return [s.full - 2 * s.l * s.w]; },
-    'SA-EDGE-NO-ROOT': (q) => { const s = saInfo(q); return [s.A / 6, s.A / 12]; },
+    'SA-EDGE-NO-ROOT': (q) => { const s = saInfo(q); return [s.A / 6]; },
+    'SQ-SIDE-HALF': (q) => { const s = saInfo(q); return [s.A / 12]; },
   },
   'm04.volume': {
     'VOL-ADD-SIDES': (q) => { const v = volInfo(q); return [v.l + v.w + v.h]; },

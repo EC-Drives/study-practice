@@ -189,7 +189,7 @@ function tileInfo(q) {
 }
 
 export const SOLVERS = {
-  'm15.decimal-hours': (q) => { const r = dh(q); return r.text != null ? { text: r.text } : { value: r.value }; },
+  'm09.decimal-hours': (q) => { const r = dh(q); return r.text != null ? { text: r.text } : { value: r.value }; },
   'm15.clock-24h': (q) => { const c = clockT(q); return { text: c.out === 'to24' ? clock24(c.t) : clock12(c.t) }; },
   'm15.duration': (q) => { const d = durInfo(q); return d.mins ? { value: d.dur } : { text: hmText(d.dur) }; },
   'm15.end-time': (q) => ({ text: clock24(endInfo(q).e) }),
@@ -203,7 +203,7 @@ export const SOLVERS = {
 const clockWrong = (q) => { const { t } = clockT(q); const h = Math.floor(t / 60); const mm = two(t % 60); return [clock24(t - 720), clock24(t - 120), clock24(t + 120), `24:${mm}`, `${((h - 2) % 12 || 12)}:${mm} pm`, `${h - 10}:${mm} pm`, `0:${mm} am`, `0:${mm} pm`]; };
 
 export const MIS = {
-  'm15.decimal-hours': {
+  'm09.decimal-hours': {
     // one code since the CLO's merge of TIME-DEC-X100 (17 Oct): an hour taken as 100 minutes, either way
     'TIME-DECIMAL-AS-MINUTES': (q) => {
       const r = dh(q);
@@ -219,7 +219,14 @@ export const MIS = {
       else if (r.x != null) out.push(Math.round(Number(r.x) * 100));
       return out;
     },
-    'TIME-DEC-X10': (q) => { const r = dh(q); return r.kind === 'min2dec' ? [r.n / 10] : [Math.round(Number(r.x) * 10)]; },
+    'TIME-DEC-X10': (q) => {
+      const r = dh(q);
+      if (r.kind === 'min2dec') return [r.n / 10];
+      // the whole decimal times 10, or one decimal digit read as minutes (0.5 h = 5 min)
+      const out = [Math.round(Number(r.x) * 10)];
+      if (r.f && r.f.length === 1) out.push(r.kind === 'dec2hm' ? hmText(r.w * 60 + Number(r.f)) : r.w * 60 + Number(r.f));
+      return out;
+    },
     'TIME-MINUTES-OVERFLOW': (q) => { const r = dh(q); const raw = r.xm + (r.rest % 60); return [`${Math.floor(r.rest / 60)} h ${raw} min`]; },
     'TIME-NO-CARRY': (q) => { const r = dh(q); return [hmText(r.xm + r.rest - 60)]; },
     'TIME-MIXED-FORMS': (q) => { const r = dh(q); return [hmText(Number(r.after) + r.rest)]; },
@@ -227,7 +234,7 @@ export const MIS = {
   },
   'm15.clock-24h': {
     'TIME-24H-PLUS-12-WRONG': clockWrong,
-    'TIME-AM-PM-SWAP': (q) => { const { t } = clockT(q); return [clock12(t + 720), clock24(t + 720)]; },
+    'TIME-AM-PM-SWAP': (q) => { const { t } = clockT(q); return [clock12(t + 720), clock24(t + 720), clock24(t - 720)]; },
     'TIME-NOON-MIDNIGHT': (q) => { const { t } = clockT(q); return [clock24(t + 720), clock24(t - 720), clock12(t + 720)]; },
     'TIME-HOUR-HAND-NEXT': (q) => [clock24(clockT(q).t + 60)],
     'TIME-MINUTE-HAND-NUMBER': (q) => { const { t } = clockT(q); return [`${two(Math.floor(t / 60))}:${two((t % 60) / 5)}`]; },

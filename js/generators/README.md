@@ -8,11 +8,12 @@ Exactly the bank's question shape (`id`, `subtopicId`, `type`, `difficulty`, `ma
 
 | Key | Meaning |
 |---|---|
+| `bookSection` | The textbook section, e.g. `"6C"` (key straight after `subtopicId`). Stamped in `finish()` (core.js) by `bookSectionFor(subtopicId, skill)` from `js/bookmap.js`: by skill where a subtopic spans sections, else by subtopic (the CLO's `id-map-2026-10-17.json`). Always one of the topic's `bookSections`, so generated questions join section practice and section reports. |
 | `generatorId` | Which pattern made it, e.g. `m10.add-sub-unlike`. |
 | `seed` | The seed. `generate(q.generatorId, q.seed, q.difficulty)` rebuilds the identical question (for the mistake review and the parent report). |
 | `misconceptionCodes` | For each wrong option (mcq: keyed by option index, like `misconceptions`) or each known wrong typed answer (short/numeric: keyed by that answer), the catalogue code of the misconception that produces it, e.g. `{"1": "FR-ADD-TOPS-BOTTOMS"}`. `NEAR-MISS` marks a plain near miss with no named error. The descriptions are in `MISCONCEPTION_CODES`. |
 
-Other details: `id` is `<prefix>-g-<pattern>-d<difficulty>-<seed>` (cannot clash with the bank's `-q001` ids); `source` is `"generated"`; `skill` is always one of the bank's own skill tags for that subtopic, so reports merge generated and bank results. Numeric and short questions key `misconceptions` by the typical wrong answers as well as `common` (the marking already looks these up for numeric answers).
+Other details: `id` is `<prefix>-g-<pattern>-d<difficulty>-<seed>` (cannot clash with the bank's `-q001` ids), where the prefix is that of the generator's topic; `source` is `"generated"`; `skill` is always one of the bank's own skill tags for that subtopic, so reports merge generated and bank results. Numeric and short questions key `misconceptions` by the typical wrong answers as well as `common` (the marking already looks these up for numeric answers).
 
 ## Functions (`js/generators/index.js`)
 
@@ -29,9 +30,28 @@ A generator that keeps redrawing without finding suitable numbers stops after 20
 
 Each topic file loads on its own (`index.js` uses dynamic `import()` with a top-level `await`), so a problem in one topic file only removes that topic's generators; `LOAD_ERRORS` lists any that failed. The offline cache must include every `js/generators/*.js` file (the build's file list should pick them up like the other scripts).
 
+## Book map re-mapping (17 Oct 2026)
+
+The CLO moved seven subtopics to the chapter the textbook teaches them in (`id-map-2026-10-17.json`, `subtopicIdsChanged`). Their generators moved with them: new `topicId`, new `subtopicId`, and the new topic prefix in the generator id and so in every generated question id. The code stays in its old file (a comment marks each one); `REGISTRY` lists them under the new topic.
+
+| Old generator id | New generator id | New subtopic |
+|---|---|---|
+| `m02.factors-primes` | `m06.factors-primes` | m06-s6 |
+| `m02.hcf-lcm` | `m06.hcf-lcm` | m06-s6 |
+| `m02.divisibility` | `m06.divisibility` | m06-s7 |
+| `m02.squares-cubes` | `m07.squares-cubes` | m07-s5 |
+| `m06.order-of-operations` | `m02.order-of-operations` | m02-s6 |
+| `m06.laws` | `m02.laws` | m02-s6 |
+| `m07.next-term` | `m02.next-term` | m02-s5 |
+| `m07.term-to-term` | `m02.term-to-term` | m02-s5 |
+| `m03.rotational-symmetry` | `m14.rotational-symmetry` | m14-s5 |
+| `m15.decimal-hours` | `m09.decimal-hours` | m09-s6 |
+
+A question saved with an old generator id cannot be rebuilt by `generate()` (and `GENERATOR_VERSION` changed anyway): keep the stored question itself. Also on 17 Oct: rotational symmetry stops at order 4 (Stage 6), the m08 prompts no longer demand one form of answer (any equal form is accepted where she types), two wrong options share a misconception code only when they are the same error on different parts (each with its own text), and every prompt with a diagram refers to it.
+
 ## What is covered (17 Oct 2026)
 
-125 generators across all 15 maths topics: m01 7, m02 8, m03 10, m04 6, m05 10, m06 8, m07 7, m08 9, m09 9, m10 7, m11 9, m12 8, m13 11, m14 7, m15 9. Most offer D1, D2 and D3 as the CLO's guide defines them. Diagrams are drawn for angles, triangles, shapes, grids, charts, tables, Venn and Carroll diagrams, spinners, nets, cuboids, solids, clocks, scales, number lines, bar models and function machines. Patterns not generated (vocabulary, explaining, planning an investigation, quadrilateral properties) stay with the bank. Misconception codes a topic needed beyond the CLO's catalogue are in that topic file's `EXTRA_CODES` (and the shared ones in `misconceptions.js`); a few generic codes are declared in more than one topic with slightly different wording, and the last one loaded wins. They are proposed to the CLO for the catalogue.
+125 generators across all 15 maths topics (by topic after the book map): m01 7, m02 8, m03 9, m04 6, m05 10, m06 9, m07 6, m08 9, m09 10, m10 7, m11 9, m12 8, m13 11, m14 8, m15 8. Most offer D1, D2 and D3 as the CLO's guide defines them. Diagrams are drawn for angles, triangles, shapes, grids, charts, tables, Venn and Carroll diagrams, spinners, nets, cuboids, solids, clocks, scales, number lines, bar models and function machines. Patterns not generated (vocabulary, explaining, planning an investigation, quadrilateral properties) stay with the bank. Misconception codes a topic needed beyond the CLO's catalogue are in that topic file's `EXTRA_CODES` (and the shared ones in `misconceptions.js`); a few generic codes are declared in more than one topic with slightly different wording, and the last one loaded wins. They are proposed to the CLO for the catalogue.
 
 ## Integration hook (for the app side)
 
@@ -46,4 +66,4 @@ Wired into the app on 17 Oct 2026 through `js/hooks.js`; how it was done is in `
 
 ## Tests
 
-`test/generators.html` (with the laptop server running): every generator, every difficulty, 500 seeds each. Each answer is worked out again independently from the question text and diagram (`test/gen-solvers/`, own BigInt fractions, no shared code) and compared; every wrong option is recomputed from its misconception code; distractors must be distinct, never equal the answer, and stay in range; the app's own marking must mark the right answer right and the wrong ones wrong; the solution must state the answer; diagrams must pass the diagram checker; skill tags must be the bank's. Then every topic and every subtopic is filled to a 30-minute session without repeats. `?seeds=100`, `?only=m10` and `?show=<id>&d=2&n=5` are handy.
+`test/generators.html` (with the laptop server running): every generator, every difficulty, 500 seeds each. Each answer is worked out again independently from the question text and diagram (`test/gen-solvers/`, own BigInt fractions, no shared code) and compared; every wrong option is recomputed from its misconception code; distractors must be distinct, never equal the answer, and stay in range; the app's own marking must mark the right answer right and the wrong ones wrong; the solution must state the answer; diagrams must pass the diagram checker; skill tags must be the bank's; the bookSection must be one of the topic's and both ids must carry the topic prefix; a rotational symmetry above order 4 fails. Then every topic and every subtopic is filled to a 30-minute session without repeats. `?seeds=100`, `?only=m10` and `?show=<id>&d=2&n=5` are handy.

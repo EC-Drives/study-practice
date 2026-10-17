@@ -75,7 +75,7 @@ function sharedAnswer(a) {
 // ---------------------------------------------------------------- triangles
 
 function triAsk(q) {
-  let m = q.prompt.match(/Two angles of triangle \w+ are (\d+)° and (\d+)°/);
+  let m = q.prompt.match(/two angles of triangle \w+ are (\d+)° and (\d+)°/i);
   if (m) { const A = num(m[1]); const B = num(m[2]); return { A, B, ans: 180 - A - B }; }
   m = q.prompt.match(/has a right angle at \w\. Angle \w is (\d+)°/);
   if (m) { const A = num(m[1]); return { right: true, A, ans: 180 - 90 - A }; }
@@ -173,12 +173,18 @@ export const SOLVERS = {
     // joined: read from the drawing; cut corner: worked out from the prompt's lengths alone
     return { value: c.joined ? shoelace(q.diagram.points.map((p) => p.map(Number))) : c.W * c.H - (c.a * c.b) / 2 };
   },
-  'm03.rotational-symmetry': (q) => { const s = symmetryOrder(q); return { value: askAngle(q) ? 360 / s.k : s.k }; },
+  'm14.rotational-symmetry': (q) => {
+    const s = symmetryOrder(q);
+    // Stage 6 stops at order 4 (6Gg.08): a smallest turn is 90, 120 or 180 degrees
+    if (s.k > 4) throw new Error(`order ${s.k} is beyond Stage 6 (order 4 at most)`);
+    return { value: askAngle(q) ? 360 / s.k : s.k };
+  },
 };
 
 export const MIS = {
   'm03.radius-diameter': {
-    'CIRC-DIAM-FOR-RAD': (q) => { const a = circleAsk(q); return a.kind === 'row' ? [a.r * a.n, 2 * a.r] : a.kind === 'square' ? [a.side] : [a.given]; },
+    'CIRC-DIAM-FOR-RAD': (q) => { const a = circleAsk(q); return a.kind === 'row' ? [a.r * a.n] : a.kind === 'square' ? [a.side] : [a.given]; },
+    'ONE-STEP-ONLY': (q) => { const a = circleAsk(q); return [2 * a.r]; },
     'CIRC-HALVE-DOUBLE-SWAP': (q) => { const a = circleAsk(q); return a.kind === 'square' ? [2 * a.side, a.P / 2] : [a.fromR ? a.given / 2 : 2 * a.given]; },
     'CIRC-CENTRES-ONLY': (q) => { const a = circleAsk(q); return [2 * a.r * (a.n - 1)]; },
   },
@@ -245,7 +251,7 @@ export const MIS = {
     'AREA-ADDS-SIDES': (q) => { const c = compoundParts(q); return c.joined ? [c.w * c.h + c.h + c.t] : [c.W * c.H - c.a - c.b]; },
     'ITEM-LEFT-OUT': (q) => { const c = compoundParts(q); return [c.w * c.h]; },
   },
-  'm03.rotational-symmetry': {
+  'm14.rotational-symmetry': {
     'ROT-ORDER-ANGLE': (q) => [360 / symmetryOrder(q).k],
     'ROT-ORDER-CORNERS': (q) => { const s = symmetryOrder(q); return [s.corners, 360 / s.corners]; },
     'ROT-ORDER-ZERO': () => [0],

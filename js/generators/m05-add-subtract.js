@@ -779,7 +779,7 @@ const barModel = {
       const money = thing === 'RM';
       const amt = (v) => (money ? `RM ${v}` : `${v} ${thing}`);
       const askBig = rng.chance(0.3);
-      const prompt = `${A} and ${B} ${money ? 'have saved' : thing === 'books' ? 'have read' : 'have'} ${amt(total)} altogether. ${A} ${verb} ${amt(diff)} more than ${B}. How ${money ? 'much' : 'many'} ${money ? 'money has' : thing === 'books' ? 'books has' : `${thing} does`} ${askBig ? A : B} ${money ? 'saved' : thing === 'books' ? 'read' : 'have'}?`;
+      const prompt = `${A} and ${B} ${money ? 'have saved' : thing === 'books' ? 'have read' : 'have'} ${amt(total)} altogether. ${A} ${verb} ${amt(diff)} more than ${B}. The bar model shows this. How ${money ? 'much' : 'many'} ${money ? 'money has' : thing === 'books' ? 'books has' : `${thing} does`} ${askBig ? A : B} ${money ? 'saved' : thing === 'books' ? 'read' : 'have'}?`;
       const ans = askBig ? big : small;
       const scale = 8 / Math.max(small, 1);
       const diagram = { type: 'barModel', bars: [{ label: A, parts: [{ size: 8, text: '?' }, { size: Math.min(12, Math.max(0.6, Math.round(diff * scale * 10) / 10)), text: money ? `RM ${diff}` : String(diff) }] }, { label: B, parts: [{ size: 8, text: '?' }] }], totalBrace: { label: amt(total) } };

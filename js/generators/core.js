@@ -5,6 +5,8 @@
 // Every generated question has the same keys as a bank question (docs: CLO Content README) plus
 // `generatorId` and `seed`, so generate(generatorId, seed, difficulty) reproduces it exactly.
 
+import { bookSectionFor } from '../bookmap.js';
+
 // ---------------------------------------------------------------- randomness
 
 export const MAX_DRAWS = 200000;
@@ -214,12 +216,16 @@ export function numericAnswer(value, accept = []) {
 
 /**
  * Assemble the final question in bank format. `meta` comes from the registry (generatorId,
- * topic prefix, subtopic, skill); `body` from the generator.
+ * topic prefix, subtopic, skill); `body` from the generator. `bookSection` comes from the book map
+ * (js/bookmap.js): by skill where a subtopic spans sections, else by subtopic.
  */
 export function finish(meta, seed, difficulty, body) {
+  const skill = body.skill || meta.skill;
   const q = {
     id: `${meta.prefix}-g-${meta.id.split('.').pop()}-d${difficulty}-${seed}`,
     subtopicId: meta.subtopicId,
+    // the textbook section (CLO book map, 17 Oct 2026), so generated questions join section practice
+    bookSection: bookSectionFor(meta.subtopicId, skill),
     type: body.type,
     difficulty,
     marks: body.marks || (difficulty === 3 ? 2 : 1),
@@ -230,7 +236,7 @@ export function finish(meta, seed, difficulty, body) {
   q.answer = body.answer;
   q.solution = body.solution;
   q.misconceptions = body.misconceptions;
-  q.skill = body.skill || meta.skill;
+  q.skill = skill;
   q.source = 'generated';
   if (body.codes) q.misconceptionCodes = body.codes;
   if (body.diagram) q.diagram = body.diagram;

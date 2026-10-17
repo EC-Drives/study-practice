@@ -175,11 +175,13 @@ function missingCount(rng) {
   }
 }
 
-// ---------------------------------------------------------------- g02 as a decimal or a percentage
+// ---------------------------------------------------------------- g02 a probability among decimals or percentages
+// The prompt never demands one form (CLO ruling m08-8, 17 Oct 2026): the options are decimals (or
+// percentages), and a typed answer is right in any equal form (3/5, 0.6 or 60%).
 
 const fdpForms = {
   id: 'm08.fdp-forms', topicId: T, subtopicId: 'm08-s2', skill: SK.fdp,
-  title: 'Write a probability as a decimal (D1) or a decimal or percentage (D2)',
+  title: 'A probability with decimal options (D1), or decimal or percentage options (D2)',
   difficulties: [1, 2],
   check: { min: 0, maxDp: 3 },
   make(rng, d) {
@@ -191,7 +193,7 @@ const fdpForms = {
       const pct = d === 2 && rng.chance(0.5);
       const show = pct ? pTxt : dTxt;
       const ans = show(f);
-      const prompt = `${s.intro} What is the probability ${s.ask}? Give your answer as ${pct ? 'a percentage' : 'a decimal'}.`;
+      const prompt = `${s.intro} What is the probability ${s.ask}?`;
       const scale = 100 / s.T;
       const solution = `${s.k} out of ${s.T} outcomes are favourable, so the probability is ${s.k}/${s.T}.${Number.isInteger(scale) && s.T !== 100 ? ` Multiply top and bottom by ${scale}: ${s.k}/${s.T} = ${s.k * scale}/100` : ''} = ${ans}. Answer: ${ans}`;
       const ds = [];
@@ -206,7 +208,7 @@ const fdpForms = {
       try {
         if (!pct && rng.chance(0.4)) {
           const t = typedMisconceptions(ans, ds, { code: 'FDP-DIGITS', why: `Write ${s.k}/${s.T} as an equivalent fraction in tenths or hundredths, then as a decimal.` });
-          return { type: 'numeric', prompt, answer: numericAnswer(f.value, [ans]), solution, ...t, diagram: s.diagram };
+          return { type: 'numeric', prompt, answer: numericAnswer(f.value, [ans, f.toString(), pTxt(f)]), solution, ...t, diagram: s.diagram };
         }
         const step = s.T >= 20 ? s.T : 10;
         const c2 = choices(rng, ans, ds, (k) => { const w = nearFrac(f, step, k); return w && okDp(w, 3) ? nearMiss(show(w), 'Change the fraction to hundredths first.') : null; });
@@ -292,7 +294,7 @@ function threeOutcomes(rng) {
   let prompt; let ans; let solution; const ds = [];
   if (!counts) {
     ans = dTxt(g);
-    prompt = `${intro} What is the probability of picking ${cols[2]}? Give your answer as a decimal.`;
+    prompt = `${intro} What is the probability of picking ${cols[2]}?`;
     solution = `The three probabilities add up to 1. ${showA(a)} + ${dTxt(b)} = ${dTxt(a.add(b))}. 1 - ${dTxt(a.add(b))} = ${ans}. Answer: ${ans}`;
     ds.push({ text: dTxt(F(1).sub(a)), code: 'PROB-COMPLEMENT-ONE-ONLY', why: `It looks like you took only the ${cols[0]} probability away from 1. Take away the ${cols[1]} one as well.` });
     ds.push({ text: dTxt(F(1).sub(b)), code: 'PROB-COMPLEMENT-ONE-ONLY', why: `It looks like you took only the ${cols[1]} probability away from 1. Take away the ${cols[0]} one as well.` });
@@ -516,7 +518,7 @@ const orProb = {
         if (ansF.cmp(1) >= 0) continue;
         const intro = spin ? `The spinner has ${N} equal sections numbered 1 to ${N}.` : `Cards numbered 1 to ${N} are shuffled and you pick one.`;
         if (spin) diagram = { type: 'spinner', sectors: range(1, N).map(String), alt: `A spinner with ${N} equal sections numbered 1 to ${N}.` };
-        prompt = `${intro} What is the probability that ${spin ? 'it lands on' : 'you pick'} ${e1.np} or ${e2.np}? Give your answer in its simplest form.`;
+        prompt = `${intro} What is the probability that ${spin ? 'it lands on' : 'you pick'} ${e1.np} or ${e2.np}?`;
         solution = `${capital(e1.np)}: ${andList(e1.set)}, so ${e1.set.length}/${N}. ${capital(e2.np)}: ${andList(e2.set)}, so ${e2.set.length}/${N}. They cannot both happen, so add: ${e1.set.length}/${N} + ${e2.set.length}/${N} = ${e1.set.length + e2.set.length}/${N}${ansF.d !== N ? ` = ${ansF}` : ''}. Answer: ${ansF}`;
       } else {
         const cols = rng.sample(COLS.slice(0, 6), 4);
@@ -524,7 +526,7 @@ const orProb = {
         if (asDec) { a = F(rng.int(1, 9) * 5, 100); b = F(rng.int(1, 9) * 5, 100); show = dTxt; } else { a = F(1, rng.pick([3, 4, 5, 6, 8])); b = F(rng.int(1, 3), rng.pick([4, 5, 6, 8, 10, 12])); if (b.n >= b.d) continue; }
         ansF = a.add(b);
         if (ansF.cmp(1) >= 0 || a.eq(b) || ansF.cmp(F(9, 10)) > 0) continue;
-        prompt = `A bag has ${cols[0]}, ${cols[1]}, ${cols[2]} and ${cols[3]} counters. The probability of picking ${cols[0]} is ${show(a)} and the probability of picking ${cols[1]} is ${show(b)}. You pick one counter. What is the probability that it is ${cols[0]} or ${cols[1]}?${asDec ? ' Give your answer as a decimal.' : ' Give your answer in its simplest form.'}`;
+        prompt = `A bag has ${cols[0]}, ${cols[1]}, ${cols[2]} and ${cols[3]} counters. The probability of picking ${cols[0]} is ${show(a)} and the probability of picking ${cols[1]} is ${show(b)}. You pick one counter. What is the probability that it is ${cols[0]} or ${cols[1]}?`;
         const L = a.d * b.d / gcd2(a.d, b.d);
         solution = `A counter cannot be ${cols[0]} and ${cols[1]} at the same time, so the events are mutually exclusive: add the probabilities. ${asDec ? `${show(a)} + ${show(b)} = ${show(ansF)}` : `With denominator ${L}: ${a.n * (L / a.d)}/${L} + ${b.n * (L / b.d)}/${L} = ${a.n * (L / a.d) + b.n * (L / b.d)}/${L}${ansF.d !== L ? ` = ${ansF}` : ''}`}. Answer: ${show(ansF)}`;
       }
@@ -617,7 +619,7 @@ const RF_CTX = [
 ];
 const relative = {
   id: 'm08.relative-frequency', topicId: T, subtopicId: 'm08-s4', skill: SK.relative,
-  title: 'Relative frequency as a fraction (D1) or decimal (D2); estimate the contents of a bag from results (D3)',
+  title: 'Relative frequency with fraction options (D1) or decimal options (D2, typed in any form); estimate the contents of a bag from results (D3)',
   difficulties: [1, 2, 3],
   check: { min: 0, maxDp: 3 },
   make(rng, d) {
@@ -632,7 +634,7 @@ const relative = {
         if (d === 1 && f.d === n && rng.chance(0.6)) continue;
         if (d === 2 && !okDp(f, 3)) continue;
         const show = d === 1 ? (x) => x.toString() : dTxt;
-        const prompt = `${c.a(p, n)} ${c.b(k, col)} What is the relative frequency of ${c.of(col)}? ${d === 1 ? 'Give your answer as a fraction in its simplest form.' : 'Give your answer as a decimal.'}`;
+        const prompt = `${c.a(p, n)} ${c.b(k, col)} What is the relative frequency of ${c.of(col)}?`;
         const solution = `Relative frequency = number of times it happened ÷ number of trials = ${k}/${n}${f.d !== n ? ` = ${f}` : ''}${d === 2 ? ` = ${dTxt(f)}` : ''}. Answer: ${show(f)}`;
         const ds = [];
         const pp = F(k, n - k);
@@ -643,7 +645,7 @@ const relative = {
         if (d === 1) ds.push({ text: String(k), code: 'PROB-COUNT-NOT-FRACTION', why: `${k} is the number of times. The relative frequency is a fraction of all ${n} ${c.u}.` });
         if (d === 2 && k < 1000) { const t = `0.${String(k).padStart(String(n).length - 1, '0')}`; if (!/0$/.test(t) && Math.abs(Number(t) - f.value) > 1e-9) ds.push({ text: t, code: 'FDP-DIGITS', why: `It looks like you put ${k} after a decimal point. Work out ${k} ÷ ${n}: write ${k}/${n} in hundredths or thousandths first.` }); }
         try {
-          if (d === 2 && rng.chance(0.4)) return { type: 'numeric', prompt, answer: numericAnswer(f.value, [dTxt(f)]), ...typedMisconceptions(dTxt(f), ds, { code: 'PROB-PART-PART', why: 'Relative frequency = number of times it happened ÷ total number of trials.' }), solution };
+          if (d === 2 && rng.chance(0.4)) return { type: 'numeric', prompt, answer: numericAnswer(f.value, [dTxt(f), f.toString(), pTxt(f)]), ...typedMisconceptions(dTxt(f), ds, { code: 'PROB-PART-PART', why: 'Relative frequency = number of times it happened ÷ total number of trials.' }), solution };
           const den = d === 1 ? f.d : 20;
           return { type: 'mcq', prompt, ...choices(rng, show(f), ds, (j) => { const w = nearFrac(f, den, j); return w && okDp(w, 3) || (w && d === 1) ? nearMiss(show(w), 'Divide the number of times it happened by the total number of trials.') : null; }), solution };
         } catch { continue; }

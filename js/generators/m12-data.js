@@ -523,7 +523,7 @@ function dualBar(rng) {
     const solution = `${lineWord}. For ${cats[i]}: ${ctx.s[si]} ${mine} and ${ctx.s[1 - si]} ${other}, so ${tot} altogether. Fraction = ${mine}/${tot} = ${f}. Answer: ${f}`;
     const ds = [
       { text: `${mine}/${other}`, code: 'RATIO-PART-AS-WHOLE', why: `${mine}/${other} compares ${ctx.s[si]} with ${ctx.s[1 - si]}. A fraction of all of them needs the total ${mine} + ${other} = ${tot} on the bottom.` },
-      { text: F(other, tot).toString(), code: 'PCT-OF-WRONG-WHOLE', why: `${F(other, tot)} is the fraction for ${ctx.s[1 - si]}. The question asks about ${ctx.s[si]}.` },
+      { text: F(other, tot).toString(), code: 'DATA-WRONG-ITEM', why: `${F(other, tot)} is the fraction for ${ctx.s[1 - si]}. The question asks about ${ctx.s[si]}.` },
     ];
     const allMine = sum(si === 0 ? a : b);
     if (F(mine, allMine).d > 1) ds.push({ text: F(mine, allMine).toString(), code: 'PCT-OF-WRONG-WHOLE', why: `${F(mine, allMine)} is ${mine} out of ALL the ${ctx.s[si]} (${allMine}). The question asks about ${cats[i]} only: ${mine} out of ${tot}.` });

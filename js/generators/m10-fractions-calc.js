@@ -165,7 +165,7 @@ const mixedAddSub = {
       const distractors = [];
       if (op === '-' && exchange) {
         distractors.push({ text: F(wa - wb).add(fb.sub(fa)).mixed(), code: 'FR-MIXED-WHOLE-ONLY', why: `It looks like you took the smaller fraction from the larger one (${fb} - ${fa}). When the first fraction is smaller, exchange 1 whole for fraction pieces first.` });
-        distractors.push({ text: r.add(1).mixed(), code: 'FR-MIXED-WHOLE-ONLY', why: `It looks like you exchanged 1 whole for fraction pieces but still worked out ${wa} - ${wb}. After the exchange, ${wa} becomes ${wa - 1}.` });
+        distractors.push({ text: r.add(1).mixed(), code: 'COL-EXCHANGE-NOT-REDUCED', why: `It looks like you exchanged 1 whole for fraction pieces but still worked out ${wa} - ${wb}. After the exchange, ${wa} becomes ${wa - 1}.` });
       }
       if (op === '+' && exchange) distractors.push({ text: F(wa + wb).add(fs.sub(1)).mixed(), code: 'FR-MIXED-NO-CARRY', why: `The fractions add up to ${fs.mixed()}, which is more than 1. It looks like you kept only the ${fs.sub(1)} and did not carry the 1 whole.` });
       if (op === '+') distractors.push({ text: `${wa + wb} ${fa.n + fb.n}/${fa.d + fb.d}`, code: 'FR-ADD-TOPS-BOTTOMS', why: `It looks like you added the top numbers and the bottom numbers of the fractions. Write them ${inDen(L)} first, then add only the numerators.` });
@@ -196,7 +196,7 @@ function mixedThree(rng) {
       const solution = `Exchange 1 whole: ${w} = ${w - 1} and ${fb.d}/${fb.d}. Then ${w - 1} - ${wb} = ${w - 1 - wb}, and ${fb.d}/${fb.d} - ${fb} = ${F(1).sub(fb)}. So ${w} - ${b.mixed()} = ${r.mixed()}. Answer: ${r.mixed()}`;
       const distractors = [
         { text: F(w - wb).add(fb).mixed(), code: 'FR-MIXED-WHOLE-ONLY', why: `It looks like you worked out ${w} - ${wb} = ${w - wb} and kept the ${fb}. Taking away ${fb} as well leaves less than ${w - wb}: exchange 1 whole first.` },
-        { text: F(w - wb).add(F(1).sub(fb)).mixed(), code: 'FR-MIXED-WHOLE-ONLY', why: `You found 1 - ${fb} = ${F(1).sub(fb)}, but the whole you exchanged has gone: ${w} becomes ${w - 1}.` },
+        { text: F(w - wb).add(F(1).sub(fb)).mixed(), code: 'COL-EXCHANGE-NOT-REDUCED', why: `You found 1 - ${fb} = ${F(1).sub(fb)}, but the whole you exchanged has gone: ${w} becomes ${w - 1}.` },
         { text: F(w + wb).add(fb).mixed(), code: 'OP-SWAP', why: 'It looks like you added instead of subtracting.' },
       ];
       try {
@@ -236,7 +236,7 @@ function mixedThree(rng) {
     const distractors = [
       op2 === '-' ? { text: a.add(b).add(c).mixed(), code: 'OP-SWAP', why: `It looks like you added ${c.mixed()} instead of subtracting it. Check each sign.` } : null,
       carried >= 1 ? { text: F(wholes).add(fracPart.sub(carried)).mixed(), code: 'FR-MIXED-NO-CARRY', why: `The fraction parts make ${fracPart.mixed()}, which is more than ${carried === 1 ? '1 whole' : `${carried} wholes`}. It looks like ${carried === 1 ? 'that whole was' : 'those wholes were'} not carried into the whole numbers.` } : null,
-      fracPart.n < 0 ? { text: F(wholes).add(fracPart.add(1)).mixed(), code: 'FR-MIXED-WHOLE-ONLY', why: 'The fraction parts need an exchange. It looks like you exchanged 1 whole for fraction pieces but did not take it from the whole numbers.' } : null,
+      fracPart.n < 0 ? { text: F(wholes).add(fracPart.add(1)).mixed(), code: 'COL-EXCHANGE-NOT-REDUCED', why: 'The fraction parts need an exchange. It looks like you exchanged 1 whole for fraction pieces but did not take it from the whole numbers.' } : null,
       { text: step1.mixed(), code: 'ONE-STEP-ONLY', why: `${step1.mixed()} is ${a.mixed()} + ${b.mixed()}, the first step. Now ${op2 === '-' ? 'take away' : 'add'} ${c.mixed()}.` },
       keepN != null && keepN > 0 && keepN < L ? { text: F(wholes).add(F(keepN, L)).mixed(), code: 'FR-ADD-TOPS-KEEP-BOTTOM', why: `It looks like you ${op2 === '-' ? 'combined' : 'added'} the numerators ${fa.n}, ${fb.n} and ${fc.n} and kept the denominator ${L}, without changing the fractions into ${denWord(L)} first.` } : null,
     ].filter(Boolean);
@@ -331,8 +331,8 @@ const timesWhole = {
         const solution = `Write ${simplest(r)} with denominator ${den}: ${simplest(r)} = ${w * a}/${den}. Multiplying by ${w} multiplies the numerator by ${w}, so the missing numerator is ${w * a} ÷ ${w} = ${a}. Check: ${w} x ${a}/${den} = ${w * a}/${den} = ${simplest(r)}. Answer: ${a}`;
         const distractors = [
           { text: String(w * a), code: 'FR-MISSING-NO-DIVIDE', why: `${w * a}/${den} is the result of the multiplication. The missing numerator is the number you multiply by ${w} to get ${w * a}.` },
-          r.n % w === 0 ? { text: String(r.n / w), code: 'FR-MISSING-WRONG-DEN', why: `It looks like you divided the numerator of ${r} by ${w}. Write the answer in ${denWord(den)} first: ${w * a}/${den}.` } : { text: String(r.n), code: 'FR-MISSING-WRONG-DEN', why: `${r.n} is the numerator of ${r}, the answer in its simplest form. Write the answer in ${denWord(den)} first (${w * a}/${den}), then divide by ${w}.` },
-          { text: String(r.n), code: 'FR-MISSING-WRONG-DEN', why: `${r.n} is the numerator of ${r}, the answer in its simplest form. Write the answer in ${denWord(den)} first (${w * a}/${den}), then divide by ${w}.` },
+          r.n % w === 0 ? { text: String(r.n / w), code: 'FR-MISSING-WRONG-DEN', why: `It looks like you divided the numerator of ${r} by ${w}. Write the answer in ${denWord(den)} first: ${w * a}/${den}.` } : null,
+          { text: String(r.n), code: 'WRONG-QUANTITY', why: `${r.n} is the numerator of ${r}, the answer in its simplest form. Write the answer in ${denWord(den)} first (${w * a}/${den}), then divide by ${w}.` },
         ];
         try { return { type: 'mcq', prompt, ...choices(rng, String(a), distractors, (i) => { const x = a + (i % 2 ? 1 : -1) * Math.ceil(i / 2); return x > 0 && x < den ? fresh(prompt, nearMiss(String(x), `Check: ${w} x ${x}/${den} = ${simplest(F(w * x, den))}, not ${simplest(r)}.`)) : null; }), solution, marks: 2 }; } catch { /* draw again */ }
       }
