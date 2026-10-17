@@ -49,7 +49,7 @@ export function valueIn(text) {
   let pct = false;
   if (/%$/.test(t)) { pct = true; t = t.slice(0, -1).trim(); }
   // a unit straight after the number ("7 am" is a time, not 7 metres)
-  t = t.replace(/(?<=\d)\s*(mm|cm|km|m|g|kg|ml|L|l|°C|°|h|min|s|cm\^2|cm\^3|m\^2|m\^3|cm²|cm³|m²|m³|litres?|days?|years?)$/i, '');
+  t = t.replace(/(?<=\d)\s*(mm\^2|mm²|km\^2|km²|cm\^2|cm\^3|m\^2|m\^3|cm²|cm³|m²|m³|mm|cm|km|m|g|kg|ml|L|l|°C|°|h|min|s|litres?|days?|years?)$/i, '');
   // any other word after the number ("21 stickers", "3 pupils")
   t = t.replace(/^(-?[\d .\/]*\d)\s+[A-Za-z][A-Za-z -]*$/, '$1');
   const q = parseQ(t);
