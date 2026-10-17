@@ -508,9 +508,9 @@ Schematic and accurate (front view, so the heart's left side is on the right of 
 
 | Field | Type | Notes |
 |---|---|---|
-| **`organ`** | `"heart"`, `"lungs"`, `"circulation"` | `circulation`: heart, lungs and body with the two loops (blood rich in oxygen red, poor in oxygen blue). |
+| **`organ`** | `"heart"`, `"lungs"`, `"circulation"`, `"femaleReproductive"`, `"maleReproductive"` | `circulation`: heart, lungs and body with the two loops (blood rich in oxygen red, poor in oxygen blue). The reproductive systems are simple front views. |
 | `labels` | `"names"`, `"letters"`, `"none"` | Default `"names"`. `"letters"` puts A, B, C ... on the parts in `parts`, in that order (for "what is part B?"). |
-| `parts` | list of part ids | Which parts to label (default all). Heart: `rightAtrium`, `leftAtrium`, `rightVentricle`, `leftVentricle`, `aorta`, `pulmonaryArtery`, `pulmonaryVein`, `venaCava`, `septum`. Lungs: `trachea`, `bronchus`, `bronchioles`, `lung`, `ribs`, `diaphragm`, `alveoli`. Circulation: `heart`, `lungs`, `body`, `arteries`, `veins`. |
+| `parts` | list of part ids | Which parts to label (default all). Heart: `rightAtrium`, `leftAtrium`, `rightVentricle`, `leftVentricle`, `aorta`, `pulmonaryArtery`, `pulmonaryVein`, `venaCava`, `septum`. Lungs: `trachea`, `bronchus`, `bronchioles`, `lung`, `ribs`, `diaphragm`, `alveoli`. Circulation: `heart`, `lungs`, `body`, `arteries`, `veins`. Female: `ovary`, `oviduct`, `uterus`, `cervix`, `vagina`. Male: `bladder`, `glands`, `spermDuct`, `urethra`, `penis`, `testis`, `scrotum`. |
 | `flow` | boolean | Arrows for the direction of blood (heart, circulation) or air (lungs). |
 
 ```json
@@ -538,4 +538,4 @@ Colours come from the app's theme tokens (`--ink`, `--line`, `--accent`, `--surf
 ## 5. Change log
 
 - 17 Oct 2026: version 1 (27 types).
-- 17 Oct 2026: version 1.1. New: `forces` (force arrows), the `newtonMeter` scale, `functionMachine`, `dotPlot`, `scatterGraph`, and refraction in `light`. Documented: coordinate `segments[].label`, `axisLabels`, `fractionModel` limits (rows and cols up to 12 each, parts up to 24, wholes up to 4). Changed: food chains no longer tint the first box as a producer; coordinates with halves show as decimals (-4.5), not -9/2. Still to come (CLO's v1.1 list): reproductive organs, lab apparatus.
+- 17 Oct 2026: version 1.1. New: `forces` (force arrows), the `newtonMeter` scale, `functionMachine`, `dotPlot`, `scatterGraph`, refraction in `light`, and the female and male reproductive systems in `organ`. Documented: coordinate `segments[].label`, `axisLabels`, `fractionModel` limits (rows and cols up to 12 each, parts up to 24, wholes up to 4). Changed: food chains no longer tint the first box as a producer; coordinates with halves show as decimals (-4.5), not -9/2. Still to come (CLO's v1.1 list): lab apparatus.

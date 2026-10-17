@@ -82,6 +82,7 @@ export const DIAGRAM_CSS = `
 .dg-tube-blue { stroke: var(--dg-blue); fill: none; stroke-linecap: butt; stroke-linejoin: round; }
 .dg-white-l { stroke: #ffffff; fill: none; stroke-linecap: round; }
 .dg-white { fill: #ffffff; }
+.dg-tube-organ { stroke: var(--dg-organ2); fill: none; stroke-linecap: round; }
 .dg-err { border: 1px dashed var(--dg-muted); border-radius: 10px; padding: 12px; color: var(--dg-ink2); text-align: center; font-size: 0.9em; }
 .dg table.dg-table { border-collapse: collapse; margin: 0 auto; font-size: 0.95em; min-width: 60%; }
 .dg-table caption { font-weight: 600; padding-bottom: 6px; color: var(--dg-ink); }

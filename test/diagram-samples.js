@@ -108,6 +108,8 @@ export const SAMPLES = [
   { title: 'Heart (names, blood flow)', spec: { type: 'organ', organ: 'heart', flow: true, size: 'large' } },
   { title: 'Heart (letters)', spec: { type: 'organ', organ: 'heart', labels: 'letters', parts: ['rightAtrium', 'leftVentricle', 'aorta', 'venaCava'] } },
   { title: 'Lungs', spec: { type: 'organ', organ: 'lungs', flow: true, size: 'large' } },
+  { title: 'Female reproductive system', spec: { type: 'organ', organ: 'femaleReproductive' } },
+  { title: 'Male reproductive system (letters)', spec: { type: 'organ', organ: 'maleReproductive', labels: 'letters', parts: ['testis', 'spermDuct', 'urethra', 'penis'] } },
   { title: 'Circulation (double loop)', spec: { type: 'organ', organ: 'circulation', flow: true } },
 ];
 

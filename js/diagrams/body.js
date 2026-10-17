@@ -25,6 +25,22 @@ const PARTS = {
     bronchioles: { name: 'bronchioles', at: [262, 236], side: 'R', y: 236 },
     alveoli: { name: 'alveoli (air sacs)', at: [340, 60], side: 'R', y: 104 },
   },
+  femaleReproductive: {
+    ovary: { name: 'ovary', at: [72, 156], side: 'L', y: 190 },
+    oviduct: { name: 'oviduct', at: [100, 118], side: 'L', y: 112 },
+    uterus: { name: 'uterus', at: [180, 170], side: 'R', y: 150 },
+    cervix: { name: 'cervix', at: [180, 252], side: 'R', y: 252 },
+    vagina: { name: 'vagina', at: [180, 312], side: 'R', y: 318 },
+  },
+  maleReproductive: {
+    bladder: { name: 'bladder', at: [180, 64], side: 'R', y: 40 },
+    glands: { name: 'glands', at: [204, 126], side: 'R', y: 118 },
+    spermDuct: { name: 'sperm duct', at: [110, 160], side: 'L', y: 150 },
+    urethra: { name: 'urethra', at: [180, 200], side: 'R', y: 200 },
+    penis: { name: 'penis', at: [194, 252], side: 'R', y: 262 },
+    testis: { name: 'testis', at: [132, 300], side: 'L', y: 300 },
+    scrotum: { name: 'scrotum', at: [120, 330], side: 'L', y: 344 },
+  },
   circulation: {
     lungs: { name: 'lungs', at: [180, 40], side: 'R', y: 22 },
     heart: { name: 'heart', at: [210, 195], side: 'R', y: 150 },
@@ -111,6 +127,40 @@ function lungs(flow) {
   return out;
 }
 
+/** Female reproductive organs, front view: ovaries, oviducts, uterus, cervix, vagina. */
+function femaleReproductive() {
+  const out = [];
+  const uterus = 'M118,130Q120,112 140,112H220Q240,112 242,130Q244,190 196,238H164Q116,190 118,130Z';
+  const inner = 'M148,132H212Q214,170 186,214H174Q146,170 148,132Z';
+  out.push(el('path', { d: 'M120,128Q96,100 70,128M240,128Q264,100 290,128', class: 'dg-tube', 'stroke-width': 12 }), el('path', { d: 'M120,128Q96,100 70,128M240,128Q264,100 290,128', class: 'dg-tube-organ', 'stroke-width': 8 }));
+  for (const x of [72, 288]) {
+    out.push(el('ellipse', { cx: x, cy: 156, rx: 24, ry: 16, class: 'dg-organ2' }), el('ellipse', { cx: x, cy: 156, rx: 24, ry: 16, class: 'dg-ink', 'stroke-width': 1.8 }));
+    let f = '';
+    for (let k = -2; k <= 2; k++) f += `M${x + (x < 180 ? 0 : 0)},130l${k * 6},10`;
+    out.push(el('path', { d: f, class: 'dg-ink2', 'stroke-width': 1.4 }));
+  }
+  out.push(el('path', { d: uterus, class: 'dg-organ' }), el('path', { d: uterus, class: 'dg-ink', 'stroke-width': 2 }));
+  out.push(el('path', { d: inner, class: 'dg-organ2' }), el('path', { d: inner, class: 'dg-ink2', 'stroke-width': 1.2 }));
+  out.push(el('path', { d: 'M164,238H196V264H164Z', class: 'dg-organ' }), el('path', { d: 'M164,238V264M196,238V264', class: 'dg-ink', 'stroke-width': 2 }));
+  out.push(el('path', { d: 'M160,264H200L204,340H156Z', class: 'dg-organ' }), el('path', { d: 'M160,264L156,340M200,264L204,340', class: 'dg-ink', 'stroke-width': 2 }));
+  out.push(el('path', { d: 'M180,214V340', class: 'dg-ink2', 'stroke-width': 1.2, 'stroke-dasharray': '4 3' }));
+  return out;
+}
+
+/** Male reproductive organs, front view, simplified: testes in the scrotum, sperm ducts, glands, urethra, penis. */
+function maleReproductive() {
+  const out = [];
+  out.push(el('ellipse', { cx: 180, cy: 70, rx: 46, ry: 36, class: 'dg-glass' }), el('ellipse', { cx: 180, cy: 70, rx: 46, ry: 36, class: 'dg-ink2', 'stroke-width': 1.6 }));
+  out.push(el('path', { d: 'M102,300Q96,350 150,352Q180,354 210,352Q264,350 258,300Q256,270 230,262H130Q104,270 102,300Z', class: 'dg-organ' }), el('path', { d: 'M102,300Q96,350 150,352Q180,354 210,352Q264,350 258,300Q256,270 230,262H130Q104,270 102,300Z', class: 'dg-ink', 'stroke-width': 1.8 }));
+  for (const x of [134, 226]) out.push(el('ellipse', { cx: x, cy: 304, rx: 22, ry: 28, class: 'dg-organ2' }), el('ellipse', { cx: x, cy: 304, rx: 22, ry: 28, class: 'dg-ink', 'stroke-width': 1.8 }));
+  const ducts = 'M140,278Q100,230 112,160Q120,118 170,124M220,278Q260,230 248,160Q240,118 190,124';
+  out.push(el('path', { d: ducts, class: 'dg-tube', 'stroke-width': 8 }), el('path', { d: ducts, class: 'dg-tube-blue', 'stroke-width': 4 }));
+  out.push(el('ellipse', { cx: 180, cy: 126, rx: 26, ry: 14, class: 'dg-organ2' }), el('ellipse', { cx: 180, cy: 126, rx: 26, ry: 14, class: 'dg-ink', 'stroke-width': 1.6 }));
+  out.push(el('path', { d: 'M166,140H194V286Q194,298 180,298Q166,298 166,286Z', class: 'dg-organ' }), el('path', { d: 'M166,140H194V286Q194,298 180,298Q166,298 166,286Z', class: 'dg-ink', 'stroke-width': 1.8 }));
+  out.push(el('path', { d: 'M180,104V296', class: 'dg-ink2', 'stroke-width': 1.8 }));
+  return out;
+}
+
 function circulation(flow) {
   const out = [];
   const box = (x, y, w, h, cls, t) => [el('rect', { x, y, width: w, height: h, rx: 14, class: cls }), el('rect', { x, y, width: w, height: h, rx: 14, class: 'dg-ink', 'stroke-width': 2 }), t ? label(x + w / 2, y + h / 2, t, { size: 15, weight: 700, halo: false }) : null];
@@ -130,7 +180,7 @@ function circulation(flow) {
 const organ = {
   size: 'medium',
   schema: {
-    organ: F.enum('heart', 'lungs', 'circulation'), labels: F.enum('names', 'letters', 'none'), parts: F.arr(F.str, 0, 10), flow: F.bool,
+    organ: F.enum('heart', 'lungs', 'circulation', 'femaleReproductive', 'maleReproductive'), labels: F.enum('names', 'letters', 'none'), parts: F.arr(F.str, 0, 10), flow: F.bool,
   },
   required: ['organ'],
   check(s) {
@@ -140,9 +190,10 @@ const organ = {
   render(s) {
     const box = new Box();
     const K = 0.8; // the drawing is scaled down; labels keep their full size
-    const drawing = s.organ === 'heart' ? heart(s.flow) : s.organ === 'lungs' ? lungs(s.flow) : circulation(s.flow);
+    const drawing = s.organ === 'heart' ? heart(s.flow) : s.organ === 'lungs' ? lungs(s.flow) : s.organ === 'femaleReproductive' ? femaleReproductive() : s.organ === 'maleReproductive' ? maleReproductive() : circulation(s.flow);
     const body = [g({ transform: `scale(${K})` }, drawing)];
-    box.rect(0, (s.organ === 'lungs' && s.flow ? -30 : 0) * K, 360 * K, (s.organ === 'heart' ? 356 : 390) * K);
+    if (s.organ === 'femaleReproductive') box.rect(0, 90 * K, 360 * K, 260 * K);
+    else box.rect(0, (s.organ === 'lungs' && s.flow ? -30 : 0) * K, 360 * K, (s.organ === 'heart' ? 356 : s.organ === 'maleReproductive' ? 360 : 390) * K);
     const mode = s.labels || 'names';
     if (mode !== 'none') {
       const table = PARTS[s.organ];
@@ -167,7 +218,7 @@ const organ = {
     const table = PARTS[s.organ];
     const list = s.parts && s.parts.length ? s.parts : Object.keys(table);
     const mode = s.labels || 'names';
-    const what = { heart: 'A simple diagram of the human heart, seen from the front (the body\'s right side is on the left of the picture), cut open to show the four chambers.', lungs: 'A simple diagram of the human lungs and airways, seen from the front, with the ribs behind and the diaphragm below.', circulation: 'A simple diagram of the double circulation: the heart in the middle, the lungs above and the rest of the body below. Red shows blood rich in oxygen and blue shows blood poor in oxygen.' }[s.organ];
+    const what = { heart: 'A simple diagram of the human heart, seen from the front (the body\'s right side is on the left of the picture), cut open to show the four chambers.', lungs: 'A simple diagram of the human lungs and airways, seen from the front, with the ribs behind and the diaphragm below.', circulation: 'A simple diagram of the double circulation: the heart in the middle, the lungs above and the rest of the body below. Red shows blood rich in oxygen and blue shows blood poor in oxygen.', femaleReproductive: 'A simple diagram of the female reproductive system, seen from the front: two ovaries, an oviduct from each ovary to the uterus, the uterus, the cervix at its neck, and the vagina below.', maleReproductive: 'A simple diagram of the male reproductive system, seen from the front: two testes in the scrotum, a sperm duct from each testis up and round to the glands below the bladder, and the urethra running down through the penis.' }[s.organ];
     const parts = [what];
     if (s.flow) parts.push(s.organ === 'lungs' ? 'An arrow shows air going down the trachea.' : 'Arrows show the direction the blood flows.');
     if (mode === 'names') parts.push(`Labelled parts: ${listText(list.map((k) => table[k].name))}.`);
