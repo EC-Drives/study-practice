@@ -377,7 +377,12 @@ const angle = {
 
 const ptSpec = F.obj({ at: F.point, label: F.str, showCoords: F.bool, style: F.enum('dot', 'cross', 'hollow') }, ['at']);
 const lineSpec = F.obj({ x: F.num(), y: F.num(), through: F.arr(F.point, 2, 2), label: F.str });
-const coordFmt = (v) => tidy(formatValue(v, typeof v === 'string' && v.includes(' ') ? 'mixed' : 'auto'));
+const coordFmt = (v) => {
+  const f = frac(v);
+  if (!f || f.d === 1) return tidy(formatValue(v));
+  let d = f.d; while (d % 2 === 0) d /= 2; while (d % 5 === 0) d /= 5;
+  return tidy(formatValue(f, d === 1 ? 'decimal' : 'mixed'));
+};
 
 const coordinateGrid = {
   size: 'medium',

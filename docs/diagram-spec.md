@@ -1,6 +1,6 @@
 # Diagram spec (Study Practice v2)
 
-Owner: Chief Tech Officer. Version 1, 17 Oct 2026. Audience: the Chief Learning Officer (who writes the JSON) and the app (which draws it).
+Owner: Chief Tech Officer. Version 1.1, 17 Oct 2026. Audience: the Chief Learning Officer (who writes the JSON) and the app (which draws it).
 
 A question can carry a drawn diagram as **data**: a small JSON object with a `type` and the fields for that type. The app draws it as a crisp SVG picture (no image files, no outside libraries), in light and dark themes, with a text description for screen readers. The CLO never draws anything: you describe what the picture shows and the renderer draws it to scale.
 
@@ -60,7 +60,7 @@ Conventions:
 
 ## 3. Types
 
-Twenty-five types. Each entry: what it is for, fields (required in **bold**), and a minimal example.
+Twenty-eight types. Each entry: what it is for, fields (required in **bold**), and a minimal example.
 
 ### Geometry and number
 
@@ -116,11 +116,12 @@ For triangles, quadrilaterals, compound shapes, regular polygons.
 |---|---|---|
 | **`x`**, **`y`** | `[min, max]` integers | Axis ranges, e.g. `[-6, 6]`. Use `[0, 10]` for the first quadrant only. At most 20 units each way. |
 | `labelEvery` | integer | Number labels every n units (default 1, or 2 when the range is wide). |
-| `points` | list of `{ "at": [x, y], "label": "A", "showCoords": false, "style": "dot" }` | `style`: `dot`, `cross` or `hollow`. Fractions and decimals allowed in `at`. |
+| `points` | list of `{ "at": [x, y], "label": "A", "showCoords": false, "style": "dot" }` | `style`: `dot`, `cross` or `hollow`. Fractions and decimals allowed in `at` (`"-9/2"`, `-4.5`). `showCoords` writes them as decimals when they are exact decimals (-4.5), otherwise as mixed numbers. |
 | `polygons` | list of `{ "points": [[x,y],...], "label": "P", "style": "solid" }` | `style`: `solid` (object), `dashed` (image), `shaded`. |
-| `segments` | list of `{ "from": [x,y], "to": [x,y], "dashed": false, "arrow": false }` | Line segments; `arrow` for a translation arrow. |
+| `segments` | list of `{ "from": [x,y], "to": [x,y], "dashed": false, "arrow": false, "label": "" }` | Line segments; `arrow` for a translation arrow; `label` is written beside the middle of the segment. |
 | `lines` | list | Mirror lines across the whole grid: `{ "x": 2, "label": "x = 2" }`, `{ "y": -1 }`, or `{ "through": [[0,0],[1,1]], "label": "y = x" }`. Drawn as a bold dashed line. |
-| `quadrantLabels` | boolean | Writes "1st" to "4th" in the quadrants. |
+| `quadrantLabels` | boolean | Writes "1st quadrant" to "4th quadrant" in the outer corners. |
+| `axisLabels` | list of 2 strings | Axis names, default `["x", "y"]`. |
 
 ```json
 {"type": "coordinateGrid", "x": [-5, 5], "y": [-5, 5],
@@ -149,10 +150,10 @@ At most 40 minor ticks and 20 labels.
 | Field | Type | Notes |
 |---|---|---|
 | **`shape`** | `"bar"`, `"circle"`, `"rectangle"`, `"grid"` | `grid` is a rows x columns grid (10 x 10 for percentages). |
-| `parts` | integer 2-24 | Equal parts in each whole (bar, circle, rectangle). |
-| `rows`, `cols` | integers | For `grid` (and for `rectangle`, which splits into rows x cols). |
+| `parts` | integer 2-24 | Equal parts in each whole (bar, circle). |
+| `rows`, `cols` | integers 1-12 each | For `grid` and `rectangle` (rows x cols squares, so at most 144; a 10 x 10 grid for percentages). |
 | `shaded` | integer or list of part indices | Number of parts shaded (filled in order across the wholes) or exactly which ones (0-based). |
-| `wholes` | integer 1-4 | Several identical wholes side by side (for improper fractions and mixed numbers). |
+| `wholes` | integer 1-4 | Several identical wholes side by side (for improper fractions and mixed numbers). `shaded` counts across all the wholes (up to 400 squares). |
 | `partLabels` | boolean | Writes the unit fraction in each part. |
 
 ```json
@@ -327,7 +328,7 @@ Drawn as a real table.
 #### `scale` - ruler, jug, thermometer, weighing scale
 | Field | Type | Notes |
 |---|---|---|
-| **`kind`** | `"ruler"`, `"jug"`, `"thermometer"`, `"weighing"` | |
+| **`kind`** | `"ruler"`, `"jug"`, `"thermometer"`, `"weighing"`, `"newtonMeter"` | `newtonMeter`: a spring balance hanging from a ring, scale from `min` at the top downwards, a red pointer at `value`, a load on the hook. |
 | **`min`**, **`max`** | numbers | Scale range (thermometers may go negative). |
 | **`major`** | number | Labelled interval. |
 | `minor` | number | Small divisions (must divide `major` exactly). Default: none. |
@@ -336,9 +337,11 @@ Drawn as a real table.
 | `value` | number | The reading: end of the object on a ruler, liquid level, liquid in the thermometer, the pointer on a dial. |
 | `from` | number | Ruler only: where the object starts (default `min`). |
 | `object` | `"bar"`, `"pencil"`, `"ribbon"` | Ruler only. |
+| `load` | string | Newton meter only: a label beside the hanging load (`"apple"`, `"?"`). |
 
 ```json
 {"type": "scale", "kind": "jug", "min": 0, "max": 1000, "major": 200, "minor": 50, "unit": "ml", "value": 650}
+{"type": "scale", "kind": "newtonMeter", "min": 0, "max": 10, "major": 1, "minor": 0.5, "unit": "N", "value": 6.5, "load": "apple"}
 ```
 
 #### `spinner` - probability spinner
@@ -386,6 +389,8 @@ A component: `{ "kind": "cell" }` with optional `label` (written beside it, e.g.
 | **`organisms`** | list of 2-6 strings | Producer first. Arrows point from the food to the eater (the way the energy goes). |
 | `roles` | boolean or list of strings | `true` writes producer / primary consumer / ... under each; a list gives your own (`"?"` for a box). |
 
+Food-chain boxes are all drawn the same (no producer colour), so a wrong-order chain in a picture-choice question gives nothing away. In a `foodWeb`, organisms that eat nothing in the drawn links are tinted green.
+
 ```json
 {"type": "foodChain", "organisms": ["Grass", "Grasshopper", "Frog", "Snake", "Eagle"]}
 ```
@@ -411,7 +416,7 @@ A component: `{ "kind": "cell" }` with optional `label` (written beside it, e.g.
 | `showReflected` | boolean | Mirror: draw the reflected ray (default true). |
 | `labels` | object | Mirror: `incident`, `reflected`, `normal`, `mirror`, `i`, `r` (angle labels). Shadow: `source`, `object`, `shadow`, `screen`. Any can be `"?"`. |
 | `source` | `"torch"`, `"lamp"`, `"sun"` | Shadow and seeing. |
-| `object` | `"box"`, `"ball"`, `"tree"`, `"person"`, `"book"` | Shadow and seeing. |
+| `object` | `"box"`, `"ball"`, `"tree"`, `"person"`, `"book"`, `"apple"` | Shadow and seeing. |
 | `sourceDistance`, `screenDistance`, `objectHeight` | numbers | Shadow with a torch or lamp: distances from the source to the object and to the screen, and object height (any units). The shadow is drawn to the exact size from these (similar triangles). Without `screenDistance` the shadow falls on the ground. |
 | `arrows` | `"correct"`, `"fromEye"`, `"none"` | Seeing: the direction the light travels. `fromEye` draws the common wrong idea, for picture-choice questions. |
 
@@ -419,6 +424,23 @@ A component: `{ "kind": "cell" }` with optional `label` (written beside it, e.g.
 {"type": "light", "scene": "mirror", "angle": 40, "labels": {"i": "40°", "r": "?"}}
 {"type": "light", "scene": "shadow", "source": "torch", "object": "ball", "sourceDistance": 2, "screenDistance": 6, "objectHeight": 1}
 {"type": "light", "scene": "seeing", "source": "lamp", "object": "book"}
+```
+
+#### `forces` - force arrows on an object
+For balanced and unbalanced forces (s07). Arrow lengths are in proportion to `size`, so equal forces look equal.
+
+| Field | Type | Notes |
+|---|---|---|
+| **`arrows`** | list of 1-6 `{ "direction": "right", "size": 30, "name": "push", "label": "30 N" }` | `direction`: `up`, `down`, `left`, `right` (one arrow per direction). `size` (any units, usually N) sets the length; leave it out and the arrow has a standard length. `name` and `label` are written at the arrow (`"?"` for an unknown). An arrow named weight or gravity starts from the middle of the object; the others start from the side they point away from. Keep names short ("push", "friction", "air resistance") so the picture stays readable on a phone. |
+| `object` | `"box"`, `"ball"`, `"car"`, `"boat"`, `"parachutist"`, `"person"`, `"apple"` | Default box. |
+| `surface` | `"ground"`, `"table"`, `"water"`, `"none"` | Default: ground (water for a boat, none for a parachutist or an apple). |
+| `label` | string | Under the picture. |
+
+The description says which opposite arrows are the same length and which is longer, as a sighted pupil would see it.
+
+```json
+{"type": "forces", "object": "box", "arrows": [{"direction": "right", "size": 30, "name": "push", "label": "30 N"}, {"direction": "left", "size": 12, "name": "friction", "label": "12 N"}]}
+{"type": "forces", "object": "parachutist", "arrows": [{"direction": "up", "size": 700, "name": "air resistance", "label": "?"}, {"direction": "down", "size": 700, "name": "weight", "label": "700 N"}]}
 ```
 
 #### `sunEarthMoon` - day and night, orbits, the Moon's positions
@@ -468,7 +490,9 @@ Schematic and accurate (front view, so the heart's left side is on the right of 
 
 | Function | Returns |
 |---|---|
-| `renderDiagram(spec, opts?)` | A `<figure class="dg">` element: the SVG (`role="img"`, `aria-label`) or table, the caption, and a visually hidden text description. On a bad spec it returns a small "This picture could not be drawn" box (and never throws), so a question still works. |
+| `renderDiagram(spec, opts?)` | A `<figure class="dg">` element: the SVG (`role="img"`, with the full text description as its `aria-label`) or, for `table` and `carroll`, a real HTML table; plus the caption. On a bad spec it returns a small "This picture could not be drawn" box (and never throws), so a question still works. |
+| `validateQuestionDiagrams(question)` | The errors in a question's `diagram` and `optionDiagrams` (also checks there is one option diagram per option). |
+| `diagramCss()` | The stylesheet, for a page that embeds several diagrams as strings. |
 | `diagramMarkup(spec)` | The same as an HTML string with its colours written in (for the saved report and the email-free HTML report). |
 | `describeDiagram(spec)` | The text description (the `alt` if given). |
 | `validateDiagram(spec)` | A list of error strings (empty when the spec is good). |
@@ -480,4 +504,5 @@ Colours come from the app's theme tokens (`--ink`, `--line`, `--accent`, `--surf
 
 ## 5. Change log
 
-- 17 Oct 2026: version 1 (25 types).
+- 17 Oct 2026: version 1 (27 types).
+- 17 Oct 2026: version 1.1. New: `forces` (force arrows) and the `newtonMeter` scale. Documented: coordinate `segments[].label`, `axisLabels`, `fractionModel` limits (rows and cols up to 12 each, parts up to 24, wholes up to 4). Changed: food chains no longer tint the first box as a producer; coordinates with halves show as decimals (-4.5), not -9/2. Still to come (CLO's v1.1 list): refraction, reproductive organs, lab apparatus, function machines, dot plot and scatter graph.

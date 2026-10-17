@@ -175,7 +175,7 @@ const foodChain = {
       const xs = [];
       s.organisms.forEach((o) => { const w = Math.max(70, textWidth(tidy(o), 15) + 22); xs.push(x + w / 2); x += w + 56; });
       s.organisms.forEach((o, i) => {
-        const b = orgBox(xs[i], 0, o, { producer: i === 0 });
+        const b = orgBox(xs[i], 0, o, {});
         body.push(...b.nodes); box.rect(xs[i] - b.w / 2, -b.h / 2, b.w, b.h);
         if (i > 0) { const pw = Math.max(70, textWidth(tidy(s.organisms[i - 1]), 15) + 22); body.push(arrowLine([xs[i - 1] + pw / 2 + 6, 0], [xs[i] - b.w / 2 - 6, 0], { width: 2.4, size: 11 })); }
         if (roles && roles[i]) { body.push(label(xs[i], 36, roles[i], { size: 13, cls: 'dg-t2' })); box.text(xs[i], 36, roles[i], 13); }
@@ -185,7 +185,7 @@ const foodChain = {
       const gap = 70;
       s.organisms.forEach((o, i) => {
         const y = (n - 1 - i) * gap;
-        const b = orgBox(0, y, o, { producer: i === 0 });
+        const b = orgBox(0, y, o, {});
         body.push(...b.nodes); box.rect(-b.w / 2, y - b.h / 2, b.w, b.h);
         if (i > 0) body.push(arrowLine([0, y + gap - 19], [0, y + 19], { width: 2.4, size: 11 }));
         if (roles && roles[i]) { const lx = Math.max(70, textWidth(tidy(o), 15) + 22) / 2 + 14; body.push(label(lx, y, roles[i], { size: 13, cls: 'dg-t2', anchor: 'start' })); box.text(lx, y, roles[i], 13, 'start'); }

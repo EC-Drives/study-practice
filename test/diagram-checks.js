@@ -44,6 +44,17 @@ export const EXTRA_CHECKS = [
   ['fraction formatting: mixed and decimal', () => formatValue('7/4', 'mixed') === '1 3/4' && formatValue('3/4', 'decimal') === '0.75'],
   ['a "?" label is an answer box, never the value', () => { const svg = svgOf({ type: 'polygon', points: [[0, 0], [4, 0], [0, 3]], sides: [null, { label: '?' }, null] }); return svg.querySelectorAll('.dg-qbox').length === 1 && /question mark/.test(svg.getAttribute('aria-label')); }],
   ['descriptions never mention a value shown only as "?"', () => !/90°|50°/.test(describeDiagram({ type: 'angle', lines: [0], rays: [130], arcs: [{ from: 0, to: 130, label: '?' }] }))],
+  ['half-unit coordinates show as decimals, not -5/2', () => { const d = describeDiagram({ type: 'coordinateGrid', x: [-5, 5], y: [-5, 5], points: [{ at: ['-5/2', '1/2'], label: 'R', showCoords: true }] }); const svg = svgOf({ type: 'coordinateGrid', x: [-5, 5], y: [-5, 5], points: [{ at: ['-5/2', '1/2'], label: 'R', showCoords: true }] }); return /\(−2\.5, 0\.5\)/.test(d) && /−2\.5, 0\.5/.test(svg.textContent) && !/5\/2/.test(svg.textContent); }],
+  ['food chain boxes are not coloured as producers (a wrong-order chain shows no role)', () => svgOf({ type: 'foodChain', organisms: ['Frog', 'Grass', 'Snake'] }).querySelectorAll('.dg-leaf').length === 0],
+  ['food web colours only organisms that eat nothing', () => svgOf({ type: 'foodWeb', organisms: [{ id: 'a', name: 'Grass' }, { id: 'b', name: 'Rabbit' }, { id: 'c', name: 'Fox' }], links: [['a', 'b'], ['b', 'c']] }).querySelectorAll('rect.dg-leaf').length === 1],
+  ['force arrows are in proportion to their sizes', () => {
+    const svg = svgOf({ type: 'forces', object: 'box', arrows: [{ direction: 'right', size: 30 }, { direction: 'left', size: 15 }] });
+    const ls = [...svg.querySelectorAll('line.dg-accent')].map((l) => Math.abs(Number(l.getAttribute('x2')) - Number(l.getAttribute('x1'))));
+    // drawn length = 28 + 92 x size / largest, less the arrowhead
+    return ls.length === 2 && near(ls[0] - ls[1], 92 * (1 - 15 / 30), 0.5);
+  }],
+  ['balanced forces described as the same length', () => /same length/.test(describeDiagram({ type: 'forces', object: 'parachutist', arrows: [{ direction: 'up', size: 700 }, { direction: 'down', size: 700, name: 'weight' }] }))],
+  ['newton meter reading described by marks', () => /pointer is on the 1st small mark below 6/.test(describeDiagram({ type: 'scale', kind: 'newtonMeter', min: 0, max: 10, major: 1, minor: 0.5, unit: 'N', value: 6.5 }))],
   ['alt text overrides the built description', () => describeDiagram({ type: 'clock', time: '10:35', alt: 'A clock.' }) === 'A clock.'],
   ['report markup carries its own styles', () => /<style>/.test(diagramMarkup({ type: 'clock', time: '10:35' }))],
   ['light and dark themes both define every colour token', () => {

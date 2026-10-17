@@ -208,11 +208,43 @@ function dialRender(s, box, body) {
   box.circle(0, 0, R + 12).add(0, -R - 46);
 }
 
-const KIND_NAME = { ruler: 'ruler', jug: 'measuring jug', thermometer: 'thermometer', weighing: 'weighing scale with a dial' };
+const KIND_NAME = { ruler: 'ruler', jug: 'measuring jug', thermometer: 'thermometer', weighing: 'weighing scale with a dial', newtonMeter: 'newton meter (spring balance)' };
+
+/** A newton meter: a spring balance hanging from a ring, scale downwards from 0, pointer at the reading. */
+function newtonRender(s, box, body) {
+  const top = 40; const Hs = 240; const bot = top + Hs;
+  const Y = (v) => top + ((v - s.min) / (s.max - s.min)) * Hs;
+  const W = 46;
+  body.push(el('circle', { cx: 0, cy: 4, r: 11, class: 'dg-ink', 'stroke-width': 3 }), el('line', { x1: 0, y1: 15, x2: 0, y2: top - 14, class: 'dg-ink', 'stroke-width': 3 }));
+  body.push(el('rect', { x: -W / 2, y: top - 16, width: W, height: Hs + 32, rx: 8, class: 'dg-glass' }), el('rect', { x: -W / 2, y: top - 16, width: W, height: Hs + 32, rx: 8, class: 'dg-ink', 'stroke-width': 2 }));
+  // the spring down to the pointer
+  const v = s.value != null ? s.value : s.min;
+  const py = Y(v);
+  let z = `M0,${top - 14}`;
+  const coils = 10; const span = Math.max(8, py - (top - 6));
+  for (let i = 1; i <= coils; i++) z += `L${i % 2 ? -8 : 8},${round(top - 10 + (span * i) / coils, 2)}`;
+  z += `L0,${round(py, 2)}`;
+  body.push(el('path', { d: z, class: 'dg-ink2', 'stroke-width': 1.6, fill: 'none' }));
+  let d = '';
+  for (const t of scaleTicks(s)) {
+    const y = round(Y(t.v), 2);
+    d += `M${W / 2 - 2},${y}H${W / 2 - (t.major ? 14 : t.half ? 10 : 6)}`;
+    if (t.lab) body.push(label(W / 2 + 6, y, fmt(t.v), { size: 12, anchor: 'start', halo: false }));
+  }
+  body.push(el('path', { d, class: 'dg-ink', 'stroke-width': 1.3 }));
+  body.push(el('rect', { x: -W / 2 + 4, y: py - 2, width: W - 8, height: 4, rx: 2, class: 'dg-red' }));
+  if (s.unit) body.push(label(W / 2 + 6, top - 26, s.unit, { size: 13, anchor: 'start', weight: 600 }));
+  // the hook and the load
+  body.push(el('line', { x1: 0, y1: py + 2, x2: 0, y2: bot + 30, class: 'dg-ink', 'stroke-width': 3 }));
+  body.push(el('path', { d: `M0,${bot + 30}q0,12 -9,12q-9,0 -9,-9`, class: 'dg-ink', 'stroke-width': 3, fill: 'none' }));
+  body.push(el('path', { d: `M-26,${bot + 52}H26L34,${bot + 92}H-34Z`, class: 'dg-fill-ink2' }), el('line', { x1: 0, y1: bot + 42, x2: 0, y2: bot + 52, class: 'dg-ink', 'stroke-width': 2 }));
+  if (s.load) { body.push(label(40, bot + 72, s.load, { size: 14, weight: 600, anchor: 'start' })); box.text(40, bot + 72, s.load, 14, 'start'); }
+  box.rect(-W / 2 - 14, -8, W + 60, bot + 104);
+}
 const scale = {
   size: 'medium',
   schema: {
-    kind: F.enum('ruler', 'jug', 'thermometer', 'weighing'), min: F.num(), max: F.num(), major: F.num(0.000001), minor: F.num(0.000001),
+    kind: F.enum('ruler', 'jug', 'thermometer', 'weighing', 'newtonMeter'), min: F.num(), max: F.num(), major: F.num(0.000001), minor: F.num(0.000001), load: F.str,
     labelEvery: F.int(1, 10), unit: F.str, value: F.num(), from: F.num(), object: F.enum('bar', 'pencil', 'ribbon'),
   },
   required: ['kind', 'min', 'max', 'major'],
@@ -225,6 +257,7 @@ const scale = {
     if (s.minor) { const r = s.major / s.minor; if (Math.abs(r - Math.round(r)) > 1e-9) e.push('minor must divide major exactly'); if ((s.max - s.min) / s.minor > 200) e.push('at most 200 small steps'); }
     if (s.value != null && (s.value < s.min - 1e-9 || s.value > s.max + 1e-9)) e.push('value is outside the scale');
     if (s.from != null && s.kind !== 'ruler') e.push('from is for rulers');
+    if (s.load != null && s.kind !== 'newtonMeter') e.push('load is for newton meters');
     if (s.from != null && s.value != null && s.from >= s.value) e.push('from must be less than value');
     return e;
   },
@@ -234,6 +267,7 @@ const scale = {
     if (s.kind === 'ruler') rulerRender(s, box, body);
     else if (s.kind === 'jug') jugRender(s, box, body, ctx);
     else if (s.kind === 'thermometer') thermoRender(s, box, body);
+    else if (s.kind === 'newtonMeter') newtonRender(s, box, body);
     else dialRender(s, box, body);
     return { box, body, scale: s.kind === 'thermometer' ? 0.9 : 1 };
   },
@@ -244,6 +278,7 @@ const scale = {
       if (s.kind === 'ruler') parts.push(`The ${s.object || 'bar'} starts ${scalePosition(s, s.from != null ? s.from : s.min, 'after')} and ends ${scalePosition(s, s.value, 'after')}.`);
       else if (s.kind === 'jug') parts.push(`The liquid comes up to the level ${scalePosition(s, s.value)}.`);
       else if (s.kind === 'thermometer') parts.push(`The liquid in the tube reaches ${scalePosition(s, s.value)}.`);
+      else if (s.kind === 'newtonMeter') parts.push(`${s.load ? `A load labelled ${say(s.load)} hangs from the hook. ` : 'A load hangs from the hook. '}The pointer is ${scalePosition(s, s.value, 'below')}.`);
       else parts.push(`The pointer is ${scalePosition(s, s.value, 'after')}.`);
     }
     return parts.join(' ');
