@@ -3,7 +3,7 @@
 // Patterns and ranges follow the CLO's generator guide (section 2, m10). Every wrong option is
 // built by one named misconception (misconceptions.js) and carries its code.
 
-import { F, choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, rm, lcm, person } from './core.js';
+import { F, choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, rm, lcm, person , denWord, capFirst } from './core.js';
 
 const T = 'm10-calculations-with-fractions';
 const SKILL = {
@@ -64,16 +64,17 @@ const addSub = {
       const distractors = [
         op === '+' ? { text: `${x.n + y.n}/${x.d + y.d}`, code: 'FR-ADD-TOPS-BOTTOMS', why: `It looks like you added the top numbers (${x.n} + ${y.n}) and the bottom numbers (${x.d} + ${y.d}). Fractions need the same denominator before you add; then add only the numerators.` }
           : (x.n !== y.n ? { text: `${Math.abs(x.n - y.n)}/${Math.abs(x.d - y.d)}`, code: 'FR-ADD-TOPS-BOTTOMS', why: `It looks like you subtracted the top numbers (${Math.max(x.n, y.n)} - ${Math.min(x.n, y.n)}) and the bottom numbers (${Math.max(x.d, y.d)} - ${Math.min(x.d, y.d)}). Make the denominators the same first, then subtract only the numerators.` } : null),
-        kb > 0 ? { text: `${kb}/${big.d}`, code: 'FR-ADD-TOPS-KEEP-BOTTOM', why: `It looks like you ${op === '+' ? 'added' : 'subtracted'} the numerators and kept the denominator ${big.d}, without changing ${small} into ${big.d}ths first.` } : null,
+        kb > 0 ? { text: `${kb}/${big.d}`, code: 'FR-ADD-TOPS-KEEP-BOTTOM', why: `It looks like you ${op === '+' ? 'added' : 'subtracted'} the numerators and kept the denominator ${big.d}, without changing ${small} into ${denWord(big.d)} first.` } : null,
         { text: simplest(op === '+' ? (x.cmp(y) > 0 ? x.sub(y) : y.sub(x)) : x.add(y)), code: 'OP-SWAP', why: `It looks like you ${op === '+' ? 'subtracted' : 'added'}. This question asks you to ${word}.` },
       ];
       const skill = op === '+' ? SKILL.add : SKILL.sub;
       try {
         if (d === 2 && rng.chance(0.4)) {
           const t = typedMisconceptions(simplest(r), distractors, { code: 'FR-ADD-TOPS-BOTTOMS', why: `Make the denominators the same before you ${word}; then ${word} only the numerators, and simplify.` });
-          return { type: 'short', prompt, answer: { accept: [simplest(r)], keywords: [] }, solution, ...t, skill };
+          // simplest form: the lowest-terms mixed number or improper fraction both count
+          return { type: 'short', prompt, answer: { accept: [...new Set([simplest(r), r.toString()])], keywords: [] }, solution, ...t, skill };
         }
-        const c = choices(rng, simplest(r), distractors, (i) => nearMiss(simplest(r.add(F(i, L))), `Change both fractions to ${L}ths, then ${word} the numerators.`));
+        const c = choices(rng, simplest(r), distractors, (i) => nearMiss(simplest(r.add(F(i, L))), `Change both fractions to ${denWord(L)}, then ${word} the numerators.`));
         return { type: 'mcq', prompt, ...c, solution, skill };
       } catch { /* draw again */ }
     }
@@ -107,7 +108,7 @@ function missingAddend(rng) {
       plus ? { text: `${c.n + a.n}/${c.d + a.d}`, code: 'FR-ADD-TOPS-BOTTOMS', why: 'It looks like you added the top numbers and the bottom numbers. Make the denominators the same first.' } : null,
     ];
     try {
-      const ch = choices(rng, simplest(ans), distractors, (i) => nearMiss(simplest(ans.add(F(i, L))), `Use the inverse operation, with both fractions written in ${L}ths.`));
+      const ch = choices(rng, simplest(ans), distractors, (i) => nearMiss(simplest(ans.add(F(i, L))), `Use the inverse operation, with both fractions written in ${denWord(L)}.`));
       return { type: 'mcq', prompt: prompts[kind], ...ch, solution, marks: 2, skill: plus ? SKILL.add : SKILL.sub };
     } catch { /* draw again */ }
   }
@@ -142,7 +143,8 @@ const mixedAddSub = {
       let solution;
       const fs = fa.add(fb);
       if (op === '+') {
-        solution = `Add the whole numbers: ${wa} + ${wb} = ${wa + wb}. Add the fractions: ${over(fa, L)} + ${over(fb, L)} = ${fa.n * (L / fa.d) + fb.n * (L / fb.d)}/${L}${fs.cmp(1) >= 0 ? ` = ${fs.mixed()}, which is more than 1, so carry 1 whole` : ''}. ${wa + wb} + ${fs.mixed()} = ${r.mixed()}. Answer: ${r.mixed()}`;
+        const rawS = `${fa.n * (L / fa.d) + fb.n * (L / fb.d)}/${L}`;
+        solution = `Add the whole numbers: ${wa} + ${wb} = ${wa + wb}. Add the fractions: ${over(fa, L)} + ${over(fb, L)} = ${rawS}${rawS !== fs.mixed() ? ` = ${fs.mixed()}` : ''}${fs.cmp(1) >= 0 ? ', which is more than 1, so carry 1 whole' : ''}. ${wa + wb} + ${fs.mixed()} = ${r.mixed()}. Answer: ${r.mixed()}`;
       } else if (!exchange) {
         const dn = fa.n * (L / fa.d) - fb.n * (L / fb.d);
         solution = `Subtract the whole numbers: ${wa} - ${wb} = ${wa - wb}. Subtract the fractions: ${over(fa, L)} - ${over(fb, L)} = ${dn}/${L}${fa.sub(fb).toString() !== `${dn}/${L}` ? ` = ${fa.sub(fb)}` : ''}. So the answer is ${r.mixed()}. Answer: ${r.mixed()}`;
@@ -156,13 +158,13 @@ const mixedAddSub = {
         distractors.push({ text: r.add(1).mixed(), code: 'FR-MIXED-WHOLE-ONLY', why: `It looks like you exchanged 1 whole for fraction pieces but still worked out ${wa} - ${wb}. After the exchange, ${wa} becomes ${wa - 1}.` });
       }
       if (op === '+' && exchange) distractors.push({ text: F(wa + wb).add(fs.sub(1)).mixed(), code: 'FR-MIXED-NO-CARRY', why: `The fractions add up to ${fs.mixed()}, which is more than 1. It looks like you kept only the ${fs.sub(1)} and did not carry the 1 whole.` });
-      if (op === '+') distractors.push({ text: `${wa + wb} ${fa.n + fb.n}/${fa.d + fb.d}`, code: 'FR-ADD-TOPS-BOTTOMS', why: `It looks like you added the top numbers and the bottom numbers of the fractions. Change them to ${L}ths first, then add only the numerators.` });
-      if (op === '-' && fa.n > fb.n && fa.d > fb.d) distractors.push({ text: `${wa - wb} ${fa.n - fb.n}/${fa.d - fb.d}`, code: 'FR-ADD-TOPS-BOTTOMS', why: `It looks like you subtracted the top numbers and the bottom numbers of the fractions. Change them to ${L}ths first.` });
+      if (op === '+') distractors.push({ text: `${wa + wb} ${fa.n + fb.n}/${fa.d + fb.d}`, code: 'FR-ADD-TOPS-BOTTOMS', why: `It looks like you added the top numbers and the bottom numbers of the fractions. Change them to ${denWord(L)} first, then add only the numerators.` });
+      if (op === '-' && fa.n > fb.n && fa.d > fb.d) distractors.push({ text: `${wa - wb} ${fa.n - fb.n}/${fa.d - fb.d}`, code: 'FR-ADD-TOPS-BOTTOMS', why: `It looks like you subtracted the top numbers and the bottom numbers of the fractions. Change them to ${denWord(L)} first.` });
       const big = Math.max(da, db);
       const kb = op === '+' ? fa.n + fb.n : fa.n - fb.n;
-      if (kb > 0 && kb < big) distractors.push({ text: `${op === '+' ? wa + wb : wa - wb} ${kb}/${big}`, code: 'FR-ADD-TOPS-KEEP-BOTTOM', why: `It looks like you ${op === '+' ? 'added' : 'subtracted'} the numerators ${fa.n} and ${fb.n} and kept the denominator ${big}, without changing the other fraction into ${big}ths first.` });
+      if (kb > 0 && kb < big) distractors.push({ text: `${op === '+' ? wa + wb : wa - wb} ${kb}/${big}`, code: 'FR-ADD-TOPS-KEEP-BOTTOM', why: `It looks like you ${op === '+' ? 'added' : 'subtracted'} the numerators ${fa.n} and ${fb.n} and kept the denominator ${big}, without changing the other fraction into ${denWord(big)} first.` });
       try {
-        const c = choices(rng, r.mixed(), distractors, (i) => nearMiss(r.add(F(i, L)).mixed(), `Change both fractions to ${L}ths, then work with the whole numbers and the fractions.`));
+        const c = choices(rng, r.mixed(), distractors, (i) => nearMiss(r.add(F(i, L)).mixed(), `Change both fractions to ${denWord(L)}, then work with the whole numbers and the fractions.`));
         return { type: 'mcq', prompt, ...c, solution, marks: d === 2 ? 2 : 1, skill: op === '+' ? SKILL.addMixed : SKILL.subMixed };
       } catch { /* draw again */ }
     }
@@ -201,7 +203,9 @@ function mixedThree(rng) {
     const L = Math.max(da, db);
     const step1 = a.add(b);
     const prompt = `Work out ${a.mixed()} + ${b.mixed()} ${op2} ${c.mixed()}. Give your answer as a mixed number in its simplest form.`;
-    const solution = `Work from left to right, with the fractions in ${L}ths. ${a.mixed()} + ${b.mixed()} = ${step1.mixed()} (carry a whole if the fractions make more than 1). Then ${step1.mixed()} ${op2} ${c.mixed()} = ${r.mixed()}${op2 === '-' && step1.sub(Math.floor(step1.value)).cmp(fc) < 0 ? ' (exchange 1 whole for fraction pieces first)' : ''}. Answer: ${r.mixed()}`;
+    const f1 = fa.add(fb);
+    const st1f = step1.sub(Math.floor(step1.value));
+    const solution = `Work from left to right, with the fractions in ${denWord(L)}. First ${a.mixed()} + ${b.mixed()}: ${wa} + ${wb} = ${wa + wb} and ${over(fa, L)} + ${over(fb, L)} = ${f1.n * (L / f1.d)}/${L}${f1.cmp(1) >= 0 ? ` = ${f1.mixed()}, so carry 1 whole` : ''}, giving ${step1.mixed()}. Then ${step1.mixed()} ${op2} ${c.mixed()}${op2 === '-' && st1f.cmp(fc) < 0 ? ` (exchange 1 whole first, because ${st1f} is smaller than ${fc})` : ''} = ${r.mixed()}. Answer: ${r.mixed()}`;
     const wholes = wa + wb + (op2 === '-' ? -wc : wc);
     const fracPart = op2 === '-' ? fa.add(fb).sub(fc) : fa.add(fb).add(fc);
     const distractors = [
@@ -210,7 +214,7 @@ function mixedThree(rng) {
       fracPart.n < 0 ? { text: F(wholes).add(fracPart.add(1)).mixed(), code: 'FR-MIXED-WHOLE-ONLY', why: 'The fraction parts need an exchange. It looks like you exchanged 1 whole for fraction pieces but did not take it from the whole numbers.' } : null,
     ];
     try {
-      return { type: 'mcq', prompt, ...choices(rng, r.mixed(), distractors, (i) => nearMiss(r.add(F(i, L)).mixed(), `Change the fractions to ${L}ths and work one step at a time.`)), solution, marks: 3, skill: op2 === '-' ? SKILL.subMixed : SKILL.addMixed };
+      return { type: 'mcq', prompt, ...choices(rng, r.mixed(), distractors, (i) => nearMiss(r.add(F(i, L)).mixed(), `Change the fractions to ${denWord(L)} and work one step at a time.`)), solution, marks: 3, skill: op2 === '-' ? SKILL.subMixed : SKILL.addMixed };
     } catch { /* draw again */ }
   }
 }
@@ -242,7 +246,7 @@ const ofAmount = {
           : `${f} of an amount is ${show(part)}. What is the whole amount?`;
         const solution = `${f} means ${f.n} equal parts out of ${f.d}. ${fmtInt(part)} ÷ ${f.n} = ${fmtInt(one)}, so one part is ${fmtInt(one)}. The whole is ${f.d} parts: ${fmtInt(one)} x ${f.d} = ${fmtInt(whole)}. Answer: ${show3(whole)}`;
         const distractors = [
-          { text: show3(one), code: 'FR-WHOLE-ONE-PART', why: `${fmtInt(one)} is one part (one ${f.d}th). The whole has ${f.d} of these parts, so multiply by ${f.d}.` },
+          { text: show3(one), code: 'FR-WHOLE-ONE-PART', why: `${fmtInt(one)} is one part (one ${denWord(f.d, false)}). The whole has ${f.d} of these parts, so multiply by ${f.d}.` },
           { text: show3(part * f.d), code: 'FR-WHOLE-DEN-ONLY', why: `It looks like you multiplied ${fmtInt(part)} by ${f.d} without first dividing by ${f.n}. ${fmtInt(part)} is ${f.n} parts, not one part.` },
           (part * f.n) % f.d === 0 ? { text: show3((part * f.n) / f.d), code: 'FR-WHOLE-TIMES-FRACTION', why: `It looks like you found ${f} of ${fmtInt(part)}. Here ${fmtInt(part)} is already ${f} of the whole, so the whole is bigger.` } : null,
         ];
@@ -270,12 +274,13 @@ const ofAmount = {
         f.n > 1 ? { text: show(amount * f.n), code: 'FR-OF-MULT-ONLY', why: `It looks like you multiplied by ${f.n} but did not divide by ${f.d}.` } : null,
       ];
       try {
-        if (d === 2 && rng.chance(0.35)) {
+        // a unit fraction has too few believable wrong answers for four options: she types it instead
+        if ((d === 2 && rng.chance(0.35)) || f.n === 1) {
           const strip = (t) => String(t).replace(unit.pre, '').replace(unit.post, '');
           const t = typedMisconceptions(String(ans), distractors.filter(Boolean).map((x) => ({ ...x, text: strip(x.text) })), { code: 'FR-OF-DIVIDE-ONLY', why: `Divide by the denominator (${f.d}) to find one part, then multiply by the numerator (${f.n}).` });
           return { type: 'numeric', prompt, answer: numericAnswer(ans, [show(ans), String(ans)]), solution, ...t };
         }
-        const c = choices(rng, show(ans), distractors, (i) => nearMiss(show(ans + i * one), `Divide by ${f.d}, then multiply by ${f.n}.`));
+        const c = choices(rng, show(ans), distractors, null);
         return { type: 'mcq', prompt, ...c, solution };
       } catch { /* draw again */ }
     }
@@ -299,8 +304,8 @@ const timesWhole = {
         const solution = `Write ${simplest(r)} with denominator ${den}: ${simplest(r)} = ${w * a}/${den}. Multiplying by ${w} multiplies the numerator by ${w}, so the missing numerator is ${w * a} ÷ ${w} = ${a}. Check: ${w} x ${a}/${den} = ${w * a}/${den} = ${simplest(r)}. Answer: ${a}`;
         const distractors = [
           { text: String(w * a), code: 'FR-MISSING-NO-DIVIDE', why: `${w * a}/${den} is the result of the multiplication. The missing numerator is the number you multiply by ${w} to get ${w * a}.` },
-          r.n % w === 0 ? { text: String(r.n / w), code: 'FR-MISSING-WRONG-DEN', why: `It looks like you divided the numerator of ${r} by ${w}. Write the answer in ${den}ths first: ${w * a}/${den}.` } : { text: String(r.n), code: 'FR-MISSING-WRONG-DEN', why: `${r.n} is the numerator of ${r}, the answer in its simplest form. Write the answer in ${den}ths first (${w * a}/${den}), then divide by ${w}.` },
-          { text: String(r.n), code: 'FR-MISSING-WRONG-DEN', why: `${r.n} is the numerator of ${r}, the answer in its simplest form. Write the answer in ${den}ths first (${w * a}/${den}), then divide by ${w}.` },
+          r.n % w === 0 ? { text: String(r.n / w), code: 'FR-MISSING-WRONG-DEN', why: `It looks like you divided the numerator of ${r} by ${w}. Write the answer in ${denWord(den)} first: ${w * a}/${den}.` } : { text: String(r.n), code: 'FR-MISSING-WRONG-DEN', why: `${r.n} is the numerator of ${r}, the answer in its simplest form. Write the answer in ${denWord(den)} first (${w * a}/${den}), then divide by ${w}.` },
+          { text: String(r.n), code: 'FR-MISSING-WRONG-DEN', why: `${r.n} is the numerator of ${r}, the answer in its simplest form. Write the answer in ${denWord(den)} first (${w * a}/${den}), then divide by ${w}.` },
         ];
         try { return { type: 'mcq', prompt, ...choices(rng, String(a), distractors, (i) => nearMiss(String(a + i), `Check: ${w} x ${a + i}/${den} = ${simplest(F(w * (a + i), den))}, not ${simplest(r)}.`)), solution, marks: 2 }; } catch { /* draw again */ }
       }
@@ -315,8 +320,8 @@ const timesWhole = {
       const solution = `Multiply the numerator by ${n} and keep the denominator: ${f.n} x ${n} = ${f.n * n}, so the answer is ${raw}.${raw !== simplest(r) ? ` In its simplest form this is ${simplest(r)}.` : ''} Remember: the denominator does not change. Answer: ${simplest(r)}`;
       const distractors = [
         { text: `${f.n * n}/${f.d * n}`, code: 'FR-MULT-BOTH', why: `It looks like you multiplied the numerator and the denominator by ${n}. That gives a fraction equal to ${f}, not ${n} lots of it. Multiply only the numerator.` },
-        { text: simplest(F(f.n, f.d * n)), code: 'FR-MULT-DEN', why: `It looks like you multiplied the denominator by ${n}. That makes the pieces smaller (it divides by ${n}). ${n} lots of ${f} should be bigger.` },
-        { text: simplest(F(f.n + n, f.d)), code: 'FR-MULT-ADDS', why: `It looks like you added ${n} to the numerator instead of multiplying it by ${n}.` },
+        { text: `${f.n}/${f.d * n}`, code: 'FR-MULT-DEN', why: `It looks like you multiplied the denominator by ${n}. That makes the pieces smaller (it divides by ${n}). ${n} lots of ${f} should be bigger.` },
+        { text: `${f.n + n}/${f.d}`, code: 'FR-MULT-ADDS', why: `It looks like you added ${n} to the numerator instead of multiplying it by ${n}.` },
       ];
       try {
         if (d === 2 && rng.chance(0.4)) {
@@ -332,7 +337,7 @@ const timesWhole = {
 
 // ---------------------------------------------------------------- g07 dividing a fraction by a whole number
 
-const SHARE = [['cake', 'friends', 'friend'], ['pizza', 'children', 'child'], ['bottle of juice', 'cups', 'cup'], ['bag of rice', 'containers', 'container'], ['ribbon', 'pieces', 'piece'], ['tray of kuih', 'plates', 'plate']];
+const SHARE = [['cake', 'friends', 'friend', 'shares it equally between'], ['pizza', 'children', 'child', 'shares it equally between'], ['bottle of juice', 'cups', 'cup', 'pours it equally into'], ['bag of rice', 'containers', 'container', 'shares it equally between'], ['ribbon', 'pieces', 'piece', 'cuts it into'], ['tray of kuih', 'plates', 'plate', 'shares it equally between']];
 const divWhole = {
   id: 'm10.fraction-divide-whole', topicId: T, subtopicId: 'm10-s5', skill: SKILL.div,
   title: 'Divide a fraction by a whole number (D1 numerator divides; D3 sharing in a story)',
@@ -342,17 +347,18 @@ const divWhole = {
     for (;;) {
       let f; let n;
       if (d === 1) {
-        n = rng.int(2, 9); const b = rng.int(3, 20); const kMax = Math.floor((b - 1) / n);
+        n = rng.int(2, 7); const b = rng.int(3, 15); const kMax = Math.floor((b - 1) / n);
         if (kMax < 1) continue;
-        f = F(rng.int(1, kMax) * n, b); if (f.d !== b) continue;
+        const k = kMax >= 2 && rng.chance(0.6) ? rng.int(2, kMax) : rng.int(1, kMax);
+        f = F(k * n, b); if (f.d !== b) continue;
       } else { f = properFrac(rng, D2_12); n = rng.int(2, 9); if (f.n % n === 0) continue; }
       const r = f.div(n);
       let prompt; let words = null;
       if (d === 3) {
         words = rng.pick(SHARE);
         const p = person(rng);
-        prompt = `${p.name} has ${f} of a ${words[0]}. ${p.He} shares it equally between ${n} ${words[1]}. What fraction of the whole ${words[0]} does each ${words[2]} get? Give your answer in its simplest form.`;
-      } else prompt = `Work out ${f} ÷ ${n}. Give your answer in its simplest form.`;
+        prompt = `${p.name} has ${f} of a ${words[0]}. ${p.He} ${words[3]} ${n} ${words[3] === 'cuts it into' ? 'equal ' : ''}${words[1]}. ${words[2] === 'piece' ? `What fraction of the whole ${words[0]} is each piece?` : `What fraction of the whole ${words[0]} does each ${words[2]} get?`} Give your answer in its simplest form.`;
+      } else prompt = rng.chance(0.5) ? `Work out ${f} ÷ ${n}. Give your answer in its simplest form.` : `Divide ${f} by ${n}. Give your answer in its simplest form.`;
       const solution = f.n % n === 0
         ? `Share the numerator: ${f.n} ÷ ${n} = ${f.n / n}, so ${f} ÷ ${n} = ${f.n / n}/${f.d}${simplest(r) !== `${f.n / n}/${f.d}` ? ` = ${simplest(r)}` : ''}. Answer: ${simplest(r)}`
         : `Dividing by ${n} cuts every piece into ${n} smaller pieces, so multiply the denominator by ${n}: ${f} ÷ ${n} = ${f.n}/${f.d * n}${simplest(r) !== `${f.n}/${f.d * n}` ? ` = ${simplest(r)}` : ''}. The answer is smaller than ${f}. Answer: ${simplest(r)}`;
@@ -360,14 +366,14 @@ const divWhole = {
         { text: simplest(f.mul(n)), code: 'FR-DIV-WRONG-PART', why: `It looks like you multiplied by ${n} instead of dividing. Sharing ${f} between ${n} gives each a smaller amount.` },
         f.d % n === 0 ? { text: simplest(F(f.n, f.d / n)), code: 'FR-DIV-WRONG-PART', why: `It looks like you divided the denominator by ${n}. That makes the pieces bigger. Multiply the denominator by ${n} instead.` } : null,
         { text: f.toString(), code: 'FR-DIV-UNCHANGED', why: `${f} is the amount before it is shared. Each share is smaller: divide by ${n}.` },
-        d === 3 ? { text: `1/${n}`, code: 'FR-DIV-WHOLE-ONLY', why: `1/${n} would be each share of a WHOLE ${words[0]}. Only ${f} is shared, so each gets 1/${n} of ${f}.` } : null,
+        d === 3 ? { text: `1/${n}`, code: 'FR-DIV-WHOLE-ONLY', why: `1/${n} would be each share of a WHOLE ${words[0]}. Only ${f} is shared, so each gets 1/${n} of ${f}.` } : { text: `1/${n}`, code: 'FR-DIV-WHOLE-ONLY', why: `1/${n} is 1 ÷ ${n}. It looks like you left out the ${f}: here ${f}, not 1 whole, is divided by ${n}.` },
       ];
       try {
         if (d === 2 && rng.chance(0.4)) {
           const t = typedMisconceptions(simplest(r), distractors, { code: 'FR-DIV-WRONG-PART', why: `To divide a fraction by ${n}, multiply the denominator by ${n} (or divide the numerator by ${n}), then simplify.` });
           return { type: 'short', prompt, answer: { accept: [simplest(r)], keywords: [] }, solution, ...t };
         }
-        const c = choices(rng, simplest(r), distractors, (i) => nearMiss(F(f.n, f.d * n + i).toString(), `Multiply the denominator by ${n}, then simplify.`));
+        const c = choices(rng, simplest(r), distractors, null);
         return { type: 'mcq', prompt, ...c, solution, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
     }
@@ -435,7 +441,7 @@ const fromLeft = {
       const p = person(rng);
       const prompt = `${p.name} spent ${f} of ${p.his} money and had ${rm(left)} left. How much money did ${p.he} have at first?`;
       const diagram = { type: 'barModel', bars: [{ label: 'Money', units: f.d, shadedUnits: f.n }], braces: [{ bar: 0, from: 0, to: f.n, label: 'spent', side: 'above' }, { bar: 0, from: f.n, to: f.d, label: rm(left), side: 'below' }], totalBrace: { label: '?' } };
-      const solution = `${p.He} spent ${f.n} of ${f.d} equal parts, so ${leftParts} part${leftParts > 1 ? 's are' : ' is'} left. ${leftParts} part${leftParts > 1 ? 's' : ''} = ${rm(left)}, so 1 part = ${rm(left)} ÷ ${leftParts} = ${rm(unit)}. At first: ${f.d} parts = ${rm(unit)} x ${f.d} = ${rm(total)}. Answer: ${rm(total)}`;
+      const solution = `${p.He} spent ${f.n} of ${f.d} equal parts, so ${leftParts} part${leftParts > 1 ? 's are' : ' is'} left. ${leftParts > 1 ? `${leftParts} parts = ${rm(left)}, so 1 part = ${rm(left)} ÷ ${leftParts} = ${rm(unit)}.` : `So 1 part = ${rm(left)}.`} At first: ${f.d} parts = ${rm(unit)} x ${f.d} = ${rm(total)}. Answer: ${rm(total)}`;
       const distractors = [
         left % f.n === 0 ? { text: rm((left / f.n) * f.d), code: 'FR-LEFT-AS-SPENT', why: `It looks like you treated ${rm(left)} as the ${f} that was spent. ${rm(left)} is what was LEFT: ${F(leftParts, f.d)} of the money.` } : null,
         { text: rm(unit), code: 'FR-WHOLE-ONE-PART', why: `${rm(unit)} is one part. ${p.He} started with all ${f.d} parts.` },

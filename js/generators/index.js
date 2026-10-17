@@ -15,23 +15,14 @@
 
 import { makeRng, finish } from './core.js';
 import { ALL_CODES } from './misconceptions.js';
-import * as m01mod from './m01-place-value.js';
-import * as m02mod from './m02-number-system.js';
-import * as m03mod from './m03-shapes-angles.js';
-import * as m04mod from './m04-volume-capacity.js';
-import * as m05mod from './m05-add-subtract.js';
-import * as m06mod from './m06-multiply-divide.js';
-import * as m07mod from './m07-patterns.js';
-import * as m08mod from './m08-probability.js';
-import * as m09mod from './m09-fdp.js';
-import * as m10mod from './m10-fractions-calc.js';
-import * as m11mod from './m11-ratio.js';
-import * as m12mod from './m12-data.js';
-import * as m13mod from './m13-coordinates.js';
-import * as m14mod from './m14-reflection-rotation.js';
-import * as m15mod from './m15-time-measures.js';
-
-const MODULES = [m01mod, m02mod, m03mod, m04mod, m05mod, m06mod, m07mod, m08mod, m09mod, m10mod, m11mod, m12mod, m13mod, m14mod, m15mod];
+// Topic modules load one by one, so a problem in one topic file cannot stop the others (or the app).
+const TOPIC_FILES = ['m01-place-value', 'm02-number-system', 'm03-shapes-angles', 'm04-volume-capacity', 'm05-add-subtract', 'm06-multiply-divide', 'm07-patterns', 'm08-probability', 'm09-fdp', 'm10-fractions-calc', 'm11-ratio', 'm12-data', 'm13-coordinates', 'm14-reflection-rotation', 'm15-time-measures'];
+export const LOAD_ERRORS = [];
+const MODULES = await Promise.all(TOPIC_FILES.map((f) => import(`./${f}.js`).catch((e) => {
+  LOAD_ERRORS.push(`${f}: ${e && e.message}`);
+  console.error(`Generators: could not load ${f}.js`, e);
+  return { default: [] };
+})));
 const ALL = MODULES.flatMap((m) => m.default);
 
 /** Every misconception code a generated question may carry: the CLO's catalogue, the shared

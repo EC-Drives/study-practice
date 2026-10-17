@@ -16,8 +16,8 @@
 // - the same (generator, seed, difficulty) gives the same question again.
 // Then: can every topic fill a 30-minute session without repeating a question?
 
-import { GENERATORS, REGISTRY, generate, generateFor, generateSet, generatorsFor, MISCONCEPTION_CODES as ALL_CODES } from '../js/generators/index.js';
-import { SOLVERS, MIS } from './gen-solvers/index.js';
+import { GENERATORS, REGISTRY, generate, generateFor, generateSet, generatorsFor, MISCONCEPTION_CODES as ALL_CODES, LOAD_ERRORS } from '../js/generators/index.js';
+import { SOLVERS, MIS, SOLVER_LOAD_ERRORS } from './gen-solvers/index.js';
 import { valueIn, norm } from './gen-solvers/lib.js';
 import { markQuestion } from '../js/marking.js';
 import { estimateSeconds, budgetSeconds } from '../js/sampler.js';
@@ -186,6 +186,7 @@ async function loadBankSkills() {
 const tick = () => new Promise((r) => setTimeout(r, 0));
 
 async function run() {
+  for (const e of [...LOAD_ERRORS, ...SOLVER_LOAD_ERRORS]) failures.push(`could not load ${e}`);
   await loadBankSkills();
   const list = GENERATORS.filter((g) => !ONLY || g.id === ONLY || g.id.startsWith(ONLY) || g.topicId.startsWith(ONLY));
   $('#summary').textContent = `Running ${list.length} generators x ${SEEDS} seeds per difficulty...`;

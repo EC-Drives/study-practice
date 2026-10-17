@@ -44,8 +44,8 @@ function remParts(q) {
   return { T, a, b, first, rest, second, left: qsub(rest, second), spent: /spend altogether/.test(q.prompt) };
 }
 function divParts(q) {
-  let m = q.prompt.match(/Work out (\d+)\/(\d+) ÷ (\d+)\./);
-  if (!m) m = q.prompt.match(/has (\d+)\/(\d+) of a .* between (\d+) /);
+  let m = q.prompt.match(/(?:Work out|Divide) (\d+)\/(\d+) (?:÷|by) (\d+)\./);
+  if (!m) m = q.prompt.match(/has (\d+)\/(\d+) of a .* (?:between|into) (\d+) /);
   return { f: Q(m[1], m[2]), n: Q(m[3]) };
 }
 function timesParts(q) {

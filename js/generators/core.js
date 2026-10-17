@@ -191,7 +191,8 @@ export const PEOPLE = [
   { name: 'Arjun', he: 'he', his: 'his' }, { name: 'Mei Lin', he: 'she', his: 'her' }, { name: 'Ahmad', he: 'he', his: 'his' },
   { name: 'Lina', he: 'she', his: 'her' }, { name: 'Kumar', he: 'he', his: 'his' }, { name: 'Rahim', he: 'he', his: 'his' },
 ];
-const capFirst = (t) => t[0].toUpperCase() + t.slice(1);
+/** Capital first letter, for sentences that start with a word from the data. */
+export const capFirst = (t) => (t ? t[0].toUpperCase() + t.slice(1) : t);
 /** A person with He/She and His/Her ready for the start of a sentence. */
 export function person(rng) { const p = rng.pick(PEOPLE); return { ...p, He: capFirst(p.he), His: capFirst(p.his) }; }
 
@@ -225,4 +226,14 @@ export function finish(meta, seed, difficulty, body) {
   q.generatorId = meta.id;
   q.seed = seed;
   return q;
+}
+
+// ---------------------------------------------------------------- fraction words
+
+const DEN_WORDS = { 2: ['half', 'halves'], 3: ['third', 'thirds'], 4: ['quarter', 'quarters'], 5: ['fifth', 'fifths'], 6: ['sixth', 'sixths'], 7: ['seventh', 'sevenths'], 8: ['eighth', 'eighths'], 9: ['ninth', 'ninths'], 10: ['tenth', 'tenths'], 11: ['eleventh', 'elevenths'], 12: ['twelfth', 'twelfths'] };
+/** "quarters", "fifths", "twelfths" (or the singular): never "4ths". */
+export function denWord(d, plural = true) {
+  if (DEN_WORDS[d]) return DEN_WORDS[d][plural ? 1 : 0];
+  const v = d % 100; const s = v >= 11 && v <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[d % 10] || 'th');
+  return `${d}${s}${plural ? 's' : ''}`;
 }
