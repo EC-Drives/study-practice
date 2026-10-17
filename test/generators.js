@@ -54,6 +54,13 @@ function correctResponse(q) {
 }
 const dpOf = (t) => { const m = String(t).match(/\.(\d+)/); return m ? m[1].length : 0; };
 
+/** Every number written in the prompt (for the near-miss rule). */
+function promptNumbers(q) {
+  // leave out powers of units (cm^2, cm²), "3D", and digits written next to a missing-digit "?" (7?0)
+  const text = String(q.prompt).replace(/(\d) (\d{3})/g, '$1$2').replace(/\^\d+|[²³]/g, ' ').replace(/\b\d+D\b/g, ' ').replace(/[\d?]*\?[\d?]*/g, ' ');
+  return (text.match(/-?\d+(?:\.\d+)?(?:\/\d+)?/g) || []).map((t) => valueIn(t)).filter((x) => x != null);
+}
+
 /** Check one question. Returns a list of problems (empty = all good). */
 function checkQuestion(g, q, solver) {
   const p = [];
@@ -114,7 +121,11 @@ function checkQuestion(g, q, solver) {
       if (k === 'common') continue;
       const shownText = q.type === 'mcq' ? q.options[Number(k)] : k;
       if (code === 'NEAR-MISS') {
-        if (!/^This is close/.test(q.misconceptions[k])) p.push(`near miss ${shownText} claims a specific error`);
+        // X3: a near miss names no error and says "Not quite" (or "This is close" only when one step away)
+        if (!/^(Not quite|This is close)/.test(q.misconceptions[k])) p.push(`near miss ${shownText} claims a specific error`);
+        // X3: a near miss is never a number that is already in the question
+        const nv = valueIn(shownText);
+        if (nv != null && promptNumbers(q).some((x) => Math.abs(x - nv) < 1e-9)) p.push(`near miss ${shownText} is a number from the question`);
         continue;
       }
       const rule = rules[code];
@@ -125,10 +136,22 @@ function checkQuestion(g, q, solver) {
       const hit = vals.some((x) => (typeof x === 'number' ? ov != null && Math.abs(ov - x) < 1e-9 * Math.max(1, Math.abs(x)) : norm(x) === norm(shownText)));
       if (!hit) p.push(`${code} does not give ${shownText} (gives ${vals.join(' or ')})`);
     }
+    // X1: the catch-all for typed answers is never a named misconception
+    if ((q.type === 'short' || q.type === 'numeric') && codes.common !== 'UNCLASSIFIED') p.push(`"common" is coded ${codes.common}, not UNCLASSIFIED`);
+    for (const [k, c] of Object.entries(codes)) if (c === 'UNCLASSIFIED' && k !== 'common') p.push(`wrong answer ${k} is coded UNCLASSIFIED`);
     // two different wrong answers must not share an explanation
     const byText = {};
     for (const k of wrongKeys) { const t = q.misconceptions[k]; const shownText = q.type === 'mcq' ? q.options[Number(k)] : k; (byText[t] ||= new Set()).add(norm(shownText)); }
     for (const [t, set] of Object.entries(byText)) if (set.size > 1) p.push(`one explanation for ${set.size} different wrong answers: ${t.slice(0, 60)}`);
+  }
+  // X4/X5: ordinals ("3th"), singulars ("1 units") and negatives in working ("1 + -3")
+  for (const t of [q.prompt, q.solution, ...(Array.isArray(q.options) ? q.options : []), ...Object.values(q.misconceptions || {})]) {
+    const s = String(t);
+    const ord = [...s.matchAll(/\b(\d+)(st|nd|rd|th)\b/g)].find((m) => { const v = Number(m[1]) % 100; const want = v >= 11 && v <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[v % 10] || 'th'); return m[2] !== want; });
+    const one = s.match(/(?<![\d.,/])1 (units|parts|tenths|hundredths|thousandths|steps|squares|beads|cubes|marbles|counters|sweets)\b/);
+    const neg = s.match(/[+\-x×÷] -\d/);
+    const bad = ord ? ord[0] : one ? one[0] : neg ? neg[0] : null;
+    if (bad) { p.push(`wording: "${bad}" in: ${s.slice(0, 70)}`); break; }
   }
   // the skill tag must be one the bank uses for this subtopic
   if (BANK_SKILLS[q.subtopicId] && !BANK_SKILLS[q.subtopicId].has(q.skill)) p.push(`skill "${q.skill}" is not a bank skill for ${q.subtopicId}`);
@@ -196,6 +219,9 @@ async function run() {
     if (!solver) { row.first = 'no independent solver'; row.failed = 1; rows.push(row); failures.push(`${g.id}: no independent solver`); continue; }
     const prompts = new Set();
     row.perLevel = [];
+    const pos = {}; // X9: where the right option lands, and true/false balance
+    let tfTrue = 0;
+    let tfAll = 0;
     for (const d of g.difficulties) {
       const levelPrompts = new Set();
       for (let s = 1; s <= SEEDS; s++) {
@@ -205,6 +231,8 @@ async function run() {
         try { q = generate(g.id, s, d); } catch (e) { row.failed++; if (!row.first) row.first = `seed ${s} d${d}: ${e.message}`; continue; }
         prompts.add(`${q.prompt}|${JSON.stringify(q.options || '')}|${JSON.stringify(q.diagram || '')}`);
         levelPrompts.add(`${q.prompt}|${q.type === 'order' || /Which of these/.test(q.prompt) ? JSON.stringify([...(q.options || [])].sort()) : ''}|${JSON.stringify(q.diagram || '')}|${JSON.stringify(q.optionDiagrams || '')}`);
+        if (q.type === 'mcq') { const key = `${q.options.length}:${q.answer}`; pos[key] = (pos[key] || 0) + 1; }
+        if (q.type === 'truefalse') { tfAll++; if (q.answer === true) tfTrue++; }
         const probs = checkQuestion(g.id, q, solver);
         if (s % 97 === 0 && JSON.stringify(generate(g.id, s, d)) !== JSON.stringify(q)) probs.push('not reproducible');
         if (q.difficulty !== d) probs.push('difficulty differs');
@@ -218,6 +246,14 @@ async function run() {
       if (levelPrompts.size < Math.min(50, SEEDS / 4)) { row.failed++; failures.push(`${g.id} D${d}: only ${levelPrompts.size} different prompts in ${SEEDS}`); }
       await tick();
     }
+    // X9: the right option should land in every position about equally, and true/false both ways
+    const byN = {};
+    for (const [k, c] of Object.entries(pos)) { const [nOpt, i] = k.split(':').map(Number); (byN[nOpt] ||= Array(nOpt).fill(0))[i] += c; }
+    for (const [nOpt, counts] of Object.entries(byN)) {
+      const all = counts.reduce((a, b) => a + b, 0);
+      if (all >= 200 && counts.some((c) => c / all > 2 / Number(nOpt) || c / all < 0.4 / Number(nOpt))) { row.failed++; failures.push(`${g.id}: right option position unbalanced (${counts.join('/')} for ${nOpt} options)`); }
+    }
+    if (tfAll >= 100 && (tfTrue / tfAll < 0.25 || tfTrue / tfAll > 0.75)) { row.failed++; failures.push(`${g.id}: true/false answers unbalanced (${tfTrue} true of ${tfAll})`); }
     row.distinct = prompts.size;
     if (row.distinct < 30) { row.failed++; failures.push(`${g.id}: only ${row.distinct} different questions`); if (!row.first) row.first = `only ${row.distinct} different questions`; }
     rows.push(row);
@@ -279,6 +315,8 @@ function render(sessions) {
   const byTopic = {};
   for (const r of rows) { byTopic[r.topic] ||= { gens: 0, questions: 0, failed: 0 }; byTopic[r.topic].gens++; byTopic[r.topic].questions += r.questions; byTopic[r.topic].failed += r.failed; }
   window.__genResults = { ok, total, generators: rows.length, failures: failures.slice(0, 300), byTopic, sessions: sessions.length, sessionsShort: sessFail };
+  // for runs from the command line (tools/run_tests.py): report the result to the local server
+  if (params.has('beacon')) fetch(`./__result?${encodeURIComponent(JSON.stringify({ total, generators: rows.length, sessions: sessions.length, failed: failures.slice(0, 120).map((f) => f.slice(0, 220)) }))}`).catch(() => {});
   document.body.dataset.done = '1';
 }
 
@@ -292,5 +330,5 @@ if (params.get('show')) {
   $('#sample').textContent = JSON.stringify(out, null, 1);
   $('#summary').textContent = `Showing ${n} samples of ${id}`;
 } else {
-  run().catch((e) => { $('#summary').textContent = `Crashed: ${e.stack || e}`; $('#summary').className = 'bad'; document.body.dataset.done = '1'; });
+  run().catch((e) => { $('#summary').textContent = `Crashed: ${e.stack || e}`; $('#summary').className = 'bad'; document.body.dataset.done = '1'; if (params.has('beacon')) fetch(`./__result?${encodeURIComponent(JSON.stringify({ total: 0, failed: [`crashed: ${e && e.message}`] }))}`).catch(() => {}); });
 }

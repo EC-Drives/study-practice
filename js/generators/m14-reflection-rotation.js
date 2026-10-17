@@ -5,7 +5,7 @@
 // built from the same numbers as the answer; the image she has to find is never drawn. Every wrong
 // option is made by one named misconception and carries its code.
 
-import { choices, typedMisconceptions, nearMiss, numericAnswer, person } from './core.js';
+import { choices, typedMisconceptions, nearMiss, numericAnswer, person, term } from './core.js';
 
 const T = 'm14-reflection-and-rotation';
 const SK = {
@@ -13,20 +13,7 @@ const SK = {
   rot: 'rotating 90° about a vertex', describe: 'describing a transformation', sym: 'symmetry in patterns',
 };
 
-export const EXTRA_CODES = {
-  'REFL-NEGATE-BOTH': 'Changes the sign of both coordinates when reflecting in one line (that is a half turn about the origin)',
-  'REFL-PART-SHAPE': 'Reflects only some of the corners of a shape',
-  'REFL-DIST-AS-COORD': 'Gives the distance to the mirror line as the new coordinate',
-  'REFL-TO-LINE': 'Moves the point onto the mirror line instead of the same distance past it',
-  'REFL-NO-CHANGE': 'Leaves a point where it is although it is not on the mirror line',
-  'REFL-DIAG-SIGN-STAYS': 'Swaps the coordinates for the diagonal mirror but leaves the minus sign in its old place',
-  'REFL-DIAG-SWAP-ONLY': 'For the diagonal line through (1, -1), swaps the coordinates but does not change their signs',
-  'MIRROR-DIST': 'Gives the distance between a point and its image instead of the halfway point',
-  'MID-HALF-LENGTH': 'Gives half the length of the line as the midpoint coordinate, without counting on from the start',
-  'MID-NO-HALVE': 'Adds the two end coordinates but does not halve the total',
-  'ROT-180': 'Turns through 180° (a half turn) instead of 90°',
-  'TRANSF-ONE-POINT': 'Checks only one corner: the transformation fits that corner but not the whole shape',
-};
+// Misconception codes: all declared once in misconceptions.js (the CLO's catalogue).
 
 // ---------------------------------------------------------------- helpers
 
@@ -38,8 +25,8 @@ const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
 const nz = (rng, lo, hi) => rng.intNot(lo, hi, [0]);
 const units = (k) => `${n(k)} ${Math.abs(k) === 1 ? 'unit' : 'units'}`;
 const sameSet = (A, B) => A.length === B.length && A.every((p) => B.some((q) => eqP(p, q)));
-const DIAG = 'the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2)';
-const DIAG2 = 'the other diagonal mirror line, which passes through (0, 0), (1, -1) and (2, -2)';
+const DIAG = 'the line y = x';
+const DIAG2 = 'the line y = -x';
 
 function grid(pts, minSpan = 8) {
   const range = (vals) => {
@@ -55,7 +42,7 @@ const nearP = (P, hint) => (i) => nearMiss(C([P[0] + (i % 2 ? 1 : -1) * Math.cei
 function shortCoord(prompt, P, items, common, rest) {
   const ans = C(P);
   const t = typedMisconceptions(ans, items, common);
-  return { type: 'short', prompt: `${prompt} Write them like (x, y).`, answer: { accept: [ans, `${n(P[0])},${n(P[1])}`, `${n(P[0])}, ${n(P[1])}`], keywords: [] }, ...t, ...rest };
+  return { type: 'short', prompt: `${prompt} Write your answer as (x, y).`, answer: { accept: [ans, `${n(P[0])},${n(P[1])}`, `${n(P[0])}, ${n(P[1])}`], keywords: [] }, ...t, ...rest };
 }
 const list = (pts) => pts.map(C).join(', ');
 const named = (names, pts) => `${pts.slice(0, -1).map((p, i) => `${names[i]}${C(p)}`).join(', ')} and ${names[pts.length - 1]}${C(pts[pts.length - 1])}`;
@@ -134,11 +121,31 @@ const reflectAxis = {
 
 const reflectLine = {
   id: 'm14.reflect-line', topicId: T, subtopicId: 'm14-s1', skill: SK.line,
-  title: 'Reflect a point in a line x = a or y = b (D3: find the point from its image)',
+  title: 'Reflect a point in a line x = a or y = b (D2); a whole triangle (D3)',
   difficulties: [2, 3],
   check: {},
   make(rng, d) {
     for (let t = 0; t < 300; t++) {
+      if (d === 3) {
+        // a whole triangle in x = a or y = b (working back from one image was the same sum as D2: CLO review, m14 SHOULD 3)
+        const vert = rng.chance(0.5); const a = nz(rng, -3, 3); const k = vert ? 0 : 1;
+        const tri = rightTriangle(rng, [nz(rng, -6, 6), nz(rng, -6, 6)], 3);
+        if (!(tri.every((p) => p[k] > a) || tri.every((p) => p[k] < a))) continue; // all on one side of the line
+        const f = vert ? reflXa(a) : reflYb(a);
+        const img = tri.map(f);
+        if ([...tri, ...img].some((p) => Math.abs(p[0]) > 8 || Math.abs(p[1]) > 8)) continue;
+        const lineName = `${vert ? 'x' : 'y'} = ${n(a)}`;
+        const kk = rng.int(0, 2);
+        const prompt = `Triangle ABC has corners ${named('ABC', tri)}. It is reflected in the ${vert ? 'vertical' : 'horizontal'} mirror line ${lineName}. Which list gives the corners of the image, A', B' and C'?`;
+        const solution = `Each corner goes the same distance to the other side of ${lineName}, and its ${vert ? 'y' : 'x'}-coordinate does not change. ${tri.map((p, i) => `${'ABC'[i]}${C(p)} is ${units(Math.abs(p[k] - a))} from the line, so ${'ABC'[i]}' is ${C(img[i])}`).join('; ')}. Answer: ${list(img)}`;
+        const distractors = [
+          { text: list(tri.map(vert ? reflY : reflX)), code: 'REFL-FROM-ORIGIN', why: `This reflects the triangle in the ${vert ? 'y' : 'x'}-axis. The mirror here is the line ${lineName}, so measure each distance from that line.` },
+          { text: list(tri.map(vert ? reflYb(a) : reflXa(a))), code: 'REFL-WRONG-AXIS', why: `This reflects in the ${vert ? 'horizontal' : 'vertical'} line ${vert ? 'y' : 'x'} = ${n(a)}. The line ${lineName} is ${vert ? 'vertical' : 'horizontal'}, so only the ${vert ? 'x' : 'y'}-coordinates change.` },
+          { text: list(img.map((q, i) => (i === kk ? tri[i] : q))), code: 'REFL-PART-SHAPE', why: `Every corner must be reflected. ${'ABC'[kk]}${C(tri[kk])} also moves, to ${C(img[kk])}.` },
+        ];
+        const diagram = { ...grid([...tri, ...img]), polygons: [{ points: tri }], points: tri.map((q, i) => ({ at: q, label: 'ABC'[i] })), lines: [vert ? { x: a, label: lineName } : { y: a, label: lineName }] };
+        try { return { type: 'mcq', prompt, ...choices(rng, list(img), distractors, null), solution, diagram, marks: 2 }; } catch { continue; }
+      }
       const vert = rng.chance(0.5);
       const a = nz(rng, -4, 4);
       const P = [nz(rng, -7, 7), nz(rng, -7, 7)];
@@ -197,11 +204,11 @@ const findMirror = {
       const P = vert ? [u, other] : [other, u]; const Q = vert ? [v, other] : [other, v];
       const c = vert ? 'x' : 'y';
       const prompt = `The point ${C(P)} is reflected in a ${vert ? 'vertical' : 'horizontal'} mirror line and its image is ${C(Q)}. The mirror line is ${c} = ?. What is the missing number?`;
-      const solution = `The mirror line is exactly halfway between a point and its image. Halfway between ${c} = ${n(u)} and ${c} = ${n(v)}: (${n(u)} + ${v < 0 ? `(${n(v)})` : n(v)}) ÷ 2 = ${n(a)}. Check: both points are ${dist} ${dist === 1 ? 'unit' : 'units'} from ${c} = ${n(a)}. Answer: ${n(a)}`;
+      const solution = `The mirror line is exactly halfway between a point and its image. Halfway between ${c} = ${n(u)} and ${c} = ${n(v)}: (${n(u)} + ${term(n(v))}) ÷ 2 = ${n(a)}. Check: both points are ${dist} ${dist === 1 ? 'unit' : 'units'} from ${c} = ${n(a)}. Answer: ${n(a)}`;
       const items = [
         { text: n(2 * dist), code: 'MIRROR-DIST', why: `${2 * dist} is the distance between the point and its image. The mirror line is halfway between them.` },
-        { text: n(dist), code: 'MID-HALF-LENGTH', why: `${dist} is half the distance. Count ${dist} on from ${c} = ${n(Math.min(u, v))} to reach the mirror line.` },
-        { text: n(u + v), code: 'MID-NO-HALVE', why: `You added the ${c}-coordinates (${n(u)} + ${n(v)}) but did not halve the total.` },
+        { text: n(dist), code: 'MID-HALF-DIFF', why: `${dist} is half the distance. Count ${dist} on from ${c} = ${n(Math.min(u, v))} to reach the mirror line.` },
+        { text: n(u + v), code: 'MID-NO-HALVE', why: `You added the ${c}-coordinates (${n(u)} + ${term(n(v))}) but did not halve the total.` },
       ];
       const diagram = { ...grid([P, Q]), points: [{ at: P, label: 'P' }, { at: Q, label: "P'" }] };
       try {
@@ -221,7 +228,7 @@ const findMirror = {
 
 const reflectDiagonal = {
   id: 'm14.reflect-diagonal', topicId: T, subtopicId: 'm14-s2', skill: SK.diag,
-  title: 'Reflect in the diagonal through (1, 1): first quadrant (D1), any point (D2); the other diagonal or working back (D3)',
+  title: 'Reflect in the line y = x: first quadrant (D1), any point (D2); the line y = -x, or a whole triangle in y = x or y = -x (D3)',
   difficulties: [1, 2, 3],
   check: {},
   make(rng, d) {
@@ -233,47 +240,57 @@ const reflectDiagonal = {
       const [x, y] = P;
       const L = rng.pick(['P', 'A', 'B', 'K', 'Q', 'T']);
       const other = d === 3 && rng.chance(0.5);
-      const back = d === 3 && !other;
-      const lineSpec = other ? { through: [[0, 0], [1, -1]], label: 'mirror line' } : { through: [[0, 0], [1, 1]], label: 'mirror line' };
+      if (d === 3 && !other) {
+        // a whole triangle in y = x or y = -x (working back from one image was the same sum as D2: CLO review, m14 SHOULD 3)
+        const neg = rng.chance(0.5);
+        const tri = rightTriangle(rng, [nz(rng, -5, 5), nz(rng, -5, 5)], 3);
+        if (tri.some((q) => Math.abs(q[0]) === Math.abs(q[1]) || Math.abs(q[0]) > 6 || Math.abs(q[1]) > 6)) continue;
+        const f = neg ? ([u, v]) => [-v, -u] : ([u, v]) => [v, u];
+        const img = tri.map(f);
+        const kk = rng.int(0, 2);
+        const mirror = neg ? 'y = -x' : 'y = x';
+        const tprompt = `Triangle ABC has corners ${named('ABC', tri)}. It is reflected in the line ${mirror}. Which list gives the corners of the image, A', B' and C'?`;
+        const tsol = `${neg ? 'For the line y = -x, swap the coordinates of each corner AND change both signs' : 'For the line y = x, swap the coordinates of each corner and keep their signs'}: ${tri.map((q, i) => `${'ABC'[i]}${C(q)} → ${C(img[i])}`).join(', ')}. Answer: ${list(img)}`;
+        const tds = [
+          neg ? { text: list(tri.map(([u, v]) => [v, u])), code: 'REFL-DIAG-SWAP-ONLY', why: 'This only swaps the numbers, which is the reflection in the line y = x. For the line y = -x, both signs change as well.' }
+            : { text: list(tri.map(([u, v]) => [-v, -u])), code: 'REFL-DIAG-NEGATE', why: 'This swaps the numbers AND changes both signs, which is a reflection in the line y = -x. For the line y = x, just swap.' },
+          { text: list(img.map((q, i) => (i === kk ? tri[i] : q))), code: 'REFL-PART-SHAPE', why: `Every corner must be reflected. ${'ABC'[kk]}${C(tri[kk])} also moves, to ${C(img[kk])}.` },
+          neg ? { text: list(tri.map(([u, v]) => [-u, -v])), code: 'REFL-NEGATE-BOTH', why: 'Both signs have changed, but the numbers also need to swap places.' }
+            : { text: list(tri.map(([u, v]) => [u, -v])), code: 'REFL-WRONG-AXIS', why: 'This is a reflection in the x-axis. The mirror here is the diagonal line y = x: swap the coordinates.' },
+        ];
+        const tdia = { ...grid([...tri, ...img, [0, 0]]), polygons: [{ points: tri }], points: tri.map((q, i) => ({ at: q, label: 'ABC'[i] })), lines: [neg ? { through: [[0, 0], [1, -1]], label: 'y = -x' } : { through: [[0, 0], [1, 1]], label: 'y = x' }] };
+        try { return { type: 'mcq', prompt: tprompt, ...choices(rng, list(img), tds, null), solution: tsol, diagram: tdia, marks: 2 }; } catch { continue; }
+      }
+      const lineSpec = other ? { through: [[0, 0], [1, -1]], label: 'y = -x' } : { through: [[0, 0], [1, 1]], label: 'y = x' };
       let prompt; let ans; let solution; let distractors;
       if (other) {
         ans = [-y, -x];
         prompt = `Point ${L}${C(P)} is reflected in ${DIAG2}. What are the coordinates of its image?`;
-        solution = `For this diagonal mirror, swap the coordinates AND change both signs: ${C(P)} → ${C(ans)}. Check: halfway between them is ${C([(x - y) / 2, (y - x) / 2])}, which is on the mirror line. Answer: ${C(ans)}`;
+        solution = `For the line y = -x, swap the coordinates AND change both signs: ${C(P)} → ${C(ans)}. Check: halfway between them is ${C([(x - y) / 2, (y - x) / 2])}, which is on the mirror line. Answer: ${C(ans)}`;
         distractors = [
-          { text: C([y, x]), code: 'REFL-DIAG-SWAP-ONLY', why: 'This only swaps the numbers, which is the reflection in the diagonal through (1, 1). This mirror goes through (1, -1), so both signs change as well.' },
+          { text: C([y, x]), code: 'REFL-DIAG-SWAP-ONLY', why: 'This only swaps the numbers, which is the reflection in the line y = x. For the line y = -x, both signs change as well.' },
           { text: C([-x, -y]), code: 'REFL-NEGATE-BOTH', why: 'Both signs have changed, but the numbers also need to swap places.' },
-          { text: C([x, -y]), code: 'REFL-WRONG-AXIS', why: 'This is a reflection in the x-axis. The mirror here is the sloping line through (1, -1) and (2, -2).' },
-          { text: C([-x, y]), code: 'REFL-WRONG-AXIS', why: 'This is a reflection in the y-axis. The mirror here is the sloping line through (1, -1) and (2, -2).' },
-        ];
-      } else if (back) {
-        ans = [y, x];
-        prompt = `A point ${L} is reflected in ${DIAG}. Its image is ${C(P)}. What were the coordinates of ${L}?`;
-        solution = `Reflecting in this diagonal swaps the coordinates, and reflecting back swaps them again. So ${L} is ${C(ans)}. Check: swapping ${C(ans)} gives ${C(P)}. Answer: ${C(ans)}`;
-        distractors = [
-          { text: C([-y, -x]), code: 'REFL-DIAG-NEGATE', why: 'This changes the signs as well as swapping. With this diagonal mirror, the signs stay with their numbers.' },
-          { text: C(P), code: 'REFL-NO-CHANGE', why: `${C(P)} is the image, not the original. The point is not on the mirror line, so the original is somewhere else: swap the coordinates.` },
-          { text: C([Math.sign(x) * Math.abs(y), Math.sign(y) * Math.abs(x)]), code: 'REFL-DIAG-SIGN-STAYS', why: 'The numbers have swapped, but the minus sign stayed in the same place. The sign moves with its number.' },
-          { text: C([-x, y]), code: 'REFL-WRONG-AXIS', why: 'This is a reflection in the y-axis. The diagonal mirror swaps the coordinates.' },
+          { text: C([x, -y]), code: 'REFL-WRONG-AXIS', why: 'This is a reflection in the x-axis. The mirror here is the sloping line y = -x.' },
+          { text: C([-x, y]), code: 'REFL-WRONG-AXIS', why: 'This is a reflection in the y-axis. The mirror here is the sloping line y = -x.' },
         ];
       } else {
         ans = [y, x];
         prompt = `Point ${L}${C(P)} is reflected in ${DIAG}. What are the coordinates of its image?`;
-        solution = `In the diagonal mirror line through (0, 0), (1, 1) and (2, 2), the x and y coordinates swap places${d === 2 ? ' and keep their signs' : ''}: ${C(P)} → ${C(ans)}. Answer: ${C(ans)}`;
+        solution = `In the line y = x, the x and y coordinates swap places${d === 2 ? ' and keep their signs' : ''}: ${C(P)} → ${C(ans)}. Answer: ${C(ans)}`;
         distractors = [
           d === 2 ? { text: C([Math.sign(x) * Math.abs(y), Math.sign(y) * Math.abs(x)]), code: 'REFL-DIAG-SIGN-STAYS', why: 'The numbers have swapped, but the minus sign stayed in the same place. Each sign moves with its number.' } : null,
-          { text: C([-y, -x]), code: 'REFL-DIAG-NEGATE', why: 'This swaps the numbers AND changes both signs, which is a reflection in the other diagonal (through (1, -1)). For this mirror, just swap.' },
+          { text: C([-y, -x]), code: 'REFL-DIAG-NEGATE', why: 'This swaps the numbers AND changes both signs, which is a reflection in the line y = -x. For the line y = x, just swap.' },
           { text: C(P), code: 'REFL-NO-CHANGE', why: `${L} is not on the mirror line (its coordinates are not equal), so it must move.` },
-          { text: C([-x, y]), code: 'REFL-WRONG-AXIS', why: 'This is a reflection in the y-axis. The mirror here is the diagonal line through (1, 1) and (2, 2).' },
-          { text: C([x, -y]), code: 'REFL-WRONG-AXIS', why: 'This is a reflection in the x-axis. The mirror here is the diagonal line through (1, 1) and (2, 2).' },
+          { text: C([-x, y]), code: 'REFL-WRONG-AXIS', why: 'This is a reflection in the y-axis. The mirror here is the diagonal line y = x.' },
+          { text: C([x, -y]), code: 'REFL-WRONG-AXIS', why: 'This is a reflection in the x-axis. The mirror here is the diagonal line y = x.' },
         ].filter(Boolean);
       }
       if (rng.chance(0.5)) distractors = [distractors[0], ...rng.shuffle(distractors.slice(1))];
       const pts = [P, ans, [0, 0]];
       const g = d === 1 ? { type: 'coordinateGrid', x: [0, 8], y: [0, 8] } : grid(pts);
-      const diagram = { ...g, points: [{ at: P, label: back ? `${L}'` : L }], lines: [lineSpec] };
+      const diagram = { ...g, points: [{ at: P, label: L }], lines: [lineSpec] };
       try {
-        if (d !== 1 && rng.chance(0.3)) return shortCoord(prompt, ans, distractors, { code: other ? 'REFL-DIAG-SWAP-ONLY' : 'REFL-DIAG-NEGATE', why: other ? 'For the diagonal through (1, -1), swap the coordinates and change both signs.' : 'For the diagonal through (1, 1), swap the coordinates and keep their signs.' }, { solution, diagram, marks: d === 3 ? 2 : 1 });
+        if (d !== 1 && rng.chance(0.3)) return shortCoord(prompt, ans, distractors, { code: other ? 'REFL-DIAG-SWAP-ONLY' : 'REFL-DIAG-NEGATE', why: other ? 'For the line y = -x, swap the coordinates and change both signs.' : 'For the line y = x, swap the coordinates and keep their signs.' }, { solution, diagram, marks: d === 3 ? 2 : 1 });
         return { type: 'mcq', prompt, ...choices(rng, C(ans), distractors, nearP(ans, 'Use the rule for this diagonal mirror.')), solution, diagram, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
     }
@@ -286,8 +303,8 @@ const reflectDiagonal = {
 const turnWords = (v) => (v[0] > 0 ? 'right' : v[0] < 0 ? 'left' : v[1] > 0 ? 'up' : 'down');
 function offsetWords(v) {
   const parts = [];
-  if (v[0]) parts.push(`${Math.abs(v[0])} ${v[0] > 0 ? 'right' : 'left'}`);
-  if (v[1]) parts.push(`${Math.abs(v[1])} ${v[1] > 0 ? 'up' : 'down'}`);
+  if (v[0]) parts.push(`${units(Math.abs(v[0]))} ${v[0] > 0 ? 'right' : 'left'}`);
+  if (v[1]) parts.push(`${units(Math.abs(v[1]))} ${v[1] > 0 ? 'up' : 'down'}`);
   return parts.join(' and ');
 }
 
@@ -308,7 +325,7 @@ const rotate = {
       if (d === 1) {
         const len = rng.int(2, 5);
         const v = rng.pick([[len, 0], [-len, 0], [0, len], [0, -len]]);
-        shape = [c, add(c, v)]; names = rng.pick(['AB', 'PQ', 'OA', 'KL']); ki = 1;
+        shape = [c, add(c, v)]; names = rng.pick(['AB', 'PQ', 'MN', 'KL']); ki = 1; // never O: it reads as the origin
       } else {
         const rect = rng.chance(0.35);
         const a = rng.int(1, 4) * (rng.chance(0.5) ? 1 : -1); const b = rng.int(1, 4) * (rng.chance(0.5) ? 1 : -1);
@@ -333,7 +350,7 @@ const rotate = {
         ans = V;
         prompt = `A shape is rotated 90° ${dir} about its corner ${cn}${C(c)}. The image of corner ${vn} is at ${C(img)}. What were the coordinates of ${vn} before the rotation?`;
         const io = sub(img, c);
-        solution = `The image of ${vn} is ${offsetWords(io)} from ${cn}. To undo a ${dir} quarter turn, turn back ${clockwise ? 'anticlockwise' : 'clockwise'}: ${offsetWords(io)} becomes ${offsetWords(off)}. So ${vn} was at ${C(V)}. Check: turning ${C(V)} ${dir} about ${cn} gives ${C(img)}. Answer: ${C(V)}`;
+        solution = `The image of ${vn} is ${offsetWords(io)} from ${cn}. To undo ${clockwise ? 'a clockwise' : 'an anticlockwise'} quarter turn, turn back ${clockwise ? 'anticlockwise' : 'clockwise'}: ${offsetWords(io)} becomes ${offsetWords(off)}. So ${vn} was at ${C(V)}. Check: turning ${C(V)} ${dir} about ${cn} gives ${C(img)}. Answer: ${C(V)}`;
         distractors = [
           { text: C(f(img)), code: 'ROT-WRONG-DIRECTION', why: `This turns the image ${dir} again. To find the original, turn the opposite way (${clockwise ? 'anticlockwise' : 'clockwise'}).` },
           { text: C((clockwise ? acw([0, 0]) : cw([0, 0]))(img)), code: 'ROT-ABOUT-ORIGIN', why: `This turns about the origin (0, 0). The centre of rotation is ${cn}${C(c)}.` },
@@ -344,7 +361,7 @@ const rotate = {
         prompt = `${desc} It is rotated 90° ${dir} about ${cn}. What are the coordinates of the image of ${vn}?`;
         solution = both
           ? `From ${cn}${C(c)}, ${vn} is ${offsetWords(off)}. A quarter turn ${dir} turns each part: ${offsetWords(off)} becomes ${offsetWords(turned(off))}. So the image of ${vn} is ${C(c)} moved ${offsetWords(turned(off))}: ${C(img)}. ${cn} stays where it is. Answer: ${C(img)}`
-          : `${cn}${vn} goes ${Math.abs(off[0] || off[1])} units ${turnWords(off)} from ${cn}. A quarter turn ${dir} turns '${turnWords(off)}' into '${turnWords(turned(off))}'. So the image of ${vn} is ${Math.abs(off[0] || off[1])} units ${turnWords(turned(off))} of ${cn}: ${C(img)}. ${cn} stays at ${C(c)}. Answer: ${C(img)}`;
+          : `${cn}${vn} goes ${units(Math.abs(off[0] || off[1]))} ${turnWords(off)} from ${cn}. A quarter turn ${dir} turns '${turnWords(off)}' into '${turnWords(turned(off))}'. So the image of ${vn} is ${units(Math.abs(off[0] || off[1]))} ${turnWords(turned(off))} from ${cn}: ${C(img)}. ${cn} stays at ${C(c)}. Answer: ${C(img)}`;
         distractors = [
           { text: C(g(V)), code: 'ROT-WRONG-DIRECTION', why: `This is a 90° ${clockwise ? 'ANTICLOCKWISE' : 'CLOCKWISE'} turn. ${clockwise ? 'Clockwise is the way clock hands move' : 'Anticlockwise is the opposite way to clock hands'}: '${turnWords(both ? [off[0], 0] : off)}' turns into '${turnWords(turned(both ? [off[0], 0] : off))}'.` },
           { text: C(aboutO(V)), code: 'ROT-ABOUT-ORIGIN', why: `This rotates about the origin (0, 0), not about ${cn}${C(c)}. Use ${cn} as the centre.` },
@@ -473,7 +490,8 @@ const completeSym = {
       const distractors = [
         { text: C(g(P)), code: 'REFL-WRONG-AXIS', why: `This reflects ${C(P)} in ${d === 2 ? `the ${vert ? 'x' : 'y'}-axis` : `the ${vert ? 'horizontal' : 'vertical'} line ${vert ? 'y' : 'x'} = ${n(a)}`}. The line of symmetry here is ${vert ? 'vertical' : 'horizontal'}, so only the ${vert ? 'x' : 'y'}-coordinate changes.` },
         d === 3 ? { text: C(vert ? reflY(P) : reflX(P)), code: 'REFL-FROM-ORIGIN', why: `This reflects in the ${vert ? 'y' : 'x'}-axis. The line of symmetry is ${lineName}, so measure from that line.` } : null,
-        { text: C([-P[0], -P[1]]), code: 'REFL-NEGATE-BOTH', why: 'Both signs have changed. Only the coordinate across the mirror line changes.' },
+        // only when both coordinates are non-zero: (0, -3) has not had "both signs changed" (CLO review, m14 MUST 1)
+        P[0] !== 0 && P[1] !== 0 ? { text: C([-P[0], -P[1]]), code: 'REFL-NEGATE-BOTH', why: 'Both signs have changed. Only the coordinate across the mirror line changes.' } : null,
         { text: C([P[1], P[0]]), code: 'COORD-SWAP', why: `This swaps the coordinates, which is a reflection in a diagonal line, not ${lineName}.` },
       ].filter((x) => x && !done.some((q) => C(q) === x.text));
       // the half shape starts on the line of symmetry and comes back to it

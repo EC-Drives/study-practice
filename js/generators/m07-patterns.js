@@ -4,7 +4,7 @@
 // Patterns and ranges follow the CLO's generator guide (m07). Every wrong option is built by one
 // named misconception and carries its code. Decimal terms are held as whole numbers of hundredths.
 
-import { F, choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, person } from './core.js';
+import { F, choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, person, ordinal, valueOf, countOf, term } from './core.js';
 
 const T = 'm07-number-patterns';
 const SKILL = {
@@ -13,23 +13,16 @@ const SKILL = {
   spatial: 'spatial patterns', sqcube: 'square and cube number sequences', fm: 'function machines', fmInv: 'inverse operations in function machines', letters: 'letters for unknown quantities',
 };
 
-export const EXTRA_CODES = {
-  'SEQ-STEP-ONE': 'Counts on (or back) in ones instead of using the sequence\'s step',
-  'SEQ-FIRST-AS-STEP': 'Uses the first term as the step of the sequence',
-  'SEQ-CHECK-ONE-STEP': 'Checks only the first step (or the first pair), not every one',
-  'DEC-NO-EXCHANGE': 'Adds tenths past 9 without exchanging 10 tenths for 1 whole (0.9 + 0.2 = 0.11)',
-  'WRONG-QUANTITY': 'Answers with a different quantity from the one the question asks for',
-  'SHARED-COUNTED-TWICE': 'Counts the shared matchsticks twice (number of shapes x sticks in one shape)',
-  'SEQ-SAME-GAP': 'Adds the last gap again, not noticing that the gaps between square (or cube) numbers grow',
-  'ONE-STEP-ONLY': 'Does only one of the steps (for example only the first operation of a function machine)',
-  'BAR-NO-HALVE': 'Takes away the difference but forgets to halve what is left',
-  'HALF-TOTAL': 'Shares the total equally, ignoring the difference between the two numbers',
-  'ITEM-LEFT-OUT': 'Leaves out one of the changes in a multi-step problem',
-};
+// Misconception codes: all declared once in misconceptions.js (the CLO's catalogue).
 
 /** u hundredths as text. */
 function fx(u) { const neg = u < 0; const a = Math.abs(u); const ip = Math.floor(a / 100); const fp = String(a % 100).padStart(2, '0').replace(/0+$/, ''); return `${neg ? '-' : ''}${fmtInt(ip)}${fp ? `.${fp}` : ''}`; }
 const fr = (f) => (Math.abs(f.n) > f.d && f.d !== 1 ? f.mixed() : f.toString());
+
+/** The numbers written in a prompt, read the way the tests read them. */
+const promptNums = (prompt) => (String(prompt).replace(/(\d) (\d{3})/g, '$1$2').match(/-?\d+(?:\.\d+)?(?:\/\d+)?/g) || []).map((t) => valueOf(t)).filter((x) => x != null);
+/** A near miss is never a number that already appears in the question (CLO review X3): null if it does. */
+const fresh = (prompt, d) => { if (!d) return null; const v = valueOf(d.text); return v != null && promptNums(prompt).some((x) => Math.abs(x - v) < 1e-9) ? null : d; };
 
 // ---------------------------------------------------------------- g01 next / missing term
 
@@ -55,21 +48,21 @@ const nextTerm = {
       const prev = terms[ask - 1];
       const solution = `The sequence ${up ? 'goes up' : 'goes down'} by ${fx(step)} each time. ${fx(prev)} ${up ? '+' : '-'} ${fx(step)} = ${fx(ans)}.${ask < len ? ` Check: ${fx(ans)} ${up ? '+' : '-'} ${fx(step)} = ${fx(terms[ask + 1])}.` : ''} Answer: ${fx(ans)}`;
       const items = [
-        { text: fx(up ? prev - step : prev + step), code: 'OP-SWAP', why: `The sequence ${up ? 'goes UP' : 'goes DOWN'} by ${fx(step)}, so ${up ? 'add' : 'subtract'} ${fx(step)} to ${fx(prev)}.` },
+        { text: fx(up ? prev - step : prev + step), code: 'OP-SWAP', why: `The sequence ${up ? 'goes UP' : 'goes DOWN'} by ${fx(step)}, so ${up ? `add ${fx(step)} to` : `subtract ${fx(step)} from`} ${fx(prev)}.` },
         { text: fx(prev + (up ? 100 : -100)), code: 'SEQ-STEP-ONE', why: `It looks like you counted ${up ? 'on' : 'back'} by 1. The step between terms is ${fx(step)}.` },
         ans < 0 ? { text: fx(-ans), code: 'NEG-SIGN-DROP', why: `The size is right, but the sequence has gone below zero: ${fx(prev)} ${up ? '+' : '-'} ${fx(step)} = ${fx(ans)}.` } : null,
         start !== step && start > 0 && up ? { text: fx(prev + start), code: 'SEQ-FIRST-AS-STEP', why: `It looks like you added the first term, ${fx(start)}. The step is the difference between terms: ${fx(step)}.` } : null,
       ];
       for (let i = items.length - 1; i >= 0; i--) if (items[i] && /^-0\./.test(items[i].text)) items.splice(i, 1);
       const t = Math.floor(Math.abs(prev) / 10) % 10; const u = Math.floor(step / 10) % 10;
-      if (d === 2 && up && prev % 10 === 0 && step % 10 === 0 && t + u >= 10) items.push({ text: `${Math.floor(prev / 100) + Math.floor(step / 100)}.${t + u}`, code: 'DEC-NO-EXCHANGE', why: `It looks like you wrote ${t} tenths + ${u} tenths = ${t + u} tenths as ".${t + u}". 10 tenths make 1 whole, so carry 1 into the ones.` });
+      if (d === 2 && up && prev % 10 === 0 && step % 10 === 0 && t + u >= 10) items.push({ text: `${Math.floor(prev / 100) + Math.floor(step / 100)}.${t + u}`, code: 'PV-REGROUP-AS-DIGITS', why: `It looks like you wrote ${t} tenth${t === 1 ? '' : 's'} + ${u} tenth${u === 1 ? '' : 's'} = ${t + u} tenths as ".${t + u}". 10 tenths make 1 whole, so carry 1 into the ones.` });
       const skill = d === 2 ? SKILL.fd : terms.some((x) => x < 0) ? SKILL.zero : SKILL.next;
       try {
         if (rng.chance(0.3)) {
           const tm = typedMisconceptions(fx(ans), items, { code: 'OP-SWAP', why: 'Find the difference between neighbouring terms, then use it on the term before.' });
           return { type: 'numeric', prompt, answer: numericAnswer(ans / 100, [fx(ans)]), solution, ...tm, skill };
         }
-        return { type: 'mcq', prompt, ...choices(rng, fx(ans), items, (i) => nearMiss(fx(ans + (i % 2 ? 10 : -10) * i), 'Find the difference between neighbouring terms first.')), solution, skill };
+        return { type: 'mcq', prompt, ...choices(rng, fx(ans), items, (i) => fresh(prompt, nearMiss(fx(ans + (i % 2 ? 10 : -10) * i), 'Find the difference between neighbouring terms first.'))), solution, skill };
       } catch { /* draw again */ }
     }
   },
@@ -90,7 +83,7 @@ function fractionSeq(rng) {
     prev.n < prev.d && prev.n > 0 ? { text: `${prev.n + step.n}/${prev.d + step.d}`, code: 'FR-ADD-TOPS-BOTTOMS', why: `It looks like you added the tops and the bottoms. Write both fractions with the same denominator, then add only the numerators.` } : null,
     { text: fr(prev.add(1)), code: 'SEQ-STEP-ONE', why: `It looks like you added 1. The step between terms is ${fr(step)}.` },
   ];
-  try { return { type: 'mcq', prompt, ...choices(rng, fr(ans), items, (i) => nearMiss(fr(ans.add(F(i % 2 ? 1 : -1, den * 2))), `Find the step: the difference between two neighbouring terms.`)), solution, skill: SKILL.fd }; } catch { return null; }
+  try { return { type: 'mcq', prompt, ...choices(rng, fr(ans), items, (i) => fresh(prompt, nearMiss(fr(ans.add(F(i % 2 ? 1 : -1, den * 2))), `Find the step: the difference between two neighbouring terms.`))), solution, skill: SKILL.fd }; } catch { return null; }
 }
 
 function fromFarApart(rng) {
@@ -99,6 +92,7 @@ function fromFarApart(rng) {
     const a = halves ? F(rng.int(1, 12), 4) : F(rng.int(1, 20));
     const step = halves ? F(rng.int(1, 7), 2) : F(rng.int(2, 9));
     if (step.isInt && halves) continue;
+    if (a.eq(step)) continue; // the step must not be a number that is already in the question
     const b = a.add(step.mul(3));
     const ans = a.add(step);
     const prompt = `A sequence goes up in equal steps. The 1st term is ${fr(a)} and the 4th term is ${fr(b)}. What is the 2nd term?`;
@@ -152,7 +146,7 @@ const termToTerm = {
       if (terms.some((t) => t < 0)) continue;
       const rule = `${up ? 'add' : 'subtract'} ${fx(step)}`;
       const prompt = `What is the term-to-term rule for this sequence? ${terms.map(fx).join(', ')}, ...`;
-      const solution = `Find the difference between neighbouring terms: ${fx(terms[1])} ${up ? '-' : '+'} ... each term is ${fx(step)} ${up ? 'more' : 'less'} than the one before. The rule is "${rule}". Answer: ${rule}`;
+      const solution = `Find the difference between neighbouring terms: ${fx(terms[1])} - ${fx(terms[0])} = ${up ? '' : '-'}${fx(step)}, so each term is ${fx(step)} ${up ? 'more' : 'less'} than the one before. Check: ${fx(terms[2])} - ${fx(terms[1])} = ${up ? '' : '-'}${fx(step)} too. The rule is "${rule}". Answer: ${rule}`;
       const items = [
         { text: `${up ? 'subtract' : 'add'} ${fx(step)}`, code: 'OP-SWAP', why: `The terms get ${up ? 'bigger' : 'smaller'}, so the rule ${up ? 'adds' : 'subtracts'}. It looks like you read the sequence the wrong way.` },
         start !== step && up ? { text: `add ${fx(start)}`, code: 'SEQ-FIRST-AS-STEP', why: `${fx(start)} is the first term. The rule is the change from one term to the next: ${fx(step)}.` } : null,
@@ -175,7 +169,7 @@ function whichSequence(rng) {
     const items = [
       { text: seq(b, [-sg * s, -sg * s, -sg * s]), code: 'OP-SWAP', why: `This sequence ${sub ? 'ADDS' : 'SUBTRACTS'} ${s} each time. The rule asks you to ${sub ? 'subtract' : 'add'} ${s}.` },
       { text: seq(rng.int(sub ? 3 * s + 3 : 1, 45), [sg * s, sg * (s + 1), sg * (s + 2)]), code: 'SEQ-CHECK-ONE-STEP', why: `Only the first step is ${sub ? '-' : '+'}${s}. Check every step: the next ones are ${sub ? '-' : '+'}${s + 1} and ${sub ? '-' : '+'}${s + 2}.` },
-      { text: seq(rng.int(sub ? 3 * s + 3 : 1, 45), [sg * (s + 1), sg * (s + 1), sg * (s + 1)]), code: 'NEAR-MISS', why: `This is close, but this sequence changes by ${s + 1} each time, not ${s}.` },
+      { text: seq(rng.int(sub ? 3 * s + 3 : 1, 45), [sg * (s + 1), sg * (s + 1), sg * (s + 1)]), code: 'NEAR-MISS', why: `Not quite: this sequence changes by ${s + 1} each time, not ${s}. Check the size of each step.` },
     ];
     if (items.some((it) => it.text.includes('-'))) continue;
     const rule = `${sub ? 'subtract' : 'add'} ${s}`;
@@ -205,7 +199,7 @@ const positionToTerm = {
         const solution = `Put the position into the rule: ${a} x ${n}${b > 0 ? ` + ${b}` : b < 0 ? ` - ${-b}` : ''} = ${ans}. Answer: ${ans}`;
         const items = [
           { text: String(a * (n - 1) + b), code: 'SEQ-OFF-BY-ONE', why: `That is the term in position ${n - 1}. Use position ${n} in the rule.` },
-          b !== 0 ? { text: String(a * (n + b)), code: 'FM-ORDER', why: `It looks like you did the ${b > 0 ? 'addition' : 'subtraction'} first. Multiply the position by ${a} first, then ${b > 0 ? 'add' : 'subtract'} ${Math.abs(b)}.` } : null,
+          b !== 0 ? { text: String(a * n), code: 'ONE-STEP-ONLY', why: `${a} x ${n} = ${a * n} is only the first part of the rule. Now ${b > 0 ? 'add' : 'subtract'} ${Math.abs(b)}.` } : null,
           { text: String(n + a + b), code: 'SEQ-ADD-NOT-MULT', why: `It looks like you added ${a} to the position. The rule says ${a} x position.` },
           { text: String(a * (n + 1) + b), code: 'SEQ-OFF-BY-ONE', why: `That is the term in position ${n + 1}. Use position ${n} in the rule.` },
         ];
@@ -233,7 +227,7 @@ const positionToTerm = {
         const items = [
           b !== 0 ? { text: String(a * nn), code: 'SEQ-STEP-AS-RULE', why: `${a} x ${nn} = ${a * nn} uses only the step. The sequence does not start at ${a}, so adjust by ${b > 0 ? '+' : '-'}${Math.abs(b)}.` } : null,
           { text: String(first + a * nn), code: 'SEQ-OFF-BY-ONE', why: `It looks like you added ${nn} steps to the first term. From the 1st term to the ${ordinalWord(nn)} there are only ${nn - 1} steps.` },
-          { text: String(first * nn), code: 'SEQ-STEP-AS-RULE', why: `It looks like you multiplied the first term by ${nn}. The terms go up by ${a}, so use ${a} x position, then adjust.` },
+          { text: String(first * nn), code: 'SEQ-FIRST-TIMES-N', why: `It looks like you multiplied the first term, ${first}, by ${nn}. The terms go up by ${a} each time, so use ${a} x position, then adjust.` },
         ];
         try {
           if (rng.chance(0.4)) {
@@ -268,14 +262,14 @@ const positionToTerm = {
           : `Work backwards: (${Tm} ${b >= 0 ? `- ${b}` : `+ ${-b}`}) ÷ ${a} = ${Tm - b} ÷ ${a}, which is not a whole number, so no position gives ${Tm}. The statement is false. Answer: false`;
         return { type: 'truefalse', prompt, answer: truth, solution, misconceptions: { common: 'A number is in the sequence only if working backwards gives a WHOLE-number position.' }, codes: { common: 'INVERSE-WRONG' }, marks: 2, skill: SKILL.test };
       }
-      const f = rng.int(8, 30); const s = rng.int(2, 6); const n = rng.int(12, 40);
+      const f = rng.int(8, 20); const s = rng.int(2, 4); const n = rng.int(6, 15); // a real hall: at most about 75 chairs in a row (CLO review m07 item 2)
       const ans = f + s * (n - 1);
       const prompt = `In a school hall, Row 1 has ${f} chairs. Each row has ${s} more chairs than the row in front of it. How many chairs are in Row ${n}?`;
       const solution = `From Row 1 to Row ${n} there are ${n - 1} steps of ${s}. ${f} + ${n - 1} x ${s} = ${f} + ${(n - 1) * s} = ${ans}. Answer: ${ans}`;
       const items = [
         { text: String(f + s * n), code: 'SEQ-OFF-BY-ONE', why: `It looks like you added ${n} steps. From Row 1 to Row ${n} there are only ${n - 1} steps.` },
         { text: String(s * n), code: 'SEQ-STEP-AS-RULE', why: `${s} x ${n} uses only the step. Row 1 already has ${f} chairs.` },
-        { text: String(f * n), code: 'SEQ-FIRST-AS-STEP', why: `It looks like every row has ${f} chairs. Each row has ${s} MORE than the one before.` },
+        { text: String(f * n), code: 'SEQ-FIRST-TIMES-N', why: `It looks like you multiplied the ${f} chairs in Row 1 by ${n}, the row number. The rows are not all the same: each row has only ${s} more than the row in front.` },
       ];
       try {
         if (rng.chance(0.4)) {
@@ -288,7 +282,7 @@ const positionToTerm = {
   },
 };
 
-function ordinalWord(n) { const s = ['th', 'st', 'nd', 'rd']; const v = n % 100; return `${n}${s[(v - 20) % 10] || s[v] || s[0]}`; }
+const ordinalWord = ordinal;
 
 // ---------------------------------------------------------------- g06 matchstick and tile patterns
 
@@ -358,9 +352,9 @@ const squareCube = {
         if (kind >= 5 && kind < 8) {
           const cube = rng.chance(0.3);
           const e = cube ? 3 : 2;
-          const len = cube ? rng.int(3, 4) : rng.int(4, 5); const from = cube ? 1 : rng.int(1, 12);
-          const k = from + len - 1;
-          if (cube && k > 5) continue;
+          const len = cube ? rng.int(3, 4) : rng.int(4, 5); const from = cube ? 1 : rng.int(1, 12 - len);
+          const k = from + len - 1; // D1 stays at 12^2 and 5^3 or below (CLO review m07 item 6)
+          if (cube && k > 4) continue;
           const shown = Array.from({ length: len }, (_, i) => (from + i) ** e);
           const ans = (k + 1) ** e; const lastGap = shown[len - 1] - shown[len - 2];
           const prompt = `What is the next number in this sequence of ${cube ? 'cube' : 'square'} numbers? ${shown.join(', ')}, ...`;
@@ -373,17 +367,17 @@ const squareCube = {
           try { return { type: 'mcq', prompt, ...choices(rng, String(ans), items, null), solution }; } catch { continue; }
         }
         if (kind < 5) {
-          const b = rng.int(5, 15); const sq = b * b;
+          const b = rng.int(5, 12); const sq = b * b;
           const twice = 2 * rng.int(4, 20); const cube = rng.pick([8, 27, 125]);
           if (Number.isInteger(Math.sqrt(twice))) continue;
           const items = [
             { text: String(twice), code: 'POW-MULT', why: `${twice} = ${twice / 2} x 2. Square numbers are a number times ITSELF: ${twice / 2} x ${twice / 2} = ${(twice / 2) ** 2}.` },
-            nearMiss(String(cube), 'Square numbers are 1, 4, 9, 16, 25, ... (1 x 1, 2 x 2, 3 x 3, ...).'),
+            { text: String(cube), code: 'SQ-CUBE-MIX', why: `${cube} is a cube number (${Array(3).fill(Math.round(Math.cbrt(cube))).join(' x ')}), not a square number. A square number is a number times itself once: 1 x 1, 2 x 2, 3 x 3, ...` },
             nearMiss(String(sq + rng.pick([1, 2, -1])), 'Square numbers are 1, 4, 9, 16, 25, ... (1 x 1, 2 x 2, 3 x 3, ...).'),
           ];
-          try { const c = choices(rng, String(sq), items, null); return { type: 'mcq', prompt: `Which of these numbers is in the sequence of square numbers 1, 4, 9, 16, ...: ${c.options.slice(0, -1).join(', ')} or ${c.options[c.options.length - 1]}?`, ...c, solution: `Square numbers are made by multiplying a number by itself. ${b} x ${b} = ${sq}. Answer: ${sq}` }; } catch { continue; }
+          try { const c = choices(rng, String(sq), items, null); return { type: 'mcq', prompt: 'Which of these numbers is in the sequence of square numbers 1, 4, 9, 16, ...?', ...c, solution: `Square numbers are made by multiplying a number by itself. ${b} x ${b} = ${sq}. Answer: ${sq}` }; } catch { continue; }
         }
-        const n = rng.int(6, 30); const ans = n * n;
+        const n = rng.int(6, 12); const ans = n * n;
         const prompt = `The sequence 1, 4, 9, 16, ... has the rule term = position x position. What is the ${ordinalWord(n)} term?`;
         const solution = `Put the position into the rule: ${n} x ${n} = ${ans}. Answer: ${ans}`;
         const items = [
@@ -413,7 +407,7 @@ const squareCube = {
       const solution = `Pattern ${n} has ${n} x ${n} = ${n * n} tiles and Pattern ${n - 1} has ${n - 1} x ${n - 1} = ${(n - 1) ** 2}. ${n * n} - ${(n - 1) ** 2} = ${ans}. Answer: ${ans}`;
       const items = [
         { text: String(n * n), code: 'WRONG-QUANTITY', why: `${n * n} is the number of tiles in Pattern ${n}. The question asks how many MORE than Pattern ${n - 1}.` },
-        { text: String(2 * n), code: 'SEQ-OFF-BY-ONE', why: `Check: ${n * n} - ${(n - 1) ** 2} = ${ans}, not ${2 * n}.` },
+        { text: String(2 * n), code: 'CORNER-COUNTED-TWICE', why: `It looks like you added a new row of ${n} and a new column of ${n}. They share the corner tile, so the new tiles are ${n} + ${n} - 1 = ${ans}.` },
         { text: '1', code: 'SEQ-STEP-ONE', why: 'Each pattern is one tile wider, but it gains a whole new row AND column of tiles.' },
       ];
       try { return { type: 'mcq', prompt, ...choices(rng, String(ans), items, null), solution, marks: 2 }; } catch { /* draw again */ }
@@ -437,15 +431,17 @@ const functionMachine = {
       if (d === 2 && rng.chance(0.35)) return findRule(rng);
       const o1 = rng.pick(['mul', 'mul', 'div']); const o2 = rng.pick(['add', 'sub']);
       const order = rng.chance(0.7) ? [o1, o2] : [o2, o1];
-      let k1 = d === 3 ? rng.pick([0.5, 1.5, 2.5, 3, 4]) : rng.int(2, 9); const k2 = d === 3 ? rng.pick([1.5, 2.5, 0.5, 3, 4, 5]) : rng.int(1, 15);
-      if (o1 === 'div' && d === 3) k1 = rng.int(2, 4);
+      // multipliers and divisors are whole numbers 2-9; at D3 the decimals are only in the + and - steps,
+      // so working back never means dividing by a decimal (CLO review m07 item 1)
+      const k1 = o1 === 'div' ? rng.int(2, d === 3 ? 5 : 9) : rng.int(2, 9);
+      const k2 = d === 3 ? rng.pick([0.5, 1.5, 2.5, 3.5, 4.5, 1.2, 2.4, 0.8]) : rng.int(1, 15);
       const ks = order.map((o) => (o === o1 ? k1 : k2));
       const steps = order.map((o, i) => `${SIGN[o]} ${ks[i]}`);
       const run = (x, ops = order, kk = ks) => ops.reduce((v, o, i) => OP[o](v, kk[i]), x);
       const input = d === 1 ? rng.int(2, 20) : d === 2 ? rng.int(2, 30) : rng.int(2, 24);
       const output = run(input);
       const ok = (v) => v != null && Number.isFinite(v) && v >= 0 && Math.abs(v * 10 - Math.round(v * 10)) < 1e-9;
-      if (!ok(output) || !Number.isInteger(output * 2) || output === input) continue;
+      if (!ok(output) || output === input) continue;
       const fmt = (v) => String(Math.round(v * 10) / 10);
       if (d === 1) {
         const prompt = `A function machine does: ${steps.join(', then ')}. The input is ${input}. What is the output?`;
@@ -456,7 +452,7 @@ const functionMachine = {
           ok(swapped) ? { text: fmt(swapped), code: 'FM-ORDER', why: `It looks like you did "${steps[1]}" first. Follow the machine in order: ${steps[0]} first, then ${steps[1]}.` } : null,
           { text: fmt(run(input, [order[0]], [ks[0]])), code: 'ONE-STEP-ONLY', why: `That is the number after the first step only. Now ${steps[1]}.` },
         ];
-        try { return { type: 'mcq', prompt, ...choices(rng, fmt(output), items, (i) => nearMiss(fmt(output + (i % 2 ? i : -i)), 'Do the steps in order, one at a time.')), solution, diagram, skill: SKILL.fm }; } catch { continue; }
+        try { return { type: 'mcq', prompt, ...choices(rng, fmt(output), items, (i) => fresh(prompt, nearMiss(fmt(output + (i % 2 ? i : -i)), 'Do the steps in order, one at a time.'))), solution, diagram, skill: SKILL.fm }; } catch { continue; }
       }
       // backwards
       const prompt = `A function machine does: ${steps.join(', then ')}. The output is ${fmt(output)}. What was the input?`;
@@ -475,7 +471,7 @@ const functionMachine = {
           const t = typedMisconceptions(String(input), items, { code: 'FM-NO-INVERSE', why: 'Work backwards: undo the last step first, using the inverse operation.' });
           return { type: 'numeric', prompt, answer: numericAnswer(input, [String(input)]), solution, ...t, diagram, marks: 2, skill: SKILL.fmInv };
         }
-        return { type: 'mcq', prompt, ...choices(rng, String(input), items, (i) => nearMiss(String(input + (i % 2 ? i : -i)), 'Undo the last step first, with the inverse operation.')), solution, diagram, marks: 2, skill: SKILL.fmInv };
+        return { type: 'mcq', prompt, ...choices(rng, String(input), items, (i) => (input + (i % 2 ? i : -i) > 0 ? fresh(prompt, nearMiss(String(input + (i % 2 ? i : -i)), 'Undo the last step first, with the inverse operation.')) : null)), solution, diagram, marks: 2, skill: SKILL.fmInv };
       } catch { /* draw again */ }
     }
   },
@@ -521,7 +517,7 @@ const letters = {
           { text: String(n - k), code: 'BAR-NO-HALVE', why: `${n - k} is ${y} twice (after taking away the difference). Halve it.` },
           n % 2 === 0 ? { text: String(n / 2), code: 'HALF-TOTAL', why: `${n / 2} would make ${x} and ${y} equal. ${x} is ${k} more than ${y}.` } : null,
         ];
-        try { return { type: 'mcq', prompt, ...choices(rng, String(ans), items, (i) => nearMiss(String(ans + i), `Check: the two numbers must add to ${n} and differ by ${k}.`)), solution, marks: 2 }; } catch { continue; }
+        try { return { type: 'mcq', prompt, ...choices(rng, String(ans), items, (i) => fresh(prompt, nearMiss(String(ans + i), `Check: the two numbers must add to ${n} and differ by ${k}.`))), solution, marks: 2 }; } catch { continue; }
       }
       const p = person(rng);
       const L0 = p.name[0].toLowerCase(); const L = ['o', 'l', 'i'].includes(L0) ? 'n' : L0;
@@ -529,10 +525,28 @@ const letters = {
       const k = rng.int(2, 9); const m = rng.int(2, 12);
       if (k === m) continue;
       const older = rng.chance(0.4);
-      const net = (older ? k : -k) + m;
       const expr = (c) => (c === 0 ? L : `${L} ${c > 0 ? '+' : '-'} ${Math.abs(c)}`);
+      const him = p.he === 'she' ? 'her' : 'him';
+      if (rng.chance(0.5)) {
+        // a second template: things that someone has, then gains or gives away (CLO review m07 item 7)
+        const thing = rng.pick(['marbles', 'stickers', 'stamps', 'cards']);
+        const gain = rng.chance(0.5);
+        const kk = older ? k : -k; const mm = gain ? m : -m;
+        const correct = expr(kk + mm);
+        if (kk + mm === 0) continue;
+        const prompt = `${p.name} has ${L} ${thing}. ${p.His} ${sib} has ${k} ${older ? 'more' : 'fewer'} ${thing} than ${him}. Then the ${sib} ${gain ? `is given ${m} more` : `gives away ${m}`}. Which expression gives the number of ${thing} the ${sib} has now?`;
+        const solution = `The ${sib} has ${expr(kk)} ${thing} at first. After ${gain ? `being given ${m}` : `giving away ${m}`}: ${expr(kk)} ${gain ? '+' : '-'} ${m} = ${correct}. Answer: ${correct}`;
+        const items = [
+          { text: expr(kk), code: 'ONE-STEP-ONLY', why: `${expr(kk)} is what the ${sib} has at first. Then ${gain ? `add the ${m} more` : `take away the ${m} given away`}.` },
+          { text: expr(-kk + mm), code: 'OP-SWAP', why: `The ${sib} has ${k} ${older ? 'MORE' : 'FEWER'} than ${p.name}, so ${older ? 'add' : 'subtract'} ${k}.` },
+          { text: expr(kk - mm), code: 'OP-SWAP', why: `${gain ? `Being given ${m} more means ADD ${m}` : `Giving away ${m} means TAKE AWAY ${m}`}.` },
+          { text: expr(mm), code: 'ITEM-LEFT-OUT', why: `${expr(mm)} would be ${p.name}'s own ${thing} after the change. The ${sib} has ${k} ${older ? 'more' : 'fewer'} to start with.` },
+        ];
+        try { return { type: 'mcq', prompt, ...choices(rng, correct, rng.shuffle(items), null), solution, marks: 2 }; } catch { continue; }
+      }
+      const net = (older ? k : -k) + m;
       const correct = expr(net);
-      const prompt = `${p.name} is ${L} years old. ${p.His} ${sib} is ${k} years ${older ? 'older' : 'younger'} than ${p.him || (p.he === 'she' ? 'her' : 'him')}. Which expression gives the ${sib}'s age in ${m} years' time?`;
+      const prompt = `${p.name} is ${L} years old. ${p.His} ${sib} is ${k} years ${older ? 'older' : 'younger'} than ${him}. Which expression gives the ${sib}'s age in ${m} years' time?`;
       const solution = `The ${sib}'s age now: ${expr(older ? k : -k)}. In ${m} years: ${expr(older ? k : -k)} + ${m} = ${correct}. Answer: ${correct}`;
       const items = [
         { text: expr(older ? k : -k), code: 'ONE-STEP-ONLY', why: `${expr(older ? k : -k)} is the ${sib}'s age NOW. Add ${m} for the age in ${m} years.` },

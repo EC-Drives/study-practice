@@ -152,6 +152,7 @@ export const MIS = {
     'FR-SMALLER-DEN-BIGGER': (q) => { const fr = q.options.filter((o) => o.includes('/')); return [fr.reduce((a, b) => (Number(b.split('/')[1]) < Number(a.split('/')[1]) ? b : a))]; },
     'FR-BIGGER-DEN-BIGGER': (q) => { const fr = q.options.filter((o) => o.includes('/')); return [fr.reduce((a, b) => (Number(b.split('/')[1]) > Number(a.split('/')[1]) ? b : a))]; },
     'FDP-DIGITS': (q) => q.options.filter((o) => o.endsWith('%') && o !== SOLVERS['m09.compare-fdp'](q).text),
+    'FDP-DEN-AS-DECIMAL': (q) => q.options.filter((o) => /^1\/\d$/.test(o) && Number(`0.${o.split('/')[1]}`) > valueIn(SOLVERS['m09.compare-fdp'](q).text)),
   },
 };
 export { qadd, qsub, qmul };

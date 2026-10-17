@@ -321,7 +321,7 @@ const pieChart = {
     const geo = pieGeometry(s);
     const total = s.slices.reduce((a, x) => a + x.value, 0);
     const parts = [`A pie chart${s.title ? ` titled "${tidy(s.title)}"` : ''} with ${s.slices.length} slices, clockwise from the top.`];
-    parts.push(`${listText(geo.map((sl) => `${tidy(String(sl.label))}${shareText(sl, s, total) ? ` (${shareText(sl, s, total)})` : ''}${Math.abs(sl.deg - 90) < 1e-9 && s.rightAngles ? ' is a right angle' : Math.abs(sl.deg - 180) < 1e-9 ? ' is half the circle' : ''}`))}.`);
+    parts.push(`The slices: ${geo.map((sl) => `${tidy(String(sl.label))}${shareText(sl, s, total) ? ` (${shareText(sl, s, total)})` : ''}${Math.abs(sl.deg - 90) < 1e-9 && s.rightAngles ? ', a right angle' : Math.abs(sl.deg - 180) < 1e-9 ? ', half the circle' : ''}`).join('; ')}.`);
     if (!s.show || s.show === 'label') {
       const bigs = [...geo].sort((a, b) => b.share - a.share);
       parts.push(`The largest slice is ${tidy(String(bigs[0].label))}${bigs.length > 1 && Math.abs(bigs[0].share - bigs[1].share) < 1e-9 ? ` (as large as ${tidy(String(bigs[1].label))})` : ''}.`);
@@ -332,7 +332,9 @@ const pieChart = {
 
 // ---------------------------------------------------------------- table (tally / frequency)
 
-export function tallySvg(n) {
+/** Tally marks. countHidden: when the question asks her to count them (the spec has a neutral `alt`), a
+ * screen reader hears "tally marks" without the number. */
+export function tallySvg(n, countHidden = false) {
   const groups = Math.floor(n / 5);
   const rest = n % 5;
   const kids = [];
@@ -344,10 +346,10 @@ export function tallySvg(n) {
   }
   for (let i = 0; i < rest; i++) kids.push(el('line', { x1: x + i * 6, y1: 3, x2: x + i * 6, y2: 21, class: 'dg-ink', 'stroke-width': 1.8 }));
   const w = Math.max(10, x + rest * 6 + 2);
-  return el('svg', { class: 'dg-tally', viewBox: `0 0 ${w} 24`, width: w, height: 24, role: 'img', 'aria-label': `tally marks: ${n}` }, kids);
+  return el('svg', { class: 'dg-tally', viewBox: `0 0 ${w} 24`, width: w, height: 24, role: 'img', 'aria-label': countHidden ? 'tally marks' : `tally marks: ${n}` }, kids);
 }
-function cell(v) {
-  if (v && typeof v === 'object' && 'tally' in v) return tallySvg(v.tally);
+function cell(v, countHidden = false) {
+  if (v && typeof v === 'object' && 'tally' in v) return tallySvg(v.tally, countHidden);
   const t = tidy(String(v));
   return t.trim() === '?' ? el('span', { class: 'dg-q', 'aria-label': 'value to find' }, '?') : t;
 }
@@ -362,7 +364,7 @@ const table = {
     const t = el('table', { class: 'dg-table' },
       s.title ? el('caption', {}, tidy(s.title)) : null,
       el('thead', {}, el('tr', {}, s.columns.map((c) => el('th', { scope: 'col' }, tidy(c))))),
-      el('tbody', {}, s.rows.map((r) => el('tr', {}, r.map((v, i) => (i === 0 && rh ? el('th', { scope: 'row' }, cell(v)) : el('td', {}, cell(v))))))));
+      el('tbody', {}, s.rows.map((r) => el('tr', {}, r.map((v, i) => (i === 0 && rh ? el('th', { scope: 'row' }, cell(v, !!s.alt)) : el('td', {}, cell(v, !!s.alt))))))));
     return { html: t };
   },
   describe(s) {

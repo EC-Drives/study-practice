@@ -4,7 +4,7 @@
 // guide (m05). Every wrong option is built by one named misconception and carries its code.
 // Decimals are held as whole numbers of hundredths or thousandths and only turned into text at the end.
 
-import { choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, rm, person } from './core.js';
+import { choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, rm, person, countOf, valueOf } from './core.js';
 
 const T = 'm05-addition-and-subtraction';
 const SKILL = {
@@ -15,30 +15,22 @@ const SKILL = {
   unknown: 'finding an unknown in an addition or subtraction', equation: 'writing an equation with a letter', bar: 'multi-step word problems (bar models)',
 };
 
-export const EXTRA_CODES = {
-  'COL-EXCHANGE-NOT-REDUCED': 'Exchanges from the next column but forgets to take 1 away from that column',
-  'EST-EXACT': 'Works out the exact answer instead of rounding first to estimate',
-  'SUB-REVERSED': 'Takes the numbers away the wrong way round (b - a instead of a - b)',
-  'INV-CHECK-WRONG-PAIR': 'Uses the inverse operation on the wrong pair of numbers',
-  'INVERSE-ONE-STEP': 'Working backwards, undoes only one of the steps with the inverse operation',
-  'MISSING-DIGIT-NO-CARRY': 'Finds a missing digit from its own column but forgets the carry (or exchange) from the column before',
-  'DEC-NO-EXCHANGE-WHOLE': 'Makes every decimal digit up to 10 (instead of 9) when finding what to add to reach a whole number',
-  'CHANGE-SPLIT': 'Takes the ringgit and the sen away separately and forgets the ringgit used for the sen (RM 20 - RM 7.65 = RM 13.35)',
-  'ITEM-LEFT-OUT': 'Leaves out one of the amounts in a multi-step problem',
-  'WRONG-QUANTITY': 'Answers with a different quantity from the one the question asks for',
-  'MORE-THAN-AS-AMOUNT': 'Uses "n more than" as the amount itself instead of adding n on',
-  'NEG-WRONG-SIGN': 'Gets the size of the answer right but gives it the wrong sign',
-  'NEG-ADD-SIZES': 'Adds the sizes of the numbers and keeps the minus sign (-7 + 12 = -19)',
-  'NEG-SUB-SIZES': 'Subtracts the sizes of the numbers and keeps the minus sign (-5 - 3 = -2)',
-  'NEG-SKIP-ZERO': 'Does not count zero (or floor 0) as a step when counting across it',
-  'ONE-STEP-ONLY': 'Does only the first step (or only one of the repeated steps) of a multi-step problem',
-  'BAR-NO-HALVE': 'Takes away the difference but forgets to halve what is left (two equal bars)',
-  'BAR-HALVE-FIRST': 'Halves the total first and then takes away the difference',
-  'WRONG-START': 'Measures from zero instead of from the given starting point',
-  'UNIT-MIXED-SAME': 'Treats a measurement in one unit as if it were in the other unit (875 g as 875 kg)',
-};
+// Misconception codes: all declared once in misconceptions.js (the CLO's catalogue).
 
 // ---------------------------------------------------------------- helpers
+
+/** The numbers written in a prompt ("48 650" read as one number). */
+const promptNumbers = (t) => (String(t).replace(/(\d) (\d{3})/g, '$1$2').match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
+/**
+ * A near miss for this prompt, or null when its value already appears in the question (CLO review
+ * X3: a near miss is never a number from the question), or is one of the `avoid` values (the whole
+ * amount, an item's own price).
+ */
+const nearFor = (prompt, avoid = []) => (text, hint) => {
+  const v = valueOf(text);
+  if (v == null || [...promptNumbers(prompt), ...avoid].some((x) => Math.abs(x - v) < 1e-9)) return null;
+  return nearMiss(text, hint);
+};
 
 /** u / 10^p as text: trailing zeros dropped, thousands spaced. */
 function fx(u, p = 0) {
@@ -105,12 +97,13 @@ const column = {
         { text: show(subSmallFromLarge(a, b)), code: 'COL-SMALLER-FROM-LARGER', why: 'It looks like you took the smaller digit from the larger one in every column. When the top digit is smaller, exchange from the next column instead.' },
         { text: show(subNoReduce(a, b)), code: 'COL-EXCHANGE-NOT-REDUCED', why: 'It looks like you exchanged from the next column but did not take 1 away from that column afterwards.' },
       ];
-      items.push(nearMiss(show(r + (rng.chance(0.5) ? 10 : -10)), 'Check each column again, and check with the inverse operation.'));
-      items.push(nearMiss(show(r + (rng.chance(0.5) ? 100 : -100)), 'Check each column again, and check with the inverse operation.'));
+      const near = nearFor(prompt);
+      items.push(near(show(r + (rng.chance(0.5) ? 10 : -10)), 'Check each column again, and check with the inverse operation.'));
+      items.push(near(show(r + (rng.chance(0.5) ? 100 : -100)), 'Check each column again, and check with the inverse operation.'));
       const skill = add ? SKILL.colAdd : SKILL.colSub;
       try {
         if (d === 2 && rng.chance(0.4)) {
-          const t = typedMisconceptions(fmtInt(r), items.filter((i) => i.code !== 'NEAR-MISS').map((i) => ({ ...i, text: i.text.replace('RM ', '') })), { code: add ? 'COL-NO-CARRY' : 'COL-SMALLER-FROM-LARGER', why: add ? 'Carry the extra ten into the next column.' : 'When the top digit is smaller, exchange 1 from the next column.' });
+          const t = typedMisconceptions(fmtInt(r), items.filter((i) => i && i.code !== 'NEAR-MISS').map((i) => ({ ...i, text: i.text.replace('RM ', '') })), { code: add ? 'COL-NO-CARRY' : 'COL-SMALLER-FROM-LARGER', why: add ? 'Carry the extra ten into the next column.' : 'When the top digit is smaller, exchange 1 from the next column.' });
           return { type: 'numeric', prompt, answer: numericAnswer(r, [fmtInt(r), String(r), ...(realMoney ? [`RM ${fmtInt(r)}`] : [])]), solution, ...t, skill };
         }
         return { type: 'mcq', prompt, ...choices(rng, show(r), items, null), solution, skill };
@@ -134,7 +127,7 @@ function thinkOfNumber(rng) {
         C - A - B > 0 ? { text: fmtInt(C - A - B), code: 'INVERSE-ONE-STEP', why: `You undid "add ${fmtInt(A)}" correctly, but "subtract ${fmtInt(B)}" must be undone by ADDING ${fmtInt(B)}.` } : null,
         { text: fmtInt(C + A + B), code: 'INVERSE-ONE-STEP', why: `You undid "subtract ${fmtInt(B)}" correctly, but "add ${fmtInt(A)}" must be undone by SUBTRACTING ${fmtInt(A)}.` },
       ];
-      try { return { type: 'mcq', prompt, ...choices(rng, fmtInt(n), items, (i) => nearMiss(fmtInt(n + i * 1000), 'Undo each step with the inverse operation, starting from the last step.')), solution, marks: 2, skill: SKILL.backwards }; } catch { continue; }
+      try { return { type: 'mcq', prompt, ...choices(rng, fmtInt(n), items, (i) => nearFor(prompt)(fmtInt(n + i * 1000), 'Undo each step with the inverse operation, starting from the last step.')), solution, marks: 2, skill: SKILL.backwards }; } catch { continue; }
     }
     // X - n + Y = C
     const X = rng.int(2, 9) * 10000; const n = rng.int(1000, X - 1000); const Y = rng.int(1000, 30000);
@@ -146,7 +139,7 @@ function thinkOfNumber(rng) {
       { text: fmtInt(C - Y), code: 'ONE-STEP-ONLY', why: `${fmtInt(C - Y)} is what ${p.he} had before adding ${fmtInt(Y)}. That is ${fmtInt(X)} minus the number, so one more step is needed.` },
       X - C - Y > 0 ? { text: fmtInt(X - C - Y), code: 'INVERSE-ONE-STEP', why: `It looks like you subtracted ${fmtInt(Y)} at the wrong point. Undo "add ${fmtInt(Y)}" first: ${fmtInt(C)} - ${fmtInt(Y)}.` } : null,
     ];
-    try { return { type: 'mcq', prompt, ...choices(rng, fmtInt(n), items, (i) => nearMiss(fmtInt(n + i * 1000), 'Undo each step with the inverse operation, starting from the last step.')), solution, marks: 2, skill: SKILL.backwards }; } catch { /* draw again */ }
+    try { return { type: 'mcq', prompt, ...choices(rng, fmtInt(n), items, (i) => nearFor(prompt)(fmtInt(n + i * 1000), 'Undo each step with the inverse operation, starting from the last step.')), solution, marks: 2, skill: SKILL.backwards }; } catch { /* draw again */ }
   }
 }
 
@@ -183,7 +176,7 @@ const estimate = {
         trunc > 0 ? { text: fmtInt(trunc), code: 'ROUND-TRUNCATE', why: `It looks like you rounded by cutting off digits (${fmtInt(a)} -> ${fmtInt(fa)}, ${fmtInt(b)} -> ${fmtInt(fb)}). Round to the NEAREST ${PLACE[q]}.` } : null,
         { text: fmtInt(est2), code: 'ROUND-WRONG-PLACE', why: `It looks like you rounded to the nearest ${PLACE[q2]}. The question asks for the nearest ${PLACE[q]}.` },
       ];
-      try { return { type: 'mcq', prompt, ...choices(rng, fmtInt(est), items, (i) => nearMiss(fmtInt(est + (i % 2 ? q : -q) * Math.ceil(i / 2)), `Round each number to the nearest ${PLACE[q]} first.`)), solution }; } catch { /* draw again */ }
+      try { return { type: 'mcq', prompt, ...choices(rng, fmtInt(est), items, (i) => nearFor(prompt)(fmtInt(est + (i % 2 ? q : -q) * Math.ceil(i / 2)), `Round each number to the nearest ${PLACE[q]} first.`)), solution }; } catch { /* draw again */ }
     }
   },
 };
@@ -263,13 +256,10 @@ const missingDigit = {
         ? `Work from the right. The columns before it make a carry of 1 into the ${['ones', 'tens', 'hundreds', 'thousands', 'ten thousands'][pos]} column. So ? + ${bDigit} + 1 must end in ${rDigit}: ? = ${D}. Check: ${a} + ${b} = ${r}. Answer: ${D}`
         : `Work from the right. The ${['ones', 'tens', 'hundreds', 'thousands'][pos - 1]} column needs an exchange, so 1 is taken from the ${['ones', 'tens', 'hundreds', 'thousands', 'ten thousands'][pos]} column. So ? - 1 - ${bDigit} must end in ${rDigit}: ? = ${D}. Check: ${a} - ${b} = ${r}. Answer: ${D}`;
       const items = [{ text: String(wrong), code: 'MISSING-DIGIT-NO-CARRY', why: add ? `It looks like you forgot the carry of 1 from the column on the right. ${wrong} + ${bDigit} + 1 does not end in ${rDigit}.` : `It looks like you forgot the 1 taken away by the exchange in the column on the right. Check: ${shown.replace('?', wrong)} - ${b} is not ${r}.` }];
-      try {
-        if (rng.chance(0.6)) {
-          const t = typedMisconceptions(String(D), items, { code: 'MISSING-DIGIT-NO-CARRY', why: 'Work from the right and remember the carries (or exchanges) between columns. Check your digit in the full calculation.' });
-          return { type: 'numeric', prompt, answer: numericAnswer(D, [String(D)]), solution, ...t, marks: d };
-        }
-        return { type: 'mcq', prompt, ...choices(rng, String(D), items, (i) => { const x = (D + 2 * i) % 10; return x !== wrong ? nearMiss(String(x), 'Put your digit back into the calculation and check it.') : null; }), solution, marks: d };
-      } catch { /* draw again */ }
+      // typed only: as a choice of four digits, the other options could only be digits already in
+      // the calculation, with no real error behind them (CLO review X3)
+      const t = typedMisconceptions(String(D), items, { why: 'Work from the right and remember the carries (or exchanges) between columns. Check your digit in the full calculation.' });
+      return { type: 'numeric', prompt, answer: numericAnswer(D, [String(D)]), solution, ...t };
     }
   },
 };
@@ -282,14 +272,15 @@ const digitsOnly = (u) => { const t = fx(u, 3); return Number(t.replace('.', '')
 
 const decimals = {
   id: 'm05.decimals', topicId: T, subtopicId: 'm05-s2', skill: SKILL.addDec,
-  title: 'Add and subtract decimals (D1 1-2 dp; D2 different numbers of decimal places, up to 3 dp; D3 what must you add to make a whole number)',
+  title: 'Add and subtract decimals (D1 1 or 2 dp, the same in both; D2 different numbers of decimal places, up to 3 dp; D3 add two decimals, then find what makes the total up to a whole number)',
   difficulties: [1, 2, 3],
   check: { min: 0 },
   make(rng, d) {
     if (d === 3) return complement(rng);
     for (;;) {
       const add = rng.chance(0.5);
-      const pa = d === 1 ? rng.int(1, 2) : rng.int(1, 3); const pb = d === 1 ? rng.int(1, 2) : rng.int(1, 3);
+      // D1: both numbers with the same number of decimal places (CLO review m05 item 5)
+      const pa = d === 1 ? rng.int(1, 2) : rng.int(1, 3); const pb = d === 1 ? pa : rng.int(1, 3);
       if (d === 2 && pa === pb) continue;
       let a = decimal(rng, pa, d === 1 ? 20 : 50); let b = decimal(rng, pb, d === 1 ? 20 : 50);
       if (!add && a < b) [a, b] = [b, a];
@@ -303,8 +294,16 @@ const decimals = {
       // lining up the last digits instead of the points
       const da = digitsOnly(a); const db = digitsOnly(b);
       if (dpOf(a, 3) !== dpOf(b, 3)) { const w = add ? da + db : da - db; if (w > 0) items.push({ text: fx(w, P), code: 'DEC-ALIGN-RIGHT', why: `It looks like you lined up the last digits of ${ta} and ${tb}. Line up the decimal points instead (write ${dpOf(a, 3) < P ? `${ta} as ${fx(a, 3)}${'0'.repeat(P - dpOf(a, 3))}` : `${tb} as ${fx(b, 3)}${'0'.repeat(P - dpOf(b, 3))}`}).` }); }
-      if (add) items.push({ text: fx(addNoCarry(A, B), P), code: 'COL-NO-CARRY', why: 'It looks like you did not carry when a column made 10 or more. Ten tenths make 1 whole; ten hundredths make 1 tenth.' });
-      else {
+      if (d === 1 && (add ? carries(A, B) : exchanges(A, B)) === 0) continue; // D1: at least one carry or exchange, so the column slips are real
+      if (add) {
+        items.push({ text: fx(addNoCarry(A, B), P), code: 'COL-NO-CARRY', why: 'It looks like you did not carry when a column made 10 or more. Ten tenths make 1 whole; ten hundredths make 1 tenth.' });
+        // 3.9 + 2.2 = 5.11: the 11 tenths written as if they fitted in the tenths place
+        const tenths = (a / 100) % 10 + (b / 100) % 10;
+        if (add && P === 1 && tenths >= 10) {
+          const w = Math.floor(a / 1000) + Math.floor(b / 1000);
+          items.push({ text: fx(w * 100 + tenths, 2), code: 'PV-REGROUP-AS-DIGITS', why: `It looks like you wrote ${tenths} tenths as 0.${tenths}. Ten tenths make 1 whole, so ${tenths} tenths = ${fx(tenths, 1)}: carry the 1 into the ones.` });
+        }
+      } else {
         items.push({ text: fx(subSmallFromLarge(A, B), P), code: 'COL-SMALLER-FROM-LARGER', why: 'It looks like you took the smaller digit from the larger in each column. Fill empty places with zeros and exchange when the top digit is smaller.' });
         items.push({ text: fx(subNoReduce(A, B), P), code: 'COL-EXCHANGE-NOT-REDUCED', why: 'It looks like you exchanged but did not take 1 away from the next column.' });
       }
@@ -317,31 +316,46 @@ const decimals = {
           const t = typedMisconceptions(fx(R, P), items, { code: 'DEC-ALIGN-RIGHT', why: 'Line up the decimal points, fill empty places with zeros, then work column by column.' });
           return { type: 'numeric', prompt, answer: numericAnswer(R / 10 ** P, [fx(R, P)]), solution, ...t, skill };
         }
-        return { type: 'mcq', prompt, ...choices(rng, fx(R, P), items, (i) => { const v = R + (i % 2 ? 1 : -1) * 10 ** (Math.ceil(i / 2) - 1); return v > 0 ? nearMiss(fx(v, P), 'Line up the decimal points and work column by column.') : null; }), solution, skill };
+        return { type: 'mcq', prompt, ...choices(rng, fx(R, P), items, (i) => { const v = R + (i % 2 ? 1 : -1) * 10 ** (Math.ceil(i / 2) - 1); return v > 0 ? nearFor(prompt)(fx(v, P), 'Line up the decimal points and work column by column.') : null; }), solution, skill };
       } catch { /* draw again */ }
     }
   },
 };
 
+/**
+ * D3, two steps (CLO review m05 item 4): add two decimals with different numbers of decimal places,
+ * then find what makes the total up to a whole number. Values in hundredths.
+ */
 function complement(rng) {
   for (;;) {
-    const target = rng.pick([1, 10, 10, 20, 100]);
-    const p = target === 1 ? rng.int(2, 3) : 2;
-    const x = rng.int(1, target * 10 ** p - 1);
-    if (String(x % 10 ** p).padStart(p, '0').includes('0')) continue;
-    const ans = target * 10 ** p - x;
-    if (ans % 10 === 0) continue;
-    const tx = fx(x, p);
-    const prompt = rng.chance(0.5) ? `What must you add to ${tx} to make exactly ${target}?` : `Find the missing number: ${tx} + ? = ${target}`;
-    const solution = `Work out ${target} - ${tx}. Write ${target} as ${target}.${'0'.repeat(p)} and subtract, exchanging as you go: ${target}.${'0'.repeat(p)} - ${tx} = ${fx(ans, p)}. Check: ${tx} + ${fx(ans, p)} = ${target}. Answer: ${fx(ans, p)}`;
-    // "make every digit up to 10": too big by 1 in each decimal place but the last
-    const each = ans + Array.from({ length: p - 1 }, (_, i) => 10 ** (p - 1 - i)).reduce((s, v) => s + v, 0);
+    const target = rng.pick([10, 10, 20, 50]);
+    const x = rng.int(101, target * 45); const y = rng.int(11, target * 4.5) * 10; // x has 2 dp, y has 1 dp
+    if (x % 10 === 0 || y % 100 === 0) continue;
+    const sum = x + y; const ans = target * 100 - sum;
+    // every decimal digit of the total non-zero, so the exchange runs through every place
+    if (ans <= 100 || sum % 10 === 0 || Math.floor(sum / 10) % 10 === 0) continue;
+    const [t1, t2] = rng.chance(0.5) ? [fx(x, 2), fx(y, 2)] : [fx(y, 2), fx(x, 2)];
+    const pp = person(rng);
+    const kind = rng.pick(['plain', 'tank', 'run']);
+    const unit = kind === 'tank' ? ' L' : kind === 'run' ? ' km' : '';
+    if (kind === 'tank' && target > 20) continue;
+    const prompt = kind === 'plain' ? `Find the missing number: ${t1} + ${t2} + ? = ${target}`
+      : kind === 'tank' ? `${pp.name} pours ${t1} L of water and then ${t2} L of water into an empty ${target} L tank. How much more water is needed to fill the tank?`
+        : `${pp.name} runs ${t1} km on Monday and ${t2} km on Tuesday. How much further must ${pp.he} run this week to make ${target} km altogether?`;
+    const ts = fx(sum, 2);
+    const solution = `Step 1: add the two amounts, lining up the decimal points: ${t1} + ${t2} = ${ts}. Step 2: work out ${target} - ${ts}. Write ${target} as ${target}.00 and subtract, exchanging as you go: ${target}.00 - ${ts} = ${fx(ans, 2)}. Check: ${ts} + ${fx(ans, 2)} = ${target}. Answer: ${fx(ans, 2)}${unit}`;
+    const u = (v) => `${fx(v, 2)}${unit}`;
+    // lining up the last digits of 2.45 and 3.6 when adding (245 + 36 hundredths)
+    const right = digitsOnly(x * 10) + digitsOnly(y * 10);
     const items = [
-      { text: fx(each, p), code: 'DEC-NO-EXCHANGE-WHOLE', why: `It looks like you made every decimal digit up to 10. Only the last digit makes 10; the others make 9, because of the exchange. Check: ${tx} + ${fx(each, p)} = ${fx(x + each, p)}, not ${target}.` },
-      target > 1 && x >= 10 ** p ? { text: fx(each + 10 ** p, p), code: 'DEC-NO-EXCHANGE-WHOLE', why: `It looks like you made every digit up to 10, including the ones. Check: ${tx} + ${fx(each + 10 ** p, p)} = ${fx(x + each + 10 ** p, p)}, not ${target}.` } : null,
-      { text: fx(x + target * 10 ** p, p), code: 'OP-SWAP', why: `It looks like you added ${target}. To find what to add, work out ${target} - ${tx}.` },
+      { text: u(ans + 10), code: 'DEC-NO-EXCHANGE-WHOLE', why: `It looks like you made every decimal digit of ${ts} up to 10. Only the last digit makes 10; the others make 9, because of the exchange. Check: ${ts} + ${fx(ans + 10, 2)} = ${fx(sum + ans + 10, 2)}, not ${target}.` },
+      { text: u(sum), code: 'ONE-STEP-ONLY', why: `${ts} is the total so far (step 1). Now take it away from ${target} to find what is still needed.` },
+      { text: u(target * 100 - x), code: 'ITEM-LEFT-OUT', why: `It looks like you took only ${fx(x, 2)} away from ${target} and left out ${fx(y, 2)}. Add both amounts first.` },
+      { text: u(target * 100 - y), code: 'ITEM-LEFT-OUT', why: `It looks like you took only ${fx(y, 2)} away from ${target} and left out ${fx(x, 2)}. Add both amounts first.` },
+      target * 100 - right > 0 ? { text: u(target * 100 - right), code: 'DEC-ALIGN-RIGHT', why: `It looks like you lined up the last digits of ${fx(x, 2)} and ${fx(y, 2)} when you added them. Line up the decimal points: ${fx(x, 2)} + ${fx(y, 2)} = ${ts}.` } : null,
     ];
-    try { return { type: 'mcq', prompt, ...choices(rng, fx(ans, p), items, null), solution, marks: 2, skill: SKILL.subDec }; } catch { /* draw again */ }
+    const picked = [items[0], rng.pick([items[1], items[4] || items[1]]), rng.pick([items[2], items[3]]), items[1], items[4]];
+    try { return { type: 'mcq', prompt, ...choices(rng, u(ans), picked, null), solution, marks: 2, skill: SKILL.subDec }; } catch { /* draw again */ }
   }
 }
 
@@ -364,7 +378,9 @@ const money = {
       const items = d === 1 ? [rng.pick(SHOP)] : rng.sample(FOOD, n);
       const prices = items.map(([, lo, hi]) => rng.int(lo / 5, hi / 5) * 5);
       const total = prices.reduce((a, b) => a + b, 0);
-      const note = [1000, 2000, 5000, 10000].find((x) => x > total + 100);
+      // any note that covers the bill, not always the smallest (so not always "RM 5.05 from RM 10")
+      const notes = [1000, 2000, 5000, 10000].filter((x) => x > total + 100);
+      const note = notes.length ? (rng.chance(0.7) ? notes[0] : rng.pick(notes.slice(0, 2))) : null;
       if (!note || total % 100 === 0) continue;
       const change = note - total;
       const list = items.map(([w], i) => `${w} for ${rm(prices[i] / 100)}`);
@@ -383,13 +399,13 @@ const money = {
         wrong.push({ text: rm((change + prices[miss]) / 100), code: 'ITEM-LEFT-OUT', why: `It looks like you left out the ${items[miss][0]} (${rm(prices[miss] / 100)}). Add up all ${n} items first.` });
       }
       const noRed = subNoReduce(note, total);
-      if (noRed !== change) wrong.push({ text: rm(noRed / 100), code: 'COL-EXCHANGE-NOT-REDUCED', why: 'It looks like you exchanged but did not take 1 away from the next column. Write the note as RM __.00 and subtract carefully.' });
+      if (noRed !== change) wrong.push({ text: rm(noRed / 100), code: 'COL-EXCHANGE-NOT-REDUCED', why: `It looks like you exchanged but did not take 1 away from the next column. Write the note as ${rm(note / 100)}.00 and subtract carefully.` });
       try {
         if (d === 2 && rng.chance(0.35)) {
           const t = typedMisconceptions(fx(change, 2), wrong.map((w) => ({ ...w, text: w.text.replace('RM ', '') })), { code: 'WRONG-QUANTITY', why: 'Add up what was bought, then take the total away from the note.' });
           return { type: 'numeric', prompt: `${prompt} Give your answer in RM.`, answer: numericAnswer(change / 100, [rm(change / 100), (change / 100).toFixed(2), fx(change, 2)]), solution, ...t, marks: 2, skill: SKILL.context };
         }
-        return { type: 'mcq', prompt, ...choices(rng, rm(change / 100), wrong, (i) => nearMiss(rm((change + (i % 2 ? 10 : -10) * i) / 100), 'Line up the decimal points and check with addition.')), solution, marks: d, skill: SKILL.context };
+        return { type: 'mcq', prompt, ...choices(rng, rm(change / 100), wrong, (i) => nearFor(prompt, [total / 100, ...prices.map((x) => x / 100)])(rm((change + (i % 2 ? 10 : -10) * i) / 100), 'Line up the decimal points and check with addition.')), solution, marks: d, skill: SKILL.context };
       } catch { /* draw again */ }
     }
   },
@@ -408,7 +424,7 @@ function plank(rng) {
       { text: `${fx(L - c1, 2)} m`, code: 'ITEM-LEFT-OUT', why: `That is what is left after the first piece only. ${p.He} also cut off ${fx(c2, 2)} m.` },
       { text: `${fx(c1 + c2, 2)} m`, code: 'WRONG-QUANTITY', why: `${fx(c1 + c2, 2)} m is the length cut off. The question asks how much is left.` },
     ];
-    try { return { type: 'mcq', prompt, ...choices(rng, `${fx(left, 2)} m`, items, (i) => nearMiss(`${fx(left + (i % 2 ? 10 : -10) * i, 2)} m`, 'Add the two pieces, then take the total from the full length.')), solution, marks: 2, skill: SKILL.context }; } catch { /* draw again */ }
+    try { return { type: 'mcq', prompt, ...choices(rng, `${fx(left, 2)} m`, items, (i) => nearFor(prompt)(`${fx(left + (i % 2 ? 10 : -10) * i, 2)} m`, 'Add the two pieces, then take the total from the full length.')), solution, marks: 2, skill: SKILL.context }; } catch { /* draw again */ }
   }
 }
 
@@ -423,7 +439,7 @@ function mixedUnits(rng) {
       const prompt = `A parcel holds three items. Their masses are ${fx(a, 3)} kg, ${fx(b, 3)} kg and ${g} g. What is the total mass of the three items in kg?`;
       const solution = `Change ${g} g into kg first: ${g} g = ${fx(g, 3)} kg (1000 g = 1 kg). Then add: ${fx(a, 3)} + ${fx(b, 3)} + ${fx(g, 3)} = ${fx(total, 3)} kg. Answer: ${fx(total, 3)} kg`;
       const items = [
-        { text: `${fx(a + b + g * 1000, 3)} kg`, code: 'UNIT-MIXED-SAME', why: `It looks like you added ${g} as if it were ${g} kg. ${g} g is only ${fx(g, 3)} kg.` },
+        { text: `${fx(a + b + g * 1000, 3)} kg`, code: 'UNIT-MIXED', why: `It looks like you added ${g} as if it were ${g} kg. ${g} g is only ${fx(g, 3)} kg.` },
         { text: `${fx(a + b + g * 10, 3)} kg`, code: 'UNIT-FACTOR-WRONG', why: `It looks like you divided ${g} by 100. There are 1000 g in 1 kg, so ${g} g = ${fx(g, 3)} kg.` },
         { text: `${fx(a + b, 3)} kg`, code: 'ITEM-LEFT-OUT', why: `That is only the two items in kg. Change ${g} g into kg and add it too.` },
       ];
@@ -436,8 +452,8 @@ function mixedUnits(rng) {
     const prompt = `${p.name} runs ${fx(k, 3)} km on Monday. On Tuesday ${p.he} runs ${more} m more than on Monday. How far does ${p.he} run on the two days altogether, in km?`;
     const solution = `${more} m = ${fx(more, 3)} km. Tuesday: ${fx(k, 3)} + ${fx(more, 3)} = ${fx(second, 3)} km. Altogether: ${fx(k, 3)} + ${fx(second, 3)} = ${fx(total, 3)} km. Answer: ${fx(total, 3)} km`;
     const items = [
-      { text: `${fx(k + more, 3)} km`, code: 'MORE-THAN-AS-AMOUNT', why: `${fx(k + more, 3)} km is how far ${p.he} ran on Tuesday only. Add Monday's ${fx(k, 3)} km as well.` },
-      { text: `${fx(2 * k + more * 1000, 3)} km`, code: 'UNIT-MIXED-SAME', why: `It looks like you added ${more} as if it were ${more} km. ${more} m is only ${fx(more, 3)} km.` },
+      { text: `${fx(k + more, 3)} km`, code: 'ONE-STEP-ONLY', why: `${fx(k + more, 3)} km is how far ${p.he} ran on Tuesday only. Add Monday's ${fx(k, 3)} km as well.` },
+      { text: `${fx(2 * k + more * 1000, 3)} km`, code: 'UNIT-MIXED', why: `It looks like you added ${more} as if it were ${more} km. ${more} m is only ${fx(more, 3)} km.` },
       { text: `${fx(2 * k + more * 10, 3)} km`, code: 'UNIT-FACTOR-WRONG', why: `It looks like you divided ${more} by 100. There are 1000 m in 1 km, so ${more} m = ${fx(more, 3)} km.` },
     ];
     try { return { type: 'mcq', prompt, ...choices(rng, `${fx(total, 3)} km`, items, null), solution, marks: 3, skill: SKILL.context }; } catch { /* draw again */ }
@@ -461,8 +477,8 @@ const integers = {
         if (Math.sign(x) === Math.sign(r) && rng.chance(0.75)) continue; // mostly crossing zero
         const prompt = `Work out ${x} ${plus ? '+' : '-'} ${y}.`;
         const solution = plus
-          ? `Start at ${x} on a number line and move ${y} steps UP (to the right). ${x < 0 ? `${-x} steps take you to 0, and ${y + x} more take you to ${r}.` : `You reach ${r}.`} Answer: ${r}`
-          : `Start at ${x} on a number line and move ${y} steps DOWN (to the left). ${x > 0 && r < 0 ? `${x} steps take you to 0, and ${y - x} more take you to ${r}.` : `You reach ${r}.`} Answer: ${r}`;
+          ? `Start at ${x} on a number line and move ${y} steps UP (to the right). ${x < 0 ? `${countOf(-x, 'step')} take${-x === 1 ? 's' : ''} you to 0, and ${y + x} more take${y + x === 1 ? 's' : ''} you to ${r}.` : `You reach ${r}.`} Answer: ${r}`
+          : `Start at ${x} on a number line and move ${y} steps DOWN (to the left). ${x > 0 && r < 0 ? `${countOf(x, 'step')} take${x === 1 ? 's' : ''} you to 0, and ${y - x} more take${y - x === 1 ? 's' : ''} you to ${r}.` : `You reach ${r}.`} Answer: ${r}`;
         const items = [
           { text: String(-r), code: 'NEG-WRONG-SIGN', why: `The size, ${Math.abs(r)}, is right but the sign is wrong. Check on a number line which side of zero you end up.` },
           x < 0 ? { text: String(plus ? -x + y : -x - y), code: 'NEG-SIGN-DROP', why: `It looks like you ignored the minus sign on ${x}. ${x} is below zero.` } : null,
@@ -478,9 +494,13 @@ const integers = {
         } catch { continue; }
       }
       // three numbers
-      const x = rng.int(-15, 15); const y = rng.int(2, 15); const z = rng.int(2, 15);
-      const o1 = rng.chance(0.5) ? '+' : '-'; const o2 = o1 === '+' ? '-' : rng.chance(0.5) ? '+' : '-';
-      const m = o1 === '+' ? x + y : x - y; const r = o2 === '+' ? m + z : m - z;
+      // the answer is drawn first, evenly from -20 to 20, and the last number made to fit, so the
+      // answers do not bunch between -1 and -7 (CLO review m05 item 8)
+      const x = rng.int(-15, 15); const y = rng.int(2, 15);
+      const o1 = rng.chance(0.5) ? '+' : '-';
+      const m = o1 === '+' ? x + y : x - y; const r = rng.int(-20, 20);
+      const o2 = r > m ? '+' : '-'; const z = Math.abs(r - m);
+      if (z < 2 || z > 15 || (o1 === '+' && o2 === '+')) continue;
       if (x === 0 || r === 0 || m === 0 || Math.abs(r) > 40) continue;
       if (Math.sign(m) === Math.sign(r) && Math.sign(x) === Math.sign(m)) continue;
       const prompt = `Work out ${x} ${o1} ${y} ${o2} ${z}.`;
@@ -530,7 +550,8 @@ const intContext = {
         if (d === 2 && rng.chance(0.5)) moves.forEach((_, i) => { moves[i] = -moves[i]; });
         const path = [s]; for (const m of moves) path.push(path[path.length - 1] + m);
         const r = path[path.length - 1];
-        if (path.some((x) => x < -5 || x > 15) || r === 0 || (d === 1 && Math.sign(s) === Math.sign(r)) || (d === 2 && !path.some((x) => x < 0))) continue;
+        // D1 never starts on floor 0: the NEG-SKIP-ZERO option counts floor 0 as a floor passed (CLO review m05 item 2)
+        if ((d === 1 && s === 0) || path.some((x) => x < -5 || x > 15) || r === 0 || (d === 1 && Math.sign(s) === Math.sign(r)) || (d === 2 && !path.some((x) => x < 0))) continue;
         const desc = moves.map((m) => `${m > 0 ? 'up' : 'down'} ${Math.abs(m)} floor${Math.abs(m) > 1 ? 's' : ''}`);
         const prompt = `In a shopping mall in KL, the ground floor is floor 0. The car park floors below it are numbered -1, -2, -3 and so on. A lift starts on floor ${s}. It goes ${desc.slice(0, -1).join(', then ')}${desc.length > 1 ? ', then ' : ''}${desc[desc.length - 1]}. Which floor does it stop at?`;
         const solution = `Start at ${s}. ${moves.map((m, i) => `${m > 0 ? 'Up' : 'Down'} ${Math.abs(m)}: ${path[i]} ${m > 0 ? '+' : '-'} ${Math.abs(m)} = ${path[i + 1]}`).join('. ')}. Floor 0 counts as a floor. Answer: ${r}`;
@@ -562,7 +583,8 @@ const intContext = {
           { text: String(s - up), code: 'OP-SWAP', why: 'It looks like you moved down. Swimming up makes the number bigger (closer to 0).' },
           { text: String(-s + up), code: 'NEG-SIGN-DROP', why: `It looks like you ignored the minus sign on ${s}. She starts BELOW sea level.` },
         ];
-        try { return { type: 'mcq', prompt, ...choices(rng, String(ans), items, null), solution, marks: d }; } catch { continue; }
+        // heights with their unit in the options (CLO review m05 item 8)
+        try { return { type: 'mcq', prompt, ...choices(rng, `${ans} m`, items.map((i) => ({ ...i, text: `${i.text} m` })), null), solution: `${solution} m`, marks: d }; } catch { continue; }
       }
       // height: difference across sea level
       const top = rng.int(20, 900); const bottom = -rng.int(10, 300);
@@ -670,7 +692,7 @@ const unknown = {
           const t = typedMisconceptions(X, items, { code: 'INVERSE-WRONG', why: `Use the inverse operation to get ${L} on its own, then check by putting your answer back in.` });
           return { type: 'numeric', prompt, answer: numericAnswer(xv / s, [X, `${L} = ${X}`, `${L}=${X}`]), solution, ...t };
         }
-        return { type: 'mcq', prompt, ...choices(rng, X, items, (i) => nearMiss(fx(xv + (i % 2 ? 1 : -1) * Math.ceil(i / 2) * (p ? 1 : 10), p), 'Use the inverse operation, then check by putting your answer back in.')), solution };
+        return { type: 'mcq', prompt, ...choices(rng, X, items, (i) => nearFor(prompt)(fx(xv + (i % 2 ? 1 : -1) * Math.ceil(i / 2) * (p ? 1 : 10), p), 'Use the inverse operation, then check by putting your answer back in.')), solution };
       } catch { /* draw again */ }
     }
   },
@@ -719,14 +741,19 @@ const barModel = {
   make(rng, d) {
     for (;;) {
       if (d === 2 || rng.chance(0.3)) {
-        // more-than, then total or what is left
+        // more-than, then total or what is left (one event with a fixed number to sell: CLO review m05 item 3)
         const cap = rng.int(10, 30) * 100; const f = rng.int(150, Math.floor(cap / 2) - 100); const more = rng.int(30, 200);
         const s = f + more; const sold = f + s; const left = cap - sold;
         if (left <= 0) continue;
         const askLeft = d === 3;
-        const what = rng.pick([['A concert hall', 'seats', 'tickets were sold', 'seats were still unsold'], ['A cinema', 'seats', 'tickets were sold', 'seats were still empty'], ['A train', 'seats', 'seats were booked', 'seats were still free']]);
+        if (!askLeft && (carries(f, s) === 0 || addNoCarry(f, s) === sold)) continue;
+        const ev = rng.pick([
+          { has: 'A concert in Kuala Lumpur has', unit: 'tickets', to: 'to sell', verb: 'were sold', left: 'tickets are still unsold' },
+          { has: 'A school fun fair has', unit: 'food coupons', to: 'to sell', verb: 'were sold', left: 'food coupons are still unsold' },
+          { has: 'A charity run in Penang has', unit: 'places', to: 'to fill', verb: 'were taken', left: 'places are still free' },
+        ]);
         const prompt = askLeft
-          ? `${what[0]} has ${fmtInt(cap)} ${what[1]}. On Friday, ${f} ${what[2]}. On Saturday, ${more} more ${what[2].split(' ')[0]} than on Friday ${what[2].split(' ').slice(1).join(' ')}. How many ${what[3].split(' ')[0]} ${what[3].split(' ').slice(1).join(' ')} after Saturday?`
+          ? `${ev.has} ${fmtInt(cap)} ${ev.unit} ${ev.to}. On Friday, ${f} ${ev.unit} ${ev.verb}. On Saturday, ${more} more ${ev.unit} ${ev.verb} than on Friday. How many ${ev.left} after Saturday?`
           : `On Friday, ${f} tickets were sold for a concert. On Saturday, ${more} more tickets were sold than on Friday. How many tickets were sold on the two days altogether?`;
         const ans = askLeft ? left : sold;
         const solution = askLeft
@@ -735,11 +762,11 @@ const barModel = {
         const items = askLeft ? [
           { text: fmtInt(cap - f - more), code: 'MORE-THAN-AS-AMOUNT', why: `It looks like you used ${more} as the number on Saturday. Saturday had ${more} MORE than Friday: ${f} + ${more} = ${s}.` },
           { text: fmtInt(cap - f), code: 'ITEM-LEFT-OUT', why: `That only takes away Friday's ${f}. Saturday's ${s} must be taken away too.` },
-          { text: fmtInt(sold), code: 'WRONG-QUANTITY', why: `${sold} is the number used on the two days. The question asks how many were NOT used: ${fmtInt(cap)} - ${sold}.` },
+          { text: fmtInt(sold), code: 'WRONG-QUANTITY', why: `${sold} is the number of ${ev.unit} that ${ev.verb} on the two days. The question asks how many ${ev.left}: ${fmtInt(cap)} - ${sold}.` },
         ] : [
           { text: fmtInt(s), code: 'ONE-STEP-ONLY', why: `${s} is the number sold on Saturday only (${f} + ${more}). Add Friday's ${f} too.` },
-          { text: fmtInt(2 * f), code: 'MORE-THAN-AS-AMOUNT', why: `It looks like you counted Friday's ${f} twice and left out the ${more} extra. Saturday sold ${f} + ${more} = ${s}.` },
-          { text: fmtInt(more), code: 'WRONG-QUANTITY', why: `${more} is how many MORE were sold on Saturday. The question asks for the total on both days.` },
+          { text: fmtInt(2 * f), code: 'ITEM-LEFT-OUT', why: `It looks like you used Friday's ${f} for Saturday as well and left out the ${more} extra. Saturday sold ${f} + ${more} = ${s}.` },
+          { text: fmtInt(addNoCarry(f, s)), code: 'COL-NO-CARRY', why: `It looks like you did not carry when you added ${f} + ${s}. Carry the extra ten into the next column.` },
         ];
         try { return { type: 'mcq', prompt, ...choices(rng, fmtInt(ans), items, null), solution, marks: d }; } catch { continue; }
       }

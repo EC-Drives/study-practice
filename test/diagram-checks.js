@@ -54,7 +54,27 @@ export const EXTRA_CHECKS = [
     return ls.length === 2 && near(ls[0] - ls[1], 92 * (1 - 15 / 30), 0.5);
   }],
   ['balanced forces described as the same length', () => /same length/.test(describeDiagram({ type: 'forces', object: 'parachutist', arrows: [{ direction: 'up', size: 700 }, { direction: 'down', size: 700, name: 'weight' }] }))],
-  ['newton meter reading described by marks', () => /pointer is on the 1st small mark below 6/.test(describeDiagram({ type: 'scale', kind: 'newtonMeter', min: 0, max: 10, major: 1, minor: 0.5, unit: 'N', value: 6.5 }))],
+  ['newton meter reading described by marks ("after 6", CLO review)', () => /pointer is on the 1st small mark after 6/.test(describeDiagram({ type: 'scale', kind: 'newtonMeter', min: 0, max: 10, major: 1, minor: 0.5, unit: 'N', value: 6.5 }))],
+  // specs that would freeze the page are refused before drawing (integration review, 17 Oct)
+  ['too many grid lines or huge numbers are refused quickly', () => {
+    const t0 = performance.now();
+    const bad = [
+      { type: 'barChart', categories: ['a'], series: [{ name: 'x', values: [1] }], yMax: 1e7, yStep: 0.0001 },
+      { type: 'barChart', categories: ['a'], series: [{ name: 'x', values: [1] }], yMax: 1e300, yStep: 1 },
+      { type: 'lineGraph', series: [{ name: 'x', points: [[0, 1], [1, 2]] }], xMin: 0, xMax: 1e8, xStep: 0.0001 },
+      { type: 'scatterGraph', points: [[0, 0], [1, 1]], xMin: 0, xMax: 1e8, xStep: 0.0001, yMin: 0, yMax: 10, yStep: 1 },
+      { type: 'polygon', points: [[0, 0], [1e9, 0], [0, 1]], grid: true },
+      { type: 'table', columns: ['a'], rows: Array.from({ length: 30 }, () => ['x'.repeat(1000)]) },
+    ];
+    const ok = bad.every((s) => validateDiagram(s).length > 0 && renderDiagram(s).querySelector('.dg-err'));
+    return ok && performance.now() - t0 < 500;
+  }],
+  // descriptions the CLO's review of 17 Oct (afternoon) asked to fix
+  ['numbered spinner: no "1 1, 1 2" count sentence', () => !/\b1 1, 1 2/.test(describeDiagram({ type: 'spinner', sectors: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'] })) && /2 sections red/.test(describeDiagram({ type: 'spinner', sectors: ['red', 'red', 'blue', 'green'] }))],
+  ['pie chart: an angle word stays with its own slice', () => /Home \([^)]*\)?, half the circle; Beach|Home, half the circle; Beach/.test(describeDiagram({ type: 'pieChart', slices: [{ label: 'Home', value: 6 }, { label: 'Beach', value: 2 }, { label: 'Shopping', value: 3 }, { label: 'Park', value: 1 }], rightAngles: true }))],
+  ['bar model: a brace drawn below is "under" the bar', () => /brace under/.test(describeDiagram({ type: 'barModel', bars: [{ label: 'Daniel', parts: [{ value: 3 }] }, { label: 'Siti', parts: [{ value: 5 }] }], braces: [{ bar: 0, from: 0, to: 3, label: '?', side: 'below' }] }))],
+  ['a point part-way along a side does not change the shape\'s name', () => /^A quadrilateral/.test(describeDiagram({ type: 'polygon', points: [[0, 0], [4, 0], [8, 0], [8, 4], [0, 4]] }))],
+  ['a force diagram names the object\'s label', () => /the book/.test(describeDiagram({ type: 'forces', object: 'box', label: 'the book', arrows: [{ direction: 'down', name: 'weight' }] }))],
   ['dot plot stacks one dot per value', () => svgOf({ type: 'dotPlot', values: [1, 1, 2, 3, 3, 3], min: 0, max: 4 }).querySelectorAll('circle.dg-s1').length === 6 && /3 at 3/.test(describeDiagram({ type: 'dotPlot', values: [1, 1, 2, 3, 3, 3], min: 0, max: 4 }))],
   ['dot plot rejects a value off the steps', () => validateDiagram({ type: 'dotPlot', values: [1.5], min: 0, max: 4 }).length > 0],
   ['function machine description keeps the order of the steps', () => /"x 3" and "\+ 4" in that order/.test(describeDiagram({ type: 'functionMachine', steps: ['x 3', '+ 4'], input: '5' }))],

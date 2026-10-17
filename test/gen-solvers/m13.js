@@ -39,6 +39,8 @@ function words([x, y]) {
   return out.join(' and ');
 }
 const swap = (p) => [p[1], p[0]];
+/** Two points as one option: the one further left (then lower) first. */
+const pairOf = (ps) => { const [a, b] = [...ps].sort((u, v) => u[0] - v[0] || u[1] - v[1]); return `${T(a)} and ${T(b)}`; };
 const optPairs = (q) => q.options.map((o) => ({ o, p: pairs(o)[0] }));
 
 // ---------------------------------------------------------------- read the point / which point
@@ -67,6 +69,14 @@ function axisAsk(q) {
   }
   m = q.prompt.match(/is at (\(.*?\))\. How many units is \w+ from the (x|y)-axis\?/);
   if (m) { const p = pairs(m[1])[0]; return { kind: 'dist', p, axis: m[2] }; }
+  m = q.prompt.match(/^Point \w+ is (\d+) units? from the y-axis and (\d+) units? from the x-axis\. It is (above the x-axis|below the x-axis|to the right of the y-axis|to the left of the y-axis)\. Which two points/);
+  if (m) {
+    // every point a units from the y-axis and b from the x-axis, kept if it is on the named side
+    const a = num(m[1]); const b = num(m[2]);
+    const side = { 'above the x-axis': (p) => p[1] > 0, 'below the x-axis': (p) => p[1] < 0, 'to the right of the y-axis': (p) => p[0] > 0, 'to the left of the y-axis': (p) => p[0] < 0 }[m[3]];
+    const all = [[a, b], [-a, b], [a, -b], [-a, -b]];
+    return { kind: 'both', a, b, side, all, fit: all.filter(side) };
+  }
   m = q.prompt.match(/in the (\w+) quadrant\. It is (\d+(?:\.\d+)?) units? from the y-axis and (\d+(?:\.\d+)?) units? from the x-axis/);
   const k = ORD.indexOf(m[1]);
   const sx = k === 2 || k === 3 ? -1 : 1; const sy = k === 3 || k === 4 ? -1 : 1;
@@ -108,7 +118,7 @@ function lineAsk(q) {
   const [A, B] = pairs(q.prompt);
   return { A, B, len: Math.abs(B[0] - A[0]) + Math.abs(B[1] - A[1]) };
 }
-const unitsBoth = (k) => [k, `${k} units`];
+const unitsBoth = (k) => [k, `${k} ${k === 1 ? 'unit' : 'units'}`];
 
 function midAsk(q) {
   if (/M is the midpoint/.test(q.prompt)) {
@@ -183,13 +193,14 @@ export const SOLVERS = {
   'm13.axis-distance': (q) => {
     const a = axisAsk(q);
     if (a.kind === 'dist') return { value: Math.abs(a.axis === 'y' ? a.p[0] : a.p[1]) };
+    if (a.kind === 'both') return { text: pairOf(a.fit) };
     return { text: T(a.p) };
   },
   'm13.missing-vertex': (q) => ({ text: T(vertexAsk(q).ans) }),
   'm13.line-length': (q) => {
     const a = lineAsk(q);
     if (a.back) return { text: T(a.B) };
-    return q.type === 'mcq' ? { text: `${a.len} units` } : { value: a.len };
+    return q.type === 'mcq' ? { text: `${a.len} ${a.len === 1 ? 'unit' : 'units'}` } : { value: a.len };
   },
   'm13.midpoint': (q) => { const a = midAsk(q); return { text: T(a.back ? a.B : a.mid) }; },
   'm13.perimeter-area': (q) => { const s = shapeOf(q); return { value: s.area2 ? s.area : s.per }; },
@@ -235,9 +246,16 @@ export const MIS = {
       const a = axisAsk(q);
       if (a.kind === 'on') return [T(swap(a.p))];
       if (a.kind === 'dist') return [Math.abs(a.axis === 'y' ? a.p[1] : a.p[0])];
+      if (a.kind === 'both') return [pairOf([[a.b, a.a], [-a.b, a.a], [a.b, -a.a], [-a.b, -a.a]].filter(a.side))];
       return [T([a.sx * a.b, a.sy * a.a]), T([a.b, a.a])];
     },
-    'COORD-SIGN': (q) => { const a = axisAsk(q); return a.kind === 'on' ? [T(neg(a.p))] : [T([-a.p[0], a.p[1]]), T([a.p[0], -a.p[1]])]; },
+    'COORD-SIGN': (q) => {
+      const a = axisAsk(q);
+      if (a.kind === 'both') return [pairOf(a.all.filter((p) => !a.side(p)))]; // both points on the wrong side
+      return a.kind === 'on' ? [T(neg(a.p))] : [T([-a.p[0], a.p[1]]), T([a.p[0], -a.p[1]])];
+    },
+    // a pair that fits the two distances but not the side: one right point and its mirror across the side's axis
+    'ONE-CONDITION-ONLY': (q) => { const a = axisAsk(q); return a.fit.map((p) => pairOf([p, a.all.find((r) => !a.side(r) && (r[0] === p[0] || r[1] === p[1]) && !(r[0] === -p[0] && r[1] === -p[1]))])); },
     'AXIS-ZERO-MISSED': (q) => { const a = axisAsk(q); const v = a.p[0] || a.p[1]; return [T([v, v])]; },
     'DIST-NEGATIVE': (q) => { const a = axisAsk(q); return [a.axis === 'y' ? a.p[0] : a.p[1]]; },
   },
@@ -248,7 +266,11 @@ export const MIS = {
       return [T(minus(plus(a.prev, a.opp), a.next)), T(minus(plus(a.next, a.opp), a.prev))];
     },
     'COORD-SWAP': (q) => [T(swap(vertexAsk(q).ans))],
-    'TRANS-WRONG-DIRECTION': (q) => { const a = vertexAsk(q); return [T([a.from[0] - a.dir[0] * a.len, a.from[1] - a.dir[1] * a.len])]; },
+    'TRANS-WRONG-DIRECTION': (q) => {
+      const a = vertexAsk(q);
+      if (!a.square) return [T(minus(plus(a.prev, a.opp), a.next))]; // the move opposite -> next copied backwards from prev
+      return [T([a.from[0] - a.dir[0] * a.len, a.from[1] - a.dir[1] * a.len])];
+    },
     'COORD-COUNT-POINTS': (q) => { const a = vertexAsk(q); return [T([a.from[0] + a.dir[0] * (a.len + 1), a.from[1] + a.dir[1] * (a.len + 1)])]; },
     'NEG-DIFF-ADD-SIGNS': (q) => {
       const a = vertexAsk(q);
@@ -269,7 +291,7 @@ export const MIS = {
     'TRANS-WRONG-AXIS': (q) => { const a = lineAsk(q); return [T([a.A[0] + a.dir[1] * a.len, a.A[1] + a.dir[0] * a.len])]; },
   },
   'm13.midpoint': {
-    'MID-HALF-LENGTH': (q) => { const a = midAsk(q); const [u, v] = midEnds(a); return [T(midWith(a, Math.abs(v - u) / 2))]; },
+    'MID-HALF-DIFF': (q) => { const a = midAsk(q); const [u, v] = midEnds(a); return [T(midWith(a, Math.abs(v - u) / 2))]; },
     'MID-NO-HALVE': (q) => { const a = midAsk(q); const [u, v] = midEnds(a); return [T(midWith(a, u + v))]; },
     'MID-LENGTH': (q) => { const a = midAsk(q); const [u, v] = midEnds(a); return [T(midWith(a, Math.abs(v - u)))]; },
     'COORD-SWAP': (q) => { const a = midAsk(q); return [T(swap(a.back ? a.B : a.mid))]; },

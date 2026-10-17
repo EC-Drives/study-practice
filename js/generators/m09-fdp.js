@@ -2,7 +2,7 @@
 // fractions and simplest form, converting between forms, percentages of amounts and shapes,
 // comparing and ordering. Patterns and ranges follow the CLO's generator guide (m09).
 
-import { F, choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, dec, rm, person , denWord, capFirst } from './core.js';
+import { F, choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, dec, rm, person, denWord, capFirst, valueOf, countOf, term } from './core.js';
 
 const T = 'm09-fractions-percentages-decimals';
 const SKILL = {
@@ -11,32 +11,16 @@ const SKILL = {
   compare: 'comparing fractions, decimals and percentages', order: 'ordering fractions, decimals and percentages',
 };
 
-export const EXTRA_CODES = {
-  'FDP-DIV-REVERSED': 'Writes a ÷ b as b/a (divides the wrong way round)',
-  'FR-MIXED-QR-SWAP': 'Swaps the whole number and the numerator when changing an improper fraction to a mixed number (17/5 = 2 3/5)',
-  'FR-MIXED-WRONG-DEN': 'Uses the wrong denominator when changing between mixed numbers and improper fractions (17/5 = 3 2/17)',
-  'FR-MIXED-ADD-WHOLE': 'Adds the whole number to the numerator (3 2/5 = 5/5)',
-  'FR-MIXED-WRONG-PARTS': 'Multiplies the whole number by the numerator and adds the denominator (3 2/5 = 11/5)',
-  'FR-MIXED-NO-NUMERATOR': 'Multiplies the whole number by the denominator but forgets to add the numerator (3 2/5 = 15/5)',
-  'FR-EQUIV-ADDITIVE': 'Adds the same number to the numerator and the denominator to make an equivalent fraction (3/5 = 18/20)',
-  'FR-EQUIV-FACTOR-ONLY': 'Gives the scale factor instead of the missing numerator or denominator',
-  'FR-EQUIV-SIMPLIFIED-ONLY': 'Simplifies the fraction but stops before scaling it to the new denominator',
-  'FR-SIMPLIFY-ONE-PART': 'Divides only the numerator or only the denominator when simplifying',
-  'FR-SIMPLIFY-SUBTRACT': 'Subtracts the same number from the numerator and the denominator instead of dividing',
-  'FDP-DEN-AS-DECIMAL': 'Writes the denominator as the decimal (1/8 = 0.8, 3/5 = 0.5)',
-  'FDP-DEC-AS-PERCENT': 'Puts a % sign on the decimal without multiplying by 100 (0.35 = 0.35%)',
-  'FDP-PCT-NO-DIVIDE': 'Drops the % sign without dividing by 100 (35% = 35)',
-  'PCT-COUNT-AS-PERCENT': 'Gives the number of shaded squares as the percentage, whatever the size of the grid',
-  'PCT-SUBTRACT-NUMBER': 'Subtracts the percentage number itself from the amount (20% off RM 80 = RM 60)',
-  'PCT-ADD-INSTEAD': 'Adds the percentage on when it should be taken off (a discount added to the price)',
-  'FR-BIGGER-DEN-BIGGER': 'Thinks a fraction with a bigger denominator is bigger',
-  'FR-SMALLER-DEN-BIGGER': 'Thinks a fraction with a smaller denominator is bigger, whatever the numerator',
-  'FR-EQUIV-CROSS': 'Multiplies across (one numerator by the other denominator) instead of scaling the fraction',
-};
+// Misconception codes: all declared once in misconceptions.js (the CLO's catalogue).
 
 const range = (a, b) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
 function properFrac(rng, dens) { for (;;) { const b = rng.pick(dens); const a = rng.int(1, b - 1); if (F(a, b).d === b) return F(a, b); } }
 const pct = (f) => `${dec(f.value * 100)}%`;
+
+/** The numbers written in a prompt, read the way the tests read them. */
+const promptNums = (prompt) => (String(prompt).replace(/(\d) (\d{3})/g, '$1$2').match(/-?\d+(?:\.\d+)?(?:\/\d+)?/g) || []).map((t) => valueOf(t)).filter((x) => x != null);
+/** A near miss is never a number that already appears in the question (CLO review X3): null if it does. */
+const fresh = (prompt, d) => { if (!d) return null; const v = valueOf(d.text); return v != null && promptNums(prompt).some((x) => Math.abs(x - v) < 1e-9) ? null : d; };
 
 // ---------------------------------------------------------------- g01 fraction as division
 
@@ -69,7 +53,7 @@ const division = {
         ? `A division can be written as a fraction: ${a} ÷ ${b} = ${a}/${b}${f.toString() !== `${a}/${b}` ? `, which simplifies to ${f}` : ''}. The number being shared goes on top. Answer: ${ans}`
         : `${a} ÷ ${b} = ${a}/${b}. ${b} goes into ${a} ${q} time${q > 1 ? 's' : ''} with ${r} left over, so ${a}/${b} = ${q} ${r}/${b}${F(r, b).toString() !== `${r}/${b}` ? ` = ${f.mixed()}` : ''}. Answer: ${ans}`;
       const distractors = [
-        { text: F(b, a).isInt ? null : (d === 1 ? F(b, a).mixed() : F(b, a).toString()), code: 'FDP-DIV-REVERSED', why: `It looks like you put ${b} on top. In ${a} ÷ ${b}, the number being shared (${a}) is the numerator: ${a}/${b}.` },
+        { text: F(b, a).isInt ? null : `${b}/${a}`, code: 'FDP-DIV-REVERSED', why: `It looks like you put ${b} on top. In ${a} ÷ ${b}, the number being shared (${a}) is the numerator: ${a}/${b}.` },
         d === 2 ? { text: `${q}.${r}`, code: 'REMAINDER-AS-DECIMAL', why: `It looks like you wrote the remainder ${r} after a decimal point. The ${r} left over is ${r}/${b} of a whole, not ${r} tenth${r === 1 ? '' : 's'}.` } : (b < 10 ? { text: `${a}.${b}`, code: 'FDP-DIGITS', why: `It looks like you wrote the two numbers with a decimal point between them. ${a} ÷ ${b} is ${a}/${b}, which is less than 1.` } : null),
         d === 2 && r !== q && q < b ? { text: F(r).add(F(q, b)).mixed(), code: 'FR-MIXED-QR-SWAP', why: `It looks like you swapped the whole number and the remainder. ${b} goes into ${a} ${q} time${q === 1 ? '' : 's'} (the whole number) with ${r} left over (the numerator).` } : null,
         d === 1 && a > 1 ? { text: `1/${b}`, code: 'FR-DIV-WHOLE-ONLY', why: `1/${b} is each share of ONE whole. Here ${a} wholes are shared, so each gets ${a}/${b}.` } : null,
@@ -79,12 +63,11 @@ const division = {
           const t = typedMisconceptions(ans, distractors, { code: 'FDP-DIV-REVERSED', why: `Write ${a} ÷ ${b} as ${a}/${b}, then change it to a mixed number: how many times does ${b} go into ${a}, and what is left?` });
           return { type: 'short', prompt, answer: { accept: [ans], keywords: [] }, solution, ...t };
         }
-        return { type: 'mcq', prompt, ...choices(rng, ans, distractors, (i) => nearMiss(d === 1 ? F(a + i, b).toString() : f.add(F(i, b)).mixed(), `Write ${a} ÷ ${b} as a fraction with ${a} on top.`)), solution };
+        return { type: 'mcq', prompt, ...choices(rng, ans, distractors, (i) => { const w = d === 1 ? F(a + i, b) : f.add(F(i, b)); return d === 1 && w.cmp(1) >= 0 ? null : fresh(prompt, nearMiss(d === 1 ? w.toString() : w.mixed(), `Write ${a} ÷ ${b} as a fraction with ${a} on top.`)); }), solution };
       } catch { /* draw again */ }
     }
   },
 };
-// the code FR-DIV-WHOLE-ONLY is defined by m10's EXTRA codes in misconceptions.js
 
 // ---------------------------------------------------------------- g02 improper fractions and mixed numbers
 
@@ -108,7 +91,7 @@ const mixedImproper = {
         const distractors = [
           n !== w && n < den && w < den ? { text: `${n} ${w}/${den}`, code: 'FR-MIXED-QR-SWAP', why: `It looks like you swapped the whole number and the remainder. ${den} goes into ${imp.n} ${w} time${w === 1 ? '' : 's'} (the whole number) with ${n} left over (the numerator).` } : null,
           { text: `${w} ${n}/${imp.n}`, code: 'FR-MIXED-WRONG-DEN', why: `The denominator stays the same: the pieces are still ${denWord(den)}. So the fraction part is ${n}/${den}, not ${n}/${imp.n}.` },
-          { text: `${w + 1} ${n}/${den}`, code: 'NEAR-MISS', why: `This is close, but ${w + 1} ${n}/${den} is not right. ${w + 1} x ${den} = ${(w + 1) * den}, which is more than ${imp.n}. Check how many whole ${den}s fit.` },
+          { text: `${w + 1} ${n}/${den}`, code: 'NEAR-MISS', why: `Not quite: ${w + 1} ${n}/${den} has one whole too many. ${w + 1} x ${den} = ${(w + 1) * den}, which is more than ${imp.n}. Check how many whole ${den}s fit.` },
         ];
         try {
           if (d === 2 && rng.chance(0.4)) {
@@ -161,14 +144,14 @@ const equivalent = {
         if (!missTop) solution = `Simplify first: ${a}/${b} = ${base} (divide by ${k1}). To get from ${base.n} to ${c}, multiply by ${k2}, so the denominator is ${base.d} x ${k2} = ${e}. Answer: ${ans}`;
         const prompt = missTop ? `Find the missing number: ${a}/${b} = ?/${e}` : `Find the missing number: ${a}/${b} = ${c}/?`;
         const distractors = missTop ? [
-          a + (e - b) > 0 ? { text: String(a + (e - b)), code: 'FR-EQUIV-ADDITIVE', why: `It looks like you added ${e - b} to the top because ${b} + ${e - b} = ${e}. Equivalent fractions come from multiplying or dividing, not adding.` } : null,
+          a + (e - b) > 0 ? { text: String(a + (e - b)), code: 'FR-EQUIV-ADDITIVE', why: `It looks like you ${e > b ? 'added' : 'took away'} ${Math.abs(e - b)} ${e > b ? 'to' : 'from'} the top because ${b} ${e > b ? '+' : '-'} ${Math.abs(e - b)} = ${e}. Equivalent fractions come from multiplying or dividing, not adding.` } : null,
           { text: String(base.n), code: 'FR-EQUIV-SIMPLIFIED-ONLY', why: `You simplified ${a}/${b} to ${base} (well done) but stopped. Now write ${base} with denominator ${e}.` },
           { text: String(base.n * e), code: 'FR-EQUIV-CROSS', why: `It looks like you multiplied ${base.n} by ${e}. ${base} has denominator ${base.d}; multiply the top and the bottom by ${k2} to get ${e}.` },
         ] : [
-          b + (c - a) > 0 ? { text: String(b + (c - a)), code: 'FR-EQUIV-ADDITIVE', why: `It looks like you added ${c - a} to the bottom because ${a} + ${c - a} = ${c}. Equivalent fractions come from multiplying or dividing, not adding.` } : null,
+          b + (c - a) > 0 ? { text: String(b + (c - a)), code: 'FR-EQUIV-ADDITIVE', why: `It looks like you ${c > a ? 'added' : 'took away'} ${Math.abs(c - a)} ${c > a ? 'to' : 'from'} the bottom because ${a} ${c > a ? '+' : '-'} ${Math.abs(c - a)} = ${c}. Equivalent fractions come from multiplying or dividing, not adding.` } : null,
           { text: String(base.d), code: 'FR-EQUIV-SIMPLIFIED-ONLY', why: `You simplified ${a}/${b} to ${base} (well done) but stopped. Now write it with numerator ${c}.` },
         ];
-        try { return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, (i) => nearMiss(String(ans + i), `Simplify ${a}/${b} first, then scale it.`)), solution, marks: 2 }; } catch { continue; }
+        try { return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, (i) => fresh(prompt, nearMiss(String(ans + i), `Simplify ${a}/${b} first, then scale it.`))), solution, marks: 2 }; } catch { continue; }
       }
       const base = properFrac(rng, d === 1 ? range(2, 10) : range(2, 12));
       const k = rng.int(2, d === 1 ? 6 : 9);
@@ -194,7 +177,7 @@ const equivalent = {
           const t = typedMisconceptions(String(ans), distractors.filter(Boolean), { code: 'FR-EQUIV-ADDITIVE', why: `Multiply or divide the numerator and the denominator by the SAME number.` });
           return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans)]), solution, ...t };
         }
-        return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, (i) => nearMiss(String(ans + i), `${op === 'multiply' ? 'Multiply' : 'Divide'} the top and bottom by the same number.`)), solution };
+        return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, (i) => fresh(prompt, nearMiss(String(ans + i), `${op === 'multiply' ? 'Multiply' : 'Divide'} the top and bottom by the same number.`))), solution };
       } catch { /* draw again */ }
     }
   },
@@ -355,27 +338,27 @@ const ofAmount = {
             { text: String(100 - p), code: 'PCT-COUNT-AS-PERCENT', why: `${100 - p}% are ${partB}, but the question asks HOW MANY. Find ${100 - p}% of ${fmtInt(total)}.` },
             total - p > 0 ? { text: fmtInt(total - p), code: 'PCT-SUBTRACT-NUMBER', why: `It looks like you took ${p} away from ${fmtInt(total)}. ${p}% is not ${p} ${whole.split(' ')[0]}: find ${p}% of ${fmtInt(total)} first.` } : null,
           ];
-          try { return { type: 'mcq', prompt, ...choices(rng, dec(other), distractors, (i) => nearMiss(dec(other + i), `Find ${100 - p}% of ${fmtInt(total)}.`)), solution, marks: 2 }; } catch { continue; }
+          try { return { type: 'mcq', prompt, ...choices(rng, dec(other), distractors, (i) => fresh(prompt, nearMiss(dec(other + i), `Find ${100 - p}% of ${fmtInt(total)}.`))), solution, marks: 2 }; } catch { continue; }
         }
         // a price after a discount: prices that fit the item, 5% to 45% off
-        const [item, lo, hi] = rng.pick([['pair of shoes', 40, 300], ['school bag', 30, 150], ['bicycle', 200, 900], ['watch', 60, 600], ['football', 20, 120], ['set of paints', 10, 80]]);
+        const [item, lo, hi, them] = rng.pick([['pair of shoes', 40, 300, 'them'], ['school bag', 30, 150, 'it'], ['bicycle', 200, 900, 'it'], ['watch', 60, 600, 'it'], ['football', 20, 120, 'it'], ['set of paints', 10, 80, 'it']]);
         if (p < 5 || p > 45 || amount < lo || amount > hi) continue;
         const price = amount;
         const off = ans;
         const pr = person(rng);
-        const prompt = `A ${item} costs ${rm(price)}. In a sale there is ${p}% off. ${pr.name} buys it in the sale. How much does ${pr.he} pay?`;
+        const prompt = `A ${item} costs ${rm(price)}. In a sale there is ${p}% off. ${pr.name} buys ${them} in the sale. How much does ${pr.he} pay?`;
         const solution = `${p}% of ${rm(price)} = ${rm(price)} x ${p} ÷ 100 = ${rm(off)}. Take it off the price: ${rm(price)} - ${rm(off)} = ${rm(price - off)}. Answer: ${rm(price - off)}`;
         const distractors = [
           { text: rm(off), code: 'PCT-OF-WRONG-WHOLE', why: `${rm(off)} is the amount taken off (the discount), not the sale price.` },
           price - p > 0 ? { text: rm(price - p), code: 'PCT-SUBTRACT-NUMBER', why: `It looks like you took RM ${p} off. ${p}% off means take away ${p}% of the price, which is ${rm(off)}.` } : null,
           { text: rm(price + off), code: 'PCT-ADD-INSTEAD', why: `It looks like you added the discount. In a sale the price goes DOWN by ${rm(off)}.` },
         ];
-        try { return { type: 'mcq', prompt, ...choices(rng, rm(price - off), distractors, (i) => nearMiss(rm(price - off + i), `Find ${p}% of ${rm(price)}, then take it away.`)), solution, marks: 2 }; } catch { continue; }
+        try { return { type: 'mcq', prompt, ...choices(rng, rm(price - off), distractors, (i) => fresh(prompt, nearMiss(rm(price - off + i), `Find ${p}% of ${rm(price)}, then take it away.`))), solution, marks: 2 }; } catch { continue; }
       }
       const money = rng.chance(0.4);
       const show = (v) => (money ? rm(v) : dec(v));
       const prompt = `Find ${p}% of ${money ? rm(amount) : fmtInt(amount)}.`;
-      const tenStep = p % 10 === 0 && p !== 10 ? ` 10% of ${fmtInt(amount)} is ${dec(amount / 10)}, so ${p}% is ${p / 10} x ${dec(amount / 10)} = ${dec(ans)}.` : p === 25 || p === 75 || p === 50 ? ` ${p}% is ${F(p, 100)} of ${fmtInt(amount)}: ${fmtInt(amount)} ÷ ${100 / gcdN(p, 100)} x ${p / gcdN(p, 100)} = ${dec(ans)}.` : ` ${fmtInt(amount)} x ${p} ÷ 100 = ${dec(ans)}.`;
+      const tenStep = p === 50 ? ` 50% is a half: ${fmtInt(amount)} ÷ 2 = ${dec(ans)}.` : p % 10 === 0 && p !== 10 ? ` 10% of ${fmtInt(amount)} is ${dec(amount / 10)}, so ${p}% is ${p / 10} x ${dec(amount / 10)} = ${dec(ans)}.` : p === 25 || p === 75 || p === 50 ? ` ${p}% is ${F(p, 100)} of ${fmtInt(amount)}: ${fmtInt(amount)} ÷ ${100 / gcdN(p, 100)} x ${p / gcdN(p, 100)} = ${dec(ans)}.` : ` ${fmtInt(amount)} x ${p} ÷ 100 = ${dec(ans)}.`;
       const solution = `Percent means out of 100.${tenStep} Answer: ${show(ans)}`;
       const div = amount / p;
       const distractors = [
@@ -389,7 +372,7 @@ const ofAmount = {
           const t = typedMisconceptions(dec(ans), distractors.filter(Boolean).map((x) => ({ ...x, text: x.text.replace('RM ', '') })), { code: 'PCT-AS-DIVISOR', why: `${p}% of an amount is the amount x ${p} ÷ 100.` });
           return { type: 'numeric', prompt, answer: numericAnswer(round6(ans), money ? [rm(ans), dec(ans)] : [dec(ans)]), solution, ...t };
         }
-        return { type: 'mcq', prompt, ...choices(rng, show(ans), distractors, (i) => nearMiss(show(ans + i), 'Find 10% first, then build up.')), solution };
+        return { type: 'mcq', prompt, ...choices(rng, show(ans), distractors, (i) => fresh(prompt, nearMiss(show(ans + i), 'Find 10% first, then build up.'))), solution };
       } catch { /* draw again */ }
     }
   },
@@ -411,21 +394,25 @@ const shape = {
       const k = rng.int(1, n - 1);
       const p = (k * 100) / n;
       if (!Number.isInteger(p * 10)) continue;
-      const askUnshaded = d === 2 && rng.chance(0.3);
+      const askUnshaded = d === 2 && rng.chance(0.3) && 2 * k !== n; // with half shaded, "not shaded" asks nothing new
       const ans = askUnshaded ? 100 - p : p;
       // shade a random set of squares, not always the first ones
       const order = rng.shuffle(Array.from({ length: n }, (_, i) => i));
       const shaded = n >= 50 || rng.chance(0.5) ? Array.from({ length: k }, (_, i) => i) : order.slice(0, k).sort((a, b) => a - b);
-      const diagram = { type: 'fractionModel', shape: 'grid', rows, cols, shaded };
-      const prompt = `The grid has ${n} equal squares. What percentage of the grid is ${askUnshaded ? 'NOT shaded' : 'shaded'}?`;
+      // a neutral description: the automatic one would count the shaded squares, which is the question (CLO review, renderer notes)
+      const diagram = { type: 'fractionModel', shape: 'grid', rows, cols, shaded, alt: `A ${rows} by ${cols} grid of equal squares, with some squares shaded.` };
+      // a name and a setting in the prompt, so sessions (which remove repeats by prompt) can use many grids
+      const who = person(rng);
+      const lead = rng.pick([`${who.name} shades some squares on a grid of ${n} equal squares.`, `${who.name} draws a grid of ${n} equal squares and shades some of them.`, `The grid has ${n} equal squares. ${who.name} has shaded some of them.`]);
+      const prompt = `${lead} What percentage of the grid is ${askUnshaded ? 'NOT shaded' : 'shaded'}?`;
       const solution = n === 100
-        ? `${k} of the 100 squares are shaded, so ${dec(p)}% is shaded${askUnshaded ? ` and ${dec(100 - p)}% is not` : ''}. Answer: ${dec(ans)}%`
-        : `${k} out of ${n} squares are shaded: ${k}/${n}. Each square is 100 ÷ ${n} = ${dec(100 / n)}% of the grid, so ${k} squares are ${k} x ${dec(100 / n)} = ${dec(p)}%${askUnshaded ? `. Not shaded: 100% - ${dec(p)}% = ${dec(100 - p)}%` : ''}. Answer: ${dec(ans)}%`;
+        ? `${k} of the 100 squares ${k === 1 ? 'is' : 'are'} shaded, so ${dec(p)}% is shaded${askUnshaded ? ` and ${dec(100 - p)}% is not` : ''}. Answer: ${dec(ans)}%`
+        : `${k} out of ${n} squares ${k === 1 ? 'is' : 'are'} shaded: ${k}/${n}. Each square is 100 ÷ ${n} = ${dec(100 / n)}% of the grid, so ${countOf(k, 'square')} ${k === 1 ? 'is' : 'are'} ${k} x ${dec(100 / n)} = ${dec(p)}%${askUnshaded ? `. Not shaded: 100% - ${dec(p)}% = ${dec(100 - p)}%` : ''}. Answer: ${dec(ans)}%`;
       const distractors = [
         n !== 100 && k !== ans ? { text: `${askUnshaded ? n - k : k}%`, code: 'PCT-COUNT-AS-PERCENT', why: `${askUnshaded ? n - k : k} is the number of squares. The grid has ${n} squares, not 100, so each square is ${dec(100 / n)}%.` } : null,
         { text: `${dec(100 - ans)}%`, code: 'PCT-OF-WRONG-WHOLE', why: askUnshaded ? `${dec(100 - ans)}% is the part that IS shaded. The question asks for the part that is not.` : `${dec(100 - ans)}% is the part that is NOT shaded. Count the shaded squares.` },
       ];
-      try { return { type: 'mcq', prompt, ...choices(rng, `${dec(ans)}%`, distractors, (i) => nearMiss(`${dec(ans + i * (100 / n))}%`, `Count the squares carefully; each square is ${dec(100 / n)}%.`)), solution, diagram }; } catch { /* draw again */ }
+      try { return { type: 'mcq', prompt, ...choices(rng, `${dec(ans)}%`, distractors, (i) => { const w = ans + (i % 2 ? 1 : -1) * Math.ceil(i / 2) * (100 / n); return w > 0 && w < 100 ? fresh(prompt, nearMiss(`${dec(w)}%`, `Count the squares carefully; each square is ${dec(100 / n)}%.`)) : null; }), solution, diagram }; } catch { /* draw again */ }
     }
   },
 };
@@ -446,49 +433,58 @@ const compare = {
       const target = properFrac(rng, dens);
       if (target.value < 0.3 || target.value > 0.95) continue;
       const T100 = Math.round(target.value * 1000);
+      let tEq = '';
       const items = [];
-      const mode = rng.chance(0.5) ? 'A' : 'B';
+      // B (the longer decimal is the answer) only at D1-D2: its fraction trap is far from the others
+      const mode = d < 3 && rng.chance(0.5) ? 'B' : 'A';
       let tText;
       if (mode === 'A') {
         // the traps look bigger but are smaller: a longer decimal, a bigger denominator
         // the trap decimal must be the longer one: 2 places at D1 (hundredths), 3 places above
-        tText = writeAs(target, dpCount(dec(target.value)) >= (d === 1 ? 2 : 3) ? 'F' : rng.pick(['F', 'D']));
+        // the answer is a fraction, so the bigger-denominator trap is compared with another fraction (CLO review m09 item 6)
+        tText = writeAs(target, 'F');
+        tEq = tText === dec(target.value) ? tText : `${tText} = ${dec(target.value)}`;
         const L = d === 1 ? T100 - 10 * rng.int(1, Math.round(near * 100)) : T100 - rng.int(1, Math.round(near * 1000));
         if (L <= 0 || (d === 1 ? L % 100 === 0 : L % 10 === 0)) continue;
-        items.push({ text: dec(L / 1000), code: 'DEC-LONGER-BIGGER', why: `${dec(L / 1000)} has more digits, but that does not make it bigger. Compare place by place with ${tText} = ${dec(target.value)}.` });
-        const bigDen = rng.pick(d === 1 ? [5, 10].filter((x) => x > target.d) : [7, 9, 11, 12, 15, 16].filter((x) => x > target.d));
+        items.push({ text: dec(L / 1000), code: 'DEC-LONGER-BIGGER', why: `${dec(L / 1000)} has more digits, but that does not make it bigger. Compare place by place with ${tEq}.` });
+        // terminating denominators only: no recurring decimals at Stage 6 (CLO review m09 item 1)
+        const bigDen = rng.pick(d === 1 ? [5, 10].filter((x) => x > target.d) : [8, 10, 20, 25, 40, 50].filter((x) => x > target.d));
         if (!bigDen) continue;
         const bn = Math.ceil(target.value * bigDen) - 1;
         if (bn < 1 || F(bn, bigDen).d <= target.d || target.value - bn / bigDen > near + 0.1) continue;
-        items.push({ text: F(bn, bigDen).toString(), code: 'FR-BIGGER-DEN-BIGGER', why: `A bigger denominator means smaller pieces. ${F(bn, bigDen)} is ${bigDen % 2 && bigDen % 5 ? 'about ' : ''}${dec(Math.round((bn / bigDen) * 1000) / 1000)}, which is less than ${tText} = ${dec(target.value)}.` });
+        items.push({ text: F(bn, bigDen).toString(), code: 'FR-BIGGER-DEN-BIGGER', why: `A bigger denominator means smaller pieces. ${F(bn, bigDen)} is ${dec(bn / bigDen)}, which is less than ${tEq}.` });
       } else {
-        // the right answer is the longer decimal; the traps are a shorter decimal and a smaller denominator
+        // the right answer is the longer decimal; the traps are a shorter decimal and a unit fraction whose
+        // denominator looks like a bigger decimal (1/8 read as 0.8)
         const Tdec = dec(target.value);
         if (dpCount(Tdec) < 2) continue;
         tText = Tdec;
+        tEq = tText;
         const S = Math.floor(target.value * 10) / 10;
         if (S <= 0 || S === target.value) continue;
         items.push({ text: dec(S), code: 'DEC-SHORTER-BIGGER', why: `${dec(S)} is shorter, but that does not make it bigger. ${tText} has ${dec(S)} and more: compare place by place.` });
-        const sd = rng.pick([2, 3, 4, 5].filter((x) => x < target.d));
-        if (!sd) continue;
-        const sn = Math.ceil(target.value * sd) - 1;
-        if (sn < 1 || F(sn, sd).d !== sd || target.value - sn / sd > near + 0.15) continue;
-        items.push({ text: F(sn, sd).toString(), code: 'FR-SMALLER-DEN-BIGGER', why: `${F(sn, sd)} has bigger pieces, but only ${sn} of them: it is ${sd === 3 ? 'about ' : ''}${dec(Math.round((sn / sd) * 1000) / 1000)}, less than ${tText}.` });
+        const k = rng.pick([4, 5, 8].filter((x) => x / 10 > target.value && 1 / x < target.value));
+        if (!k) continue;
+        items.push({ text: `1/${k}`, code: 'FDP-DEN-AS-DECIMAL', why: `1/${k} is not 0.${k}. 1/${k} = 1 ÷ ${k} = ${dec(1 / k)}, which is less than ${tText}.` });
       }
       // the percentage trap: a two-digit number that looks bigger than a decimal
       const pv = rng.int(Math.max(12, Math.round((target.value - near) * 100)), Math.ceil(target.value * 100) - 1);
       if (d === 1 && pv % 5 !== 0) continue;
-      items.push({ text: `${pv}%`, code: 'FDP-DIGITS', why: `${pv}% looks big because of the number ${pv}, but ${pv}% = ${dec(pv / 100)}, which is less than ${tText} = ${dec(target.value)}.` });
+      items.push({ text: `${pv}%`, code: 'FDP-DIGITS', why: `${pv}% looks big because of the number ${pv}, but ${pv}% = ${dec(pv / 100)}, which is less than ${tEq}.` });
       const vals = [target.value, ...items.map((x) => valueOfText(x.text))];
       if (new Set(vals.map((x) => x.toFixed(6))).size < 4 || vals.slice(1).some((x) => x >= target.value)) continue;
       const all = [tText, ...items.map((x) => x.text)];
       const asDec = (t) => { const x = valueOfText(t); const r = Math.round(x * 1000) / 1000; return `${dec(r)}${Math.abs(x - r) > 1e-9 ? '...' : ''}`; };
-      const solution = `Change them all to decimals: ${all.map((t) => `${t} = ${asDec(t)}`).join(', ')}. The largest is ${tText}. Answer: ${tText}`;
-      try { return { type: 'mcq', prompt: 'Which of these is the largest?', ...choices(rng, tText, items, null), solution, marks: d === 3 ? 2 : 1 }; } catch { /* draw again */ }
+      const solution = `Change them all to decimals: ${all.map((t) => (t === asDec(t) ? t : `${t} = ${asDec(t)}`)).join(', ')}. The largest is ${tText}. Answer: ${tText}`;
+      // the values are in the prompt, so two questions never look the same (sessions remove repeats by prompt)
+      try { const c = choices(rng, tText, items, null); return { type: 'mcq', prompt: `Which of these is the largest: ${c.options.slice(0, -1).join(', ')} or ${c.options[c.options.length - 1]}?`, ...c, solution, marks: d === 3 ? 2 : 1 }; } catch { /* draw again */ }
     }
   },
 };
 function valueOfText(t) { if (t.endsWith('%')) return Number(t.slice(0, -1)) / 100; if (t.includes('/')) { const [a, b] = t.split('/').map(Number); return a / b; } return Number(t); }
+
+/** Every proper fraction in simplest form with one of these denominators. */
+const OPEN_POOL = (dens) => { const out = []; for (const d of dens) for (let n = 1; n < d; n++) if (F(n, d).d === d) out.push(F(n, d)); return out.filter((f, i) => out.findIndex((g) => g.eq(f)) === i); };
 
 const orderFdp = {
   id: 'm09.order-fdp', topicId: T, subtopicId: 'm09-s5', skill: SKILL.order,
@@ -499,21 +495,29 @@ const orderFdp = {
     for (;;) {
       const dens = d === 1 ? [2, 4, 5, 10] : d === 2 ? [4, 5, 8, 10, 20, 25] : [8, 20, 25, 40, 50];
       const fs = [];
-      while (fs.length < 4) { const f = properFrac(rng, dens); if (!fs.some((g) => g.eq(f))) fs.push(f); }
-      const vals = fs.map((f) => f.value).sort((a, b) => a - b);
-      if (d === 3 && vals[3] - vals[0] > 0.3) continue;
+      if (d === 3) {
+        // D3: four values within 0.05 to 0.08 of each other (CLO review m09 item 5)
+        const anchor = properFrac(rng, dens);
+        const spread = rng.pick([0.05, 0.06, 0.08]);
+        const pool = OPEN_POOL(dens).filter((f) => f.value > anchor.value && f.value - anchor.value <= spread + 1e-9);
+        if (pool.length < 3) continue;
+        fs.push(...rng.shuffle([anchor, ...rng.sample(pool, 3)]));
+      } else while (fs.length < 4) { const f = properFrac(rng, dens); if (!fs.some((g) => g.eq(f))) fs.push(f); }
       const forms = rng.shuffle(['F', 'D', 'P', rng.pick(['F', 'D', 'P'])]);
       const texts = fs.map((f, i) => writeAs(f, forms[i]));
+      // is there a longer decimal that is smaller than a shorter one? Then that is the trap to name
+      const decs = fs.map((f, i) => ({ v: f.value, t: texts[i] })).filter((x, i) => forms[i] === 'D');
+      const longerTrap = decs.some((x) => decs.some((y) => dpCount(x.t) > dpCount(y.t) && x.v < y.v));
       if (new Set(texts).size < 4) continue;
       const sorted = fs.map((f, i) => ({ f, t: texts[i] })).sort((a, b) => a.f.value - b.f.value);
       const answer = sorted.map((s) => texts.indexOf(s.t));
       if (answer.every((x, i) => x === i)) continue; // shown already in order: draw again
-      const prompt = 'Put these in order, starting with the smallest.';
+      const prompt = `Put these in order, starting with the smallest: ${texts.join(', ')}.`;
       const solution = `Change them all to decimals: ${sorted.map((s) => `${s.t} = ${dec(s.f.value)}`).join(', ')}. Smallest to largest: ${sorted.map((s) => s.t).join(', ')}. Answer: ${sorted.map((s) => s.t).join(', ')}`;
       return {
         type: 'order', prompt, options: texts, answer, solution,
-        misconceptions: { common: 'Change every number into the same form (decimals are easiest) before you compare. More digits after the point does not make a decimal bigger.' },
-        codes: { common: 'DEC-LONGER-BIGGER' }, marks: d === 1 ? 1 : 2,
+        misconceptions: { common: longerTrap ? 'Change every number into the same form (decimals are easiest) before you compare. More digits after the point does not make a decimal bigger.' : 'Change every number into the same form (decimals are easiest) before you compare.' },
+        codes: { common: longerTrap ? 'DEC-LONGER-BIGGER' : 'UNCLASSIFIED' }, marks: d === 1 ? 1 : 2,
       };
     }
   },

@@ -3,7 +3,7 @@
 // numbers. Patterns and ranges follow the CLO's generator guide (m02). Every wrong option is built
 // by one named misconception and carries its code.
 
-import { choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, gcd, lcm } from './core.js';
+import { choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, gcd, lcm, countOf, valueOf } from './core.js';
 
 const T = 'm02-number-system';
 const SKILL = {
@@ -13,30 +13,15 @@ const SKILL = {
   div369: 'divisibility by 3, 6 and 9', divTests: 'divisibility tests', sq: 'square numbers', cube: 'cube numbers', sqcube: 'square and cube numbers',
 };
 
-export const EXTRA_CODES = {
-  'NEG-SKIP-ZERO': 'Does not count zero as a step when counting across it, so ends one step too far',
-  'NEG-DIFF-ADD-BOTH': 'Adds the sizes of two negative numbers to find the gap between them (-12 and -3 gives 15)',
-  'ONE-STEP-ONLY': 'Does only the first step (or only one of the repeated steps) of a multi-step problem',
-  'MID-HALF-DIFF': 'Gives half the gap between two numbers instead of the number halfway between them',
-  'MID-WRONG-END': 'Adds half the gap to the larger number (or takes it from the smaller), landing outside the two numbers',
-  'MULT-LAST-DIGIT': 'Thinks a number is a multiple of n because its last digit is n (26 for 6)',
-  'FACTOR-MULTIPLE-SWAP': 'Mixes up factors and multiples',
-  'PRIME-ODD': 'Thinks an odd number must be prime (9, 15, 21, 27)',
-  'PRIME-ONE': 'Thinks 1 is a prime number',
-  'ONE-CONDITION-ONLY': 'Checks only one of the conditions (clues), not all of them',
-  'HCF-NOT-HIGHEST': 'Gives a common factor that is not the highest one',
-  'LCM-NOT-LOWEST': 'Gives a common multiple that is not the lowest one',
-  'DIV-LAST-DIGIT': 'Tests divisibility by 3 or 9 by looking at the last digit instead of the digit sum',
-  'DIV9-AS-DIV3': 'Uses the test for 3 when testing for 9 (a digit sum that is a multiple of 3 is not enough)',
-  'DIV6-EVEN-ONLY': 'Thinks every even number is divisible by 6 (it must pass the test for 3 as well)',
-  'DIV6-THREE-ONLY': 'Checks only the test for 3 when testing for 6 (the number must be even as well)',
-  'DIV4-LAST-DIGIT': 'Tests divisibility by 4 using only the last digit instead of the last two digits',
-  'SQ-SIDE-HALF': 'Halves the area to find the side of a square',
-  'SQ-SIDE-QUARTER': 'Divides the area of a square by 4 (mixing it up with the perimeter)',
-  'SQ-CUBE-MIX': 'Mixes up square numbers and cube numbers',
-  'SA-FACES-NOT-CUBES': 'Counts the small squares on the outside faces instead of the cubes in the solid',
-  'COUNT-ENDS': 'Counts the end numbers as well when counting the numbers strictly between two values',
-  'WRONG-QUANTITY': 'Answers with a different quantity from the one the question asks for',
+// Misconception codes: all declared once in misconceptions.js (the CLO's catalogue).
+
+/** The numbers written in a prompt ("48 650" read as one number). */
+const promptNumbers = (t) => (String(t).replace(/(\d) (\d{3})/g, '$1$2').match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
+/** A near miss for this prompt, or null when its value already appears in the question (CLO review X3). */
+const nearFor = (prompt) => (text, hint) => {
+  const v = valueOf(text);
+  if (v == null || promptNumbers(prompt).some((x) => Math.abs(x - v) < 1e-9)) return null;
+  return nearMiss(text, hint);
 };
 
 const deg = (t) => `${fmtInt(t)} °C`;
@@ -66,9 +51,10 @@ const temperature = {
       const [t1, t2] = rng.pick(TIMES); const where = rng.pick(PLACES);
       const prompt = `The temperature ${where} ${t1} is ${deg(a)}. ${rng.chance(0.5) ? `By ${t2.replace(/^(at|in) /, '')}` : `${t2[0].toUpperCase()}${t2.slice(1)}`} it has ${rise ? 'risen' : 'fallen'} by ${c} degrees. What is the temperature ${t2}?`;
       const toZero = Math.abs(a);
+      const steps = `${countOf(toZero, 'step')} take${toZero === 1 ? 's' : ''} you to 0, and ${c - toZero} more ${c - toZero === 1 ? 'step takes' : 'steps take'} you to ${r}`;
       const solution = rise
-        ? `Start at ${a} and count up ${c}. ${toZero} steps take you to 0, and ${c - toZero} more steps take you to ${r}. So ${a} + ${c} = ${r}. Answer: ${deg(r)}`
-        : `Start at ${a} and count down ${c}. ${toZero} steps take you to 0, and ${c - toZero} more steps take you to ${r}. So ${a} - ${c} = ${r}. Answer: ${deg(r)}`;
+        ? `Start at ${a} and count up ${c}. ${steps}. So ${a} + ${c} = ${r}. Answer: ${deg(r)}`
+        : `Start at ${a} and count down ${c}. ${steps}. So ${a} - ${c} = ${r}. Answer: ${deg(r)}`;
       const items = [
         { text: deg(rise ? a - c : a + c), code: 'OP-SWAP', why: `It looks like you moved the wrong way. The temperature ${rise ? 'rose, so count up' : 'fell, so count down'}.` },
         { text: deg(-r), code: 'NEG-SIGN-DROP', why: `You found the right size, ${Math.abs(r)}, but the wrong sign. ${rise ? `Rising ${c} from ${a} passes 0 and goes above zero` : `Falling ${c} from ${a} passes 0 and goes below zero`}, so the answer is ${r}.` },
@@ -106,7 +92,7 @@ function tempDifference(rng) {
         const t = typedMisconceptions(String(ans), items.filter(Boolean).map((i) => ({ ...i, text: i.text.replace(' °C', '') })), { code: 'NEG-DIFF-ADD-SIGNS', why: 'Count the steps from the lower temperature up to 0, then from 0 up to the higher one, and add them.' });
         return { type: 'numeric', prompt: `${prompt} Give your answer as a number of degrees.`, answer: numericAnswer(ans, [String(ans), `${ans} °C`, `${ans} degrees`]), solution, ...t, skill: SKILL.diff };
       }
-      return { type: 'mcq', prompt, ...choices(rng, `${ans} °C`, items, (i) => nearMiss(`${ans + i + 1} °C`, 'Count up to 0, then up from 0, and add the two parts.')), solution, skill: SKILL.diff };
+      return { type: 'mcq', prompt, ...choices(rng, `${ans} °C`, items, (i) => nearFor(prompt)(`${ans + i + 1} °C`, 'Count up to 0, then up from 0, and add the two parts.')), solution, skill: SKILL.diff };
     } catch { /* draw again */ }
   }
 }
@@ -177,7 +163,7 @@ function tempCities(rng) {
         const t = typedMisconceptions(String(ans), items.map((i) => ({ ...i, text: i.text.replace(' °C', '') })), { code: 'NEG-DIFF-ADD-SIGNS', why: 'Find the highest and the lowest temperature, then count the steps up to 0 and from 0.' });
         return { type: 'numeric', prompt: `${prompt} Give your answer as a number of degrees.`, answer: numericAnswer(ans, [String(ans), `${ans} °C`, `${ans} degrees`]), solution, ...t, marks: 2, skill: SKILL.diff };
       }
-      return { type: 'mcq', prompt, ...choices(rng, `${ans} °C`, items, (i) => nearMiss(`${ans + (i % 2 ? i : -i)} °C`, 'Find the highest and lowest first, then count up to 0 and on from 0.')), solution, marks: 2, skill: SKILL.diff };
+      return { type: 'mcq', prompt, ...choices(rng, `${ans} °C`, items, (i) => nearFor(prompt)(`${ans + (i % 2 ? i : -i)} °C`, 'Find the highest and lowest first, then count up to 0 and on from 0.')), solution, marks: 2, skill: SKILL.diff };
     } catch { /* draw again */ }
   }
 }
@@ -235,12 +221,15 @@ const compareNegatives = {
   make(rng, d) {
     for (;;) {
       if (rng.chance(d === 1 ? 0.3 : 0.25)) {
-        const a = -rng.int(1, 20); const b = -rng.intNot(1, 20, [-a]);
+        // in tenths; D2 uses halves so it is harder than D1 (CLO review m02 item 4)
+        const draw = () => -(rng.int(1, 20) * 10 + (d === 2 && rng.chance(0.7) ? 5 : 0));
+        const a = draw(); const b = draw();
+        if (a === b || (d === 2 && a % 10 === 0 && b % 10 === 0)) continue;
         const sym = rng.pick(['>', '<']);
         const truth = sym === '>' ? a > b : a < b;
-        const prompt = `True or false: ${a} ${sym} ${b}`;
-        const solution = `On a number line, ${Math.max(a, b)} is closer to zero, so it is greater: ${Math.max(a, b)} > ${Math.min(a, b)}. The statement is ${truth ? 'true' : 'false'}. Answer: ${truth ? 'true' : 'false'}`;
-        return { type: 'truefalse', prompt, answer: truth, solution, misconceptions: { common: `It looks like you compared ${-a} and ${-b} without the minus signs. With negative numbers, the one further below zero is smaller.` }, codes: { common: 'NEG-ORDER' }, skill: SKILL.compare };
+        const prompt = `True or false: ${tx(a)} ${sym} ${tx(b)}`;
+        const solution = `On a number line, ${tx(Math.max(a, b))} is closer to zero, so it is greater: ${tx(Math.max(a, b))} > ${tx(Math.min(a, b))}. The statement is ${truth ? 'true' : 'false'}. Answer: ${truth ? 'true' : 'false'}`;
+        return { type: 'truefalse', prompt, answer: truth, solution, misconceptions: { common: `It looks like you compared ${tx(-a)} and ${tx(-b)} without the minus signs. With negative numbers, the one further below zero is smaller.` }, codes: { common: 'NEG-ORDER' }, skill: SKILL.compare };
       }
       if (d === 2 && rng.chance(0.55)) {
         const n = 5;
@@ -275,11 +264,13 @@ const compareNegatives = {
         if (nearest >= 0) items.push({ text: show(nearest), code: 'NEG-SIGN-DROP', why: `${tx(nearest)} is the number closest to zero, but every negative number is ${temps ? 'colder' : 'smaller'} than it. Look at the minus signs.` });
       } else {
         const far = neg.reduce((x, y) => (Math.abs(y) > Math.abs(x) ? y : x));
-        if (-far > ans) items.push({ text: show(far), code: 'NEG-ORDER', why: `It looks like you read ${tx(far)} as ${tx(-far)}. ${tx(far)} is far BELOW zero, so it is the ${temps ? 'coldest' : 'smallest'}, not the ${temps ? 'warmest' : 'largest'}.` });
+        if (-far <= ans) continue; // the NEG-ORDER trap must be there
+        items.push({ text: show(far), code: 'NEG-ORDER', why: `It looks like you read ${tx(far)} as ${tx(-far)}. ${tx(far)} is far BELOW zero, so it is the ${temps ? 'coldest' : 'smallest'}, not the ${temps ? 'warmest' : 'largest'}.` });
       }
       for (const x of arr) if (x !== ans && !items.some((it) => it.text === show(x))) items.push(nearMiss(show(x), `Picture the numbers on a number line: ${temps ? 'warmer' : 'larger'} numbers are further to the right.`));
       const word = temps ? (smallest ? 'coldest' : 'warmest') : (smallest ? 'smallest' : 'largest');
-      const prompt = temps ? `Which of these temperatures is the ${word}? ${arr.map(show).join(', ')}` : `Which number is the ${word}? ${arr.map(tx).join(', ')}`;
+      // the numbers to choose from are the options (not repeated in the prompt)
+      const prompt = temps ? `Which of these temperatures is the ${word}?` : `Which of these numbers is the ${word}?`;
       const solution = `On a number line, numbers get ${smallest ? 'smaller to the left' : 'larger to the right'}. Negative numbers are below zero, and the further below zero, the smaller. The ${word} is ${show(ans)}. Answer: ${show(ans)}`;
       try { return { type: 'mcq', prompt, ...choices(rng, show(ans), items, null), solution, skill: SKILL.compare }; } catch { /* draw again */ }
     }
@@ -349,10 +340,10 @@ function whichMultiple(rng) {
     const f = factorsOf(n).filter((x) => x > 1 && x < n);
     if (f.length) items.push({ text: String(rng.pick(f)), code: 'FACTOR-MULTIPLE-SWAP', why: `That is a factor of ${n} (it divides into ${n}). A multiple of ${n} is in the ${n} times table, like ${n}, ${2 * n}, ${3 * n}.` });
     const other = rng.intNot(3, 12, [n]); const om = other * rng.int(3, 12);
-    if (om % n) items.push({ text: String(om), code: 'NEAR-MISS', why: `This is close, but ${om} is not right. ${om} is in the ${other} times table, not the ${n} times table.` });
+    if (om % n) items.push({ text: String(om), code: 'NEAR-MISS', why: `Not quite: ${om} is in the ${other} times table, not the ${n} times table. Check by dividing by ${n}.` });
     items.push(nearMiss(String(ans + 1), `Check by dividing by ${n}: a multiple divides exactly.`));
     const solution = `A multiple of ${n} is in the ${n} times table. ${ans} = ${n} x ${k}, so ${ans} is a multiple of ${n}. Answer: ${ans}`;
-    try { const c = choices(rng, String(ans), items, null); return { type: 'mcq', prompt: `Which of these numbers is a multiple of ${n}: ${orList(c.options)}?`, ...c, solution, skill: SKILL.fm }; } catch { /* draw again */ }
+    try { const c = choices(rng, String(ans), items, null); return { type: 'mcq', prompt: `Which of these numbers is a multiple of ${n}?`, ...c, solution, skill: SKILL.fm }; } catch { /* draw again */ }
   }
 }
 
@@ -365,7 +356,7 @@ function whichPrime(rng) {
   ];
   const solution = `A prime number has exactly two factors: 1 and itself. ${p} cannot be divided exactly by 2, 3, 5 or 7, so its only factors are 1 and ${p}. Answer: ${p}`;
   const c = choices(rng, String(p), items, null);
-  return { type: 'mcq', prompt: `Which of these is a prime number: ${orList(c.options)}?`, ...c, solution, skill: SKILL.prime };
+  return { type: 'mcq', prompt: 'Which of these is a prime number?', ...c, solution, skill: SKILL.prime };
 }
 
 function whichFactor(rng) {
@@ -393,7 +384,7 @@ function selectFactors(rng) {
     const right = rng.sample(fs.filter((x) => x !== N), rng.int(3, 4));
     const wrong = [{ x: 2 * N, code: 'FACTOR-MULTIPLE-SWAP', why: `${2 * N} is a multiple of ${N}, not a factor. Factors of ${N} are never bigger than ${N}.` }];
     const nf = Array.from({ length: Math.min(N - 1, 30) }, (_, i) => i + 2).filter((x) => N % x);
-    for (const x of rng.sample(nf, 2)) wrong.push({ x, code: 'NEAR-MISS', why: `This is close, but ${x} is not a factor: ${N} ÷ ${x} = ${Math.floor(N / x)} remainder ${N % x}.` });
+    for (const x of rng.sample(nf, 2)) wrong.push({ x, code: 'NEAR-MISS', why: `Not quite: ${x} is not a factor. ${N} ÷ ${x} = ${Math.floor(N / x)} remainder ${N % x}.` });
     const all = rng.shuffle([...right.map((x) => ({ x, ok: true })), ...wrong]);
     const options = all.map((o) => String(o.x));
     const answer = all.map((o, i) => (o.ok ? i : -1)).filter((i) => i >= 0);
@@ -410,7 +401,7 @@ function selectFactors(rng) {
 function selectPrimes(rng) {
   const ps = rng.sample(PRIMES, rng.int(2, 3));
   const wrong = rng.sample(ODD_COMPOSITE, 2).map((x) => ({ x, code: 'PRIME-ODD', why: `${x} is odd but not prime: it divides by ${factorsOf(x)[1]}.` }));
-  if (!ps.includes(2) && rng.chance(0.5)) wrong.push({ x: rng.pick([4, 6, 8, 10, 12, 14]), code: 'NEAR-MISS', why: 'This is close, but an even number bigger than 2 is never prime: it divides by 2.' });
+  if (!ps.includes(2) && rng.chance(0.5)) wrong.push({ x: rng.pick([4, 6, 8, 10, 12, 14]), code: 'NEAR-MISS', why: 'Not quite: an even number bigger than 2 is never prime, because it divides by 2.' });
   wrong.push({ x: 1, code: 'PRIME-ONE', why: '1 is not prime. A prime number has exactly two factors, and 1 has only one.' });
   const all = rng.shuffle([...ps.map((x) => ({ x, ok: true })), ...wrong]);
   const options = all.map((o) => String(o.x));
@@ -452,29 +443,36 @@ const CLUES = [
   { make: (rng) => { const k = rng.int(4, 9); return { test: (x) => x % k === 1, text: `1 more than a multiple of ${k}`, not: (x) => `${x} is not 1 more than a multiple of ${k} (${x} ÷ ${k} has remainder ${x % k})`, yes: (x) => `${x} = ${(x - 1) / k} x ${k} + 1` }; } },
   { make: (rng) => { const t = rng.int(5, 15); return { test: (x) => String(x).split('').reduce((a, c) => a + Number(c), 0) === t, text: `a number whose digits add up to ${t}`, not: (x) => `the digits of ${x} add up to ${String(x).split('').reduce((a, c) => a + Number(c), 0)}, not ${t}`, yes: (x) => `${String(x).split('').join(' + ')} = ${t}` }; } },
 ];
+// the first clue: a multiple of m, a prime number or a square number (CLO review m02 item 3: more than one riddle shape)
+const FIRST = [
+  (rng) => { const m = rng.int(3, 9); return { test: (x) => x % m === 0, text: `a multiple of ${m}`, list: `Multiples of ${m}`, notIt: (x) => `it is not a multiple of ${m}` }; },
+  () => ({ test: isPrime, text: 'a prime number', list: 'Prime numbers', notIt: (x) => `it is not prime (it divides by ${factorsOf(x)[1]})` }),
+  () => ({ test: (x) => Number.isInteger(Math.sqrt(x)), text: 'a square number', list: 'Square numbers', notIt: () => 'it is not a square number' }),
+];
 
 function riddle(rng) {
   for (;;) {
     const width = rng.pick([10, 10, 20]);
     const lo = rng.int(1, 9) * 10; const hi = lo + width;
     if (hi > 100) continue;
-    const m = rng.int(3, 9);
-    const clue = rng.pick(CLUES).make(rng);
-    const fits = (x) => x % m === 0 && clue.test(x);
+    const first = rng.pick([0, 0, 1, 1, 2]);
+    const f = FIRST[first](rng);
+    const clue = CLUES[first === 2 ? rng.pick([0, 2]) : rng.pick([0, 1, 2, 0, 2])].make(rng);
+    const fits = (x) => f.test(x) && clue.test(x);
     const range = Array.from({ length: width - 1 }, (_, i) => lo + 1 + i);
     const sols = range.filter(fits);
     if (sols.length !== 1) continue;
     const ans = sols[0];
-    const onlyM = range.filter((x) => x % m === 0 && !clue.test(x));
-    const onlyC = range.filter((x) => clue.test(x) && x % m);
+    const onlyM = range.filter((x) => f.test(x) && !clue.test(x));
+    const onlyC = range.filter((x) => clue.test(x) && !f.test(x));
     if (!onlyM.length) continue;
-    const prompt = `I am a number between ${lo} and ${hi}. I am a multiple of ${m}, and I am ${clue.text}. What number am I?`;
-    const solution = `Multiples of ${m} between ${lo} and ${hi}: ${range.filter((x) => x % m === 0).join(', ')}. Check the other clue for each one: only ${ans} works (${clue.yes(ans)}). Answer: ${ans}`;
+    const prompt = `I am a number between ${lo} and ${hi}. I am ${f.text}, and I am ${clue.text}. What number am I?`;
+    const solution = `${f.list} between ${lo} and ${hi}: ${range.filter((x) => f.test(x)).join(', ')}. Check the other clue for each one: only ${ans} works (${clue.yes(ans)}). Answer: ${ans}`;
     const items = [
-      ...onlyM.map((x) => ({ text: String(x), code: 'ONE-CONDITION-ONLY', why: `${x} is a multiple of ${m}, but ${clue.not(x)}. Check both clues.` })),
-      ...onlyC.map((x) => ({ text: String(x), code: 'ONE-CONDITION-ONLY', why: `${x} fits the second clue, but it is not a multiple of ${m}. Check both clues.` })),
+      ...onlyM.map((x) => ({ text: String(x), code: 'ONE-CONDITION-ONLY', why: `${x} is ${f.text}, but ${clue.not(x)}. Check both clues.` })),
+      ...onlyC.map((x) => ({ text: String(x), code: 'ONE-CONDITION-ONLY', why: `${x} fits the second clue, but ${f.notIt(x)}. Check both clues.` })),
     ];
-    try { return { type: 'mcq', prompt, ...choices(rng, String(ans), rng.shuffle(items), (i) => { const x = lo + 1 + ((ans - lo - 1 + i) % (width - 1)); return x !== ans && !fits(x) ? nearMiss(String(x), `Check both clues: a multiple of ${m} AND ${clue.text}.`) : null; }), solution, marks: 2, skill: SKILL.fm }; } catch { /* draw again */ }
+    try { return { type: 'mcq', prompt, ...choices(rng, String(ans), rng.shuffle(items), (i) => { const x = lo + 1 + ((ans - lo - 1 + i) % (width - 1)); return x !== ans && !fits(x) ? nearFor(prompt)(String(x), `Check both clues: ${f.text} AND ${clue.text}.`) : null; }), solution, marks: 2, skill: first === 1 ? SKILL.prime : SKILL.fm }; } catch { /* draw again */ }
   }
 }
 
@@ -509,11 +507,13 @@ const hcfLcm = {
       const hcfQ = rng.chance(0.5);
       if (d === 2) {
         const { a, b, h, l } = pairWithHcf(rng, 60);
+        // neither number a multiple of the other, so it is not "LCM(4, 8)" (CLO review m02 item 4)
+        if (a === h) continue;
         const [x, y] = rng.chance(0.5) ? [a, b] : [b, a];
+        const lower = factorsOf(h).filter((z) => z < h).reverse();
         const items = hcfQ ? [
           { text: String(l), code: 'HCF-LCM-SWAP', why: `${l} is the LOWEST COMMON MULTIPLE of ${x} and ${y}. The highest common factor is the biggest number that divides into both.` },
-          { text: String(lowerCommonFactor(h)), code: 'HCF-NOT-HIGHEST', why: `${lowerCommonFactor(h)} is a common factor of ${x} and ${y}, but not the highest. ${h} also divides into both.` },
-          { text: String(Math.min(a, b)), code: 'NEAR-MISS', why: `This is close, but ${Math.min(a, b)} is not right: it does not divide into ${Math.max(a, b)}.` },
+          ...lower.slice(0, 2).map((z) => ({ text: String(z), code: 'HCF-NOT-HIGHEST', why: `${z} is a common factor of ${x} and ${y}, but not the highest. ${h} also divides into both.` })),
         ] : [
           { text: String(a * b), code: 'LCM-PRODUCT', why: `${a * b} = ${x} x ${y} is a common multiple, but not the lowest. ${l} is in both times tables too.` },
           { text: String(h), code: 'HCF-LCM-SWAP', why: `${h} is the HIGHEST COMMON FACTOR of ${x} and ${y}. The lowest common multiple is the smallest number in both times tables.` },
@@ -525,7 +525,7 @@ const hcfLcm = {
           : `Multiples of ${Math.max(x, y)}: ${Array.from({ length: l / Math.max(x, y) }, (_, i) => (i + 1) * Math.max(x, y)).join(', ')}. The first one that is also a multiple of ${Math.min(x, y)} is ${l}. Answer: ${l}`;
         const ans = hcfQ ? h : l;
         try {
-          return { type: 'mcq', prompt, ...choices(rng, String(ans), items, null), solution, skill: hcfQ ? SKILL.hcf : SKILL.lcm };
+          return { type: 'mcq', prompt, ...choices(rng, String(ans), items, (i) => nearFor(prompt)(String(ans + (i % 2 ? 1 : -1) * Math.ceil(i / 2)), hcfQ ? 'List the factors of both numbers and find the biggest one in both lists.' : 'List the multiples of the bigger number until one is also a multiple of the smaller.')), solution, skill: hcfQ ? SKILL.hcf : SKILL.lcm };
         } catch { continue; }
       }
       // D3 word problems
@@ -578,7 +578,8 @@ const hcfLcm = {
       const items = [
         { text: String(a * b), code: 'LCM-PRODUCT', why: `${a * b} = ${a} x ${b} works, but it is not the first time. ${l} is a smaller common multiple.` },
         { text: String(h), code: 'HCF-LCM-SWAP', why: `${h} is the highest common factor. ${unit === 'items' ? `Packs of ${a} and packs of ${b} give equal totals` : `Things that repeat every ${a} and every ${b} ${unit} happen together again`} at a common MULTIPLE.` },
-        { text: String(a + b), code: 'NEAR-MISS', why: `This is close, but ${a + b} is not right: ${a} + ${b} is not a multiple of both numbers.` },
+        { text: String(2 * l), code: 'LCM-NOT-LOWEST', why: `${2 * l} is a common multiple of ${a} and ${b}, but ${l} comes first.` },
+        { text: String(a + b), code: 'NEAR-MISS', why: `Not quite: ${a} + ${b} = ${a + b} is not a multiple of both ${a} and ${b}. Look for the first number in both times tables.` },
       ];
       try {
         if (rng.chance(0.35)) {
@@ -602,7 +603,7 @@ const divisibility = {
   difficulties: [1, 2, 3],
   check: { min: 0 },
   make(rng, d) {
-    if (d === 3) return largestDigit6(rng);
+    if (d === 3) return rng.chance(0.6) ? largestDigit6(rng) : extremeDigit3(rng);
     if (d === 2) return rng.chance(0.5) ? missingDigit(rng, 9) : divTrueFalse(rng);
     for (;;) {
       const n = rng.pick([3, 3, 9, 9, 6, 6, 4]);
@@ -623,12 +624,12 @@ const divisibility = {
       if (n === 4) {
         for (let k = 0; k < 2; k++) { const t = pickWhere((x) => x % 2 === 0 && x % 4 !== 0); items.push({ text: fmtN(t), code: 'DIV4-LAST-DIGIT', why: `${fmtN(t)} ends in an even digit, but its last two digits, ${String(t % 100).padStart(2, '0')}, are not a multiple of 4.` }); }
       }
-      while (items.length < 3) { const t = pickWhere((x) => x % n !== 0 && x % 2 !== 0 && x % 10 !== 3 && x % 10 !== 9); items.push(nearMiss(fmtN(t), `Use the test for ${n}.`)); }
+      while (items.length < 3) { const t = pickWhere((x) => x % n !== 0 && x % 2 !== 0 && x % 10 !== 3 && x % 10 !== 9); items.push(nearMiss(fmtN(t), `Use the test for ${n}: ${n === 4 ? 'look at the last two digits' : 'add up the digits'}.`)); }
       const hint = n === 4 ? 'look at the last two digits' : n === 6 ? 'it must be even, and its digit sum a multiple of 3' : 'add up the digits';
 
       const test = n === 3 ? `the digit sum of ${fmtN(ans)} is ${digitSum(ans)}, a multiple of 3` : n === 9 ? `the digit sum of ${fmtN(ans)} is ${digitSum(ans)}, a multiple of 9` : n === 6 ? `${fmtN(ans)} is even and its digit sum is ${digitSum(ans)}, a multiple of 3` : `the last two digits of ${fmtN(ans)}, ${String(ans % 100).padStart(2, '0')}, make a multiple of 4`;
       const solution = `Test each number: ${test}. Answer: ${fmtN(ans)}`;
-      try { const c = choices(rng, fmtN(ans), items, null); return { type: 'mcq', prompt: `Which of these numbers is divisible by ${n}: ${orList(c.options)}? (Hint: ${hint}.)`, ...c, solution, skill: n === 4 ? SKILL.divTests : SKILL.div369 }; } catch { /* draw again */ }
+      try { const c = choices(rng, fmtN(ans), items, null); return { type: 'mcq', prompt: `Which of these numbers is divisible by ${n}? (Hint: ${hint}.)`, ...c, solution, skill: n === 4 ? SKILL.divTests : SKILL.div369 }; } catch { /* draw again */ }
     }
   },
 };
@@ -649,8 +650,12 @@ function divTrueFalse(rng) {
     const solution = n === 6
       ? `${fmtN(x)} is ${x % 2 ? 'odd' : 'even'} and its digit sum is ${ds}${ds % 3 ? ', not a multiple of 3' : ', a multiple of 3'}. It needs both, so the statement is ${truth ? 'true' : 'false'}. Answer: ${truth ? 'true' : 'false'}`
       : `Add the digits: ${String(x).split('').join(' + ')} = ${ds}. ${ds} is ${ds % n ? 'not ' : ''}a multiple of ${n}, so the statement is ${truth ? 'true' : 'false'}. Answer: ${truth ? 'true' : 'false'}`;
-    const code = n === 9 ? 'DIV9-AS-DIV3' : n === 6 ? (x % 2 ? 'DIV6-THREE-ONLY' : 'DIV6-EVEN-ONLY') : 'DIV-LAST-DIGIT';
-    const why = n === 9 ? `A digit sum that is a multiple of 3 is not enough: for 9 the digit sum must be a multiple of 9 (here it is ${ds}).` : n === 6 ? 'For 6 a number must be even AND have a digit sum that is a multiple of 3.' : `For 3, add the digits (here ${ds}); the last digit does not tell you.`;
+    // when the statement is true, the wrong answer ("false") comes from not applying the test,
+    // not from a weaker test (CLO review m02 item 1)
+    const code = truth ? 'DIV-TEST-NOT-APPLIED' : n === 9 ? 'DIV9-AS-DIV3' : n === 6 ? (x % 2 ? 'DIV6-THREE-ONLY' : 'DIV6-EVEN-ONLY') : 'DIV-LAST-DIGIT';
+    const why = truth
+      ? (n === 6 ? `Apply the test before deciding: ${fmtN(x)} is even and its digit sum, ${ds}, is a multiple of 3, so it IS divisible by 6.` : `Apply the test before deciding: the digit sum of ${fmtN(x)} is ${ds}, a multiple of ${n}, so it IS divisible by ${n}.`)
+      : n === 9 ? `A digit sum that is a multiple of 3 is not enough: for 9 the digit sum must be a multiple of 9 (here it is ${ds}).` : n === 6 ? 'For 6 a number must be even AND have a digit sum that is a multiple of 3.' : `For 3, add the digits (here ${ds}); the last digit does not tell you.`;
     return { type: 'truefalse', prompt, answer: truth, solution, misconceptions: { common: why }, codes: { common: code }, skill: SKILL.div369 };
   }
 }
@@ -692,8 +697,35 @@ function largestDigit6(rng) {
         const t = typedMisconceptions(String(ans), items, { code: 'DIV6-THREE-ONLY', why: 'For 6 the number must be even and its digit sum a multiple of 3. Try each digit.' });
         return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans)]), solution, ...t, marks: 2, skill: SKILL.div369 };
       }
-      return { type: 'mcq', prompt, ...choices(rng, String(ans), items, (i) => { const x = (ans + i) % 10; return !ok.includes(x) && !items.some((it) => it.text === String(x)) ? nearMiss(String(x), 'Check both tests for 6: even, and a digit sum that is a multiple of 3.') : null; }), solution, marks: 2, skill: SKILL.div369 };
+      return { type: 'mcq', prompt, ...choices(rng, String(ans), items, (i) => { const x = (ans + i) % 10; return !ok.includes(x) && !items.some((it) => it.text === String(x)) ? nearFor(prompt)(String(x), 'Check both tests for 6: even, and a digit sum that is a multiple of 3.') : null; }), solution, marks: 2, skill: SKILL.div369 };
     } catch { /* draw again */ }
+  }
+}
+
+/** D3: the largest (or smallest) digit that makes the number divisible by 3 (typed; a second D3 shape). */
+function extremeDigit3(rng) {
+  for (;;) {
+    const len = rng.pick([3, 4, 4, 5]);
+    const digits = Array.from({ length: len }, (_, i) => (i === 0 ? rng.int(1, 9) : rng.int(0, 9)));
+    const pos = rng.chance(0.5) ? len - 1 : rng.int(1, len - 2);
+    const num = (x) => { const dd = digits.slice(); dd[pos] = x; return Number(dd.join('')); };
+    const ok = []; for (let x = 0; x <= 9; x++) if (num(x) % 3 === 0) ok.push(x);
+    const largest = rng.chance(0.6);
+    const ans = largest ? Math.max(...ok) : Math.min(...ok);
+    const other = largest ? Math.min(...ok) : Math.max(...ok);
+    const shown = digits.map((x, i) => (i === pos ? '?' : String(x))).join('');
+    const others = digits.reduce((s2, x, i) => s2 + (i === pos ? 0 : x), 0);
+    const prompt = `The ${len}-digit number ${shown} is divisible by 3. The ? stands for a missing digit. What is the ${largest ? 'LARGEST' : 'SMALLEST'} digit it could be?`;
+    const solution = `For 3 the digit sum must be a multiple of 3. The other digits add up to ${others}. The digits that work are ${ok.join(', ')} (digit sums ${ok.map((x) => others + x).join(', ')}), so the ${largest ? 'largest' : 'smallest'} is ${ans}. Answer: ${ans}`;
+    const items = [{ text: String(other), code: 'WRONG-QUANTITY', why: `${other} works too, but it is the ${largest ? 'smallest' : 'largest'} digit that works. The question asks for the ${largest ? 'largest' : 'smallest'}.` }];
+    if (pos === len - 1) {
+      // "ends in 3, 6 or 9, so it divides by 3"
+      const ld = [3, 6, 9].filter((x) => !ok.includes(x) && (largest ? x > ans : x < ans));
+      if (ld.length) { const x = largest ? Math.max(...ld) : Math.min(...ld); items.push({ text: String(x), code: 'DIV-LAST-DIGIT', why: `${num(x)} ends in ${x}, but that is not the test for 3. Its digit sum is ${others + x}, which is not a multiple of 3.` }); }
+    }
+    if (ok.length < 2 || items.length < 2) continue;
+    const t = typedMisconceptions(String(ans), items, { why: 'For 3 the digit sum must be a multiple of 3. Try each digit from 9 down (or from 0 up).' });
+    return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans)]), solution, ...t, marks: 2, skill: SKILL.div369 };
   }
 }
 
@@ -716,7 +748,7 @@ function missingDigit(rng, n) {
       if (n === 6 && s % 3 === 0 && x % 2) items.push({ text: String(x), code: 'DIV6-THREE-ONLY', why: `With ${x} the digit sum is ${s}, a multiple of 3, but ${shown.replace('?', x)} is odd. A number divisible by 6 must be even too.` });
     }
     const solution = n === 9
-      ? `The digit sum must be a multiple of 9. The other digits add up to ${others}. The next multiple of 9 is ${others + ans}, so the missing digit is ${others + ans} - ${others} = ${ans}. Check: ${shown.replace('?', ans)} ÷ 9 = ${Number(shown.replace('?', ans)) / 9}. Answer: ${ans}`
+      ? `The digit sum must be a multiple of 9. The other digits add up to ${others}. The next multiple of 9 is ${others + ans}, so the missing digit is ${others + ans} - ${others} = ${ans}. Check: ${fmtN(Number(shown.replace('?', ans)))} ÷ 9 = ${fmtN(Number(shown.replace('?', ans)) / 9)}. Answer: ${ans}`
       : `For 6 the number must be even AND its digit sum a multiple of 3. The other digits add up to ${others}. The missing digit is the last digit, so it must be even: only ${ans} also makes the digit sum (${others + ans}) a multiple of 3. Answer: ${ans}`;
     if (!items.length) continue;
     try {
@@ -724,7 +756,7 @@ function missingDigit(rng, n) {
         const t = typedMisconceptions(String(ans), items, { code: n === 9 ? 'DIV9-AS-DIV3' : 'DIV6-THREE-ONLY', why: n === 9 ? 'For 9 the digit sum must be a multiple of 9.' : 'For 6 the number must be even and its digit sum a multiple of 3.' });
         return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans)]), solution, ...t, marks: 2, skill: SKILL.div369 };
       }
-      return { type: 'mcq', prompt, ...choices(rng, String(ans), items, (i) => { const x = (ans + i * 2) % 10; return x !== ans && !items.some((it) => it.text === String(x)) ? nearMiss(String(x), `Check the digit sum (and, for 6, that the number is even).`) : null; }), solution, marks: 2, skill: SKILL.div369 };
+      return { type: 'mcq', prompt, ...choices(rng, String(ans), items, (i) => { const x = (ans + i * 2) % 10; return x !== ans && !items.some((it) => it.text === String(x)) ? nearFor(prompt)(String(x), `Check the digit sum (and, for 6, that the number is even).`) : null; }), solution, marks: 2, skill: SKILL.div369 };
     } catch { /* draw again */ }
   }
 }
@@ -754,7 +786,7 @@ function powerValue(rng) {
     const items = [
       { text: String(b * e), code: 'POW-MULT', why: `It looks like you worked out ${b} x ${e}. ${b}^${e} means ${e === 2 ? `${b} x ${b}` : `${b} x ${b} x ${b}`}.` },
       e ** b <= 1024 && e ** b !== ans ? { text: fmtInt(e ** b), code: 'POW-SWAP', why: `That is ${e}^${b} (${e} multiplied by itself ${b} times). ${b}^${e} means ${b} multiplied by itself ${e} times.` } : null,
-      { text: String(b + e), code: 'NEAR-MISS', why: `This is close, but ${b + e} is not right: ${b}^${e} is ${b} multiplied by itself, not ${b} + ${e}.` },
+      { text: String(b + e), code: 'NEAR-MISS', why: `Not quite: ${b}^${e} is ${b} multiplied by itself, not ${b} + ${e}.` },
       { text: String(e === 3 ? b * b : b * b * b), code: 'SQ-CUBE-MIX', why: e === 3 ? `${b * b} is ${b}^2 (${b} squared). ${b}^3 means ${b} x ${b} x ${b}.` : `${b ** 3} is ${b}^3 (${b} cubed). ${b}^2 means ${b} x ${b}.` },
     ];
     try {
@@ -778,7 +810,7 @@ function whichCube(rng) {
       nearMiss(String(ans + rng.pick([-2, 2, 1])), 'The cube numbers are 1, 8, 27, 64, 125, ...'),
     ];
     const solution = `A cube number is made by multiplying a number by itself three times: ${b} x ${b} x ${b} = ${ans}. Answer: ${ans}`;
-    try { const c = choices(rng, String(ans), items, null); return { type: 'mcq', prompt: `Which of these is a cube number: ${orList(c.options)}?`, ...c, solution, skill: SKILL.cube }; } catch { /* draw again */ }
+    try { const c = choices(rng, String(ans), items, null); return { type: 'mcq', prompt: 'Which of these is a cube number?', ...c, solution, skill: SKILL.cube }; } catch { /* draw again */ }
   }
 }
 
@@ -794,23 +826,24 @@ function whichSquare(rng) {
       nearMiss(String(ans + rng.pick([-1, 1, 2])), 'The square numbers are 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, ...'),
     ];
     const solution = `A square number is a number multiplied by itself: ${b} x ${b} = ${ans}. Answer: ${ans}`;
-    try { const c = choices(rng, String(ans), items, null); return { type: 'mcq', prompt: `Which of these is a square number: ${orList(c.options)}?`, ...c, solution, skill: SKILL.sq }; } catch { /* draw again */ }
+    try { const c = choices(rng, String(ans), items, null); return { type: 'mcq', prompt: 'Which of these is a square number?', ...c, solution, skill: SKILL.sq }; } catch { /* draw again */ }
   }
 }
 
 function sideFromArea(rng) {
   for (;;) {
-    const s = rng.int(3, 15); const A = s * s;
-    const unit = rng.pick(['m', 'cm']);
-    const thing = rng.pick(['A square garden', 'A square floor tile', 'A square playground', 'A square handkerchief']);
-    if (thing === 'A square floor tile' && unit === 'm') continue;
+    // each thing with its own unit and a sensible size (CLO review X6)
+    const [thing, unit, lo] = rng.pick([['A square garden', 'm', 5], ['A square playground', 'm', 10], ['A square room', 'm', 3], ['A square sticker', 'cm', 3], ['A square photo', 'cm', 8], ['A square cushion', 'cm', 12]]);
+    const s = rng.int(lo, Math.min(15, lo + 9)); const A = s * s;
+    if (thing === 'A square room' && s > 8) continue;
     const prompt = `${thing} has an area of ${A} ${unit}^2. How long is one side?`;
     const solution = `The area of a square is side x side. Which number times itself makes ${A}? ${s} x ${s} = ${A}, so each side is ${s} ${unit}. Answer: ${s} ${unit}`;
     const items = [
       A % 2 === 0 ? { text: `${A / 2} ${unit}`, code: 'SQ-SIDE-HALF', why: `It looks like you halved ${A}. The side is the number that multiplies by ITSELF to make ${A}.` } : { text: `${(A - 1) / 2}.5 ${unit}`, code: 'SQ-SIDE-HALF', why: `It looks like you halved ${A}. The side is the number that multiplies by ITSELF to make ${A}.` },
       A % 4 === 0 ? { text: `${A / 4} ${unit}`, code: 'SQ-SIDE-QUARTER', why: `It looks like you divided ${A} by 4, as if it were the perimeter. For the area, find the number that times itself makes ${A}.` } : null,
-      { text: `${s + 1} ${unit}`, code: 'NEAR-MISS', why: `This is close, but ${s + 1} x ${s + 1} = ${(s + 1) ** 2}, not ${A}.` },
-      { text: `${s - 1} ${unit}`, code: 'NEAR-MISS', why: `This is close, but ${s - 1} x ${s - 1} = ${(s - 1) ** 2}, not ${A}.` },
+      nearFor(prompt)(`${s + 1} ${unit}`, `${s + 1} x ${s + 1} = ${(s + 1) ** 2}, not ${A}. Find the number that times itself makes ${A}.`),
+      nearFor(prompt)(`${s - 1} ${unit}`, `${s - 1} x ${s - 1} = ${(s - 1) ** 2}, not ${A}. Find the number that times itself makes ${A}.`),
+      nearFor(prompt)(`${s + 2} ${unit}`, `${s + 2} x ${s + 2} = ${(s + 2) ** 2}, not ${A}. Find the number that times itself makes ${A}.`),
     ];
     try { return { type: 'mcq', prompt, ...choices(rng, `${s} ${unit}`, items, null), solution, skill: SKILL.sq }; } catch { /* draw again */ }
   }
@@ -832,7 +865,7 @@ function powerSum(rng) {
       swap > 0 && swap <= 1000 ? { text: fmtInt(swap), code: 'POW-SWAP', why: `It looks like you worked out 2^${a} and 3^${b}. ${a}^2 means ${a} x ${a}, and ${b}^3 means ${b} x ${b} x ${b}.` } : null,
       (op === '+' || A > b * b) ? { text: String(op === '+' ? A + b * b : A - b * b), code: 'SQ-CUBE-MIX', why: `It looks like you squared ${b} (${b * b}). ${b}^3 is ${b} cubed: ${b} x ${b} x ${b} = ${B}.` } : null,
     ];
-    try { return { type: 'mcq', prompt, ...choices(rng, String(ans), items, (i) => nearMiss(String(ans + i * (i % 2 ? 1 : -1)), 'Work out each power first, then add or subtract.')), solution, skill: SKILL.sqcube }; } catch { /* draw again */ }
+    try { return { type: 'mcq', prompt, ...choices(rng, String(ans), items, (i) => { const x = ans + i * (i % 2 ? 1 : -1); return x > 0 ? nearFor(prompt)(String(x), 'Work out each power first, then add or subtract.') : null; }), solution, skill: SKILL.sqcube }; } catch { /* draw again */ }
   }
 }
 
@@ -861,9 +894,10 @@ function powerOrder(rng) {
 
 function countSquares(rng) {
   for (;;) {
-    const lo = rng.chance(0.4) ? rng.int(4, 17) ** 2 : rng.int(10, 300);
-    const hi = rng.chance(0.4) ? rng.int(Math.ceil(Math.sqrt(lo + 40)), 20) ** 2 : lo + rng.int(40, 150);
-    if (hi - lo < 30 || hi > 450) continue;
+    // squares up to 15^2 = 225 only (CLO review m02 item 2)
+    const lo = rng.chance(0.4) ? rng.int(4, 12) ** 2 : rng.int(10, 180);
+    const hi = rng.chance(0.4) ? rng.int(Math.ceil(Math.sqrt(lo + 30)), 15) ** 2 : lo + rng.int(30, 100);
+    if (hi - lo < 30 || hi > 230) continue;
     const sq = []; for (let k = 1; k * k < hi; k++) if (k * k > lo) sq.push(k * k);
     if (sq.length < 2) continue;
     const loSq = Number.isInteger(Math.sqrt(lo)); const hiSq = Number.isInteger(Math.sqrt(hi));
@@ -872,7 +906,7 @@ function countSquares(rng) {
     const solution = `List the square numbers: ${Math.floor(Math.sqrt(lo))}^2 = ${Math.floor(Math.sqrt(lo)) ** 2}, ... The ones between ${lo} and ${hi} are ${sq.join(', ')}.${loSq || hiSq ? ` ${[loSq ? lo : null, hiSq ? hi : null].filter(Boolean).join(' and ')} ${loSq && hiSq ? 'are' : 'is'} not between the numbers, so ${loSq && hiSq ? 'they do' : 'it does'} not count.` : ''} That is ${ans} numbers. Answer: ${ans}`;
     const items = [
       loSq || hiSq ? { text: String(ans + (loSq ? 1 : 0) + (hiSq ? 1 : 0)), code: 'COUNT-ENDS', why: `It looks like you counted ${loSq && hiSq ? `${lo} and ${hi}` : loSq ? lo : hi} as well. "Between" leaves out the end numbers.` } : null,
-      { text: String(ans + 1), code: 'NEAR-MISS', why: `This is close, but check each square: ${sq.join(', ')}.` },
+      nearMiss(String(ans + 1), `List the squares between the two numbers and count them again: ${sq.join(', ')}.`),
     ];
     const t = typedMisconceptions(String(ans), items, { code: 'COUNT-ENDS', why: 'List the square numbers in order and count only those strictly between the two numbers.' });
     return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans)]), solution, ...t, marks: 2, skill: SKILL.sq };
@@ -894,8 +928,8 @@ function cubeBlock(rng) {
     const items = [
       { text: String(take ? n * 3 - take * 3 : n * 3), code: 'POW-MULT', why: `It looks like you worked out ${n} x 3${take ? ` and ${take} x 3` : ''}. A cube ${n} long, wide and high has ${n} x ${n} x ${n} small cubes.` },
       { text: String(6 * n * n), code: 'SA-FACES-NOT-CUBES', why: `It looks like you counted the squares on the outside faces. Count the cubes in the whole solid: ${n} x ${n} x ${n}.` },
-      take ? { text: String(n ** 3), code: 'ONE-STEP-ONLY', why: `${n ** 3} is the number of cubes before any were taken away. Take away the ${take ** 3} cubes in the corner block.` } : { text: String(n * n), code: 'SQ-CUBE-MIX', why: `${n * n} is one layer (${n} x ${n}). There are ${n} layers, so multiply by ${n} again.` },
-      take ? { text: String(n ** 3 - take), code: 'POW-MULT', why: `The corner block is ${take} x ${take} x ${take} = ${take ** 3} cubes, not ${take}.` } : null,
+      take ? { text: String(n ** 3), code: 'ONE-STEP-ONLY', why: `${n ** 3} is the number of cubes before any were taken away. Take away the ${take ** 3} cube${take ** 3 === 1 ? '' : 's'} in the corner block.` } : { text: String(n * n), code: 'SQ-CUBE-MIX', why: `${n * n} is one layer (${n} x ${n}). There are ${n} layers, so multiply by ${n} again.` },
+      take ? { text: String(n ** 3 - take), code: 'POW-MULT', why: `The corner block is ${take} x ${take} x ${take} = ${take ** 3} cube${take ** 3 === 1 ? '' : 's'}, not ${take}.` } : null,
     ];
     if (take === 1) items.pop();
     try {

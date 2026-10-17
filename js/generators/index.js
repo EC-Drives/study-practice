@@ -14,10 +14,13 @@
 // generate(q.generatorId, q.seed, q.difficulty) gives the same question again.
 
 import { makeRng, finish } from './core.js';
-import { ALL_CODES } from './misconceptions.js';
+import { ALL_CODES, MERGED_CODES } from './misconceptions.js';
 // Topic modules load one by one, so a problem in one topic file cannot stop the others (or the app).
 const TOPIC_FILES = ['m01-place-value', 'm02-number-system', 'm03-shapes-angles', 'm04-volume-capacity', 'm05-add-subtract', 'm06-multiply-divide', 'm07-patterns', 'm08-probability', 'm09-fdp', 'm10-fractions-calc', 'm11-ratio', 'm12-data', 'm13-coordinates', 'm14-reflection-rotation', 'm15-time-measures'];
 export const LOAD_ERRORS = [];
+/** Changes whenever a generator's output for a given (id, seed, difficulty) may change, so an app
+ * only rebuilds a saved question from its recipe with the same generators that made it. */
+export const GENERATOR_VERSION = '2026-10-17.2';
 const MODULES = await Promise.all(TOPIC_FILES.map((f) => import(`./${f}.js`).catch((e) => {
   LOAD_ERRORS.push(`${f}: ${e && e.message}`);
   console.error(`Generators: could not load ${f}.js`, e);
@@ -25,9 +28,10 @@ const MODULES = await Promise.all(TOPIC_FILES.map((f) => import(`./${f}.js`).cat
 })));
 const ALL = MODULES.flatMap((m) => m.default);
 
-/** Every misconception code a generated question may carry: the CLO's catalogue, the shared
- * additions in misconceptions.js, and any a topic module adds (its EXTRA_CODES export). */
-export const MISCONCEPTION_CODES = Object.assign({}, ALL_CODES, ...MODULES.map((m) => m.EXTRA_CODES || {}));
+/** Every misconception code a generated question may carry, with its one wording: the CLO's
+ * catalogue in misconceptions.js (declared there once). Old codes that were merged into another
+ * keep a label (the new code's wording), so answers saved before the merge still read well. */
+export const MISCONCEPTION_CODES = { ...Object.fromEntries(Object.entries(MERGED_CODES).map(([o, n]) => [o, ALL_CODES[n]])), ...ALL_CODES };
 const BY_ID = new Map(ALL.map((g) => [g.id, g]));
 if (BY_ID.size !== ALL.length) throw new Error('two generators share an id');
 
@@ -77,8 +81,9 @@ export function generateFor(topicId, subtopicId, difficulty, seed) {
 }
 
 /**
- * `count` different questions for a topic: no two with the same prompt and options. Seeds run
- * on from `seed`. opts: { subtopicId, difficulty }.
+ * `count` different questions for a topic: no two with the same prompt (the same question with
+ * its options shuffled counts as a repeat, CLO review X7). Seeds run on from `seed`.
+ * opts: { subtopicId, difficulty }.
  */
 export function generateSet(topicId, count, seed, opts = {}) {
   const out = [];
@@ -88,7 +93,8 @@ export function generateSet(topicId, count, seed, opts = {}) {
     let q;
     try { q = generateFor(topicId, opts.subtopicId || null, opts.difficulty || null, s); } catch { continue; } // a seed that cannot be built is skipped
     if (!q) break;
-    const key = `${q.prompt}|${JSON.stringify(q.options || '')}`;
+    // the same prompt with shuffled options is a repeat (CLO review X7); a different picture is not
+    const key = `${q.prompt}|${JSON.stringify(q.diagram || null)}`;
     if (seen.has(key)) continue;
     seen.add(key);
     out.push(q);

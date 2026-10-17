@@ -147,6 +147,8 @@ for (const r of [...fails, ...results.filter((x) => x.ok)]) {
   list.appendChild(li);
 }
 window.__diagramResults = { total: results.length, failed: fails.length, fails: fails.map((f) => `${f.name}: ${f.detail}`) };
+// for runs from the command line (tools/run_tests.py): report the result to the local server
+if (params.has('beacon')) fetch(`./__result?${encodeURIComponent(JSON.stringify({ total: results.length, failed: fails.slice(0, 50).map((f) => `${f.name}: ${f.detail}`) }))}`).catch(() => {});
 
 // ---------------------------------------------------------------- paste box
 function collect(data) {

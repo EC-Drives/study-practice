@@ -5,7 +5,7 @@
 // built from the same numbers as the answer; the point she has to find is never drawn or labelled
 // with its coordinates. Every wrong option is made by one named misconception and carries its code.
 
-import { choices, typedMisconceptions, nearMiss, numericAnswer } from './core.js';
+import { choices, typedMisconceptions, nearMiss, numericAnswer, term, countOf } from './core.js';
 
 const T = 'm13-coordinate-grid';
 const SK = {
@@ -15,21 +15,7 @@ const SK = {
   original: 'finding the original point before a translation',
 };
 
-export const EXTRA_CODES = {
-  'QUAD-CLOCKWISE': 'Numbers the quadrants clockwise instead of anticlockwise',
-  'COORD-AXIS-QUADRANT': 'Thinks a point on an axis is inside a quadrant',
-  'COORD-HALF-MISREAD': 'Reads a point halfway between two grid lines as the whole number next to it',
-  'AXIS-ZERO-MISSED': 'Does not use 0 for the other coordinate of a point that lies on an axis',
-  'DIST-NEGATIVE': 'Gives a distance as a negative number',
-  'VERTEX-WRONG-ORDER': 'Goes round the corners in the wrong order, so the missing corner is placed opposite the wrong corner',
-  'MID-HALF-LENGTH': 'Gives half the length of the line as the midpoint coordinate, without counting on from the start',
-  'MID-LENGTH': 'Gives the length of the line as the midpoint coordinate',
-  'MID-NO-HALVE': 'Adds the two end coordinates but does not halve the total',
-  'MID-WRONG-WAY': 'Finds the midpoint of the two given points instead of going on past the midpoint to the other end',
-  'TRANS-BOTH-COORDS': 'Changes both coordinates when the move is only across or only up or down',
-  'TRANS-ADD-ALL': 'Adds the amounts of two moves without noticing that opposite directions cancel',
-  'TRANS-ONE-STEP': 'Uses only one of the two moves of a two-step translation',
-};
+// Misconception codes: all declared once in misconceptions.js (the CLO's catalogue).
 
 // ---------------------------------------------------------------- helpers
 
@@ -68,6 +54,8 @@ function grid(pts, minSpan = 8) {
   return out;
 }
 
+/** Does the number v appear in the prompt? (A near miss must never be one: CLO review X3.) */
+const promptHas = (prompt, v) => (String(prompt).match(/-?\d+(?:\.\d+)?/g) || []).some((t) => Number(t) === v);
 /** Fallback near miss next to a coordinate pair. */
 const nearP = (P, hint) => (i) => nearMiss(C([P[0] + (i % 2 ? 1 : -1) * Math.ceil(i / 2), P[1] + (i % 3 === 0 ? 1 : 0)]), hint);
 
@@ -75,7 +63,7 @@ const nearP = (P, hint) => (i) => nearMiss(C([P[0] + (i % 2 ? 1 : -1) * Math.cei
 function shortCoord(prompt, P, items, common, rest) {
   const ans = C(P);
   const t = typedMisconceptions(ans, items, common);
-  return { type: 'short', prompt: `${prompt} Write them like (x, y).`, answer: { accept: [ans, `${n(P[0])},${n(P[1])}`, `${n(P[0])}, ${n(P[1])}`], keywords: [] }, ...t, ...rest };
+  return { type: 'short', prompt: `${prompt} Write your answer as (x, y).`, answer: { accept: [ans, `${n(P[0])},${n(P[1])}`, `${n(P[0])}, ${n(P[1])}`], keywords: [] }, ...t, ...rest };
 }
 
 // ---------------------------------------------------------------- g01 read the coordinates of a plotted point
@@ -190,7 +178,7 @@ const quadrant = {
       // D2: decimals, often with a small whole-number part
       const dv = () => (rng.chance(0.5) ? -1 : 1) * (rng.int(0, 6) + rng.int(1, 9) / 10);
       for (let t = 0; t < 100; t++) {
-        const x = d === 1 ? nz(rng, -9, 9) : Number(dv().toFixed(1)); const y = d === 1 ? nz(rng, -9, 9) : Number((rng.chance(0.5) ? nz(rng, -9, 9) : dv()).toFixed(1));
+        const x = d === 1 ? nz(rng, -8, 8) : Number(dv().toFixed(1)); const y = d === 1 ? nz(rng, -8, 8) : Number((rng.chance(0.5) ? nz(rng, -8, 8) : dv()).toFixed(1));
         const P = [x, y]; const k = quad(P);
         const options = QOPTS.slice();
         const misconceptions = {}; const codes = {};
@@ -206,7 +194,7 @@ const quadrant = {
     }
     for (let t = 0; t < 200; t++) {
       const k = rng.int(1, 4);
-      let a = rng.int(1, 9); let b = rng.int(1, 9);
+      let a = rng.int(1, 8); let b = rng.int(1, 8);
       if (rng.chance(0.3)) { if (rng.chance(0.5)) a -= 0.5; else b -= 0.5; }
       if (a === b) continue;
       const sx = k === 1 || k === 4 ? 1 : -1; const sy = k === 1 || k === 2 ? 1 : -1;
@@ -235,14 +223,14 @@ const quadrant = {
 
 const axisDistance = {
   id: 'm13.axis-distance', topicId: T, subtopicId: 'm13-s1', skill: SK.dist,
-  title: 'Points on the axes (D1), distance from an axis (D2), coordinates from two distances (D3)',
+  title: 'Points on the axes (D1), distance from an axis or coordinates from two distances and a quadrant (D2), both points that fit two distances and a side (D3)',
   difficulties: [1, 2, 3],
   check: {},
   make(rng, d) {
     const L = rng.pick(['P', 'Q', 'R', 'S', 'T', 'K', 'M', 'N']);
     if (d === 1) {
       for (let t = 0; t < 100; t++) {
-        const dist = rng.int(1, 9) - (rng.chance(0.25) ? 0.5 : 0);
+        const dist = rng.int(1, 8) - (rng.chance(0.25) ? 0.5 : 0);
         const onX = rng.chance(0.5); const neg = rng.chance(0.5);
         const v = neg ? -dist : dist;
         const P = onX ? [v, 0] : [0, v];
@@ -257,7 +245,10 @@ const axisDistance = {
         return { type: 'mcq', prompt, ...choices(rng, C(P), distractors, null), solution, skill: SK.axes };
       }
     }
-    if (d === 2) {
+    if (d === 3) return bothPoints(rng, L);
+    // D2: half the time a distance from an axis; otherwise the quadrant form below (formerly D3,
+    // which is D2 work: CLO review, m13 SHOULD 3)
+    if (d === 2 && rng.chance(0.5)) {
       for (let t = 0; t < 200; t++) {
         const x = nz(rng, -8, 8) + (rng.chance(0.3) ? 0.5 : 0); const y = nz(rng, -8, 8) + (rng.chance(0.3) ? 0.5 : 0);
         if (Math.abs(x) < 1 || Math.abs(y) < 1 || Math.abs(x) === Math.abs(y)) continue;
@@ -266,19 +257,19 @@ const axisDistance = {
         const used = fromY ? x : y; const other = fromY ? y : x;
         const ans = Math.abs(used);
         const prompt = `Point ${L} is at ${C(P)}. How many units is ${L} from the ${fromY ? 'y' : 'x'}-axis?`;
-        const solution = `The distance from the ${fromY ? 'y-axis (the vertical axis) is given by the x-coordinate' : 'x-axis (the horizontal axis) is given by the y-coordinate'}. ${fromY ? 'x' : 'y'} = ${n(used)}, so ${L} is ${n(ans)} units ${fromY ? (x < 0 ? 'left of' : 'right of') : (y < 0 ? 'below' : 'above')} it. A distance is never negative. Answer: ${n(ans)}`;
+        const solution = `The distance from the ${fromY ? 'y-axis (the vertical axis) is given by the x-coordinate' : 'x-axis (the horizontal axis) is given by the y-coordinate'}. ${fromY ? 'x' : 'y'} = ${n(used)}, so ${L} is ${countOf(n(ans), 'unit')} ${fromY ? (x < 0 ? 'left of' : 'right of') : (y < 0 ? 'below' : 'above')} it. A distance is never negative. Answer: ${n(ans)}`;
         const items = [
           { text: n(Math.abs(other)), code: 'COORD-SWAP', why: `${n(Math.abs(other))} comes from the ${fromY ? 'y' : 'x'}-coordinate, which gives the distance from the ${fromY ? 'x' : 'y'}-axis. The distance from the ${fromY ? 'y' : 'x'}-axis comes from the ${fromY ? 'x' : 'y'}-coordinate.` },
-          used < 0 ? { text: n(used), code: 'DIST-NEGATIVE', why: `The minus sign only tells you which side of the axis ${L} is on. A distance is always positive: ${n(ans)} units.` } : null,
+          used < 0 ? { text: n(used), code: 'DIST-NEGATIVE', why: `The minus sign only tells you which side of the axis ${L} is on. A distance is always positive: ${countOf(n(ans), 'unit')}.` } : null,
         ].filter(Boolean);
         const diagram = { ...grid([P]), points: [{ at: P, label: L, showCoords: true }] };
         const t2 = typedMisconceptions(n(ans), items, { code: 'COORD-SWAP', why: `The distance from the ${fromY ? 'y' : 'x'}-axis is the size of the ${fromY ? 'x' : 'y'}-coordinate, without its sign.` });
-        return { type: 'numeric', prompt, answer: numericAnswer(ans, [n(ans), `${n(ans)} units`, ...(ans % 1 ? [ans < 1 ? '1/2' : `${Math.floor(ans)} 1/2`] : [])]), solution, ...t2, diagram };
+        return { type: 'numeric', prompt, answer: numericAnswer(ans, [n(ans), countOf(n(ans), 'unit'), ...(ans % 1 ? [ans < 1 ? '1/2' : `${Math.floor(ans)} 1/2`] : [])]), solution, ...t2, diagram };
       }
     }
     for (let t = 0; t < 200; t++) {
       const k = rng.int(1, 4);
-      const a = rng.int(1, 9) - (rng.chance(0.3) ? 0.5 : 0); const b = rng.int(1, 9) - (rng.chance(0.3) ? 0.5 : 0);
+      const a = rng.int(1, 8) - (rng.chance(0.3) ? 0.5 : 0); const b = rng.int(1, 8) - (rng.chance(0.3) ? 0.5 : 0);
       if (a === b) continue;
       const sx = k === 1 || k === 4 ? 1 : -1; const sy = k === 1 || k === 2 ? 1 : -1;
       const P = [sx * a, sy * b];
@@ -298,6 +289,38 @@ const axisDistance = {
     throw new Error('no question');
   },
 };
+
+/** "(-3, 5) and (3, 5)": two points, the one further left (then lower) first. */
+const pairText = (p1, p2) => { const [a, b] = [p1, p2].sort((u, v) => u[0] - v[0] || u[1] - v[1]); return `${C(a)} and ${C(b)}`; };
+
+/** D3: a point is a units from the y-axis and b units from the x-axis, on one side of an axis.
+ * Two points fit; she chooses the pair (CLO review, m13 SHOULD 3). */
+function bothPoints(rng, L) {
+  for (let t = 0; t < 200; t++) {
+    const a = rng.int(1, 8); const b = rng.int(1, 8);
+    if (a === b) continue;
+    const sideOfX = rng.chance(0.5); // the side is given for the x-axis (above/below), else for the y-axis
+    const s = rng.chance(0.5) ? 1 : -1;
+    const sideText = sideOfX ? (s > 0 ? 'above the x-axis' : 'below the x-axis') : (s > 0 ? 'to the right of the y-axis' : 'to the left of the y-axis');
+    // the two points that fit, and the wrong pairs
+    const fit = sideOfX ? [[a, s * b], [-a, s * b]] : [[s * a, b], [s * a, -b]];
+    const prompt = `Point ${L} is ${countOf(a, 'unit')} from the y-axis and ${countOf(b, 'unit')} from the x-axis. It is ${sideText}. Which two points could ${L} be?`;
+    const ans = pairText(...fit);
+    const solution = `The distance from the y-axis gives the size of x (${a}), and the distance from the x-axis gives the size of y (${b}). ${sideOfX ? `${capFirst(sideText)} means y = ${n(s * b)}, and x can be ${a} or -${a}.` : `${capFirst(sideText)} means x = ${n(s * a)}, and y can be ${b} or -${b}.`} Answer: ${ans}`;
+    // the two distances swapped (b from the y-axis, a from the x-axis), on the right side
+    const swapped = sideOfX ? [[b, s * a], [-b, s * a]] : [[s * b, a], [s * b, -a]];
+    const distractors = [
+      { text: pairText(...swapped), code: 'COORD-SWAP', why: `The distance from the y-axis tells you how far LEFT or RIGHT the point is, so it gives x (${a}). The distance from the x-axis gives y (${b}).` },
+      { text: sideOfX ? pairText([s * a, b * s], [s * a, -b * s]) : pairText([a * s, s * b], [-a * s, s * b]), code: 'ONE-CONDITION-ONLY', why: `Both points are the right distances from the axes, but one of them is not ${sideText}. Use that clue too.` },
+      { text: sideOfX ? pairText([a, -s * b], [-a, -s * b]) : pairText([-s * a, b], [-s * a, -b]), code: 'COORD-SIGN', why: `These points are ${sideOfX ? (s > 0 ? 'below the x-axis: y is negative there' : 'above the x-axis: y is positive there') : (s > 0 ? 'to the left of the y-axis: x is negative there' : 'to the right of the y-axis: x is positive there')}. ${capFirst(sideText)} means ${sideOfX ? `y = ${n(s * b)}` : `x = ${n(s * a)}`}.` },
+    ];
+    try {
+      return { type: 'mcq', prompt, ...choices(rng, ans, distractors, null), solution, marks: 2 };
+    } catch { /* draw again */ }
+  }
+  throw new Error('no question');
+}
+const capFirst = (t) => t.charAt(0).toUpperCase() + t.slice(1);
 
 // ---------------------------------------------------------------- g04 missing vertex
 
@@ -358,6 +381,9 @@ const missingVertex = {
         if (u[0] === 0 && u[1] === 0) continue;
         const v = sqr ? (rng.chance(0.5) ? [-u[1], u[0]] : [u[1], -u[0]]) : [rng.int(-4, 4), rng.int(-4, 4)];
         if (!sqr && (u[0] * v[1] - u[1] * v[0] === 0 || u[0] * v[0] + u[1] * v[1] === 0)) continue; // not a rectangle or flat
+        // a real parallelogram: area at least 4 and an angle between 45° and 135° (CLO review, m13 SHOULD 2)
+        const dot = u[0] * v[0] + u[1] * v[1]; const uu = u[0] ** 2 + u[1] ** 2; const vv = v[0] ** 2 + v[1] ** 2;
+        if (!sqr && (Math.abs(u[0] * v[1] - u[1] * v[0]) < 4 || 2 * dot * dot > uu * vv)) continue;
         if (sqr && (u[0] === 0 || u[1] === 0)) continue; // a tilted square
         const A = [rng.int(-5, 5), rng.int(-5, 5)];
         P = [A, add(A, u), add(add(A, u), v), add(A, v)];
@@ -378,16 +404,21 @@ const missingVertex = {
         : `Opposite sides of a ${shape} are equal and parallel. From ${letters[(m + 2) % 4]}${C(opp)} to ${letters[(m + 3) % 4]}${C(prev)} is ${moveText(mv)}. Make the same move from ${letters[(m + 1) % 4]}${C(next)}: ${C(next)} → ${C(ans)}. Answer: ${C(ans)}`;
       const w1 = add(prev, sub(opp, next)); const w2 = add(next, sub(opp, prev));
       const distractors = [
-        { text: C(w1), code: 'VERTEX-WRONG-ORDER', why: `This point would make a ${shape} with the corners in a different order (${letters[(m + 2) % 4]} next to ${letters[m]}). Go round ${name} in order: ${letters[m]} is opposite ${letters[(m + 2) % 4]}.` },
+        // w1 copies the move from the opposite corner to one neighbour, but the wrong way (CLO review, m13 MUST 1)
+        { text: C(w1), code: 'TRANS-WRONG-DIRECTION', why: `It looks like you copied the move from ${letters[(m + 2) % 4]} to ${letters[(m + 1) % 4]} (${moveText(sub(next, opp))}) the wrong way round, starting at ${letters[(m + 3) % 4]}. From ${letters[(m + 3) % 4]}, make that move the same way: ${moveText(sub(next, opp))}.` },
         { text: C(w2), code: 'VERTEX-WRONG-ORDER', why: `This point puts ${letters[m]} next to ${letters[(m + 2) % 4]}, but in ${name} they are opposite corners. Copy the move from ${letters[(m + 2) % 4]} to ${letters[(m + 3) % 4]}, starting at ${letters[(m + 1) % 4]}.` },
         { text: C([ans[1], ans[0]]), code: 'COORD-SWAP', why: 'The right numbers, but the wrong way round. Write the x-coordinate (across) first, then y.' },
       ];
       const diagram = { ...grid(P), points: given.map((j) => ({ at: P[j], label: letters[j] })), segments: [{ from: P[(m + 1) % 4], to: P[(m + 2) % 4] }, { from: P[(m + 2) % 4], to: P[(m + 3) % 4] }] };
+      // a wrong answer is never one of the corners already given
+      const isGiven = (t) => given.some((j) => C(P[j]) === t);
+      for (let i = distractors.length - 1; i >= 0; i--) if (isGiven(distractors[i].text)) distractors.splice(i, 1);
+      const nearV = nearP(ans, 'Copy the move along one side to the opposite side.');
       try {
         if (d === 2 && rng.chance(0.35)) {
           return shortCoord(prompt, ans, distractors, { code: 'VERTEX-WRONG-ORDER', why: `Go round the corners in order. ${letters[m]} is opposite ${letters[(m + 2) % 4]}: copy the move from ${letters[(m + 2) % 4]} to ${letters[(m + 3) % 4]}, starting at ${letters[(m + 1) % 4]}.` }, { solution, diagram });
         }
-        return { type: 'mcq', prompt, ...choices(rng, C(ans), distractors, nearP(ans, 'Copy the move along one side to the opposite side.')), solution, diagram };
+        return { type: 'mcq', prompt, ...choices(rng, C(ans), distractors, (i) => { const x = nearV(i); return isGiven(x.text) ? null : x; }), solution, diagram };
       } catch { /* draw again */ }
     }
     throw new Error('no question');
@@ -416,7 +447,7 @@ const lineLength = {
   difficulties: [1, 2, 3],
   check: { min: 0 },
   make(rng, d) {
-    const [p, q] = rng.sample(['A', 'B', 'P', 'Q', 'M', 'N', 'R', 'S'], 2);
+    const [p, q] = rng.pick([['A', 'B'], ['P', 'Q'], ['M', 'N'], ['R', 'S'], ['C', 'D']]);
     for (let t = 0; t < 200; t++) {
       if (d === 3) {
         const horiz = rng.chance(0.5);
@@ -424,7 +455,7 @@ const lineLength = {
         const len = rng.int(3, 9);
         const sgn = rng.chance(0.5) ? 1 : -1;
         const B = horiz ? [A[0] + sgn * len, A[1]] : [A[0], A[1] + sgn * len];
-        if (Math.abs(B[0]) > 9 || Math.abs(B[1]) > 9) continue;
+        if (Math.abs(B[0]) > 8 || Math.abs(B[1]) > 8) continue;
         const dirWord = horiz ? (sgn > 0 ? 'to the right of' : 'to the left of') : (sgn > 0 ? 'directly above' : 'directly below');
         const prompt = `${p} is at ${C(A)}. ${q} is ${dirWord} ${p}, and the line ${p}${q} is ${len} units long. What are the coordinates of ${q}?`;
         const solution = `${horiz ? 'Moving across changes only x' : 'Moving up or down changes only y'}. ${horiz ? 'x' : 'y'} = ${n(horiz ? A[0] : A[1])} ${sgn > 0 ? '+' : '-'} ${len} = ${n(horiz ? B[0] : B[1])}${(horiz ? A[0] * B[0] : A[1] * B[1]) < 0 ? ' (this crosses zero)' : ''}; ${horiz ? 'y' : 'x'} stays ${n(horiz ? A[1] : A[0])}. Answer: ${C(B)}`;
@@ -442,21 +473,22 @@ const lineLength = {
       const prompt = `A line is drawn from ${p}${C(s.A)} to ${q}${C(s.B)}. How many units long is ${p}${q}?`;
       const axis = s.horiz ? 'x' : 'y';
       const solution = d === 2
-        ? `Both points have the same ${s.horiz ? 'y' : 'x'}-coordinate, so the line is ${s.horiz ? 'horizontal' : 'vertical'}. It crosses the ${s.horiz ? 'y' : 'x'}-axis: from ${axis} = ${n(Math.min(s.a, s.b))} to 0 is ${n(-Math.min(s.a, s.b))} units, and from 0 to ${n(Math.max(s.a, s.b))} is ${n(Math.max(s.a, s.b))} units. ${n(-Math.min(s.a, s.b))} + ${n(Math.max(s.a, s.b))} = ${len}. Answer: ${len}`
-        : `Both points have the same ${s.horiz ? 'y' : 'x'}-coordinate, so the line is ${s.horiz ? 'horizontal' : 'vertical'}. Its length is the difference between the ${axis}-coordinates: ${n(Math.max(s.a, s.b))} - ${n(Math.min(s.a, s.b))} = ${len}. Answer: ${len}`;
+        ? `Both points have the same ${s.horiz ? 'y' : 'x'}-coordinate, so the line is ${s.horiz ? 'horizontal' : 'vertical'}. It crosses the ${s.horiz ? 'y' : 'x'}-axis: from ${axis} = ${n(Math.min(s.a, s.b))} to 0 is ${countOf(-Math.min(s.a, s.b), 'unit')}, and from 0 to ${n(Math.max(s.a, s.b))} is ${countOf(Math.max(s.a, s.b), 'unit')}. ${n(-Math.min(s.a, s.b))} + ${n(Math.max(s.a, s.b))} = ${len}. Answer: ${len}`
+        : `Both points have the same ${s.horiz ? 'y' : 'x'}-coordinate, so the line is ${s.horiz ? 'horizontal' : 'vertical'}. Its length is the difference between the ${axis}-coordinates: ${n(Math.max(s.a, s.b))} - ${term(n(Math.min(s.a, s.b)))} = ${len}. Answer: ${len}`;
       const items = [
         { text: String(len + 1), code: 'COORD-COUNT-POINTS', why: `It looks like you counted the grid points from one end to the other (${len + 1}). The length is the number of jumps between them: ${len}.` },
         d === 2 ? { text: String(Math.abs(Math.abs(s.b) - Math.abs(s.a))), code: 'NEG-DIFF-ADD-SIGNS', why: `It looks like you took ${Math.min(Math.abs(s.a), Math.abs(s.b))} from ${Math.max(Math.abs(s.a), Math.abs(s.b))}. The line crosses zero, so add the parts on each side: ${Math.abs(s.a)} + ${Math.abs(s.b)} = ${len}.` }
-          : { text: String(Math.abs(s.a + s.b)), code: 'OP-SWAP', why: `It looks like you added the ${axis}-coordinates. The length is the DIFFERENCE between them: ${n(Math.max(s.a, s.b))} - ${n(Math.min(s.a, s.b))}.` },
+          : { text: String(Math.abs(s.a + s.b)), code: 'OP-SWAP', why: `It looks like you added the ${axis}-coordinates. The length is the DIFFERENCE between them: ${n(Math.max(s.a, s.b))} - ${term(n(Math.min(s.a, s.b)))}.` },
       ];
       const diagram = { ...grid([s.A, s.B]), points: [{ at: s.A, label: p }, { at: s.B, label: q }], segments: [{ from: s.A, to: s.B }] };
       try {
         if (rng.chance(0.5)) {
           const tm = typedMisconceptions(String(len), items, { code: d === 2 ? 'NEG-DIFF-ADD-SIGNS' : 'COORD-COUNT-POINTS', why: d === 2 ? 'When a line crosses an axis, add the distances on each side of zero.' : 'Find the difference between the coordinates that change; count jumps, not points.' });
-          return { type: 'numeric', prompt, answer: numericAnswer(len, [String(len), `${len} units`]), solution, ...tm, diagram };
+          return { type: 'numeric', prompt, answer: numericAnswer(len, [String(len), countOf(len, 'unit')]), solution, ...tm, diagram };
         }
-        const unitsText = items.map((it) => ({ ...it, text: `${it.text} units` }));
-        return { type: 'mcq', prompt, ...choices(rng, `${len} units`, unitsText, (i) => nearMiss(`${len + (i % 2 ? -1 : 1) * Math.ceil(i / 2) + 1} units`, 'Count the jumps between the two ends.')), solution: solution.replace(/Answer: \d+$/, `Answer: ${len} units`), diagram };
+        const unitsText = items.map((it) => ({ ...it, text: countOf(it.text, 'unit') }));
+        const nearL = (i) => { const v = len + (i % 2 ? -1 : 1) * Math.ceil(i / 2) + 1; return v > 0 && !promptHas(prompt, v) ? nearMiss(countOf(v, 'unit'), 'Count the jumps between the two ends, not the grid points.') : null; };
+        return { type: 'mcq', prompt, ...choices(rng, countOf(len, 'unit'), unitsText, nearL), solution: solution.replace(/Answer: \d+$/, `Answer: ${countOf(len, 'unit')}`), diagram };
       } catch { /* draw again */ }
     }
     throw new Error('no question');
@@ -471,7 +503,7 @@ const midpoint = {
   difficulties: [1, 2, 3],
   check: {},
   make(rng, d) {
-    const [p, q] = rng.sample(['A', 'B', 'P', 'Q', 'R', 'S', 'K', 'L'], 2);
+    const [p, q] = rng.pick([['A', 'B'], ['P', 'Q'], ['R', 'S'], ['K', 'L'], ['C', 'D']]);
     for (let t = 0; t < 300; t++) {
       if (d === 3) {
         const horiz = rng.chance(0.5);
@@ -479,7 +511,7 @@ const midpoint = {
         const half = (rng.chance(0.5) ? 1 : -1) * rng.int(2, 5);
         const M = horiz ? [A[0] + half, A[1]] : [A[0], A[1] + half];
         const B = horiz ? [A[0] + 2 * half, A[1]] : [A[0], A[1] + 2 * half];
-        if (Math.abs(B[0]) > 9 || Math.abs(B[1]) > 9 || Math.abs(M[0]) > 9 || Math.abs(M[1]) > 9) continue;
+        if (Math.abs(B[0]) > 8 || Math.abs(B[1]) > 8 || Math.abs(M[0]) > 8 || Math.abs(M[1]) > 8) continue;
         if (!(A[0] * B[0] < 0 || A[1] * B[1] < 0) && rng.chance(0.6)) continue; // mostly across an axis
         const prompt = `M is the midpoint of the line ${p}${q}. ${p} is ${C(A)} and M is ${C(M)}. What are the coordinates of ${q}?`;
         const step = sub(M, A);
@@ -504,16 +536,16 @@ const midpoint = {
       const axis = s.horiz ? 'x' : 'y';
       const prompt = `What is the midpoint of the line joining ${C(s.A)} and ${C(s.B)}?`;
       const lo = Math.min(s.a, s.b);
-      const solution = `The line is ${s.horiz ? 'horizontal' : 'vertical'}, so the midpoint has ${s.horiz ? 'y' : 'x'} = ${n(fixed)}. Halfway between ${axis} = ${n(s.a)} and ${axis} = ${n(s.b)}: (${n(s.a)} + ${n(s.b)}) ÷ 2 = ${n(m)}. (Or: the length is ${diff}, half of it is ${n(diff / 2)}, and ${n(lo)} + ${n(diff / 2)} = ${n(m)}.) Answer: ${C(P)}`;
+      const solution = `The line is ${s.horiz ? 'horizontal' : 'vertical'}, so the midpoint has ${s.horiz ? 'y' : 'x'} = ${n(fixed)}. Halfway between ${axis} = ${n(s.a)} and ${axis} = ${n(s.b)}: (${n(s.a)} + ${term(n(s.b))}) ÷ 2 = ${n(m)}. (Or: the length is ${diff}, half of it is ${n(diff / 2)}, and ${n(lo)} + ${n(diff / 2)} = ${n(m)}.) Answer: ${C(P)}`;
       const distractors = [
-        { text: C(mk(diff / 2)), code: 'MID-HALF-LENGTH', why: `${n(diff / 2)} is half the LENGTH of the line. Count that far on from the start, ${axis} = ${n(lo)}: ${n(lo)} + ${n(diff / 2)} = ${n(m)}.` },
-        { text: C(mk(s.a + s.b)), code: 'MID-NO-HALVE', why: `You added the ${axis}-coordinates (${n(s.a)} + ${n(s.b)} = ${n(s.a + s.b)}) but did not halve the total.` },
+        { text: C(mk(diff / 2)), code: 'MID-HALF-DIFF', why: `${n(diff / 2)} is half the LENGTH of the line. Count that far on from the start, ${axis} = ${n(lo)}: ${n(lo)} + ${n(diff / 2)} = ${n(m)}.` },
+        { text: C(mk(s.a + s.b)), code: 'MID-NO-HALVE', why: `You added the ${axis}-coordinates (${n(s.a)} + ${term(n(s.b))} = ${n(s.a + s.b)}) but did not halve the total.` },
         { text: C(mk(diff)), code: 'MID-LENGTH', why: `${diff} is the length of the line. The midpoint is only half of that distance from one end.` },
         { text: C([P[1], P[0]]), code: 'COORD-SWAP', why: 'The numbers are the wrong way round. Write the x-coordinate first.' },
       ];
       const diagram = { ...grid([s.A, s.B]), points: [{ at: s.A }, { at: s.B }], segments: [{ from: s.A, to: s.B }] };
       try {
-        if (d === 2 && rng.chance(0.3)) return shortCoord(prompt, P, distractors, { code: 'MID-HALF-LENGTH', why: 'Halve the length, then count that far on from the start (or add the two ends and halve).' }, { solution, diagram });
+        if (d === 2 && rng.chance(0.3)) return shortCoord(prompt, P, distractors, { code: 'MID-HALF-DIFF', why: 'Halve the length, then count that far on from the start (or add the two ends and halve).' }, { solution, diagram });
         return { type: 'mcq', prompt, ...choices(rng, C(P), distractors, nearP(P, 'Add the two end coordinates and halve.')), solution, diagram };
       } catch { /* draw again */ }
     }
@@ -573,7 +605,7 @@ const perimArea = {
           const tm = typedMisconceptions(String(ans), distractors.map((x) => ({ ...x, text: x.text.replace(` ${U}`, '') })), { code: tri ? 'AREA-TRI-NO-HALF' : 'AREA-PERIM-SWAP', why: 'Find the width and height from the coordinates first (count across zero), then use the right rule.' });
           return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans), show(ans)]), solution, ...tm, diagram, marks: 2 };
         }
-        return { type: 'mcq', prompt, ...choices(rng, show(ans), distractors, (i) => nearMiss(show(ans + (i % 2 ? 2 : -2) * Math.ceil(i / 2)), 'Find the width and height, then use the rule.')), solution, diagram, marks: 2 };
+        return { type: 'mcq', prompt, ...choices(rng, show(ans), distractors, (i) => { const v = ans + (i % 2 ? 2 : -2) * Math.ceil(i / 2); return v > 0 && !promptHas(prompt, v) ? nearMiss(show(v), 'Find the width and height from the coordinates (count across zero), then use the rule.') : null; }), solution, diagram, marks: 2 };
       } catch { /* draw again */ }
     }
     throw new Error('no question');
@@ -603,7 +635,7 @@ const translate = {
         const horiz = rng.chance(0.5); const s = rng.chance(0.5) ? 1 : -1;
         const m = horiz ? [s * k, 0] : [0, s * k];
         const ans = add(P, m);
-        if (Math.abs(ans[0]) > 9 || Math.abs(ans[1]) > 9 || ans[0] === 0 && ans[1] === 0) continue;
+        if (Math.abs(ans[0]) > 8 || Math.abs(ans[1]) > 8 || (ans[0] === 0 && ans[1] === 0)) continue;
         const L = rng.pick(['P', 'A', 'Q', 'K', 'T']);
         const prompt = `Point ${L}${C(P)} is translated ${moveText(m)}. What are the coordinates of its image?`;
         const solution = `Moving ${horiz ? (s > 0 ? 'right adds to' : 'left takes away from') : (s > 0 ? 'up adds to' : 'down takes away from')} the ${horiz ? 'x' : 'y'}-coordinate: ${n(horiz ? P[0] : P[1])} ${s > 0 ? '+' : '-'} ${k} = ${n(horiz ? ans[0] : ans[1])}. The ${horiz ? 'y' : 'x'}-coordinate does not change. Answer: ${C(ans)}`;
@@ -627,7 +659,7 @@ const translate = {
       const m = [nz(rng, -6, 6), nz(rng, -6, 6)];
       if (Math.abs(m[0]) === Math.abs(m[1])) continue;
       const img = shp.map((p) => add(p, m));
-      if ([...shp, ...img].some((p) => Math.abs(p[0]) > 9 || Math.abs(p[1]) > 9)) continue;
+      if ([...shp, ...img].some((p) => Math.abs(p[0]) > 8 || Math.abs(p[1]) > 8)) continue;
       const ki = rng.int(1, shp.length - 1); // ask about this corner
       const V = shp[ki]; const ans = img[ki];
       const label = names[ki];
@@ -658,9 +690,13 @@ const translate = {
         { text: C(add(V, [m[0], -m[1]])), code: 'TRANS-WRONG-DIRECTION', why: `The up/down part is the wrong way. ${names[k0]} moved ${units(Math.abs(m[1]))} ${m[1] > 0 ? 'up' : 'down'}.` },
       ];
       const dia3 = { ...diagram, points: [...diagram.points, { at: img[k0], label: `${names[k0]}'`, style: 'cross' }] };
+      // no wrong answer may sit on a point that is already plotted (such as A')
+      const plotted = dia3.points.map((pt) => C(pt.at));
+      for (let i = distractors.length - 1; i >= 0; i--) if (plotted.includes(distractors[i].text)) distractors.splice(i, 1);
+      const near3 = nearP(ans, 'Find the move first, then apply it.');
       try {
         if (rng.chance(0.5)) return shortCoord(prompt, ans, distractors, { code: 'TRANS-WRONG-DIRECTION', why: `Find the move from ${names[k0]} to its image first, then do the same move to ${label}.` }, { solution, diagram: dia3, marks: 2 });
-        return { type: 'mcq', prompt, ...choices(rng, C(ans), distractors, nearP(ans, 'Find the move first, then apply it.')), solution, diagram: dia3, marks: 2 };
+        return { type: 'mcq', prompt, ...choices(rng, C(ans), distractors, (i) => { const x = near3(i); return plotted.includes(x.text) ? null : x; }), solution, diagram: dia3, marks: 2 };
       } catch { /* draw again */ }
     }
     throw new Error('no question');
@@ -683,7 +719,7 @@ const describe = {
         if (Math.abs(Q[0]) > 8 || Math.abs(Q[1]) > 8 || Q[0] === 0 || Q[1] === 0 || Math.abs(m[0]) === Math.abs(m[1])) continue;
         const crossX = P[0] * Q[0] < 0; const crossY = P[1] * Q[1] < 0;
         const prompt = `Point P${C(P)} moves to its image P'${C(Q)} by a translation. Describe the translation.`;
-        const solution = `Change in x: ${n(Q[0])} - ${n(P[0])} = ${n(m[0])}, so ${units(Math.abs(m[0]))} ${m[0] > 0 ? 'right' : 'left'}. Change in y: ${n(Q[1])} - ${n(P[1])} = ${n(m[1])}, so ${units(Math.abs(m[1]))} ${m[1] > 0 ? 'up' : 'down'}.${crossX || crossY ? ' When the point crosses an axis, count the units on both sides of zero.' : ''} Answer: ${moveText(m)}`;
+        const solution = `Change in x: ${n(Q[0])} - ${term(n(P[0]))} = ${n(m[0])}, so ${units(Math.abs(m[0]))} ${m[0] > 0 ? 'right' : 'left'}. Change in y: ${n(Q[1])} - ${term(n(P[1]))} = ${n(m[1])}, so ${units(Math.abs(m[1]))} ${m[1] > 0 ? 'up' : 'down'}.${crossX || crossY ? ' When the point crosses an axis, count the units on both sides of zero.' : ''} Answer: ${moveText(m)}`;
         const distractors = [
           { text: moveText([-m[0], -m[1]]), code: 'TRANS-WRONG-DIRECTION', why: `This is the move from the image back to the start. From ${C(P)} to ${C(Q)}, x ${m[0] > 0 ? 'gets bigger (right)' : 'gets smaller (left)'} and y ${m[1] > 0 ? 'gets bigger (up)' : 'gets smaller (down)'}.` },
           { text: moveText([Math.sign(m[0]) * Math.abs(m[1]), Math.sign(m[1]) * Math.abs(m[0])]), code: 'TRANS-WRONG-AXIS', why: `The two amounts are swapped. The change in x is ${Math.abs(m[0])} and the change in y is ${Math.abs(m[1])}.` },
@@ -702,7 +738,7 @@ const describe = {
       const net = add(m1, m2);
       if (!net[0] || !net[1] || Math.abs(net[0]) === Math.abs(net[1])) continue;
       const P1 = add(P, m1); const P2 = add(P1, m2);
-      if ([P1, P2].some((p) => Math.abs(p[0]) > 9 || Math.abs(p[1]) > 9)) continue;
+      if ([P1, P2].some((p) => Math.abs(p[0]) > 8 || Math.abs(p[1]) > 8)) continue;
       const prompt = `Point P${C(P)} is translated ${moveText(m1)} to P'. Then P' is translated ${moveText(m2)} to P''. Which single translation would move P straight to P''?`;
       const solution = `Across: ${moveText([m1[0], 0])} then ${moveText([m2[0], 0])} leaves ${moveText([net[0], 0])}. Up/down: ${moveText([0, m1[1]])} then ${moveText([0, m2[1]])} leaves ${moveText([0, net[1]])}. (Check: P' is ${C(P1)} and P'' is ${C(P2)}.) Answer: ${moveText(net)}`;
       const all = [Math.sign(net[0]) * (Math.abs(m1[0]) + Math.abs(m2[0])), Math.sign(net[1]) * (Math.abs(m1[1]) + Math.abs(m2[1]))];
@@ -750,7 +786,7 @@ const original = {
       }
       const m2 = [nz(rng, -5, 5), nz(rng, -5, 5)];
       const I1 = add(O, m1); const I2 = add(I1, m2);
-      if ([I1, I2].some((p) => Math.abs(p[0]) > 9 || Math.abs(p[1]) > 9) || eqP(add(m1, m2), [0, 0]) || eqP(m1, m2)) continue;
+      if ([I1, I2].some((p) => Math.abs(p[0]) > 8 || Math.abs(p[1]) > 8) || eqP(add(m1, m2), [0, 0]) || eqP(m1, m2)) continue;
       const prompt = `A point P is translated ${moveText(m1)}, and then ${moveText(m2)}. It ends at Q${C(I2)}. What were the coordinates of P at the start?`;
       const net = add(m1, m2);
       const solution = `Undo both moves. Undo ${moveText(m2)}: ${C(I2)} → ${C(I1)}. Undo ${moveText(m1)}: ${C(I1)} → ${C(O)}. Check: ${C(O)} moved ${moveText(m1)} and then ${moveText(m2)} ends at ${C(I2)}. Answer: ${C(O)}`;

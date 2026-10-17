@@ -34,7 +34,7 @@ function dh(q) {
     const best = (f) => opts.reduce((a, b) => (f(b) > f(a) ? b : a));
     return { kind: 'compare', text: best(val), misread: best(misread), raw: best((o) => Math.max(...o.match(/[\d.]+/g).map(Number))) };
   }
-  if ((m = p.match(/(\d+) (?:hours|h) (\d+) (?:minutes|min)\b.*decimal/))) { const h = Number(m[1]); const mm = Number(m[2]); return { kind: 'hm2dec', value: (h * 60 + mm) / 60, h, m: mm }; }
+  if ((m = p.match(/(\d+) (?:hours?|h) (\d+) (?:minutes|min)\b.*decimal/))) { const h = Number(m[1]); const mm = Number(m[2]); return { kind: 'hm2dec', value: (h * 60 + mm) / 60, h, m: mm }; }
   if ((m = p.match(/(\d+) minutes\..*(?:decimal|hours)/))) { const n = Number(m[1]); return { kind: 'min2dec', value: n / 60, n }; }
   const x = p.match(/([\d.]+) hours/)[1];
   const xm = Math.round(Number(x) * 60);
@@ -70,6 +70,10 @@ function durInfo(q) {
 function endInfo(q) {
   const p = q.prompt;
   let m;
+  if ((m = p.match(/leaves .+? at (\d\d:\d\d)\. It travels for (.+?) to (.+?) and waits there for (\d+) minutes\. Then it travels for another (.+?) to /))) {
+    const s = from24(m[1]); const d1 = minsOf(m[2]); const w = Number(m[4]); const d2 = minsOf(m[5]);
+    return { train: true, s, d1, w, d2, e: s + d1 + w + d2 };
+  }
   if ((m = p.match(/has (\d+) sessions\. Each session lasts (.+?)\. There is a (\d+)-minute break.*starts at (\d\d:\d\d)/))) {
     const n = Number(m[1]); const sess = minsOf(m[2]); const brk = Number(m[3]); const s = from24(m[4]);
     return { multi: true, n, sess, brk, s, e: s + n * sess + (n - 1) * brk };
@@ -86,17 +90,18 @@ function tableInfo(q) {
   const stops = rows.map((r) => r[0]);
   const t = (bus, stop) => from24(rows[stops.indexOf(stop)][bus + 1]);
   const p = q.prompt;
+  const buses = rows[0].slice(1).map((_, b) => b);
   let m;
   if ((m = p.match(/takes Bus (\d) from (.+?) to (.+?)\./))) {
     const bus = Number(m[1]) - 1;
     const dur = (b) => t(b, m[3]) - t(b, m[2]);
-    return { kind: 'dur', bus, s: t(bus, m[2]), e: t(bus, m[3]), dur: dur(bus), others: [0, 1, 2].filter((b) => b !== bus).map(dur) };
+    return { kind: 'dur', bus, s: t(bus, m[2]), e: t(bus, m[3]), dur: dur(bus), others: buses.filter((b) => b !== bus).map(dur) };
   }
   m = p.match(/is at (.+?)\. \w+ must be in (.+?) by (\d\d:\d\d)\./);
   const [, a, b, need] = m;
-  const ok = [0, 1, 2].filter((x) => t(x, b) <= from24(need));
+  const ok = buses.filter((x) => t(x, b) <= from24(need));
   const bus = ok[ok.length - 1];
-  return { kind: 'latest', ans: clock24(t(bus, a)), tooLate: bus + 1 <= 2 ? clock24(t(bus + 1, a)) : null, wrongStop: clock24(t(bus, b)), earlier: ok.slice(0, -1).map((x) => clock24(t(x, a))) };
+  return { kind: 'latest', ans: clock24(t(bus, a)), tooLate: bus + 1 < buses.length ? clock24(t(bus + 1, a)) : null, wrongStop: clock24(t(bus, b)), earlier: ok.slice(0, -1).map((x) => clock24(t(x, a))) };
 }
 
 // ---------------------------------------------------------------- metric units
@@ -117,7 +122,12 @@ function metricInfo(q) {
       return f ? v * f[1] : v;
     };
     const best = (f) => opts.reduce((a, b) => (f(b) > f(a) ? b : a));
-    return { kind: 'compare', text: best(small), raw: best((o) => Math.max(...o.match(/[\d.]+/g).map(Number))) };
+    const dps = (o) => (/^\d+\.\d+ \w+$/.test(o) ? o.split(' ')[0].split('.')[1].length : 0);
+    return {
+      kind: 'compare', text: best(small), raw: best((o) => Math.max(...o.match(/[\d.]+/g).map(Number))),
+      longer: best(dps), // the decimal with the most digits after the point
+      dropped: opts.filter((o) => /^\d+ \w+ \d+ \w+$/.test(o)), // a mixed measure (misread with its zero dropped)
+    };
   }
   if ((m = p.match(/^Write (\d+) (\w+) (\d+) (\w+) in (\w+)\./))) {
     const [, w, big, part, small] = m;
@@ -165,7 +175,8 @@ function rectInfo(q) {
   return {
     ans, mixed,
     swap: [area ? r3(2 * (L + W)) : r3(L * W)],
-    two: [r3(L + W), r3(2 * L + W)],
+    two: [r3(L + W)],
+    three: [r3(2 * L + W), r3(L + 2 * W)],
     point: [r3(Math.round(L * 10) * Math.round(W * 10) / 10)],
     unitMixed: [r3(Lraw * W), r3(2 * (Lraw + W))],
     factor: [r3(L * W * 10)],
@@ -193,21 +204,26 @@ const clockWrong = (q) => { const { t } = clockT(q); const h = Math.floor(t / 60
 
 export const MIS = {
   'm15.decimal-hours': {
+    // one code since the CLO's merge of TIME-DEC-X100 (17 Oct): an hour taken as 100 minutes, either way
     'TIME-DECIMAL-AS-MINUTES': (q) => {
       const r = dh(q);
-      if (r.kind === 'dec2hm') return [hmText(r.w * 60 + Number(r.f))];
-      if (r.kind === 'dec2min') return [r.w * 60 + Number(r.f)];
-      if (r.kind === 'hm2dec') return [r.h + r.m / 100];
-      if (r.kind === 'min2dec') return [Math.floor(r.n / 60) + (r.n % 60) / 100];
-      if (r.kind === 'add') return [hmText(Number(r.after) * 10 + r.rest)];
-      return [r.misread];
+      const out = [];
+      if (r.kind === 'dec2hm') out.push(hmText(r.w * 60 + Number(r.f)));
+      else if (r.kind === 'dec2min') out.push(r.w * 60 + Number(r.f));
+      else if (r.kind === 'hm2dec') out.push(r.h + r.m / 100);
+      else if (r.kind === 'min2dec') out.push(Math.floor(r.n / 60) + (r.n % 60) / 100);
+      else if (r.kind === 'add') out.push(hmText(Number(r.after) * 10 + r.rest));
+      else out.push(r.misread);
+      if (r.kind === 'hm2dec') out.push((r.h * 60 + r.m) / 100);
+      else if (r.kind === 'min2dec') out.push(r.n / 100);
+      else if (r.x != null) out.push(Math.round(Number(r.x) * 100));
+      return out;
     },
-    'TIME-DEC-X100': (q) => { const r = dh(q); if (r.kind === 'hm2dec') return [(r.h * 60 + r.m) / 100]; if (r.kind === 'min2dec') return [r.n / 100]; return [Math.round(Number(r.x) * 100)]; },
     'TIME-DEC-X10': (q) => { const r = dh(q); return r.kind === 'min2dec' ? [r.n / 10] : [Math.round(Number(r.x) * 10)]; },
     'TIME-MINUTES-OVERFLOW': (q) => { const r = dh(q); const raw = r.xm + (r.rest % 60); return [`${Math.floor(r.rest / 60)} h ${raw} min`]; },
     'TIME-NO-CARRY': (q) => { const r = dh(q); return [hmText(r.xm + r.rest - 60)]; },
     'TIME-MIXED-FORMS': (q) => { const r = dh(q); return [hmText(Number(r.after) + r.rest)]; },
-    'UNIT-COMPARE-NUMBERS': (q) => [dh(q).raw],
+    'UNIT-MIXED': (q) => [dh(q).raw],
   },
   'm15.clock-24h': {
     'TIME-24H-PLUS-12-WRONG': clockWrong,
@@ -222,10 +238,11 @@ export const MIS = {
     'TIME-MIDNIGHT': (q) => { const d = durInfo(q); return [hmText(d.s - (d.e - 1440)), hmText(d.dur + 60)]; },
   },
   'm15.end-time': {
-    'TIME-MIDNIGHT': (q) => { const r = endInfo(q); const raw = (Math.floor(r.s / 60) + Math.floor(r.dur / 60)) * 60 + (r.s % 60) + (r.dur % 60); return [`${two(Math.floor(raw / 60))}:${two(raw % 60)}`]; },
+    'TIME-MIDNIGHT': (q) => { const r = endInfo(q); if (r.train) return [`${two(Math.floor(r.e / 60))}:${two(r.e % 60)}`]; const raw = (Math.floor(r.s / 60) + Math.floor(r.dur / 60)) * 60 + (r.s % 60) + (r.dur % 60); return [`${two(Math.floor(raw / 60))}:${two(raw % 60)}`]; },
     'TIME-MINUTES-OVERFLOW': (q) => { const r = endInfo(q); return [`${two((Math.floor(r.s / 60) + Math.floor(r.dur / 60)) % 24)}:${two((r.s % 60) + (r.dur % 60))}`]; },
     'TIME-NO-CARRY': (q) => [clock24(endInfo(q).e - 60)],
-    'TIME-STEP-MISSED': (q) => { const r = endInfo(q); return [clock24(r.s + r.n * r.sess)]; },
+    'TIME-STEP-MISSED': (q) => { const r = endInfo(q); return r.train ? [clock24(r.e - r.w)] : [clock24(r.s + r.n * r.sess)]; },
+    'ONE-STEP-ONLY': (q) => { const r = endInfo(q); return [clock24(r.s + r.d1)]; },
     'TIME-BREAKS-COUNT': (q) => { const r = endInfo(q); return [clock24(r.e + r.brk)]; },
     'TIME-100-MINUTES': (q) => { const r = endInfo(q); const tot = r.n * r.sess; return [clock24(r.s + Math.floor(tot / 100) * 60 + (tot % 100) + (r.n - 1) * r.brk)]; },
   },
@@ -240,9 +257,10 @@ export const MIS = {
   'm15.metric-convert': {
     'UNIT-FACTOR-WRONG': (q) => { const r = metricInfo(q); if (r.kind === 'mixed') return [r.w + r.part / 100]; return [10, 100, 1000].map((g) => r3(r.toSmall ? r.x * g : r.x / g)); },
     'PV-SHIFT-WRONG': (q) => { const r = metricInfo(q); return [r3(r.toSmall ? r.x / r.f : r.x * r.f)]; },
-    'UNIT-DROP-ZERO': (q) => { const r = metricInfo(q); return [Number(`${r.w}.${r.part}`)]; },
-    'UNIT-NOT-CONVERTED-M15': (q) => { const r = metricInfo(q); return [r.w * r.f + r.part]; },
-    'UNIT-COMPARE-NUMBERS': (q) => [metricInfo(q).raw],
+    'UNIT-DROP-ZERO': (q) => { const r = metricInfo(q); return r.kind === 'compare' ? r.dropped : [Number(`${r.w}.${r.part}`)]; },
+    'DEC-LONGER-BIGGER': (q) => [metricInfo(q).longer],
+    'UNIT-NOT-CONVERTED': (q) => { const r = metricInfo(q); return [r.w * r.f + r.part]; },
+    'UNIT-MIXED': (q) => [metricInfo(q).raw],
   },
   'm15.read-scale': {
     'SCALE-INTERVAL-WRONG': (q) => { const r = scaleInfo(q); return [].concat(r.wrong); },
@@ -253,14 +271,15 @@ export const MIS = {
   'm15.rectangle': {
     'AREA-PERIM-SWAP': (q) => rectInfo(q).swap,
     'PERIM-TWO-SIDES': (q) => rectInfo(q).two,
+    'PERIM-THREE-SIDES': (q) => rectInfo(q).three,
     'DEC-MULT-POINT': (q) => rectInfo(q).point,
     'UNIT-MIXED': (q) => rectInfo(q).unitMixed,
     'UNIT-FACTOR-WRONG': (q) => rectInfo(q).factor,
     'RECT-SIDE-ONLY': (q) => rectInfo(q).side,
   },
   'm15.tiles': {
-    'TILES-ADD': (q) => { const r = tileInfo(q); return [r.a + r.b]; },
+    'AREA-ADDS-SIDES': (q) => { const r = tileInfo(q); return [r.a + r.b]; },
     'TILES-EDGE-ONLY': (q) => { const r = tileInfo(q); return [2 * (r.a + r.b) - 4]; },
-    'AREA-PERIM-SWAP': (q) => [tileInfo(q).byside],
+    'TILES-AREA-BY-SIDE': (q) => [tileInfo(q).byside],
   },
 };

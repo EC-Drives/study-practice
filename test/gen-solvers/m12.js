@@ -163,7 +163,8 @@ function tallyRead(q) {
     return { kind: 'sum', ans: total(rows.map(([x, f]) => x * f)), rows };
   }
   const cats = dg.rows.map((r) => r[0]);
-  const freq = (r) => { const last = r[r.length - 1]; return last === '?' ? r[1].tally : Number(last); };
+  // the frequency column, or the tally itself when the column is blank ('?') or left out (D2)
+  const freq = (r) => { const last = r[r.length - 1]; return last && typeof last === 'object' ? last.tally : last === '?' ? r[1].tally : Number(last); };
   const named = mentioned(t, cats);
   if (/altogether/.test(t)) return { kind: 'all', ans: total(dg.rows.map(freq)), fs: dg.rows.map(freq) };
   if (/How many more/.test(t)) { const [a, b] = named.map((c) => freq(dg.rows[cats.indexOf(c)])); return { kind: 'more', ans: a - b, a, b }; }
@@ -195,7 +196,7 @@ function outlierNums(q) {
   const newMean = (S + X) / (k + 1);
   const old = S / k;
   if (/go up/.test(q.prompt)) return { kind: 'change', ans: newMean - old, newMean, old, wrongCount: (S + X) / k - old };
-  return { kind: 'mean', ans: newMean, old, wrongCount: (S + X) / k, median: midOf([...vals, X]) };
+  return { kind: 'mean', ans: newMean, old, wrongCount: (S + X) / k, median: midOf([...vals, X]), totalOnly: S + X };
 }
 
 export const SOLVERS = {
@@ -272,8 +273,8 @@ export const MIS = {
     'AVG-CHANGE-AS-MEAN': (q) => [outlierNums(q).newMean],
   },
   'm12.read-bar-chart': {
-    'DATA-SCALE-AS-ONE': (q) => { const r = barRead(q); return [r.ans / r.line]; },
-    'DATA-NEXT-GRIDLINE': (q) => { const r = barRead(q); return [r.ans + r.line, r.ans - r.line]; },
+    'SCALE-INTERVAL-WRONG': (q) => { const r = barRead(q); return [r.ans / r.line]; },
+    'SCALE-NEXT-MARK': (q) => { const r = barRead(q); return [r.ans + r.line, r.ans - r.line]; },
     'DATA-WRONG-ITEM': (q) => { const r = barRead(q); return [r.v[r.i - 1], r.v[r.i + 1]].filter((x) => x != null); },
     'DATA-ONE-VALUE': (q) => { const r = barRead(q); return [r.a, r.b]; },
     'OP-SWAP': (q) => { const r = barRead(q); return [r.a + r.b]; },
@@ -288,13 +289,13 @@ export const MIS = {
     'PCT-OF-WRONG-WHOLE': (q) => { const r = dualRead(q); return [r.other / (r.mine + r.other), r.mine / r.all]; },
   },
   'm12.line-graph': {
-    'DATA-NEXT-GRIDLINE': (q) => { const r = lineRead(q); return [r.ans + r.line, r.ans - r.line]; },
+    'SCALE-NEXT-MARK': (q) => { const r = lineRead(q); return [r.ans + r.line, r.ans - r.line]; },
     'DATA-WRONG-ITEM': (q) => { const r = lineRead(q); return [r.v[r.i - 1], r.v[r.i + 1]].filter((x) => x != null); },
     'DATA-HIGHEST-NOT-CHANGE': (q) => { const r = lineRead(q); const h = r.v.indexOf(Math.max(...r.v)); return [r.iv(h - 1)]; },
     'DATA-FALL-AS-RISE': (q) => { const r = lineRead(q); return [r.iv(r.ch.indexOf(Math.min(...r.ch)))]; },
     'DATA-ONE-VALUE': (q) => { const r = lineRead(q); return r.kind === 'change' ? [r.vi, r.vj] : [r.hv, r.lv]; },
     'OP-SWAP': (q) => { const r = lineRead(q); return r.kind === 'change' ? [r.vi + r.vj] : [r.hv + r.lv]; },
-    'DATA-SCALE-AS-ONE': (q) => { const r = lineRead(q); return [r.ans / r.line]; },
+    'SCALE-INTERVAL-WRONG': (q) => { const r = lineRead(q); return [r.ans / r.line]; },
     'DATA-HIGHEST-NOT-DIFFERENCE': (q) => { const r = lineRead(q); const all = [...r.v, ...r.w]; return [r.cats[all.indexOf(Math.max(...all)) % r.cats.length]]; },
   },
   'm12.pie-chart': {
@@ -303,6 +304,7 @@ export const MIS = {
     'PCT-OF-WRONG-WHOLE': (q) => { const r = pieRead(q); return r.draw ? [360 - r.ans] : [r.N - r.ans]; },
     'DATA-COUNT-AS-ANGLE': (q) => [pieRead(q).count],
     'DATA-PIE-DIVIDE-GROUP': (q) => [360 / pieRead(q).count],
+    'WRONG-QUANTITY': (q) => [pieRead(q).N],
   },
   'm12.venn-carroll': {
     'VENN-PROPERTY-SLIP': (q) => {
@@ -321,7 +323,10 @@ export const MIS = {
     'VENN-OVERLAP-TWICE': (q) => { const r = vennCountNums(q); return [r.N - r.a - r.b, r.a + r.b]; },
     'VENN-OVERLAP-ADDED': (q) => { const r = vennCountNums(q); return [r.N - r.a - r.b - r.both, r.a + r.b + r.both]; },
     'VENN-OVERLAP-IGNORED': (q) => [vennCountNums(q).a],
-    'PCT-OF-WRONG-WHOLE': (q) => { const r = vennCountNums(q); return [r.a + r.b - r.both, r.N - r.b, r.N - (r.a + r.b - r.both)]; },
+    'PCT-OF-WRONG-WHOLE': (q) => { const r = vennCountNums(q); return [r.N - r.b, r.N - (r.a + r.b - r.both)]; },
+    'VENN-UNION-AS-NEITHER': (q) => { const r = vennCountNums(q); return [r.a + r.b - r.both]; },
+    'ITEM-LEFT-OUT': (q) => { const r = vennCountNums(q); return [r.N - r.a, r.N - r.b]; },
+    'WRONG-QUANTITY': (q) => { const r = vennCountNums(q); return [r.b - r.both]; },
   },
   'm12.tally-frequency': {
     'DATA-TALLY-GATE-FOUR': (q) => { const r = tallyRead(q); return [4 * r.g + r.r]; },

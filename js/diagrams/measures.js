@@ -298,7 +298,7 @@ const scale = {
       if (s.kind === 'ruler') parts.push(`The ${s.object || 'bar'} starts ${scalePosition(s, s.from != null ? s.from : s.min, 'after')} and ends ${scalePosition(s, s.value, 'after')}.`);
       else if (s.kind === 'jug' || s.kind === 'cylinder') parts.push(`The liquid comes up to the level ${scalePosition(s, s.value)}.`);
       else if (s.kind === 'thermometer') parts.push(`The liquid in the tube reaches ${scalePosition(s, s.value)}.`);
-      else if (s.kind === 'newtonMeter') parts.push(`${s.load ? `A load labelled ${say(s.load)} hangs from the hook. ` : 'A load hangs from the hook. '}The pointer is ${scalePosition(s, s.value, 'below')}.`);
+      else if (s.kind === 'newtonMeter') parts.push(`${s.load ? `A load labelled ${say(s.load)} hangs from the hook. ` : 'A load hangs from the hook. '}The pointer is ${scalePosition(s, s.value, 'after')}.`);
       else parts.push(`The pointer is ${scalePosition(s, s.value, 'after')}.`);
     }
     return parts.join(' ');
@@ -347,7 +347,7 @@ const spinner = {
     const counts = {};
     s.sectors.forEach((n, i) => { const k = tidy(String(n)); counts[k] = (counts[k] || 0) + sizes[i]; });
     const parts = [`A spinner with ${s.sectors.length} ${equal ? 'equal' : 'unequal'} sections, clockwise from the top: ${listText(s.sectors.map((x) => say(x)))}.`];
-    if (equal) parts.push(`${cap(listText(Object.entries(counts).map(([k, v]) => `${v} ${k}`)))}.`);
+    if (equal && Object.values(counts).some((v) => v > 1)) parts.push(`${cap(listText(Object.entries(counts).map(([k, v]) => `${v} ${v === 1 ? 'section' : 'sections'} ${/^-?\d/.test(k) ? `show ${k}` : k}`)))}.`);
     else {
       const total = sizes.reduce((a, b) => a + b, 0);
       parts.push(`${cap(listText(s.sectors.map((n, i) => `the ${tidy(String(n))} section is ${round((sizes[i] / total) * 360, 1)}°`)))}.`);

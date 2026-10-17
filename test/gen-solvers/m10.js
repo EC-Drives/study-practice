@@ -17,6 +17,11 @@ function twoTerms(q) {
   const m = q.prompt.match(new RegExp(`Work out ${FR} ([+-]) ${FR}\\.`));
   return m ? { a: m[1], op: m[2], b: m[3] } : null;
 }
+/** a + b op c from "Work out a + b op c." */
+function threeTerms(q) {
+  const m = q.prompt.match(new RegExp(`Work out ${FR} \\+ ${FR} ([+-]) ${FR}\\.`));
+  return m ? { a: m[1], b: m[2], op: m[3], c: m[4] } : null;
+}
 /** "What is the missing fraction? ..." -> { kind, a, c } */
 function missing(q) {
   let m;
@@ -108,7 +113,11 @@ export const MIS = {
       const m = missing(q);
       return [v(tb(m.c, m.a, m.kind === '?-a=c'))];
     },
-    'FR-ADD-TOPS-KEEP-BOTTOM': (q) => { const t = twoTerms(q); return [v(keep(parseQ(t.a), parseQ(t.b), t.op === '+'))]; },
+    'FR-ADD-TOPS-KEEP-BOTTOM': (q) => {
+      const t = twoTerms(q);
+      if (t) return [v(keep(parseQ(t.a), parseQ(t.b), t.op === '+'))];
+      const m = missing(q); return [v(keep(m.c, m.a, m.kind === '?-a=c'))];
+    },
     'OP-SWAP': (q) => { const t = twoTerms(q); const a = parseQ(t.a); const b = parseQ(t.b); return [v(t.op === '+' ? absQ(qsub(a, b)) : qadd(a, b))]; },
     'INVERSE-WRONG': (q) => { const m = missing(q); return [v(m.kind === '?-a=c' ? absQ(qsub(m.c, m.a)) : qadd(m.c, m.a))]; },
   },
@@ -123,13 +132,22 @@ export const MIS = {
       if (t) { const wa = whole(t.a); const wb = whole(t.b); return [v(qadd(qsub(wa, wb), qsub(fracPart(t.b), fracPart(t.a)))), r + 1]; }
       return [r + 1];
     },
-    'FR-MIXED-NO-CARRY': (q) => [SOLVERS['m10.mixed-add-sub'](q).value - 1],
+    'FR-MIXED-NO-CARRY': (q) => { const r = SOLVERS['m10.mixed-add-sub'](q).value; return [r - 1, r - 2]; },
+    'ONE-STEP-ONLY': (q) => { const m = threeTerms(q); return [v(qadd(parseQ(m.a), parseQ(m.b)))]; },
     'FR-ADD-TOPS-BOTTOMS': (q) => {
       const t = twoTerms(q); const plus = t.op === '+';
       const w = plus ? qadd(whole(t.a), whole(t.b)) : qsub(whole(t.a), whole(t.b));
       return [v(qadd(w, tb(fracPart(t.a), fracPart(t.b), plus)))];
     },
     'FR-ADD-TOPS-KEEP-BOTTOM': (q) => {
+      const m3 = threeTerms(q);
+      if (m3) {
+        const sg = m3.op === '+' ? 1n : -1n;
+        const w = qadd(qadd(whole(m3.a), whole(m3.b)), m3.op === '+' ? whole(m3.c) : Q(-whole(m3.c)[0]));
+        const fs = [fracPart(m3.a), fracPart(m3.b), fracPart(m3.c)];
+        const L = fs[0][1] > fs[1][1] ? fs[0][1] : fs[1][1];
+        return [v(qadd(w, Q(fs[0][0] + fs[1][0] + sg * fs[2][0], L)))];
+      }
       const t = twoTerms(q); const plus = t.op === '+';
       const w = plus ? qadd(whole(t.a), whole(t.b)) : qsub(whole(t.a), whole(t.b));
       return [v(qadd(w, keep(fracPart(t.a), fracPart(t.b), plus)))];
@@ -138,7 +156,7 @@ export const MIS = {
       const m = q.prompt.match(new RegExp(`Work out ${FR} \\+ ${FR} - ${FR}\\.`));
       if (m) return [v(qadd(qadd(parseQ(m[1]), parseQ(m[2])), parseQ(m[3])))];
       const t = twoTerms(q);
-      return [v(qadd(parseQ(t.a), parseQ(t.b)))];
+      return [v(t.op === '+' ? qsub(parseQ(t.a), parseQ(t.b)) : qadd(parseQ(t.a), parseQ(t.b)))];
     },
   },
   'm10.fraction-of-amount': {

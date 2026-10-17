@@ -2,7 +2,7 @@
 // text (and the number line's data), and the misconception rules that must reproduce each wrong
 // option from its code. Exact arithmetic with lib.js rationals; no code shared with js/generators.
 
-import { Q, qadd, qsub, qmul, qdiv, qnum, parseQ, valueIn } from './lib.js';
+import { Q, qadd, qsub, qmul, qdiv, qnum, qeq, parseQ, valueIn } from './lib.js';
 
 const NUM = String.raw`-?\d{1,3}(?: \d{3})+(?:\.\d+)?|-?\d+(?:\.\d+)?`;
 const v = (q) => qnum(q);
@@ -110,11 +110,17 @@ const inv = (op) => (op === 'x' ? '÷' : 'x');
 const UNIT_EXP = { tenths: -1, hundredths: -2, thousandths: -3, ones: 0, one: 0, tenth: -1, hundredth: -2, thousandth: -3 };
 const valueOfParts = (text) => [...String(text).matchAll(/(\d+) (ones?|tenths?|hundredths?|thousandths?)\b/g)].reduce((s, x) => qadd(s, qmul(Q(x[1]), P(UNIT_EXP[x[2]]))), Q(0));
 const digitIn = (a, e) => Number(floorQ(qdiv(a, P(e))) % 10n);
+/** "1 tenth", "3 tenths". */
+const cnt = (n, unit) => `${n} ${n === 1 ? unit.replace(/s$/, '') : unit}`;
 
 function regroupParts(q) {
   const t = q.prompt; let m;
   if ((m = t.match(new RegExp(`^Work out (.*)\\.$`)))) return { kind: 'sum', terms: m[1].split(' + ') };
   if ((m = t.match(new RegExp(`^Fill in the missing part: (${NUM}) = (.*)$`)))) return { kind: 'missing', n: num(m[1]), terms: m[2].split(' + ') };
+  if (/thousandths?/.test(t) && (m = t.match(new RegExp(`missing number: (${NUM}) = (.*)$`)))) {
+    const terms = m[2].split(' + ').map((x) => { const k = x.match(/^(\d+|\?) (ones?|tenths?|hundredths?|thousandths?)$/); return { n: k[1], e: UNIT_EXP[k[2]] }; });
+    return { kind: 'parts', n: num(m[1]), terms };
+  }
   if ((m = t.match(new RegExp(`missing number: (${NUM}) = \\? tenths \\+ (\\d+) hundredths?`)))) return { kind: 'tenths', n: num(m[1]), h: Q(m[2]) };
   if ((m = t.match(new RegExp(`missing number: (${NUM}) = (\\d+) ones? \\+ \\? hundredths`)))) return { kind: 'hundredths', n: num(m[1]), w: Q(m[2]) };
   if ((m = t.match(new RegExp(`How many (tenths|hundredths|thousandths) are there in (${NUM}) altogether`)))) return { kind: 'howmany', e: UNIT_EXP[m[1]], n: num(m[2]) };
@@ -132,6 +138,7 @@ const NEAREST = [['ten thousand', Q(10000)], ['tenth', Q(1, 10)], ['whole number
 const nearestOf = (t) => { const m = t.match(/nearest (ten thousand|tenth|whole number|hundred|thousand|ten)\b/); return NEAREST.find(([k]) => k === m[1])[1]; };
 function roundParts(q) {
   const t = q.prompt;
+  if (/Which of these numbers rounds to/.test(t)) return { kind: 'which', R: num(t.match(new RegExp(`rounds to (${NUM}) when`))[1]), place: nearestOf(t) };
   if (/SMALLEST|LARGEST/.test(t)) {
     const R = num(t.match(new RegExp(`\\bis (${NUM})`))[1]);
     const unit = /two decimal places/.test(t) ? Q(1, 100) : /one decimal place/.test(t) ? Q(1, 10) : Q(1);
@@ -192,6 +199,10 @@ export const SOLVERS = {
     const p = regroupParts(q);
     if (p.kind === 'sum') return { value: v(p.terms.reduce((s, x) => qadd(s, num(x)), Q(0))) };
     if (p.kind === 'missing') return { value: v(qsub(p.n, p.terms.filter((x) => x !== '?').reduce((s, x) => qadd(s, num(x)), Q(0)))) };
+    if (p.kind === 'parts') {
+      const known = p.terms.filter((x) => x.n !== '?').reduce((s, x) => qadd(s, qmul(Q(x.n), P(x.e))), Q(0));
+      return { value: v(qdiv(qsub(p.n, known), P(p.terms.find((x) => x.n === '?').e))) };
+    }
     if (p.kind === 'tenths') return { value: v(qmul(qsub(p.n, qdiv(p.h, Q(100))), Q(10))) };
     if (p.kind === 'hundredths') return { value: v(qmul(qsub(p.n, p.w), Q(100))) };
     if (p.kind === 'howmany') return { value: v(qdiv(p.n, P(p.e))) };
@@ -200,6 +211,7 @@ export const SOLVERS = {
   },
   'm01.rounding': (q) => {
     const p = roundParts(q);
+    if (p.kind === 'which') return { text: q.options.find((o) => qeq(roundQ(num(o), p.place), p.R)) };
     if (p.kind === 'round') return { value: v(roundQ(p.x, p.place)) };
     const b = bounds(p);
     return { value: v(p.small ? b.lo : b.hi) };
@@ -215,8 +227,8 @@ export const SOLVERS = {
       const a = valueIn(m[1]); const b = valueIn(m[3]);
       return { bool: m[2] === '>' ? a > b : a < b };
     }
-    if ((m = t.match(new RegExp(`exactly (two|three) decimal places are greater than (${NUM}) but less than (${NUM})`)))) {
-      const k = m[1] === 'two' ? 2 : 3;
+    if ((m = t.match(new RegExp(`Count in (hundredths|thousandths) \\(steps of [\\d.]+\\)\\. How many numbers are greater than (${NUM}) but less than (${NUM})`)))) {
+      const k = m[1] === 'hundredths' ? 2 : 3;
       return { value: v(qsub(qmul(qsub(num(m[3]), num(m[2])), P(k)), Q(1))) };
     }
     if ((m = t.match(new RegExp(`halfway between (${NUM}) and (${NUM})`)))) return { value: v(qdiv(qadd(num(m[1]), num(m[2])), Q(2))) };
@@ -277,7 +289,9 @@ export const MIS = {
       if (p.kind === 'one') return [ap(p.x, p.op, qdiv(p.p, Q(10))), ap(p.x, p.op, qmul(p.p, Q(10))), ap(p.x, inv(p.op), p.p)].map(v);
       if (p.kind === 'power') return [10, 100, 1000, 10000];
       if (p.kind === 'start') return [ap(p.r, inv(p.op), qdiv(p.p, Q(10))), ap(p.r, inv(p.op), qmul(p.p, Q(10)))].map(v);
-      return [];
+      // chain: one of the two steps one place out
+      const r = ap(ap(p.x, p.o1, p.p1), p.o2, p.p2);
+      return [qmul(r, Q(10)), qdiv(r, Q(10))].map(v);
     },
     'PV-ADD-ZERO': (q) => [v(timesParts(q).x)],
     'INVERSE-WRONG': (q) => { const p = timesParts(q); return [v(ap(p.r, p.op, p.p))]; },
@@ -293,7 +307,7 @@ export const MIS = {
         return [`${whole}.${dec.join('')}`];
       }
       const a = digitIn(p.n, 0); const c = digitIn(p.n, -2);
-      return [`${a}${c} hundredths`];
+      return [cnt(Number(`${a}${c}`), 'hundredths')];
     },
     'PV-ORDER-AS-GIVEN': (q) => {
       const p = regroupParts(q);
@@ -319,15 +333,18 @@ export const MIS = {
       if (p.kind === 'tenths') return [digitIn(p.n, -1), digitIn(p.n, 0)];
       if (p.kind === 'hundredths') return [digitIn(p.n, -2), digitIn(p.n, -1)];
       if (p.kind === 'howmany') return [digitIn(p.n, p.e)];
+      if (p.kind === 'parts') return [digitIn(p.n, -1), digitIn(p.n, -2), digitIn(p.n, -3)];
       const a = digitIn(p.n, 0); const c = digitIn(p.n, -2);
-      return [`${a} ${a === 1 ? 'one' : 'ones'} and ${c} hundredths`];
+      return [`${cnt(a, 'ones')} and ${cnt(c, 'hundredths')}`];
     },
     'PV-WRONG-UNIT': (q) => {
       const p = regroupParts(q);
       if (p.kind === 'tenths' || p.kind === 'hundredths') return [v(qmul(p.n, Q(100)))];
       if (p.kind === 'howmany') { const ans = qdiv(p.n, P(p.e)); return [Number(floorQ(qdiv(ans, Q(10)))), v(qmul(ans, Q(10)))]; }
+      // the whole number in thousandths; the tenths; the hundredths after the ones
+      if (p.kind === 'parts') return [v(qmul(p.n, Q(1000))), Number(floorQ(qmul(p.n, Q(10)))), Number(floorQ(qmul(qsub(p.n, Q(floorQ(p.n))), Q(100))))];
       const a = digitIn(p.n, 0); const b = digitIn(p.n, -1); const c = digitIn(p.n, -2);
-      return [`${a} tenths and ${b * 10 + c} hundredths`, `${a * 10 + b} hundredths and ${c} thousandths`, `${a * 10 + b} tenths and ${c} tenths`];
+      return [`${cnt(a, 'tenths')} and ${cnt(b * 10 + c, 'hundredths')}`, `${cnt(a * 10 + b, 'hundredths')} and ${cnt(c, 'thousandths')}`, `${cnt(a * 10 + b, 'tenths')} and ${cnt(c, 'tenths')}`];
     },
     'COL-NO-CARRY': (q) => { const p = regroupParts(q); return [v(Object.entries(p.c).reduce((s, [e, n]) => qadd(s, qmul(Q(Number(e) === 0 ? n : n % 10), P(Number(e)))), Q(0)))]; },
     'PV-REGROUP-AS-DIGITS': (q) => {
@@ -337,11 +354,25 @@ export const MIS = {
   },
   'm01.rounding': {
     'ROUND-TRUNCATE': (q) => { const p = roundParts(q); return [v(downQ(p.x, p.place))]; },
-    'ROUND-WRONG-WAY': (q) => { const p = roundParts(q); return [v(upQ(p.x, p.place))]; },
+    'ROUND-WRONG-WAY': (q) => {
+      const p = roundParts(q);
+      // which rounds to R: an option below the halfway point that would round up to R
+      if (p.kind === 'which') return q.options.filter((o) => qeq(upQ(num(o), p.place), p.R) && !qeq(roundQ(num(o), p.place), p.R));
+      return [v(upQ(p.x, p.place))];
+    },
     'ROUND-WRONG-PLACE': (q) => { const p = roundParts(q); return [v(roundQ(p.x, qmul(p.place, Q(10)))), v(roundQ(p.x, qdiv(p.place, Q(10))))]; },
     'ROUND-9-CARRY': (q) => { const p = roundParts(q); return [v(qadd(Q(floorQ(p.x)), Q(1, 10)))]; },
-    'ROUND-BOUND-SAME-DIGIT': (q) => { const p = roundParts(q); return [v(p.small ? p.R : qsub(qadd(p.R, p.place), p.unit))]; },
-    'ROUND-BOUND-HALFWAY': (q) => { const p = roundParts(q); const half = qdiv(p.place, Q(2)); return [v(p.small ? qsub(qsub(p.R, half), p.unit) : qadd(p.R, half))]; },
+    'ROUND-BOUND-SAME-DIGIT': (q) => {
+      const p = roundParts(q);
+      // which rounds to R: an option that starts with R's digits but rounds up past it
+      if (p.kind === 'which') return q.options.filter((o) => qeq(downQ(num(o), p.place), p.R) && !qeq(roundQ(num(o), p.place), p.R));
+      return [v(p.small ? p.R : qsub(qadd(p.R, p.place), p.unit))];
+    },
+    'ROUND-BOUND-HALFWAY': (q) => {
+      const p = roundParts(q); const half = qdiv(p.place, Q(2));
+      if (p.kind === 'which') return [v(qadd(p.R, half))];
+      return [v(p.small ? qsub(qsub(p.R, half), p.unit) : qadd(p.R, half))];
+    },
     'BOUND-OTHER-END': (q) => { const p = roundParts(q); const b = bounds(p); return [v(p.small ? b.hi : b.lo)]; },
   },
   'm01.compare-order': {
@@ -353,7 +384,7 @@ export const MIS = {
     'PV-WRONG-PLACE': (q) => { const m = q.prompt.match(new RegExp(`halfway between (${NUM}) and (${NUM})`)); return [v(qadd(num(m[1]), Q(5, 1000)))]; },
   },
   'm01.number-line': {
-    'NL-INTERVAL-WRONG': (q) => { const p = lineParts(q); return [qdiv(p.step, Q(10)), qdiv(p.minor, Q(10)), qmul(p.minor, Q(10))].map((s) => v(qadd(p.left, qmul(p.j, s)))); },
+    'SCALE-INTERVAL-WRONG': (q) => { const p = lineParts(q); return [qdiv(p.step, Q(10)), qdiv(p.minor, Q(10)), qmul(p.minor, Q(10))].map((s) => v(qadd(p.left, qmul(p.j, s)))); },
     'NL-COUNT-LINES': (q) => { const p = lineParts(q); return [v(qadd(p.at, p.minor))]; },
     'NL-FROM-WRONG-END': (q) => { const p = lineParts(q); return [v(qsub(qadd(p.left, p.step), qmul(p.j, p.minor)))]; },
   },

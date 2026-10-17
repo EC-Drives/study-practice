@@ -87,7 +87,7 @@ function saInfo(q) {
   let m;
   if ((m = q.prompt.match(/Each face of a cube has an area of (\d+)/))) { const a = Number(m[1]); const e = Math.sqrt(a); return { l: e, w: e, h: e, full: 6 * a, ans: 6 * a }; }
   if ((m = q.prompt.match(/cube with edges (\d+)|cube has edges (\d+)/))) { const e = Number(m[1] || m[2]); return { l: e, w: e, h: e, full: 6 * e * e, ans: 6 * e * e }; }
-  if (!q.diagram) { const A = num(numbersIn(q.prompt)[0]); return { edgeQ: true, A, e: Math.sqrt(A / 6) }; }
+  if (!q.diagram) { const A = num(numbersIn(q.prompt)[0]); return { edgeQ: true, A, e: Math.sqrt(A / 6), vol: /What is its volume/.test(q.prompt) }; }
   const { l, w, h } = cub(q);
   const full = 2 * (l * w + l * h + w * h);
   return { l, w, h, full, open: /no lid/.test(q.prompt), ans: /no lid/.test(q.prompt) ? full - l * w : full };
@@ -120,7 +120,7 @@ export const SOLVERS = {
     return ask ? { value: NETS[k][ask[1]] } : { text: NETS[k].name };
   },
   'm04.cube-net': (q) => (q.type === 'truefalse' ? { bool: !!foldNormals(q.diagram.cells) } : { text: opposite(q).ans }),
-  'm04.surface-area': (q) => { const s = saInfo(q); return { value: s.edgeQ ? s.e : s.ans }; },
+  'm04.surface-area': (q) => { const s = saInfo(q); return { value: s.edgeQ ? (s.vol ? s.e ** 3 : s.e) : s.ans }; },
   'm04.volume': (q) => ({ value: volInfo(q).ans }),
   'm04.capacity': (q) => ({ value: capInfo(q).ans }),
 };
@@ -143,8 +143,10 @@ export const MIS = {
     'NET-ADJACENT': (q) => opposite(q).adjacent,
   },
   'm04.surface-area': {
-    'SA-FOUR-FACES': (q) => { const s = saInfo(q); return s.edgeQ ? [s.A / 4] : [4 * s.l * s.l, 6 * s.l * s.w]; },
-    'SA-VOLUME-SWAP': (q) => { const s = saInfo(q); return [s.l * s.w * s.h]; },
+    'SA-FOUR-FACES': (q) => { const s = saInfo(q); return s.edgeQ ? [s.A / 4] : [4 * s.l * s.l]; },
+    'SA-CUBE-RULE': (q) => { const s = saInfo(q); return [6 * s.l * s.w]; },
+    'SA-VOLUME-SWAP': (q) => { const s = saInfo(q); return s.edgeQ ? [s.A] : [s.l * s.w * s.h]; },
+    'ONE-STEP-ONLY': (q) => { const s = saInfo(q); return [s.e * s.e, s.e]; },
     'SA-NO-SQUARE': (q) => [6 * saInfo(q).l],
     'SA-ONE-FACE': (q) => { const s = saInfo(q); return [s.l * s.l]; },
     'SA-ONE-FACE-EACH': (q) => { const s = saInfo(q); return [s.l * s.w + s.l * s.h + s.w * s.h]; },
@@ -168,7 +170,7 @@ export const MIS = {
   'm04.capacity': {
     'UNIT-FACTOR-WRONG': (q) => {
       const c = capInfo(q);
-      if (c.kind === 'L>ml') return [Math.round(c.x * 100), Math.round(c.x * 10)];
+      if (c.kind === 'L>ml') return [c.x * 100, c.x * 10];
       if (c.kind === 'cm3>ml') return [c.x * 1000, c.x * 10, c.x / 10];
       if (c.kind === '>L') return [c.x / 100, c.x / 10];
       if (c.kind === 'tank') return [c.V / 100, c.V / 10000];

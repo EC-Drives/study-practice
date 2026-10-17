@@ -70,7 +70,8 @@ function mdParts(q) {
 function decParts(q) {
   const t = q.prompt; let m;
   if ((m = t.match(new RegExp(`^Work out (${NUM}) ([+-]) (${NUM})\\.$`)))) return { kind: 'calc', ta: m[1], add: m[2] === '+', tb: m[3] };
-  if ((m = t.match(new RegExp(`add to (${NUM}) to make exactly (\\d+)`))) || (m = t.match(new RegExp(`missing number: (${NUM}) \\+ \\? = (\\d+)`)))) return { kind: 'comp', tx: m[1], T: N(m[2]) };
+  if ((m = t.match(new RegExp(`missing number: (${NUM}) \\+ (${NUM}) \\+ \\? = (\\d+)`)))) return { kind: 'comp2', t1: m[1], t2: m[2], T: N(m[3]) };
+  if (/pours .* L of water and then|runs .* km on Monday and/.test(t)) { const ns = numbersIn(t); return { kind: 'comp2', t1: ns[0], t2: ns[1], T: N(ns[2]) }; }
   return null;
 }
 
@@ -138,7 +139,7 @@ function holds(eq, L, x) {
 
 function barParts(q) {
   const t = q.prompt; let m;
-  if ((m = t.match(new RegExp(`has (${NUM}) seats\\. On Friday, (\\d+) .* On Saturday, (\\d+) more`)))) return { kind: 'left', cap: N(m[1]), F: N(m[2]), M: N(m[3]) };
+  if ((m = t.match(new RegExp(`has (${NUM}) .*? to (?:sell|fill)\\. On Friday, (\\d+) .* On Saturday, (\\d+) more`)))) return { kind: 'left', cap: N(m[1]), F: N(m[2]), M: N(m[3]) };
   if ((m = t.match(/On Friday, (\d+) tickets .* On Saturday, (\d+) more/))) return { kind: 'total', F: N(m[1]), M: N(m[2]) };
   m = t.match(/^(.+?) and (.+?) have (?:saved |read )?(?:RM )?(\d+) .*?altogether\. .*? (\d+) .*more than/);
   const A = m[1]; const B = m[2]; const T = N(m[3]); const D = N(m[4]);
@@ -170,7 +171,7 @@ export const SOLVERS = {
   'm05.decimals': (q) => {
     const p = decParts(q);
     if (p.kind === 'calc') return { value: v(p.add ? qadd(num(p.ta), num(p.tb)) : qsub(num(p.ta), num(p.tb))) };
-    return { value: v(qsub(Q(p.T), num(p.tx))) };
+    return { value: v(qsub(qsub(Q(p.T), num(p.t1)), num(p.t2))) };
   },
   'm05.money-measures': (q) => {
     const p = moneyParts(q);
@@ -224,20 +225,28 @@ export const MIS = {
   'm05.decimals': {
     'DEC-ALIGN-RIGHT': (q) => {
       const p = decParts(q);
+      if (p.kind === 'comp2') { const k = 10 ** Math.max(dpOf(p.t1), dpOf(p.t2)); return [p.T - (N(p.t1.replace('.', '')) + N(p.t2.replace('.', ''))) / k]; }
       const da = N(p.ta.replace('.', '')); const db = N(p.tb.replace('.', ''));
       const k = 10 ** Math.max(dpOf(p.ta), dpOf(p.tb));
       return [(p.add ? da + db : da - db) / k];
     },
     'COL-NO-CARRY': (q) => { const p = decParts(q); const s = scaled(p.ta, p.tb); return [noCarry(s.A, s.B) / s.k]; },
+    // 3.9 + 2.2 = 5.11: the tenths total written as hundredths
+    'PV-REGROUP-AS-DIGITS': (q) => {
+      const p = decParts(q);
+      const w = (t) => Math.trunc(N(t)); const tenth = (t) => N(t.split('.')[1]);
+      return [w(p.ta) + w(p.tb) + (tenth(p.ta) + tenth(p.tb)) / 100];
+    },
+    'ONE-STEP-ONLY': (q) => { const p = decParts(q); return [v(qadd(num(p.t1), num(p.t2)))]; },
+    'ITEM-LEFT-OUT': (q) => { const p = decParts(q); return [v(qsub(Q(p.T), num(p.t1))), v(qsub(Q(p.T), num(p.t2)))]; },
     'COL-SMALLER-FROM-LARGER': (q) => { const p = decParts(q); const s = scaled(p.ta, p.tb); return [smallFromLarge(s.A, s.B) / s.k]; },
     'COL-EXCHANGE-NOT-REDUCED': (q) => { const p = decParts(q); const s = scaled(p.ta, p.tb); return [noReduce(s.A, s.B) / s.k]; },
     'DEC-NO-EXCHANGE-WHOLE': (q) => {
-      const p = decParts(q); const dp = dpOf(p.tx);
+      // every decimal digit of the total made up to 10 (the last one rightly, the others one too many)
+      const p = decParts(q); const total = qadd(num(p.t1), num(p.t2)); const dp = Math.max(dpOf(p.t1), dpOf(p.t2));
       let extra = Q(0); for (let i = 1; i < dp; i++) extra = qadd(extra, Q(1, 10 ** i));
-      const each = qadd(qsub(Q(p.T), num(p.tx)), extra);
-      return [v(each), v(qadd(each, Q(1)))];
+      return [v(qadd(qsub(Q(p.T), total), extra))];
     },
-    'OP-SWAP': (q) => { const p = decParts(q); return [v(qadd(Q(p.T), num(p.tx)))]; },
   },
   'm05.money-measures': {
     'CHANGE-SPLIT': (q) => [SOLVERS['m05.money-measures'](q).value + 1],
@@ -250,9 +259,10 @@ export const MIS = {
       return [v(qadd(p.a, p.b))];
     },
     'COL-EXCHANGE-NOT-REDUCED': (q) => { const p = moneyParts(q); return [noReduce(Math.round(qnum(p.note) * 100), Math.round(qnum(sum(p.items)) * 100)) / 100]; },
-    'UNIT-MIXED-SAME': (q) => { const p = moneyParts(q); return p.kind === 'mass' ? [v(qadd(qadd(p.a, p.b), p.g))] : [v(qadd(qmul(p.k, Q(2)), p.mm))]; },
+    'UNIT-MIXED': (q) => { const p = moneyParts(q); return p.kind === 'mass' ? [v(qadd(qadd(p.a, p.b), p.g))] : [v(qadd(qmul(p.k, Q(2)), p.mm))]; },
     'UNIT-FACTOR-WRONG': (q) => { const p = moneyParts(q); return p.kind === 'mass' ? [v(qadd(qadd(p.a, p.b), qmul(p.g, Q(1, 100))))] : [v(qadd(qmul(p.k, Q(2)), qmul(p.mm, Q(1, 100))))]; },
-    'MORE-THAN-AS-AMOUNT': (q) => { const p = moneyParts(q); return [v(qadd(p.k, k1000(p.mm)))]; },
+    // Tuesday's distance only (CLO review m05 item 1)
+    'ONE-STEP-ONLY': (q) => { const p = moneyParts(q); return [v(qadd(p.k, k1000(p.mm)))]; },
   },
   'm05.integers': {
     'NEG-WRONG-SIGN': (q) => {
@@ -309,8 +319,9 @@ export const MIS = {
     'COL-EXCHANGE-NOT-REDUCED': (q) => { const p = unkParts(q); const [top, sm] = p.kind === 'from' ? [p.b, p.c] : [p.c, p.b]; const s = scaled(top, sm); return [noReduce(s.A, s.B) / s.k]; },
   },
   'm05.bar-model': {
-    'MORE-THAN-AS-AMOUNT': (q) => { const p = barParts(q); return p.kind === 'left' ? [p.cap - p.F - p.M] : [2 * p.F]; },
-    'ITEM-LEFT-OUT': (q) => { const p = barParts(q); return [p.cap - p.F]; },
+    'MORE-THAN-AS-AMOUNT': (q) => { const p = barParts(q); return [p.cap - p.F - p.M]; },
+    'ITEM-LEFT-OUT': (q) => { const p = barParts(q); return p.kind === 'left' ? [p.cap - p.F] : [2 * p.F]; },
+    'COL-NO-CARRY': (q) => { const p = barParts(q); return [noCarry(p.F, p.F + p.M)]; },
     'WRONG-QUANTITY': (q) => { const p = barParts(q); if (p.kind === 'left') return [2 * p.F + p.M]; if (p.kind === 'total') return [p.M]; return [p.askA ? (p.T - p.D) / 2 : (p.T + p.D) / 2]; },
     'ONE-STEP-ONLY': (q) => { const p = barParts(q); return [p.F + p.M]; },
     'BAR-NO-HALVE': (q) => { const p = barParts(q); return [p.T - p.D]; },

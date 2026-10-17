@@ -35,6 +35,8 @@ Each topic file loads on its own (`index.js` uses dynamic `import()` with a top-
 
 ## Integration hook (for the app side)
 
+Wired into the app on 17 Oct 2026 through `js/hooks.js`; how it was done is in `docs/v2-architecture.md`, "Diagrams and generated questions". The notes below are the original contract.
+
 1. **Explicit generator in the bank.** If a bank question has `"generator": "m10.add-sub-unlike"` (or `{ "id": "...", "difficulty": 2 }`), replace it at session start by `generate(id, freshSeed, difficulty ?? question.difficulty)`.
 2. **Pool running low.** In the sampler, when the unseen-recently pool for the chosen topic/subtopic/difficulty is smaller than the session needs, top it up with `generateSet(topicId, missing, freshSeed, { subtopicId, difficulty })`. A good rule: always mix in about one third generated questions for maths topics that have generators.
 3. **Storing attempts.** Store the whole generated question (it is small) or at least `generatorId`, `seed`, `difficulty` with the attempt, because the generated `id` is not in the bank files. History and mastery can key on `skill` and `subtopicId` as now.

@@ -62,8 +62,10 @@ const works = (opt, [i, o]) => v(runSteps(Q(i), parseSteps(opt))) === o;
 // ---------------------------------------------------------------- letters
 
 function ageParts(q) {
-  const m = q.prompt.match(/is ([a-z]) years old\. .* is (\d+) years (older|younger) than .* in (\d+) years' time/);
-  return { L: m[1], k: (m[3] === 'older' ? 1 : -1) * N(m[2]), m: N(m[4]) };
+  let m = q.prompt.match(/is ([a-z]) years old\. .* is (\d+) years (older|younger) than .* in (\d+) years' time/);
+  if (m) return { L: m[1], k: (m[3] === 'older' ? 1 : -1) * N(m[2]), m: N(m[4]) };
+  m = q.prompt.match(/has ([a-z]) (\w+)\. .* has (\d+) (more|fewer) \2 than .*\. Then the \w+ (?:is given (\d+) more|gives away (\d+))\. Which expression/);
+  return { L: m[1], k: (m[4] === 'more' ? 1 : -1) * N(m[3]), m: m[5] ? N(m[5]) : -N(m[6]) };
 }
 const expr = (L, c) => (c === 0 ? L : `${L} ${c > 0 ? '+' : '-'} ${Math.abs(c)}`);
 function sumDiff(q) { const m = q.prompt.match(/([a-z]) \+ ([a-z]) = (\d+), and \1 is (\d+) more than \2\. What is ([a-z])\?/); return { n: N(m[3]), k: N(m[4]), askX: m[5] === m[1] }; }
@@ -120,7 +122,7 @@ export const SOLVERS = {
     return { value: v(p.given === 'input' ? runSteps(p.x, p.steps) : undoAll(p.x, p.steps)) };
   },
   'm07.letters': (q) => {
-    if (/years' time/.test(q.prompt)) { const p = ageParts(q); return { text: expr(p.L, p.k + p.m) }; }
+    if (/years' time|Which expression/.test(q.prompt)) { const p = ageParts(q); return { text: expr(p.L, p.k + p.m) }; }
     const p = sumDiff(q); const big = (p.n + p.k) / 2;
     return { value: p.askX ? big : p.n - big };
   },
@@ -134,7 +136,7 @@ export const MIS = {
     'SEQ-STEP-ONE': (q) => { const p = seq(q); return [v(p.prev) + sgn(p.step), v(p.prev) + 1]; },
     'NEG-SIGN-DROP': (q) => [-v(seq(q).ans)],
     'SEQ-FIRST-AS-STEP': (q) => { const p = seq(q); return [v(qadd(p.prev, p.first))]; },
-    'DEC-NO-EXCHANGE': (q) => {
+    'PV-REGROUP-AS-DIGITS': (q) => {
       const p = seq(q); const pv = v(p.prev); const st = v(p.step);
       const t = Math.round(pv * 10) % 10; const u = Math.round(st * 10) % 10;
       return [`${Math.floor(pv) + Math.floor(st)}.${t + u}`];
@@ -163,6 +165,7 @@ export const MIS = {
     },
   },
   'm07.position-to-term': {
+    'ONE-STEP-ONLY': (q) => { const m = q.prompt.match(/is: (term = .*?)\. What is the (\d+)\w\w term/); const r = rule(m[1]); return [r.a * N(m[2])]; },
     'SEQ-OFF-BY-ONE': (q) => {
       const t = q.prompt; let m;
       if ((m = t.match(/is: (term = .*?)\. What is the (\d+)\w\w term/))) { const r = rule(m[1]); const n = N(m[2]); return [r.a * (n - 1) + r.b, r.a * (n + 1) + r.b]; }
@@ -184,12 +187,16 @@ export const MIS = {
     'SEQ-STEP-AS-RULE': (q) => {
       let m;
       if ((m = q.prompt.match(/Look at the sequence (.*), \.\.\. Which/))) { const s = listNums(m[1]); return [ruleText(s[1] - s[0], 0)]; }
-      if ((m = q.prompt.match(/A sequence starts (.*), \.\.\. What is the (\d+)\w\w term/))) { const s = listNums(m[1]); return [(s[1] - s[0]) * N(m[2]), s[0] * N(m[2])]; }
+      if ((m = q.prompt.match(/A sequence starts (.*), \.\.\. What is the (\d+)\w\w term/))) { const s = listNums(m[1]); return [(s[1] - s[0]) * N(m[2])]; }
       m = q.prompt.match(/Row 1 has (\d+) chairs\. Each row has (\d+) more .* in Row (\d+)\?/); return [N(m[2]) * N(m[3])];
     },
     'INVERSE-WRONG': (q) => { const m = q.prompt.match(/rule for a sequence is (term = .*?)\. Which position has the term (\d+)/); const r = rule(m[1]); return [(N(m[2]) + r.b) / r.a]; },
     'WRONG-QUANTITY': (q) => [N(q.prompt.match(/has the term (\d+)/)[1])],
-    'SEQ-FIRST-AS-STEP': (q) => { const m = q.prompt.match(/Row 1 has (\d+) chairs\. .* in Row (\d+)\?/); return [N(m[1]) * N(m[2])]; },
+    'SEQ-FIRST-TIMES-N': (q) => {
+      let m;
+      if ((m = q.prompt.match(/A sequence starts (.*), \.\.\. What is the (\d+)\w\w term/))) return [listNums(m[1])[0] * N(m[2])];
+      m = q.prompt.match(/Row 1 has (\d+) chairs\. .* in Row (\d+)\?/); return [N(m[1]) * N(m[2])];
+    },
   },
   'm07.spatial': {
     'SHARED-COUNTED-TWICE': (q) => {
@@ -223,8 +230,10 @@ export const MIS = {
       if ((m = t.match(/sequence of (square|cube) numbers\? (.*), \.\.\./))) { const e = m[1] === 'cube' ? 3 : 2; return [(rootOf(m[2], e) + 2) ** e]; }
       if ((m = t.match(/term = position x position\. What is the (\d+)/))) return [(N(m[1]) - 1) ** 2, (N(m[1]) + 1) ** 2];
       if ((m = t.match(/made by (adding|subtracting) (\d+) (?:to|from) each square number\. What is the (\d+)/))) return [(N(m[3]) - 1) ** 2 + (m[1] === 'adding' ? 1 : -1) * N(m[2])];
-      m = t.match(/does Pattern (\d+) have/); return [2 * N(m[1])];
+      return [];
     },
+    'CORNER-COUNTED-TWICE': (q) => [2 * N(q.prompt.match(/does Pattern (\d+) have/)[1])],
+    'SQ-CUBE-MIX': (q) => q.options.filter((o) => { const r = Math.round(Math.cbrt(N(o))); return r ** 3 === N(o) && !Number.isInteger(Math.sqrt(N(o))); }),
     'ONE-STEP-ONLY': (q) => [N(q.prompt.match(/What is the (\d+)/)[1]) ** 2],
     'WRONG-QUANTITY': (q) => [N(q.prompt.match(/does Pattern (\d+) have/)[1]) ** 2],
     'SEQ-STEP-ONE': () => [1],

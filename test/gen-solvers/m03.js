@@ -133,7 +133,9 @@ function compoundParts(q) {
   const W = Math.max(...pts.map((p) => p[0])); const H = Math.max(...pts.map((p) => p[1]));
   const lines = q.diagram.extraLines;
   if (lines.length === 1) { const w = lines[0].from[0]; const h = lines[0].to[1]; return { joined: true, w, h, t: W - w }; }
-  return { joined: false, W, H, a: num(String(lines[0].label).split(' ')[0]), b: num(String(lines[1].label).split(' ')[0]) };
+  // cut corner: the prompt gives the rectangle, then what is left of the top and right-hand edges
+  const ns = [...q.prompt.matchAll(/(\d+(?:\.\d+)?) (?:cm|m)\b/g)].map((x) => num(x[1]));
+  return { joined: false, W: ns[0], H: ns[1], a: ns[0] - ns[2], b: ns[1] - ns[3] };
 }
 
 // ---------------------------------------------------------------- rotational symmetry (from the drawn corners)
@@ -166,7 +168,11 @@ export const SOLVERS = {
   'm03.triangle-angle': (q) => ({ value: triAsk(q).ans }),
   'm03.special-triangle': (q) => ({ value: isoAns(isoAsk(q)) }),
   'm03.area-right-triangle': (q) => ({ value: areaAsk(q).ans }),
-  'm03.compound-area': (q) => ({ value: shoelace(q.diagram.points.map((p) => p.map(Number))) }),
+  'm03.compound-area': (q) => {
+    const c = compoundParts(q);
+    // joined: read from the drawing; cut corner: worked out from the prompt's lengths alone
+    return { value: c.joined ? shoelace(q.diagram.points.map((p) => p.map(Number))) : c.W * c.H - (c.a * c.b) / 2 };
+  },
   'm03.rotational-symmetry': (q) => { const s = symmetryOrder(q); return { value: askAngle(q) ? 360 / s.k : s.k }; },
 };
 
@@ -187,8 +193,9 @@ export const MIS = {
     'ANG-USES-90': (q) => [90 - lineAsk(q).given[0]],
     'ANG-ASSUME-EQUAL': (q) => { const a = lineAsk(q); return a.rel ? [180 - 2 * a.a] : [a.given[0]]; },
     'ANG-SUM-NOT-SUBTRACT': (q) => [lineAsk(q).given.reduce((s, v) => s + v, 0)],
-    'ANG-ONE-ANGLE-ONLY': (q) => { const a = lineAsk(q); return a.rel ? [180 - a.b] : a.given.map((v) => 180 - v); },
+    'ANG-ONE-ANGLE-ONLY': (q) => { const a = lineAsk(q); return a.rel ? [180 - a.b, 180 - a.a] : a.given.map((v) => 180 - v); },
     'ANG-NO-SHARE': (q) => [180 - lineAsk(q).g],
+    'ANG-ALL-EQUAL': (q) => [180 / (lineAsk(q).k + 1)],
     'ANG-SPLIT-WRONG': (q) => { const a = lineAsk(q); return [(180 - a.g) / (a.k + 1), (180 - a.g) / (a.k - 1)]; },
     'ANG-WRONG-UNKNOWN': (q) => [lineAsk(q).b],
   },
@@ -217,7 +224,8 @@ export const MIS = {
   },
   'm03.special-triangle': {
     'ANG-NO-SHARE': (q) => [180 - isoAsk(q).apex],
-    'ANG-ALL-EQUAL': (q) => { const a = isoAsk(q); return a.rel ? [60] : [a.given, 60]; },
+    'ANG-ALL-EQUAL': () => [60],
+    'ANG-COPY-GIVEN': (q) => [isoAsk(q).given],
     'ANG-ISO-WRONG-PAIR': (q) => { const a = isoAsk(q); return a.ask === 'base' ? [180 - 2 * a.apex] : [(180 - a.base) / 2]; },
     'ANG-ONE-ANGLE-ONLY': (q) => [180 - isoAsk(q).base],
     'ANG-WRONG-UNKNOWN': (q) => { const a = isoAsk(q); return [a.ask === 'apex' ? a.base : a.apex]; },
@@ -235,6 +243,7 @@ export const MIS = {
     'AREA-TRI-NO-HALF': (q) => { const c = compoundParts(q); return c.joined ? [c.w * c.h + c.h * c.t, (c.w + c.t) * c.h] : [c.W * c.H - c.a * c.b]; },
     'OP-SWAP': (q) => { const c = compoundParts(q); return c.joined ? [c.w * c.h - (c.h * c.t) / 2] : [c.W * c.H + (c.a * c.b) / 2]; },
     'AREA-ADDS-SIDES': (q) => { const c = compoundParts(q); return c.joined ? [c.w * c.h + c.h + c.t] : [c.W * c.H - c.a - c.b]; },
+    'ITEM-LEFT-OUT': (q) => { const c = compoundParts(q); return [c.w * c.h]; },
   },
   'm03.rotational-symmetry': {
     'ROT-ORDER-ANGLE': (q) => [360 / symmetryOrder(q).k],

@@ -4,7 +4,7 @@
 // Patterns and ranges follow the CLO's generator guide (section 2, m04). Every diagram is drawn from
 // the same numbers as the answer; an unknown length is drawn as "?".
 
-import { choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, dec, person } from './core.js';
+import { choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, dec, person, valueOf } from './core.js';
 
 const T = 'm04-3d-shapes-volume-capacity';
 const SK = {
@@ -12,51 +12,31 @@ const SK = {
   vol: 'volume of cuboids', cap: 'capacity and volume',
 };
 
-export const EXTRA_CODES = {
-  'FEV-BASE-ONLY': 'Counts only the sides of the base shape',
-  'FEV-PRISM-PYRAMID-SWAP': 'Mixes up a prism and a pyramid with the same base',
-  'FEV-MISSED-PART': 'Forgets one part of the shape: an end face, the base, the point at the top, or one set of edges',
-  'FEV-WRONG-COUNT': 'Counts faces, edges or vertices when the question asks for a different one',
-  'FEV-FACES-AS-SIDES': 'Takes the number of faces (or edges) as the number of sides of the base',
-  'NET-CUBE-CUBOID': 'Mixes up a cube (six equal squares) and a cuboid (rectangles)',
-  'NET-BASE-SHAPE': 'Names the shape from its side faces instead of its base',
-  'NET-COUNT-ONLY': 'Thinks any six squares joined together fold into a cube',
-  'NET-MISSED-OVERLAP': 'Thinks an arrangement is not a cube net, without folding it to check',
-  'NET-ADJACENT': 'Picks a face that touches the given face (it shares an edge with it), not the one opposite',
-  'SA-FOUR-FACES': 'Counts only four faces of a cube',
-  'SA-ONE-FACE': 'Gives the area of one face instead of all six',
-  'SA-NO-SQUARE': 'Multiplies the edge by 6 instead of the area of a face by 6',
-  'SA-MISSED-PAIR': 'Leaves out one pair of faces of a cuboid',
-  'SA-OPEN-AS-CLOSED': 'Counts the lid of an open box',
-  'SA-OPEN-WRONG-FACE': 'Leaves out the wrong face of an open box (or leaves out two faces)',
-  'SA-EDGE-NO-ROOT': 'Divides the surface area by 6 but does not find the edge (the square root)',
-  'VOL-ADD-SIDES': 'Adds the three lengths instead of multiplying',
-  'VOL-BASE-ONLY': 'Multiplies only the length and the width (the area of the base)',
-  'VOL-ONE-LAYER': 'Counts only the cubes on the front face',
-  'VOL-MISSING-SUBTRACT': 'Subtracts the known lengths from the volume instead of dividing',
-  'VOL-MISSING-ADD-SIDES': 'Divides the volume by the sum of the known lengths instead of their product',
-  'VOL-MISSING-ONE-DIVIDE': 'Divides the volume by only one of the known lengths',
-  'VOL-PERIMETER-BASE': 'Uses the perimeter of the base instead of its area',
-  'VOL-ADD-RISE': 'Adds the rise in water level to the base area instead of multiplying',
-  'VOL-WHOLE-WATER': 'Uses the new water level instead of the rise in the water level',
-  'UNIT-NOT-CONVERTED': 'Gives the answer in the unit of the calculation, without converting to the unit asked for',
-  'CAP-FULL-NOT-PART': 'Gives the capacity of the whole container when only part of it is filled',
-  'CAP-STEP-MISSED': 'Leaves out one step of a two-step capacity problem',
-};
+// Misconception codes: all declared once in misconceptions.js (the CLO's catalogue).
 
 // ---------------------------------------------------------------- helpers
 
 const range = (a, b) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
 const around = (v, step, k) => { const w = v + step * (k % 2 ? Math.ceil(k / 2) : -Math.ceil(k / 2)); return w <= 0 ? null : w; };
-const nm = (u) => (v) => `${fmtInt(v)} ${u}`;
+/** A whole number, or an exact decimal (12.5), as the bank writes it. */
+const fmtV = (v) => (Number.isInteger(v) ? fmtInt(v) : dec(v));
+const nm = (u) => (v) => `${fmtV(v)} ${u}`;
+/** The numbers written in a prompt ("48 650" read as one number). */
+const promptNumbers = (t) => (String(t).replace(/(\d) (\d{3})/g, '$1$2').match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
+/** A near miss for this prompt, or null when its value already appears in the question (CLO review X3). */
+const nearFor = (prompt) => (text, hint) => {
+  const v = valueOf(text);
+  if (v == null || promptNumbers(prompt).some((x) => Math.abs(x - v) < 1e-9)) return null;
+  return nearMiss(text, hint);
+};
 /** mcq, or numeric with the unit accepted, from a whole-number answer. */
-function build(rng, { ans, unit, ds, common, step, hint, typed }) {
-  const U = unit ? nm(unit) : (v) => fmtInt(v);
+function build(rng, { ans, unit, ds, common, step, hint, typed, prompt }) {
+  const U = unit ? nm(unit) : (v) => fmtV(v);
   if (typed) {
-    const t = typedMisconceptions(fmtInt(ans), ds.map((x) => ({ ...x, text: fmtInt(x.v) })), common);
+    const t = typedMisconceptions(fmtInt(ans), ds.map((x) => ({ ...x, text: fmtV(x.v) })), common);
     return { type: 'numeric', answer: numericAnswer(ans, [fmtInt(ans), String(ans), ...(unit ? [U(ans), `${ans} ${unit.replace('^', '')}`] : [])]), ...t };
   }
-  const c = choices(rng, U(ans), ds.map((x) => ({ ...x, text: U(x.v) })), (k) => { const w = around(ans, step, k); return w == null ? null : nearMiss(U(w), hint); });
+  const c = choices(rng, U(ans), ds.map((x) => ({ ...x, text: U(x.v) })), (k) => { const w = around(ans, step, k); return w == null ? null : nearFor(prompt)(U(w), hint); });
   return { type: 'mcq', ...c };
 }
 
@@ -129,12 +109,12 @@ const fev = {
         ds.push({ v: FEV[other](n)[ask], code: 'FEV-PRISM-PYRAMID-SWAP', why: fevWhy.swap(kind, ask, FEV[other](n)[ask]) });
         for (const o of QWORD) if (o !== ask) ds.push({ v: f[o], code: 'FEV-WRONG-COUNT', why: fevWhy.wrong(ask, o, f[o]) });
         try {
-          const body = build(rng, { ans, ds: dedupe(ds, ans), common: { code: 'FEV-MISSED-PART', why: 'Count carefully: imagine the shape and count every part once.' }, step: 1, hint: `Count every ${ask === 'faces' ? 'face' : ask === 'edges' ? 'edge' : 'corner'} of the ${nameTxt} once.`, typed: rng.chance(0.3) });
+          const body = build(rng, { ans, ds: dedupe(ds, ans), common: { code: 'FEV-MISSED-PART', why: 'Count carefully: imagine the shape and count every part once.' }, step: 1, hint: `Count every ${ask === 'faces' ? 'face' : ask === 'edges' ? 'edge' : 'corner'} of the ${nameTxt} once.`, typed: rng.chance(0.3), prompt });
           return { ...body, prompt, solution, diagram };
         } catch { continue; }
       }
       // D3: work backwards from one count
-      kind = rng.pick(['prism', 'pyramid']); n = rng.int(3, 10);
+      kind = rng.pick(['prism', 'pyramid']); n = rng.int(3, 8); // bases of 3 to 8 sides (CLO review m04 item 7)
       const given = rng.pick(QWORD);
       ask = rng.pick(QWORD.filter((x) => x !== given));
       const f = FEV[kind](n);
@@ -153,7 +133,7 @@ const fev = {
       ds.push({ v: MISSED[kind](n)[ask], code: 'FEV-MISSED-PART', why: fevWhy.missed(kind, ask) });
       ds.push({ v: n, code: 'FEV-BASE-ONLY', why: `${n} is the number of sides of the base. Use it to count the ${ask}.` });
       try {
-        const body = build(rng, { ans, ds: dedupe(ds, ans), common: { code: 'FEV-FACES-AS-SIDES', why: 'Find the number of sides of the base first, then count.' }, step: 1, hint: 'Find the number of sides of the base first.', typed: rng.chance(0.3) });
+        const body = build(rng, { ans, ds: dedupe(ds, ans), common: { code: 'FEV-FACES-AS-SIDES', why: 'Find the number of sides of the base first, then count.' }, step: 1, hint: 'Find the number of sides of the base first.', typed: rng.chance(0.3), prompt });
         return { ...body, prompt, solution, marks: 2 };
       } catch { /* draw again */ }
     }
@@ -217,12 +197,14 @@ const cubeNet = {
   difficulties: [2, 3],
   check: {},
   make(rng, d) {
+    // drawn once, before the search for a matching net, so true and false come up equally often
+    // (CLO review X9: drawing it inside the loop made "false" far more common)
+    const want = rng.chance(0.5);
     for (;;) {
       const cells = hexomino(rng);
       if (!cells) continue;
       const f = fold(cells);
       if (d === 2) {
-        const want = rng.chance(0.5);
         if (!!f !== want) continue;
         const p = person(rng);
         const prompt = rng.pick([`True or false: these 6 squares can be folded to make a cube.`, `${p.name} cuts out these 6 squares in one piece. True or false: ${p.he} can fold them to make a cube.`, `True or false: this is the net of a cube.`]);
@@ -265,6 +247,8 @@ const NET_SHAPES = {
   tetrahedron: { name: 'triangle-based pyramid (tetrahedron)', f: 4, e: 6, v: 4, wrong: [['triangular prism', 'FEV-PRISM-PYRAMID-SWAP', 'A triangular prism has two triangles AND three rectangles. This net has four triangles that fold up to meet at a point.'], ['square-based pyramid', 'NET-BASE-SHAPE', 'A square-based pyramid has a square base. Every face of this net is a triangle, so the base is a triangle too.']] },
 };
 const ALL_NAMES = ['cube', 'cuboid', 'triangular prism', 'square-based pyramid', 'triangle-based pyramid (tetrahedron)'];
+/** What the faces of each shape's net are, for an honest near-miss text (CLO review m04 item 4). */
+const FACE_DESC = { cube: '6 squares of the same size', cuboid: '6 rectangles in 3 matching pairs', 'triangular prism': '2 triangles and 3 rectangles', 'square-based pyramid': '1 square and 4 triangles', 'triangle-based pyramid (tetrahedron)': '4 triangles' };
 
 const netShape = {
   id: 'm04.net-shape', topicId: T, subtopicId: 'm04-s2', skill: SK.nets,
@@ -294,7 +278,7 @@ const netShape = {
         const ds = s.wrong.map(([t, code, why]) => ({ text: t, code, why }));
         const others = ALL_NAMES.filter((x) => x !== s.name && !ds.some((q) => q.text === x));
         try {
-          const c = choices(rng, s.name, ds, (k) => nearMiss(others[(k - 1) % others.length], `Count the faces of each shape in the net and look at their shapes.`));
+          const c = choices(rng, s.name, ds, (k) => { const o = others[(k - 1) % others.length]; return { text: o, code: 'NEAR-MISS', why: `Not quite: the net of a ${o} has ${FACE_DESC[o]}. This net has ${FACE_DESC[s.name]}.` }; });
           return { type: 'mcq', prompt, ...c, solution, diagram };
         } catch { continue; }
       }
@@ -310,7 +294,7 @@ const netShape = {
         { v: ask === 'edges' ? sw.e : sw.v, code: 'FEV-PRISM-PYRAMID-SWAP', why: `${ask === 'edges' ? sw.e : sw.v} is the number for a ${sw.name}. This net makes a ${s.name}.` },
       ];
       try {
-        const body = build(rng, { ans, ds: dedupe(ds, ans), common: { code: 'FEV-WRONG-COUNT', why: 'Work out which shape the net makes, then count its edges or corners.' }, step: 1, hint: `Work out which shape the net makes, then count its ${ask}.`, typed: rng.chance(0.3) });
+        const body = build(rng, { ans, ds: dedupe(ds, ans), common: { code: 'FEV-WRONG-COUNT', why: 'Work out which shape the net makes, then count its edges or corners.' }, step: 1, hint: `Work out which shape the net makes, then count its ${ask}.`, typed: rng.chance(0.3), prompt });
         return { ...body, prompt, solution, diagram };
       } catch { /* draw again */ }
     }
@@ -332,16 +316,26 @@ const surfaceArea = {
       const what = rng.pick(SA_CTX);
       if (d === 1) {
         const e = rng.int(2, 12);
+        // e = 6 makes the surface area equal the volume (216), so working out the volume would
+        // earn the mark (CLO review m04 item 3)
+        if (e === 6) continue;
         ans = 6 * e * e;
         u = rng.chance(0.75) ? 'cm' : 'm';
         diagram = { type: 'cuboid', l: e, w: e, h: e, labels: { l: `${e} ${u}`, w: `${e} ${u}`, h: `${e} ${u}` } };
-        const what2 = u === 'm' ? rng.pick(['a storeroom', 'a water tank', 'a shipping box']) : what;
-        if (rng.chance(0.25)) { prompt = `Each face of a cube has an area of ${e * e} ${u}^2. What is the cube's total surface area?`; diagram = undefined; } else prompt = `${rng.chance(0.5) ? `${what2.charAt(0).toUpperCase() + what2.slice(1)} is a cube with edges ${e} ${u} long.` : `A cube has edges ${e} ${u} long.`} What is its total surface area?`;
-        solution = `Each face is a square ${e} ${u} by ${e} ${u}: ${e} x ${e} = ${e * e} ${u}^2. A cube has 6 faces: 6 x ${e * e} = ${ans} ${u}^2. Answer: ${ans} ${u}^2`;
+        const what2 = u === 'm' ? rng.pick(['a storeroom', 'a water tank', 'a shipping container']) : rng.pick(['a gift box', 'a wooden block', 'a tissue box', 'a storage box']);
+        if (u === 'm' && e > 4) continue; // a cube-shaped room or tank of 2-4 m (CLO review X6)
+        const faceGiven = rng.chance(0.25);
+        if (faceGiven) { prompt = `Each face of a cube has an area of ${e * e} ${u}^2. What is the cube's total surface area?`; diagram = undefined; } else prompt = `${rng.chance(0.5) ? `${what2.charAt(0).toUpperCase() + what2.slice(1)} is a cube with edges ${e} ${u} long.` : `A cube has edges ${e} ${u} long.`} What is its total surface area?`;
+        solution = faceGiven
+          ? `A cube has 6 faces, each ${e * e} ${u}^2: 6 x ${e * e} = ${ans} ${u}^2. Answer: ${ans} ${u}^2`
+          : `Each face is a square ${e} ${u} by ${e} ${u}: ${e} x ${e} = ${e * e} ${u}^2. A cube has 6 faces: 6 x ${e * e} = ${ans} ${u}^2. Answer: ${ans} ${u}^2`;
         ds.push({ v: 4 * e * e, code: 'SA-FOUR-FACES', why: `It looks like you counted 4 faces. A cube has 6 faces: top, bottom and four sides.` });
-        ds.push({ v: e * e * e, code: 'SA-VOLUME-SWAP', why: `${e} x ${e} x ${e} = ${e ** 3} is the volume (${u}^3). Surface area is the total area of the 6 faces.` });
-        ds.push({ v: 6 * e, code: 'SA-NO-SQUARE', why: `It looks like you multiplied the edge by 6. Find the area of one face first (${e} x ${e}), then multiply by 6.` });
         ds.push({ v: e * e, code: 'SA-ONE-FACE', why: `${e * e} ${u}^2 is the area of one face. A cube has 6 faces.` });
+        // with only the face area given, she never finds the edge, so no edge-based options (CLO review m04 item 5)
+        if (!faceGiven) {
+          ds.push({ v: e * e * e, code: 'SA-VOLUME-SWAP', why: `${e} x ${e} x ${e} = ${e ** 3} is the volume (${u}^3). Surface area is the total area of the 6 faces.` });
+          ds.push({ v: 6 * e, code: 'SA-NO-SQUARE', why: `It looks like you multiplied the edge by 6. Find the area of one face first (${e} x ${e}), then multiply by 6.` });
+        }
       } else if (d === 2) {
         const [l, w, h] = rng.sample(range(2, 20), 3);
         const a = l * w; const b = l * h; const c = w * h;
@@ -353,7 +347,7 @@ const surfaceArea = {
         ds.push({ v: a + b + c, code: 'SA-ONE-FACE-EACH', why: `It looks like you counted each different face once. Every face has a matching opposite face, so double it: 2 x ${a + b + c}.` });
         ds.push({ v: l * w * h, code: 'SA-VOLUME-SWAP', why: `${l} x ${w} x ${h} = ${l * w * h} is the volume (cm^3). Surface area adds the areas of all 6 faces.` });
         ds.push({ v: 2 * (a + b), code: 'SA-MISSED-PAIR', why: `It looks like you left out the two end faces (${w} x ${h} each).` });
-        ds.push({ v: 6 * a, code: 'SA-FOUR-FACES', why: `It looks like you used the cube rule (6 x one face). A cuboid's faces are not all the same size: work out each pair.` });
+        ds.push({ v: 6 * a, code: 'SA-CUBE-RULE', why: `It looks like you used the cube rule (6 x one face). A cuboid's faces are not all the same size: work out each pair.` });
       } else if (rng.chance(0.6)) {
         const [l, w, h] = rng.sample(range(3, 20), 3);
         const a = l * w; const b = l * h; const c = w * h;
@@ -369,19 +363,30 @@ const surfaceArea = {
       } else {
         const e = rng.int(2, 12);
         const A = 6 * e * e;
-        ans = e;
-        prompt = `A cube has a total surface area of ${fmtInt(A)} cm^2. How long is each edge?`;
-        solution = `A cube has 6 equal faces, so one face is ${fmtInt(A)} ÷ 6 = ${e * e} cm^2. The face is a square, and ${e} x ${e} = ${e * e}, so each edge is ${e} cm. Answer: ${e} cm`;
-        ds.push({ v: e * e, code: 'SA-EDGE-NO-ROOT', why: `${e * e} cm^2 is the area of one face. The edge is the number that multiplies by itself to make ${e * e}.` });
-        if (A % 4 === 0) ds.push({ v: A / 4, code: 'SA-FOUR-FACES', why: 'It looks like you divided by 4. A cube has 6 faces, so divide by 6 first.' });
-        if (A % 12 === 0) ds.push({ v: A / 12, code: 'SA-EDGE-NO-ROOT', why: `It looks like you divided the area of one face (${e * e}) by 2. The edge times itself must make ${e * e}.` });
+        const thing = rng.pick(['A cube', 'A wooden cube', 'A cube-shaped box', 'A dice-shaped gift box']);
+        const askVol = rng.chance(0.4); // a second D3 form: the volume from the surface area (CLO review m04 item 6)
+        ans = askVol ? e ** 3 : e;
+        prompt = askVol
+          ? `${thing} has a total surface area of ${fmtInt(A)} cm^2. What is its volume?`
+          : `${thing} has a total surface area of ${fmtInt(A)} cm^2. How long is each edge?`;
+        solution = `A cube has 6 equal faces, so one face is ${fmtInt(A)} ÷ 6 = ${e * e} cm^2. The face is a square, and ${e} x ${e} = ${e * e}, so each edge is ${e} cm.${askVol ? ` Volume = ${e} x ${e} x ${e} = ${fmtInt(e ** 3)} cm^3. Answer: ${fmtInt(e ** 3)} cm^3` : ` Answer: ${e} cm`}`;
+        if (askVol) {
+          ds.push({ v: A, code: 'SA-VOLUME-SWAP', why: `${fmtInt(A)} cm^2 is the surface area you were given. The volume is edge x edge x edge.` });
+          ds.push({ v: e * e, code: 'ONE-STEP-ONLY', why: `${e * e} cm^2 is the area of one face. Find the edge (${e} cm), then the volume: ${e} x ${e} x ${e}.` });
+          ds.push({ v: e, code: 'ONE-STEP-ONLY', why: `${e} cm is the edge. The volume is ${e} x ${e} x ${e}.` });
+        } else {
+          ds.push({ v: e * e, code: 'SA-EDGE-NO-ROOT', why: `${e * e} cm^2 is the area of one face. The edge is the number that multiplies by itself to make ${e * e}.` });
+          ds.push({ v: A / 4, code: 'SA-FOUR-FACES', why: 'It looks like you divided by 4, as if the cube had 4 faces. A cube has 6 faces, so divide by 6 first.' });
+          ds.push({ v: (e * e) / 2, code: 'SA-EDGE-NO-ROOT', why: `It looks like you halved the area of one face (${e * e}). The edge is the number that multiplies by ITSELF to make ${e * e}.` });
+        }
         try {
-          const body = build(rng, { ans, unit: 'cm', ds: dedupe(ds, ans), common: { code: 'SA-EDGE-NO-ROOT', why: 'Divide by 6 to find one face, then find the edge that multiplies by itself to make that area.' }, step: 1, hint: 'Find the area of one face, then the edge.', typed: rng.chance(0.3) });
+          const unit = askVol ? 'cm^3' : 'cm';
+          const body = build(rng, { ans, unit, ds: dedupe(ds, ans), common: { why: 'Divide by 6 to find one face, then find the edge that multiplies by itself to make that area.' }, step: askVol ? Math.max(1, Math.round(ans / 10)) : 1, hint: 'Find the area of one face, then the edge.', typed: rng.chance(0.3), prompt });
           return { ...body, prompt, solution, marks: 2 };
         } catch { continue; }
       }
       try {
-        const body = build(rng, { ans, unit: `${u}^2`, ds: dedupe(ds, ans), common: { code: 'SA-ONE-FACE-EACH', why: 'Add the areas of all the faces. Each face of a cuboid has a matching face opposite it.' }, step: d === 1 ? 2 : 4, hint: 'Find the area of each face, then add them all.', typed: rng.chance(0.3) });
+        const body = build(rng, { ans, unit: `${u}^2`, ds: dedupe(ds, ans), common: { why: d === 1 ? 'Find the area of one face, then multiply by 6: a cube has 6 equal faces.' : 'Add the areas of all the faces. Each face of a cuboid has a matching face opposite it.' }, step: d === 1 ? 2 : 4, hint: 'Find the area of each face, then add them all.', typed: rng.chance(0.3), prompt });
         return { ...body, prompt, solution, diagram, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
     }
@@ -411,11 +416,13 @@ const volume = {
         ds.push({ v: l * h, code: 'VOL-ONE-LAYER', why: `${l * h} counts only the cubes on the front face. The cuboid is ${w} cubes deep.` });
         ds.push({ v: 2 * (l * w + l * h + w * h), code: 'SA-VOLUME-SWAP', why: `${2 * (l * w + l * h + w * h)} is the surface area (the outside squares). Volume counts the cubes inside.` });
       } else if (d === 2) {
-        const [l, w, h] = [rng.int(2, 20), rng.int(2, 15), rng.int(2, 15)];
+        // each object with its own sizes (CLO review X6): no 2 cm bricks
+        const [obj, L1, L2, W1, W2, H1, H2] = rng.pick([['A box', 5, 20, 4, 15, 3, 12], ['A brick', 18, 24, 8, 11, 5, 8], ['A block of wood', 2, 15, 2, 12, 2, 10], ['A packet of rice', 12, 20, 6, 10, 3, 6], ['A pencil box', 15, 22, 5, 9, 2, 4], ['A tissue box', 11, 20, 10, 12, 6, 12]]);
+        const [l, w, h] = [rng.int(L1, L2), rng.int(W1, W2), rng.int(H1, H2)];
         ans = l * w * h;
         if (ans > 3000 || new Set([l, w, h]).size < 3) continue;
         diagram = { type: 'cuboid', l, w, h, labels: { l: `${l} cm`, w: `${w} cm`, h: `${h} cm` } };
-        prompt = `${rng.pick(['A box', 'A brick', 'A block of wood', 'A packet of rice', 'A fish tank'])} is a cuboid ${l} cm long, ${w} cm wide and ${h} cm high. What is its volume?`;
+        prompt = `${obj} is a cuboid ${l} cm long, ${w} cm wide and ${h} cm high. What is its volume?`;
         solution = `Volume = length x width x height = ${l} x ${w} x ${h} = ${l * w} x ${h} = ${ans} cm^3. Answer: ${fmtInt(ans)} cm^3`;
         ds.push({ v: l + w + h, code: 'VOL-ADD-SIDES', why: `It looks like you added the lengths. Volume = length x width x height.` });
         ds.push({ v: l * w, code: 'VOL-BASE-ONLY', why: `${l} x ${w} = ${l * w} is the area of the base. Multiply by the height (${h}) too.` });
@@ -446,7 +453,7 @@ const volume = {
         ds.push({ v: l * w + r, code: 'VOL-ADD-RISE', why: `It looks like you added the rise to the base area. Multiply: base area x rise.` });
       }
       try {
-        const body = build(rng, { ans, unit, ds: dedupe(ds, ans), common: { code: 'VOL-ADD-SIDES', why: 'Volume of a cuboid = length x width x height.' }, step: unit === 'cm' ? 1 : Math.max(1, Math.round(ans / 12)), hint: 'Use volume = length x width x height.', typed: rng.chance(0.3) });
+        const body = build(rng, { ans, unit, ds: dedupe(ds, ans), common: { code: 'VOL-ADD-SIDES', why: 'Volume of a cuboid = length x width x height.' }, step: unit === 'cm' ? 1 : Math.max(1, Math.round(ans / 12)), hint: 'Use volume = length x width x height.', typed: rng.chance(0.3), prompt });
         return { ...body, prompt, solution, diagram, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
     }
@@ -473,8 +480,9 @@ const capacity = {
           ans = ml; unit = to;
           prompt = `How many ${kind === 'L>ml' ? 'millilitres' : 'cubic centimetres'} is ${dec(L)} litres? Give your answer in ${to}.`;
           solution = `1 litre = 1000 ml${to === 'cm^3' ? ' = 1000 cm^3' : ''}. ${dec(L)} x 1000 = ${fmtInt(ml)}. Answer: ${fmtInt(ml)} ${to}`;
-          ds.push({ v: Math.round(L * 100), code: 'UNIT-FACTOR-WRONG', why: `It looks like you multiplied by 100. There are 1000 ml in 1 litre.` });
-          if (Math.round(L * 10) !== Math.round(L * 100)) ds.push({ v: Math.round(L * 10), code: 'UNIT-FACTOR-WRONG', why: `It looks like you multiplied by 10. There are 1000 ml in 1 litre.` });
+          // exact values only: 8.25 x 10 is 82.5, never "83" (CLO review m04 item 1)
+          ds.push({ v: ml / 10, code: 'UNIT-FACTOR-WRONG', why: `It looks like you multiplied by 100: ${dec(L)} x 100 = ${fmtV(ml / 10)}. There are 1000 ml in 1 litre.` });
+          ds.push({ v: ml / 100, code: 'UNIT-FACTOR-WRONG', why: `It looks like you multiplied by 10: ${dec(L)} x 10 = ${fmtV(ml / 100)}. There are 1000 ml in 1 litre.` });
           ds.push({ v: ml * 10, code: 'PV-SHIFT-WRONG', why: `That is 10 times too big: ${dec(L)} x 1000 = ${fmtInt(ml)}. Move each digit 3 places, not 4.` });
         } else if (kind === 'cm3>ml') {
           const v = 50 * rng.int(2, 60);
@@ -499,7 +507,7 @@ const capacity = {
           ];
           try {
             if (rng.chance(0.3)) return { type: 'numeric', prompt, answer: numericAnswer(L, [dec(L), `${dec(L)} L`, `${dec(L)} litres`]), ...typedMisconceptions(dec(L), c.map((x) => ({ ...x, text: x.text.replace(' L', '') })), { code: 'UNIT-FACTOR-WRONG', why: '1000 ml = 1 litre: divide by 1000.' }), solution };
-            return { type: 'mcq', prompt, ...choices(rng, U(L), c, (k) => { const w = ml + 100 * (k % 2 ? Math.ceil(k / 2) : -Math.ceil(k / 2)); return w > 0 ? nearMiss(U(w / 1000), 'Divide by 1000.') : null; }), solution };
+            return { type: 'mcq', prompt, ...choices(rng, U(L), c, (k) => { const w = ml + 100 * (k % 2 ? Math.ceil(k / 2) : -Math.ceil(k / 2)); return w > 0 ? nearFor(prompt)(U(w / 1000), 'Divide by 1000.') : null; }), solution };
           } catch { continue; }
         }
       } else if (d === 2) {
@@ -541,7 +549,7 @@ const capacity = {
         ds.push({ v: cap / 2, code: 'CAP-STEP-MISSED', why: `${fmtInt(cap / 2)} ml was needed BEFORE the ${fmtInt(add)} ml was poured in. Take that away too.` });
       }
       try {
-        const body = build(rng, { ans, unit, ds: dedupe(ds, ans), common: { code: 'UNIT-FACTOR-WRONG', why: '1 cm^3 = 1 ml, and 1000 ml = 1 litre.' }, step: ans > 100 ? 50 : 1, hint: 'Remember: 1 cm^3 = 1 ml and 1000 ml = 1 litre.', typed: rng.chance(0.3) });
+        const body = build(rng, { ans, unit, ds: dedupe(ds, ans), common: { code: 'UNIT-FACTOR-WRONG', why: '1 cm^3 = 1 ml, and 1000 ml = 1 litre.' }, step: ans > 100 ? 50 : 1, hint: 'Remember: 1 cm^3 = 1 ml and 1000 ml = 1 litre.', typed: rng.chance(0.3), prompt });
         return { ...body, prompt, solution, diagram, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
     }

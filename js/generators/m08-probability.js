@@ -4,7 +4,7 @@
 // Patterns and ranges follow the CLO's generator guide (section 2, m08). Probabilities are given in
 // their simplest form; spinners are drawn from the same sectors that the answer counts.
 
-import { F, choices, typedMisconceptions, nearMiss, numericAnswer, person } from './core.js';
+import { F, choices, typedMisconceptions, nearMiss, numericAnswer, person, denWord, valueOf } from './core.js';
 
 const T = 'm08-probability';
 const SK = {
@@ -14,25 +14,7 @@ const SK = {
   expected: 'expected frequency', relative: 'relative frequency', interpret: 'interpreting experimental results',
 };
 
-export const EXTRA_CODES = {
-  'PROB-ONE-OVER-TOTAL': 'Gives 1 over the total, ignoring how many outcomes are favourable',
-  'PROB-ADD-ONE': 'Adds the probability to 1 instead of taking it away from 1',
-  'PROB-COMPLEMENT-DIGITS': 'Takes the tenths away from 1 but leaves the hundredths digit unchanged (1 - 0.35 = 0.75)',
-  'PROB-COMPLEMENT-ONE-ONLY': 'Takes only one of the given probabilities away from 1',
-  'PROB-PROB-NOT-COUNT': 'Gives the probability when the question asks for a number of things',
-  'PROB-LIKELY-AS-CERTAIN': 'Mixes up likely with certain, or unlikely with impossible',
-  'PROB-COMPARE-COUNTS': 'Compares the numbers of favourable outcomes instead of the probabilities',
-  'PROB-COMPARE-OTHER': 'Picks the bag with fewer of the other colours, without comparing fractions',
-  'PROB-COMPARE-DIFFERENCE': 'Thinks two chances are equal because the difference between the colours is the same',
-  'PROB-ME-OVERLAP': 'Chooses two events that can happen at the same time (they share an outcome)',
-  'PROB-OR-MULTIPLY': 'Multiplies the probabilities of two mutually exclusive events instead of adding them',
-  'PROB-OR-ONE-EVENT': 'Gives the probability of only one of the two events',
-  'PROB-MISSING-TOTAL': 'Finds the total number of things but not the number asked for',
-  'PROB-MISSING-ONE-PART': 'Finds the size of one part (one fifth, say) and stops',
-  'PROB-FRACTION-AS-COUNT': 'Takes the numbers in the fraction as the actual numbers of things',
-  'PROB-EXP-DIVIDE-COUNT': 'Divides the number of trials by the number of favourable outcomes',
-  'PROB-EXP-OLD-COUNT': 'Gives the result from the first experiment instead of scaling it to the new number of trials',
-};
+// Misconception codes: all declared once in misconceptions.js (the CLO's catalogue).
 
 // ---------------------------------------------------------------- helpers
 
@@ -69,6 +51,13 @@ function events(rng, N) {
 }
 const capital = (t) => t.charAt(0).toUpperCase() + t.slice(1);
 
+/** The numbers written in a prompt, read the way the tests read them. */
+const promptNums = (prompt) => (String(prompt).replace(/(\d) (\d{3})/g, '$1$2').match(/-?\d+(?:\.\d+)?(?:\/\d+)?/g) || []).map((t) => valueOf(t)).filter((x) => x != null);
+/** A near miss is never a number that already appears in the question (CLO review X3): null if it does. */
+const fresh = (prompt, d) => { if (!d) return null; const v = valueOf(d.text); return v != null && promptNums(prompt).some((x) => Math.abs(x - v) < 1e-9) ? null : d; };
+/** A list of outcomes: "4 to 30" when it is a long run of whole numbers, else "1, 3 and 5". */
+const listOrRun = (a) => (a.length > 5 && a[a.length - 1] - a[0] === a.length - 1 ? `${a[0]} to ${a[a.length - 1]}` : andList(a));
+
 // ---------------------------------------------------------------- the situations: bag, spinner, dice, cards
 
 /** A random situation with a favourable count k out of T. Returns { intro, ask, k, T, colours, diagram }. */
@@ -79,7 +68,7 @@ function situation(rng, d, opts = {}) {
     const c = rng.int(2, d === 1 ? 2 : 3);
     const cols = rng.sample(COLS, c);
     for (;;) {
-      const counts = cols.map(() => rng.int(1, d === 1 ? 8 : 12));
+      const counts = cols.map(() => rng.int(2, d === 1 ? 8 : 12)); // never "1 pink beads" (CLO review X4)
       const tot = sum(counts);
       if (opts.totals && !opts.totals.includes(tot)) continue;
       if (tot < 4 || tot > 20) continue;
@@ -110,7 +99,7 @@ const why = {
   partPart: (s) => `It looks like you compared ${s.k} with the other ${s.T - s.k} (part to part). A probability compares the ${s.k} with ALL ${s.T} equally likely outcomes.`,
   count: (s) => `${s.k} is how many outcomes are favourable. A probability is a fraction: ${s.k} out of ${s.T}.`,
   oneOver: (s) => `1/${s.T} is the chance of one particular outcome. ${s.k} outcomes are favourable here, so it is ${s.k}/${s.T}.`,
-  sections: (s) => `There are ${s.colours} colours, but they are not equally likely: they have different numbers of ${s.kind === 'spinner' ? 'sections' : s.thing}. Count them.`,
+  sections: (s) => `There are ${s.colours} colours, but they are not equally likely: they do not all have the same number of ${s.kind === 'spinner' ? 'sections' : s.thing}. Count them.`,
   complement: (s, f) => `${f} is the probability that it does NOT happen (${s.T - s.k} out of ${s.T}).`,
 };
 
@@ -166,22 +155,22 @@ function missingCount(rng) {
   for (;;) {
     const p = F(rng.int(1, 9), rng.pick([2, 3, 4, 5, 6, 8, 10]));
     if (p.cmp(1) >= 0 || p.d === 1) continue;
-    const unit = rng.int(1, 6);
+    const unit = rng.int(2, 6); // one part of 2 or more, so reading the fraction as counts never gives the answer (CLO review m08 item 3)
     const red = p.n * unit; const tot = p.d * unit; const blue = tot - red;
     if (tot > 60 || blue === red) continue;
     const [c1, c2] = rng.sample(COLS, 2);
     const thing = rng.pick(THINGS);
     const form = PFORM[p.terminates && p.mul(100).isInt ? rng.int(0, 2) : 0](p);
     const prompt = `A bag has only ${c1} and ${c2} ${thing}. There are ${red} ${c1} ${thing}. The probability of picking a ${c1} one is ${form.text}. How many ${c2} ${thing} are in the bag?`;
-    const solution = `The probability ${form.text} = ${p} means ${p.n} out of every ${p.d} ${thing} are ${c1}. ${p.n} part${p.n > 1 ? 's' : ''} = ${red}, so 1 part = ${unit}${p.n > 1 ? ` (${red} ÷ ${p.n})` : ''}. The whole bag is ${p.d} parts = ${tot} ${thing}. ${c2}: ${tot} - ${red} = ${blue}. Answer: ${blue}`;
+    const solution = `The probability ${form.text}${form.text !== p.toString() ? ` = ${p}` : ''} means ${p.n} out of every ${p.d} ${thing} ${p.n === 1 ? 'is' : 'are'} ${c1}. Split the bag into ${p.d} equal parts: ${p.n === 1 ? `1 part is the ${red} ${c1} ${thing}` : `${p.n} parts are the ${red} ${c1} ${thing}, so 1 part = ${red} ÷ ${p.n} = ${unit}`}. The whole bag is ${p.d} parts: ${p.d} x ${unit} = ${tot} ${thing}. ${capital(c2)}: ${tot} - ${red} = ${blue}. Answer: ${blue}`;
     const ds = [
       { text: String(tot), code: 'PROB-MISSING-TOTAL', why: `${tot} is the total number of ${thing} in the bag. Take away the ${red} ${c1} ones.` },
       { text: String(p.d - p.n), code: 'PROB-FRACTION-AS-COUNT', why: `It looks like you used the numbers in ${p} as the numbers of ${thing}. ${p} means ${p.n} out of every ${p.d}; here there are ${red} ${c1} ${thing}.` },
-      p.n > 1 ? { text: String(unit), code: 'PROB-MISSING-ONE-PART', why: `${unit} is the size of one part (one ${p.d}th of the bag). The ${c2} ${thing} are ${p.d - p.n} parts.` } : null,
+      p.n > 1 ? { text: String(unit), code: 'PROB-MISSING-ONE-PART', why: `${unit} is the size of one part (one ${denWord(p.d, false)} of the bag). The ${c2} ${thing} are ${p.d - p.n} parts.` } : null,
     ].filter(Boolean);
     try {
       if (rng.chance(0.4)) return { type: 'numeric', prompt, answer: numericAnswer(blue, [String(blue)]), ...typedMisconceptions(String(blue), ds, { code: 'PROB-MISSING-TOTAL', why: 'Use the probability to find the total number in the bag first, then take away the ones you know.' }), solution, marks: 2 };
-      return { type: 'mcq', prompt, ...choices(rng, String(blue), ds, (k) => { const w = blue + unit * (k % 2 ? Math.ceil(k / 2) : -Math.ceil(k / 2)); return w > 0 ? nearMiss(String(w), 'Find the total number in the bag first.') : null; }), solution, marks: 2 };
+      return { type: 'mcq', prompt, ...choices(rng, String(blue), ds, (k) => { const w = blue + unit * (k % 2 ? Math.ceil(k / 2) : -Math.ceil(k / 2)); return w > 0 ? fresh(prompt, nearMiss(String(w), 'Find the total number in the bag first.')) : null; }), solution, marks: 2 };
     } catch { /* draw again */ }
   }
 }
@@ -208,7 +197,7 @@ const fdpForms = {
       const ds = [];
       const dig = `0.${s.k}${s.T}`;
       if (!pct && s.k < 10 && !/0$/.test(dig) && dig.length <= 5) ds.push({ text: dig, code: 'FDP-DIGITS', why: `It looks like you wrote the digits ${s.k} and ${s.T} after a decimal point. ${s.k}/${s.T} means ${s.k} ÷ ${s.T}: change it to hundredths first.` });
-      if (!pct && s.k < 10) ds.push({ text: `0.${s.k}`, code: 'FDP-DIGITS', why: `0.${s.k} is ${s.k} tenths, which is ${s.k}/10, not ${s.k}/${s.T}. Change ${s.k}/${s.T} to tenths or hundredths first.` });
+      if (!pct && s.k < 10) ds.push({ text: `0.${s.k}`, code: 'FDP-DIGITS', why: `0.${s.k} is ${s.k} tenth${s.k === 1 ? '' : 's'}, which is ${s.k}/10, not ${s.k}/${s.T}. Change ${s.k}/${s.T} to tenths or hundredths first.` });
       if (pct && s.T !== 100) ds.push({ text: `${s.k}%`, code: 'FDP-DIGITS', why: `${s.k}% means ${s.k} out of 100, but here it is ${s.k} out of ${s.T}. Change the fraction to hundredths first.` });
       const pp = F(s.k, s.T - s.k);
       if (pp.cmp(1) < 0 && okDp(pp, pct ? 2 : 3)) ds.push({ text: show(pp), code: 'PROB-PART-PART', why: why.partPart(s) });
@@ -217,7 +206,7 @@ const fdpForms = {
       try {
         if (!pct && rng.chance(0.4)) {
           const t = typedMisconceptions(ans, ds, { code: 'FDP-DIGITS', why: `Write ${s.k}/${s.T} as an equivalent fraction in tenths or hundredths, then as a decimal.` });
-          return { type: 'numeric', prompt, answer: numericAnswer(f.value, [ans, f.toString(), pTxt(f)]), solution, ...t, diagram: s.diagram };
+          return { type: 'numeric', prompt, answer: numericAnswer(f.value, [ans]), solution, ...t, diagram: s.diagram };
         }
         const step = s.T >= 20 ? s.T : 10;
         const c2 = choices(rng, ans, ds, (k) => { const w = nearFrac(f, step, k); return w && okDp(w, 3) ? nearMiss(show(w), 'Change the fraction to hundredths first.') : null; });
@@ -231,16 +220,16 @@ const fdpForms = {
 
 const NOT_CTX = [
   { a: 'it rains in Kuala Lumpur tomorrow', not: 'it does not rain in Kuala Lumpur tomorrow' },
-  { a: 'the school bus is late', not: 'the school bus is not late' },
-  { a: 'a seed grows into a plant', not: 'the seed does not grow' },
+  { a: 'the school bus is late', not: 'the school bus is not late', hi: 0.4 },
+  { a: 'a seed grows into a plant', not: 'the seed does not grow', lo: 0.6 },
   { a: "Arjun's team wins its next match (the match cannot be a draw)", not: "Arjun's team does not win" },
   { a: 'a spinner lands on red', not: 'it does not land on red' },
-  { a: 'Siti scores a goal from a penalty', not: 'she does not score' },
-  { a: 'a light bulb lasts more than a year', not: 'it does not last more than a year' },
-  { a: 'Wei Ming is chosen as class captain', not: 'he is not chosen' },
-  { a: 'the ferry to Penang leaves on time', not: 'it does not leave on time' },
-  { a: 'a durian from a stall is ripe', not: 'it is not ripe' },
-  { a: 'Priya wins a prize in the school raffle', not: 'she does not win a prize' },
+  { a: 'Siti scores a goal from a penalty', not: 'she does not score', lo: 0.5 },
+  { a: 'a light bulb lasts more than a year', not: 'it does not last more than a year', lo: 0.5 },
+  { a: 'Wei Ming is chosen as class captain', not: 'he is not chosen', hi: 0.3 },
+  { a: 'the ferry to Penang leaves on time', not: 'it does not leave on time', lo: 0.6 },
+  { a: 'a durian from a stall is ripe', not: 'it is not ripe', lo: 0.4 },
+  { a: 'Priya wins a prize in the school raffle', not: 'she does not win a prize', hi: 0.3 },
   { a: 'a Grab car arrives within 5 minutes', not: 'it does not arrive within 5 minutes' },
   { a: 'it is sunny in Penang on Saturday', not: 'it is not sunny in Penang on Saturday' },
   { a: 'Omar hits the target with his first arrow', not: 'he misses the target' },
@@ -260,6 +249,7 @@ const complement = {
       else if (form === 'frac1') { p = F(rng.int(1, 9), rng.pick([3, 4, 5, 6, 8, 10])); if (p.cmp(1) >= 0) continue; }
       else if (form === 'dec2' || form === 'pct') { p = F(rng.int(11, 89), 100); if (p.mul(10).isInt) continue; } else { p = F(rng.int(1, 11), rng.pick([3, 4, 5, 6, 7, 8, 9, 10, 12])); if (p.cmp(1) >= 0) continue; }
       if (p.eq(F(1, 2))) continue;
+      if (p.value < (c.lo || 0) || p.value > (c.hi || 1)) continue; // a chance that fits the event (CLO review m08 item 9)
       const show = form === 'pct' || form === 'pct1' ? pTxt : form === 'frac' || form === 'frac1' ? (f) => f.toString() : dTxt;
       const isPct = form === 'pct' || form === 'pct1'; const isFrac = form === 'frac' || form === 'frac1';
       const q = F(1).sub(p);
@@ -271,7 +261,7 @@ const complement = {
       if (form === 'dec2' || form === 'pct') {
         const hh = p.mul(100).n; const t = Math.floor(hh / 10); const h = hh % 10;
         const w = F((10 - t) * 10 + h, 100);
-        if (h && !w.eq(q)) ds.push({ text: show(w), code: 'PROB-COMPLEMENT-DIGITS', why: `It looks like you took the tenths from 1 but kept the ${h} hundredths. ${form === 'pct' ? `100 - ${hh} = ${100 - hh}` : `Line up the decimal points: 1.00 - ${show(p)} = ${ans}`}.` });
+        if (h && !w.eq(q)) ds.push({ text: show(w), code: 'PROB-COMPLEMENT-DIGITS', why: form === 'pct' ? `It looks like you took the tens away from 100 (100 - ${t * 10} = ${100 - t * 10}) but kept the ${h} ones. Subtract the whole number: 100 - ${hh} = ${100 - hh}, so the answer is ${ans}.` : `It looks like you took the tenths from 1 but kept the ${h} hundredth${h === 1 ? '' : 's'}. Line up the decimal points: 1.00 - ${show(p)} = ${ans}.` });
       }
       if (isFrac && p.n > 1) ds.push({ text: `${p.n - 1}/${p.d - 1}`, code: 'FR-ADD-TOPS-BOTTOMS', why: `It looks like you took 1 from the top and 1 from the bottom of ${p}. Write 1 as ${p.d}/${p.d} first: ${p.d}/${p.d} - ${p} = ${q}.` });
       try {
@@ -386,7 +376,7 @@ const probScale = {
       const solution = `The probability is ${s.k}/${s.T}${f.d !== s.T ? ` = ${f}` : ''}. The scale is split into ${den} equal steps, so count ${f.n * (den / f.d)} step${f.n * (den / f.d) === 1 ? '' : 's'} from 0. That is point ${ans}. Answer: ${ans}`;
       const ds = [];
       for (const r of roles) {
-        if (r.role === 'comp') ds.push({ text: r.label, code: 'PROB-COMPLEMENT-FORGOT', why: `Point ${r.label} is at ${r.at}, the probability that it does NOT happen. Count ${f.n * (den / f.d)} steps from 0.` });
+        if (r.role === 'comp') ds.push({ text: r.label, code: 'PROB-COMPLEMENT-FORGOT', why: `Point ${r.label} is at ${r.at}, the probability that it does NOT happen. Count ${f.n * (den / f.d)} step${f.n * (den / f.d) === 1 ? '' : 's'} from 0.` });
         if (r.role === 'eq') ds.push({ text: r.label, code: 'PROB-SECTIONS-EQUAL', why: `Point ${r.label} is at ${r.at}, as if every colour were equally likely. Count the ${s.what}: ${s.k} out of ${s.T}.` });
       }
       const others = roles.filter((r) => r.role === 'other');
@@ -448,7 +438,17 @@ function gcd2(a, b) { while (b) [a, b] = [b, a % b]; return a; }
 
 // ---------------------------------------------------------------- g06 mutually exclusive events
 
-const overlapText = (e1, e2) => { const both = e1.set.filter((x) => e2.set.includes(x)); return `${both.length === 1 ? `${both[0]} is` : `${andList(both.slice(0, 3))} are`} ${e1.np.replace(/^an? /, '')} and also ${e2.np.replace(/^an? /, '')}`; };
+/** "even numbers", "factors of 10", "numbers greater than 4": the plural of an event's noun phrase. */
+const npPlural = (np) => np.replace(/^an? /, '').replace(/\b(number|multiple|factor)\b/, '$1s');
+/** Why two events overlap, in good English: "6 is an even number and also a factor of 12", "2 and 4 are even numbers and also factors of 8". */
+const overlapText = (e1, e2) => {
+  const both = e1.set.filter((x) => e2.set.includes(x));
+  if (both.length === 1) {
+    const parts = [e1, e2].filter((e) => e.np !== art(both[0])).map((e) => e.np); // "6 is a 6" says nothing
+    return `${both[0]} is ${parts.length ? parts.join(' and also ') : `in both events`}`;
+  }
+  return `${both.length > 3 ? `${both.slice(0, 3).join(', ')} and others` : andList(both)} are ${npPlural(e1.np)} and also ${npPlural(e2.np)}`;
+};
 const meIdentify = {
   id: 'm08.mutually-exclusive', topicId: T, subtopicId: 'm08-s3', skill: SK.meIdentify,
   title: 'Mutually exclusive events: which event cannot happen with a given one (D1 a dice, D2 cards), which pair is mutually exclusive (D3)',
@@ -470,7 +470,7 @@ const meIdentify = {
         const bad = evs.filter((e) => e !== A && meets(A, e)).slice(0, 3);
         if (bad.length < 3 || new Set(bad.map(word)).size < 3) continue;
         const prompt = `${intro} Event A is '${word(A)}'. Which event is mutually exclusive with event A (cannot happen at the same time)?`;
-        const solution = `Event A happens on ${andList(A.set)}. '${capital(word(good))}' happens on ${andList(good.set)}. No number is in both lists, so the two events cannot happen together: they are mutually exclusive. Answer: ${capital(word(good))}`;
+        const solution = `Event A happens on ${listOrRun(A.set)}. '${capital(word(good))}' happens on ${listOrRun(good.set)}. No number is in both lists, so the two events cannot happen together: they are mutually exclusive. Answer: ${capital(word(good))}`;
         const ds = bad.map((e) => ({ text: capital(word(e)), code: 'PROB-ME-OVERLAP', why: `These can happen together: ${overlapText(e, A)}. Mutually exclusive events share no outcomes.` }));
         try { return { type: 'mcq', prompt, ...choices(rng, capital(word(good)), ds, null) , solution }; } catch { continue; }
       }
@@ -485,7 +485,7 @@ const meIdentify = {
       const pt = ([a, b]) => `${capital(word(a))} and ${word(b)}`;
       const prompt = `${intro} Which pair of events are mutually exclusive (cannot both happen at the same time)?`;
       const [g1, g2] = goodPair;
-      const solution = `${capital(word(g1))} happens on ${andList(g1.set)}. ${capital(word(g2))} happens on ${andList(g2.set)}. No number is in both, so they cannot happen together. In each other pair, at least one number makes both events happen. Answer: ${pt(goodPair)}`;
+      const solution = `${capital(word(g1))} happens on ${listOrRun(g1.set)}. ${capital(word(g2))} happens on ${listOrRun(g2.set)}. No number is in both, so they cannot happen together. In each other pair, at least one number makes both events happen. Answer: ${pt(goodPair)}`;
       const ds = badPairs.map(([a, b]) => ({ text: pt([a, b]), code: 'PROB-ME-OVERLAP', why: `These can happen together: ${overlapText(a, b)}.` }));
       try { return { type: 'mcq', prompt, ...choices(rng, pt(goodPair), ds, null), solution, marks: 2 }; } catch { /* draw again */ }
     }
@@ -515,7 +515,7 @@ const orProb = {
         ansF = a.add(b);
         if (ansF.cmp(1) >= 0) continue;
         const intro = spin ? `The spinner has ${N} equal sections numbered 1 to ${N}.` : `Cards numbered 1 to ${N} are shuffled and you pick one.`;
-        if (spin) diagram = { type: 'spinner', sectors: range(1, N).map(String) };
+        if (spin) diagram = { type: 'spinner', sectors: range(1, N).map(String), alt: `A spinner with ${N} equal sections numbered 1 to ${N}.` };
         prompt = `${intro} What is the probability that ${spin ? 'it lands on' : 'you pick'} ${e1.np} or ${e2.np}? Give your answer in its simplest form.`;
         solution = `${capital(e1.np)}: ${andList(e1.set)}, so ${e1.set.length}/${N}. ${capital(e2.np)}: ${andList(e2.set)}, so ${e2.set.length}/${N}. They cannot both happen, so add: ${e1.set.length}/${N} + ${e2.set.length}/${N} = ${e1.set.length + e2.set.length}/${N}${ansF.d !== N ? ` = ${ansF}` : ''}. Answer: ${ansF}`;
       } else {
@@ -530,14 +530,15 @@ const orProb = {
       }
       const ds = [];
       const prod = a.mul(b);
-      if (show !== dTxt || okDp(prod, 3)) ds.push({ text: show(prod), code: 'PROB-OR-MULTIPLY', why: `It looks like you multiplied ${show(a)} by ${show(b)}. For "or" with mutually exclusive events, ADD the probabilities.` });
+      // multiplying two fractions is beyond Stage 6, so that slip is offered only at D3 (CLO review m08 item 7)
+      if (d === 3 && (show !== dTxt || okDp(prod, 3))) ds.push({ text: show(prod), code: 'PROB-OR-MULTIPLY', why: `It looks like you multiplied ${show(a)} by ${show(b)}. For "or" with mutually exclusive events, ADD the probabilities.` });
       if (show !== dTxt) ds.push({ text: tb ? tb.text : `${a.n + b.n}/${a.d + b.d}`, code: 'FR-ADD-TOPS-BOTTOMS', why: tb ? tb.why : `It looks like you added the tops and the bottoms (${a.n} + ${b.n} and ${a.d} + ${b.d}). Make the denominators the same, then add only the numerators.` });
       ds.push({ text: show(b.cmp(a) > 0 ? b : a), code: 'PROB-OR-ONE-EVENT', why: `${show(b.cmp(a) > 0 ? b : a)} is the probability of only one of the two events. "Or" means either one: add both.` });
       const rest = F(1).sub(ansF);
       ds.push({ text: show(rest), code: 'PROB-COMPLEMENT-FORGOT', why: `${show(rest)} is the probability of NEITHER event. Add the two probabilities instead.` });
       try {
         const den = show === dTxt ? 20 : ansF.d;
-        const c = choices(rng, show(ansF), ds, (k) => { const w = nearFrac(ansF, den, k); return w ? nearMiss(show(w), 'Add the two probabilities.') : null; });
+        const c = choices(rng, show(ansF), ds, (k) => { const w = nearFrac(ansF, den, k); return w ? fresh(prompt, nearMiss(show(w), 'Add the two probabilities.')) : null; });
         return { type: 'mcq', prompt, ...c, solution, diagram, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
     }
@@ -560,17 +561,18 @@ const expected = {
         if (d === 1) {
           const kind = rng.pick(['dice', 'dice', 'coin', 'spinner']);
           if (kind === 'coin') s = { kind, intro: `${p.name} tosses a fair coin`, ask: 'land on heads', k: 1, T: 2, unit: 'tosses' };
-          else if (kind === 'dice') { const e = events(rng, 6).find((x) => x.set.length <= 3); s = { kind, intro: `${p.name} rolls a fair dice numbered 1 to 6`, ask: `roll ${e.np}`, k: e.set.length, T: 6, ev: e }; } else s = { ...situation(rng, 1, { kind: 'spinner' }), unit: 'spins' };
+          else if (kind === 'dice') { const e = events(rng, 6).find((x) => x.set.length <= 3); s = { kind, intro: `${p.name} rolls a fair dice`, after: ' The dice is numbered 1 to 6.', ask: `roll ${e.np}`, k: e.set.length, T: 6, ev: e }; } else s = { ...situation(rng, 1, { kind: 'spinner' }), unit: 'spins' };
         } else s = situation(rng, 2, { kind: rng.pick(['spinner', 'spinner', 'bag']) });
         const f = F(s.k, s.T);
-        const n = f.d * rng.int(d === 1 ? 2 : 4, d === 1 ? 20 : 50);
-        if (n < 20 || n > 600) continue;
+        // friendly numbers of trials, worked without a calculator (CLO review m08 item 6)
+        const n = f.d * rng.int(d === 1 ? 2 : 4, d === 1 ? 20 : 60);
+        if (n < 20 || n > (d === 1 ? 120 : 300) || (d === 2 && n % 10 !== 0)) continue;
         ans = f.mul(n).n;
         const him = p.he === 'she' ? 'her' : 'him';
         if (s.kind === 'spinner') prompt = `${s.intro} ${p.name} spins it ${n} times. About how many times would you expect it to land on ${s.what}?`;
         else if (s.kind === 'bag') prompt = `${s.lead} ${p.name} picks one without looking, writes down its colour and puts it back. ${p.He} does this ${n} times. About how many times would you expect ${him} to pick a ${s.what} one?`;
         else if (s.kind === 'coin') prompt = `${s.intro} ${n} times. About how many times would you expect the coin to land on heads?`;
-        else prompt = `${s.intro} ${n} times. About how many times would you expect ${him} to ${s.ask}?`;
+        else prompt = `${s.intro} ${n} times.${s.after || ''} About how many times would you expect ${him} to ${s.ask}?`;
         solution = `The probability is ${s.k}/${s.T}${f.d !== s.T ? ` = ${f}` : ''}. Expected number = ${f} of ${n} = ${n} ÷ ${f.d}${f.n > 1 ? ` x ${f.n}` : ''} = ${ans}. You may not get exactly ${ans}, but about ${ans}. Answer: ${ans}`;
         if (f.n > 1) ds.push({ text: String(n / f.d), code: 'FR-OF-DIVIDE-ONLY', why: `${n / f.d} is 1/${f.d} of ${n}. The probability is ${f}, so multiply by ${f.n} as well.` });
         ds.push({ text: String(s.k), code: 'PROB-COUNT-NOT-FRACTION', why: `${s.k} is the number of favourable outcomes on one go. Over ${n} goes, expect ${f} of ${n}.` });
@@ -579,7 +581,7 @@ const expected = {
         try {
           const typed = rng.chance(0.35);
           if (typed) return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans)]), ...typedMisconceptions(String(ans), ds, { code: 'FR-OF-DIVIDE-ONLY', why: 'Expected number = probability x number of trials.' }), solution, diagram: s.diagram };
-          return { type: 'mcq', prompt, ...choices(rng, String(ans), ds, (k) => { const w = ans + (n / f.d) * (k % 2 ? Math.ceil(k / 2) : -Math.ceil(k / 2)); return w > 0 ? nearMiss(String(w), 'Multiply the number of trials by the probability.') : null; }), solution, diagram: s.diagram };
+          return { type: 'mcq', prompt, ...choices(rng, String(ans), ds, (k) => { const w = ans + (n / f.d) * (k % 2 ? Math.ceil(k / 2) : -Math.ceil(k / 2)); return w > 0 ? fresh(prompt, nearMiss(String(w), 'Multiply the number of trials by the probability.')) : null; }), solution, diagram: s.diagram };
         } catch { continue; }
       }
       // D3: from an experiment
@@ -599,7 +601,7 @@ const expected = {
       if (pp.isInt && pp.n !== ans) ds.push({ text: String(pp.n), code: 'PROB-PART-PART', why: `It looks like you used ${k1}/${n1 - k1} (part to part). The relative frequency is ${k1} out of ALL ${n1}.` });
       ds.push({ text: String(n2 - ans), code: 'PROB-COMPLEMENT-FORGOT', why: `${n2 - ans} is how many times you would expect it NOT to happen.` });
       try {
-        return { type: 'mcq', prompt, ...choices(rng, String(ans), ds, (k) => { const w = ans + (n2 / r.d) * (k % 2 ? Math.ceil(k / 2) : -Math.ceil(k / 2)); return w > 0 ? nearMiss(String(w), 'Find the relative frequency, then multiply by the new number of trials.') : null; }), solution, marks: 2 };
+        return { type: 'mcq', prompt, ...choices(rng, String(ans), ds, (k) => { const w = ans + (n2 / r.d) * (k % 2 ? Math.ceil(k / 2) : -Math.ceil(k / 2)); return w > 0 ? fresh(prompt, nearMiss(String(w), 'Find the relative frequency, then multiply by the new number of trials.')) : null; }), solution, marks: 2 };
       } catch { /* draw again */ }
     }
   },
@@ -641,7 +643,7 @@ const relative = {
         if (d === 1) ds.push({ text: String(k), code: 'PROB-COUNT-NOT-FRACTION', why: `${k} is the number of times. The relative frequency is a fraction of all ${n} ${c.u}.` });
         if (d === 2 && k < 1000) { const t = `0.${String(k).padStart(String(n).length - 1, '0')}`; if (!/0$/.test(t) && Math.abs(Number(t) - f.value) > 1e-9) ds.push({ text: t, code: 'FDP-DIGITS', why: `It looks like you put ${k} after a decimal point. Work out ${k} ÷ ${n}: write ${k}/${n} in hundredths or thousandths first.` }); }
         try {
-          if (d === 2 && rng.chance(0.4)) return { type: 'numeric', prompt, answer: numericAnswer(f.value, [dTxt(f), f.toString(), `${k}/${n}`, pTxt(f)]), ...typedMisconceptions(dTxt(f), ds, { code: 'PROB-PART-PART', why: 'Relative frequency = number of times it happened ÷ total number of trials.' }), solution };
+          if (d === 2 && rng.chance(0.4)) return { type: 'numeric', prompt, answer: numericAnswer(f.value, [dTxt(f)]), ...typedMisconceptions(dTxt(f), ds, { code: 'PROB-PART-PART', why: 'Relative frequency = number of times it happened ÷ total number of trials.' }), solution };
           const den = d === 1 ? f.d : 20;
           return { type: 'mcq', prompt, ...choices(rng, show(f), ds, (j) => { const w = nearFrac(f, den, j); return w && okDp(w, 3) || (w && d === 1) ? nearMiss(show(w), 'Divide the number of times it happened by the total number of trials.') : null; }), solution };
         } catch { continue; }

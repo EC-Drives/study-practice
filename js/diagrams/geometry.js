@@ -173,11 +173,13 @@ const polygon = {
   },
   describe(s) {
     const n = s.points ? s.points.length : s.regular;
+    // corners for the name: a point part-way along a straight side is not a corner
+    const corners = s.points ? s.points.filter((p, i, a) => { const q = a[(i + n - 1) % n]; const r = a[(i + 1) % n]; return Math.abs((p[0] - q[0]) * (r[1] - p[1]) - (p[1] - q[1]) * (r[0] - p[0])) > 1e-9; }).length : n;
     const V = s.vertexLabels || [];
     const nameSide = (i) => (V[i] && V[(i + 1) % n] ? `side ${V[i]}${V[(i + 1) % n]}` : `side ${i + 1}`);
     const nameCorner = (i) => (V[i] ? `corner ${V[i]}` : `corner ${i + 1}`);
     const parts = [];
-    parts.push(s.regular ? `A regular ${shapeName(n)}.` : `A ${shapeName(n)}${V.filter(Boolean).length ? ` ${V.join('')}` : ''}.`);
+    parts.push(s.regular ? `A regular ${shapeName(n)}.` : `A ${shapeName(corners)}${V.filter(Boolean).length ? ` ${V.join('')}` : ''}.`);
     if (s.grid) parts.push('It is drawn on squared paper with 1-unit squares.');
     const sideL = []; const ticks = {}; const arrows = {};
     (s.sides || []).forEach((sd, i) => {
@@ -803,7 +805,7 @@ const barModel = {
       if (b.units != null) parts.push(`${who}${plural(b.units, 'equal unit')}${b.unitText != null && b.unitText !== '' ? `, each labelled ${say(b.unitText)}` : ''}${b.shadedUnits ? `, ${b.shadedUnits} shaded` : ''}${b.right ? `, with ${say(b.right)} written after it` : ''}.`);
       else parts.push(`${who}${b.parts.length} parts${b.parts.some((p) => p.text != null && p.text !== '') ? ` labelled ${listText(b.parts.map((p) => say(p.text ?? 'blank')))}` : ''}${b.right ? `, with ${say(b.right)} written after it` : ''}.`);
     }
-    for (const br of s.braces || []) parts.push(`A brace over ${s.bars[br.bar].label ? `${tidy(s.bars[br.bar].label)}'s bar` : 'a bar'}${br.label ? ` is labelled ${say(br.label)}` : ''}.`);
+    for (const br of s.braces || []) parts.push(`A brace ${br.side === 'below' ? 'under' : 'over'} ${s.bars[br.bar].label ? `${tidy(s.bars[br.bar].label)}'s bar` : 'a bar'}${br.label ? ` is labelled ${say(br.label)}` : ''}.`);
     if (s.totalBrace) parts.push(`A brace across all the bars${s.totalBrace.label ? ` is labelled ${say(s.totalBrace.label)}` : ''}.`);
     return parts.join(' ');
   },

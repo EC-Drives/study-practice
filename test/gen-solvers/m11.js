@@ -62,12 +62,18 @@ function propParts(q) {
 }
 function rm2(sen) { const c = Math.round(sen); return c % 100 === 0 ? `RM ${c / 100}` : `RM ${Math.floor(c / 100)}.${String(c % 100).padStart(2, '0')}`; }
 function baParts(q) {
-  const m = q.prompt.match(/^The ratio of (.+?) to (.+?) (?:in|at|on) .+? is (\d+) : (\d+)\. Then (\d+) more .+?, and the ratio becomes (\d+) : (\d+)\. How many (.+?) are there (altogether|at first|now)\?$/);
-  return { A: m[1], B: m[2], b: Number(m[3]), g1: Number(m[4]), added: Number(m[5]), g2: Number(m[7]), ask: m[9] === 'altogether' ? 'fixed' : m[9] === 'at first' ? 'before' : 'after' };
+  const m = q.prompt.match(/^The ratio of (.+?) to (.+?) (?:in|at|on) .+? is (\d+) : (\d+)\. Then (\d+) (more )?.+?, and the ratio becomes (\d+) : (\d+)\. How many (.+?) are there( at first| now)?\?$/);
+  const p1 = Number(m[3]); const q1 = Number(m[4]); const p2 = Number(m[7]); const q2 = Number(m[8]);
+  // the first quantity does not change: give it the same number of parts in both ratios
+  const L = (p1 * p2) / G(p1, p2);
+  const before = (q1 * L) / p1; const after = (q2 * L) / p2;
+  const unit = Number(m[5]) / Math.abs(after - before);
+  return { L, before, after, change: Number(m[5]), unit, grew: !!m[6], ask: !m[10] ? 'fixed' : m[10] === ' at first' ? 'before' : 'after' };
 }
+const baAsked = (p) => (p.ask === 'fixed' ? p.L : p.ask === 'before' ? p.before : p.after);
 /** Best-buy packs from the table: [{ label, size, sen }]. */
 function packs(q) {
-  return q.diagram.rows.map(([, size, price]) => ({ size: num(size.split(' ')[0]), unit: size.split(' ')[1], sen: Math.round(Number(price.replace('RM ', '')) * 100), label: `${size} for ${price}` }));
+  return q.diagram.rows.map(([letter, size, price]) => ({ size: num(size.replace(/ [a-zA-Z]+$/, '')), unit: size.split(' ').pop(), sen: Math.round(Number(price.replace('RM ', '')) * 100), label: `Pack ${letter}: ${size} for ${price}` }));
 }
 
 export const SOLVERS = {
@@ -100,7 +106,7 @@ export const SOLVERS = {
     return { value: total / 100 };
   },
   'm11.best-buy': (q) => { const ps = packs(q); const best = ps.reduce((a, b) => (b.sen / b.size < a.sen / a.size ? b : a)); return { text: best.label }; },
-  'm11.before-after': (q) => { const p = baParts(q); const k = p.added / (p.g2 - p.g1); return { value: k * (p.ask === 'fixed' ? p.b : p.ask === 'before' ? p.g1 : p.g2) }; },
+  'm11.before-after': (q) => { const p = baParts(q); if ((p.after > p.before) !== p.grew) throw new Error('the change goes the wrong way for the ratios'); return { value: p.unit * baAsked(p) }; },
 };
 
 export const MIS = {
@@ -136,7 +142,8 @@ export const MIS = {
       if (p.known != null) { const unit = p.known / p.ratio[p.knownWho]; return p.ratio.map((r) => r * unit); }
       return [p.total - (p.total * p.ratio[p.who]) / sum];
     },
-    'RATIO-DIFF-AS-PART': (q) => { const p = shareParts(q); return [p.known * p.ratio.reduce((a, b) => a + b, 0)]; },
+    'RATIO-SHARE-AS-PART': (q) => { const p = shareParts(q); return [p.known * p.ratio.reduce((a, b) => a + b, 0)]; },
+    'RATIO-WHOLE-AS-SHARE': (q) => { const p = shareParts(q); return [p.total]; },
   },
   'm11.ratio-difference': {
     'RATIO-ONE-PART-ONLY': (q) => { const p = diffParts(q); return [p.diff / (p.b - p.a)]; },
@@ -154,16 +161,16 @@ export const MIS = {
     'PROP-TIMES-WHOLE': (q) => { const p = propParts(q); return p.kind === 'left' ? [p.bag - p.amount * p.m] : p.kind === 'recipe' ? [p.amount * p.m] : [(p.amount * p.m) / 100]; },
     'OP-SWAP': (q) => { const p = propParts(q); return [p.bag + (p.amount * p.m) / p.n]; },
     'PROP-INVERSE-SCALE': (q) => { const p = propParts(q); return [(p.amount * p.n) / p.m]; },
-    'FR-REMAINDER-ONE-STEP': (q) => { const p = propParts(q); return p.kind === 'left' ? [(p.amount * p.m) / p.n] : [(p.amount * p.m) / p.n / 100]; },
+    'ONE-STEP-ONLY': (q) => { const p = propParts(q); return p.kind === 'left' ? [(p.amount * p.m) / p.n] : [(p.amount * p.m) / p.n / 100]; },
   },
   'm11.best-buy': {
     'BUY-CHEAPEST-PRICE': (q) => { const ps = packs(q); return [ps.reduce((a, b) => (b.sen < a.sen ? b : a)).label]; },
     'BUY-BIGGEST-PACK': (q) => { const ps = packs(q); return [ps.reduce((a, b) => (b.size > a.size ? b : a)).label]; },
   },
   'm11.before-after': {
-    'RATIO-ONE-PART-ONLY': (q) => { const p = baParts(q); return [p.added / (p.g2 - p.g1)]; },
-    'RATIO-CHANGE-AS-PART': (q) => { const p = baParts(q); return [p.added * (p.ask === 'fixed' ? p.b : p.ask === 'before' ? p.g1 : p.g2)]; },
-    'RATIO-GIVES-ONE-SHARE': (q) => { const p = baParts(q); const k = p.added / (p.g2 - p.g1); return [p.g1 * k, p.b * k]; },
+    'RATIO-ONE-PART-ONLY': (q) => { const p = baParts(q); return [p.unit]; },
+    'RATIO-CHANGE-AS-PART': (q) => { const p = baParts(q); return [p.change * baAsked(p)]; },
+    'RATIO-GIVES-ONE-SHARE': (q) => { const p = baParts(q); return [p.before * p.unit, p.after * p.unit]; },
   },
 };
 export { numbersIn, rm2 };

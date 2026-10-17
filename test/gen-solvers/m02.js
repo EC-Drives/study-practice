@@ -54,13 +54,14 @@ function seqParts(q) {
 const ends = (q) => numbersIn(q.prompt).slice(0, 2).map(Number);
 
 function riddleParts(q) {
-  const m = q.prompt.match(/between (\d+) and (\d+)\. I am a multiple of (\d+), and I am (.*)\. What number/);
-  const c = m[4]; let k;
+  const m = q.prompt.match(/between (\d+) and (\d+)\. I am (a multiple of (\d+)|a prime number|a square number), and I am (.*)\. What number/);
+  const c = m[5]; let k;
   let clue;
   if ((k = c.match(/a factor of (\d+)/))) clue = (x) => N(k[1]) % x === 0;
   else if ((k = c.match(/1 more than a multiple of (\d+)/))) clue = (x) => x % N(k[1]) === 1;
   else { k = c.match(/digits add up to (\d+)/); clue = (x) => String(x).split('').reduce((a, d) => a + Number(d), 0) === N(k[1]); }
-  return { lo: N(m[1]), hi: N(m[2]), m: N(m[3]), clue };
+  const first = m[4] ? (x) => x % N(m[4]) === 0 : /prime/.test(m[3]) ? isPrime : (x) => Number.isInteger(Math.sqrt(x));
+  return { lo: N(m[1]), hi: N(m[2]), first, clue };
 }
 
 // ---------------------------------------------------------------- HCF / LCM
@@ -109,7 +110,7 @@ export const SOLVERS = {
   'm02.temperature': (q) => ({ value: temp(q).r }),
   'm02.count-past-zero': (q) => ({ value: v(seqParts(q).ans) }),
   'm02.compare-negatives': (q) => {
-    if (q.type === 'truefalse') { const m = q.prompt.match(/(-?\d+) ([<>]) (-?\d+)/); return { bool: m[2] === '>' ? N(m[1]) > N(m[3]) : N(m[1]) < N(m[3]) }; }
+    if (q.type === 'truefalse') { const m = q.prompt.match(/(-?\d+(?:\.\d+)?) ([<>]) (-?\d+(?:\.\d+)?)/); return { bool: m[2] === '>' ? N(m[1]) > N(m[3]) : N(m[1]) < N(m[3]) }; }
     if (q.type === 'order') { const desc = /LARGEST/.test(q.prompt); return { order: [...q.options].sort((a, b) => (desc ? -1 : 1) * (valueIn(a) - valueIn(b))) }; }
     const vals = q.options.map(valueIn);
     const want = /coldest|smallest/.test(q.prompt) ? Math.min(...vals) : Math.max(...vals);
@@ -118,14 +119,14 @@ export const SOLVERS = {
   'm02.midpoint': (q) => { const [a, b] = ends(q); return { value: (a + b) / 2 }; },
   'm02.factors-primes': (q) => {
     const t = q.prompt; let m;
-    if ((m = t.match(/multiple of (\d+):/))) return { text: q.options.find((o) => N(o) % N(m[1]) === 0) };
-    if (/prime number:/.test(t)) return { text: q.options.find((o) => isPrime(N(o))) };
+    if ((m = t.match(/is a multiple of (\d+)\?/))) return { text: q.options.find((o) => N(o) % N(m[1]) === 0) };
+    if (/Which of these is a prime number\?/.test(t)) return { text: q.options.find((o) => isPrime(N(o))) };
     if (/Select ALL the prime/.test(t)) return { set: q.options.filter((o) => isPrime(N(o))) };
     if ((m = t.match(/Select ALL the factors of (\d+)/))) return { set: q.options.filter((o) => N(m[1]) % N(o) === 0) };
     if ((m = t.match(/common factor of (\d+) and (\d+)/))) return { text: q.options.find((o) => N(m[1]) % N(o) === 0 && N(m[2]) % N(o) === 0) };
     if ((m = t.match(/a factor of (\d+)\?$/))) return { text: q.options.find((o) => N(m[1]) % N(o) === 0) };
     const r = riddleParts(q);
-    const out = []; for (let x = r.lo + 1; x < r.hi; x++) if (x % r.m === 0 && r.clue(x)) out.push(x);
+    const out = []; for (let x = r.lo + 1; x < r.hi; x++) if (r.first(x) && r.clue(x)) out.push(x);
     return { value: out.length === 1 ? out[0] : NaN };
   },
   'm02.hcf-lcm': (q) => {
@@ -137,7 +138,7 @@ export const SOLVERS = {
   'm02.divisibility': (q) => {
     let m;
     if ((m = q.prompt.match(/True or false: ([\d ]+) is divisible by (\d+)/))) return { bool: N(m[1]) % N(m[2]) === 0 };
-    if ((m = q.prompt.match(/divisible by (\d+):/))) return { text: q.options.find((o) => N(o) % N(m[1]) === 0) };
+    if ((m = q.prompt.match(/Which of these numbers is divisible by (\d+)\?/))) return { text: q.options.find((o) => N(o) % N(m[1]) === 0) };
     const mm = missing(q);
     if (/LARGEST/.test(q.prompt)) return { value: Math.max(...mm.ok) };
     if (/SMALLEST/.test(q.prompt)) return { value: Math.min(...mm.ok) };
@@ -146,8 +147,8 @@ export const SOLVERS = {
   'm02.squares-cubes': (q) => {
     const t = q.prompt; let m;
     if ((m = t.match(/^What is (\d+)\^(\d+)\?/))) return { value: N(m[1]) ** N(m[2]) };
-    if (/square number:/.test(t)) return { text: q.options.find((o) => Number.isInteger(Math.sqrt(N(o)))) };
-    if (/cube number:/.test(t)) return { text: q.options.find((o) => Number.isInteger(Math.round(Math.cbrt(N(o)))) && Math.round(Math.cbrt(N(o))) ** 3 === N(o)) };
+    if (/is a square number\?/.test(t)) return { text: q.options.find((o) => Number.isInteger(Math.sqrt(N(o)))) };
+    if (/is a cube number\?/.test(t)) return { text: q.options.find((o) => Number.isInteger(Math.round(Math.cbrt(N(o)))) && Math.round(Math.cbrt(N(o))) ** 3 === N(o)) };
     if ((m = t.match(/area of (\d+) (?:m|cm)\^2/))) return { value: Math.sqrt(N(m[1])) };
     if ((m = t.match(/^Work out (\d+)\^2 ([+-]) (\d+)\^3/))) return { value: m[2] === '+' ? N(m[1]) ** 2 + N(m[3]) ** 3 : N(m[1]) ** 2 - N(m[3]) ** 3 };
     if (q.type === 'order') { const val = (o) => { const [b, e] = o.split('^').map(Number); return b ** e; }; return { order: [...q.options].sort((a, b) => val(a) - val(b)) }; }
@@ -195,10 +196,10 @@ export const MIS = {
     'NEG-SIGN-DROP': (q) => { const [a, b] = ends(q); return [-(a + b) / 2]; },
   },
   'm02.factors-primes': {
-    'MULT-LAST-DIGIT': (q) => { const n = N(q.prompt.match(/multiple of (\d+):/)[1]); return q.options.filter((o) => N(o) % 10 === n && N(o) % n); },
+    'MULT-LAST-DIGIT': (q) => { const n = N(q.prompt.match(/is a multiple of (\d+)\?/)[1]); return q.options.filter((o) => N(o) % 10 === n && N(o) % n); },
     'FACTOR-MULTIPLE-SWAP': (q) => {
       const t = q.prompt; let m;
-      if ((m = t.match(/multiple of (\d+):/))) return q.options.filter((o) => N(m[1]) % N(o) === 0);
+      if ((m = t.match(/is a multiple of (\d+)\?/))) return q.options.filter((o) => N(m[1]) % N(o) === 0);
       if ((m = t.match(/common factor of (\d+) and (\d+)/))) return q.options.filter((o) => N(o) % N(m[1]) === 0 && N(o) % N(m[2]) === 0);
       m = t.match(/factors? of (\d+)/);
       return q.options.filter((o) => N(o) % N(m[1]) === 0 && N(o) > N(m[1]));
@@ -209,31 +210,35 @@ export const MIS = {
       let m = q.prompt.match(/common factor of (\d+) and (\d+)/);
       if (m) return q.options.filter((o) => (N(m[1]) % N(o) === 0) !== (N(m[2]) % N(o) === 0));
       const r = riddleParts(q);
-      const out = []; for (let x = r.lo + 1; x < r.hi; x++) if ((x % r.m === 0) !== r.clue(x)) out.push(x);
+      const out = []; for (let x = r.lo + 1; x < r.hi; x++) if (r.first(x) !== r.clue(x)) out.push(x);
       return out;
     },
   },
   'm02.hcf-lcm': {
     'HCF-LCM-SWAP': (q) => { const p = hl(q); return [p.ask === 'hcf' ? l(p.a, p.b) : g(p.a, p.b)]; },
-    'HCF-NOT-HIGHEST': (q) => { const p = hl(q); const h = g(p.a, p.b); return p.ask === 'each' ? [p.n / lowerFactor(h)] : [lowerFactor(h)]; },
+    'HCF-NOT-HIGHEST': (q) => { const p = hl(q); const h = g(p.a, p.b); return p.ask === 'each' ? [p.n / lowerFactor(h)] : divisors(h).filter((x) => x < h); },
     'LCM-PRODUCT': (q) => { const p = hl(q); return [p.a * p.b]; },
     'LCM-NOT-LOWEST': (q) => { const p = hl(q); return [2 * l(p.a, p.b)]; },
     'WRONG-QUANTITY': (q) => { const p = hl(q); const h = g(p.a, p.b); return p.ask === 'each' ? [p.other / h] : [(p.a + p.b) / h]; },
     'ONE-STEP-ONLY': (q) => { const p = hl(q); return [g(p.a, p.b)]; },
   },
   'm02.divisibility': {
-    'DIV-LAST-DIGIT': (q) => { const n = N(q.prompt.match(/divisible by (\d+)/)[1]); const ld = n === 3 ? [3, 6, 9] : [9]; return q.options.filter((o) => ld.includes(N(o) % 10) && N(o) % n); },
+    'DIV-LAST-DIGIT': (q) => {
+      const n = N(q.prompt.match(/divisible by (\d+)/)[1]); const ld = n === 3 ? [3, 6, 9] : [9];
+      if (!q.options) { const p = missing(q); return p.all.filter((x) => ld.includes(x.n % 10) && x.n % n).map((x) => x.x); }
+      return q.options.filter((o) => ld.includes(N(o) % 10) && N(o) % n);
+    },
     'DIV9-AS-DIV3': (q) => {
-      if (q.options && /divisible by 9:/.test(q.prompt)) return q.options.filter((o) => N(o) % 3 === 0 && N(o) % 9);
+      if (q.options && /divisible by 9\?/.test(q.prompt)) return q.options.filter((o) => N(o) % 3 === 0 && N(o) % 9);
       const p = missing(q); return p.all.filter((x) => x.n % 3 === 0 && x.n % 9).map((x) => x.x);
     },
     'DIV6-EVEN-ONLY': (q) => {
-      if (q.options && /divisible by 6:/.test(q.prompt)) return q.options.filter((o) => N(o) % 2 === 0 && N(o) % 3);
+      if (q.options && /divisible by 6\?/.test(q.prompt)) return q.options.filter((o) => N(o) % 2 === 0 && N(o) % 3);
       const p = missing(q); return p.all.filter((x) => x.n % 2 === 0 && x.n % 3).map((x) => x.x);
     },
     'WRONG-QUANTITY': (q) => { const p = missing(q); return [/LARGEST/.test(q.prompt) ? Math.min(...p.ok) : Math.max(...p.ok)]; },
     'DIV6-THREE-ONLY': (q) => {
-      if (q.options && /divisible by 6:/.test(q.prompt)) return q.options.filter((o) => N(o) % 2 && N(o) % 3 === 0);
+      if (q.options && /divisible by 6\?/.test(q.prompt)) return q.options.filter((o) => N(o) % 2 && N(o) % 3 === 0);
       const p = missing(q); return p.all.filter((x) => x.n % 3 === 0 && x.n % 2).map((x) => x.x);
     },
     'DIV4-LAST-DIGIT': (q) => q.options.filter((o) => N(o) % 2 === 0 && N(o) % 4),
@@ -242,8 +247,8 @@ export const MIS = {
     'POW-MULT': (q) => {
       const t = q.prompt; let m;
       if ((m = t.match(/^What is (\d+)\^(\d+)\?/))) return [N(m[1]) * N(m[2])];
-      if (/cube number:/.test(t)) return q.options.filter((o) => N(o) % 3 === 0);
-      if (/square number:/.test(t)) return q.options.filter((o) => N(o) % 2 === 0 && !Number.isInteger(Math.sqrt(N(o))));
+      if (/is a cube number\?/.test(t)) return q.options.filter((o) => N(o) % 3 === 0);
+      if (/is a square number\?/.test(t)) return q.options.filter((o) => N(o) % 2 === 0 && !Number.isInteger(Math.sqrt(N(o))));
       if ((m = t.match(/^Work out (\d+)\^2 ([+-]) (\d+)\^3/))) return [m[2] === '+' ? N(m[1]) * 2 + N(m[3]) * 3 : N(m[1]) * 2 - N(m[3]) * 3];
       const b = block(q); return [b.n * 3 - b.t * 3, b.n ** 3 - b.t];
     },
@@ -255,8 +260,8 @@ export const MIS = {
     'SQ-CUBE-MIX': (q) => {
       const t = q.prompt; let m;
       if ((m = t.match(/^What is (\d+)\^(\d+)\?/))) return [N(m[2]) === 3 ? N(m[1]) ** 2 : N(m[1]) ** 3];
-      if (/cube number:/.test(t)) return q.options.filter((o) => Number.isInteger(Math.sqrt(N(o))));
-      if (/square number:/.test(t)) return q.options.filter((o) => Math.round(Math.cbrt(N(o))) ** 3 === N(o));
+      if (/is a cube number\?/.test(t)) return q.options.filter((o) => Number.isInteger(Math.sqrt(N(o))));
+      if (/is a square number\?/.test(t)) return q.options.filter((o) => Math.round(Math.cbrt(N(o))) ** 3 === N(o));
       if ((m = t.match(/^Work out (\d+)\^2 ([+-]) (\d+)\^3/))) return [m[2] === '+' ? N(m[1]) ** 2 + N(m[3]) ** 2 : N(m[1]) ** 2 - N(m[3]) ** 2];
       const b = block(q); return [b.n * b.n];
     },

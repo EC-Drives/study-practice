@@ -108,6 +108,10 @@ export function dps(x) {
   return 7;
 }
 export const plural = (n, w, many = `${w}s`) => `${n === 1 ? w : many}`;
+/** "3 units", "1 unit": the number with its word, singular for exactly 1 (CLO review X4). */
+export const countOf = (n, w, many = `${w}s`) => `${n} ${plural(Number(n), w, many)}`;
+/** A number inside working: negatives in brackets, so "1 + (-3)", never "1 + -3" (CLO review X5). */
+export const term = (n) => (Number(n) < 0 ? `(${n})` : `${n}`);
 export const ordinal = (n) => { const s = ['th', 'st', 'nd', 'rd']; const v = n % 100; return `${n}${s[(v - 20) % 10] || s[v] || s[0]}`; };
 
 // ---------------------------------------------------------------- reading numbers back (for checks)
@@ -175,13 +179,20 @@ export function typedMisconceptions(correct, items, common) {
     misconceptions[String(d.text)] = d.why;
     codes[String(d.text)] = d.code;
   }
+  // the catch-all for a typed answer that matches none of the listed wrong answers: its text is a
+  // hint, and its code is UNCLASSIFIED, so an unmatched slip is never reported as a named
+  // misconception (CLO review X1)
   misconceptions.common = common.why;
-  codes.common = common.code;
+  codes.common = 'UNCLASSIFIED';
   return { misconceptions, codes };
 }
 
-/** A near-miss fallback distractor: no claim of a specific error. */
-export const nearMiss = (text, hint) => ({ text, code: 'NEAR-MISS', why: `This is close, but ${text} is not right. ${hint}` });
+/**
+ * A near-miss fallback distractor: no claim of a specific error, and no claim that it is "close"
+ * (CLO review X3). The hint says what to check. Use only plausible values, never a number that
+ * already appears in the question.
+ */
+export const nearMiss = (text, hint) => ({ text, code: 'NEAR-MISS', why: `Not quite: ${text} is not right. ${hint}` });
 
 // ---------------------------------------------------------------- people (names from the bank)
 

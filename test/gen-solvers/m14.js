@@ -37,6 +37,12 @@ const otherAxis = (axis) => (axis === 'y' ? mirrorH(0) : mirrorV(0));
 // ---------------------------------------------------------------- reflect in x = a, y = b
 
 function lineAsk(q) {
+  const t = q.prompt.match(/has corners (.*?)\. It is reflected in the (vertical|horizontal) mirror line (x|y) = (-?\d+)\./);
+  if (t) {
+    const tri = pairs(t[1]); const a = num(t[4]); const k = t[3] === 'x' ? 0 : 1;
+    const f = k === 0 ? mirrorV(a) : mirrorH(a);
+    return { tri, a, k, f, ans: tri.map(f) };
+  }
   let m = q.prompt.match(/Point \w(\(.*?\)) is reflected in the (vertical|horizontal) mirror line (x|y) = (-?\d+)\./);
   let from; let c; let a;
   if (m) { from = pairs(m[1])[0]; c = m[3]; a = num(m[4]); } else {
@@ -61,7 +67,12 @@ const both = (c, v) => [v, `${c} = ${fmt(v)}`];
 // ---------------------------------------------------------------- diagonals
 
 function diagAsk(q) {
-  const other = /\(1, -1\) and \(2, -2\)/.test(q.prompt);
+  const other = /the line y = -x/.test(q.prompt);
+  const t = q.prompt.match(/has corners (.*?)\. It is reflected/);
+  if (t) {
+    const tri = pairs(t[1]);
+    return { tri, other, ans: tri.map(([x, y]) => (other ? [-y, -x] : [y, x])) };
+  }
   let m = q.prompt.match(/Point \w(\(.*?\)) is reflected/);
   const back = !m;
   if (!m) m = q.prompt.match(/Its image is (\(.*?\))\./);
@@ -133,9 +144,9 @@ export const SOLVERS = {
     const a = axisAsk(q);
     return { text: a.P ? T(inAxis(a.axis)(a.P)) : L(a.tri.map(inAxis(a.axis))) };
   },
-  'm14.reflect-line': (q) => ({ text: T(lineAsk(q).ans) }),
+  'm14.reflect-line': (q) => { const a = lineAsk(q); return { text: a.tri ? L(a.ans) : T(a.ans) }; },
   'm14.find-mirror-line': (q) => { const a = mirrorAsk(q); return q.type === 'mcq' ? { text: `${a.c} = ${fmt(a.mid)}` } : { value: a.mid }; },
-  'm14.reflect-diagonal': (q) => ({ text: T(diagAsk(q).ans) }),
+  'm14.reflect-diagonal': (q) => { const a = diagAsk(q); return { text: a.tri ? L(a.ans) : T(a.ans) }; },
   'm14.rotate': (q) => ({ text: T(rotAsk(q).ans) }),
   'm14.identify-transformation': (q) => ({ text: identifyAnswer(q) }),
   'm14.complete-symmetry': (q) => {
@@ -157,21 +168,23 @@ export const MIS = {
     },
   },
   'm14.reflect-line': {
-    'REFL-FROM-ORIGIN': (q) => { const a = lineAsk(q); return [T(setK(a.from, a.k, -a.from[a.k]))]; },
-    'REFL-WRONG-AXIS': (q) => { const a = lineAsk(q); return [T((a.k === 0 ? mirrorH(a.a) : mirrorV(a.a))(a.from))]; },
+    'REFL-FROM-ORIGIN': (q) => { const a = lineAsk(q); return a.tri ? [L(a.tri.map((p) => setK(p, a.k, -p[a.k])))] : [T(setK(a.from, a.k, -a.from[a.k]))]; },
+    'REFL-WRONG-AXIS': (q) => { const a = lineAsk(q); const g = a.k === 0 ? mirrorH(a.a) : mirrorV(a.a); return a.tri ? [L(a.tri.map(g))] : [T(g(a.from))]; },
+    'REFL-PART-SHAPE': (q) => { const a = lineAsk(q); return a.tri.map((_, k) => L(a.tri.map((p, i) => (i === k ? p : a.f(p))))); },
     'REFL-TO-LINE': (q) => { const a = lineAsk(q); return [T(setK(a.from, a.k, a.a))]; },
     'REFL-DIST-AS-COORD': (q) => { const a = lineAsk(q); return [T(setK(a.from, a.k, Math.abs(a.from[a.k] - a.a)))]; },
   },
   'm14.find-mirror-line': {
     'MIRROR-DIST': (q) => { const a = mirrorAsk(q); return both(a.c, Math.abs(a.v - a.u)); },
-    'MID-HALF-LENGTH': (q) => { const a = mirrorAsk(q); return both(a.c, Math.abs(a.v - a.u) / 2); },
+    'MID-HALF-DIFF': (q) => { const a = mirrorAsk(q); return both(a.c, Math.abs(a.v - a.u) / 2); },
     'MID-NO-HALVE': (q) => { const a = mirrorAsk(q); return both(a.c, a.u + a.v); },
   },
   'm14.reflect-diagonal': {
-    'REFL-DIAG-SWAP-ONLY': (q) => { const a = diagAsk(q); return [T([a.y, a.x])]; },
-    'REFL-NEGATE-BOTH': (q) => { const a = diagAsk(q); return [T([-a.x, -a.y])]; },
-    'REFL-WRONG-AXIS': (q) => { const a = diagAsk(q); return [T([-a.x, a.y]), T([a.x, -a.y])]; },
-    'REFL-DIAG-NEGATE': (q) => { const a = diagAsk(q); return [T([-a.y, -a.x])]; },
+    'REFL-DIAG-SWAP-ONLY': (q) => { const a = diagAsk(q); return a.tri ? [L(a.tri.map(([x, y]) => [y, x]))] : [T([a.y, a.x])]; },
+    'REFL-NEGATE-BOTH': (q) => { const a = diagAsk(q); return a.tri ? [L(a.tri.map(([x, y]) => [-x, -y]))] : [T([-a.x, -a.y])]; },
+    'REFL-WRONG-AXIS': (q) => { const a = diagAsk(q); return a.tri ? [L(a.tri.map(([x, y]) => [x, -y])), L(a.tri.map(([x, y]) => [-x, y]))] : [T([-a.x, a.y]), T([a.x, -a.y])]; },
+    'REFL-DIAG-NEGATE': (q) => { const a = diagAsk(q); return a.tri ? [L(a.tri.map(([x, y]) => [-y, -x]))] : [T([-a.y, -a.x])]; },
+    'REFL-PART-SHAPE': (q) => { const a = diagAsk(q); return a.tri.map((_, k) => L(a.tri.map((p, i) => (i === k ? p : a.ans[i])))); },
     'REFL-NO-CHANGE': (q) => [T(diagAsk(q).P)],
     'REFL-DIAG-SIGN-STAYS': (q) => { const a = diagAsk(q); return [T([Math.sign(a.x) * Math.abs(a.y), Math.sign(a.y) * Math.abs(a.x)])]; },
   },

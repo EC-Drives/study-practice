@@ -100,7 +100,7 @@ const forces = {
     const what = s.object || 'box';
     const where = { ground: ' on the ground', table: ' on a table', water: ' on water', none: '' }[s.surface || (what === 'boat' ? 'water' : what === 'parachutist' || what === 'apple' ? 'none' : 'ground')];
     const list = s.arrows.map((a) => `${a.name ? `${tidy(a.name)}, ` : 'a force '}${WORD[a.direction]}${a.label ? `, labelled ${say(a.label)}` : ''}`);
-    const parts = [`A force diagram: a ${what}${where} with ${s.arrows.length === 1 ? 'one force arrow' : `${s.arrows.length} force arrows`}: ${listText(list)}.`];
+    const parts = [`A force diagram: ${s.label ? `${say(s.label)} (drawn as a ${what})` : `a ${what}`}${where} with ${s.arrows.length === 1 ? 'one force arrow' : `${s.arrows.length} force arrows`}: ${listText(list)}.`];
     // compare the lengths of opposite arrows, as a sighted pupil would see them
     const by = Object.fromEntries(s.arrows.map((a) => [a.direction, a]));
     for (const [p, q] of [['left', 'right'], ['up', 'down']]) {

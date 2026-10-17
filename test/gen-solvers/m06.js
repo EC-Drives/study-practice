@@ -1,7 +1,7 @@
 // Independent answers for the m06 (multiplication and division) generators, worked out again from
 // the question text, and the misconception rules that must reproduce each wrong option from its code.
 
-import { Q, qadd, qsub, qmul, qdiv, qnum, parseQ, numbersIn } from './lib.js';
+import { Q, qadd, qsub, qmul, qdiv, qnum, parseQ, numbersIn, valueIn } from './lib.js';
 
 const v = (q) => qnum(q);
 const num = (t) => parseQ(String(t).replace(/ /g, ''));
@@ -70,6 +70,7 @@ function storyAnswer(p) {
 
 function wp(q) {
   const t = q.prompt; let m;
+  if ((m = t.match(/and (\d+) friends? buy (\d+) .+? at RM (\d+(?:\.\d+)?) each\. They share the cost equally/))) return { kind: 'split', k: N(m[1]), n: N(m[2]), P: num(m[3]) };
   if ((m = t.match(/cost RM (\d+(?:\.\d+)?) each\. .* buys (\d+) .* pays with a RM (\d+) note/))) return { kind: 'buy', P: num(m[1]), n: N(m[2]), note: num(m[3]) };
   if ((m = t.match(/takes (\d+) Grab rides\. Each ride costs RM (\d+(?:\.\d+)?)\. They pay with RM (\d+)\./))) return { kind: 'buy', P: num(m[2]), n: N(m[1]), note: num(m[3]) };
   if ((m = t.match(/sells (\d+) .+? at RM (\d+(?:\.\d+)?) each and (\d+) .+? at RM (\d+(?:\.\d+)?) each/))) return { kind: 'two', n1: N(m[1]), p1: num(m[2]), n2: N(m[3]), p2: num(m[4]) };
@@ -79,6 +80,12 @@ function wp(q) {
   return { kind: 'pack', a: ns[0], b: ns[1] };
 }
 const tens = (b) => Math.floor(b / 10); const ones = (b) => b % 10;
+/** "Work out a × n in your head": n is a multiple of 10 (N) plus or minus m, with m from 1 to 3. */
+function near10(q) {
+  const k = q.prompt.match(/Work out (\d+) × (\d+) in your head/);
+  const a = N(k[1]); const n = N(k[2]); const Nn = Math.round(n / 10) * 10;
+  return { a, n, N: Nn, m: Math.abs(n - Nn), s: n < Nn ? -1 : 1 };
+}
 
 // ---------------------------------------------------------------- solvers
 
@@ -112,6 +119,12 @@ export const SOLVERS = {
   'm06.divide': (q) => {
     let m;
     if ((m = q.prompt.match(/divided by (\d+), the answer is (\d+) remainder (\d+)/))) return { value: N(m[2]) * N(m[1]) + N(m[3]) };
+    if ((m = q.prompt.match(new RegExp(`best estimate for (${NUM}) ÷ (\\d+)\\?`)))) {
+      // the best estimate: the option with one non-zero digit that is closest to the exact quotient
+      const x = N(m[1]) / N(m[2]);
+      const ests = q.options.map((o) => valueIn(o)).filter((o) => o != null && /^[1-9]0*$/.test(String(o)));
+      return { value: ests.reduce((p, o) => (Math.abs(o - x) < Math.abs(p - x) ? o : p)) };
+    }
     m = q.prompt.match(new RegExp(`^Work out (${NUM}) ÷ (\\d+)\\.`));
     const a = N(m[1]); const b = N(m[2]);
     if (/with a remainder/.test(q.prompt)) return { text: `${Math.floor(a / b)} r ${a % b}` };
@@ -126,6 +139,7 @@ export const SOLVERS = {
   },
   'm06.word-problems': (q) => {
     const p = wp(q);
+    if (p.kind === 'split') return { value: v(qdiv(qmul(p.P, Q(p.n)), Q(p.k + 1))) };
     if (p.kind === 'buy') return { value: v(qsub(p.note, qmul(p.P, Q(p.n)))) };
     if (p.kind === 'two') return { value: v(qadd(qmul(p.p1, Q(p.n1)), qmul(p.p2, Q(p.n2)))) };
     if (p.kind === 'share') return { value: (p.b * p.per) / p.c };
@@ -150,8 +164,7 @@ export const MIS = {
     'DIST-PARTIAL': (q) => {
       let m;
       if ((m = q.prompt.match(/same answer as (\d+) × (\d+)\?/))) return q.options.filter((o) => (o.match(/×/g) || []).length === 1 && o.startsWith(`${m[1]} × `));
-      m = q.prompt.match(/Work out (\d+) × (\d+) in your head\. \(Hint: \d+ = (\d+) ([+-]) (\d+)\.\)/);
-      return [N(m[1]) * N(m[3]) + (m[4] === '-' ? -1 : 1) * N(m[5])];
+      const h = near10(q); return [h.a * h.N + h.s * h.m];
     },
     'DIST-WRONG-SIGN': (q) => {
       let m;
@@ -159,10 +172,9 @@ export const MIS = {
         const n = N(m[2]);
         return q.options.filter((o) => { const k = o.match(/^(\d+) × (\d+) ([+-]) \d+ × (\d+)$/); return k && (k[3] === '+' ? N(k[2]) - N(k[4]) : N(k[2]) + N(k[4])) === n; });
       }
-      m = q.prompt.match(/Work out (\d+) × (\d+) in your head\. \(Hint: \d+ = (\d+) ([+-]) (\d+)\.\)/);
-      return [N(m[1]) * N(m[3]) + (m[4] === '-' ? 1 : -1) * N(m[1]) * N(m[5])];
+      const h = near10(q); return [h.a * h.N - h.s * h.a * h.m];
     },
-    'ONE-STEP-ONLY': (q) => { const m = q.prompt.match(/Work out (\d+) × (\d+) in your head\. \(Hint: \d+ = (\d+)/); return [N(m[1]) * N(m[3])]; },
+    'ONE-STEP-ONLY': (q) => { const h = near10(q); return [h.a * h.N]; },
   },
   'm06.multiply': {
     'MULT-NO-CARRY': (q) => { const m = q.prompt.match(new RegExp(`^Work out (${NUM}) × (\\d+)\\.$`)); return [noCarry(N(m[1]), N(m[2]))]; },
@@ -194,7 +206,10 @@ export const MIS = {
     'REM-TOO-BIG': (q) => { const m = q.prompt.match(new RegExp(`^Work out (${NUM}) ÷ (\\d+)\\.`)); const a = N(m[1]); const b = N(m[2]); return [`${Math.floor(a / b) - 1} r ${(a % b) + b}`]; },
     'REM-LEFT-OUT': (q) => { const m = q.prompt.match(/divided by (\d+), the answer is (\d+) remainder (\d+)/); return [N(m[1]) * N(m[2])]; },
     'REM-SUBTRACTED': (q) => { const m = q.prompt.match(/divided by (\d+), the answer is (\d+) remainder (\d+)/); return [N(m[1]) * N(m[2]) - N(m[3])]; },
-    'ONE-STEP-ONLY': (q) => { const m = q.prompt.match(/divided by (\d+), the answer is (\d+) remainder (\d+)/); return [N(m[1]) * (N(m[2]) + N(m[3]))]; },
+    'REM-ADDED-BEFORE-MULT': (q) => { const m = q.prompt.match(/divided by (\d+), the answer is (\d+) remainder (\d+)/); return [N(m[1]) * (N(m[2]) + N(m[3]))]; },
+    'DIV-OFF-BY-TEN': (q) => { const s = SOLVERS['m06.divide'](q).value; return [s + 10, s - 10]; },
+    'EST-POWER-OF-TEN': (q) => { const e = SOLVERS['m06.divide'](q).value; return [e * 10, e / 10]; },
+    'EST-EXACT': (q) => { const m = q.prompt.match(new RegExp(`for (${NUM}) ÷ (\\d+)\\?`)); const a = N(m[1]); const b = N(m[2]); return [a % b ? `${Math.floor(a / b)} r ${a % b}` : Math.floor(a / b)]; },
   },
   'm06.interpret-remainder': {
     'REMAINDER-IGNORED': (q) => { const p = story(q); const k = Math.floor(p.total / p.c); return [p.kind.startsWith('up') ? k : k + 1]; },
@@ -208,9 +223,10 @@ export const MIS = {
     'DEC-MULT-PARTS': (q) => { const p = decParts(q); const [w, f] = p.a.split('.'); return [`${N(w) * p.n}.${N(f) * p.n}`]; },
   },
   'm06.word-problems': {
-    'ONE-STEP-ONLY': (q) => { const p = wp(q); if (p.kind === 'buy') return [v(qmul(p.P, Q(p.n)))]; if (p.kind === 'share') return [p.b * p.per]; return [v(qdiv(p.L, Q(p.n)))]; },
+    'ONE-STEP-ONLY': (q) => { const p = wp(q); if (p.kind === 'split') return [v(qmul(p.P, Q(p.n)))]; if (p.kind === 'buy') return [v(qmul(p.P, Q(p.n)))]; if (p.kind === 'share') return [p.b * p.per]; return [v(qdiv(p.L, Q(p.n)))]; },
     'ITEM-LEFT-OUT': (q) => {
       const p = wp(q);
+      if (p.kind === 'split') return [v(qdiv(qmul(p.P, Q(p.n)), Q(p.k)))];
       if (p.kind === 'buy') return [v(qsub(p.note, p.P))];
       if (p.kind === 'two') return [v(qmul(p.p1, Q(p.n1))), v(qmul(p.p2, Q(p.n2)))];
       if (p.kind === 'share') return [p.per / p.c];
@@ -221,7 +237,7 @@ export const MIS = {
       if (p.kind === 'buy') return [v(qsub(p.note, qdiv(qmul(p.P, Q(p.n)), Q(10))))];
       return [v(qdiv(qadd(qmul(p.p1, Q(p.n1)), qmul(p.p2, Q(p.n2))), Q(10)))];
     },
-    'WRONG-QUANTITY': (q) => { const p = wp(q); if (p.kind === 'two') return [v(qmul(qadd(p.p1, p.p2), Q(p.n1 + p.n2)))]; return [v(qmul(qdiv(p.L, Q(p.n)), Q(p.u)))]; },
+    'WRONG-QUANTITY': (q) => { const p = wp(q); if (p.kind === 'split') return [v(qdiv(p.P, Q(p.k + 1)))]; if (p.kind === 'two') return [v(qmul(qadd(p.p1, p.p2), Q(p.n1 + p.n2)))]; return [v(qmul(qdiv(p.L, Q(p.n)), Q(p.u)))]; },
     'PLACE-HOLDER': (q) => { const p = wp(q); return [p.a * ones(p.b) + p.a * tens(p.b)]; },
     'PARTIAL-PRODUCT': (q) => { const p = wp(q); return [p.a * tens(p.b) * 10, p.a * ones(p.b)]; },
     'OP-SWAP': (q) => { const p = wp(q); return [p.a + p.b]; },

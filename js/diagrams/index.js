@@ -25,11 +25,51 @@ export const DIAGRAM_TYPES = Object.keys(REGISTRY);
 const SIZE_SCALE = { small: 0.85, medium: 1, large: 1.3 };
 let counter = 0;
 
+// Limits that keep any spec cheap to draw, whatever its source (in linked mode the parent's device
+// draws specs that her device wrote): no more than MAX_LINES grid or tick lines on any scale, no
+// number beyond MAX_NUMBER, at most MAX_JSON characters, and squared paper at most MAX_GRID wide.
+export const LIMITS = { MAX_LINES: 400, MAX_NUMBER: 1e9, MAX_JSON: 20000, MAX_GRID: 60 };
+const STEP_KEYS = ['step', 'xStep', 'yStep', 'minorStep', 'minor', 'major'];
+
+function sizeErrors(spec, path) {
+  let json;
+  try { json = JSON.stringify(spec); } catch { return [`${path} could not be read`]; }
+  if (json.length > LIMITS.MAX_JSON) return [`${path} is too large (${json.length} characters; at most ${LIMITS.MAX_JSON})`];
+  const all = [];
+  const walk = (x, depth) => {
+    if (depth > 8) return;
+    if (typeof x === 'number') all.push(x);
+    else if (Array.isArray(x)) x.forEach((y) => walk(y, depth + 1));
+    else if (x && typeof x === 'object') Object.values(x).forEach((v) => walk(v, depth + 1));
+  };
+  walk(spec, 0);
+  if (all.some((v) => !Number.isFinite(v) || Math.abs(v) > LIMITS.MAX_NUMBER)) return [`${path} has a number that is too large`];
+  // the span each step is drawn across: its own axis's limits and data
+  const num = (v) => (typeof v === 'number' ? [v] : []);
+  const pts = [...(Array.isArray(spec.points) ? spec.points : []), ...(Array.isArray(spec.series) ? spec.series.flatMap((sr) => (sr && Array.isArray(sr.points) ? sr.points : [])) : [])].filter(Array.isArray);
+  const vals = [...(Array.isArray(spec.values) ? spec.values : []), ...(Array.isArray(spec.series) ? spec.series.flatMap((sr) => (sr && Array.isArray(sr.values) ? sr.values : [])) : [])].filter((v) => typeof v === 'number');
+  const spanOf = (list) => (list.length ? Math.max(...list) - Math.min(...list) : 0);
+  const xs = [...num(spec.xMin), ...num(spec.xMax), ...pts.map((p) => p[0]).filter((v) => typeof v === 'number')];
+  const ys = [0, ...num(spec.yMin), ...num(spec.yMax), ...vals, ...pts.map((p) => p[1]).filter((v) => typeof v === 'number')];
+  const own = typeof spec.min === 'number' && typeof spec.max === 'number' ? [spec.min, spec.max] : null;
+  const span = { xStep: spanOf(xs), yStep: spanOf(ys), step: spanOf(own || ys), minorStep: spanOf(own || ys), minor: spanOf(own || ys), major: spanOf(own || ys) };
+  const errs = [];
+  for (const k of STEP_KEYS) {
+    const st = spec[k];
+    if (typeof st === 'number' && st > 0 && span[k] / st > LIMITS.MAX_LINES) errs.push(`${path}.${k} is too small for the numbers drawn (more than ${LIMITS.MAX_LINES} lines)`);
+  }
+  if (typeof spec.minorStep === 'number' && spec.minorStep > 0 && typeof spec.yStep === 'number' && spec.yStep / spec.minorStep > 50) errs.push(`${path}: at most 50 small steps in each step`);
+  if (spec.grid === true && pts.length && Math.max(spanOf(pts.map((p) => p[0])), spanOf(pts.map((p) => p[1]))) > LIMITS.MAX_GRID) errs.push(`${path}: squared paper at most ${LIMITS.MAX_GRID} squares across`);
+  return errs;
+}
+
 /** Errors in a diagram spec, as readable strings. */
 export function validateDiagram(spec, path = 'diagram') {
   if (!spec || typeof spec !== 'object' || Array.isArray(spec)) return [`${path} should be an object`];
   const t = REGISTRY[spec.type];
-  if (!t) return [`${path}.type "${spec.type}" is not a diagram type (types: ${DIAGRAM_TYPES.join(', ')})`];
+  if (!t) return [`${path}.type "${String(spec.type).slice(0, 40)}" is not a diagram type (types: ${DIAGRAM_TYPES.join(', ')})`];
+  const big = sizeErrors(spec, path);
+  if (big.length) return big;
   const errs = fields(spec, t.schema, 'diagram', ['type', ...(t.required || [])]).map((e) => e.replace(/^diagram/, path));
   if (!errs.length && t.check) errs.push(...t.check(spec).map((e) => `${path}: ${e}`));
   return errs;

@@ -2,7 +2,7 @@
 // ratio, ratio problems using the difference (bar model), ratio and fractions, direct proportion,
 // best buy, before-and-after problems. Patterns follow the CLO's generator guide (m11).
 
-import { F, gcd, choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, dec, rm, person, PEOPLE , denWord, capFirst } from './core.js';
+import { F, gcd, lcm, choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, dec, rm, person, PEOPLE, capFirst, countOf } from './core.js';
 
 const T = 'm11-ratio-and-proportion';
 const SKILL = {
@@ -11,23 +11,17 @@ const SKILL = {
   direct: 'direct proportion', recipe: 'scaling a recipe', unitary: 'unitary method', best: 'best buy', multi: 'multi-step ratio problems', beforeAfter: 'before-and-after ratio problems',
 };
 
-export const EXTRA_CODES = {
-  'RATIO-PART-TO-WHOLE': 'Writes part : whole when part : part is asked for, or the reverse',
-  'RATIO-PART-SIMPLIFIED': 'Divides by a common factor but not the highest one, so the ratio is not in its simplest form',
-  'RATIO-FACTOR-ONLY': 'Gives the scale factor instead of the missing number in an equivalent ratio',
-  'RATIO-GIVES-ONE-SHARE': 'Gives one person\'s share (or the other quantity) instead of what was asked',
-  'RATIO-DIFF-AS-PART': 'Treats the difference as the value of one part',
-  'PROP-UNIT-ONLY': 'Finds the cost (or amount) of one, and stops',
-  'PROP-TIMES-WHOLE': 'Multiplies the whole given amount by the new number, not the amount for one',
-  'BUY-CHEAPEST-PRICE': 'Chooses the pack with the lowest price, not the lowest price per unit',
-  'BUY-BIGGEST-PACK': 'Chooses the biggest pack, thinking bigger is always better value',
-  'RATIO-CHANGE-AS-PART': 'Treats the change in a before-and-after problem as one part',
-  'PROP-INVERSE-SCALE': 'Scales by the inverse factor (multiplies by the old number and divides by the new one)',
-};
+// Misconception codes: all declared once in misconceptions.js (the CLO's catalogue).
 
 const range = (a, b) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
 const R = (...xs) => xs.join(' : ');
 const names2 = (rng) => { const [a, b] = rng.sample(PEOPLE, 2); return [a.name, b.name]; };
+/** Every number written in a prompt (thousands spaces joined), as the tests read them. */
+const promptNums = (prompt) => (String(prompt).replace(/(\d) (\d{3})/g, '$1$2').match(/-?\d+(?:\.\d+)?(?:\/\d+)?/g) || []).map((t) => { const [x, y] = t.split('/'); return y ? Number(x) / Number(y) : Number(x); });
+/** Is v a number that already appears in the prompt? (A near miss must never be one: CLO review X3.) */
+const inPrompt = (prompt, v) => promptNums(prompt).some((x) => Math.abs(x - v) < 1e-9);
+/** Money in sen as a typed answer with two decimal places ("16.90"). */
+const money2 = (sen) => (sen / 100).toFixed(2);
 
 const THINGS = [['red pens', 'blue pens', 'pens', 'in a box'], ['boys', 'girls', 'pupils', 'in a class'], ['cats', 'dogs', 'pets', 'on a street'], ['mangoes', 'durians', 'fruits', 'on a stall'], ['buses', 'cars', 'vehicles', 'in a car park'], ['story books', 'comics', 'books', 'on a shelf']];
 
@@ -52,7 +46,7 @@ const writeRatio = {
       const ans = R(x, y);
       const prompt = `There are ${a} ${A} and ${b} ${B} ${where}. Write the ratio of ${A} to ${whole ? `all the ${whole0}` : B}${d === 2 || g > 1 || gcd(a, total) > 1 ? ' in its simplest form' : ''}.`;
       const solution = whole
-        ? `There are ${a} + ${b} = ${total} ${whole0} altogether. ${A} : all = ${R(a, total)}${gcd(a, total) > 1 ? `. Divide both by ${gcd(a, total)}: ${ans}` : ''}. Answer: ${ans}`
+        ? `There are ${a} + ${b} = ${total} ${whole0} altogether. ${capFirst(A)} : all = ${R(a, total)}${gcd(a, total) > 1 ? `. Divide both by ${gcd(a, total)}: ${ans}` : ''}. Answer: ${ans}`
         : `${capFirst(A)} first, then ${B}: ${R(a, b)}${g > 1 ? `. Divide both by ${g}: ${ans}` : ''}. The order matters. Answer: ${ans}`;
       const distractors = whole ? [
         { text: R(y, x), code: 'RATIO-REVERSED', why: `It looks like you wrote the ratio the wrong way round. ${capFirst(A)} come first.` },
@@ -126,7 +120,7 @@ const simplify = {
       ];
       try {
         if (rng.chance(0.35)) {
-          const t = typedMisconceptions(ans, distractors, { code: 'RATIO-PART-SIMPLIFIED', why: `Divide every part by the highest common factor, ${h}.` });
+          const t = typedMisconceptions(ans, distractors, { code: 'UNCLASSIFIED', why: `Divide every part by the highest common factor, ${h}.` });
           return { type: 'short', prompt, answer: { accept: [ans, base.join(':')], keywords: [] }, solution, ...t };
         }
         return { type: 'mcq', prompt, ...choices(rng, ans, distractors, (i) => nearMiss(R(...base.map((x, j) => (j === 0 ? x + i : x))), `Divide every part by ${h}.`)), solution };
@@ -156,8 +150,10 @@ const equivalent = {
         const distractors = [
           b * k1 + (a * k2 - a * k1) > 0 ? { text: String(b * k1 + (a * k2 - a * k1)), code: 'RATIO-ADDITIVE', why: `It looks like you ${a * k2 > a * k1 ? 'added' : 'took away'} ${Math.abs(a * k2 - a * k1)} ${a * k2 > a * k1 ? 'to' : 'from'} both numbers. Equivalent ratios come from multiplying or dividing both parts by the same number.` } : null,
           { text: String(b), code: 'FR-EQUIV-SIMPLIFIED-ONLY', why: `You simplified to ${R(a, b)} (well done) but stopped. Now multiply by ${k2} so the first part is ${a * k2}.` },
+          b * k1 * a * k2 <= 400 && { text: String(b * k1 * a * k2), code: 'FR-EQUIV-CROSS', why: `It looks like you multiplied ${b * k1} by ${a * k2}. Simplify ${R(a * k1, b * k1)} to ${R(a, b)} first, then multiply both parts by ${k2}.` },
         ];
-        try { return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, (i) => nearMiss(String(ans + i), 'Simplify the first ratio, then scale it up.')), solution, marks: 2 }; } catch { continue; }
+        const near = (i) => { const v = ans + (i % 2 ? Math.ceil(i / 2) : -i / 2); return v > 0 && !inPrompt(prompt, v) ? nearMiss(String(v), `Simplify the first ratio to ${R(a, b)}, then multiply both parts by ${k2}.`) : null; };
+        try { return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, near), solution, marks: 2 }; } catch { continue; }
       }
       const a = rng.int(1, d === 1 ? 9 : 12); const b = rng.int(1, d === 1 ? 9 : 12);
       if (a === b) continue;
@@ -179,10 +175,11 @@ const equivalent = {
       ];
       try {
         if (d === 2 && rng.chance(0.4)) {
-          const t = typedMisconceptions(String(ans), distractors.filter(Boolean), { code: 'RATIO-ADDITIVE', why: 'Multiply or divide both parts of the ratio by the same number.' });
+          const t = typedMisconceptions(String(ans), distractors.filter(Boolean), { code: 'UNCLASSIFIED', why: 'Multiply or divide both parts of the ratio by the same number.' });
           return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans)]), solution, ...t };
         }
-        return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, (i) => nearMiss(String(ans + i), 'Multiply or divide both parts by the same number.')), solution };
+        const near = (i) => { const v = ans + (i % 2 ? Math.ceil(i / 2) : -i / 2); return v > 0 && !inPrompt(prompt, v) ? nearMiss(String(v), `Check: ${op === 'x' ? 'multiply' : 'divide'} BOTH parts by ${k}.`) : null; };
+        return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, near), solution };
       } catch { /* draw again */ }
     }
   },
@@ -215,11 +212,12 @@ const share = {
         const prompt = `${ppl[0]} and ${ppl[1]} share some money in the ratio ${R(...parts)}. ${ppl[known]} gets ${rm(knownVal)}. How much money is there altogether?`;
         const solution = `${ppl[known]}'s ${parts[known]} part${parts[known] > 1 ? 's are' : ' is'} ${rm(knownVal)}, so 1 part = ${rm(knownVal)} ÷ ${parts[known]} = ${rm(unit)}. Altogether there are ${parts.join(' + ')} = ${sum} parts: ${sum} x ${rm(unit)} = ${rm(total)}. Answer: ${rm(total)}`;
         const distractors = [
-          { text: rm(knownVal * sum), code: 'RATIO-DIFF-AS-PART', why: `It looks like you multiplied ${rm(knownVal)} by ${sum}. ${rm(knownVal)} is ${parts[known]} parts, so find ONE part first.` },
+          { text: rm(knownVal * sum), code: 'RATIO-SHARE-AS-PART', why: `It looks like you multiplied ${rm(knownVal)} by ${sum}, as if ${rm(knownVal)} were one part. ${rm(knownVal)} is ${countOf(parts[known], 'part')}, so find ONE part first.` },
           { text: rm(unit * parts[who]), code: 'RATIO-GIVES-ONE-SHARE', why: `That is ${ppl[who]}'s share. The question asks for the total.` },
           { text: rm(unit), code: 'RATIO-ONE-PART-ONLY', why: `${rm(unit)} is the value of one part. Altogether there are ${sum} parts.` },
         ];
-        try { return { type: 'mcq', prompt, ...choices(rng, rm(total), distractors, (i) => nearMiss(rm(total + i * unit), 'Find one part, then multiply by the total number of parts.')), solution, marks: 2 }; } catch { continue; }
+        const near = (i) => { const k = sum + (i % 2 ? Math.ceil(i / 2) : -i / 2); return k > 0 && !parts.includes(k) && !inPrompt(prompt, k * unit) ? nearMiss(rm(k * unit), `Find one part (${rm(knownVal)} ÷ ${parts[known]}), then multiply by the total number of parts, ${sum}.`) : null; };
+        try { return { type: 'mcq', prompt, ...choices(rng, rm(total), distractors, near), solution, marks: 2 }; } catch { continue; }
       }
       const noun = rng.pick(['sweets', 'stickers', 'marbles', 'cards']);
       const showN = (v) => (money ? rm(v) : `${fmtInt(v)} ${noun}`);
@@ -230,17 +228,21 @@ const share = {
       const partAsWhole = !three ? (total * parts[who]) / parts[1 - who] : null;
       const distractors = [
         Number.isInteger(byPeople * (money ? 100 : 1)) ? { text: showN(byPeople), code: 'RATIO-SHARE-BY-PARTS-COUNT', why: `It looks like you shared equally between the ${parts.length} people. Share by the number of PARTS: ${parts.join(' + ')} = ${sum}.` } : null,
-        { text: showN(unit), code: 'RATIO-ONE-PART-ONLY', why: `${showN(unit)} is the value of one part. ${ppl[who]} has ${parts[who]} parts.` },
+        parts[who] > 1 ? { text: showN(unit), code: 'RATIO-ONE-PART-ONLY', why: `${showN(unit)} is the value of one part. ${ppl[who]} has ${parts[who]} parts.` } : null,
         partAsWhole != null && Number.isInteger(partAsWhole * (money ? 100 : 1)) && partAsWhole < total ? { text: showN(partAsWhole), code: 'RATIO-PART-AS-WHOLE', why: `It looks like you found ${parts[who]}/${parts[1 - who]} of ${fmtInt(total)}. ${ppl[who]}'s share is ${parts[who]}/${sum} of the total, because there are ${sum} parts altogether.` } : null,
-        { text: showN(total - ans), code: 'RATIO-GIVES-ONE-SHARE', why: `${fmtInt(total - ans)} is what the ${three ? 'others get' : `other person gets`}. The question asks about ${ppl[who]}.` },
+        { text: showN(total - ans), code: 'RATIO-GIVES-ONE-SHARE', why: `${showN(total - ans)} is what the ${three ? 'others get' : 'other person gets'}. The question asks about ${ppl[who]}.` },
+        { text: showN(total), code: 'RATIO-WHOLE-AS-SHARE', why: `${showN(total)} is the whole amount. ${ppl[who]} gets only ${parts[who]} of the ${sum} equal parts.` },
       ];
       void show;
       try {
         if (d === 2 && !money && rng.chance(0.35)) {
-          const t = typedMisconceptions(String(ans), distractors.filter(Boolean).map((x) => ({ ...x, text: x.text.replace(` ${noun}`, '') })), { code: 'RATIO-SHARE-BY-PARTS-COUNT', why: `Add the parts (${sum}), find one part, then multiply by ${ppl[who]}'s number of parts.` });
+          const t = typedMisconceptions(String(ans), distractors.filter(Boolean).map((x) => ({ ...x, text: x.text.replace(` ${noun}`, '') })), { code: 'UNCLASSIFIED', why: `Add the parts (${sum}), find one part, then multiply by ${ppl[who]}'s number of parts.` });
           return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans), showN(ans)]), solution, ...t };
         }
-        return { type: 'mcq', prompt, ...choices(rng, showN(ans), distractors, (i) => nearMiss(showN(ans + i * unit), 'Find the value of one part first.')), solution, marks: three ? 2 : 1 };
+        // near misses: a different number of parts (never someone's share, the whole or a number in the question)
+        const shares = parts.map((x) => x * unit);
+        const near = (i) => { const k = parts[who] + (i % 2 ? Math.ceil(i / 2) : -i / 2); const v = k * unit; return k > 0 && k < sum && !shares.includes(v) && !inPrompt(prompt, v) ? nearMiss(showN(v), `Find the value of one part (${fmtInt(total)} ÷ ${sum}), then multiply by ${ppl[who]}'s ${countOf(parts[who], 'part')}.`) : null; };
+        return { type: 'mcq', prompt, ...choices(rng, showN(ans), distractors, near), solution, marks: three ? 2 : 1 };
       } catch { /* draw again */ }
     }
   },
@@ -255,7 +257,8 @@ const difference = {
   check: { integer: true, min: 1 },
   make(rng, d) {
     for (;;) {
-      const a = rng.int(1, 7); const b = rng.int(a + 1, 9);
+      // b - a is at least 2, so "used the difference as one part" never gives the right answer
+      const a = rng.int(1, 7); const b = rng.int(a + 2, 9);
       if (gcd(a, b) !== 1) continue;
       const unit = rng.int(2, 15);
       const diff = (b - a) * unit;
@@ -266,13 +269,18 @@ const difference = {
       const prompt = `The ratio of ${p}'s ${noun} to ${q}'s ${noun} is ${R(a, b)}. ${q} has ${diff} more ${noun} than ${p}. How many ${noun} ${ask === 'total' ? 'do they have altogether' : `does ${ask === 'small' ? p : q} have`}?`;
       const diagram = { type: 'barModel', bars: [{ label: p, units: a }, { label: q, units: b }], braces: [{ bar: 1, from: a, to: b, label: String(diff), side: 'below' }] };
       if (ask === 'total') diagram.totalBrace = { label: '?' };
-      const solution = `${q} has ${b - a} more part${b - a > 1 ? 's' : ''} than ${p} (${b} - ${a}). ${b - a} part${b - a > 1 ? 's' : ''} = ${diff}, so 1 part = ${diff} ÷ ${b - a} = ${unit}. ${ask === 'small' ? `${p} has ${a} x ${unit} = ${ans}` : ask === 'big' ? `${q} has ${b} x ${unit} = ${ans}` : `Altogether: ${a + b} parts x ${unit} = ${ans}`}. Answer: ${ans}`;
+      else diagram.bars[ask === 'small' ? 0 : 1].right = '?';
+      // the automatic description reads a brace below the bar as "over" it (CLO review): say what is drawn
+      diagram.alt = `A bar model. ${p}'s bar has ${a} equal units and ${q}'s bar has ${b}. A brace under the last ${b - a} units of ${q}'s bar is labelled ${diff}. ${ask === 'total' ? 'A brace spanning both bars is labelled "?"' : `${ask === 'small' ? p : q}'s bar is marked "?"`}.`;
+      const solution = `${q} has ${b - a} more parts than ${p} (${b} - ${a}). ${b - a} parts = ${diff}, so 1 part = ${diff} ÷ ${b - a} = ${unit}. ${ask === 'small' ? `${p} has ${a} x ${unit} = ${ans}` : ask === 'big' ? `${q} has ${b} x ${unit} = ${ans}` : `Altogether: ${a + b} parts x ${unit} = ${ans}`}. Answer: ${ans}`;
       const distractors = [
         { text: String(unit), code: 'RATIO-ONE-PART-ONLY', why: `${unit} is the value of one part. Now multiply by the number of parts ${ask === 'total' ? `altogether (${a + b})` : `${ask === 'small' ? p : q} has`}.` },
         { text: String(diff * (ask === 'small' ? a : ask === 'big' ? b : a + b)), code: 'RATIO-DIFF-AS-PART', why: `It looks like you used ${diff} as one part. ${diff} is the difference: it is ${b - a} parts.` },
         ask !== 'total' ? { text: String(ask === 'small' ? b * unit : a * unit), code: 'RATIO-GIVES-ONE-SHARE', why: `That is how many ${ask === 'small' ? q : p} has. Read the question again.` } : { text: String(b * unit), code: 'RATIO-GIVES-ONE-SHARE', why: `That is how many ${q} has. The question asks for both together.` },
       ];
-      try { return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, (i) => nearMiss(String(ans + i * unit), 'Find what one part is worth from the difference.')), solution, diagram, marks: d === 3 ? 3 : 2 }; } catch { /* draw again */ }
+      const askedParts = ask === 'small' ? a : ask === 'big' ? b : a + b;
+      const near = (i) => { const k = askedParts + (i % 2 ? Math.ceil(i / 2) : -i / 2); const v = k * unit; return k > 0 && k !== a && k !== b && !inPrompt(prompt, v) ? nearMiss(String(v), `Find one part first: ${b - a} parts = ${diff}. Then count the parts asked for.`) : null; };
+      try { return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, near), solution, diagram, marks: d === 3 ? 3 : 2 }; } catch { /* draw again */ }
     }
   },
 };
@@ -296,7 +304,7 @@ const asFraction = {
       const distractors = [
         { text: F(askA ? a : b, askA ? b : a).toString(), code: 'RATIO-PART-AS-WHOLE', why: `It looks like you wrote ${askA ? a : b}/${askA ? b : a}. The whole is ALL the parts: ${a} + ${b} = ${a + b}.` },
         { text: F(askA ? b : a, a + b).toString(), code: 'RATIO-GIVES-ONE-SHARE', why: `${F(askA ? b : a, a + b)} is the fraction that are ${askA ? B : A}.` },
-        { text: F(1, a + b).toString(), code: 'RATIO-ONE-PART-ONLY', why: `1/${a + b} is one part. ${askA ? A : B} have ${askA ? a : b} parts.` },
+        { text: F(1, a + b).toString(), code: 'RATIO-ONE-PART-ONLY', why: `1/${a + b} is one part. The ${askA ? A : B} have ${countOf(askA ? a : b, 'part')}.` },
       ];
       try { return { type: 'mcq', prompt, ...choices(rng, f.toString(), distractors, null), solution }; } catch { /* draw again */ }
     }
@@ -333,7 +341,7 @@ const proportion = {
           const prompt = `A recipe for ${people} people uses ${fmtInt(amount)} ${unit} of ${ing}. ${pr.name} makes it for ${want} people from a ${unit === 'g' ? `${bag / 1000} kg bag` : `${bag / 1000} L carton`} of ${ing}. How much ${ing} is left?`;
           const solution = `For 1 person: ${fmtInt(amount)} ÷ ${people} = ${fmtInt(per)} ${unit}. For ${want} people: ${fmtInt(per)} x ${want} = ${fmtInt(need)} ${unit}. The ${unit === 'g' ? 'bag' : 'carton'} holds ${bag / 1000} ${unit === 'g' ? 'kg' : 'L'} = ${fmtInt(bag)} ${unit}, so ${fmtInt(bag)} - ${fmtInt(need)} = ${fmtInt(left)} ${unit} is left. Answer: ${fmtInt(left)} ${unit}`;
           const distractors = [
-            { text: `${fmtInt(need)} ${unit}`, code: 'FR-REMAINDER-ONE-STEP', why: `${fmtInt(need)} ${unit} is how much ${ing} ${pr.he} uses. The question asks how much is left.` },
+            { text: `${fmtInt(need)} ${unit}`, code: 'ONE-STEP-ONLY', why: `${fmtInt(need)} ${unit} is how much ${ing} ${pr.he} uses. The question asks how much is left, so take it away from ${fmtInt(bag)} ${unit}.` },
             bag - amount > 0 ? { text: `${fmtInt(bag - amount)} ${unit}`, code: 'PROP-UNIT-ONLY', why: `It looks like you took away the amount for ${people} people. ${pr.He} cooks for ${want} people.` } : null,
             { text: `${fmtInt(bag + need)} ${unit}`, code: 'OP-SWAP', why: `It looks like you added the ${ing} used to the ${unit === 'g' ? 'bag' : 'carton'}. What is used is taken away.` },
             bag - amount * want > 0 ? { text: `${fmtInt(bag - amount * want)} ${unit}`, code: 'PROP-TIMES-WHOLE', why: `It looks like you multiplied the amount for ${people} people by ${want}. Find the amount for 1 person first.` } : null,
@@ -360,11 +368,16 @@ const proportion = {
       if (d === 3) {
         const pay = Math.ceil((ans + 1) / 1000) * 1000;
         const change = pay - ans;
+        // the "add the difference" slip must not land on the price of one item (or another amount
+        // in the question), or the diagnosis is ambiguous (CLO review, m11 SHOULD 5)
+        const addVal = pay - (cost + (m - n) * 100);
+        if ([unitC, cost, pay, ans].includes(addVal)) continue;
+        const moreFewer = `there ${Math.abs(m - n) === 1 ? 'is' : 'are'} ${Math.abs(m - n)} ${m > n ? 'more' : 'fewer'} ${Math.abs(m - n) === 1 ? item : items}`;
         const prompt = `${n} ${items} cost ${rm(cost / 100)}. ${p.name} buys ${m} ${items} and pays with ${rm(pay / 100)}. How much change does ${p.he} get?`;
         const solution = `1 ${item} costs ${rm(cost / 100)} ÷ ${n} = ${rm(unitC / 100)}. ${m} cost ${m} x ${rm(unitC / 100)} = ${rm(ans / 100)}. Change: ${rm(pay / 100)} - ${rm(ans / 100)} = ${rm(change / 100)}. Answer: ${rm(change / 100)}`;
         const distractors = [
-          { text: rm(ans / 100), code: 'FR-REMAINDER-ONE-STEP', why: `${rm(ans / 100)} is what the ${items} cost. The question asks for the change from ${rm(pay / 100)}.` },
-          pay - (cost + (m - n) * 100) > 0 ? { text: rm((pay - (cost + (m - n) * 100)) / 100), code: 'PROP-ADDITIVE', why: `It looks like you ${m > n ? 'added' : 'took away'} RM ${Math.abs(m - n)} because there are ${Math.abs(m - n)} ${m > n ? 'more' : 'fewer'} ${items}. Find the price of 1 first, then multiply.` } : null,
+          { text: rm(ans / 100), code: 'ONE-STEP-ONLY', why: `${rm(ans / 100)} is what the ${items} cost. The question asks for the change, so take it away from ${rm(pay / 100)}.` },
+          addVal > 0 ? { text: rm(addVal / 100), code: 'PROP-ADDITIVE', why: `It looks like you ${m > n ? 'added' : 'took away'} RM ${Math.abs(m - n)} to the cost because ${moreFewer}. Find the price of 1 first, then multiply.` } : null,
           pay - unitC > 0 ? { text: rm((pay - unitC) / 100), code: 'PROP-UNIT-ONLY', why: `It looks like you took away the price of just 1 ${item}. ${p.He} buys ${m}.` } : null,
         ];
         try { return { type: 'mcq', prompt, ...choices(rng, rm(change / 100), distractors, null), solution, marks: 3, skill: SKILL.unitary }; } catch { continue; }
@@ -372,14 +385,14 @@ const proportion = {
       const prompt = `${n} ${items} cost ${rm(cost / 100)}. How much do ${m} ${items} cost?`;
       const solution = `Find the cost of 1 ${item}: ${rm(cost / 100)} ÷ ${n} = ${rm(unitC / 100)}. Then ${m} x ${rm(unitC / 100)} = ${rm(ans / 100)}. Answer: ${rm(ans / 100)}`;
       const distractors = [
-        cost + (m - n) * 100 > 0 ? { text: rm((cost + (m - n) * 100) / 100), code: 'PROP-ADDITIVE', why: `It looks like you ${m > n ? 'added' : 'took away'} RM ${Math.abs(m - n)} because there are ${Math.abs(m - n)} ${m > n ? 'more' : 'fewer'} ${items}. Find the cost of 1 first, then multiply.` } : null,
+        cost + (m - n) * 100 > 0 ? { text: rm((cost + (m - n) * 100) / 100), code: 'PROP-ADDITIVE', why: `It looks like you ${m > n ? 'added' : 'took away'} RM ${Math.abs(m - n)} because there ${Math.abs(m - n) === 1 ? 'is' : 'are'} ${Math.abs(m - n)} ${m > n ? 'more' : 'fewer'} ${Math.abs(m - n) === 1 ? item : items}. Find the cost of 1 first, then multiply.` } : null,
         { text: rm(unitC / 100), code: 'PROP-UNIT-ONLY', why: `${rm(unitC / 100)} is the cost of 1 ${item}. Now multiply by ${m}.` },
         { text: rm((cost * m) / 100), code: 'PROP-TIMES-WHOLE', why: `It looks like you multiplied the cost of ${n} ${items} by ${m}. Find the cost of 1 first.` },
       ];
       try {
         if (d === 2 && rng.chance(0.4)) {
-          const t = typedMisconceptions(dec(ans / 100), distractors.filter(Boolean).map((x) => ({ ...x, text: x.text.replace('RM ', '') })), { code: 'PROP-ADDITIVE', why: 'Find the cost of one, then multiply by the number you need.' });
-          return { type: 'numeric', prompt, answer: numericAnswer(ans / 100, [rm(ans / 100), dec(ans / 100)]), solution, ...t, skill: SKILL.direct };
+          const t = typedMisconceptions(dec(ans / 100), distractors.filter(Boolean).map((x) => ({ ...x, text: x.text.replace('RM ', '') })), { code: 'UNCLASSIFIED', why: 'Find the cost of one, then multiply by the number you need.' });
+          return { type: 'numeric', prompt, answer: numericAnswer(ans / 100, [rm(ans / 100), dec(ans / 100), money2(ans)]), solution, ...t, skill: SKILL.direct };
         }
         return { type: 'mcq', prompt, ...choices(rng, rm(ans / 100), distractors, null), solution, skill: d === 1 ? SKILL.unitary : SKILL.direct };
       } catch { /* draw again */ }
@@ -400,29 +413,37 @@ const bestBuy = {
     for (;;) {
       const [name, unit, per, sizes, [lo, hi]] = rng.pick(PRODUCTS);
       const count = d === 3 && rng.chance(0.5) ? 4 : 3;
-      const packs = rng.sample(sizes, count).sort((a, b) => a - b);
-      // an exact price per unit for each pack (a multiple of 5 sen), so every price divides exactly
+      const packs = rng.sample(sizes, count).sort((x, y) => x - y);
+      // Prices per unit mostly fall as the packs get bigger (as in real shops). The best buy is never
+      // the smallest pack, so choosing the lowest price never earns the mark (CLO review, m11 MUST 2);
+      // it is the biggest pack only about a third of the time, so "biggest is best" does not either.
+      const best = rng.chance(0.35) ? count - 1 : rng.int(1, count - 2);
       const mid = rng.int(lo, hi);
-      const spread = d === 2 ? 0.3 : 0.1;
-      const rates = packs.map(() => 5 * Math.round((mid * (1 + (rng.next() * 2 - 1) * spread)) / 5));
+      const stepPct = d === 2 ? [6, 15] : [3, 7]; // gap between neighbouring prices per unit, in %
+      const rates = new Array(count);
+      rates[best] = 5 * Math.round(mid / 5);
+      for (let i = best - 1; i >= 0; i--) rates[i] = 5 * Math.round((rates[i + 1] * (1 + rng.int(...stepPct) / 100)) / 5);
+      // a bigger pack after the best one costs a little more per unit than the best (a "bulk" trap)
+      for (let i = best + 1; i < count; i++) rates[i] = 5 * Math.round((rates[best] * (1 + rng.int(...stepPct) / 100)) / 5);
       const prices = packs.map((sz, i) => (sz / per) * rates[i]);
-      const best = rates.indexOf(Math.min(...rates));
-      const sorted = [...rates].sort((a, b) => a - b);
+      const sorted = [...rates].sort((x, y) => x - y);
       if (sorted[1] / sorted[0] < 1.02 || new Set(rates).size < count) continue;
       const cheapest = prices.indexOf(Math.min(...prices));
+      if (cheapest === best || new Set(prices).size < count) continue;
       const biggest = count - 1;
-      const label = (i) => `${fmtInt(packs[i])} ${unit} for ${rm(prices[i] / 100)}`;
+      const letter = (i) => String.fromCharCode(65 + i);
+      const label = (i) => `Pack ${letter(i)}: ${fmtInt(packs[i])} ${unit} for ${rm(prices[i] / 100)}`;
       const unitWord = per === 1 ? `1 ${unit}` : `100 ${unit}`;
       const prompt = `A shop sells ${name} in ${count} packs. Which pack is the best buy?`;
-      const solution = `Find the price of ${unitWord} in each pack: ${packs.map((sz, i) => `${label(i)}: ${rm(prices[i] / 100)} ÷ ${sz / per} = ${rm(rates[i] / 100)}`).join('; ')}. The lowest price for ${unitWord} is the best buy. Answer: ${label(best)}`;
+      const solution = `Find the price of ${unitWord} in each pack: ${packs.map((sz, i) => `Pack ${letter(i)}: ${rm(prices[i] / 100)} ÷ ${sz / per} = ${rm(rates[i] / 100)}`).join('; ')}. The lowest price for ${unitWord} is the best buy. Answer: ${label(best)}`;
       const distractors = packs.map((_, i) => i).filter((i) => i !== best).map((i) => (i === cheapest
-        ? { text: label(i), code: 'BUY-CHEAPEST-PRICE', why: `This pack has the lowest price, but it also has the least ${name}. Compare the price of ${unitWord}: here it is ${rm(rates[i] / 100)}.` }
+        ? { text: label(i), code: 'BUY-CHEAPEST-PRICE', why: `Pack ${letter(i)} has the lowest price, but it also has the least ${name}. Compare the price of ${unitWord}: here it is ${rm(rates[i] / 100)}, more than ${rm(rates[best] / 100)}.` }
         : i === biggest
           ? { text: label(i), code: 'BUY-BIGGEST-PACK', why: `The biggest pack is not always the best value. Its price for ${unitWord} is ${rm(rates[i] / 100)}, more than ${rm(rates[best] / 100)}.` }
-          : { text: label(i), code: 'NEAR-MISS', why: `This is close, but ${label(i)} is not right. Its price for ${unitWord} is ${rm(rates[i] / 100)}, more than ${rm(rates[best] / 100)}.` }));
+          : { text: label(i), code: 'NEAR-MISS', why: `Not quite: Pack ${letter(i)} is not the best buy. Its price for ${unitWord} is ${rm(rates[i] / 100)}, more than ${rm(rates[best] / 100)} for Pack ${letter(best)}.` }));
       try {
         const c = choices(rng, label(best), distractors, null, count);
-        return { type: 'mcq', prompt, ...c, solution, marks: 2, diagram: { type: 'table', columns: ['Pack', 'Size', 'Price'], rows: packs.map((sz, i) => [String.fromCharCode(65 + i), `${fmtInt(sz)} ${unit}`, rm(prices[i] / 100)]) } };
+        return { type: 'mcq', prompt, ...c, solution, marks: 2, diagram: { type: 'table', columns: ['Pack', 'Size', 'Price'], rows: packs.map((sz, i) => [letter(i), `${fmtInt(sz)} ${unit}`, rm(prices[i] / 100)]) } };
       } catch { /* draw again */ }
     }
   },
@@ -430,28 +451,61 @@ const bestBuy = {
 
 // ---------------------------------------------------------------- g09 before-and-after ratio problems
 
+const BA_CONTEXTS = [
+  ['boys', 'girls', 'in a group', 'join the group', 'leave the group'],
+  ['red beads', 'blue beads', 'in a box', 'are put into the box', 'are taken out of the box'],
+  ['adults', 'children', 'at a party', 'arrive', 'go home'],
+  ['ducks', 'chickens', 'on a farm', 'are added to the farm', 'are sold'],
+];
 const beforeAfter = {
   id: 'm11.before-after', topicId: T, subtopicId: 'm11-s5', skill: SKILL.beforeAfter,
-  title: 'Before and after: one quantity changes, the other stays the same',
+  title: 'Before and after: one quantity changes, the other stays the same (sometimes the ratios must be rescaled first, as in 3 : 4 becomes 1 : 1)',
   difficulties: [3],
   check: { integer: true, min: 1 },
   make(rng) {
     for (;;) {
-      const b = rng.int(1, 6); const g1 = rng.int(1, 8); const g2 = rng.int(g1 + 1, 10);
-      if (gcd(b, g1) !== 1 || gcd(b, g2) !== 1) continue;
-      const k = rng.int(2, 9);
-      const added = k * (g2 - g1);
-      const [A, B, place, joinWord] = rng.pick([['boys', 'girls', 'in a group', 'join the group'], ['red beads', 'blue beads', 'in a box', 'are put into the box'], ['adults', 'children', 'at a party', 'arrive'], ['ducks', 'chickens', 'on a farm', 'are added to the farm']]);
+      // A stays the same. Before A : B = p1 : q1, after p2 : q2 (both in simplest form).
+      // Simple form: p1 = p2. Harder form (the bank's P6 type): p1 differs from p2, so both ratios
+      // are first rescaled to give A the same number of parts, L = lcm(p1, p2).
+      const rescale = rng.chance(0.5);
+      let p1; let q1; let p2; let q2;
+      if (rescale) {
+        p1 = rng.int(1, 6); q1 = rng.int(1, 8); p2 = rng.int(1, 6); q2 = rng.int(1, 8);
+        if (p1 === p2 || gcd(p1, q1) !== 1 || gcd(p2, q2) !== 1 || (p1 === q1 && p2 === q2)) continue;
+      } else {
+        p1 = rng.int(1, 6); p2 = p1; q1 = rng.int(1, 8); q2 = rng.int(1, 10);
+        if (gcd(p1, q1) !== 1 || gcd(p2, q2) !== 1 || q1 === q2) continue;
+      }
+      const L = lcm(p1, p2);
+      if (L > 12) continue;
+      const qb = (q1 * L) / p1; const qa = (q2 * L) / p2; // parts of B before and after, when A is L parts
+      const dp = qa - qb;
+      // at least 2 parts of change, so "used the change as one part" never earns the mark
+      if (Math.abs(dp) < 2 || qb > 16 || qa > 16) continue;
+      const k = rng.int(2, rescale ? 6 : 9);
+      const change = Math.abs(dp) * k;
+      const [A, B, place, joinWord, leaveWord] = rng.pick(BA_CONTEXTS);
       const ask = rng.pick(['fixed', 'before', 'after']);
-      const ans = ask === 'fixed' ? b * k : ask === 'before' ? g1 * k : g2 * k;
-      const prompt = `The ratio of ${A} to ${B} ${place} is ${R(b, g1)}. Then ${added} more ${B} ${joinWord}, and the ratio becomes ${R(b, g2)}. How many ${ask === 'fixed' ? A : B} are there ${ask === 'before' ? 'at first' : ask === 'after' ? 'now' : 'altogether'}?`;
-      const solution = `The number of ${A} does not change, and it is ${b} part${b > 1 ? 's' : ''} in both ratios. The ${B} go from ${g1} parts to ${g2} parts: ${g2 - g1 > 1 ? `${g2 - g1} parts = ${added}, so 1 part = ${added} ÷ ${g2 - g1} = ${k}.` : `So 1 part = ${added}.`} ${ask === 'fixed' ? `${capFirst(A)}: ${b} x ${k} = ${ans}` : ask === 'before' ? `${capFirst(B)} at first: ${g1} x ${k} = ${ans}` : `${capFirst(B)} now: ${g2} x ${k} = ${ans}`}. Answer: ${ans}`;
+      const askedParts = ask === 'fixed' ? L : ask === 'before' ? qb : qa;
+      const ans = askedParts * k;
+      if (ans > 150) continue;
+      const moveText = dp > 0 ? `${change} more ${B} ${joinWord}` : `${change} ${B} ${leaveWord}`;
+      const prompt = `The ratio of ${A} to ${B} ${place} is ${R(p1, q1)}. Then ${moveText}, and the ratio becomes ${R(p2, q2)}. How many ${ask === 'fixed' ? A : B} are there${ask === 'before' ? ' at first' : ask === 'after' ? ' now' : ''}?`;
+      const same = rescale
+        ? `The number of ${A} does not change, so give it the same number of parts (${L}) in both ratios: ${[[p1, q1, qb], [p2, q2, qa]].filter(([x]) => x !== L).map(([x, y, z]) => `${R(x, y)} = ${R(L, z)}`).join(' and ')}.`
+        : `The number of ${A} does not change, and it is ${countOf(p1, 'part')} in both ratios.`;
+      const step = `So the ${B} go from ${countOf(qb, 'part')} to ${countOf(qa, 'part')}: ${Math.abs(dp)} parts = ${change}, so 1 part = ${change} ÷ ${Math.abs(dp)} = ${k}.`;
+      const last = ask === 'fixed' ? `${capFirst(A)}: ${L} x ${k} = ${ans}` : ask === 'before' ? `${capFirst(B)} at first: ${qb} x ${k} = ${ans}` : `${capFirst(B)} now: ${qa} x ${k} = ${ans}`;
+      const solution = `${same} ${step} ${last}. Answer: ${ans}`;
+      const others = [L * k, qb * k, qa * k].filter((v) => v !== ans);
+      const confuse = ask === 'before' ? qa * k : qb * k; // the other count of the quantity that changes
       const distractors = [
-        { text: String(k), code: 'RATIO-ONE-PART-ONLY', why: `${k} is the value of one part. Multiply by the number of parts asked for.` },
-        { text: String(added * (ask === 'fixed' ? b : ask === 'before' ? g1 : g2)), code: 'RATIO-CHANGE-AS-PART', why: `It looks like you used ${added} as one part. The ${added} new ${B} are ${g2 - g1} parts (${g2} - ${g1}).` },
-        { text: String(ask === 'fixed' ? g1 * k : b * k), code: 'RATIO-GIVES-ONE-SHARE', why: `That is the number of ${ask === 'fixed' ? `${B} at first` : A}. Read the question again.` },
+        { text: String(k), code: 'RATIO-ONE-PART-ONLY', why: `${k} is the value of one part. Multiply by the number of parts asked for (${askedParts}).` },
+        { text: String(change * askedParts), code: 'RATIO-CHANGE-AS-PART', why: `It looks like you used ${change} as one part. The ${change} ${B} are ${Math.abs(dp)} parts (${Math.max(qa, qb)} - ${Math.min(qa, qb)}).` },
+        { text: String(confuse), code: 'RATIO-GIVES-ONE-SHARE', why: `That is the number of ${confuse === qa * k ? `${B} now` : `${B} at first`}. Read the question again: it asks for the ${ask === 'fixed' ? A : ask === 'before' ? `${B} at first` : `${B} now`}.` },
       ];
-      try { return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, (i) => nearMiss(String(ans + i * k), 'Use the quantity that does not change to compare the two ratios.')), solution, marks: 3 }; } catch { /* draw again */ }
+      const near = (i) => { const m = askedParts + (i % 2 ? Math.ceil(i / 2) : -i / 2); const v = m * k; return m > 0 && !others.includes(v) && !inPrompt(prompt, v) ? nearMiss(String(v), `Find the value of one part from the change (${change} ${B} is ${Math.abs(dp)} parts), then multiply by ${askedParts}.`) : null; };
+      try { return { type: 'mcq', prompt, ...choices(rng, String(ans), distractors, near), solution, marks: 3 }; } catch { /* draw again */ }
     }
   },
 };

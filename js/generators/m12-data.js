@@ -4,7 +4,7 @@
 // Patterns and ranges follow the CLO's generator guide (section 2, m12). Every chart is drawn from
 // the same numbers as the answer; the value she must read is never written on the chart.
 
-import { F, choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, person } from './core.js';
+import { F, choices, typedMisconceptions, nearMiss, numericAnswer, fmtInt, person, ordinal } from './core.js';
 
 const T = 'm12-data-handling';
 const SK = {
@@ -14,46 +14,7 @@ const SK = {
   venn: 'Venn and Carroll diagrams', tally: 'reading tally charts and frequency tables',
 };
 
-export const EXTRA_CODES = {
-  'AVG-TOTAL-ONLY': 'Finds the total but stops there (does not divide, or does not take away the known values)',
-  'AVG-MEDIAN-POSITION': 'Gives the position of the middle value ((n + 1) ÷ 2) instead of the value itself',
-  'AVG-MEDIAN-EVEN-ONE': 'With an even number of values, takes one of the two middle values instead of halfway between them',
-  'AVG-MODE-FREQ': 'Gives how many times the mode appears instead of the mode itself',
-  'AVG-MODE-LARGEST': 'Gives the largest value instead of the most common one',
-  'AVG-WRONG-AVERAGE': 'Works out a different average from the one asked for',
-  'AVG-RANGE-ADD': 'Adds the highest and lowest values instead of subtracting',
-  'AVG-RANGE-UNSORTED': 'Subtracts the first value in the list from the last, instead of the lowest from the highest',
-  'AVG-FREQ-IGNORED': 'Uses only the list of values in a frequency table and ignores how often each one happens',
-  'AVG-FREQ-AS-DATA': 'Works with the frequencies (how many times) instead of the data values',
-  'AVG-MISSING-IS-MEAN': 'Gives the mean itself as the missing value',
-  'AVG-OLD-MEAN': 'Gives the mean from before the change',
-  'AVG-CHANGE-AS-MEAN': 'Gives the new mean when the question asks how much the mean changed',
-  'DATA-SCALE-AS-ONE': 'Counts each gridline on the scale as 1 instead of using the scale',
-  'DATA-NEXT-GRIDLINE': 'Reads the gridline next to the end of the bar or the point instead of the one it reaches',
-  'DATA-WRONG-ITEM': 'Reads the bar or point next to the one asked about',
-  'DATA-ONE-VALUE': 'Gives one of the two values instead of the difference between them',
-  'DATA-TOTAL-MISSED-ITEM': 'Leaves out one bar or row when adding up a total',
-  'DATA-HIGHEST-NOT-CHANGE': 'Picks the highest value instead of the biggest change',
-  'DATA-FALL-AS-RISE': 'Picks the steepest fall when the question asks for the biggest rise',
-  'DATA-HIGHEST-NOT-DIFFERENCE': 'Picks the tallest bar or the biggest total instead of the biggest difference',
-  'DATA-ANGLE-AS-COUNT': 'Gives the angle of a pie chart sector as the number of people',
-  'DATA-PIE-PERCENT': 'Treats the angle of a sector as a percentage (out of 100 instead of 360)',
-  'DATA-COUNT-AS-ANGLE': 'Uses the number of people as the angle of the sector',
-  'DATA-PIE-DIVIDE-GROUP': 'Divides 360 by the number in the group instead of by the total',
-  'DATA-TALLY-GATE-FOUR': 'Counts each gate of five tally marks as 4 (only the upright lines)',
-  'DATA-TALLY-GATE-ONE': 'Counts each gate of five tally marks as 1',
-  'DATA-TALLY-SINGLES-MISSED': 'Counts the gates of five but forgets the single tally marks',
-  'DATA-FREQ-SUM-ONLY': 'Adds the frequencies (how many people) instead of the total of the values',
-  'DATA-VALUES-SUM-ONLY': 'Adds the values in the first column and ignores the frequencies',
-  'DATA-TIMES-VALUES': 'Multiplies by the values when the question only asks how many (just add the frequencies)',
-  'DATA-ROWS-NOT-FREQ': 'Counts the rows of the table instead of adding their frequencies',
-  'DATA-BOUNDARY': 'Includes the boundary value when the question says more than (or less than)',
-  'VENN-PROPERTY-SLIP': 'Tests a number against a property wrongly and puts it in the wrong region',
-  'VENN-BOUNDARY': 'Thinks a number equal to the boundary is greater than (or less than) it',
-  'VENN-OVERLAP-TWICE': 'Counts the overlap twice by adding the two circle totals',
-  'VENN-OVERLAP-IGNORED': 'Gives the whole circle total when the question asks for one set only',
-  'VENN-OVERLAP-ADDED': 'Adds the overlap on again, as if "both" were a separate group',
-};
+// Misconception codes: all declared once in misconceptions.js (the CLO's catalogue).
 
 // ---------------------------------------------------------------- shared helpers
 
@@ -72,15 +33,20 @@ const lower = (t) => t.charAt(0).toLowerCase() + t.slice(1);
 const nm = (v) => fx(F(Math.round(v * 100), 100));
 /** k-th near miss around v: v + step, v - step, v + 2 step, ... (null if negative). */
 const around = (v, step, k) => { const w = v + step * (k % 2 ? Math.ceil(k / 2) : -Math.ceil(k / 2)); return w < 0 ? null : w; };
+/** Every number written in a prompt (thousands spaces joined), as the tests read them. */
+const promptNums = (prompt) => (String(prompt).replace(/(\d) (\d{3})/g, '$1$2').match(/-?\d+(?:\.\d+)?(?:\/\d+)?/g) || []).map((t) => { const [x, y] = t.split('/'); return y ? Number(x) / Number(y) : Number(x); });
+/** Is v a number that already appears in the prompt? A near miss must never be one (CLO review X3). */
+const inPrompt = (prompt, v) => promptNums(prompt).some((x) => Math.abs(x - v) < 1e-9);
 
 /** A question built from a correct value and distractors, as mcq (or numeric when `typed`). */
-function numericOrMcq(rng, { ansText, ansValue, distractors, common, fallbackStep, hint, typed, accept = [] }) {
+function numericOrMcq(rng, { ansText, ansValue, distractors, common, fallbackStep, hint, typed, accept = [], prompt = '', avoid = [] }) {
   const ds = distractors.filter(Boolean);
   if (typed) {
     const t = typedMisconceptions(ansText, ds, common);
     return { type: 'numeric', answer: numericAnswer(ansValue, [ansText, ...accept]), ...t };
   }
-  const c = choices(rng, ansText, ds, (k) => { const w = around(ansValue, fallbackStep, k); return w == null ? null : nearMiss(nm(w), hint); });
+  // near misses: never a number in the question (or in `avoid`, e.g. values shown on the diagram)
+  const c = choices(rng, ansText, ds, (k) => { const w = around(ansValue, fallbackStep, k); return w == null || inPrompt(prompt, w) || avoid.includes(w) ? null : nearMiss(nm(w), hint); });
   return { type: 'mcq', ...c };
 }
 /** Split `total` into `parts` whole numbers, each at least `min` (default 1). */
@@ -140,6 +106,7 @@ function makeList(rng, stat, d) {
       if (d === 2 && new Set(v).size < n) continue;
     }
     if (stat === 'range' && Math.abs(v[n - 1] - v[0]) === Math.max(...v) - Math.min(...v)) continue;
+    if (stat === 'range' && Math.max(...v) - Math.min(...v) === Math.min(...v)) continue; // the range must not equal the smallest value
     return v;
   }
 }
@@ -165,7 +132,7 @@ function listQuestion(rng, d) {
     ans = med;
     const raw = n % 2 ? F(v[(n - 1) / 2]) : F(v[n / 2 - 1] + v[n / 2], 2);
     if (n % 2) {
-      solution = `First put the values in order: ${s.join(', ')}. There are ${n} values, so the median is the ${(n + 1) / 2}th value: ${fx(med)}. Remember: order the values first. Answer: ${fx(med)}`;
+      solution = `First put the values in order: ${s.join(', ')}. There are ${n} values, so the median is the ${ordinal((n + 1) / 2)} value: ${fx(med)}. Remember: order the values first. Answer: ${fx(med)}`;
       ds.push({ text: fx(raw), code: 'AVG-MEDIAN-UNSORTED', why: `It looks like you took the middle number of the list as it was written. Put the values in order first: ${s.join(', ')}.` });
     } else {
       const a = s[n / 2 - 1]; const b = s[n / 2];
@@ -213,7 +180,7 @@ function freqQuestion(rng) {
     const k = rng.int(4, c.vals.length);
     const start = rng.int(0, c.vals.length - k);
     const xs = c.vals.slice(start, start + k);
-    const fs = xs.map(() => rng.int(1, 9));
+    const fs = xs.map(() => rng.int(2, 9));
     const N = sum(fs);
     if (N < 10 || N > 40) continue;
     const S = sum(xs.map((x, i) => x * fs[i]));
@@ -238,7 +205,7 @@ function freqQuestion(rng) {
     } else if (stat === 'median') {
       if (N % 2 === 0 && !med.isInt) continue;
       ans = med;
-      const pos = N % 2 ? `the ${(N + 1) / 2}th value` : `halfway between the ${N / 2}th and ${N / 2 + 1}th values`;
+      const pos = N % 2 ? `the ${ordinal((N + 1) / 2)} value` : `halfway between the ${ordinal(N / 2)} and ${ordinal(N / 2 + 1)} values`;
       solution = `There are ${N} values (add the frequencies), so the median is ${pos}. Count down the table: the values are already in order. That place is in the row for ${fx(med)}. Answer: ${fx(med)}`;
       const mx = medianOf(xs);
       if (!mx.eq(med) && mx.terminates) ds.push({ text: fx(mx), code: 'AVG-FREQ-IGNORED', why: `${fx(mx)} is the middle of the list ${xs.join(', ')}. Each value happens a different number of times, so count through all ${N} values.` });
@@ -274,9 +241,10 @@ const averages = {
     for (;;) {
       const q = d === 3 ? freqQuestion(rng) : listQuestion(rng, d);
       const ansText = fx(q.ans);
-      const common = { code: 'AVG-MEAN-MEDIAN-SWAP', why: 'Check which average the question asks for: mean (share the total equally), median (middle value in order), mode (most common) or range (highest minus lowest).' };
+      const common = { code: 'UNCLASSIFIED', why: 'Check which average the question asks for: mean (share the total equally), median (middle value in order), mode (most common) or range (highest minus lowest).' };
+      const hint = { mean: 'Add all the values, then divide by how many values there are.', median: 'Put the values in order, then find the middle one.', mode: 'Find the value that appears most often.', range: 'Take the lowest value away from the highest.' }[q.stat];
       try {
-        const body = numericOrMcq(rng, { ansText, ansValue: q.ans.value, distractors: q.ds, common, fallbackStep: 1, hint: 'Check each step of your working.', typed: d < 3 && rng.chance(0.35) });
+        const body = numericOrMcq(rng, { ansText, ansValue: q.ans.value, distractors: q.ds, common, fallbackStep: 1, hint, typed: d < 3 && rng.chance(0.35), prompt: q.prompt, avoid: q.diagram ? q.diagram.rows.map((r) => Number(r[1])) : [] });
         return { ...body, prompt: q.prompt, solution: q.solution, skill: SK[q.stat], diagram: q.diagram, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
     }
@@ -337,14 +305,14 @@ const meanMissing = {
           ds.push({ text: `${t((k + 1) * m2)} kg`, code: 'AVG-TOTAL-ONLY', why: `${t((k + 1) * m2)} kg is the total for all ${k + 1} durians. Take away the ${t(k * m1)} kg of the first ${k}.` });
           ds.push({ text: `${t(k * m2 - k * m1)} kg`, code: 'AVG-MEAN-WRONG-COUNT', why: `It looks like you used ${k} durians for both totals. After one is added there are ${k + 1}.` });
           try {
-            const c = choices(rng, `${t(x)} kg`, ds, (i) => nearMiss(`${t(x + (i % 2 ? i : -i))} kg`, 'Find both totals, then subtract.'));
+            const c = choices(rng, `${t(x)} kg`, ds, (i) => { const w = x + (i % 2 ? i : -i); return w > 0 && !inPrompt(prompt, w / 10) ? nearMiss(`${t(w)} kg`, 'Find both totals (mean x number of durians), then subtract.') : null; });
             return { type: 'mcq', prompt, ...c, solution, marks: 2, skill: SK.missing };
           } catch { continue; }
         }
       }
       try {
         const typed = rng.chance(0.4);
-        const body = numericOrMcq(rng, { ansText: String(ans), ansValue: ans, distractors: ds, common: { code: 'AVG-TOTAL-ONLY', why: 'Find the total from the mean (mean x number of values), then take away the values you know.' }, fallbackStep: 1, hint: 'Find the total from the mean first.', typed });
+        const body = numericOrMcq(rng, { ansText: String(ans), ansValue: ans, distractors: ds, common: { code: 'UNCLASSIFIED', why: 'Find the total from the mean (mean x number of values), then take away the values you know.' }, fallbackStep: 1, hint: 'Find the total from the mean (mean x number of values) first, then take away the values you know.', typed, prompt });
         return { ...body, prompt, solution, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
     }
@@ -403,6 +371,7 @@ const outlier = {
           if ((S + X) % n === 0) ds.push({ text: String((S + X) / n), code: 'AVG-MEAN-WRONG-COUNT', why: `It looks like you divided by ${n}. With the new value there are ${n + 1} values.` });
           const med = medianOf([...vals, X]);
           if (med.isInt) ds.push({ text: fx(med), code: 'AVG-MEAN-MEDIAN-SWAP', why: `${fx(med)} is the median of all ${n + 1} values. The mean is the total shared equally.` });
+          ds.push({ text: fmtInt(S + X), code: 'AVG-TOTAL-ONLY', why: `${S + X} is the total of all ${n + 1} values. Divide it by ${n + 1} to find the mean.` });
         } else {
           ans = nw.n - old.n;
           prompt = `${intro} By how much does the mean go up when this value is included?`;
@@ -413,7 +382,7 @@ const outlier = {
         }
       }
       try {
-        const body = numericOrMcq(rng, { ansText: String(ans), ansValue: ans, distractors: ds, common: { code: 'AVG-MEAN-WRONG-COUNT', why: 'Find each total, and divide by the number of values at that point.' }, fallbackStep: 1, hint: 'Work out the totals first, then divide.', typed: rng.chance(0.35) });
+        const body = numericOrMcq(rng, { ansText: String(ans), ansValue: ans, distractors: ds, common: { code: 'UNCLASSIFIED', why: 'Find each total, and divide by the number of values at that point.' }, fallbackStep: 1, hint: 'Work out each total first, then divide by the number of values at that point.', typed: rng.chance(0.35), prompt });
         return { ...body, prompt, solution, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
     }
@@ -478,9 +447,9 @@ const readBar = {
         ans = vals[i];
         prompt = `${ctx.intro} ${ctx.val(cats[i])}`;
         solution = `${lineWord}. The bar for ${cats[i]} reaches ${ans}. Answer: ${ans}`;
-        if (line > 1) ds.push({ text: String(ans / line), code: 'DATA-SCALE-AS-ONE', why: `It looks like you counted the gridlines as 1 each. ${lineWord}, so the bar reaches ${ans}.` });
-        ds.push({ text: String(ans + line), code: 'DATA-NEXT-GRIDLINE', why: `${ans + line} is the gridline just past the end of the bar. Read the line the bar actually reaches.` });
-        if (ans - line > 0) ds.push({ text: String(ans - line), code: 'DATA-NEXT-GRIDLINE', why: `${ans - line} is the gridline just before the end of the bar. Read the line the bar actually reaches.` });
+        if (line > 1) ds.push({ text: String(ans / line), code: 'SCALE-INTERVAL-WRONG', why: `It looks like you counted the gridlines as 1 each. ${lineWord}, so the bar reaches ${ans}.` });
+        ds.push({ text: String(ans + line), code: 'SCALE-NEXT-MARK', why: `${ans + line} is the gridline just past the end of the bar. Read the line the bar actually reaches.` });
+        if (ans - line > 0) ds.push({ text: String(ans - line), code: 'SCALE-NEXT-MARK', why: `${ans - line} is the gridline just before the end of the bar. Read the line the bar actually reaches.` });
         for (const j of [i - 1, i + 1]) if (j >= 0 && j < k) ds.push({ text: String(vals[j]), code: 'DATA-WRONG-ITEM', why: `${vals[j]} is the bar for ${cats[j]}. Find the bar labelled ${cats[i]}.` });
       } else if (kind === 'more') {
         const [i, j] = rng.sample(range(0, k - 1), 2);
@@ -490,16 +459,16 @@ const readBar = {
         solution = `${lineWord}. ${cats[a]}: ${vals[a]}. ${cats[b]}: ${vals[b]}. Difference: ${vals[a]} - ${vals[b]} = ${ans}. Answer: ${ans}`;
         ds.push({ text: String(vals[a]), code: 'DATA-ONE-VALUE', why: `${vals[a]} is the value for ${cats[a]} only. "How many more" means the difference: ${vals[a]} - ${vals[b]}.` });
         ds.push({ text: String(vals[a] + vals[b]), code: 'OP-SWAP', why: `It looks like you added the two bars. "How many more" means subtract: ${vals[a]} - ${vals[b]}.` });
-        if (line > 1) ds.push({ text: String(ans / line), code: 'DATA-SCALE-AS-ONE', why: `It looks like you counted the gridlines between the bars as 1 each. ${lineWord}.` });
+        if (line > 1) ds.push({ text: String(ans / line), code: 'SCALE-INTERVAL-WRONG', why: `It looks like you counted the gridlines between the bars as 1 each. ${lineWord}.` });
       } else {
         ans = sum(vals);
         prompt = `${ctx.intro} ${ctx.all}`;
         solution = `${lineWord}. Read every bar: ${vals.join(' + ')} = ${ans}. Answer: ${ans}`;
         for (let j = 0; j < k; j++) ds.push({ text: String(ans - vals[j]), code: 'DATA-TOTAL-MISSED-ITEM', why: `It looks like you left out the bar for ${cats[j]} (${vals[j]}). Add every bar.` });
-        if (line > 1) ds.unshift({ text: String(ans / line), code: 'DATA-SCALE-AS-ONE', why: `It looks like you counted the gridlines as 1 each. ${lineWord}.` });
+        if (line > 1) ds.unshift({ text: String(ans / line), code: 'SCALE-INTERVAL-WRONG', why: `It looks like you counted the gridlines as 1 each. ${lineWord}.` });
       }
       try {
-        const body = numericOrMcq(rng, { ansText: String(ans), ansValue: ans, distractors: ds, common: { code: 'DATA-SCALE-AS-ONE', why: `Check the scale first: ${lower(lineWord)}.` }, fallbackStep: line, hint: `Check the scale: ${lower(lineWord)}.`, typed: d === 2 && rng.chance(0.35) });
+        const body = numericOrMcq(rng, { ansText: String(ans), ansValue: ans, distractors: ds, common: { code: 'UNCLASSIFIED', why: `Check the scale first: ${lower(lineWord)}.` }, fallbackStep: line, hint: `Check the scale: ${lower(lineWord)}.`, typed: d === 2 && rng.chance(0.35), prompt });
         return { ...body, prompt, solution, diagram };
       } catch { /* draw again */ }
     }
@@ -568,11 +537,11 @@ function dualBar(rng) {
 // ---------------------------------------------------------------- g04 reading a line graph
 
 const LINE_CTX = [
-  { intro: 'The line graph shows the temperature in a school garden during one day.', title: 'Temperature in the garden', cats: ['7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm'], y: 'Temperature (°C)', base: [20, 26], what: 'the temperature', unit: '°C', verb: 'was', rise: 'rise', at: 'at', series2: ['Kuala Lumpur', 'Cameron Highlands'], gap: (c, h, l) => `At ${c}, how much warmer was it in ${h} than in ${l}?` },
-  { intro: 'The line graph shows the height of a bean plant at the end of each week.', title: 'Height of a bean plant', cats: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'], y: 'Height (cm)', base: [0, 6], what: 'the height of the plant', unit: 'cm', verb: 'was', rise: 'grow', at: 'at the end of', series2: ['Plant A', 'Plant B'], up: true, gap: (c, h, l) => `At the end of ${c}, how much taller was ${h} than ${l}?` },
-  { intro: 'The line graph shows the number of visitors to a museum each month.', title: 'Museum visitors', cats: ['January', 'February', 'March', 'April', 'May', 'June', 'July'], y: 'Number of visitors', base: [10, 30], what: 'the number of visitors', unit: '', verb: 'was', rise: 'increase', at: 'in', series2: ['Museum A', 'Museum B'], gap: (c, h, l) => `In ${c}, how many more visitors did ${h} have than ${l}?` },
-  { intro: 'The line graph shows the number of customers at a hawker stall each hour.', title: 'Customers at a stall', cats: ['8 am', '9 am', '10 am', '11 am', '12 noon', '1 pm', '2 pm'], y: 'Number of customers', base: [4, 20], what: 'the number of customers', unit: '', verb: 'was', rise: 'increase', at: 'at', series2: ['Stall A', 'Stall B'], gap: (c, h, l) => `At ${c}, how many more customers did ${h} have than ${l}?` },
-  { intro: 'The line graph shows how much money a class had saved at the end of each week.', title: 'Class savings', cats: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'], y: 'Savings (RM)', base: [0, 20], what: 'the savings', unit: 'RM', verb: 'were', rise: 'increase', at: 'at the end of', series2: ['Class 6A', 'Class 6B'], up: true, gap: (c, h, l) => `At the end of ${c}, how much more had ${h} saved than ${l}?` },
+  { intro: 'The line graph shows the temperature in a school garden during one day.', title: 'Temperature in the garden', cats: ['7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm'], y: 'Temperature (°C)', base: [20, 26], what: 'the temperature', unit: '°C', verb: 'was', rise: 'rise', at: 'at', series2: ['Kuala Lumpur', 'Cameron Highlands'], intro2: 'The line graph shows the temperature in Kuala Lumpur and in Cameron Highlands during one day.', gap: (c, h, l) => `At ${c}, how much warmer was it in ${h} than in ${l}?` },
+  { intro: 'The line graph shows the height of a bean plant at the end of each week.', title: 'Height of a bean plant', cats: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'], y: 'Height (cm)', base: [0, 6], what: 'the height of the plant', unit: 'cm', verb: 'was', rise: 'grow', at: 'at the end of', series2: ['Plant A', 'Plant B'], intro2: 'The line graph shows the heights of two bean plants, Plant A and Plant B, at the end of each week.', up: true, gap: (c, h, l) => `At the end of ${c}, how much taller was ${h} than ${l}?` },
+  { intro: 'The line graph shows the number of visitors to a school book fair each day.', title: 'Book fair visitors', cats: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], y: 'Number of visitors', base: [10, 30], what: 'the number of visitors', unit: '', verb: 'was', rise: 'increase', at: 'on', series2: ['Hall A', 'Hall B'], intro2: 'The line graph shows the number of visitors to the two halls of a school book fair each day.', gap: (c, h, l) => `On ${c}, how many more visitors did ${h} have than ${l}?` },
+  { intro: 'The line graph shows the number of customers at a hawker stall each hour.', title: 'Customers at a stall', cats: ['8 am', '9 am', '10 am', '11 am', '12 noon', '1 pm', '2 pm'], y: 'Number of customers', base: [4, 20], what: 'the number of customers', unit: '', verb: 'was', rise: 'increase', at: 'at', series2: ['Stall A', 'Stall B'], intro2: 'The line graph shows the number of customers at two hawker stalls, Stall A and Stall B, each hour.', gap: (c, h, l) => `At ${c}, how many more customers did ${h} have than ${l}?` },
+  { intro: 'The line graph shows how much money a class had saved at the end of each week.', title: 'Class savings', cats: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'], y: 'Savings (RM)', base: [0, 20], what: 'the savings', unit: 'RM', verb: 'were', rise: 'increase', at: 'at the end of', series2: ['Class 6A', 'Class 6B'], intro2: 'The line graph shows how much money Class 6A and Class 6B had saved at the end of each week.', up: true, gap: (c, h, l) => `At the end of ${c}, how much more had ${h} saved than ${l}?` },
 ];
 const withUnit = (v, u) => (u === 'RM' ? `RM ${v}` : u ? `${v} ${u}` : String(v));
 
@@ -614,8 +583,8 @@ const readLine = {
         ansVal = vals[i]; ansText = U(vals[i]);
         prompt = `${ctx.intro} What ${ctx.verb} ${ctx.what} ${ctx.at} ${cats[i]}?`;
         solution = `${lineWord}. Go up from ${cats[i]} to the point, then across to the scale: ${U(vals[i])}. Answer: ${U(vals[i])}`;
-        ds.push({ text: U(vals[i] + unit), code: 'DATA-NEXT-GRIDLINE', why: `${U(vals[i] + unit)} is the gridline just above the point. Read across from the point itself.` });
-        if (vals[i] - unit >= 0) ds.push({ text: U(vals[i] - unit), code: 'DATA-NEXT-GRIDLINE', why: `${U(vals[i] - unit)} is the gridline just below the point. Read across from the point itself.` });
+        ds.push({ text: U(vals[i] + unit), code: 'SCALE-NEXT-MARK', why: `${U(vals[i] + unit)} is the gridline just above the point. Read across from the point itself.` });
+        if (vals[i] - unit >= 0) ds.push({ text: U(vals[i] - unit), code: 'SCALE-NEXT-MARK', why: `${U(vals[i] - unit)} is the gridline just below the point. Read across from the point itself.` });
         for (const j of [i - 1, i + 1]) if (j >= 0 && j < k && vals[j] !== vals[i]) ds.push({ text: U(vals[j]), code: 'DATA-WRONG-ITEM', why: `${U(vals[j])} is the reading at ${cats[j]}. Find ${cats[i]} on the bottom axis first.` });
       } else if (kind === 'most') {
         const ch = vals.slice(1).map((v, i) => v - vals[i]);
@@ -631,7 +600,8 @@ const readLine = {
         const worst = Math.min(...ch);
         if (worst < 0 && ch.filter((x) => x === worst).length === 1) ds.push({ text: iv(ch.indexOf(worst)), code: 'DATA-FALL-AS-RISE', why: `${iv(ch.indexOf(worst))} the line goes DOWN by ${-worst}. The question asks for the biggest rise.` });
         try {
-          const c = choices(rng, ansText, ds, (g) => { const j = (i + g) % (k - 1); return nearMiss(iv(j), `${iv(j)} the change is ${ch[j]}. Work out every change and compare.`); });
+          const how = (j) => (ch[j] > 0 ? `${ctx.what} went up by ${U(ch[j])}` : ch[j] < 0 ? `${ctx.what} went DOWN by ${U(-ch[j])}` : `${ctx.what} did not change`);
+          const c = choices(rng, ansText, ds, (g) => { const j = (i + g) % (k - 1); return { text: iv(j), code: 'NEAR-MISS', why: `Not quite: from ${cats[j]} to ${cats[j + 1]}, ${how(j)}. The biggest rise is ${U(best)}. Work out every change and compare.` }; });
           return { type: 'mcq', prompt, ...c, solution, diagram };
         } catch { continue; }
       } else if (kind === 'change') {
@@ -643,7 +613,7 @@ const readLine = {
         solution = `${lineWord}. At ${cats[i]}: ${U(vals[i])}. At ${cats[j]}: ${U(vals[j])}. Change: ${Math.max(vals[i], vals[j])} - ${Math.min(vals[i], vals[j])} = ${ansVal}. Answer: ${U(ansVal)}`;
         ds.push({ text: U(vals[j]), code: 'DATA-ONE-VALUE', why: `${U(vals[j])} is the reading at ${cats[j]}. The change is the difference between the two readings.` });
         ds.push({ text: U(vals[i] + vals[j]), code: 'OP-SWAP', why: 'It looks like you added the two readings. The change is the difference: subtract.' });
-        if (unit > 1) ds.push({ text: U(ansVal / unit), code: 'DATA-SCALE-AS-ONE', why: `It looks like you counted the gridlines between the readings as 1 each. ${lineWord}.` });
+        if (unit > 1) ds.push({ text: U(ansVal / unit), code: 'SCALE-INTERVAL-WRONG', why: `It looks like you counted the gridlines between the readings as 1 each. ${lineWord}.` });
         fbStep = unit;
       } else if (kind === 'gap') {
         const i = rng.int(0, k - 1);
@@ -651,18 +621,18 @@ const readLine = {
         const [hiN, loN] = vals[i] > two[i] ? [0, 1] : [1, 0];
         const hv = Math.max(vals[i], two[i]); const lv = Math.min(vals[i], two[i]);
         ansVal = hv - lv; ansText = U(ansVal);
-        prompt = `${ctx.intro} ${ctx.gap(cats[i], ctx.series2[hiN], ctx.series2[loN])}`;
+        prompt = `${ctx.intro2} ${ctx.gap(cats[i], ctx.series2[hiN], ctx.series2[loN])}`;
         solution = `${lineWord}. At ${cats[i]}: ${ctx.series2[hiN]} ${U(hv)} and ${ctx.series2[loN]} ${U(lv)}. Difference: ${hv} - ${lv} = ${ansVal}. Answer: ${U(ansVal)}`;
         ds.push({ text: U(hv), code: 'DATA-ONE-VALUE', why: `${U(hv)} is the reading for ${ctx.series2[hiN]} only. "How much more" means the difference between the two lines.` });
         ds.push({ text: U(hv + lv), code: 'OP-SWAP', why: 'It looks like you added the two readings. Find the difference: subtract.' });
-        if (unit > 1) ds.push({ text: U(ansVal / unit), code: 'DATA-SCALE-AS-ONE', why: `It looks like you counted the gridlines between the two points as 1 each. ${lineWord}.` });
+        if (unit > 1) ds.push({ text: U(ansVal / unit), code: 'SCALE-INTERVAL-WRONG', why: `It looks like you counted the gridlines between the two points as 1 each. ${lineWord}.` });
       } else {
         const gaps = vals.map((v, i) => Math.abs(v - two[i]));
         const best = Math.max(...gaps);
         if (gaps.filter((x) => x === best).length > 1) continue;
         const i = gaps.indexOf(best);
         ansText = cats[i]; typedOk = false;
-        prompt = `${ctx.intro} At which reading were the two lines furthest apart?`;
+        prompt = `${ctx.intro2} At which reading were the two lines furthest apart?`;
         solution = `Find the gap between the two lines at each reading: ${cats.map((c, j) => `${c} ${gaps[j]}`).join(', ')}. The biggest gap is ${best}, at ${cats[i]}. Answer: ${cats[i]}`;
         const hi = Math.max(...vals, ...two);
         const hj = [...vals, ...two].indexOf(hi) % k;
@@ -675,8 +645,8 @@ const readLine = {
       try {
         const typed = typedOk && ctx.unit !== 'RM' && d >= 1 && rng.chance(0.3);
         const body = typed
-          ? { type: 'numeric', answer: numericAnswer(ansVal, [String(ansVal), ...(ctx.unit && ctx.unit !== 'RM' ? [`${ansVal} ${ctx.unit}`] : [])]), ...typedMisconceptions(String(ansVal), ds.map((x) => ({ ...x, text: String(x.text).replace(/ ?(°C|cm)$/, '') })), { code: 'DATA-SCALE-AS-ONE', why: `Check the scale first: ${lower(lineWord)}.` }) }
-          : { type: 'mcq', ...choices(rng, ansText, ds, (g) => nearMiss(U(ansVal + fbStep * (g % 2 ? Math.ceil(g / 2) : -Math.ceil(g / 2))), `Check the scale: ${lower(lineWord)}.`)) };
+          ? { type: 'numeric', answer: numericAnswer(ansVal, [String(ansVal), ...(ctx.unit && ctx.unit !== 'RM' ? [`${ansVal} ${ctx.unit}`] : [])]), ...typedMisconceptions(String(ansVal), ds.map((x) => ({ ...x, text: String(x.text).replace(/ ?(°C|cm)$/, '') })), { code: 'UNCLASSIFIED', why: `Check the scale first: ${lower(lineWord)}.` }) }
+          : { type: 'mcq', ...choices(rng, ansText, ds, (g) => { const w = ansVal + fbStep * (g % 2 ? Math.ceil(g / 2) : -Math.ceil(g / 2)); return w <= 0 || inPrompt(prompt, w) ? null : nearMiss(U(w), `Check the scale: ${lower(lineWord)}.`); }) };
         if (body.type === 'mcq' && body.options.some((o) => /^-/.test(o) || /RM -/.test(o))) continue;
         return { ...body, prompt, solution, diagram, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
@@ -722,10 +692,16 @@ const readPie = {
         ds.push({ text: String(ask === 4 ? 180 : 90), code: 'DATA-ANGLE-AS-COUNT', why: `${ask === 4 ? 180 : 90} is the angle of the sector in degrees. The sector is ${frac} of the circle, so find ${frac} of ${N} ${ctx.noun}.` });
         if ((N * (ask === 4 ? 180 : 90)) % 100 === 0) ds.push({ text: String((N * (ask === 4 ? 180 : 90)) / 100), code: 'DATA-PIE-PERCENT', why: `It looks like you treated ${ask === 4 ? 180 : 90}° as ${ask === 4 ? 180 : 90}%. A whole circle is 360°, not 100.` });
         ds.push({ text: String(N - ans), code: 'PCT-OF-WRONG-WHOLE', why: `${N - ans} is the number in all the OTHER sectors. Find ${frac} of ${N} for the ${cats[0]} sector.` });
+        // the other common fraction of the circle: an honest near miss that says what it would need
+        const otherFrac = ask === 4 ? [N / 4, '1/4', 'a quarter (a right angle)'] : [N / 2, '1/2', 'half the circle (a straight line)'];
+        ds.push({ text: String(otherFrac[0]), code: 'NEAR-MISS', why: `Not quite: ${otherFrac[0]} would be ${otherFrac[1]} of ${N}, for a sector that is ${otherFrac[2]}. The ${cats[0]} sector is ${ask === 4 ? 'half the circle' : 'a right angle, a quarter of the circle'}.` });
+        ds.push({ text: String(N), code: 'WRONG-QUANTITY', why: `${N} is the number of ${ctx.noun} altogether. The ${cats[0]} sector is only ${frac} of the circle, so find ${frac} of ${N}.` });
       } else if (d === 2) {
         const angle = 15 * rng.int(2, 14);
         if (angle === 180) continue;
-        const N = rng.pick([24, 36, 40, 48, 60, 72, 80, 90, 96, 120, 144, 180, 240, 360]);
+        // never 360 people: then the angle in degrees IS the number of people, and the
+        // "angle as count" slip would earn the mark (CLO review, m12 MUST 1)
+        const N = rng.pick([24, 36, 40, 48, 60, 72, 80, 90, 96, 120, 144, 180, 240]);
         if ((N * angle) % 360) continue;
         ans = (N * angle) / 360;
         // the other sectors share the rest
@@ -759,7 +735,7 @@ const readPie = {
         ds.push({ text: `${360 - ans}°`, code: 'PCT-OF-WRONG-WHOLE', why: `${360 - ans}° is the angle for all the other choices together.` });
       }
       try {
-        const c = choices(rng, `${ans}${unit}`, ds, (g) => nearMiss(`${ans + (unit ? 15 : Math.max(1, Math.round(ans / 6))) * (g % 2 ? Math.ceil(g / 2) : -Math.ceil(g / 2))}${unit}`, 'A full circle is 360°: find what fraction of the circle the sector is.'));
+        const c = choices(rng, `${ans}${unit}`, ds, (g) => { const w = ans + (unit ? 15 : Math.max(1, Math.round(ans / 6))) * (g % 2 ? Math.ceil(g / 2) : -Math.ceil(g / 2)); return w <= 0 || inPrompt(prompt, w) ? null : nearMiss(`${w}${unit}`, d === 3 ? `Each one of the ${diagram.rows.reduce((t, r) => t + r[1], 0)} ${ctx.noun} is worth 360 ÷ ${diagram.rows.reduce((t, r) => t + r[1], 0)} degrees. Multiply by the number in that group.` : 'A full circle is 360°: find what fraction of the circle the sector is, then take that fraction of the total.'); });
         if (c.options.some((o) => /^-|^0°?$/.test(o))) continue;
         return { type: 'mcq', prompt, ...c, solution, diagram, skill: d === 3 ? SK.drawPie : SK.pie, marks: d === 3 ? 2 : 1 };
       } catch { /* draw again */ }
@@ -883,23 +859,27 @@ const COUNT_CTX = [
 ];
 function vennCount(rng) {
   const c = rng.pick(COUNT_CTX);
-  const both = rng.int(2, 10); const aO = rng.int(2, 15); const bO = rng.int(2, 15); const nei = rng.int(1, 10);
-  const a = aO + both; const b = bO + both; const N = aO + bO + both + nei;
   const ask = rng.pick(['neither', 'neither', 'aOnly', 'atLeast']);
+  const both = rng.int(2, ask === 'neither' ? 6 : 10); const aO = rng.int(2, 15); const bO = rng.int(2, 15);
+  // for "neither", more are outside than in the overlap, so the usual slips give real (positive) answers
+  const nei = ask === 'neither' ? rng.int(both + 2, both + 12) : rng.int(1, 10);
+  const a = aO + both; const b = bO + both; const N = aO + bO + both + nei;
   const ds = [];
   let ans; let q; let solution;
   const intro = `There are ${N} ${c.who}. ${a} ${c.A}, ${b} ${c.B} and ${both} ${c.both}.`;
   if (ask === 'neither') {
     ans = nei; q = `How many ${c.neither}?`;
     solution = `Put ${both} in the overlap. ${c.sa} only = ${a} - ${both} = ${aO}. ${c.sb} only = ${b} - ${both} = ${bO}. In at least one circle: ${aO} + ${both} + ${bO} = ${a + b - both}. Neither = ${N} - ${a + b - both} = ${nei}. Answer: ${nei}`;
-    if (N - a - b > 0) ds.push({ text: String(N - a - b), code: 'VENN-OVERLAP-TWICE', why: `It looks like you took ${a} and ${b} from ${N}. The ${both} who are in both circles were then taken away twice.` });
+    ds.push({ text: String(N - a - b), code: 'VENN-OVERLAP-TWICE', why: `It looks like you took ${a} and ${b} from ${N}. The ${both} who are in both circles were then taken away twice.` });
+    ds.push({ text: String(a + b - both), code: 'VENN-UNION-AS-NEITHER', why: `${a + b - both} is the number in at least one circle. The question asks how many are in neither: take it away from ${N}.` });
+    ds.push({ text: String(N - a), code: 'ITEM-LEFT-OUT', why: `It looks like you took away only the ${a} who ${c.A}. The ${bO} who ${c.B} but not the other are not in "neither" either.` });
     if (N - a - b - both > 0) ds.push({ text: String(N - a - b - both), code: 'VENN-OVERLAP-ADDED', why: `It looks like you took away ${a}, ${b} and ${both}. The ${both} are already counted inside ${a} and ${b}.` });
-    ds.push({ text: String(a + b - both), code: 'PCT-OF-WRONG-WHOLE', why: `${a + b - both} is the number in at least one circle. The question asks how many are in neither.` });
   } else if (ask === 'aOnly') {
     ans = aO; q = `How many ${c.aOnly}?`;
     solution = `${a} ${c.A}, and ${both} of them are also in the other circle (the overlap). ${c.sa} only = ${a} - ${both} = ${aO}. Answer: ${aO}`;
     ds.push({ text: String(a), code: 'VENN-OVERLAP-IGNORED', why: `${a} is everyone in the ${c.sa} circle, including the ${both} in the overlap. Take the overlap away.` });
     ds.push({ text: String(N - b), code: 'PCT-OF-WRONG-WHOLE', why: `${N} - ${b} = ${N - b} includes the ${nei} who are in neither circle.` });
+    ds.push({ text: String(bO), code: 'WRONG-QUANTITY', why: `${bO} is the number in the ${c.sb} circle only. The question asks about the ${c.sa} circle: ${a} - ${both}.` });
   } else {
     ans = a + b - both; q = `How many are in at least one of the two groups?`;
     solution = `${a} + ${b} counts the ${both} in the overlap twice. So in at least one group: ${a} + ${b} - ${both} = ${ans}. Answer: ${ans}`;
@@ -907,12 +887,14 @@ function vennCount(rng) {
     ds.push({ text: String(nei), code: 'PCT-OF-WRONG-WHOLE', why: `${nei} is the number in neither group. The question asks how many are in at least one.` });
     ds.push({ text: String(a + b + both), code: 'VENN-OVERLAP-ADDED', why: `It looks like you added the ${both} on again. They are already inside ${a} and ${b}.` });
   }
+  // the answer must not be a number already in the question or on the diagram
+  if ([N, a, b, both].includes(ans)) return null;
   const diagram = { type: 'venn', sets: [c.sa, c.sb], regions: { AB: [both] }, alt: `A Venn diagram with two overlapping circles, "${c.sa}" and "${c.sb}". The number ${both} is in the overlap.` };
   const prompt = `${intro} ${q} Use the Venn diagram to help you.`;
   try {
     const typed = rng.chance(0.4);
-    if (typed) return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans)]), ...typedMisconceptions(String(ans), ds, { code: 'VENN-OVERLAP-TWICE', why: 'Fill in the overlap first, then each circle, then the outside.' }), solution, diagram, marks: 2 };
-    return { type: 'mcq', prompt, ...choices(rng, String(ans), ds, (g) => { const w = around(ans, 1, g); return w == null ? null : nearMiss(String(w), 'Fill in the overlap first, then each circle.'); }), solution, diagram, marks: 2 };
+    if (typed) return { type: 'numeric', prompt, answer: numericAnswer(ans, [String(ans)]), ...typedMisconceptions(String(ans), ds.filter((x) => Number(x.text) > 0), { code: 'UNCLASSIFIED', why: 'Fill in the overlap first, then each circle, then the outside.' }), solution, diagram, marks: 2 };
+    return { type: 'mcq', prompt, ...choices(rng, String(ans), ds.filter((x) => Number(x.text) > 0), (g) => { const w = around(ans, 1, g); return w == null || w === 0 || inPrompt(prompt, w) ? null : nearMiss(String(w), 'Fill in the overlap first, then each circle, then the outside.'); }), solution, diagram, marks: 2 };
   } catch { return null; }
 }
 
@@ -947,8 +929,9 @@ const tally = {
         if (new Set(ns).size < k) continue;
         const i = rng.int(0, k - 1);
         const showTally = d === 1 || rng.chance(0.5);
-        const rows = cats.map((x, j) => (showTally ? [x, { tally: ns[j] }, j === i && d === 1 ? '?' : String(ns[j])] : [x, String(ns[j])]));
-        diagram = { type: 'table', title: c.title, columns: showTally ? [c.col, 'Tally', 'Frequency'] : [c.col, 'Frequency'], rows };
+        // D2 with tallies: no Frequency column, so the tallies have to be read (CLO review, m12 SHOULD 3)
+        const rows = cats.map((x, j) => (showTally ? (d === 1 ? [x, { tally: ns[j] }, j === i ? '?' : String(ns[j])] : [x, { tally: ns[j] }]) : [x, String(ns[j])]));
+        diagram = { type: 'table', title: c.title, columns: showTally ? (d === 1 ? [c.col, 'Tally', 'Frequency'] : [c.col, 'Tally']) : [c.col, 'Frequency'], rows };
         if (d === 1) {
           const g = Math.floor(ns[i] / 5); const r = ns[i] % 5;
           if (g < 1 || r < 1) continue;
@@ -960,7 +943,7 @@ const tally = {
           ds.push({ text: String(g + r), code: 'DATA-TALLY-GATE-ONE', why: `It looks like you counted each gate as 1. Each gate stands for 5.` });
           ds.push({ text: String(5 * g), code: 'DATA-TALLY-SINGLES-MISSED', why: `${5 * g} is just the gates. Add the ${r} single line${r > 1 ? 's' : ''} as well.` });
         } else {
-          diagram.alt = `A ${showTally ? 'tally chart' : 'frequency table'} titled "${c.title}" with a row for each of ${cats.join(', ')}.`;
+          diagram.alt = showTally ? `A tally chart titled "${c.title}" with a row of tally marks for each of ${cats.join(', ')}. There is no frequency column.` : `A frequency table titled "${c.title}" with a row for each of ${cats.join(', ')}.`;
           if (rng.chance(0.5)) {
             ans = sum(ns);
             prompt = `The ${showTally ? 'tally chart' : 'frequency table'} shows ${lower(c.title)}. How many ${c.thing} is that altogether?`;
@@ -980,7 +963,7 @@ const tally = {
         const c = rng.pick(DOT_CTX);
         const k = rng.int(4, c.xs.length);
         const xs = c.xs.slice(0, k);
-        const fs = xs.map(() => rng.int(1, 9));
+        const fs = xs.map(() => rng.int(2, 9));
         const S = sum(xs.map((x, j) => x * fs[j]));
         dot = rng.chance(0.45);
         diagram = dot
@@ -1008,8 +991,8 @@ const tally = {
       try {
         const typed = rng.chance(0.35);
         const body = typed
-          ? { type: 'numeric', answer: numericAnswer(ans, [String(ans)]), ...typedMisconceptions(String(ans), ds, { code: 'DATA-TOTAL-MISSED-ITEM', why: 'Read every row carefully and check what the question asks for.' }) }
-          : { type: 'mcq', ...choices(rng, String(ans), ds, (g) => { const w = around(ans, 1, g); return w == null ? null : nearMiss(String(w), 'Read every row carefully.'); }) };
+          ? { type: 'numeric', answer: numericAnswer(ans, [String(ans)]), ...typedMisconceptions(String(ans), ds, { code: 'UNCLASSIFIED', why: 'Read every row carefully and check what the question asks for.' }) }
+          : { type: 'mcq', ...choices(rng, String(ans), ds, (g) => { const w = around(ans, 1, g); return w == null || inPrompt(prompt, w) ? null : nearMiss(String(w), 'Read every row carefully, and check what the question asks for.'); }) };
         return { ...body, prompt, solution, diagram, marks: d === 3 ? 2 : 1, skill: dot ? 'reading dot plots' : SK.tally };
       } catch { /* draw again */ }
     }

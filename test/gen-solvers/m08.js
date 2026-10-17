@@ -51,7 +51,7 @@ function chance(q) {
     return { k: asked.n, T: pairs.reduce((s, x) => s + x.n, 0), colours: pairs.length };
   }
   if (/coin/.test(p)) return { k: 1, T: 2, colours: 0 };
-  if (/dice numbered 1 to 6/.test(p)) {
+  if (/dice(?: is)? numbered 1 to 6/.test(p)) {
     const np = [...p.matchAll(/(?:^|[^a-z])(?:rolling|roll) ([^.?]+)\?/g)].pop()[1];
     return { k: eventSet(np, 6).length, T: 6, colours: 0 };
   }
