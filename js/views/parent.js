@@ -1,6 +1,8 @@
-// Parent area, behind a PIN set on first use: overview with time and questions per day, week
-// and month; chapters and mastery; the report archive; and settings (parent email, PIN,
-// export and import of progress).
+// Parent area. Local mode (version 1): behind a PIN set on first use, reading this device.
+// Linked mode (v2): the parent's own sign-in, reading his daughter's data online.
+// Pages: overview (her latest session as a visual report, then time and questions per day,
+// week and month, and the analysis), chapters and mastery, the report archive, and settings
+// (local: email, PIN, export/import; linked: her account, export).
 
 import { h, clear, icon, button, dialog, toast, shareOrDownload, downloadFile, pct } from '../ui.js';
 import { SUBJECTS, loadAll, subjectTitle } from '../content.js';
@@ -12,7 +14,9 @@ import { formatDuration } from '../timer.js';
 import { reportBodyHtml, reportFileName } from '../report.js';
 import { buildExport, importExport, exportFileName, MAX_IMPORT_BYTES } from '../exportimport.js';
 import { APP_VERSION } from '../practice.js';
-import { sendReport, shareReport } from './results.js';
+import { sendReport, shareReport, copyReport } from './results.js';
+import { visualReport, trendChart } from '../visual-report.js';
+import { connect } from '../data/store.js';
 
 const UNLOCK_MS = 15 * 60 * 1000;
 const TABS = [
@@ -22,17 +26,27 @@ const TABS = [
   ['settings', 'Settings', 'settings'],
 ];
 
+const linkedParent = (app) => app.mode === 'linked' && app.profile && app.profile.role === 'parent';
+const childName = (app) => (app.child ? app.child.display_name || app.child.username : 'Your daughter');
+
 export async function parentView(el, app, tab, arg) {
-  if (Date.now() > app.parentUnlockedUntil) {
+  if (app.mode === 'linked') {
+    if (!linkedParent(app)) {
+      studentDeviceNotice(el, app);
+      return;
+    }
+  } else if (Date.now() > app.parentUnlockedUntil) {
     await gate(el, app, () => parentView(el, app, tab, arg));
     return;
+  } else {
+    app.parentUnlockedUntil = Date.now() + UNLOCK_MS;
   }
-  app.parentUnlockedUntil = Date.now() + UNLOCK_MS;
+  const linked = app.mode === 'linked';
   const current = tab === 'report' ? 'reports' : TABS.some((t) => t[0] === tab) ? tab : 'overview';
   const nav = h('nav', { class: 'tabs', 'aria-label': 'Parent area' }, ...TABS.map(([id, label, ic]) => h('a', { href: `#/parent/${id}`, class: `tab${id === current ? ' is-on' : ''}`, 'aria-current': id === current ? 'page' : null }, icon(ic, { size: 20 }), h('span', { text: label }))));
   const body = h('div', { class: 'stack' });
-  const resetAt = await app.db.getSetting('pinResetAt', null);
   let resetNote = null;
+  const resetAt = linked ? null : await app.db.getSetting('pinResetAt', null);
   if (resetAt) {
     const history = (await app.db.getSetting('pinResetHistory', [])) || [];
     resetNote = h('section', { class: 'card alert', role: 'alert' },
@@ -45,18 +59,59 @@ export async function parentView(el, app, tab, arg) {
         toast('Noted.');
       } }));
   }
+  let headRight;
+  if (linked) {
+    const picker = app.children.length > 1
+      ? h('select', { class: 'select', 'aria-label': 'Whose progress', onChange: async (e) => { await connect(app, { childId: e.target.value }); parentView(el, app, tab, arg); } },
+        ...app.children.map((c) => h('option', { value: c.id, text: c.display_name || c.username, selected: !!(app.child && c.id === app.child.id) })))
+      : null;
+    headRight = h('div', { class: 'row wrap' }, picker,
+      app.source ? button('Refresh', { icon: 'again', cls: 'btn-ghost btn-small', onClick: () => { app.source.refresh(); parentView(el, app, tab, arg); } }) : null);
+  } else {
+    headRight = h('a', { href: '#/', class: 'btn btn-ghost btn-small' }, icon('home', { size: 20 }), h('span', { text: 'Lock and leave' }));
+  }
   clear(el).append(h('div', { class: 'stack parent' },
     h('div', { class: 'row space' },
-      h('h1', {}, icon('lock', { size: 28 }), h('span', { text: 'Parent area' })),
-      h('a', { href: '#/', class: 'btn btn-ghost btn-small' }, icon('home', { size: 20 }), h('span', { text: 'Lock and leave' }))),
+      h('h1', {}, icon(linked ? 'chart' : 'lock', { size: 28 }), h('span', { text: linked ? `${childName(app)}: progress` : 'Parent area' })),
+      headRight),
     resetNote, nav, body));
-  const [sessions, attempts, topics] = await Promise.all([app.db.getAll('sessions'), app.db.getAll('attempts'), loadAll()]);
+
+  if (linked && !app.child) {
+    // first visit: no student account yet
+    await linkedSettingsPage(body, app, null, true);
+    return;
+  }
+  const src = app.source;
+  let sessions;
+  let attempts;
+  let topics;
+  try {
+    [sessions, attempts, topics] = await Promise.all([src.getAll('sessions'), src.getAll('attempts'), loadAll()]);
+  } catch (e) {
+    body.append(h('section', { class: 'card' },
+      h('h2', {}, icon('info'), h('span', { text: 'Her progress could not be loaded' })),
+      h('p', { text: e && e.offline ? 'There is no internet connection. Her sessions are kept online, so this page needs the internet.' : `The server said: ${(e && e.message) || e}` }),
+      button('Try again', { icon: 'again', cls: 'btn-primary', onClick: () => { if (src.refresh) src.refresh(); parentView(el, app, tab, arg); } })));
+    return;
+  }
   const data = { sessions: sessions.filter((s) => s.status === 'complete'), attempts, topics };
-  if (tab === 'report') await reportPage(body, app, arg);
+  if (tab === 'report') await reportPage(body, app, arg, data);
   else if (current === 'chapters') chaptersPage(body, data);
-  else if (current === 'reports') await reportsPage(body, app);
-  else if (current === 'settings') await settingsPage(body, app, data);
-  else overviewPage(body, data);
+  else if (current === 'reports') await reportsPage(body, app, data);
+  else if (current === 'settings') {
+    if (linked) await linkedSettingsPage(body, app, data, false);
+    else await settingsPage(body, app, data);
+  } else await overviewPage(body, app, data);
+}
+
+/** Linked mode, on the student's sign-in: the parent area is on Dad's own account. */
+function studentDeviceNotice(el, app) {
+  clear(el).append(h('div', { class: 'stack narrow' },
+    h('h1', {}, icon('lock', { size: 28 }), h('span', { text: 'Parent area' })),
+    h('section', { class: 'card stack' },
+      h('p', { text: 'Your reports go to Dad by themselves. He sees them when he signs in with his own account.' }),
+      app.profile ? h('p', { class: 'small muted', text: 'To open the parent area on this device, sign out first, then choose "I am the parent".' }) : null,
+      h('p', {}, h('a', { href: '#/', class: 'btn btn-primary' }, icon('home'), h('span', { text: 'Back to practice' }))))));
 }
 
 // ---------------------------------------------------------------- PIN gate
@@ -146,7 +201,29 @@ async function gate(el, app, onOpen) {
 
 // ---------------------------------------------------------------- overview
 
-function overviewPage(body, data) {
+/** Her most recent session as a visual report: the first thing the parent sees. */
+async function latestSession(body, app, data) {
+  const reports = (await app.source.getAll('reports')).filter((r) => r && r.score).sort((a, b) => b.startedAt - a.startedAt);
+  const r = reports[0];
+  if (!r) {
+    body.append(h('section', { class: 'card' },
+      h('h2', {}, icon('star'), h('span', { text: 'Her latest session' })),
+      h('p', { text: app.mode === 'linked'
+        ? 'No sessions yet. When she finishes a practice, its report appears here by itself.'
+        : 'No sessions yet. A report is made after every practice session.' })));
+    return;
+  }
+  const atts = data.attempts.filter((a) => a.sessionId === r.sessionId);
+  const sec = h('section', { class: 'card latest' },
+    h('div', { class: 'row space' },
+      h('h2', {}, icon('star'), h('span', { text: 'Her latest session' })),
+      h('a', { href: `#/parent/report/${encodeURIComponent(r.sessionId)}`, class: 'btn btn-ghost btn-small' }, h('span', { text: 'Open the full report' }), icon('right', { size: 20 }))));
+  body.append(sec);
+  sec.append(visualReport(r, { attempts: atts, sessions: data.sessions, source: app.source, host: sec }));
+}
+
+async function overviewPage(body, app, data) {
+  await latestSession(body, app, data);
   const { sessions, attempts, topics } = data;
   const t = totals(sessions);
   const st = streak(sessions);
@@ -249,12 +326,17 @@ function chaptersPage(body, data) {
 
 // ---------------------------------------------------------------- reports
 
-async function reportsPage(body, app) {
-  const reports = (await app.db.getAll('reports')).sort((a, b) => b.startedAt - a.startedAt);
+/** The archive: a score trend, then every report by month, newest first. Built automatically. */
+async function reportsPage(body, app, data) {
+  const reports = (await app.source.getAll('reports')).filter((r) => r && r.score).sort((a, b) => b.startedAt - a.startedAt);
   if (!reports.length) {
-    body.append(h('section', { class: 'card' }, h('p', { text: 'No reports yet. A report is made after every practice session.' })));
+    body.append(h('section', { class: 'card' }, h('p', { text: app.mode === 'linked' ? 'No reports yet. Each finished session adds one here by itself.' : 'No reports yet. A report is made after every practice session.' })));
     return;
   }
+  const trendCard = h('section', { class: 'card' }, h('h2', {}, icon('chart'), h('span', { text: 'How her scores are moving' })));
+  body.append(trendCard);
+  const trend = trendChart(data.sessions, { host: trendCard, width: Math.max(280, Math.min(840, (trendCard.clientWidth || 640) - 40)) });
+  trendCard.append(trend || h('p', { class: 'muted', text: 'The trend appears after her second session.' }));
   const byMonth = new Map();
   for (const r of reports) {
     const d = new Date(r.startedAt);
@@ -263,32 +345,127 @@ async function reportsPage(body, app) {
     byMonth.get(k).push(r);
   }
   for (const [month, list] of byMonth) {
-    body.append(h('section', { class: 'card' }, h('h2', { text: month }),
+    const avg = list.reduce((t, r) => t + (r.score.pct || 0), 0) / list.length;
+    body.append(h('section', { class: 'card' },
+      h('div', { class: 'row space' }, h('h2', { text: month }), h('span', { class: 'muted small', text: `${list.length} session${list.length === 1 ? '' : 's'} · average ${pct(avg)}` })),
       h('ul', { class: 'report-list' }, ...list.map((r) => h('li', {}, h('a', { href: `#/parent/report/${encodeURIComponent(r.sessionId)}`, class: 'report-row' },
         h('span', { class: 'rr-date', text: `${formatDate(r.startedAt, true)}, ${formatTime(r.startedAt)}` }),
         h('span', { class: 'rr-title', text: r.title }),
-        h('span', { class: 'rr-score', text: pct(r.score.pct) }),
-        h('span', { class: 'rr-time muted small', text: `${r.score.total} questions · ${formatDuration(r.timeUsedSec)}` }),
-          icon('right', { cls: 'chev' })))))));
+        h('span', { class: 'rr-score' }, meter(r.score.pct, { label: `Score ${pct(r.score.pct)}` })),
+        h('span', { class: 'rr-time muted small', text: `${r.score.correct} of ${r.score.total} right · ${formatDuration(r.timeUsedSec)}` }),
+        icon('right', { cls: 'chev' })))))));
   }
 }
 
-async function reportPage(body, app, id) {
-  const r = await app.db.get('reports', id);
+async function reportPage(body, app, id, data) {
+  const r = await app.source.get('reports', id);
   if (!r) {
     body.append(h('p', { class: 'card', text: 'That report was not found.' }));
     return;
   }
-  const content = h('div', { class: 'report-body' });
-  content.innerHTML = reportBodyHtml(r); // every value in it is escaped by reportBodyHtml
-  body.append(h('section', { class: 'card' },
-    h('p', {}, h('a', { href: '#/parent/reports' }, icon('left', { size: 18 }), h('span', { text: 'All reports' }))),
-    h('h2', { text: r.title }),
-    h('div', { class: 'row wrap' },
-      button('Send to Dad by email', { icon: 'mail', cls: 'btn-primary', onClick: () => sendReport(app, r) }),
+  const linked = app.mode === 'linked';
+  const attempts = data.attempts.filter((a) => a.sessionId === r.sessionId);
+  const details = h('div', { class: 'report-body' });
+  details.innerHTML = reportBodyHtml(r); // every value in it is escaped by reportBodyHtml
+  const card = h('section', { class: 'card' },
+    h('p', {}, h('a', { href: '#/parent/reports' }, icon('left', { size: 18 }), h('span', { text: 'All reports' }))));
+  body.append(card);
+  card.append(visualReport(r, { attempts, sessions: data.sessions, source: app.source, host: card }));
+  card.append(
+    h('div', { class: 'row wrap report-actions' },
+      linked ? null : button('Send to Dad by email', { icon: 'mail', cls: 'btn-primary', onClick: () => sendReport(app, r) }),
+      button('Copy report', { icon: 'download', cls: linked ? 'btn-primary' : 'btn-ghost', onClick: () => copyReport(r) }),
       button('Save or share (web page)', { icon: 'share', cls: 'btn-ghost', onClick: () => shareReport(r) }),
       button('Download data (JSON)', { icon: 'download', cls: 'btn-ghost', onClick: () => downloadFile(reportFileName(r, 'json'), JSON.stringify(r, null, 2), 'application/json') })),
-    content));
+    h('details', { class: 'report-details' }, h('summary', { text: 'Every detail in words (by part, by skill, every question not fully right)' }), details));
+}
+
+// ---------------------------------------------------------------- settings (linked mode)
+
+const USERNAME = /^[a-z0-9][a-z0-9._-]{2,29}$/;
+
+function field(id, label, attrs) {
+  const input = h('input', { id, class: 'answer-input', ...attrs });
+  return { input, el: h('div', { class: 'field' }, h('label', { for: id, text: label }), input) };
+}
+
+/** Linked mode settings: her account (create, reset password), export, about. */
+async function linkedSettingsPage(body, app, data, firstRun) {
+  const backend = app.backend;
+  // her account(s)
+  const kids = app.children || [];
+  const accounts = h('section', { class: 'card stack' }, h('h2', {}, icon('lock'), h('span', { text: kids.length ? 'Her account' : 'Create her account' })));
+  if (firstRun) {
+    accounts.append(h('p', { text: 'Make a username and password for your daughter. She signs in with them on her own device, and every session she finishes then appears here by itself.' }));
+  }
+  for (const c of kids) {
+    const pw = field(`pw-${c.id}`, `New password for ${c.username}`, { type: 'password', autocomplete: 'new-password', maxlength: '72', minlength: '8' });
+    const msg = h('p', { class: 'form-msg', role: 'status' });
+    const form = h('form', { class: 'stack' }, pw.el, msg, h('button', { type: 'submit', class: 'btn btn-ghost' }, icon('lock'), h('span', { text: 'Change her password' })));
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (pw.input.value.length < 8) { msg.textContent = 'Use at least 8 characters.'; return; }
+      try {
+        await backend.invoke('manage-student', { action: 'set-password', studentId: c.id, password: pw.input.value });
+        pw.input.value = '';
+        msg.textContent = 'Password changed. She uses the new one next time she signs in.';
+      } catch (err) {
+        msg.textContent = err.message || 'Could not change the password.';
+      }
+    });
+    accounts.append(h('div', { class: 'account-row' },
+      h('p', {}, h('strong', { text: c.display_name || c.username }), h('span', { class: 'muted', text: ` · username ${c.username}` })),
+      h('details', {}, h('summary', { text: 'Reset her password' }), form)));
+  }
+  if (kids.length < 5) {
+    const u = field('new-user', 'Username for her (small letters and numbers, 3 to 30)', { type: 'text', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', maxlength: '30' });
+    const n = field('new-name', 'Name shown in the app (optional)', { type: 'text', autocomplete: 'off', maxlength: '40' });
+    const p1 = field('new-pw', 'Password for her (8 or more characters)', { type: 'password', autocomplete: 'new-password', maxlength: '72' });
+    const p2 = field('new-pw2', 'Type the password again', { type: 'password', autocomplete: 'new-password', maxlength: '72' });
+    const msg = h('p', { class: 'form-msg', role: 'alert' });
+    const submit = h('button', { type: 'submit', class: 'btn btn-primary' }, icon('check'), h('span', { text: 'Create her account' }));
+    const form = h('form', { class: 'stack' }, u.el, n.el, p1.el, p2.el, msg, submit);
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = u.input.value.trim().toLowerCase();
+      if (!USERNAME.test(username)) { msg.textContent = 'The username must be 3 to 30 characters: small letters, numbers, dots, dashes or underscores, starting with a letter or number.'; return; }
+      if (p1.input.value.length < 8) { msg.textContent = 'The password must be at least 8 characters.'; return; }
+      if (p1.input.value !== p2.input.value) { msg.textContent = 'The two passwords do not match.'; return; }
+      submit.disabled = true;
+      try {
+        await backend.invoke('manage-student', { action: 'create', username, password: p1.input.value, displayName: n.input.value.trim() });
+        p1.input.value = '';
+        p2.input.value = '';
+        await connect(app);
+        await dialog('Her account is ready', `She signs in on her own device with the username "${username}" and the password you chose. Choose "I am practising" on the sign-in page.`, [{ label: 'OK', value: true, cls: 'btn-primary' }]);
+        location.hash = '#/parent/overview';
+      } catch (err) {
+        msg.textContent = err.message || 'The account could not be created.';
+      } finally {
+        submit.disabled = false;
+      }
+    });
+    if (kids.length) accounts.append(h('details', {}, h('summary', { text: 'Add another student account' }), form));
+    else accounts.append(form);
+  }
+  accounts.append(h('p', { class: 'small muted', text: 'Her account has no email address: she signs in with the username. Only you can change her password, here.' }));
+  body.append(accounts);
+
+  if (data) {
+    // export for the Chief Learning Officer
+    const t = totals(data.sessions);
+    body.append(h('section', { class: 'card' }, h('h2', {}, icon('download'), h('span', { text: 'Her progress file' })),
+      h('p', { class: 'small', text: `Her account holds ${t.sessions} sessions and ${data.attempts.length} answers.` }),
+      button('Export her progress', { icon: 'download', cls: 'btn-primary', onClick: async () => {
+        const exp = await buildExport(app.source, { appVersion: APP_VERSION, contentVersion: app.manifest.contentVersion });
+        const res = await shareOrDownload(exportFileName(), JSON.stringify(exp, null, 1), 'application/json', 'Study Practice progress');
+        if (res === 'downloaded') toast('Progress file saved.');
+      } }),
+      h('p', { class: 'small muted', text: 'The file has every answer with its question, timing and result, for a deeper analysis by the Chief Learning Officer.' })));
+  }
+
+  body.append(h('section', { class: 'card' }, h('h2', {}, icon('info'), h('span', { text: 'About' })),
+    h('p', { class: 'small muted', text: `Study Practice ${APP_VERSION}, linked mode${backend && backend.kind === 'mock' ? ' (laptop preview with a pretend server)' : ''}. Her sessions are stored in your Supabase project; only you and she can see them. Question banks version ${app.manifest.contentVersion || '-'}.` })));
 }
 
 // ---------------------------------------------------------------- settings

@@ -6,9 +6,11 @@ import { loadSubject, indexQuestions, subjectTitle } from '../content.js';
 import { responseText, correctAnswerText } from '../marking.js';
 import { scoreRing, pictograms, attemptKind, meter } from '../charts.js';
 import { formatDuration } from '../timer.js';
-import { reportMailto, reportHtmlDocument, reportFileName, emailSubject, pinResetNotice } from '../report.js';
+import { reportMailto, reportHtmlDocument, reportFileName, emailSubject, pinResetNotice, reportPlainText } from '../report.js';
 import { streak } from '../stats.js';
 import { aiAvailable } from '../ai.js';
+import { workingView } from '../working.js';
+import { diagramFor, questionsForSession } from '../hooks.js';
 
 function cheer(p) {
   if (p >= 0.9) return ['Brilliant work!', 'You really know this chapter.'];
@@ -34,6 +36,21 @@ export async function sendReport(app, report) {
   toast('Your email app should open now. Press Send there to send it.');
 }
 
+/** Copy the whole report as plain text (to paste into a message, notes, or for the CLO). */
+export async function copyReport(report, notice = '') {
+  const text = reportPlainText(report, notice);
+  try {
+    await navigator.clipboard.writeText(text);
+    toast('Report copied. You can paste it anywhere.');
+  } catch {
+    // no clipboard permission (or an old browser): show it to select by hand
+    const box = h('textarea', { class: 'answer-input copy-box', rows: '10', readonly: true, 'aria-label': 'The report as text' });
+    box.value = text;
+    dialog('Copy the report', h('div', { class: 'stack' }, h('p', { class: 'small', text: 'Select all of this text and copy it.' }), box), [{ label: 'Done', value: true, cls: 'btn-primary' }]);
+    setTimeout(() => { box.focus(); box.select(); }, 50);
+  }
+}
+
 export async function shareReport(report) {
   const res = await shareOrDownload(reportFileName(report, 'html'), reportHtmlDocument(report), 'text/html', emailSubject(report));
   if (res === 'downloaded') toast('The report was saved as a file.');
@@ -52,7 +69,7 @@ export async function resultsView(el, app, sessionId) {
     app.db.getAll('sessions'),
   ]);
   attempts.sort((a, b) => a.position - b.position);
-  const qmap = indexQuestions(topics);
+  const qmap = questionsForSession(indexQuestions(topics), session);
   const subTitle = new Map();
   for (const t of topics) for (const s of t.preamble.subtopics) subTitle.set(s.id, s.title);
   const sc = session.score;
@@ -113,11 +130,27 @@ export async function resultsView(el, app, sessionId) {
   }
 
   // ---- actions
+  // linked mode: the report goes to Dad by itself (no email step); local mode: as version 1
+  const linked = app.mode === 'linked';
+  const syncLine = h('p', { class: 'sync-line', role: 'status' });
+  if (linked) {
+    const show = (st) => {
+      const waiting = st && st.pending;
+      clear(syncLine).append(icon(waiting ? 'clock' : 'check', { size: 20 }), h('span', { text: waiting
+        ? (st.offline ? 'Saved on this device. It goes to Dad by itself when there is internet.' : 'Saved on this device. Sending it to Dad now…')
+        : 'Saved online. Dad can see this report.' }));
+      syncLine.classList.toggle('is-waiting', !!waiting);
+    };
+    show(app.syncStatus || { pending: 1 });
+    app.syncWatcher = (st) => { if (syncLine.isConnected) show(st); };
+    if (app.sync) app.sync.report().catch(() => {});
+  }
   const actions = h('section', { class: 'card actions' },
-    h('h2', {}, icon('mail'), h('span', { text: 'Tell Dad how it went' })),
-    h('p', { class: 'muted small', text: 'This opens your email app with the report ready. You press Send.' }),
+    h('h2', {}, icon(linked ? 'check' : 'mail'), h('span', { text: linked ? 'Your report for Dad' : 'Tell Dad how it went' })),
+    linked ? syncLine : h('p', { class: 'muted small', text: 'This opens your email app with the report ready. You press Send.' }),
     h('div', { class: 'row wrap' },
-      button('Send report to Dad', { icon: 'mail', cls: 'btn-primary', onClick: () => report && sendReport(app, report) }),
+      linked ? null : button('Send report to Dad', { icon: 'mail', cls: 'btn-primary', onClick: () => report && sendReport(app, report) }),
+      button('Copy report', { icon: 'download', cls: 'btn-ghost', onClick: () => report && copyReport(report) }),
       button('Save or share the report', { icon: 'share', cls: 'btn-ghost', onClick: () => report && shareReport(report) })),
     h('div', { class: 'row wrap' },
       session.topicId ? link('Practise again', `#/topic/${encodeURIComponent(session.topicId)}`, { icon: 'again' }) : link('Practise again', `#/mixed/${session.subject}`, { icon: 'again' }),
@@ -145,9 +178,18 @@ export async function resultsView(el, app, sessionId) {
       for (const m of a.misconceptions || []) {
         item.append(h('div', { class: 'rv-why' }, icon('bulb'), h('div', {}, h('strong', { text: q.type === 'mcq' || q.type === 'multi' ? 'Why you might have picked this' : 'A common slip' }), h('p', { text: m.note }))));
       }
+      const pic = diagramFor(q, 'review'); // INTEGRATION POINT: question.diagram (js/hooks.js)
+      if (pic) item.insertBefore(pic, item.querySelector('.rv-answers'));
       item.append(h('details', { class: 'rv-solution', open: kind !== 'right' ? true : null }, h('summary', { text: 'How to solve it' }), h('p', { text: q.solution })));
       item.append(h('p', { class: 'small muted', text: `${subTitle.get(q.subtopicId) || ''} · ${q.skill}` }));
       if (aiAvailable() && kind !== 'right') item.append(h('p', { class: 'small muted', text: 'More help is available from the AI helper.' }));
+    }
+    if (a.working && a.working.strokes) {
+      const det = h('details', { class: 'rv-working', open: kind !== 'right' ? true : null },
+        h('summary', { text: 'Your working' }), workingView(a.working.strokes, { label: `Your working for question ${i + 1}` }));
+      const sol = item.querySelector('.rv-solution');
+      if (sol) item.insertBefore(det, sol);
+      else item.append(det);
     }
     reviewList.append(item);
   });

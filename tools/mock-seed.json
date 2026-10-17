@@ -1,0 +1,4 @@
+{
+  "_note": "Test account for the laptop-only mock back-end (?backend=mock on localhost). Not a real account; it never reaches Supabase. The sign-in address is user + '@' + domain (a reserved test domain).",
+  "parent": { "user": "parent", "domain": "example.test", "password": "mock-parent-pass", "displayName": "Dad" }
+}

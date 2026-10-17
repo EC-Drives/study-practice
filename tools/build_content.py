@@ -29,7 +29,7 @@ SAMPLES = os.path.join(ROOT, 'tools', 'sample-content')
 OUT = os.path.join(ROOT, 'content')
 SUBJECTS = ('maths', 'science')
 SHELL_DIRS = ('css', 'js', 'icons')
-SHELL_FILES = ('index.html', 'manifest.webmanifest')
+SHELL_FILES = ('index.html', 'manifest.webmanifest', 'config.js')
 
 
 def load_validator(source):

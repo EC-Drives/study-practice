@@ -5,9 +5,13 @@
 //   sessions  { id, ... }               one per practice session (in progress or complete)
 //   attempts  { id, sessionId, ... }    one per question in a completed session
 //   reports   { sessionId, ... }        the parent report generated after each session
+//   outbox    { sessionId, ... }        (v2, linked mode) finished sessions waiting to go online
+//
+// Local mode uses the database "study-practice" (as in version 1). In linked mode each signed-in
+// student has her own database, "study-practice-u-<account id>" (see js/data/store.js).
 
 export const DB_NAME = 'study-practice';
-const DB_VERSION = 1;
+const DB_VERSION = 2; // 2: adds the outbox store (linked mode)
 
 function req(r) {
   return new Promise((resolve, reject) => {
@@ -54,6 +58,7 @@ export class Db {
           const p = db.createObjectStore('reports', { keyPath: 'sessionId' });
           p.createIndex('createdAt', 'createdAt');
         }
+        if (!db.objectStoreNames.contains('outbox')) db.createObjectStore('outbox', { keyPath: 'sessionId' });
       };
       r.onsuccess = () => {
         const idb = r.result;
@@ -116,7 +121,7 @@ export class Db {
   }
 
   async clearAll() {
-    return this.clearStores(['sessions', 'attempts', 'reports', 'settings']);
+    return this.clearStores(['sessions', 'attempts', 'reports', 'settings', 'outbox']);
   }
 
   /** Empty several stores in one transaction: all or nothing. */

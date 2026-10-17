@@ -161,8 +161,20 @@ export function buildReport(session, sessionAttempts, ctx) {
   }
   if (!recs.length) recs.push('Keep going: another session on this chapter in a day or two will help it stick.');
 
-  return {
-    v: 1,
+  // per question, for the visual report (time per question, pictograms, her working)
+  const kindOf = (a) => (!a.answered ? 'skip' : a.correct ? 'right' : a.earned > 0 ? 'part' : 'wrong');
+  const perQuestion = atts.map((a) => ({
+    n: a.position + 1,
+    questionId: a.questionId,
+    kind: kindOf(a),
+    timeSec: Math.round((a.timeSec || 0) * 10) / 10,
+    earned: a.earned,
+    marks: a.marks,
+    hasWorking: !!(a.working && a.working.strokes),
+  }));
+
+  const report = {
+    v: 2,
     sessionId: session.id,
     createdAt: Date.now(),
     startedAt: session.startedAt,
@@ -195,7 +207,52 @@ export function buildReport(session, sessionAttempts, ctx) {
     comparison: { previousPct: cel.previousPct, improvement: cel.improvement, personalBest: cel.personalBest, previousBest: cel.previousBest },
     streakDays: st.days,
     recommendations: recs.slice(0, 5),
+    perQuestion,
   };
+  report.summary = summaryLines(report);
+  return report;
+}
+
+// ---------------------------------------------------------------- plain-English summary
+
+/**
+ * Two or three short lines for the top of the visual report: how it went, what was strong and
+ * weak, and the one thing worth knowing. Works for older reports too (built from their fields).
+ */
+export function summaryLines(r) {
+  const s = r.score || {};
+  const lines = [];
+  const c = r.comparison || {};
+  let cmp = '';
+  if (c.personalBest === true) cmp = ' A new personal best.';
+  else if (c.improvement != null) {
+    const pts = Math.round(c.improvement * 100);
+    cmp = pts > 0 ? ` Up ${pts} points on last time.` : pts < 0 ? ` Down ${-pts} points on last time.` : ' The same score as last time.';
+  }
+  lines.push(`She scored ${pctText(s.pct)} on ${r.title} (${r.focus}): ${s.correct} of ${s.total} questions fully right in ${formatDuration(r.timeUsedSec)}.${cmp}`);
+  const parts = (r.bySubtopic || []).filter((g) => g.answered > 0 || g.total > 0);
+  const best = parts.filter((g) => g.pct >= 0.75 && g.total >= 2).sort((a, b) => b.pct - a.pct)[0];
+  const worst = parts.filter((g) => g.pct < 0.6).sort((a, b) => a.pct - b.pct)[0];
+  if (best && worst) lines.push(`Strongest: ${best.title} (${pctText(best.pct)}). Needs work: ${worst.title} (${pctText(worst.pct)}).`);
+  else if (worst) lines.push(`Needs work: ${worst.title} (${pctText(worst.pct)}).`);
+  else if (best) lines.push(`Every part went well; strongest was ${best.title} (${pctText(best.pct)}).`);
+  if (s.unanswered >= 2 && r.timedOut) lines.push(`Time ran out with ${s.unanswered} questions unanswered: pace is the thing to practise.`);
+  else if (r.quickWrong >= 2) lines.push(`${r.quickWrong} wrong answers came in under 15 seconds: slowing down to check would win easy marks.`);
+  else if (r.misconceptions && r.misconceptions[0]) lines.push(`Worth talking through: ${shorten(r.misconceptions[0].note, 140)}`);
+  else if (s.unanswered >= 2) lines.push(`${s.unanswered} questions were left blank.`);
+  return lines.slice(0, 3);
+}
+
+/** The whole report as plain text, for "Copy report" (no length limit, unlike the email link). */
+export function reportPlainText(r, notice = '') {
+  const lines = emailLines(r, notice).map((x) => x[1]);
+  const i = lines.lastIndexOf('The full report with every question is in the parent area on her device (Reports).');
+  if (i >= 0) lines.splice(i, 1);
+  if (r.mistakes && r.mistakes.length) {
+    lines.push('', 'Questions not fully right:');
+    for (const m of r.mistakes) lines.push(`Q${m.position}. ${m.prompt}`, `   Her answer: ${m.yourAnswer}. Correct: ${m.correctAnswer}.`);
+  }
+  return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
 }
 
 // ---------------------------------------------------------------- email text

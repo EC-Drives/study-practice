@@ -4,8 +4,9 @@ import { markQuestion, responseText } from './marking.js';
 import { selectQuestions, makeRng, randomSeed } from './sampler.js';
 import { questionHistory, masteryForSampling, subtopicMastery } from './stats.js';
 import { buildReport } from './report.js';
+import { isTemplate, canGenerate, instantiate, questionsForSession } from './hooks.js';
 
-export const APP_VERSION = '1.0.0';
+export const APP_VERSION = '2.0.0';
 
 export function newId(prefix) {
   const r = globalThis.crypto && crypto.getRandomValues ? crypto.getRandomValues(new Uint32Array(2)) : [Math.random() * 2 ** 32, Math.random() * 2 ** 32];
@@ -22,6 +23,8 @@ export function planSession(opts) {
   const seed = opts.seed ?? randomSeed();
   const topics = opts.topics;
   let pool = topics.flatMap((t) => t.questions);
+  // a question template can only be used when its generator is loaded (js/hooks.js)
+  if (!canGenerate()) pool = pool.filter((q) => !isTemplate(q));
   if (opts.mode === 'subtopic') pool = pool.filter((q) => q.subtopicId === opts.subtopicId);
   const attempts = opts.attempts || [];
   const mastery = masteryForSampling(attempts);
@@ -47,6 +50,14 @@ export function planSession(opts) {
     rng: makeRng(seed),
     now,
   });
+  // generated questions: made once, from the session's seed, and kept in the session record
+  const instances = {};
+  const genRng = makeRng((seed ^ 0x5bd1e995) >>> 0);
+  for (const q of sel.questions) {
+    const inst = isTemplate(q) ? instantiate(q, genRng) : null;
+    if (inst) instances[q.id] = inst;
+  }
+  const chosen = sel.questions.filter((q) => !isTemplate(q) || instances[q.id]);
   const topic = opts.topic || null;
   const sub = topic && opts.subtopicId ? topic.preamble.subtopics.find((s) => s.id === opts.subtopicId) : null;
   return {
@@ -60,7 +71,8 @@ export function planSession(opts) {
     subtopicTitle: sub ? sub.title : null,
     durationMin: opts.durationMin,
     limitSec: opts.durationMin * 60,
-    questionIds: sel.questions.map((q) => q.id),
+    questionIds: chosen.map((q) => q.id),
+    instances,
     estimatedSec: Math.round(sel.estimatedSeconds),
     seed,
     startedAt: now,
@@ -68,17 +80,21 @@ export function planSession(opts) {
     status: 'in-progress',
     contentVersion: opts.contentVersion || '',
     appVersion: APP_VERSION,
-    state: { responses: {}, flagged: [], current: 0, elapsedSec: 0, times: {}, visited: [] },
+    state: { responses: {}, flagged: [], current: 0, elapsedSec: 0, times: {}, visited: [], working: {} },
   };
 }
 
 /**
  * Mark a session. Returns the finished session and its attempt records; does not save.
- * questions: Map questionId -> question.
+ * questions: Map questionId -> question (the session's generated questions are laid over it).
+ * how.thumbs: { questionId: PNG data URL } of her working, made by the practice page.
  */
-export function finishSession(session, questions, how = {}) {
+export function finishSession(session, bank, how = {}) {
   const now = how.now ?? Date.now();
+  const questions = questionsForSession(bank, session);
   const st = session.state || { responses: {}, flagged: [], times: {} };
+  const working = st.working || {};
+  const thumbs = how.thumbs || {};
   const flagged = new Set(st.flagged || []);
   const attempts = session.questionIds.map((qid, position) => {
     const q = questions.get(qid);
@@ -106,8 +122,11 @@ export function finishSession(session, questions, how = {}) {
       timeSec: Math.round(((st.times || {})[qid] || 0) * 10) / 10,
       flagged: flagged.has(qid),
       answeredAt: now,
+      // her working for this question (vector strokes + a small picture), when she wrote any
+      working: working[qid] ? { strokes: working[qid], thumb: thumbs[qid] || null } : undefined,
     };
   });
+  for (const a of attempts) if (a.working === undefined) delete a.working;
   const earned = attempts.reduce((s, a) => s + a.earned, 0);
   const max = attempts.reduce((s, a) => s + a.marks, 0);
   const done = {
@@ -134,6 +153,7 @@ export function finishSession(session, questions, how = {}) {
 /** Finish, build the report, and save everything in one transaction. */
 export async function submitSession(db, session, ctx, how) {
   const { session: done, attempts } = finishSession(session, ctx.questions, how);
+  ctx = { ...ctx, questions: questionsForSession(ctx.questions, session) };
   const allSessions = (await db.getAll('sessions')).filter((s) => s.id !== done.id).concat(done);
   const allAttempts = (await db.getAll('attempts')).concat(attempts);
   const report = buildReport(done, attempts, { ...ctx, sessions: allSessions, attempts: allAttempts });

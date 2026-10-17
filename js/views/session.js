@@ -1,11 +1,16 @@
 // The practice screen: countdown, one question at a time, question map, flag for review,
 // finish early. Answers are saved on the device as she goes, so closing the page loses nothing.
+// v2: a working area under every question (js/working.js), saved with her answer; diagrams
+// through the integration hook (js/hooks.js); in linked mode the finished session is queued to
+// go online (js/data/sync.js).
 
 import { h, clear, icon, button, dialog, announce, toast, rovingRadios, closeDialogs } from '../ui.js';
 import { loadSubject, indexQuestions, indexTopics, subjectTitle } from '../content.js';
 import { isAnswered, startingOrder } from '../marking.js';
 import { Countdown, QuestionClock, formatClock } from '../timer.js';
 import { submitSession } from '../practice.js';
+import { workingPad, thumbnailDataUrl } from '../working.js';
+import { diagramFor, questionsForSession } from '../hooks.js';
 
 const LETTERS = 'ABCDEFGH';
 const TYPE_HINT = {
@@ -29,7 +34,7 @@ export async function sessionView(el, app, sessionId) {
     return;
   }
   const topics = await loadSubject(session.subject);
-  const qmap = indexQuestions(topics);
+  const qmap = questionsForSession(indexQuestions(topics), session); // with this session's generated questions
   const questions = session.questionIds.map((id) => qmap.get(id)).filter(Boolean);
   if (questions.length !== session.questionIds.length) {
     // a question bank changed under an unfinished session: keep the questions that still exist
@@ -43,6 +48,8 @@ export async function sessionView(el, app, sessionId) {
   }
   const st = session.state || (session.state = { responses: {}, flagged: [], current: 0, elapsedSec: 0, times: {}, visited: [] });
   st.flagged = st.flagged || [];
+  st.working = st.working || {};
+  let pad = null;
   const flagged = new Set(st.flagged);
   let index = Math.min(st.current || 0, questions.length - 1);
   let finishing = false;
@@ -153,8 +160,20 @@ export async function sessionView(el, app, sessionId) {
         h('span', { class: 'qmarks', text: `${q.marks} mark${q.marks === 1 ? '' : 's'}` }),
         h('span', { class: `qdiff d${q.difficulty}`, 'aria-label': `Difficulty ${q.difficulty} of 3` }, ...[1, 2, 3].map((d) => h('span', { class: d <= q.difficulty ? 'on' : '' })))),
       h('h2', { class: 'prompt', id: promptId, tabindex: '-1', text: q.prompt }),
+      diagramFor(q, 'session'), // INTEGRATION POINT: question.diagram (js/hooks.js)
       h('p', { class: 'hint', text: TYPE_HINT[q.type] || '' }),
       widget(q, r, promptId));
+    if (pad) pad.destroy();
+    pad = workingPad({
+      working: st.working[q.id] || null,
+      label: 'Your working (Dad can see it with your answer)',
+      onChange: (w) => {
+        if (w) st.working[q.id] = w;
+        else delete st.working[q.id];
+        saveSoon();
+      },
+    });
+    card.append(pad.el);
     clear(qwrap).append(card);
     prevBtn.disabled = index === 0;
     const last = index === questions.length - 1;
@@ -348,11 +367,23 @@ export async function sessionView(el, app, sessionId) {
     st.times = qclock.snapshot();
     st.flagged = [...flagged];
     const elapsedSec = countdown.elapsed();
+    // a small picture of her working on each question, for the reports
+    const thumbs = {};
+    for (const [qid, w] of Object.entries(st.working || {})) {
+      try { thumbs[qid] = thumbnailDataUrl(w); } catch { /* the strokes are still saved */ }
+    }
     finishing = true;
     clearInterval(tick);
     clearTimeout(saveTimer);
     try {
-      await submitSession(app.db, session, { questions: qmap, topics: indexTopics(topics), topicOrder: [...topics].sort((a, b) => a.order - b.order) }, { ...how, elapsedSec });
+      await submitSession(app.db, session, { questions: qmap, topics: indexTopics(topics), topicOrder: [...topics].sort((a, b) => a.order - b.order) }, { ...how, elapsedSec, thumbs });
+      if (app.sync) {
+        // linked mode: saved on the device; now queue it to go online (sent at once if possible)
+        try {
+          await app.sync.enqueue(session.id);
+          app.sync.flush().catch(() => {});
+        } catch (e) { console.warn('Could not queue the session to go online', e); }
+      }
       location.hash = `#/results/${encodeURIComponent(session.id)}`;
     } catch (e) {
       console.error(e);
@@ -414,6 +445,7 @@ export async function sessionView(el, app, sessionId) {
   window.addEventListener('pagehide', onPageHide);
 
   app.cleanup = async () => {
+    if (pad) pad.destroy();
     document.removeEventListener('visibilitychange', onVisibility);
     window.removeEventListener('pagehide', onPageHide);
     clearInterval(tick);

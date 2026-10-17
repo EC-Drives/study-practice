@@ -5,6 +5,7 @@ import { SUBJECTS, topicList, loadSubject, subjectTitle } from '../content.js';
 import { streak, personalBests, subtopicMastery, topicSummary, currentTopic, totals } from '../stats.js';
 import { levelBadge, meter } from '../charts.js';
 import { formatClock } from '../timer.js';
+import { legacyProgress, importLegacy, declineLegacy } from '../data/migrate.js';
 
 export async function loadProgress(app) {
   const [sessions, attempts] = await Promise.all([app.db.getAll('sessions'), app.db.getAll('attempts')]);
@@ -60,6 +61,31 @@ export async function homeView(el, app) {
     page.append(card);
   }
 
+  // linked mode, first sign-in on a device that already has her version 1 progress: offer to
+  // bring it into her account (once)
+  if (app.mode === 'linked' && app.profile && app.profile.role === 'student') {
+    const old = await legacyProgress(app.profile.id).catch(() => null);
+    if (old && !old.already) {
+      const card = h('section', { class: 'card card-resume' },
+        h('h2', {}, icon('upload'), h('span', { text: 'Bring your earlier practice with you' })),
+        h('p', { text: `This device has ${old.sessions} practice session${old.sessions === 1 ? '' : 's'} from before you had an account. Add ${old.sessions === 1 ? 'it' : 'them'} to your account so Dad can see ${old.sessions === 1 ? 'it' : 'them'} too?` }),
+        h('div', { class: 'row wrap' },
+          button('Add to my account', { icon: 'upload', cls: 'btn-primary', onClick: async (e) => {
+            e.currentTarget.disabled = true;
+            try {
+              const res = await importLegacy(app);
+              await dialog('Added to your account', `${res.added.sessions} session${res.added.sessions === 1 ? '' : 's'} added. ${res.skipped.sessions ? `${res.skipped.sessions} were already there. ` : ''}They go online now, or as soon as there is internet.`, [{ label: 'OK', value: true, cls: 'btn-primary' }]);
+            } catch (err) {
+              await dialog('Could not add them', err.message || String(err), [{ label: 'OK', value: true, cls: 'btn-primary' }]);
+            }
+            homeView(el, app);
+          } }),
+          button('Not now', { cls: 'btn-ghost', onClick: async () => { await declineLegacy(app.profile.id); card.remove(); } })),
+        h('p', { class: 'small muted', text: 'Nothing is deleted from this device. This is offered once.' }));
+      page.append(card);
+    }
+  }
+
   const subjects = h('section', { class: 'grid2', 'aria-label': 'Subjects' });
   const mastery = subtopicMastery(attempts);
   for (const s of SUBJECTS) {
@@ -90,7 +116,9 @@ export async function homeView(el, app) {
   }
 
   page.append(h('footer', { class: 'home-foot' },
-    h('a', { href: '#/parent', class: 'btn btn-ghost' }, icon('lock'), h('span', { text: 'Parent area' })),
+    app.mode === 'linked'
+      ? h('p', { class: 'muted small' }, icon('check', { size: 18 }), h('span', { text: ' Every practice you finish is saved online for Dad by itself.' }))
+      : h('a', { href: '#/parent', class: 'btn btn-ghost' }, icon('lock'), h('span', { text: 'Parent area' })),
     app.manifest && app.manifest.samples ? h('p', { class: 'muted small', text: 'Showing sample questions for testing.' }) : null));
   clear(el).append(page);
 }

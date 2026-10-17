@@ -17,8 +17,14 @@ export function subjectTitle(id) {
   return s ? s.title : id;
 }
 
+// where content/ is, relative to the page (the test page sits one folder down)
+let root = '';
+export function setContentRoot(r) {
+  root = r;
+}
+
 async function getJson(url) {
-  const res = await fetch(url, { cache: 'no-cache' });
+  const res = await fetch(`${root}${url}`, { cache: 'no-cache' });
   if (!res.ok) throw new Error(`Could not load ${url} (${res.status})`);
   return res.json();
 }

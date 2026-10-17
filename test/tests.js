@@ -573,6 +573,27 @@ group = 'export and import';
 group = 'AI seam';
 check('no AI connected in version 1', aiAvailable() === false && (await explainMistake({})) === null);
 
+// ---------------------------------------------------------------- v2 suites (one file each)
+// tests-linked.js: accounts, data adapter, RLS intent, offline queue, working area, reports.
+// tests-diagrams.js / tests-generators.js: added by the content-engines work if present; each
+// exports run({ check, setGroup, fixtures }).
+for (const path of ['./tests-linked.js', './tests-diagrams.js', './tests-generators.js']) {
+  let mod = null;
+  try {
+    mod = await import(path);
+  } catch (e) {
+    if (path === './tests-linked.js') { group = 'v2 suites'; check(`load ${path}`, false, String(e)); }
+    continue;
+  }
+  if (mod && typeof mod.run === 'function') {
+    try {
+      await mod.run({ check, setGroup: (g) => { group = g; }, fixtures: { sampleTopic, qmapT, goodResp, someWrong, makeFinished, TEST_EMAIL } });
+    } catch (e) {
+      check(`${path} ran to the end`, false, e && e.stack ? e.stack : String(e));
+    }
+  }
+}
+
 // ---------------------------------------------------------------- output
 const out = document.getElementById('out');
 let last = '';
@@ -596,3 +617,7 @@ const sum = document.getElementById('summary');
 sum.textContent = `${results.length - failed.length} of ${results.length} passed${failed.length ? `, ${failed.length} FAILED` : ''}`;
 sum.className = failed.length ? 'bad' : 'ok';
 window.testResults = { total: results.length, failed: failed.map((f) => `${f.group}: ${f.name} ${f.detail}`) };
+// for runs from the command line (headless browser): report the result to the local server log
+if (new URLSearchParams(location.search).has('beacon')) {
+  fetch(`./__result?${encodeURIComponent(JSON.stringify(window.testResults))}`).catch(() => {});
+}
