@@ -4,23 +4,55 @@
   "title": "2D Shapes and Angles",
   "order": 3,
   "bookChapter": "Chapter 3: 2D Shapes and Angles",
+  "bookChapterNumber": 3,
+  "bookSections": [
+    {
+      "id": "3A",
+      "title": "Identify, Describe, Classify and Sketch Quadrilaterals",
+      "page": 32
+    },
+    {
+      "id": "3B",
+      "title": "Identify Parts of a Circle",
+      "page": 38
+    },
+    {
+      "id": "3C",
+      "title": "Construct a Circle",
+      "page": 41
+    },
+    {
+      "id": "3D",
+      "title": "Find the Area of Triangles",
+      "page": 44
+    },
+    {
+      "id": "3E",
+      "title": "Classify, Estimate, Measure and Draw Angles",
+      "page": 47
+    },
+    {
+      "id": "3F",
+      "title": "Find Angles in Triangles",
+      "page": 51
+    }
+  ],
   "frameworkRefs": [
     "6Gg.01",
     "6Gg.02",
     "6Gg.03",
-    "6Gg.08",
     "6Gg.09",
     "6Gg.10",
     "6Gg.11"
   ],
   "preamble": {
-    "whatYouWillLearn": "You will describe and sort quadrilaterals by their sides, angles, parallel sides, diagonals and symmetry. You will learn the parts of a circle and how to draw one with compasses. You will classify and measure angles, use the facts that angles add to 180° on a straight line, 360° around a point and 180° in a triangle, find rotational symmetry, and work out the area of right-angled triangles.",
+    "whatYouWillLearn": "You will describe and sort quadrilaterals by their sides, angles, parallel sides, diagonals and symmetry. You will learn the parts of a circle and how to draw one with compasses. You will work out the area of triangles, classify and measure angles, and use the facts that angles add up to 180° on a straight line, 360° around a point and 180° in a triangle.",
     "whyItMatters": "Shapes and angles are the language of building, design and maps. Knowing the angle facts lets you work out angles you cannot measure. Finding the area of triangles helps with floors, gardens and any shape made of straight edges.",
     "realWorld": [
       "Cutting a round kuih or a pizza into equal slices from the centre",
       "Checking that a door frame or photo frame is a true rectangle by measuring its two diagonals",
       "Working out how many tiles cover a triangular corner of a room",
-      "Spotting rotational symmetry in a ceiling fan, a car wheel or a batik pattern",
+      "Marking out a round flower bed with a peg and a piece of string, like giant compasses",
       "Setting a ramp or a ladder at a safe angle"
     ],
     "subtopics": [
@@ -35,6 +67,11 @@
         "summary": "The centre, radius, diameter and circumference of a circle, and drawing a circle of a given radius or diameter with compasses."
       },
       {
+        "id": "m03-s6",
+        "title": "Area of right-angled triangles",
+        "summary": "A right-angled triangle is half of a rectangle, so its area is half of length x width. Use this to find areas of shapes made of rectangles and triangles."
+      },
+      {
         "id": "m03-s3",
         "title": "Angles",
         "summary": "Acute, right, obtuse, straight and reflex angles; estimating and measuring with a protractor; angles on a straight line (180°) and around a point (360°)."
@@ -43,16 +80,6 @@
         "id": "m03-s4",
         "title": "Angles in a triangle",
         "summary": "The three angles of a triangle add up to 180°. Use this, and the facts about isosceles and equilateral triangles, to find missing angles."
-      },
-      {
-        "id": "m03-s5",
-        "title": "Rotational symmetry",
-        "summary": "How many times a shape, letter or pattern fits onto itself in one full turn (order 1 to 4)."
-      },
-      {
-        "id": "m03-s6",
-        "title": "Area of right-angled triangles",
-        "summary": "A right-angled triangle is half of a rectangle, so its area is half of length x width. Use this to find areas of shapes made of rectangles and triangles."
       }
     ]
   },
@@ -60,6 +87,7 @@
     {
       "id": "m03-q001",
       "subtopicId": "m03-s1",
+      "bookSection": "3A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -83,6 +111,7 @@
     {
       "id": "m03-q002",
       "subtopicId": "m03-s1",
+      "bookSection": "3A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -98,6 +127,7 @@
     {
       "id": "m03-q003",
       "subtopicId": "m03-s1",
+      "bookSection": "3A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -121,6 +151,7 @@
     {
       "id": "m03-q004",
       "subtopicId": "m03-s1",
+      "bookSection": "3A",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -148,6 +179,7 @@
     {
       "id": "m03-q005",
       "subtopicId": "m03-s1",
+      "bookSection": "3A",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -292,6 +324,7 @@
     {
       "id": "m03-q006",
       "subtopicId": "m03-s1",
+      "bookSection": "3A",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -317,6 +350,7 @@
     {
       "id": "m03-q007",
       "subtopicId": "m03-s1",
+      "bookSection": "3A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -384,6 +418,7 @@
     {
       "id": "m03-q008",
       "subtopicId": "m03-s1",
+      "bookSection": "3A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -407,6 +442,7 @@
     {
       "id": "m03-q009",
       "subtopicId": "m03-s2",
+      "bookSection": "3B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -438,6 +474,7 @@
     {
       "id": "m03-q010",
       "subtopicId": "m03-s2",
+      "bookSection": "3B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -472,6 +509,7 @@
     {
       "id": "m03-q011",
       "subtopicId": "m03-s2",
+      "bookSection": "3C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -495,6 +533,7 @@
     {
       "id": "m03-q012",
       "subtopicId": "m03-s2",
+      "bookSection": "3B",
       "type": "match",
       "difficulty": 1,
       "marks": 2,
@@ -567,6 +606,7 @@
     {
       "id": "m03-q013",
       "subtopicId": "m03-s2",
+      "bookSection": "3B",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -582,6 +622,7 @@
     {
       "id": "m03-q014",
       "subtopicId": "m03-s2",
+      "bookSection": "3C",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -607,6 +648,7 @@
     {
       "id": "m03-q015",
       "subtopicId": "m03-s2",
+      "bookSection": "3B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -630,6 +672,7 @@
     {
       "id": "m03-q016",
       "subtopicId": "m03-s2",
+      "bookSection": "3B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -652,6 +695,7 @@
     {
       "id": "m03-q017",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -689,6 +733,7 @@
     {
       "id": "m03-q018",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "order",
       "difficulty": 1,
       "marks": 1,
@@ -717,6 +762,7 @@
     {
       "id": "m03-q019",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -760,6 +806,7 @@
     {
       "id": "m03-q020",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -791,6 +838,7 @@
     {
       "id": "m03-q021",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -839,6 +887,7 @@
     {
       "id": "m03-q022",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -854,6 +903,7 @@
     {
       "id": "m03-q023",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -883,6 +933,7 @@
     {
       "id": "m03-q024",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -914,6 +965,7 @@
     {
       "id": "m03-q025",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -968,6 +1020,7 @@
     {
       "id": "m03-q026",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -1017,6 +1070,7 @@
     {
       "id": "m03-q027",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1054,6 +1108,7 @@
     {
       "id": "m03-q028",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -1104,6 +1159,7 @@
     {
       "id": "m03-q029",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1127,6 +1183,7 @@
     {
       "id": "m03-q030",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -1142,6 +1199,7 @@
     {
       "id": "m03-q031",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1193,6 +1251,7 @@
     {
       "id": "m03-q032",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1253,6 +1312,7 @@
     {
       "id": "m03-q033",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -1268,6 +1328,7 @@
     {
       "id": "m03-q034",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1326,6 +1387,7 @@
     {
       "id": "m03-q035",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -1377,6 +1439,7 @@
     {
       "id": "m03-q036",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
@@ -1404,338 +1467,9 @@
       "source": "inspired-by: KS2"
     },
     {
-      "id": "m03-q037",
-      "subtopicId": "m03-s5",
-      "type": "mcq",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "What is the order of rotational symmetry of a square?",
-      "options": [
-        "4",
-        "2",
-        "8",
-        "90"
-      ],
-      "answer": 0,
-      "solution": "Turn a square around its centre. It looks the same after 90°, 180°, 270° and 360°. That is 4 times, so the order is 4.",
-      "misconceptions": {
-        "1": "You counted only the half turn. A square also fits after a quarter turn and a three-quarter turn, as well as the full turn: 4 times.",
-        "2": "You added the 4 lines of symmetry to the 4 turns. The order only counts how many times the shape fits onto itself in one full turn.",
-        "3": "90° is the angle of each turn, not the order. The order is the number of times it fits in a full turn: 360 ÷ 90 = 4."
-      },
-      "skill": "order of rotational symmetry",
-      "source": "original"
-    },
-    {
-      "id": "m03-q038",
-      "subtopicId": "m03-s5",
-      "type": "truefalse",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "True or false: A shape with rotational symmetry of order 1 only looks the same after a full turn of 360°.",
-      "answer": true,
-      "solution": "Every shape looks the same after a full turn. If that is the ONLY time it fits onto itself, its order is 1, which means it has no rotational symmetry. The statement is true.",
-      "misconceptions": {
-        "common": "Thinking order 1 means the shape has some special symmetry. Order 1 really means no rotational symmetry."
-      },
-      "skill": "order of rotational symmetry",
-      "source": "original"
-    },
-    {
-      "id": "m03-q039",
-      "subtopicId": "m03-s5",
-      "type": "match",
-      "difficulty": 2,
-      "marks": 2,
-      "prompt": "Shapes A, B, C and D are drawn on the squared grid. Shape B is an equilateral triangle. Match each shape to its order of rotational symmetry.",
-      "diagram": {
-        "type": "coordinateGrid",
-        "x": [
-          0,
-          14
-        ],
-        "y": [
-          0,
-          12
-        ],
-        "polygons": [
-          {
-            "points": [
-              [
-                3,
-                6
-              ],
-              [
-                5,
-                9
-              ],
-              [
-                3,
-                11
-              ],
-              [
-                1,
-                9
-              ]
-            ],
-            "label": "A"
-          },
-          {
-            "points": [
-              [
-                8,
-                7
-              ],
-              [
-                13,
-                7
-              ],
-              [
-                10.5,
-                11.33
-              ]
-            ],
-            "label": "B"
-          },
-          {
-            "points": [
-              [
-                1,
-                1
-              ],
-              [
-                5,
-                1
-              ],
-              [
-                5,
-                5
-              ],
-              [
-                1,
-                5
-              ]
-            ],
-            "label": "C"
-          },
-          {
-            "points": [
-              [
-                7,
-                1
-              ],
-              [
-                13,
-                1
-              ],
-              [
-                13,
-                4
-              ],
-              [
-                7,
-                4
-              ]
-            ],
-            "label": "D"
-          }
-        ]
-      },
-      "options": {
-        "left": [
-          "Shape A",
-          "Shape B",
-          "Shape C",
-          "Shape D"
-        ],
-        "right": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "6"
-        ]
-      },
-      "answer": [
-        [
-          0,
-          0
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          3,
-          1
-        ]
-      ],
-      "solution": "A is a kite (two pairs of equal sides next to each other): it fits onto itself only after a full turn, so order 1. B, equilateral triangle: fits after 120°, 240° and 360°, so order 3. C is a square (4 by 4): fits after every quarter turn, order 4. D is a rectangle (6 by 3, not a square): fits after 180° and 360°, order 2.",
-      "misconceptions": {
-        "common": "Giving the kite (shape A) order 2 because it has a line of symmetry. A kite only fits onto itself after a full turn, so its order is 1. And the rectangle (shape D) is not a square, so it does not fit after a quarter turn: order 2, not 4."
-      },
-      "skill": "order of rotational symmetry",
-      "source": "original"
-    },
-    {
-      "id": "m03-q040",
-      "subtopicId": "m03-s5",
-      "type": "numeric",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "A capital letter H is drawn with two equal upright lines joined by a crossbar exactly in the middle. What is its order of rotational symmetry?",
-      "answer": {
-        "value": 2,
-        "tolerance": 0,
-        "accept": [
-          "order 2",
-          "two"
-        ]
-      },
-      "solution": "Turn the H halfway round (180°). It looks exactly the same. After a full turn it fits again. So it fits 2 times in a full turn: order 2.",
-      "misconceptions": {
-        "common": "Answering 1 because the H does not fit after a quarter turn. It does fit after a half turn, so its order is 2."
-      },
-      "skill": "rotational symmetry of letters and patterns",
-      "source": "original"
-    },
-    {
-      "id": "m03-q041",
-      "subtopicId": "m03-s5",
-      "type": "multi",
-      "difficulty": 2,
-      "marks": 2,
-      "prompt": "Select ALL the capital letters (written in plain block capitals) that have rotational symmetry of order 2.",
-      "options": [
-        "H",
-        "N",
-        "A",
-        "Z",
-        "T",
-        "E"
-      ],
-      "answer": [
-        0,
-        1,
-        3
-      ],
-      "solution": "Turn each letter halfway round (180°). H, N and Z look exactly the same, so they have order 2. A, T and E do not, so they have order 1 (even though A, T and E have lines of symmetry).",
-      "misconceptions": {
-        "2": "A has a line of symmetry, but upside down it does not look like A, so its order is 1.",
-        "4": "T upside down is not T, so its order is 1.",
-        "5": "E has a line of symmetry across the middle, but after a half turn it faces the other way, so its order is 1."
-      },
-      "skill": "rotational symmetry of letters and patterns",
-      "source": "original"
-    },
-    {
-      "id": "m03-q042",
-      "subtopicId": "m03-s5",
-      "type": "mcq",
-      "difficulty": 3,
-      "marks": 2,
-      "prompt": "A pattern looks exactly the same after a quarter turn (90°), and it does not look the same after any smaller turn. What is its order of rotational symmetry?",
-      "options": [
-        "1",
-        "2",
-        "90",
-        "4"
-      ],
-      "answer": 3,
-      "solution": "If it fits after a quarter turn, it fits after every quarter turn: 90°, 180°, 270° and 360°. That is 4 times, so the order is 4.",
-      "misconceptions": {
-        "0": "You counted only the first quarter turn. It fits after 90°, 180°, 270° and 360°.",
-        "1": "You counted only the half turn and the full turn. It also fits after 90° and 270°.",
-        "2": "90 is the angle of the turn, not the order. Order = 360 ÷ 90 = 4."
-      },
-      "skill": "order of rotational symmetry",
-      "source": "original"
-    },
-    {
-      "id": "m03-q043",
-      "subtopicId": "m03-s5",
-      "type": "numeric",
-      "difficulty": 3,
-      "marks": 2,
-      "prompt": "The drawing shows a ceiling fan seen from below. It has 3 identical blades, evenly spaced, so its order of rotational symmetry is 3. What is the smallest angle you must turn it through so that it looks the same again? Give your answer in degrees.",
-      "diagram": {
-        "type": "polygon",
-        "points": [
-          [
-            0.3746,
-            0.9272
-          ],
-          [
-            1.2096,
-            4.8515
-          ],
-          [
-            -1.3064,
-            5.2396
-          ],
-          [
-            -0.3746,
-            0.9272
-          ],
-          [
-            -0.9903,
-            -0.1392
-          ],
-          [
-            -4.8063,
-            -1.3782
-          ],
-          [
-            -3.8844,
-            -3.7512
-          ],
-          [
-            -0.6157,
-            -0.788
-          ],
-          [
-            0.6157,
-            -0.788
-          ],
-          [
-            3.5967,
-            -3.4733
-          ],
-          [
-            5.1908,
-            -1.4884
-          ],
-          [
-            0.9903,
-            -0.1392
-          ]
-        ],
-        "shaded": true,
-        "size": "small",
-        "alt": "A ceiling fan seen from below: three identical blades spaced evenly round the centre."
-      },
-      "answer": {
-        "value": 120,
-        "tolerance": 0,
-        "accept": [
-          "120°",
-          "120 degrees"
-        ]
-      },
-      "solution": "A full turn is 360°. The fan fits onto itself 3 times in a full turn (once for each blade), so each turn is 360 ÷ 3 = 120°.",
-      "misconceptions": {
-        "common": "Using 90° (a quarter turn) for every shape. The angle depends on the order: 360 ÷ order = 360 ÷ 3 = 120°."
-      },
-      "skill": "rotational symmetry of letters and patterns",
-      "source": "inspired-by: Cambridge Checkpoint style"
-    },
-    {
       "id": "m03-q044",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -1793,6 +1527,7 @@
     {
       "id": "m03-q045",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1874,6 +1609,7 @@
     {
       "id": "m03-q046",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1930,6 +1666,7 @@
     {
       "id": "m03-q047",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1988,6 +1725,7 @@
     {
       "id": "m03-q048",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -2072,6 +1810,7 @@
     {
       "id": "m03-q049",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -2170,6 +1909,7 @@
     {
       "id": "m03-q050",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -2266,6 +2006,7 @@
     {
       "id": "m03-q051",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "truefalse",
       "difficulty": 3,
       "marks": 2,
@@ -2281,6 +2022,7 @@
     {
       "id": "m03-q052",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -2312,6 +2054,7 @@
     {
       "id": "m03-q053",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
@@ -2343,6 +2086,7 @@
     {
       "id": "m03-q054",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -2392,6 +2136,7 @@
     {
       "id": "m03-q055",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -2446,6 +2191,7 @@
     {
       "id": "m03-q056",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -2496,6 +2242,7 @@
     {
       "id": "m03-q057",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -2554,6 +2301,7 @@
     {
       "id": "m03-q058",
       "subtopicId": "m03-s4",
+      "bookSection": "3F",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -2605,6 +2353,7 @@
     {
       "id": "m03-q059",
       "subtopicId": "m03-s1",
+      "bookSection": "3A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -2752,6 +2501,7 @@
     {
       "id": "m03-q060",
       "subtopicId": "m03-s1",
+      "bookSection": "3A",
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
@@ -2953,6 +2703,7 @@
     {
       "id": "m03-q061",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -3010,6 +2761,7 @@
     {
       "id": "m03-q062",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -3089,6 +2841,7 @@
     {
       "id": "m03-q063",
       "subtopicId": "m03-s6",
+      "bookSection": "3D",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -3137,6 +2890,7 @@
     {
       "id": "m03-q064",
       "subtopicId": "m03-s2",
+      "bookSection": "3B",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -3169,6 +2923,7 @@
     {
       "id": "m03-q065",
       "subtopicId": "m03-s2",
+      "bookSection": "3B",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -3203,165 +2958,9 @@
       "source": "original"
     },
     {
-      "id": "m03-q066",
-      "subtopicId": "m03-s5",
-      "type": "numeric",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "The shape drawn is a regular hexagon. What is its order of rotational symmetry?",
-      "diagram": {
-        "type": "polygon",
-        "regular": 6,
-        "size": "small"
-      },
-      "answer": {
-        "value": 6,
-        "tolerance": 0,
-        "accept": [
-          "order 6",
-          "six"
-        ]
-      },
-      "solution": "A regular hexagon has 6 equal sides and 6 equal angles. Turn it about its centre: it fits onto itself after every sixth of a turn (60°, 120°, 180°, 240°, 300° and 360°). That is 6 times, so the order is 6.",
-      "misconceptions": {
-        "common": "Answering 2 or 3 by counting only the half turn or the third turns. A regular shape with 6 sides fits onto itself 6 times in a full turn: its order is the same as its number of sides."
-      },
-      "skill": "order of rotational symmetry",
-      "source": "original"
-    },
-    {
-      "id": "m03-q067",
-      "subtopicId": "m03-s5",
-      "type": "mcq",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "Look at the four shapes. Shape C is an equilateral triangle and shape D is a square. Which shape has rotational symmetry of order 2?",
-      "optionDiagrams": [
-        {
-          "type": "polygon",
-          "points": [
-            [
-              0,
-              0
-            ],
-            [
-              5,
-              0
-            ],
-            [
-              6.5,
-              3
-            ],
-            [
-              1.5,
-              3
-            ]
-          ],
-          "sides": [
-            {
-              "arrows": 1
-            },
-            {
-              "arrows": 2
-            },
-            {
-              "arrows": 1
-            },
-            {
-              "arrows": 2
-            }
-          ]
-        },
-        {
-          "type": "polygon",
-          "points": [
-            [
-              2,
-              0
-            ],
-            [
-              4,
-              3
-            ],
-            [
-              2,
-              4
-            ],
-            [
-              0,
-              3
-            ]
-          ],
-          "sides": [
-            {
-              "ticks": 2
-            },
-            {
-              "ticks": 1
-            },
-            {
-              "ticks": 1
-            },
-            {
-              "ticks": 2
-            }
-          ]
-        },
-        {
-          "type": "polygon",
-          "regular": 3
-        },
-        {
-          "type": "polygon",
-          "regular": 4
-        }
-      ],
-      "options": [
-        "Shape A",
-        "Shape B",
-        "Shape C",
-        "Shape D"
-      ],
-      "answer": 0,
-      "solution": "Shape A is a parallelogram. Turn it halfway round (180°) about its centre and it fits onto itself; it fits again after a full turn. That is 2 times, so its order is 2. Shape B (a kite) has order 1, the equilateral triangle C has order 3 and the square D has order 4.",
-      "misconceptions": {
-        "1": "Shape B is a kite. It has one line of symmetry, but it only fits onto itself after a full turn, so its order is 1.",
-        "2": "The equilateral triangle fits onto itself 3 times in a full turn (every 120°), so its order is 3, not 2.",
-        "3": "The square fits onto itself after every quarter turn, 4 times in all, so its order is 4, not 2."
-      },
-      "skill": "order of rotational symmetry",
-      "source": "original"
-    },
-    {
-      "id": "m03-q068",
-      "subtopicId": "m03-s5",
-      "type": "numeric",
-      "difficulty": 3,
-      "marks": 2,
-      "prompt": "The shape drawn is a regular pentagon. What is the smallest angle you must turn it through, about its centre, so that it looks exactly the same again? Give your answer in degrees.",
-      "diagram": {
-        "type": "polygon",
-        "regular": 5,
-        "size": "small"
-      },
-      "answer": {
-        "value": 72,
-        "tolerance": 0,
-        "accept": [
-          "72°",
-          "72 degrees"
-        ]
-      },
-      "solution": "A regular pentagon has 5 equal sides, so it fits onto itself 5 times in a full turn: its order of rotational symmetry is 5. A full turn is 360°, so each turn is 360 ÷ 5 = 72°.",
-      "misconceptions": {
-        "common": "Using 90° (a quarter turn) for every shape, or dividing 360 by the wrong number. Find the order first (5 for a regular pentagon), then work out 360 ÷ 5 = 72°."
-      },
-      "skill": "rotational symmetry of letters and patterns",
-      "source": "original"
-    },
-    {
       "id": "m03-q069",
       "subtopicId": "m03-s3",
+      "bookSection": "3E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,

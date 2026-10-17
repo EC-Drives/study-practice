@@ -4,6 +4,7 @@ import { markQuestion, responseText } from './marking.js';
 import { selectQuestions, makeRng, randomSeed, estimateSeconds, budgetSeconds, easierFirst, FILL_SHARE } from './sampler.js';
 import { questionHistory, masteryForSampling, subtopicMastery } from './stats.js';
 import { buildReport } from './report.js';
+import { bookSectionFor, currentSubtopicId } from './bookmap.js';
 import { isTemplate, canGenerate, instantiate, questionsForSession, canTopUp, generatorIds, freshQuestions, generatedRef, misconceptionCodesFor, withCodes } from './hooks.js';
 
 // Generated maths questions (js/generators): about a third of every maths session, and more when
@@ -81,6 +82,8 @@ export function planSession(opts) {
   // a question template can only be used when its generator is loaded (js/hooks.js)
   if (!canGenerate()) pool = pool.filter((q) => !isTemplate(q));
   if (opts.mode === 'subtopic') pool = pool.filter((q) => q.subtopicId === opts.subtopicId);
+  // a book section: the bank questions of that section (and generated ones stamped with it)
+  if (opts.mode === 'section') pool = pool.filter((q) => q.bookSection === opts.bookSection);
   const attempts = opts.attempts || [];
   const mastery = masteryForSampling(attempts);
   if (opts.mode === 'weak') {
@@ -103,6 +106,7 @@ export function planSession(opts) {
   let candidates = [];
   if (canTopUp() && opts.generated !== false && pool.some((q) => q.subject === 'maths' || (topicById.get(q.topicId) || {}).subject === 'maths')) {
     candidates = generatedCandidates(pool, topicById, history, now, seed);
+    if (opts.mode === 'section') candidates = candidates.filter((q) => q.bookSection === opts.bookSection);
     if (candidates.length) {
       const freshSince = now - FRESH_DAYS * 86400000;
       const freshSec = pool.filter((q) => { const h = history.get(q.id); return !h || h.lastSeen < freshSince; }).reduce((t, q) => t + estimateSeconds(q), 0);
@@ -154,7 +158,10 @@ export function planSession(opts) {
   const chosen = picked.filter((q) => !isTemplate(q) || instances[q.id]);
   const topic = opts.topic || null;
   const sub = topic && opts.subtopicId ? topic.preamble.subtopics.find((s) => s.id === opts.subtopicId) : null;
+  const sec = topic && opts.mode === 'section' ? (topic.bookSections || []).find((s) => s.id === opts.bookSection) : null;
+  const extra = sec ? { bookSection: sec.id, bookSectionTitle: sec.title, bookPage: sec.page ?? null } : {};
   return {
+    ...extra,
     id: newId('ses'),
     deviceId: opts.deviceId || '',
     subject: opts.subject,
@@ -179,6 +186,51 @@ export function planSession(opts) {
 }
 
 /**
+ * A mock paper session (not yet saved): the paper's questions in number order, one timer for the
+ * whole paper. A paper is fixed by design, so a repeat has the same questions; attemptNo counts
+ * her finished attempts at this paper (2 = "second attempt").
+ * opts: { paper, sessions (her sessions, to count earlier attempts), deviceId, contentVersion, now }
+ */
+export function planPaper(opts) {
+  const now = opts.now ?? Date.now();
+  const p = opts.paper;
+  const earlier = (opts.sessions || []).filter((s) => s && s.mode === 'paper' && s.paperId === p.id && s.status === 'complete').length;
+  return {
+    id: newId('ses'),
+    deviceId: opts.deviceId || '',
+    subject: p.subject || 'maths',
+    topicId: null,
+    topicTitle: p.title,
+    mode: 'paper',
+    paperId: p.id,
+    paperTitle: p.title,
+    paperSubtitle: p.subtitle || '',
+    attemptNo: earlier + 1,
+    subtopicId: null,
+    subtopicTitle: null,
+    durationMin: p.minutes,
+    limitSec: p.minutes * 60,
+    questionIds: p.questions.map((q) => q.id),
+    instances: {},
+    estimatedSec: p.minutes * 60,
+    seed: 0,
+    startedAt: now,
+    endedAt: null,
+    status: 'in-progress',
+    contentVersion: opts.contentVersion || '',
+    appVersion: APP_VERSION,
+    state: { responses: {}, flagged: [], current: 0, elapsedSec: 0, times: {}, visited: [], working: {} },
+  };
+}
+
+/** The book section of a question ("12D"), or null: its own, or from its subtopic and skill. */
+export function questionSection(q) {
+  if (!q) return null;
+  if (typeof q.bookSection === 'string' && q.bookSection) return q.bookSection;
+  return bookSectionFor(q.subtopicId, q.skill);
+}
+
+/**
  * Mark a session. Returns the finished session and its attempt records; does not save.
  * questions: Map questionId -> question (the session's generated questions are laid over it).
  * how.thumbs: { questionId: PNG data URL } of her working, made by the practice page.
@@ -190,16 +242,24 @@ export function finishSession(session, bank, how = {}) {
   const working = st.working || {};
   const thumbs = how.thumbs || {};
   const flagged = new Set(st.flagged || []);
+  const paper = session.mode === 'paper';
   const attempts = session.questionIds.map((qid, position) => {
     const q = questions.get(qid);
     const r = Object.prototype.hasOwnProperty.call(st.responses, qid) ? st.responses[qid] : null;
     const m = q ? markQuestion(q, r) : { answered: false, correct: false, earned: 0, fraction: 0, misconceptions: [] };
+    if (paper) {
+      // a mock paper is marked all or nothing: a correct answer earns the question's marks, any
+      // other answer 0 (method marks are for the printed paper, shown in the review)
+      m.fraction = m.correct ? 1 : 0;
+      m.earned = m.correct ? (q && Number.isInteger(q.marks) ? q.marks : 1) : 0;
+    }
     return {
       id: `${session.id}|${qid}`,
       sessionId: session.id,
       questionId: qid,
       topicId: q ? q.topicId : null,
-      subtopicId: q ? q.subtopicId : null,
+      subtopicId: q ? currentSubtopicId(q.subtopicId) : null,
+      bookSection: questionSection(q),
       subject: session.subject,
       skill: q ? q.skill : '',
       type: q ? q.type : '',
@@ -227,6 +287,7 @@ export function finishSession(session, bank, how = {}) {
   for (const a of attempts) {
     if (a.working === undefined) delete a.working;
     if (a.generated === undefined) delete a.generated;
+    if (a.bookSection == null) delete a.bookSection;
   }
   const earned = attempts.reduce((s, a) => s + a.earned, 0);
   const max = attempts.reduce((s, a) => s + a.marks, 0);

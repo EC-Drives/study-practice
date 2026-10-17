@@ -4,6 +4,24 @@
   "title": "The Coordinate Grid",
   "order": 13,
   "bookChapter": "Chapter 13: The Coordinate Grid",
+  "bookChapterNumber": 13,
+  "bookSections": [
+    {
+      "id": "13A",
+      "title": "Read and Plot Coordinates",
+      "page": 211
+    },
+    {
+      "id": "13B",
+      "title": "Form Lines and Shapes",
+      "page": 216
+    },
+    {
+      "id": "13C",
+      "title": "Translate 2D Shapes",
+      "page": 220
+    }
+  ],
   "frameworkRefs": [
     "6Gp.01",
     "6Gp.02",
@@ -41,6 +59,7 @@
     {
       "id": "m13-q001",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -84,6 +103,7 @@
     {
       "id": "m13-q002",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -127,6 +147,7 @@
     {
       "id": "m13-q003",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -142,6 +163,7 @@
     {
       "id": "m13-q004",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -167,6 +189,7 @@
     {
       "id": "m13-q005",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -190,6 +213,7 @@
     {
       "id": "m13-q006",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -213,6 +237,7 @@
     {
       "id": "m13-q007",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
@@ -256,6 +281,7 @@
     {
       "id": "m13-q008",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -279,6 +305,7 @@
     {
       "id": "m13-q009",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "order",
       "difficulty": 2,
       "marks": 2,
@@ -307,6 +334,7 @@
     {
       "id": "m13-q010",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -336,6 +364,7 @@
     {
       "id": "m13-q011",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -351,6 +380,7 @@
     {
       "id": "m13-q012",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 1,
@@ -374,6 +404,7 @@
     {
       "id": "m13-q013",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -397,6 +428,7 @@
     {
       "id": "m13-q014",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -420,6 +452,7 @@
     {
       "id": "m13-q015",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -467,6 +500,7 @@
     {
       "id": "m13-q016",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 1,
@@ -490,6 +524,7 @@
     {
       "id": "m13-q017",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -569,6 +604,7 @@
     {
       "id": "m13-q018",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -629,6 +665,7 @@
     {
       "id": "m13-q019",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -644,6 +681,7 @@
     {
       "id": "m13-q020",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -667,6 +705,7 @@
     {
       "id": "m13-q021",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -748,6 +787,7 @@
     {
       "id": "m13-q022",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
@@ -808,6 +848,7 @@
     {
       "id": "m13-q023",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
@@ -868,6 +909,7 @@
     {
       "id": "m13-q024",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -930,6 +972,7 @@
     {
       "id": "m13-q025",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1012,6 +1055,7 @@
     {
       "id": "m13-q026",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -1080,6 +1124,7 @@
     {
       "id": "m13-q027",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1162,6 +1207,7 @@
     {
       "id": "m13-q028",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -1246,6 +1292,7 @@
     {
       "id": "m13-q029",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1308,6 +1355,7 @@
     {
       "id": "m13-q030",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 1,
@@ -1370,6 +1418,7 @@
     {
       "id": "m13-q031",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "short",
       "difficulty": 3,
       "marks": 2,
@@ -1458,6 +1507,7 @@
     {
       "id": "m13-q032",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -1536,6 +1586,7 @@
     {
       "id": "m13-q033",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1580,6 +1631,7 @@
     {
       "id": "m13-q034",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1624,6 +1676,7 @@
     {
       "id": "m13-q035",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1668,6 +1721,7 @@
     {
       "id": "m13-q036",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -1683,6 +1737,7 @@
     {
       "id": "m13-q037",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1748,6 +1803,7 @@
     {
       "id": "m13-q038",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1792,6 +1848,7 @@
     {
       "id": "m13-q039",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1870,6 +1927,7 @@
     {
       "id": "m13-q040",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -1897,6 +1955,7 @@
     {
       "id": "m13-q041",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -1959,6 +2018,7 @@
     {
       "id": "m13-q042",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "match",
       "difficulty": 3,
       "marks": 3,
@@ -2054,6 +2114,7 @@
     {
       "id": "m13-q043",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "mcq",
       "difficulty": 3,
       "marks": 3,
@@ -2077,6 +2138,7 @@
     {
       "id": "m13-q044",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "short",
       "difficulty": 3,
       "marks": 2,
@@ -2188,6 +2250,7 @@
     {
       "id": "m13-q045",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -2203,6 +2266,7 @@
     {
       "id": "m13-q046",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -2266,6 +2330,7 @@
     {
       "id": "m13-q047",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -2356,6 +2421,7 @@
     {
       "id": "m13-q048",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -2400,6 +2466,7 @@
     {
       "id": "m13-q049",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "short",
       "difficulty": 2,
       "marks": 1,
@@ -2449,6 +2516,7 @@
     {
       "id": "m13-q050",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -2514,6 +2582,7 @@
     {
       "id": "m13-q051",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -2579,6 +2648,7 @@
     {
       "id": "m13-q052",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -2658,6 +2728,7 @@
     {
       "id": "m13-q053",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "short",
       "difficulty": 3,
       "marks": 2,
@@ -2737,6 +2808,7 @@
     {
       "id": "m13-q054",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -2816,6 +2888,7 @@
     {
       "id": "m13-q055",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -2876,6 +2949,7 @@
     {
       "id": "m13-q056",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -2947,6 +3021,7 @@
     {
       "id": "m13-q057",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "short",
       "difficulty": 3,
       "marks": 2,
@@ -3035,6 +3110,7 @@
     {
       "id": "m13-q058",
       "subtopicId": "m13-s2",
+      "bookSection": "13B",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -3090,6 +3166,7 @@
     {
       "id": "m13-q059",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -3203,6 +3280,7 @@
     {
       "id": "m13-q060",
       "subtopicId": "m13-s3",
+      "bookSection": "13C",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -3420,6 +3498,7 @@
     {
       "id": "m13-q061",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 1,
@@ -3533,6 +3612,7 @@
     {
       "id": "m13-q062",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -3569,6 +3649,7 @@
     {
       "id": "m13-q063",
       "subtopicId": "m13-s1",
+      "bookSection": "13A",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -3649,6 +3730,1107 @@
         "common": "Distance from the y-axis is how far left or right the point is: the x-coordinate without its sign. B at x = -3 counts too: it is 3 units to the left."
       },
       "skill": "distance from an axis",
+      "source": "original"
+    },
+    {
+      "id": "m13-q064",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Five points are plotted on the grid. Which point is at (-2.5, 4)? Tick ONE.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              4,
+              -2.5
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              2.5,
+              4
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              -2.5,
+              4
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              -4,
+              2.5
+            ],
+            "label": "D"
+          },
+          {
+            "at": [
+              -2.5,
+              -4
+            ],
+            "label": "E"
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x and y from -5 to 5. Five points, A to E, are plotted; some are halfway between grid lines."
+      },
+      "options": [
+        "Point A",
+        "Point B",
+        "Point C",
+        "Point D",
+        "Point E"
+      ],
+      "answer": 2,
+      "solution": "The first number is x: -2.5 means go 2.5 units LEFT of the origin (halfway between -2 and -3). The second number is y: 4 means go 4 units UP. That point is in the top left. Point C is at (-2.5, 4). Trap: A is at (4, -2.5), the same two numbers swapped, and B and E have one sign wrong. The answer is point C.",
+      "misconceptions": {
+        "0": "A is at (4, -2.5): you swapped x and y. The first number is always across (x), so go LEFT 2.5 first, then UP 4.",
+        "1": "B is at (2.5, 4): you went right instead of left. The minus sign on -2.5 means LEFT of the y-axis.",
+        "3": "D is at (-4, 2.5): you swapped the two numbers but kept the minus sign at the front. Go across by the first number (-2.5, left), then up by the second (4).",
+        "4": "E is at (-2.5, -4): you went down instead of up. The 4 is positive, so go UP 4. Only the x-coordinate is negative here."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m13-q065",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Omar was asked to plot the point (-2, 3). He drew the cross shown on the grid. Is Omar correct? Choose the answer with the correct reason.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              -2
+            ],
+            "style": "cross"
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x and y from -5 to 5. One cross is drawn."
+      },
+      "options": [
+        "Yes. The cross is 2 units from one axis and 3 units from the other.",
+        "No. (-2, 3) is 2 units left and 3 units up from the origin, but the cross is 3 units right and 2 units down.",
+        "No. (-2, 3) is 2 units left and 3 units down from the origin, so the cross should be in the bottom left.",
+        "Yes. The order of the two numbers in a coordinate pair does not matter."
+      ],
+      "answer": 1,
+      "solution": "Read the cross: it is 3 units to the right and 2 units down, so it is at (3, -2). For (-2, 3), the first number is x: go 2 units LEFT. The second number is y: go 3 units UP. The point should be in the top left. Omar swapped x and y. So he is not correct.",
+      "misconceptions": {
+        "0": "Being 2 units from one axis and 3 from the other is not enough: (3, -2), (-2, 3), (2, 3) and others all fit that. The first number is always across (x) and the second is up or down (y), with their signs.",
+        "2": "In (-2, 3) the 3 is positive, so you go UP 3, not down. Only the x-coordinate is negative here. The correct point is in the top left.",
+        "3": "The order does matter: x (across) always comes first, then y (up or down). (3, -2) and (-2, 3) are different points. This is the mistake Omar made: he swapped x and y."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m13-q066",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Points P and Q are plotted on the grid and joined by a straight line. Point M is exactly halfway between P and Q. What are the coordinates of M? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -8,
+          4
+        ],
+        "y": [
+          -4,
+          3
+        ],
+        "points": [
+          {
+            "at": [
+              -7,
+              -2
+            ],
+            "label": "P",
+            "showCoords": true
+          },
+          {
+            "at": [
+              2,
+              -2
+            ],
+            "label": "Q",
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -7,
+              -2
+            ],
+            "to": [
+              2,
+              -2
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(-2.5, -2)",
+          "(-2.5,-2)",
+          "-2.5, -2",
+          "-2.5,-2",
+          "(-2 1/2, -2)",
+          "(-2 1/2,-2)",
+          "-2 1/2, -2",
+          "-2 1/2,-2",
+          "(-5/2, -2)",
+          "(-5/2,-2)",
+          "-5/2, -2",
+          "-5/2,-2"
+        ],
+        "keywords": []
+      },
+      "solution": "The line is horizontal, so M has the same y-coordinate: -2. The length of PQ is from -7 to 2: 7 units to reach 0, then 2 more, so 9 units. Half of 9 is 4.5. Start at P and go 4.5 units right: -7 + 4.5 = -2.5. Check from Q: 2 - 4.5 = -2.5. Trap: 4.5 is the distance to move, not the coordinate. M is at (-2.5, -2).",
+      "misconceptions": {
+        "common": "If you wrote (4.5, -2), you gave half the length of the line, not the point halfway: start at P (-7) and move 4.5 to the right to reach -2.5. If you wrote (-5, -2) or (-2, -2), you added -7 and 2 but did not halve, or rounded off the half. M is halfway between grid lines, at x = -2.5."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original"
+    },
+    {
+      "id": "m13-q067",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The rectangle is drawn on the grid. Select ALL the points that lie inside the rectangle.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          4
+        ],
+        "y": [
+          -4,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -3.5,
+                -2
+              ],
+              [
+                2,
+                -2
+              ],
+              [
+                2,
+                3.5
+              ],
+              [
+                -3.5,
+                3.5
+              ]
+            ]
+          }
+        ]
+      },
+      "options": [
+        "(-3, 3)",
+        "(3, -1.5)",
+        "(1.5, 0.5)",
+        "(-1.5, -2.5)",
+        "(-2, -1.5)",
+        "(2.5, 1)"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Read the corners first. The left side is at x = -3.5 and the right side at x = 2. The bottom is at y = -2 and the top at y = 3.5. A point is inside when its x is between -3.5 and 2 AND its y is between -2 and 3.5. (-3, 3), (1.5, 0.5) and (-2, -1.5) pass both tests. (3, -1.5) and (2.5, 1) are too far right; (-1.5, -2.5) is too low. The answer is (-3, 3), (1.5, 0.5) and (-2, -1.5).",
+      "misconceptions": {
+        "1": "(3, -1.5) is to the right of the rectangle: x = 3 is more than 2. Did you plot it as (-1.5, 3)? That point would be inside, but x always comes first.",
+        "3": "(-1.5, -2.5) is just below the rectangle: y = -2.5 is lower than the bottom side at y = -2. Remember -2.5 is less than -2.",
+        "5": "(2.5, 1) is half a unit to the right of the rectangle: the right side is at x = 2, and 2.5 is more than 2.",
+        "common": "Test each point twice: is x between the left and right sides, and is y between the bottom and top? A point must pass BOTH tests. Take care with halves and negatives: -2.5 is below -2."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original"
+    },
+    {
+      "id": "m13-q068",
+      "subtopicId": "m13-s2",
+      "bookSection": "13B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Wei Ming is drawing kite ABCD. Its line of symmetry goes through A and C. He has drawn sides AB and BC on the grid. Which diagram shows the kite completed correctly?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          5
+        ],
+        "y": [
+          -4,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              5
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              3,
+              2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              1,
+              -3
+            ],
+            "label": "C"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              1,
+              5
+            ],
+            "to": [
+              3,
+              2
+            ]
+          },
+          {
+            "from": [
+              3,
+              2
+            ],
+            "to": [
+              1,
+              -3
+            ]
+          }
+        ]
+      },
+      "options": [
+        "Diagram A",
+        "Diagram B",
+        "Diagram C",
+        "Diagram D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            5
+          ],
+          "y": [
+            -4,
+            6
+          ],
+          "size": "small",
+          "points": [
+            {
+              "at": [
+                1,
+                5
+              ],
+              "label": "A"
+            },
+            {
+              "at": [
+                3,
+                2
+              ],
+              "label": "B"
+            },
+            {
+              "at": [
+                1,
+                -3
+              ],
+              "label": "C"
+            },
+            {
+              "at": [
+                -3,
+                2
+              ],
+              "label": "D"
+            }
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  -3
+                ],
+                [
+                  -3,
+                  2
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            5
+          ],
+          "y": [
+            -4,
+            6
+          ],
+          "size": "small",
+          "points": [
+            {
+              "at": [
+                1,
+                5
+              ],
+              "label": "A"
+            },
+            {
+              "at": [
+                3,
+                2
+              ],
+              "label": "B"
+            },
+            {
+              "at": [
+                1,
+                -3
+              ],
+              "label": "C"
+            },
+            {
+              "at": [
+                -2,
+                2
+              ],
+              "label": "D"
+            }
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  -3
+                ],
+                [
+                  -2,
+                  2
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            5
+          ],
+          "y": [
+            -4,
+            6
+          ],
+          "size": "small",
+          "points": [
+            {
+              "at": [
+                1,
+                5
+              ],
+              "label": "A"
+            },
+            {
+              "at": [
+                3,
+                2
+              ],
+              "label": "B"
+            },
+            {
+              "at": [
+                1,
+                -3
+              ],
+              "label": "C"
+            },
+            {
+              "at": [
+                -1,
+                -2
+              ],
+              "label": "D"
+            }
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  -3
+                ],
+                [
+                  -1,
+                  -2
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            5
+          ],
+          "y": [
+            -4,
+            6
+          ],
+          "size": "small",
+          "points": [
+            {
+              "at": [
+                1,
+                5
+              ],
+              "label": "A"
+            },
+            {
+              "at": [
+                3,
+                2
+              ],
+              "label": "B"
+            },
+            {
+              "at": [
+                1,
+                -3
+              ],
+              "label": "C"
+            },
+            {
+              "at": [
+                -1,
+                2
+              ],
+              "label": "D"
+            }
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  -3
+                ],
+                [
+                  -1,
+                  2
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "answer": 3,
+      "solution": "The line of symmetry goes through A (1, 5) and C (1, -3), so it is the vertical line x = 1. D must be the mirror image of B in that line. B (3, 2) is 2 units to the right of the line, so D is 2 units to the left of it, at the same height: (1 - 2, 2) = (-1, 2). Only Diagram D has D at (-1, 2). Trap: the mirror line is x = 1, not the y-axis.",
+      "misconceptions": {
+        "0": "In Diagram A, D is at (-3, 2): B was reflected in the y-axis. The line of symmetry here goes through A and C, which is the line x = 1. B is 2 units right of it, so D is 2 units left of it, at (-1, 2).",
+        "1": "In Diagram B, D is at (-2, 2), which is 3 units from the line of symmetry. B is only 2 units from it. Count the jumps between grid lines, not the grid lines themselves.",
+        "2": "In Diagram C, D is at (-1, -2), below B's height. A mirror image in a vertical line stays at the same height, so D must have the same y-coordinate as B: 2."
+      },
+      "skill": "finding a missing vertex",
+      "source": "original"
+    },
+    {
+      "id": "m13-q069",
+      "subtopicId": "m13-s2",
+      "bookSection": "13B",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Points A, B and C on the grid are three corners of a parallelogram. The fourth corner can be in more than one place. Select ALL the possible positions of the fourth corner.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          9
+        ],
+        "y": [
+          -3,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              2,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              3,
+              4
+            ],
+            "label": "C"
+          }
+        ]
+      },
+      "options": [
+        "(-1, 4)",
+        "(-2, 4)",
+        "(7, 4)",
+        "(4, -1)",
+        "(-3, -2)",
+        "(8, 4)"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "A is at (-2, 1), B at (2, 1) and C at (3, 4). Any two of the three points can be the ends of a diagonal, so there are three answers. Copy a move: B to C is 1 right and 3 up. From A: (-2 + 1, 1 + 3) = (-1, 4). From A the other way: (-2 - 1, 1 - 3) = (-3, -2). A to B is 4 right; from C: (3 + 4, 4) = (7, 4). The fourth corner can be at (-1, 4), (-3, -2) or (7, 4).",
+      "misconceptions": {
+        "1": "(-2, 4) is straight above A, which would need a right angle at A, as in a rectangle. Side BC slopes 1 right for every 3 up, so the side from A must slope the same way: (-1, 4).",
+        "3": "(4, -1) has the x and y of (-1, 4) swapped. x always comes first.",
+        "5": "(8, 4) is 5 units from C, but AB is only 4 units long (from -2 to 2). Count the jumps between grid lines, not the grid lines.",
+        "common": "There are three answers, because any of A, B or C can be the corner opposite the missing one. Find each one by copying a side's move (across and up) from the other end. Do not stop after the first."
+      },
+      "skill": "finding a missing vertex",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m13-q070",
+      "subtopicId": "m13-s2",
+      "bookSection": "13B",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The shape is drawn on a grid of 1 cm squares. The coordinates of its corners are shown. What is the perimeter of the shape in cm?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -4,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              -4,
+              -3
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              4,
+              -3
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              4,
+              1
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              -1,
+              1
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              -1,
+              5
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              -4,
+              5
+            ],
+            "showCoords": true
+          }
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -4,
+                -3
+              ],
+              [
+                4,
+                -3
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                -1,
+                1
+              ],
+              [
+                -1,
+                5
+              ],
+              [
+                -4,
+                5
+              ]
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "value": 32,
+        "tolerance": 0,
+        "accept": [
+          "32 cm"
+        ]
+      },
+      "solution": "Work out each side from the coordinates, going round the shape. (-4, -3) to (4, -3): from -4 to 4 is 8 cm. (4, -3) to (4, 1): from -3 to 1 is 4 cm. (4, 1) to (-1, 1): 5 cm. (-1, 1) to (-1, 5): 4 cm. (-1, 5) to (-4, 5): 3 cm. (-4, 5) to (-4, -3): from 5 down to -3 is 8 cm. Add all six sides: 8 + 4 + 5 + 4 + 3 + 8 = 32. The perimeter is 32 cm.",
+      "misconceptions": {
+        "common": "Across zero, add the two parts: from -4 to 4 is 4 + 4 = 8, not 4 - 4 = 0. Count the jumps between grid lines, not the grid lines (that gives one too many on every side). Add all six sides, including the two short sides of the step. If you got 44, you found the area (the squares inside), not the perimeter (the distance round the edge)."
+      },
+      "skill": "perimeter and area from coordinates",
+      "source": "original"
+    },
+    {
+      "id": "m13-q071",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle T is drawn on the grid. Daniel translates T 5 units right and 2 units down to give T'. Then he translates T' 3 units left and 6 units up to give T''. Which single translation moves T'' straight back to T?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          4
+        ],
+        "y": [
+          -5,
+          7
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -4,
+                -1
+              ],
+              [
+                -2,
+                -1
+              ],
+              [
+                -4,
+                2
+              ]
+            ],
+            "label": "T"
+          }
+        ]
+      },
+      "options": [
+        "2 units left and 4 units down",
+        "2 units right and 4 units up",
+        "8 units left and 8 units down",
+        "3 units right and 6 units down",
+        "4 units left and 2 units down"
+      ],
+      "answer": 0,
+      "solution": "Combine the two moves. Across: 5 right then 3 left is 2 right. Up and down: 2 down then 6 up is 4 up. So T to T'' is 2 units right and 4 units up. Check with a corner: (-4, -1) goes to (1, -3), then to (-2, 3). To go back from T'' to T you do the opposite: 2 units left and 4 units down. Trap: the question asks for the way BACK.",
+      "misconceptions": {
+        "1": "2 units right and 4 units up takes T to T''. The question asks for the move from T'' back to T, so both directions must be reversed: 2 left and 4 down.",
+        "2": "You added all the amounts (5 + 3 and 2 + 6). Moves in opposite directions cancel: 5 right and 3 left make 2 right overall; 2 down and 6 up make 4 up overall.",
+        "3": "This only undoes Daniel's second move, so it takes T'' back to T', not to T. Combine both moves first.",
+        "4": "The amounts are swapped. The overall move is 2 across and 4 up, so the way back is 2 left and 4 down. Do the across part with x and the up-down part with y."
+      },
+      "skill": "describing a translation",
+      "source": "original"
+    },
+    {
+      "id": "m13-q072",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Triangle P is translated to the dashed triangle P' on the grid. The two triangles overlap. Describe the translation.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          6
+        ],
+        "y": [
+          -4,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -3,
+                -2
+              ],
+              [
+                2,
+                -2
+              ],
+              [
+                -3,
+                2
+              ]
+            ],
+            "label": "P"
+          },
+          {
+            "points": [
+              [
+                -1,
+                -1
+              ],
+              [
+                4,
+                -1
+              ],
+              [
+                -1,
+                3
+              ]
+            ],
+            "label": "P'",
+            "style": "dashed"
+          }
+        ]
+      },
+      "options": [
+        "2 units left and 1 unit down",
+        "1 unit right and 2 units up",
+        "7 units right and 5 units up",
+        "2 units right and 1 unit up"
+      ],
+      "answer": 3,
+      "solution": "Pick one corner of P and find the SAME corner of P'. The right-angle corner of P is at (-3, -2). The right-angle corner of P' is at (-1, -1). From -3 to -1 is 2 units right. From -2 to -1 is 1 unit up. Check another corner: (2, -2) goes to (4, -1), also 2 right and 1 up. The translation is 2 units right and 1 unit up. Trap: when shapes overlap, match corners; do not measure from one shape's edge to the other shape's far edge.",
+      "misconceptions": {
+        "0": "This is the move from P' back to P. A translation is described from the original shape (solid) to the image (dashed).",
+        "1": "The amounts are swapped. The right-angle corner moves 2 across (from x = -3 to x = -1) and 1 up (from y = -2 to y = -1).",
+        "2": "You measured from the left of P to the right of P', and from the bottom of P to the top of P'. Measure from a corner to the SAME corner of the image instead."
+      },
+      "skill": "describing a translation",
+      "source": "original"
+    },
+    {
+      "id": "m13-q073",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "match",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Shape ABCD is drawn on the grid. It is translated so that corner A moves to A', as shown by the arrow. Match each of the other corners to the coordinates of its image.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          6
+        ],
+        "y": [
+          -4,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              -4,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              -1,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              0,
+              4
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              -3,
+              4
+            ],
+            "label": "D"
+          },
+          {
+            "at": [
+              1,
+              -2
+            ],
+            "label": "A'"
+          }
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -4,
+                1
+              ],
+              [
+                -1,
+                1
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                -3,
+                4
+              ]
+            ]
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -4,
+              1
+            ],
+            "to": [
+              1,
+              -2
+            ],
+            "arrow": true
+          }
+        ]
+      },
+      "options": {
+        "left": [
+          "B (-1, 1)",
+          "C (0, 4)",
+          "D (-3, 4)"
+        ],
+        "right": [
+          "(2, 1)",
+          "(-6, 4)",
+          "(4, -2)",
+          "(-2, 4)",
+          "(5, 1)"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "solution": "First find the move from the arrow: A (-4, 1) goes to A' (1, -2). Across: -4 to 1 is 5 units right. Up and down: 1 to -2 is 3 units down. Do the same to every corner: add 5 to x and take 3 from y. B (-1, 1) goes to (4, -2). C (0, 4) goes to (5, 1). D (-3, 4) goes to (2, 1).",
+      "misconceptions": {
+        "common": "Work out the move from A to A' first (5 right and 3 down), then do exactly the same move to every corner. (-6, 4) comes from moving B the opposite way (5 left and 3 up). (-2, 4) has the x and y of B' swapped."
+      },
+      "skill": "translating points and shapes",
+      "source": "original"
+    },
+    {
+      "id": "m13-q074",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Shape Q is translated to the dashed shape Q' on the grid. Priya says, \"Q moved 3 units left and 4 units up.\" Is Priya correct?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          4
+        ],
+        "y": [
+          -4,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -4,
+                2
+              ],
+              [
+                -1,
+                2
+              ],
+              [
+                -1,
+                4
+              ],
+              [
+                -3,
+                4
+              ]
+            ],
+            "label": "Q"
+          },
+          {
+            "points": [
+              [
+                -1,
+                -2
+              ],
+              [
+                2,
+                -2
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "label": "Q'",
+            "style": "dashed"
+          }
+        ]
+      },
+      "options": [
+        "Yes. The shapes are 3 units apart across and 4 units apart up and down.",
+        "No. Q moved 4 units left and 3 units up.",
+        "No. Q moved 3 units right and 4 units down. Priya described the move from Q' back to Q.",
+        "No. Q' is a reflection of Q, not a translation."
+      ],
+      "answer": 2,
+      "solution": "Follow one corner from Q to Q'. The bottom-left corner of Q is at (-4, 2). The bottom-left corner of Q' is at (-1, -2). From -4 to -1 is 3 units RIGHT. From 2 to -2 is 4 units DOWN. Priya has the right amounts but the wrong directions: she went from Q' back to Q. So she is not correct.",
+      "misconceptions": {
+        "0": "The amounts 3 and 4 are right, but the directions matter. Q' is to the right of Q and lower, so Q moved 3 right and 4 down, not left and up.",
+        "1": "The amounts are swapped, and the directions are wrong too. A corner of Q moves from x = -4 to x = -1 (3 right) and from y = 2 to y = -2 (4 down).",
+        "3": "Q' faces the same way as Q, it is just in a different place. That is a translation (a slide). A reflection would flip the shape over."
+      },
+      "skill": "describing a translation",
       "source": "original"
     }
   ]

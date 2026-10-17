@@ -4,6 +4,29 @@
   "title": "Addition and Subtraction",
   "order": 5,
   "bookChapter": "Chapter 5: Addition and Subtraction",
+  "bookChapterNumber": 5,
+  "bookSections": [
+    {
+      "id": "5A",
+      "title": "Use Letters for Numbers",
+      "page": 70
+    },
+    {
+      "id": "5B",
+      "title": "Add and Subtract Numbers",
+      "page": 73
+    },
+    {
+      "id": "5C",
+      "title": "Add Decimals",
+      "page": 76
+    },
+    {
+      "id": "5D",
+      "title": "Subtract Decimals",
+      "page": 80
+    }
+  ],
   "frameworkRefs": [
     "6Ni.01",
     "6Nf.09",
@@ -22,14 +45,14 @@
     ],
     "subtopics": [
       {
+        "id": "m05-s4",
+        "title": "Letters for unknowns and word problems",
+        "summary": "Use letters to stand for unknown numbers (a + 15 = 42) and solve multi-step word problems using bar models and working backwards."
+      },
+      {
         "id": "m05-s1",
         "title": "Whole numbers: mental, column, estimating and checking",
         "summary": "Add and subtract large whole numbers in your head and in columns. Estimate first, then check with the inverse operation."
-      },
-      {
-        "id": "m05-s2",
-        "title": "Adding and subtracting decimals",
-        "summary": "Line up the decimal points to add and subtract decimals with the same or different numbers of decimal places, in money, length and mass."
       },
       {
         "id": "m05-s3",
@@ -37,9 +60,9 @@
         "summary": "Use a number line to add and subtract with negative numbers, for example -7 + 12 and 3 - 9, in contexts such as temperature and lift floors."
       },
       {
-        "id": "m05-s4",
-        "title": "Letters for unknowns and word problems",
-        "summary": "Use letters to stand for unknown numbers (a + 15 = 42) and solve multi-step word problems using bar models and working backwards."
+        "id": "m05-s2",
+        "title": "Adding and subtracting decimals",
+        "summary": "Line up the decimal points to add and subtract decimals with the same or different numbers of decimal places, in money, length and mass."
       }
     ]
   },
@@ -47,6 +70,7 @@
     {
       "id": "m05-q001",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -70,6 +94,7 @@
     {
       "id": "m05-q002",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -92,6 +117,7 @@
     {
       "id": "m05-q003",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -115,6 +141,7 @@
     {
       "id": "m05-q004",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -130,6 +157,7 @@
     {
       "id": "m05-q005",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -154,6 +182,7 @@
     {
       "id": "m05-q006",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -177,6 +206,7 @@
     {
       "id": "m05-q007",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -200,6 +230,7 @@
     {
       "id": "m05-q008",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -223,6 +254,7 @@
     {
       "id": "m05-q009",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -242,6 +274,7 @@
     {
       "id": "m05-q010",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "order",
       "difficulty": 2,
       "marks": 2,
@@ -268,6 +301,7 @@
     {
       "id": "m05-q011",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -290,6 +324,7 @@
     {
       "id": "m05-q012",
       "subtopicId": "m05-s1",
+      "bookSection": "5B",
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
@@ -317,6 +352,7 @@
     {
       "id": "m05-q013",
       "subtopicId": "m05-s2",
+      "bookSection": "5C",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -340,6 +376,7 @@
     {
       "id": "m05-q014",
       "subtopicId": "m05-s2",
+      "bookSection": "5D",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -363,6 +400,7 @@
     {
       "id": "m05-q015",
       "subtopicId": "m05-s2",
+      "bookSection": "5D",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -386,6 +424,7 @@
     {
       "id": "m05-q016",
       "subtopicId": "m05-s2",
+      "bookSection": "5D",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -409,6 +448,7 @@
     {
       "id": "m05-q017",
       "subtopicId": "m05-s2",
+      "bookSection": "5D",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -463,6 +503,7 @@
     {
       "id": "m05-q018",
       "subtopicId": "m05-s2",
+      "bookSection": "5C",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -478,6 +519,7 @@
     {
       "id": "m05-q019",
       "subtopicId": "m05-s2",
+      "bookSection": "5C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -501,6 +543,7 @@
     {
       "id": "m05-q020",
       "subtopicId": "m05-s2",
+      "bookSection": "5C",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -548,6 +591,7 @@
     {
       "id": "m05-q021",
       "subtopicId": "m05-s2",
+      "bookSection": "5C",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -570,6 +614,7 @@
     {
       "id": "m05-q022",
       "subtopicId": "m05-s2",
+      "bookSection": "5D",
       "type": "mcq",
       "difficulty": 3,
       "marks": 1,
@@ -593,6 +638,7 @@
     {
       "id": "m05-q023",
       "subtopicId": "m05-s2",
+      "bookSection": "5C",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -616,6 +662,7 @@
     {
       "id": "m05-q024",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -639,6 +686,7 @@
     {
       "id": "m05-q025",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -660,6 +708,7 @@
     {
       "id": "m05-q026",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -693,6 +742,7 @@
     {
       "id": "m05-q027",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -708,6 +758,7 @@
     {
       "id": "m05-q028",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -747,6 +798,7 @@
     {
       "id": "m05-q029",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -770,6 +822,7 @@
     {
       "id": "m05-q030",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "order",
       "difficulty": 2,
       "marks": 2,
@@ -796,6 +849,7 @@
     {
       "id": "m05-q031",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -831,6 +885,7 @@
     {
       "id": "m05-q032",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -879,6 +934,7 @@
     {
       "id": "m05-q033",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -912,6 +968,7 @@
     {
       "id": "m05-q034",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -936,6 +993,7 @@
     {
       "id": "m05-q035",
       "subtopicId": "m05-s3",
+      "bookSection": "5B",
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
@@ -965,6 +1023,7 @@
     {
       "id": "m05-q036",
       "subtopicId": "m05-s4",
+      "bookSection": "5A",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -987,6 +1046,7 @@
     {
       "id": "m05-q037",
       "subtopicId": "m05-s4",
+      "bookSection": "5A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1008,6 +1068,7 @@
     {
       "id": "m05-q038",
       "subtopicId": "m05-s4",
+      "bookSection": "5A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -1023,6 +1084,7 @@
     {
       "id": "m05-q039",
       "subtopicId": "m05-s4",
+      "bookSection": "5A",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -1051,6 +1113,7 @@
     {
       "id": "m05-q040",
       "subtopicId": "m05-s4",
+      "bookSection": "5A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1074,6 +1137,7 @@
     {
       "id": "m05-q041",
       "subtopicId": "m05-s4",
+      "bookSection": "5A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1097,6 +1161,7 @@
     {
       "id": "m05-q042",
       "subtopicId": "m05-s4",
+      "bookSection": "5A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1120,6 +1185,7 @@
     {
       "id": "m05-q043",
       "subtopicId": "m05-s4",
+      "bookSection": "5B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -1171,6 +1237,7 @@
     {
       "id": "m05-q044",
       "subtopicId": "m05-s4",
+      "bookSection": "5B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 3,
@@ -1194,6 +1261,7 @@
     {
       "id": "m05-q045",
       "subtopicId": "m05-s4",
+      "bookSection": "5A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,

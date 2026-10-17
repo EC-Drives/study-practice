@@ -4,6 +4,24 @@
   "title": "3D Shapes, Volume and Capacity",
   "order": 4,
   "bookChapter": "Chapter 4: 3D Shapes, Volume and Capacity",
+  "bookChapterNumber": 4,
+  "bookSections": [
+    {
+      "id": "4A",
+      "title": "Identify, Describe and Sketch Compound 3D Shapes",
+      "page": 57
+    },
+    {
+      "id": "4B",
+      "title": "Identify and Sketch Nets of 3D Shapes",
+      "page": 61
+    },
+    {
+      "id": "4C",
+      "title": "Understand the Difference between Capacity and Volume",
+      "page": 65
+    }
+  ],
   "frameworkRefs": [
     "6Gg.04",
     "6Gg.05",
@@ -47,6 +65,7 @@
     {
       "id": "m04-q001",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -70,6 +89,7 @@
     {
       "id": "m04-q002",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -97,6 +117,7 @@
     {
       "id": "m04-q003",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -144,6 +165,7 @@
     {
       "id": "m04-q004",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -167,6 +189,7 @@
     {
       "id": "m04-q005",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "short",
       "difficulty": 2,
       "marks": 1,
@@ -189,6 +212,7 @@
     {
       "id": "m04-q006",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -212,6 +236,7 @@
     {
       "id": "m04-q007",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -227,6 +252,7 @@
     {
       "id": "m04-q008",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -248,6 +274,7 @@
     {
       "id": "m04-q009",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -271,6 +298,7 @@
     {
       "id": "m04-q010",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -294,6 +322,7 @@
     {
       "id": "m04-q011",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -315,6 +344,7 @@
     {
       "id": "m04-q012",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "multi",
       "difficulty": 1,
       "marks": 2,
@@ -344,6 +374,7 @@
     {
       "id": "m04-q013",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -367,6 +398,7 @@
     {
       "id": "m04-q014",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -390,6 +422,7 @@
     {
       "id": "m04-q015",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -417,6 +450,7 @@
     {
       "id": "m04-q016",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -439,6 +473,7 @@
     {
       "id": "m04-q017",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 2,
@@ -484,6 +519,7 @@
     {
       "id": "m04-q018",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -529,6 +565,7 @@
     {
       "id": "m04-q019",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -674,6 +711,7 @@
     {
       "id": "m04-q020",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -701,6 +739,7 @@
     {
       "id": "m04-q021",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -728,6 +767,7 @@
     {
       "id": "m04-q022",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -789,6 +829,7 @@
     {
       "id": "m04-q023",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "order",
       "difficulty": 2,
       "marks": 1,
@@ -815,6 +856,7 @@
     {
       "id": "m04-q024",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -830,6 +872,7 @@
     {
       "id": "m04-q025",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -852,6 +895,7 @@
     {
       "id": "m04-q026",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
@@ -883,6 +927,7 @@
     {
       "id": "m04-q027",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -917,6 +962,7 @@
     {
       "id": "m04-q028",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -940,6 +986,7 @@
     {
       "id": "m04-q029",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -955,6 +1002,7 @@
     {
       "id": "m04-q030",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -989,6 +1037,7 @@
     {
       "id": "m04-q031",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1012,6 +1061,7 @@
     {
       "id": "m04-q032",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -1045,6 +1095,7 @@
     {
       "id": "m04-q033",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -1092,6 +1143,7 @@
     {
       "id": "m04-q034",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
@@ -1119,6 +1171,7 @@
     {
       "id": "m04-q035",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1142,6 +1195,7 @@
     {
       "id": "m04-q036",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1172,6 +1226,7 @@
     {
       "id": "m04-q037",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -1205,6 +1260,7 @@
     {
       "id": "m04-q038",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1228,6 +1284,7 @@
     {
       "id": "m04-q039",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -1243,6 +1300,7 @@
     {
       "id": "m04-q040",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1266,6 +1324,7 @@
     {
       "id": "m04-q041",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1301,6 +1360,7 @@
     {
       "id": "m04-q042",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
@@ -1322,6 +1382,7 @@
     {
       "id": "m04-q043",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1345,6 +1406,7 @@
     {
       "id": "m04-q044",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -1367,6 +1429,7 @@
     {
       "id": "m04-q045",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -1394,6 +1457,7 @@
     {
       "id": "m04-q046",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "short",
       "difficulty": 2,
       "marks": 1,
@@ -1416,6 +1480,7 @@
     {
       "id": "m04-q047",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "order",
       "difficulty": 2,
       "marks": 2,
@@ -1444,6 +1509,7 @@
     {
       "id": "m04-q048",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1478,6 +1544,7 @@
     {
       "id": "m04-q049",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1501,6 +1568,7 @@
     {
       "id": "m04-q050",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1646,6 +1714,7 @@
     {
       "id": "m04-q051",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1791,6 +1860,7 @@
     {
       "id": "m04-q052",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1852,6 +1922,7 @@
     {
       "id": "m04-q053",
       "subtopicId": "m04-s2",
+      "bookSection": "4B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -1911,6 +1982,7 @@
     {
       "id": "m04-q054",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1938,6 +2010,7 @@
     {
       "id": "m04-q055",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
@@ -1964,6 +2037,7 @@
     {
       "id": "m04-q056",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -1996,6 +2070,7 @@
     {
       "id": "m04-q057",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -2029,6 +2104,7 @@
     {
       "id": "m04-q058",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -2059,6 +2135,7 @@
     {
       "id": "m04-q059",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -2093,6 +2170,7 @@
     {
       "id": "m04-q060",
       "subtopicId": "m04-s3",
+      "bookSection": "4B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -2127,6 +2205,7 @@
     {
       "id": "m04-q061",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -2161,6 +2240,7 @@
     {
       "id": "m04-q062",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -2195,6 +2275,7 @@
     {
       "id": "m04-q063",
       "subtopicId": "m04-s4",
+      "bookSection": "4C",
       "type": "truefalse",
       "difficulty": 3,
       "marks": 2,
@@ -2222,6 +2303,7 @@
     {
       "id": "m04-q064",
       "subtopicId": "m04-s1",
+      "bookSection": "4A",
       "type": "short",
       "difficulty": 1,
       "marks": 1,

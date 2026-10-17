@@ -19,7 +19,7 @@ import { h, icon, pct } from './ui.js';
 import { starSvg, levelBadge } from './charts.js';
 import { LEVELS, formatDate, formatTime } from './stats.js';
 import { formatDuration } from './timer.js';
-import { summaryLines, namedMistakes } from './report.js';
+import { summaryLines, namedMistakes, sectionRows } from './report.js';
 import { workingView } from './working.js';
 import { workingFor } from './data/remote-source.js';
 import { diagramFor, optionDiagramFor } from './hooks.js';
@@ -45,10 +45,11 @@ const num = (x, d = 0) => (Number.isFinite(Number(x)) ? Number(x) : d);
 /** Per-question rows, from the report (v2) or from the attempts (older reports). */
 export function questionRows(report, attempts = []) {
   if (Array.isArray(report.perQuestion) && report.perQuestion.length) {
-    return report.perQuestion.filter((q) => q && KIND[q.kind]).map((q) => ({ ...q, n: num(q.n), timeSec: Math.max(0, num(q.timeSec)) }));
+    return report.perQuestion.filter((q) => q && KIND[q.kind]).map((q) => ({ ...q, n: num(q.n), label: typeof q.label === 'string' && q.label.length <= 12 ? q.label : String(num(q.n)), timeSec: Math.max(0, num(q.timeSec)) }));
   }
   return [...attempts].sort((a, b) => a.position - b.position).map((a) => ({
     n: num(a.position) + 1,
+    label: String(num(a.position) + 1),
     questionId: a.questionId,
     kind: !a.answered ? 'skip' : a.correct ? 'right' : a.earned > 0 ? 'part' : 'wrong',
     timeSec: Math.max(0, num(a.timeSec)),
@@ -99,10 +100,30 @@ function pictoStrip(rows) {
   const counts = { right: 0, part: 0, wrong: 0, skip: 0 };
   for (const q of rows) counts[q.kind] += 1;
   const strip = h('ol', { class: 'vr-pictos', 'aria-label': 'Every question, in order' },
-    ...rows.map((q) => h('li', { title: `Question ${q.n}: ${KIND[q.kind].label}`, 'aria-label': `Question ${q.n}: ${KIND[q.kind].label}` }, starSvg(q.kind), h('span', { text: String(q.n) }))));
+    ...rows.map((q) => h('li', { title: `Question ${q.label}: ${KIND[q.kind].label}`, 'aria-label': `Question ${q.label}: ${KIND[q.kind].label}` }, starSvg(q.kind), h('span', { text: q.label }))));
   const legend = h('ul', { class: 'picto-legend' },
     ...KINDS.filter((k) => counts[k]).map((k) => h('li', {}, starSvg(k), h('span', { text: `${KIND[k].label}: ${counts[k]}` }))));
   return h('section', { class: 'vr-block' }, h('h3', { text: 'Question by question' }), strip, legend);
+}
+
+// ------------------------------------------------------------------ book sections
+
+/** One line per book section practised: questions and % right (a paper: marks), in book order. */
+function sectionBlock(r) {
+  const rows = sectionRows(r);
+  if (!rows.length) return null;
+  const paper = r.mode === 'paper';
+  return h('section', { class: 'vr-block' },
+    h('h3', { text: paper ? 'Marks by book section' : 'Book sections practised' }),
+    h('ul', { class: 'vr-mbars' }, ...rows.map((g) => {
+      const f = paper ? (g.max ? g.earned / g.max : 0) : (g.total ? g.correct / g.total : 0);
+      return h('li', { class: 'vr-mbar' },
+        h('span', { class: 'vr-mbar-name' }, h('strong', { text: g.id }), h('span', { text: ` ${g.title}` }), g.page != null ? h('span', { class: 'muted small', text: ` p. ${g.page}` }) : null),
+        h('span', { class: 'vr-mbar-track', role: 'img', 'aria-label': `${g.id} ${g.title}: ${Math.round(f * 100)} percent` },
+          h('span', { class: 'vr-mbar-fill', style: { width: `${(Math.max(0, Math.min(1, f)) * 100).toFixed(1)}%` } })),
+        h('span', { class: 'vr-mbar-val', text: paper ? `${g.earned}/${g.max}` : `${g.correct}/${g.total}` }),
+        h('span', { class: 'muted small', text: paper ? 'marks' : 'right' }));
+    })));
 }
 
 // ------------------------------------------------------------------ mastery bars
@@ -198,8 +219,8 @@ export function timeChart(rows, o = {}) {
       const yb = padT + innerH;
       svg.appendChild(s('path', { d: `M${x0},${yb} V${top + r} Q${x0},${top} ${x0 + r},${top} H${x0 + bw - r} Q${x0 + bw},${top} ${x0 + bw},${top + r} V${yb} Z`, class: `bar bar-${q.kind}` }));
     }
-    if (i % labelEvery === 0 || i === rows.length - 1) svg.appendChild(s('text', { x: cx, y: H - 9, 'text-anchor': 'middle', class: 'tick' }, String(q.n)));
-    const text = `Question ${q.n}: ${formatDuration(q.timeSec)}, ${KIND[q.kind].label.toLowerCase()}`;
+    if (i % labelEvery === 0 || i === rows.length - 1) svg.appendChild(s('text', { x: cx, y: H - 9, 'text-anchor': 'middle', class: 'tick' }, q.label));
+    const text = `Question ${q.label}: ${formatDuration(q.timeSec)}, ${KIND[q.kind].label.toLowerCase()}`;
     const hit = s('rect', { x: padL + band * i, y: padT, width: band, height: innerH, class: 'hit', tabindex: 0, 'aria-label': text });
     const show = () => {
       tip.textContent = text;
@@ -221,7 +242,7 @@ export function timeChart(rows, o = {}) {
   const table = h('details', { class: 'table-view' }, h('summary', { text: 'Show as a table' }),
     h('table', { class: 'tbl' },
       h('thead', {}, h('tr', {}, h('th', { text: 'Question' }), h('th', { text: 'Result' }), h('th', { class: 'num', text: 'Time' }))),
-      h('tbody', {}, ...rows.map((q) => h('tr', {}, h('td', { text: String(q.n) }), h('td', { text: KIND[q.kind].label }), h('td', { class: 'num', text: formatDuration(q.timeSec) }))))));
+      h('tbody', {}, ...rows.map((q) => h('tr', {}, h('td', { text: q.label }), h('td', { text: KIND[q.kind].label }), h('td', { class: 'num', text: formatDuration(q.timeSec) }))))));
   return h('figure', { class: 'chart vr-block' },
     h('figcaption', { text: `Time on each question (average ${formatDuration(avg)} per answered question)` }),
     legend, h('div', { class: 'chart-wrap' }, svg, tip), table);
@@ -364,11 +385,12 @@ function wrongQuestions(report, rows, attempts, source, questions) {
     const a = byQ.get(row.questionId) || null;
     const m = mistakes.get(row.questionId);
     const q = questions ? questions.get(row.questionId) : null;
-    const n = a && Number.isFinite(a.position) ? a.position + 1 : row.n;
+    const n = row.label || (a && Number.isFinite(a.position) ? a.position + 1 : row.n);
     const hasWork = a && ((a.working && a.working.strokes) || a.hasWorking || a.workingPath);
     const codes = (m && Array.isArray(m.codes) ? m.codes : []).filter((c) => typeof c === 'string');
     const slot = hasWork ? h('div', { class: 'vr-working-img' }, h('p', { class: 'muted small', text: 'Loading her working…' })) : null;
     grid.append(h('li', { class: 'vr-working-card' },
+      q && (q.groupStem || q.groupDiagram) ? h('div', { class: 'group-stem' }, q.groupStem ? h('p', { text: q.groupStem }) : null, q.groupDiagram ? diagramFor({ id: `${q.id}-group`, diagram: q.groupDiagram }, 'report') : null) : null,
       h('p', { class: 'vr-working-q' }, h('strong', { text: `Question ${n}` }), ' ', h('span', { text: q ? q.prompt : m ? m.prompt : '' })),
       q ? diagramFor(q, 'report') : null,
       q ? choicePictures(q, a ? a.response : null, 'report') : null,
@@ -400,6 +422,8 @@ export function visualReport(report, ctx = {}) {
   root.append(hero(report));
   root.append(h('section', { class: 'vr-summary', 'aria-label': 'Summary' }, ...lines.slice(0, 3).map((t) => h('p', { text: t }))));
   if (rows.length) root.append(pictoStrip(rows));
+  const sb = sectionBlock(report);
+  if (sb) root.append(sb);
   const mb = masteryBars(report);
   if (mb) root.append(mb);
   const chips = skillChips(report);

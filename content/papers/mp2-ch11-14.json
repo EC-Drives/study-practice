@@ -1,0 +1,2262 @@
+{
+  "id": "mp2-ch11-14",
+  "title": "Mock Paper 2",
+  "subtitle": "Chapters 11-14: Ratio and Proportion; Data Handling; The Coordinate Grid; Reflection and Rotation",
+  "subject": "maths",
+  "bookChapters": [
+    11,
+    12,
+    13,
+    14
+  ],
+  "minutes": 45,
+  "totalMarks": 40,
+  "calculator": false,
+  "level": "standard",
+  "instructions": [
+    "Answer all the questions.",
+    "Write your answer on the answer line, or tick (✓) the boxes as the question asks.",
+    "Show your working in the space given. You may get marks for your working even if your answer is wrong.",
+    "You may not use a calculator.",
+    "You may use a ruler and a protractor.",
+    "How to use your time: about 1 minute per mark. If you are stuck, write your best answer, mark the question and move on; come back at the end. Never leave an answer blank."
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "title": "Section A"
+    }
+  ],
+  "groups": [
+    {
+      "id": "9",
+      "stem": "On sports day, every lap of the school track is the same length. The table shows the distance run for different numbers of laps.",
+      "diagram": {
+        "type": "table",
+        "columns": [
+          "Number of laps",
+          "Distance run (m)"
+        ],
+        "rows": [
+          [
+            2,
+            800
+          ],
+          [
+            5,
+            "(a)"
+          ],
+          [
+            "(b)",
+            2800
+          ]
+        ],
+        "rowHeaders": false
+      }
+    },
+    {
+      "id": "10",
+      "stem": "The frequency diagram shows the times taken by the children in Year 6 to run 100 m on sports day. The groups do not overlap: 15-16 means 15 seconds or more, but less than 16 seconds.",
+      "diagram": {
+        "type": "barChart",
+        "title": "Times for the 100 m",
+        "categories": [
+          "14-15",
+          "15-16",
+          "16-17",
+          "17-18",
+          "18-19"
+        ],
+        "series": [
+          {
+            "name": "Children",
+            "values": [
+              3,
+              8,
+              12,
+              7,
+              2
+            ]
+          }
+        ],
+        "xLabel": "Time (seconds)",
+        "yLabel": "Number of children",
+        "yMax": 14,
+        "yStep": 2,
+        "minorStep": 1,
+        "alt": "A frequency diagram of 100 m times in five groups from 14 to 19 seconds."
+      }
+    },
+    {
+      "id": "17",
+      "stem": "Siti measured the height and the long-jump distance of 9 children on sports day. The scatter graph shows her results for 8 of the children.",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Height and long jump",
+        "points": [
+          [
+            131,
+            1.8
+          ],
+          [
+            134,
+            2.2
+          ],
+          [
+            137,
+            2.0
+          ],
+          [
+            142,
+            2.2
+          ],
+          [
+            149,
+            2.8
+          ],
+          [
+            152,
+            3.0
+          ],
+          [
+            155,
+            2.6
+          ],
+          [
+            158,
+            2.8
+          ]
+        ],
+        "xMin": 130,
+        "xMax": 160,
+        "xStep": 10,
+        "yMin": 1.6,
+        "yMax": 3.0,
+        "yStep": 0.2,
+        "xLabel": "Height (cm)",
+        "yLabel": "Long jump (m)"
+      }
+    },
+    {
+      "id": "20",
+      "stem": "The bar chart shows the number of customers at two stalls at a pasar malam on four nights.",
+      "diagram": {
+        "type": "barChart",
+        "title": "Customers at two stalls",
+        "categories": [
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "series": [
+          {
+            "name": "Satay stall",
+            "values": [
+              45,
+              60,
+              85,
+              70
+            ]
+          },
+          {
+            "name": "Cendol stall",
+            "values": [
+              50,
+              55,
+              90,
+              65
+            ]
+          }
+        ],
+        "yLabel": "Number of customers",
+        "yMax": 100,
+        "yStep": 10,
+        "minorStep": 5,
+        "alt": "A bar chart comparing the customers at the satay stall and the cendol stall on Thursday, Friday, Saturday and Sunday."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "mp2-q01",
+      "number": "1",
+      "section": "A",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The map of the sports field is drawn on the coordinate grid. The first-aid tent is at point F. What are the coordinates of F? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              4,
+              -3
+            ],
+            "label": "F"
+          },
+          {
+            "at": [
+              -2,
+              3
+            ],
+            "label": "S"
+          },
+          {
+            "at": [
+              1,
+              2
+            ],
+            "label": "W"
+          }
+        ],
+        "alt": "A coordinate grid, x from -5 to 5 and y from -5 to 5, with the first-aid tent F, the stage S and the water station W plotted."
+      },
+      "answer": {
+        "accept": [
+          "(4, -3)",
+          "(4,-3)",
+          "4, -3",
+          "4,-3"
+        ],
+        "keywords": []
+      },
+      "solution": "Start at the origin (0, 0). F is 4 squares to the RIGHT, so x = 4. It is 3 squares DOWN, so y = -3. Write x first, then y: (4, -3).",
+      "misconceptions": {
+        "common": "If you wrote (-3, 4), you swapped the order. Always go across first (x), then up or down (y). If you wrote (4, 3), remember that below the x-axis the y-coordinate is negative."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(4, -3). Not (-3, 4)."
+        }
+      ],
+      "print": {
+        "answerLabel": "( ____ , ____ )",
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp2-q02",
+      "number": "2",
+      "section": "A",
+      "subtopicId": "m11-s1",
+      "bookSection": "11A",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "On sports day, Red House won 12 medals and Blue House won 18 medals. Write the ratio of Red House medals to Blue House medals in its simplest form.",
+      "answer": {
+        "accept": [
+          "2 : 3",
+          "2:3"
+        ],
+        "keywords": []
+      },
+      "solution": "Red to Blue is 12 : 18. The highest number that divides both 12 and 18 is 6. 12 ÷ 6 = 2 and 18 ÷ 6 = 3. The ratio in its simplest form is 2 : 3.",
+      "misconceptions": {
+        "common": "If you wrote 3 : 2, the order is the wrong way round: Red comes first because the question says Red to Blue. If you wrote 6 : 9 or 4 : 6, keep dividing: both numbers can still be divided by 3 or 2. Divide by 6 in one go."
+      },
+      "skill": "simplifying a ratio",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "2 : 3 (in this order). 3 : 2, 6 : 9 or 4 : 6 score 0."
+        }
+      ],
+      "print": {
+        "answerLabel": "Red : Blue = ____ : ____",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q03",
+      "number": "3",
+      "section": "A",
+      "subtopicId": "m12-s3",
+      "bookSection": "12F",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In a 100 m race on sports day, five runners took these times: 15.4 s, 16.1 s, 14.8 s, 17.0 s, 15.9 s. What is the range of the times? Give your answer in seconds.",
+      "answer": {
+        "value": 2.2,
+        "tolerance": 0,
+        "accept": [
+          "2.2",
+          "2.2 s",
+          "2.2 seconds"
+        ]
+      },
+      "solution": "The range is the largest value minus the smallest value. The slowest time is 17.0 s and the fastest is 14.8 s. 17.0 - 14.8 = 2.2. The range is 2.2 seconds.",
+      "misconceptions": {
+        "common": "If you wrote 17.0, you gave the largest time, not the range (AVG-RANGE-AS-MAX). If you wrote 0.5, you took the last time minus the first. The range is largest minus smallest: 17.0 - 14.8 = 2.2."
+      },
+      "skill": "finding the range",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "2.2"
+        }
+      ],
+      "print": {
+        "answerLabel": "s",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q04",
+      "number": "4",
+      "section": "A",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "At the pasar malam, 5 apam balik cost RM 6. At the same price, how much do 15 apam balik cost? Give your answer in RM.",
+      "answer": {
+        "value": 18,
+        "tolerance": 0,
+        "accept": [
+          "18",
+          "RM 18",
+          "18.00",
+          "RM 18.00"
+        ]
+      },
+      "solution": "15 apam balik is 3 times as many as 5 (15 ÷ 5 = 3). So the cost is 3 times as much: RM 6 × 3 = RM 18.",
+      "misconceptions": {
+        "common": "If you got RM 16, you added 10 because 15 is 10 more than 5. In direct proportion you multiply, not add: 3 times as many cost 3 times as much (PROP-ADDITIVE)."
+      },
+      "skill": "direct proportion",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "18 (RM 18 or RM 18.00)"
+        }
+      ],
+      "print": {
+        "answerLabel": "RM",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q05",
+      "number": "5",
+      "section": "A",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "At sports day, the teachers collect some data. Select ALL the data that are continuous.",
+      "options": [
+        "The time each child takes to run 100 m",
+        "The number of medals each house wins",
+        "The time each child takes to finish the egg-and-spoon race",
+        "Each child's favourite event",
+        "The distance each child throws a beanbag",
+        "The number of children in each race"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Continuous data is measured, so it can take any value in a range: times, heights and distances. Counted data (medals, children) is discrete, and favourite events are categorical. So the continuous data are the 100 m time, the egg-and-spoon race time and the beanbag distance.",
+      "misconceptions": {
+        "1": "Medals are counted in whole numbers, so this is discrete data.",
+        "3": "A favourite event is a name, not a number, so this is categorical data.",
+        "5": "Children are counted in whole numbers, so this is discrete data.",
+        "common": "Continuous data is MEASURED (time, length, mass) and can be any value, like 15.38 s. Discrete data is COUNTED. Make sure you ticked all three measured ones."
+      },
+      "skill": "types of data",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Ticks the 100 m time, the egg-and-spoon race time and the beanbag distance only (all three, and no others)."
+        }
+      ],
+      "print": {
+        "prompt": "At sports day, the teachers collect some data. Tick (✓) all the data that are continuous."
+      }
+    },
+    {
+      "id": "mp2-q06",
+      "number": "6",
+      "section": "A",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A cone C is plotted on the grid. Mr Kumar moves it 5 units to the right and 4 units down. What are the coordinates of the cone's new position? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              2
+            ],
+            "label": "C"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(2, -2)",
+          "(2,-2)",
+          "2, -2",
+          "2,-2"
+        ],
+        "keywords": []
+      },
+      "solution": "C is at (-3, 2). 5 units right adds 5 to x: -3 + 5 = 2. 4 units down takes 4 from y: 2 - 4 = -2. The new position is (2, -2).",
+      "misconceptions": {
+        "common": "If you got (1, -3), you used the 5 for up/down and the 4 for left/right (TRANS-WRONG-AXIS). Right and left change x; up and down change y. If you got (-8, 6), you moved the wrong way."
+      },
+      "skill": "translating points and shapes",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(2, -2)"
+        }
+      ],
+      "print": {
+        "answerLabel": "( ____ , ____ )",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q07",
+      "number": "7",
+      "section": "A",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The dot plot shows how many food stalls each child in a class visited at the pasar malam. Each dot is one child. How many children visited more than 4 stalls?",
+      "diagram": {
+        "type": "dotPlot",
+        "title": "Stalls visited by each child",
+        "values": [
+          1,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5,
+          5,
+          6,
+          6,
+          7
+        ],
+        "min": 0,
+        "max": 8,
+        "xLabel": "Number of stalls visited",
+        "alt": "A dot plot of the number of stalls each child visited, on a scale from 0 to 8."
+      },
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": [
+          "6",
+          "6 children"
+        ]
+      },
+      "solution": "'More than 4' means 5, 6 or 7 stalls. Count the dots: 3 children visited 5, 2 visited 6 and 1 visited 7. 3 + 2 + 1 = 6 children.",
+      "misconceptions": {
+        "common": "If you got 11, you also counted the 5 children who visited exactly 4 stalls. 'More than 4' does not include 4."
+      },
+      "skill": "reading dot plots",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "6"
+        }
+      ],
+      "print": {
+        "answerLabel": "children",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q08",
+      "number": "8",
+      "section": "A",
+      "subtopicId": "m11-s2",
+      "bookSection": "11A",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The sports day flag is a rectangle. Its length and its width are in the ratio 5 : 3. The length is 80 cm, as shown. What is the width of the flag? Give your answer in cm.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "sides": [
+          {
+            "label": "80 cm"
+          },
+          {
+            "label": "?"
+          },
+          null,
+          null
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          {
+            "right": true
+          }
+        ],
+        "notToScale": true
+      },
+      "answer": {
+        "value": 48,
+        "tolerance": 0,
+        "accept": [
+          "48",
+          "48 cm"
+        ]
+      },
+      "solution": "The length is 5 parts, so one part is 80 ÷ 5 = 16 cm. The width is 3 parts: 3 × 16 = 48 cm. The picture is not drawn to scale, so do not measure it: work it out.",
+      "misconceptions": {
+        "common": "If you got 16, you found one part and stopped; the width is 3 parts. If you got 78, you took away 2 because 5 - 3 = 2 (RATIO-ADDITIVE): ratios work by multiplying. If you measured the picture, remember it is not drawn to scale."
+      },
+      "skill": "finding a missing value in equivalent ratios",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "48"
+        }
+      ],
+      "print": {
+        "answerLabel": "cm",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q09a",
+      "number": "9(a)",
+      "group": "9",
+      "section": "A",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the table. What distance is run in 5 laps? Give your answer in metres.",
+      "answer": {
+        "value": 2000,
+        "tolerance": 0,
+        "accept": [
+          "2000",
+          "2000 m",
+          "2 000"
+        ]
+      },
+      "solution": "2 laps are 800 m, so 1 lap is 800 ÷ 2 = 400 m. 5 laps are 5 × 400 = 2000 m.",
+      "misconceptions": {
+        "common": "Find the distance for ONE lap first (400 m), then multiply by 5. If you got 4000, you multiplied 800 by 5, but 800 m is for 2 laps, not 1. If you got 803, you added 3 laps instead of multiplying (PROP-ADDITIVE)."
+      },
+      "skill": "unitary method",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "2000"
+        }
+      ],
+      "print": {
+        "answerLabel": "m",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q09b",
+      "number": "9(b)",
+      "group": "9",
+      "section": "A",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the table. How many laps make 2800 m?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": [
+          "7",
+          "7 laps"
+        ]
+      },
+      "solution": "1 lap is 400 m. 2800 ÷ 400 = 7, so 7 laps make 2800 m.",
+      "misconceptions": {
+        "common": "If you got 3.5, you divided 2800 by 800, which is the distance for 2 laps, not 1. 3.5 lots of 2 laps is 7 laps."
+      },
+      "skill": "unitary method",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "7"
+        }
+      ],
+      "print": {
+        "answerLabel": "laps",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q10a",
+      "number": "10(a)",
+      "group": "10",
+      "section": "A",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the frequency diagram. How many children took 17-18 seconds?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": [
+          "7",
+          "7 children"
+        ]
+      },
+      "solution": "Find the bar for 17-18. Its top is halfway between the gridlines for 6 and 8, on the small line for 7. So 7 children took 17-18 seconds.",
+      "misconceptions": {
+        "common": "If you wrote 6 or 8, you read the gridline next to the top of the bar (SCALE-NEXT-MARK). Each labelled line goes up in 2s, so the small line between 6 and 8 is 7."
+      },
+      "skill": "reading and comparing data",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "7"
+        }
+      ],
+      "print": {
+        "answerLabel": "children",
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp2-q10b",
+      "number": "10(b)",
+      "group": "10",
+      "section": "A",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the frequency diagram. How many children ran 100 m in less than 16 seconds?",
+      "answer": {
+        "value": 11,
+        "tolerance": 0,
+        "accept": [
+          "11",
+          "11 children"
+        ]
+      },
+      "solution": "Less than 16 seconds means the groups 14-15 and 15-16. These bars show 3 and 8 children. 3 + 8 = 11 children.",
+      "misconceptions": {
+        "common": "If you got 8, you counted only the 15-16 group; the 14-15 group is also less than 16 seconds. If you got 23, you included 16-17, but those children took 16 seconds or more."
+      },
+      "skill": "reading and comparing data",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "11"
+        }
+      ],
+      "print": {
+        "answerLabel": "children",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q11",
+      "number": "11",
+      "section": "A",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The logo for sports day is shown. What is the order of rotational symmetry of the logo?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -3
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -3,
+            1
+          ]
+        ],
+        "shaded": true,
+        "size": "small",
+        "alt": "A pinwheel-shaped logo."
+      },
+      "answer": {
+        "value": 4,
+        "tolerance": 0,
+        "accept": [
+          "4",
+          "order 4"
+        ]
+      },
+      "solution": "Imagine tracing the logo and turning the tracing about its centre. It fits back onto itself after a quarter turn, a half turn, a three-quarter turn and a full turn: 4 times in one full turn. So the order is 4. (It has no lines of symmetry, but that does not change its rotational symmetry.)",
+      "misconceptions": {
+        "common": "If you wrote 0 or 1, you may have checked for lines of symmetry. The logo has none, but rotational symmetry is about TURNING: it looks the same 4 times in one full turn."
+      },
+      "skill": "order of rotational symmetry",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "4"
+        }
+      ],
+      "print": {
+        "answerLabel": "order",
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp2-q12",
+      "number": "12",
+      "section": "A",
+      "subtopicId": "m11-s3",
+      "bookSection": "11A",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "45 children take part in a tug of war. They are put into a Red team and a Blue team in the ratio 4 : 5. How many children are in the Blue team?",
+      "answer": {
+        "value": 25,
+        "tolerance": 0,
+        "accept": [
+          "25",
+          "25 children"
+        ]
+      },
+      "solution": "Count the parts: 4 + 5 = 9 parts. One part is 45 ÷ 9 = 5 children. The Blue team has 5 parts: 5 × 5 = 25 children. (Check: Red has 20, and 20 + 25 = 45.)",
+      "misconceptions": {
+        "common": "If you got 9, you divided by 5 and stopped. If you got 22.5, you split 45 into 2 teams equally (RATIO-SHARE-BY-PARTS-COUNT). If you got 20, that is the Red team. Add the parts (9), find one part (5), then take 5 parts for Blue."
+      },
+      "skill": "sharing in a ratio",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "25"
+        }
+      ],
+      "print": {
+        "answerLabel": "children",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q13",
+      "number": "13",
+      "section": "A",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Four points are plotted on the grid. Which point is at (-1.5, -2)?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          4
+        ],
+        "y": [
+          -4,
+          4
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              -1.5
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              1.5,
+              -2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              -1.5,
+              -2
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              -1.5,
+              2
+            ],
+            "label": "D"
+          }
+        ],
+        "alt": "A coordinate grid, x from -4 to 4 and y from -4 to 4, with four points A, B, C and D plotted near the origin."
+      },
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": 2,
+      "solution": "(-1.5, -2) means go 1.5 units LEFT (x first), then 2 units DOWN. That is point C.",
+      "misconceptions": {
+        "0": "A is at (-2, -1.5): the numbers are swapped (COORD-SWAP). Go across by the first number (-1.5), then down by the second (-2).",
+        "1": "B is at (1.5, -2): it is to the right of the y-axis. A negative x-coordinate means go LEFT.",
+        "3": "D is at (-1.5, 2): it is above the x-axis. A negative y-coordinate means go DOWN."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "C"
+        }
+      ]
+    },
+    {
+      "id": "mp2-q14",
+      "number": "14",
+      "section": "A",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Lina wants to record how many stalls each person visits at the pasar malam. She makes a tally chart with these groups: 0-5, 5-10, 10-15, 15-20. What is wrong with her groups? Tick one.",
+      "options": [
+        "The groups should not start at 0.",
+        "A person who visits 5 stalls (or 10, or 15) fits in two groups.",
+        "The groups should all be different sizes.",
+        "There are too many groups."
+      ],
+      "answer": 1,
+      "solution": "The groups overlap: 5 is in 0-5 and in 5-10, and the same happens with 10 and 15. She would not know where to put a tally for 5 stalls. Groups such as 0-4, 5-9, 10-14, 15-19 do not overlap.",
+      "misconceptions": {
+        "0": "Some people may visit 0 stalls, so 0 should be included. The problem is that 5, 10 and 15 are each in two groups.",
+        "2": "Groups of the same size are good. The problem is that the groups overlap at 5, 10 and 15.",
+        "3": "Four groups is a sensible number. The problem is that a number like 5 belongs to two groups."
+      },
+      "skill": "planning an investigation",
+      "source": "inspired-by: Cambridge Checkpoint style",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "A correct explanation that the groups overlap, e.g. '5 is in two groups', '10 is in 5-10 and 10-15', 'the groups overlap'. Accept a corrected set of groups that do not overlap with a reason."
+        }
+      ],
+      "print": {
+        "prompt": "Lina wants to record how many stalls each person visits at the pasar malam. She makes a tally chart with these groups: 0-5, 5-10, 10-15, 15-20. Explain what is wrong with her groups.",
+        "lines": 2
+      }
+    },
+    {
+      "id": "mp2-q15",
+      "number": "15",
+      "section": "A",
+      "subtopicId": "m14-s2",
+      "bookSection": "14A",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Kite ABCD is being drawn on the grid. Corners A, B and C are plotted and joined. The dashed mirror line y = x is a line of symmetry of the kite. What are the coordinates of corner D? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          4
+        ],
+        "y": [
+          -4,
+          4
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              -3
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              2,
+              -1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              3,
+              3
+            ],
+            "label": "C"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -3,
+              -3
+            ],
+            "to": [
+              2,
+              -1
+            ]
+          },
+          {
+            "from": [
+              2,
+              -1
+            ],
+            "to": [
+              3,
+              3
+            ]
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(-1, 2)",
+          "(-1,2)",
+          "-1, 2",
+          "-1,2"
+        ],
+        "keywords": []
+      },
+      "solution": "D is the reflection of B in the line y = x. Reflecting in y = x swaps the coordinates: B(2, -1) becomes (-1, 2). So D is at (-1, 2). Check: A and C are on the mirror line, so they stay put.",
+      "misconceptions": {
+        "common": "Reflecting in the line y = x swaps x and y: (2, -1) becomes (-1, 2). If you wrote (-2, 1), you swapped AND changed both signs (REFL-DIAG-NEGATE). If you wrote (2, 1) or (-2, -1), you reflected in an axis instead of the diagonal line."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(-1, 2). On paper also accept D plotted at (-1, 2) with the kite completed, if the coordinates are not written."
+        }
+      ],
+      "print": {
+        "prompt": "Kite ABCD is being drawn on the grid. Corners A, B and C are plotted and joined. The dashed mirror line y = x is a line of symmetry of the kite. Complete the kite on the grid. Write the coordinates of corner D.",
+        "answerLabel": "D = ( ____ , ____ )",
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp2-q16",
+      "number": "16",
+      "section": "A",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The table shows some information about the 60 children who ran in the sports day races. How many girls did not win a medal?",
+      "diagram": {
+        "type": "table",
+        "columns": [
+          "Children",
+          "Won a medal",
+          "Did not win a medal",
+          "Total"
+        ],
+        "rows": [
+          [
+            "Boys",
+            9,
+            19,
+            28
+          ],
+          [
+            "Girls",
+            "",
+            "?",
+            32
+          ],
+          [
+            "Total",
+            21,
+            "",
+            60
+          ]
+        ]
+      },
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "accept": [
+          "20",
+          "20 girls"
+        ]
+      },
+      "solution": "Girls who won a medal: 21 - 9 = 12. Girls who did not win a medal: 32 - 12 = 20. (Or: children who did not win a medal: 60 - 21 = 39, then 39 - 19 = 20.)",
+      "misconceptions": {
+        "common": "If you got 23, you took the boys' 9 medals away from 32 girls; first find the girls' medals (21 - 9 = 12). If you got 39, that is ALL the children without a medal, boys and girls: take away the 19 boys."
+      },
+      "skill": "reading tally charts and frequency tables",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "20"
+        }
+      ],
+      "print": {
+        "answerLabel": "girls",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q17a",
+      "number": "17(a)",
+      "group": "17",
+      "section": "A",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which statement about the scatter graph is true?",
+      "options": [
+        "The tallest child jumped the furthest.",
+        "A taller child always jumped further than a shorter child.",
+        "There is no link between height and long-jump distance.",
+        "The taller children tended to jump further."
+      ],
+      "answer": 3,
+      "solution": "The crosses go up from left to right, so taller children tended to jump further. It is a trend, not a rule: the tallest child (158 cm) jumped 2.8 m, but a 152 cm child jumped 3.0 m, and the 134 cm child jumped further than the 137 cm child.",
+      "misconceptions": {
+        "0": "Look at the cross furthest to the right (158 cm): it is at 2.8 m. The highest cross is at 3.0 m for a child of 152 cm. So the tallest child did not jump the furthest.",
+        "1": "'Always' is too strong. The 134 cm child jumped 2.2 m but the taller 137 cm child jumped only 2.0 m. A scatter graph shows a trend, not a rule for every child.",
+        "2": "The crosses go up from left to right, so there IS a link: taller children tended to jump further."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Ticks 'The taller children tended to jump further.' only."
+        }
+      ]
+    },
+    {
+      "id": "mp2-q17b",
+      "number": "17(b)",
+      "group": "17",
+      "section": "A",
+      "subtopicId": "m12-s2",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The ninth child, Daniel, is 145 cm tall and jumped 2.4 m. Which graph shows his result plotted correctly? Tick one.",
+      "options": [
+        "Graph A",
+        "Graph B",
+        "Graph C",
+        "Graph D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "scatterGraph",
+          "title": "Height and long jump",
+          "points": [
+            [
+              131,
+              1.8
+            ],
+            [
+              134,
+              2.2
+            ],
+            [
+              137,
+              2.0
+            ],
+            [
+              142,
+              2.2
+            ],
+            [
+              149,
+              2.8
+            ],
+            [
+              152,
+              3.0
+            ],
+            [
+              155,
+              2.6
+            ],
+            [
+              158,
+              2.8
+            ],
+            [
+              145,
+              2.4
+            ]
+          ],
+          "xMin": 130,
+          "xMax": 160,
+          "xStep": 10,
+          "yMin": 1.6,
+          "yMax": 3.0,
+          "yStep": 0.2,
+          "xLabel": "Height (cm)",
+          "yLabel": "Long jump (m)",
+          "alt": "Graph A: the scatter graph with one extra cross.",
+          "size": "small"
+        },
+        {
+          "type": "scatterGraph",
+          "title": "Height and long jump",
+          "points": [
+            [
+              131,
+              1.8
+            ],
+            [
+              134,
+              2.2
+            ],
+            [
+              137,
+              2.0
+            ],
+            [
+              142,
+              2.2
+            ],
+            [
+              149,
+              2.8
+            ],
+            [
+              152,
+              3.0
+            ],
+            [
+              155,
+              2.6
+            ],
+            [
+              158,
+              2.8
+            ],
+            [
+              140,
+              2.4
+            ]
+          ],
+          "xMin": 130,
+          "xMax": 160,
+          "xStep": 10,
+          "yMin": 1.6,
+          "yMax": 3.0,
+          "yStep": 0.2,
+          "xLabel": "Height (cm)",
+          "yLabel": "Long jump (m)",
+          "alt": "Graph B: the scatter graph with one extra cross.",
+          "size": "small"
+        },
+        {
+          "type": "scatterGraph",
+          "title": "Height and long jump",
+          "points": [
+            [
+              131,
+              1.8
+            ],
+            [
+              134,
+              2.2
+            ],
+            [
+              137,
+              2.0
+            ],
+            [
+              142,
+              2.2
+            ],
+            [
+              149,
+              2.8
+            ],
+            [
+              152,
+              3.0
+            ],
+            [
+              155,
+              2.6
+            ],
+            [
+              158,
+              2.8
+            ],
+            [
+              145,
+              2.6
+            ]
+          ],
+          "xMin": 130,
+          "xMax": 160,
+          "xStep": 10,
+          "yMin": 1.6,
+          "yMax": 3.0,
+          "yStep": 0.2,
+          "xLabel": "Height (cm)",
+          "yLabel": "Long jump (m)",
+          "alt": "Graph C: the scatter graph with one extra cross.",
+          "size": "small"
+        },
+        {
+          "type": "scatterGraph",
+          "title": "Height and long jump",
+          "points": [
+            [
+              131,
+              1.8
+            ],
+            [
+              134,
+              2.2
+            ],
+            [
+              137,
+              2.0
+            ],
+            [
+              142,
+              2.2
+            ],
+            [
+              149,
+              2.8
+            ],
+            [
+              152,
+              3.0
+            ],
+            [
+              155,
+              2.6
+            ],
+            [
+              158,
+              2.8
+            ],
+            [
+              150,
+              2.4
+            ]
+          ],
+          "xMin": 130,
+          "xMax": 160,
+          "xStep": 10,
+          "yMin": 1.6,
+          "yMax": 3.0,
+          "yStep": 0.2,
+          "xLabel": "Height (cm)",
+          "yLabel": "Long jump (m)",
+          "alt": "Graph D: the scatter graph with one extra cross.",
+          "size": "small"
+        }
+      ],
+      "answer": 0,
+      "solution": "145 cm is halfway between the 140 and 150 gridlines on the height axis. 2.4 m is on a gridline of the long-jump axis (the lines go up in 0.2 m). Only Graph A has a new cross at (145, 2.4).",
+      "misconceptions": {
+        "1": "Graph B has the new cross at 140 cm, on the gridline. 145 cm is halfway between the 140 and 150 gridlines.",
+        "2": "Graph C has the new cross at 2.6 m, one gridline too high (SCALE-NEXT-MARK). Count up from 2.0 in steps of 0.2: 2.2, 2.4.",
+        "3": "Graph D has the new cross at 150 cm, on the gridline. 145 cm is halfway between the 140 and 150 gridlines."
+      },
+      "skill": "plotting scatter graphs",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "On screen: Graph A. On paper: a cross clearly between the 140 and 150 gridlines (143 to 147 cm) and on the 2.4 m line (±0.05 m). A cross on the 140 or 150 gridline scores 0."
+        }
+      ],
+      "print": {
+        "prompt": "The ninth child, Daniel, is 145 cm tall and jumped 2.4 m. Plot his result on this scatter graph.",
+        "diagram": {
+          "type": "scatterGraph",
+          "title": "Height and long jump",
+          "points": [
+            [
+              131,
+              1.8
+            ],
+            [
+              134,
+              2.2
+            ],
+            [
+              137,
+              2.0
+            ],
+            [
+              142,
+              2.2
+            ],
+            [
+              149,
+              2.8
+            ],
+            [
+              152,
+              3.0
+            ],
+            [
+              155,
+              2.6
+            ],
+            [
+              158,
+              2.8
+            ]
+          ],
+          "xMin": 130,
+          "xMax": 160,
+          "xStep": 10,
+          "yMin": 1.6,
+          "yMax": 3.0,
+          "yStep": 0.2,
+          "xLabel": "Height (cm)",
+          "yLabel": "Long jump (m)",
+          "size": "large"
+        },
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp2-q18",
+      "number": "18",
+      "section": "A",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "At the pasar malam, 12 sticks of satay cost RM 9. Select ALL the calculations that give the cost, in RM, of 20 sticks of satay.",
+      "options": [
+        "9 ÷ 12 × 20",
+        "9 + 8",
+        "9 × 2 - 3",
+        "12 ÷ 9 × 20",
+        "3 × 5",
+        "9 × 20"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "First work out the cost: 12 sticks cost RM 9, so 4 sticks cost RM 3 and 20 sticks (5 lots of 4) cost RM 15. Now test each calculation: 9 ÷ 12 × 20 = 15, 9 × 2 - 3 = 18 - 3 = 15 (24 sticks minus 4 sticks), 3 × 5 = 15. The others give 17, 26.66... and 180.",
+      "misconceptions": {
+        "1": "9 + 8 = 17 adds 8 because 20 is 8 more than 12. Prices in proportion are multiplied, not added (PROP-ADDITIVE).",
+        "3": "12 ÷ 9 × 20 is about 26.67: the 12 and 9 are the wrong way round. Divide the COST by the number of sticks: 9 ÷ 12.",
+        "5": "9 × 20 = 180 is the cost if ONE stick cost RM 9. First find the cost of one stick (or of 4 sticks).",
+        "common": "Work out the answer first (RM 15), then check every calculation. More than one can be right."
+      },
+      "skill": "unitary method",
+      "source": "inspired-by: Cambridge Checkpoint style",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Ticks 9 ÷ 12 × 20, 9 × 2 - 3 and 3 × 5 only (all three, no others)."
+        }
+      ],
+      "print": {
+        "prompt": "At the pasar malam, 12 sticks of satay cost RM 9. Tick (✓) all the calculations that give the cost, in RM, of 20 sticks of satay."
+      }
+    },
+    {
+      "id": "mp2-q19",
+      "number": "19",
+      "section": "A",
+      "subtopicId": "m14-s1",
+      "bookSection": "14A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Point P (-2, 4) and the mirror line x = 1 are drawn on the grid. Arjun says, \"When I reflect P in the mirror line, the image is at (2, 4).\" Is Arjun correct? Tick the best reason.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              4
+            ],
+            "label": "P"
+          }
+        ],
+        "lines": [
+          {
+            "x": 1,
+            "label": "x = 1"
+          }
+        ]
+      },
+      "options": [
+        "No, because P is 3 units to the left of the mirror line, so its image is 3 units to the right, at (4, 4).",
+        "Yes, because reflecting always changes the sign of the x-coordinate.",
+        "No, because the image should be at (-2, -2).",
+        "Yes, because (2, 4) is the same distance from the y-axis as P."
+      ],
+      "answer": 0,
+      "solution": "Measure from the mirror line, not from the y-axis. P has x = -2, which is 3 units left of x = 1. The image is 3 units right of x = 1, at x = 4. The y-coordinate stays 4. The image is (4, 4), so Arjun is not correct: he reflected P in the y-axis.",
+      "misconceptions": {
+        "1": "Changing the sign of x only works for the y-axis (x = 0). This mirror line is x = 1, so measure the distance from x = 1 (REFL-FROM-ORIGIN).",
+        "2": "(-2, -2) is a reflection in a HORIZONTAL line (y = 1). The line x = 1 is upright, so the y-coordinate stays the same.",
+        "3": "Being the same distance from the y-axis is what a reflection in the y-axis does. The mirror here is x = 1, so the distances must be measured from x = 1 (REFL-FROM-ORIGIN)."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "inspired-by: Cambridge Checkpoint style",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "'No' with a correct reason, e.g. 'the image is (4, 4)', 'P is 3 left of the line so the image is 3 to the right', 'he reflected in the y-axis, not x = 1'. 'No' alone scores 0."
+        }
+      ],
+      "print": {
+        "prompt": "Point P (-2, 4) and the mirror line x = 1 are drawn on the grid. Arjun reflects P in the mirror line. Is Arjun correct? Explain how you know.",
+        "speech": [
+          {
+            "name": "Arjun",
+            "text": "The image of P is at (2, 4)."
+          }
+        ],
+        "lines": 2
+      }
+    },
+    {
+      "id": "mp2-q20a",
+      "number": "20(a)",
+      "group": "20",
+      "section": "A",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the bar chart. Mei Lin says, \"The satay stall had more customers than the cendol stall on every night.\" True or false: Mei Lin is correct.",
+      "answer": false,
+      "solution": "Compare the two bars for each night. On Friday and Sunday the satay stall had more, but on Thursday (45 and 50) and Saturday (85 and 90) the cendol stall had more. So Mei Lin is not correct.",
+      "misconceptions": {
+        "common": "Check EVERY night, not just one or two. On Thursday and Saturday the cendol bar is taller than the satay bar."
+      },
+      "skill": "comparing data sets",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "False"
+        }
+      ],
+      "print": {
+        "prompt": "Look at the bar chart. Is what Mei Lin says true or false?",
+        "speech": [
+          {
+            "name": "Mei Lin",
+            "text": "The satay stall had more customers than the cendol stall on every night."
+          }
+        ]
+      }
+    },
+    {
+      "id": "mp2-q20b",
+      "number": "20(b)",
+      "group": "20",
+      "section": "A",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the bar chart. Over the four nights, which stall had more customers altogether?",
+      "options": [
+        "The satay stall, by 10 customers",
+        "The cendol stall, by 10 customers",
+        "The cendol stall, by 5 customers",
+        "Both stalls had the same number of customers"
+      ],
+      "answer": 3,
+      "solution": "Satay: 45 + 60 + 85 + 70 = 260. Cendol: 50 + 55 + 90 + 65 = 260. The totals are the same.",
+      "misconceptions": {
+        "0": "Add all four bars for each stall: both totals are 260. Check each reading against the gridlines (the small lines are 5s).",
+        "1": "The cendol stall won on two nights, but the satay stall won on the other two. Add all four nights: both totals are 260.",
+        "2": "Check your readings: each small line is 5 customers. Both totals are 260."
+      },
+      "skill": "comparing data sets",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "'Both stalls had the same number' (260 each)."
+        }
+      ]
+    },
+    {
+      "id": "mp2-q21",
+      "number": "21",
+      "section": "A",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Shape A is drawn on the grid. The dashed shape B is its image after one transformation. Which transformation maps shape A onto shape B?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -1,
+          6
+        ],
+        "y": [
+          -3,
+          4
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                2,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "label": "A"
+          },
+          {
+            "points": [
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                -2
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "label": "B",
+            "style": "dashed"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              1
+            ],
+            "label": "P"
+          }
+        ]
+      },
+      "options": [
+        "A reflection in a vertical line",
+        "A rotation of 90° anticlockwise about P",
+        "A rotation of 90° clockwise about P",
+        "A translation"
+      ],
+      "answer": 2,
+      "solution": "P stays in the same place, and the shape has turned, not flipped. The side that pointed RIGHT from P now points DOWN, and the side that pointed UP now points RIGHT. Right to down is a quarter turn the way clock hands move: a rotation of 90° clockwise about P.",
+      "misconceptions": {
+        "0": "A reflection flips a shape. Here the shape has turned about P: the side pointing right now points down. That is a rotation.",
+        "1": "Check the direction: the side pointing right from P now points DOWN. Clock hands go from 3 o'clock to 6 o'clock that way, so it is clockwise (ROT-WRONG-DIRECTION).",
+        "3": "A translation slides a shape without turning it. Here the sides point in new directions, so the shape has been turned."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "'A rotation of 90° clockwise about P' only. On paper accept a description with all three facts: rotation, 90° (quarter turn) clockwise, about P (2, 1)."
+        }
+      ]
+    },
+    {
+      "id": "mp2-q22",
+      "number": "22",
+      "section": "A",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "The rectangle on the grid shows the car park at the pasar malam. Select ALL the points that are inside the car park.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -4,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -3,
+                -2
+              ],
+              [
+                4,
+                -2
+              ],
+              [
+                4,
+                3
+              ],
+              [
+                -3,
+                3
+              ]
+            ],
+            "label": "Car park",
+            "style": "shaded"
+          }
+        ]
+      },
+      "options": [
+        "(-2.5, 1)",
+        "(4.5, 0)",
+        "(1, 3.5)",
+        "(3.5, -1.5)",
+        "(-3.5, 2)",
+        "(0.5, -0.5)",
+        "(-1.5, -2.5)"
+      ],
+      "answer": [
+        0,
+        3,
+        5
+      ],
+      "solution": "The car park goes from x = -3 to x = 4 and from y = -2 to y = 3. A point is inside if its x is between -3 and 4 AND its y is between -2 and 3. (-2.5, 1), (3.5, -1.5) and (0.5, -0.5) pass both tests. (4.5, 0) is too far right, (1, 3.5) is too high, (-3.5, 2) is too far left and (-1.5, -2.5) is too low.",
+      "misconceptions": {
+        "1": "(4.5, 0) is 4.5 units right, past the right side of the car park at x = 4.",
+        "2": "(1, 3.5) is above the top of the car park (y = 3). If you plotted (3.5, 1), you swapped the numbers: x comes first (COORD-SWAP).",
+        "4": "(-3.5, 2) is 3.5 units LEFT, past the left side at x = -3.",
+        "6": "(-1.5, -2.5) is below the bottom of the car park (y = -2).",
+        "common": "Check x first (across), then y (up or down), for every point. Three points are inside."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Ticks (-2.5, 1), (3.5, -1.5) and (0.5, -0.5) only (all three, no others)."
+        }
+      ],
+      "print": {
+        "prompt": "The rectangle on the grid shows the car park at the pasar malam. Tick (✓) all the points that are inside the car park."
+      }
+    },
+    {
+      "id": "mp2-q23",
+      "number": "23",
+      "section": "A",
+      "subtopicId": "m11-s3",
+      "bookSection": "11A",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Arjun, Mei Lin and Kumar run a stall at the pasar malam. They share the profit in the ratio 2 : 3 : 4. Kumar gets RM 30 more than Arjun. How much is the total profit? Give your answer in RM.",
+      "answer": {
+        "value": 135,
+        "tolerance": 0,
+        "accept": [
+          "135",
+          "RM 135",
+          "135.00",
+          "RM 135.00"
+        ]
+      },
+      "solution": "Kumar has 4 parts and Arjun has 2 parts, so Kumar has 2 parts more. 2 parts = RM 30, so 1 part = RM 15. The whole profit is 2 + 3 + 4 = 9 parts: 9 × RM 15 = RM 135. Trap: RM 30 is the DIFFERENCE (2 parts), not one part.",
+      "misconceptions": {
+        "common": "If you got RM 270, you used RM 30 as one part; it is the difference between Kumar and Arjun, which is 4 - 2 = 2 parts. If you got RM 45, that is Mei Lin's share, not the total. One part is 30 ÷ 2 = 15, and the total is 9 parts."
+      },
+      "skill": "ratio problems using the difference",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "30 ÷ 2 = 15 (the value of one part) seen, or 4 - 2 = 2 parts linked to RM 30."
+        },
+        {
+          "code": "A1",
+          "text": "135 (RM 135)"
+        }
+      ],
+      "print": {
+        "answerLabel": "RM",
+        "space": "medium"
+      }
+    },
+    {
+      "id": "mp2-q24",
+      "number": "24",
+      "section": "A",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Each child chose one event to watch at sports day. The pie chart shows their choices, with the angle of each sector. 18 children chose the sack race. How many children chose the relay?",
+      "diagram": {
+        "type": "pieChart",
+        "title": "Event the children chose to watch",
+        "slices": [
+          {
+            "label": "Sack race",
+            "value": 108
+          },
+          {
+            "label": "Relay",
+            "value": 72
+          },
+          {
+            "label": "Long jump",
+            "value": 120
+          },
+          {
+            "label": "Tug of war",
+            "value": 60
+          }
+        ],
+        "show": "degrees"
+      },
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "accept": [
+          "12",
+          "12 children"
+        ]
+      },
+      "solution": "18 children make 108°, so each child is 108 ÷ 18 = 6°. The relay sector is 72°, so 72 ÷ 6 = 12 children chose the relay. (Or: 72 is 2/3 of 108, and 2/3 of 18 is 12.)",
+      "misconceptions": {
+        "common": "If you wrote 72, you gave the angle, not the number of children (DATA-ANGLE-AS-COUNT). First find how many degrees stand for one child: 108 ÷ 18 = 6°."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "108 ÷ 18 = 6 (degrees per child) seen, or 72 ÷ 108 (= 2/3) seen, or the total 360 ÷ 6 = 60 children seen."
+        },
+        {
+          "code": "A1",
+          "text": "12"
+        }
+      ],
+      "print": {
+        "answerLabel": "children",
+        "space": "medium"
+      }
+    },
+    {
+      "id": "mp2-q25",
+      "number": "25",
+      "section": "A",
+      "subtopicId": "m13-s2",
+      "bookSection": "13B",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "PQR is an isosceles triangle with PR = QR. Corners P and Q are plotted on the grid and joined. Corner R is above the line PQ, and the height of the triangle from PQ up to R is 6 units. What are the coordinates of R? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          6
+        ],
+        "y": [
+          -3,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              -2
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              5,
+              -2
+            ],
+            "label": "Q"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -3,
+              -2
+            ],
+            "to": [
+              5,
+              -2
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(1, 4)",
+          "(1,4)",
+          "1, 4",
+          "1,4"
+        ],
+        "keywords": []
+      },
+      "solution": "Because PR = QR, R is directly above the midpoint of PQ. P is at x = -3 and Q at x = 5; halfway is x = 1 (8 units apart, half is 4, and -3 + 4 = 1). PQ is on y = -2, and 6 units up is y = -2 + 6 = 4. So R is at (1, 4).",
+      "misconceptions": {
+        "common": "If you wrote (1, 6), you used the height as the y-coordinate: count 6 up from the line y = -2 to reach y = 4. If you wrote (4, 4), you used half the length of PQ (4) instead of the halfway point, x = 1 (MID-HALF-DIFF)."
+      },
+      "skill": "finding a missing vertex",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "x-coordinate 1 (R above the midpoint of PQ) or y-coordinate 4 (6 up from y = -2), seen or plotted."
+        },
+        {
+          "code": "A1",
+          "text": "(1, 4). On paper also accept R plotted at (1, 4) with the triangle completed, if the coordinates are not written."
+        }
+      ],
+      "print": {
+        "prompt": "PQR is an isosceles triangle with PR = QR. Corners P and Q are plotted on the grid and joined. Corner R is above the line PQ, and the height of the triangle from PQ up to R is 6 units. Complete the triangle on the grid. Write the coordinates of R.",
+        "answerLabel": "R = ( ____ , ____ )",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q26",
+      "number": "26",
+      "section": "A",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "At the pasar malam, Stall A sells 4 kuih for RM 3. Stall B sells 6 of the same kuih for RM 4.20. Aisha says, \"Stall A is cheaper, because RM 3 is less than RM 4.20.\" Is Aisha correct? Tick the best reason.",
+      "options": [
+        "Yes, because RM 3 is less than RM 4.20.",
+        "No, because Stall B gives you 2 more kuih.",
+        "No, because one kuih costs RM 0.75 at Stall A but RM 0.70 at Stall B.",
+        "Yes, because one kuih costs RM 0.75 at Stall A but RM 1.05 at Stall B."
+      ],
+      "answer": 2,
+      "solution": "Compare the price of the SAME number of kuih. One kuih at Stall A: RM 3 ÷ 4 = RM 0.75. One kuih at Stall B: RM 4.20 ÷ 6 = RM 0.70. Stall B is cheaper, so Aisha is not correct. (Or compare 12 kuih: RM 9 at A and RM 8.40 at B.) Trap: the two prices are for different numbers of kuih.",
+      "misconceptions": {
+        "0": "RM 3 buys only 4 kuih but RM 4.20 buys 6, so you cannot compare the prices directly. Find the cost of one kuih at each stall.",
+        "1": "Getting more kuih does not make a stall cheaper: you also pay more. Compare the cost of one kuih: RM 0.75 and RM 0.70.",
+        "3": "RM 1.05 is RM 4.20 ÷ 4, but Stall B sells 6 kuih for RM 4.20. Divide by 6: RM 0.70."
+      },
+      "skill": "best buy",
+      "source": "inspired-by: Cambridge Checkpoint style",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "A correct comparison method: the cost of 1 kuih at either stall (RM 0.75 or RM 0.70) seen, or the cost of the same number of kuih at both stalls (e.g. 12 kuih: RM 9 and RM 8.40)."
+        },
+        {
+          "code": "A1",
+          "text": "'No' (Stall B is cheaper) with both correct values compared, e.g. RM 0.75 and RM 0.70, or RM 9 and RM 8.40. On screen: the third reason scores 2."
+        }
+      ],
+      "print": {
+        "prompt": "At the pasar malam, Stall A sells 4 kuih for RM 3. Stall B sells 6 of the same kuih for RM 4.20. Is Aisha correct? Explain how you know.",
+        "speech": [
+          {
+            "name": "Aisha",
+            "text": "Stall A is cheaper, because RM 3 is less than RM 4.20."
+          }
+        ],
+        "lines": 3
+      }
+    },
+    {
+      "id": "mp2-q27",
+      "number": "27",
+      "section": "A",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle T was translated 4 units to the right and 3 units down. Its image is the dashed triangle U drawn on the grid. Corner P' of U is the image of corner P of T. What are the coordinates of P? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -4,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                -2
+              ],
+              [
+                4,
+                -2
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "U",
+            "style": "dashed"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              -2
+            ],
+            "label": "P'"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(-3, 1)",
+          "(-3,1)",
+          "-3, 1",
+          "-3,1"
+        ],
+        "keywords": []
+      },
+      "solution": "Work backwards: undo the move. T moved 4 right and 3 down, so go 4 LEFT and 3 UP from U. P' is at (1, -2). 1 - 4 = -3 and -2 + 3 = 1. So P is at (-3, 1). (Triangle T has corners (-3, 1), (0, 1) and (-3, 4).)",
+      "misconceptions": {
+        "common": "If you got (5, -5), you moved 4 right and 3 down again; to find the ORIGINAL shape, do the opposite move: 4 left and 3 up. If you got (-3, -5) or (5, 1), you undid only one of the two moves."
+      },
+      "skill": "finding the original point before a translation",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "One coordinate of P correct (x = -3 or y = 1), or triangle T drawn moved correctly in one direction from U (4 left or 3 up)."
+        },
+        {
+          "code": "A1",
+          "text": "(-3, 1). On paper also accept triangle T drawn at (-3, 1), (0, 1), (-3, 4) with P labelled, if the coordinates are not written."
+        }
+      ],
+      "print": {
+        "prompt": "Triangle T was translated 4 units to the right and 3 units down. Its image is the dashed triangle U drawn on the grid. Corner P' of U is the image of corner P of T. Draw triangle T on the grid. Write the coordinates of P.",
+        "answerLabel": "P = ( ____ , ____ )",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp2-q28",
+      "number": "28",
+      "section": "A",
+      "subtopicId": "m12-s3",
+      "bookSection": "12F",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "In the beanbag game at sports day, each child throws 6 beanbags at a basket and scores 1 point for each beanbag that lands in the basket. Five children played. Three of them scored 3, 5 and 4 points. Omar and Lina also played. The mean score of the five children was 3 points. Select ALL the possible pairs of scores for Omar and Lina.",
+      "options": [
+        "Omar 1, Lina 2",
+        "Omar 3, Lina 3",
+        "Omar 0, Lina 3",
+        "Omar 2, Lina 4",
+        "Omar 3, Lina 0",
+        "Omar 2, Lina 1",
+        "Omar 1, Lina 1"
+      ],
+      "answer": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "solution": "Mean 3 for 5 children means the total is 3 × 5 = 15 points. The three children scored 3 + 5 + 4 = 12. So Omar and Lina scored 15 - 12 = 3 points together. The pairs are Omar 0 and Lina 3, Omar 1 and Lina 2, Omar 2 and Lina 1, Omar 3 and Lina 0. Do not forget the pairs with 0: a child can miss with every beanbag.",
+      "misconceptions": {
+        "1": "Omar 3, Lina 3 gives each of them the mean. Their scores must make the total 15: 15 - 12 = 3 points for the two of them together.",
+        "3": "Omar 2, Lina 4 makes 6 together, as if each scored the mean. They only have 15 - 12 = 3 points between them.",
+        "6": "Omar 1, Lina 1 makes only 2. Together they need 15 - 12 = 3.",
+        "common": "Find the total first (3 × 5 = 15), then what is left for Omar and Lina (3). List every pair that adds to 3, including the ones with 0. There are four."
+      },
+      "skill": "using the mean to find a missing value",
+      "source": "inspired-by: Cambridge Checkpoint style",
+      "markScheme": [
+        {
+          "code": "B2",
+          "text": "All four pairs (Omar, Lina): (0, 3), (1, 2), (2, 1), (3, 0), and no incorrect pairs. Otherwise B1 (on paper) for: 3 × 5 = 15 or 15 - 12 = 3 seen; or 2 or 3 correct pairs and no incorrect pairs; or all four correct pairs with one incorrect pair. On screen the item scores 2 for exactly the four correct boxes and 0 otherwise."
+        }
+      ],
+      "print": {
+        "prompt": "In the beanbag game at sports day, each child throws 6 beanbags at a basket and scores 1 point for each beanbag that lands in the basket. Five children played. Three of them scored 3, 5 and 4 points. Omar and Lina also played. The mean score of the five children was 3 points. Write all the possible pairs of scores for Omar and Lina.",
+        "lines": 3
+      }
+    },
+    {
+      "id": "mp2-q29",
+      "number": "29",
+      "section": "A",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Shape S is drawn on the grid. It is rotated 90° anticlockwise about its vertex V. What are the coordinates of W', the image of corner W? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -3,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "label": "S"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "V"
+          },
+          {
+            "at": [
+              2,
+              4
+            ],
+            "label": "W"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(-2, 2)",
+          "(-2,2)",
+          "-2, 2",
+          "-2,2"
+        ],
+        "keywords": []
+      },
+      "solution": "V stays where it is. From V(1, 1), corner W(2, 4) is 1 right and 3 up. A quarter turn anticlockwise turns 'right' into 'up' and 'up' into 'left'. So W' is 1 up and 3 left of V: (1 - 3, 1 + 1) = (-2, 2). The whole image has corners (1, 1), (1, 4), (0, 4), (0, 2), (-2, 2), (-2, 1).",
+      "misconceptions": {
+        "common": "If you got (4, 0), you turned clockwise (ROT-WRONG-DIRECTION): anticlockwise is the opposite way to clock hands. If you got (-4, 2), you turned about the origin instead of V (ROT-ABOUT-ORIGIN). If you got (0, -2), you made a half turn. Use tracing paper: hold V still with your pencil and turn a quarter turn."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B2",
+          "text": "W' = (-2, 2), with or without the drawing. The image has corners (1, 1), (1, 4), (0, 4), (0, 2), (-2, 2), (-2, 1). Otherwise B1 for: the correct image drawn but W' wrong or missing; or a correct 90° CLOCKWISE rotation about V drawn (W' at (4, 0)); or at least 4 corners of the image correct."
+        }
+      ],
+      "print": {
+        "prompt": "Shape S is drawn on the grid. Draw the image of shape S after a rotation of 90° anticlockwise about its vertex V. Write the coordinates of W', the image of corner W.",
+        "answerLabel": "W' = ( ____ , ____ )",
+        "space": "small"
+      }
+    }
+  ]
+}

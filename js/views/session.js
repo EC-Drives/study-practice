@@ -5,7 +5,9 @@
 // go online (js/data/sync.js).
 
 import { h, clear, icon, button, dialog, announce, toast, rovingRadios, closeDialogs } from '../ui.js';
-import { loadSubject, indexQuestions, indexTopics, subjectTitle } from '../content.js';
+import { loadSubject, indexQuestions, indexTopics, loadPaper } from '../content.js';
+import { sessionTitle } from '../report.js';
+import { requestPersistence } from '../db.js';
 import { isAnswered, startingOrder } from '../marking.js';
 import { Countdown, QuestionClock, formatClock } from '../timer.js';
 import { submitSession } from '../practice.js';
@@ -34,7 +36,25 @@ export async function sessionView(el, app, sessionId) {
     return;
   }
   const topics = await loadSubject(session.subject);
-  const qmap = questionsForSession(indexQuestions(topics), session); // with this session's generated questions
+  // a mock paper: its own questions (fixed, in number order); otherwise the bank plus this
+  // session's generated questions
+  const paperMode = session.mode === 'paper';
+  let paper = null;
+  if (paperMode) {
+    try { paper = await loadPaper(session.paperId); } catch { paper = null; }
+  }
+  if (paperMode && !paper) {
+    // the paper could not be loaded just now: keep her answers and offer to try again (never
+    // delete an unfinished paper because a file was briefly unavailable)
+    clear(el).append(h('section', { class: 'card' },
+      h('h1', { text: 'The paper could not be opened' }),
+      h('p', { text: 'Your answers so far are safe. Please try again in a moment.' }),
+      h('div', { class: 'row wrap' },
+        button('Try again', { icon: 'again', cls: 'btn-primary', onClick: () => sessionView(el, app, sessionId) }),
+        h('a', { href: '#/', class: 'btn btn-ghost' }, icon('home'), h('span', { text: 'Home' })))));
+    return;
+  }
+  const qmap = questionsForSession(indexQuestions(topics, paper ? [paper] : []), session);
   const questions = session.questionIds.map((id) => qmap.get(id)).filter(Boolean);
   if (questions.length !== session.questionIds.length) {
     // a question bank changed under an unfinished session: keep the questions that still exist
@@ -90,7 +110,7 @@ export async function sessionView(el, app, sessionId) {
   const navToggle = button('Questions', { icon: 'grid', cls: 'btn-ghost btn-small qnav-toggle', onClick: () => toggleNav() });
   navToggle.setAttribute('aria-expanded', 'false');
   navToggle.setAttribute('aria-controls', 'qnav');
-  const finishBtn = button('Finish', { icon: 'check', cls: 'btn-small btn-finish', onClick: () => confirmFinish() });
+  const finishBtn = button(session.mode === 'paper' ? 'Hand in' : 'Finish', { icon: 'check', cls: 'btn-small btn-finish', onClick: () => confirmFinish() });
   const bar = h('div', { class: 'session-bar' }, timerEl, progressEl, h('span', { class: 'spacer' }), navToggle, finishBtn);
   const nav = h('nav', { id: 'qnav', class: 'qnav', 'aria-label': 'All questions', hidden: true });
   const qwrap = h('div', { class: 'qwrap' });
@@ -98,7 +118,8 @@ export async function sessionView(el, app, sessionId) {
   const flagBtn = button('Flag', { icon: 'flag', cls: 'btn-ghost btn-flag', onClick: () => toggleFlag() });
   const nextBtn = button('Next', { icon: 'right', cls: 'btn-primary', onClick: () => (index === questions.length - 1 ? confirmFinish() : go(index + 1)) });
   const foot = h('div', { class: 'session-foot' }, prevBtn, flagBtn, nextBtn);
-  const title = session.mode === 'mixed' ? `Mixed revision: ${subjectTitle(session.subject)}` : session.topicTitle;
+  const title = sessionTitle(session);
+  const numberOf = (q, i) => (paperMode && q.number ? q.number : String(i + 1));
   clear(el).append(h('div', { class: 'session' }, bar, nav, h('p', { class: 'session-title muted small', text: title }), qwrap, foot));
 
   function toggleNav(force) {
@@ -114,19 +135,19 @@ export async function sessionView(el, app, sessionId) {
     questions.forEach((q, i) => {
       const ans = isAnswered(q, st.responses[q.id]);
       const fl = flagged.has(q.id);
-      const label = `Question ${i + 1}${ans ? ', answered' : ', not answered'}${fl ? ', flagged' : ''}${i === index ? ', showing now' : ''}`;
+      const label = `Question ${numberOf(q, i)}${ans ? ', answered' : ', not answered'}${fl ? ', flagged' : ''}${i === index ? ', showing now' : ''}`;
       grid.append(h('li', {}, h('button', {
         type: 'button',
         class: `qnav-btn${ans ? ' is-answered' : ''}${fl ? ' is-flagged' : ''}${i === index ? ' is-current' : ''}`,
         'aria-label': label,
         'aria-current': i === index ? 'step' : null,
         onClick: () => { go(i); toggleNav(false); },
-      }, h('span', { text: String(i + 1) }), fl ? icon('flag', { size: 14 }) : null)));
+      }, h('span', { text: numberOf(q, i) }), fl ? icon('flag', { size: 14 }) : null)));
     });
     const answered = questions.filter((q) => isAnswered(q, st.responses[q.id])).length;
     nav.append(grid, h('p', { class: 'small muted', text: `${answered} of ${questions.length} answered${flagged.size ? `, ${flagged.size} flagged to check again` : ''}.` }));
     // a live region: only touch it when it changes, or a screen reader repeats it at every key press
-    const progress = `Question ${index + 1} of ${questions.length}`;
+    const progress = paperMode ? `Question ${numberOf(questions[index], index)} (${index + 1} of ${questions.length})` : `Question ${index + 1} of ${questions.length}`;
     if (progressEl.textContent !== progress) progressEl.textContent = progress;
   }
 
@@ -156,10 +177,11 @@ export async function sessionView(el, app, sessionId) {
     const promptId = `prompt-${index}`;
     const card = h('section', { class: 'qcard', 'aria-labelledby': promptId },
       h('div', { class: 'qmeta' },
-        h('span', { class: 'qnum', text: `Question ${index + 1}` }),
+        h('span', { class: 'qnum', text: `Question ${numberOf(q, index)}` }),
         h('span', { class: 'qmarks', text: `${q.marks} mark${q.marks === 1 ? '' : 's'}` }),
-        h('span', { class: `qdiff d${q.difficulty}`, 'aria-label': `Difficulty ${q.difficulty} of 3` }, ...[1, 2, 3].map((d) => h('span', { class: d <= q.difficulty ? 'on' : '' })))),
-      h('h2', { class: 'prompt', id: promptId, tabindex: '-1', text: q.prompt }),
+        paperMode ? null : h('span', { class: `qdiff d${q.difficulty}`, 'aria-label': `Difficulty ${q.difficulty} of 3` }, ...[1, 2, 3].map((d) => h('span', { class: d <= q.difficulty ? 'on' : '' })))),
+      groupBlock(q, 'session', `${promptId}-stem`), // a part of a multi-part paper question: the shared stem and picture first
+      h('h2', { class: 'prompt', id: promptId, tabindex: '-1', text: q.prompt, 'aria-describedby': q.groupStem || q.groupDiagram ? `${promptId}-stem` : null }),
       diagramFor(q, 'session'), // INTEGRATION POINT: question.diagram (js/hooks.js)
       h('p', { class: 'hint', text: TYPE_HINT[q.type] || '' }),
       widget(q, r, promptId));
@@ -177,12 +199,19 @@ export async function sessionView(el, app, sessionId) {
     clear(qwrap).append(card);
     prevBtn.disabled = index === 0;
     const last = index === questions.length - 1;
-    nextBtn.querySelector('span:last-child').textContent = last ? 'Finish' : 'Next';
+    nextBtn.querySelector('span:last-child').textContent = last ? (paperMode ? 'Hand in' : 'Finish') : 'Next';
     flagBtn.setAttribute('aria-pressed', String(flagged.has(q.id)));
     flagBtn.querySelector('span:last-child').textContent = flagged.has(q.id) ? 'Flagged' : 'Flag';
     updateNav();
     card.querySelector('.prompt').focus({ preventScroll: true });
     window.scrollTo(0, 0);
+  }
+
+  function groupBlock(q, where, id) {
+    if (!q.groupStem && !q.groupDiagram) return null;
+    return h('div', { class: 'group-stem', id },
+      q.groupStem ? h('p', { text: q.groupStem }) : null,
+      q.groupDiagram ? diagramFor({ id: `${q.id}-group`, diagram: q.groupDiagram }, where) : null);
   }
 
   function widget(q, r, promptId) {
@@ -350,14 +379,27 @@ export async function sessionView(el, app, sessionId) {
   async function confirmFinish() {
     const answered = questions.filter((q) => isAnswered(q, st.responses[q.id])).length;
     const left = questions.length - answered;
+    // the questions still blank (and the flagged ones), each a button that goes straight to it:
+    // "never leave a blank"
+    const jumpList = (idx, label) => h('div', { class: 'jump-list' },
+      h('p', { class: 'small', text: label }),
+      h('ul', { class: 'jump-btns' }, ...idx.map((i) => h('li', {}, h('button', {
+        type: 'button',
+        class: 'btn btn-ghost btn-small',
+        'aria-label': `Go to question ${numberOf(questions[i], i)}`,
+        onClick: () => { closeDialogs(); go(i); },
+      }, h('span', { text: numberOf(questions[i], i) }))))));
+    const blank = questions.map((q, i) => (isAnswered(q, st.responses[q.id]) ? -1 : i)).filter((i) => i >= 0);
+    const flaggedIdx = questions.map((q, i) => (flagged.has(q.id) ? i : -1)).filter((i) => i >= 0);
     const msg = h('div', {},
       h('p', { text: `You have answered ${answered} of ${questions.length} questions.` }),
       left ? h('p', { text: `${left} still ${left === 1 ? 'has' : 'have'} no answer. A best guess can still earn marks.` }) : h('p', { text: 'Every question has an answer. Well done!' }),
-      flagged.size ? h('p', { text: `You flagged ${flagged.size} to check again.` }) : null,
+      left ? jumpList(blank, left === 1 ? 'Not answered yet (tap to go to it):' : 'Not answered yet (tap one to go to it):') : null,
+      flaggedIdx.length ? (paperMode ? jumpList(flaggedIdx, 'Flagged to check again:') : h('p', { text: `You flagged ${flagged.size} to check again.` })) : null,
       h('p', { class: 'muted', text: `Time left: ${formatClock(countdown.remaining())}.` }));
-    const choice = await dialog('Finish and see your results?', msg, [
+    const choice = await dialog(paperMode ? 'Hand in your paper?' : 'Finish and see your results?', msg, [
       { label: 'Keep going', value: false, cls: 'btn-ghost' },
-      { label: 'Finish', value: true, cls: 'btn-primary', icon: 'check' },
+      { label: paperMode ? 'Hand in' : 'Finish', value: true, cls: 'btn-primary', icon: 'check' },
     ]);
     if (choice) finish({ early: countdown.remaining() > 1, timedOut: false });
   }
@@ -379,7 +421,7 @@ export async function sessionView(el, app, sessionId) {
     clearInterval(tick);
     clearTimeout(saveTimer);
     try {
-      await submitSession(app.db, session, { questions: qmap, topics: indexTopics(topics), topicOrder: [...topics].sort((a, b) => a.order - b.order) }, { ...how, elapsedSec, thumbs });
+      await submitSession(app.db, session, { questions: qmap, topics: indexTopics(topics), topicOrder: [...topics].sort((a, b) => (a.bookChapterNumber ?? 1000 + a.order) - (b.bookChapterNumber ?? 1000 + b.order)) }, { ...how, elapsedSec, thumbs });
       if (app.sync) {
         // linked mode: saved on the device; now queue it to go online (sent at once if possible)
         try {
@@ -387,6 +429,7 @@ export async function sessionView(el, app, sessionId) {
           app.sync.flush().catch(() => {});
         } catch (e) { console.warn('Could not queue the session to go online', e); }
       }
+      requestPersistence(); // her progress lives on this device: ask again to keep it (the browser may agree now)
       location.hash = `#/results/${encodeURIComponent(session.id)}`;
     } catch (e) {
       console.error(e);

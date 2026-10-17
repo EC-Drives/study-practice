@@ -4,13 +4,31 @@
   "title": "Reflection and Rotation",
   "order": 14,
   "bookChapter": "Chapter 14: Reflection and Rotation",
+  "bookChapterNumber": 14,
+  "bookSections": [
+    {
+      "id": "14A",
+      "title": "Reflect 2D Shapes",
+      "page": 228
+    },
+    {
+      "id": "14B",
+      "title": "Rotate Shapes Around a Vertex",
+      "page": 231
+    },
+    {
+      "id": "14C",
+      "title": "Identify Rotational Symmetry",
+      "page": 234
+    }
+  ],
   "frameworkRefs": [
     "6Gp.04",
     "6Gp.05",
     "6Gg.08"
   ],
   "preamble": {
-    "whatYouWillLearn": "You will reflect points and shapes in horizontal, vertical and diagonal mirror lines and work out the coordinates of the image. You will rotate shapes 90° clockwise or anticlockwise about one of their corners. You will also find symmetry in patterns and tell reflections, rotations and translations apart.",
+    "whatYouWillLearn": "You will reflect points and shapes in horizontal, vertical and diagonal mirror lines and work out the coordinates of the image. You will rotate shapes 90° clockwise or anticlockwise about one of their corners. You will also find the order of rotational symmetry of shapes, letters and patterns, and tell reflections, rotations and translations apart.",
     "whyItMatters": "Reflections and rotations help you picture how shapes move and fit together. Designers, engineers and game makers use them every day, and they are the start of transformation geometry in secondary school.",
     "realWorld": [
       "Batik and songket patterns often repeat a motif by reflecting or rotating it",
@@ -39,6 +57,11 @@
         "id": "m14-s4",
         "title": "Symmetry and comparing transformations",
         "summary": "Find lines of symmetry and the order of rotational symmetry of patterns, complete symmetrical shapes, and tell reflection, rotation and translation apart."
+      },
+      {
+        "id": "m14-s5",
+        "title": "Rotational symmetry",
+        "summary": "How many times a shape, letter or pattern fits onto itself in one full turn (order 1 to 4)."
       }
     ]
   },
@@ -46,6 +69,7 @@
     {
       "id": "m14-q001",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -96,6 +120,7 @@
     {
       "id": "m14-q002",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -146,6 +171,7 @@
     {
       "id": "m14-q003",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -161,6 +187,7 @@
     {
       "id": "m14-q004",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -211,6 +238,7 @@
     {
       "id": "m14-q005",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -261,6 +289,7 @@
     {
       "id": "m14-q006",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -307,6 +336,7 @@
     {
       "id": "m14-q007",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -353,6 +383,7 @@
     {
       "id": "m14-q008",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -434,6 +465,7 @@
     {
       "id": "m14-q009",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -449,6 +481,7 @@
     {
       "id": "m14-q010",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -499,6 +532,7 @@
     {
       "id": "m14-q011",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -550,6 +584,7 @@
     {
       "id": "m14-q012",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "match",
       "difficulty": 3,
       "marks": 3,
@@ -609,6 +644,7 @@
     {
       "id": "m14-q013",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -668,6 +704,7 @@
     {
       "id": "m14-q014",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -709,6 +746,7 @@
     {
       "id": "m14-q015",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -770,6 +808,7 @@
     {
       "id": "m14-q016",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -829,6 +868,7 @@
     {
       "id": "m14-q017",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -858,6 +898,7 @@
     {
       "id": "m14-q018",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -948,6 +989,7 @@
     {
       "id": "m14-q019",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -999,6 +1041,7 @@
     {
       "id": "m14-q020",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1058,6 +1101,7 @@
     {
       "id": "m14-q021",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "short",
       "difficulty": 3,
       "marks": 2,
@@ -1119,6 +1163,7 @@
     {
       "id": "m14-q022",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -1187,6 +1232,7 @@
     {
       "id": "m14-q023",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1258,6 +1304,7 @@
     {
       "id": "m14-q024",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1320,6 +1367,7 @@
     {
       "id": "m14-q025",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -1335,6 +1383,7 @@
     {
       "id": "m14-q026",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -1399,6 +1448,7 @@
     {
       "id": "m14-q027",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1474,6 +1524,7 @@
     {
       "id": "m14-q028",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1549,6 +1600,7 @@
     {
       "id": "m14-q029",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "short",
       "difficulty": 2,
       "marks": 2,
@@ -1637,6 +1689,7 @@
     {
       "id": "m14-q030",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1743,6 +1796,7 @@
     {
       "id": "m14-q031",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -1758,6 +1812,7 @@
     {
       "id": "m14-q032",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1830,6 +1885,7 @@
     {
       "id": "m14-q033",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1905,6 +1961,7 @@
     {
       "id": "m14-q034",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "order",
       "difficulty": 1,
       "marks": 2,
@@ -1933,6 +1990,7 @@
     {
       "id": "m14-q035",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
@@ -1991,6 +2049,7 @@
     {
       "id": "m14-q036",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "short",
       "difficulty": 3,
       "marks": 3,
@@ -2043,6 +2102,7 @@
     {
       "id": "m14-q037",
       "subtopicId": "m14-s4",
+      "bookSection": "14B",
       "type": "match",
       "difficulty": 1,
       "marks": 2,
@@ -2084,6 +2144,7 @@
     {
       "id": "m14-q038",
       "subtopicId": "m14-s4",
+      "bookSection": "14C",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -2146,6 +2207,7 @@
     {
       "id": "m14-q039",
       "subtopicId": "m14-s4",
+      "bookSection": "14C",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -2161,6 +2223,7 @@
     {
       "id": "m14-q040",
       "subtopicId": "m14-s4",
+      "bookSection": "14A",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -2185,6 +2248,7 @@
     {
       "id": "m14-q041",
       "subtopicId": "m14-s4",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -2251,6 +2315,7 @@
     {
       "id": "m14-q042",
       "subtopicId": "m14-s4",
+      "bookSection": "14B",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -2278,6 +2343,7 @@
     {
       "id": "m14-q043",
       "subtopicId": "m14-s4",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -2391,6 +2457,7 @@
     {
       "id": "m14-q044",
       "subtopicId": "m14-s4",
+      "bookSection": "14C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -2469,6 +2536,7 @@
     {
       "id": "m14-q045",
       "subtopicId": "m14-s4",
+      "bookSection": "14C",
       "type": "truefalse",
       "difficulty": 3,
       "marks": 1,
@@ -2484,6 +2552,7 @@
     {
       "id": "m14-q046",
       "subtopicId": "m14-s4",
+      "bookSection": "14C",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -2554,6 +2623,7 @@
     {
       "id": "m14-q047",
       "subtopicId": "m14-s4",
+      "bookSection": "14A",
       "type": "multi",
       "difficulty": 3,
       "marks": 3,
@@ -2581,6 +2651,7 @@
     {
       "id": "m14-q048",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -2664,6 +2735,7 @@
     {
       "id": "m14-q049",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -2756,6 +2828,7 @@
     {
       "id": "m14-q050",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "short",
       "difficulty": 2,
       "marks": 2,
@@ -2848,6 +2921,7 @@
     {
       "id": "m14-q051",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -2961,6 +3035,7 @@
     {
       "id": "m14-q052",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -3031,6 +3106,7 @@
     {
       "id": "m14-q053",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "short",
       "difficulty": 2,
       "marks": 2,
@@ -3119,6 +3195,7 @@
     {
       "id": "m14-q054",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "match",
       "difficulty": 3,
       "marks": 3,
@@ -3213,6 +3290,7 @@
     {
       "id": "m14-q055",
       "subtopicId": "m14-s4",
+      "bookSection": "14B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -3283,6 +3361,7 @@
     {
       "id": "m14-q056",
       "subtopicId": "m14-s4",
+      "bookSection": "14B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -3375,6 +3454,7 @@
     {
       "id": "m14-q057",
       "subtopicId": "m14-s1",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -3648,6 +3728,7 @@
     {
       "id": "m14-q058",
       "subtopicId": "m14-s3",
+      "bookSection": "14B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -3929,6 +4010,7 @@
     {
       "id": "m14-q059",
       "subtopicId": "m14-s2",
+      "bookSection": "14A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -4206,24 +4288,37 @@
     {
       "id": "m14-q060",
       "subtopicId": "m14-s4",
+      "bookSection": "14C",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "The diagram shows a regular hexagon. What is its order of rotational symmetry?",
+      "prompt": "The diagram shows an equilateral triangle. What is its order of rotational symmetry?",
       "diagram": {
         "type": "polygon",
-        "regular": 6
-      },
-      "answer": {
-        "value": 6,
-        "tolerance": 0,
-        "accept": [
-          "order 6"
+        "regular": 3,
+        "sides": [
+          {
+            "ticks": 1
+          },
+          {
+            "ticks": 1
+          },
+          {
+            "ticks": 1
+          }
         ]
       },
-      "solution": "A regular hexagon has 6 equal sides and 6 equal angles. Turn it about its centre: it fits onto its own outline after every one-sixth of a turn (60°). That happens 6 times in one full turn, so the order of rotational symmetry is 6.",
+      "answer": {
+        "value": 3,
+        "tolerance": 0,
+        "accept": [
+          "order 3",
+          "three"
+        ]
+      },
+      "solution": "An equilateral triangle has 3 equal sides and 3 equal angles. Turn it about its centre: it fits onto its own outline after every third of a turn (120°, 240° and 360°). That is 3 times in one full turn, so the order of rotational symmetry is 3.",
       "misconceptions": {
-        "common": "Answering 3 or 2, which counts only some of the turns. Count every position in one full turn where the hexagon fits exactly onto its outline: there are 6."
+        "common": "Answering 1 or 2. A half turn does not work for a triangle (a corner would point down), but a third of a turn does. Count every position in one full turn where the triangle fits exactly onto its outline: there are 3."
       },
       "skill": "symmetry in patterns",
       "source": "original"
@@ -4231,6 +4326,7 @@
     {
       "id": "m14-q061",
       "subtopicId": "m14-s4",
+      "bookSection": "14C",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -4289,6 +4385,7 @@
     {
       "id": "m14-q062",
       "subtopicId": "m14-s4",
+      "bookSection": "14C",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -4334,6 +4431,3254 @@
         "common": "Thinking a rectangle behaves like a square because all its angles are right angles. A square fits after every quarter turn; a rectangle only after a half turn, because its sides are not all equal."
       },
       "skill": "symmetry in patterns",
+      "source": "original"
+    },
+    {
+      "id": "m03-q037",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the order of rotational symmetry of a square?",
+      "options": [
+        "4",
+        "2",
+        "8",
+        "90"
+      ],
+      "answer": 0,
+      "solution": "Turn a square around its centre. It looks the same after 90°, 180°, 270° and 360°. That is 4 times, so the order is 4.",
+      "misconceptions": {
+        "1": "You counted only the half turn. A square also fits after a quarter turn and a three-quarter turn, as well as the full turn: 4 times.",
+        "2": "You added the 4 lines of symmetry to the 4 turns. The order only counts how many times the shape fits onto itself in one full turn.",
+        "3": "90° is the angle of each turn, not the order. The order is the number of times it fits in a full turn: 360 ÷ 90 = 4."
+      },
+      "skill": "order of rotational symmetry",
+      "source": "original"
+    },
+    {
+      "id": "m03-q038",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: A shape with rotational symmetry of order 1 only looks the same after a full turn of 360°.",
+      "answer": true,
+      "solution": "Every shape looks the same after a full turn. If that is the ONLY time it fits onto itself, its order is 1, which means it has no rotational symmetry. The statement is true.",
+      "misconceptions": {
+        "common": "Thinking order 1 means the shape has some special symmetry. Order 1 really means no rotational symmetry."
+      },
+      "skill": "order of rotational symmetry",
+      "source": "original"
+    },
+    {
+      "id": "m03-q039",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Shapes A, B, C and D are drawn on the squared grid. Shape B is an equilateral triangle. Match each shape to its order of rotational symmetry.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          14
+        ],
+        "y": [
+          0,
+          12
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                3,
+                6
+              ],
+              [
+                5,
+                9
+              ],
+              [
+                3,
+                11
+              ],
+              [
+                1,
+                9
+              ]
+            ],
+            "label": "A"
+          },
+          {
+            "points": [
+              [
+                8,
+                7
+              ],
+              [
+                13,
+                7
+              ],
+              [
+                10.5,
+                11.33
+              ]
+            ],
+            "label": "B"
+          },
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                5
+              ],
+              [
+                1,
+                5
+              ]
+            ],
+            "label": "C"
+          },
+          {
+            "points": [
+              [
+                7,
+                1
+              ],
+              [
+                13,
+                1
+              ],
+              [
+                13,
+                4
+              ],
+              [
+                7,
+                4
+              ]
+            ],
+            "label": "D"
+          }
+        ]
+      },
+      "options": {
+        "left": [
+          "Shape A",
+          "Shape B",
+          "Shape C",
+          "Shape D"
+        ],
+        "right": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "6"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "A is a kite (two pairs of equal sides next to each other): it fits onto itself only after a full turn, so order 1. B, equilateral triangle: fits after 120°, 240° and 360°, so order 3. C is a square (4 by 4): fits after every quarter turn, order 4. D is a rectangle (6 by 3, not a square): fits after 180° and 360°, order 2.",
+      "misconceptions": {
+        "common": "Giving the kite (shape A) order 2 because it has a line of symmetry. A kite only fits onto itself after a full turn, so its order is 1. And the rectangle (shape D) is not a square, so it does not fit after a quarter turn: order 2, not 4."
+      },
+      "skill": "order of rotational symmetry",
+      "source": "original"
+    },
+    {
+      "id": "m03-q040",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A capital letter H is drawn with two equal upright lines joined by a crossbar exactly in the middle. What is its order of rotational symmetry?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0,
+        "accept": [
+          "order 2",
+          "two"
+        ]
+      },
+      "solution": "Turn the H halfway round (180°). It looks exactly the same. After a full turn it fits again. So it fits 2 times in a full turn: order 2.",
+      "misconceptions": {
+        "common": "Answering 1 because the H does not fit after a quarter turn. It does fit after a half turn, so its order is 2."
+      },
+      "skill": "rotational symmetry of letters and patterns",
+      "source": "original"
+    },
+    {
+      "id": "m03-q041",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the capital letters (written in plain block capitals) that have rotational symmetry of order 2.",
+      "options": [
+        "H",
+        "N",
+        "A",
+        "Z",
+        "T",
+        "E"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "Turn each letter halfway round (180°). H, N and Z look exactly the same, so they have order 2. A, T and E do not, so they have order 1 (even though A, T and E have lines of symmetry).",
+      "misconceptions": {
+        "2": "A has a line of symmetry, but upside down it does not look like A, so its order is 1.",
+        "4": "T upside down is not T, so its order is 1.",
+        "5": "E has a line of symmetry across the middle, but after a half turn it faces the other way, so its order is 1."
+      },
+      "skill": "rotational symmetry of letters and patterns",
+      "source": "original"
+    },
+    {
+      "id": "m03-q042",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A pattern looks exactly the same after a quarter turn (90°), and it does not look the same after any smaller turn. What is its order of rotational symmetry?",
+      "options": [
+        "1",
+        "2",
+        "90",
+        "4"
+      ],
+      "answer": 3,
+      "solution": "If it fits after a quarter turn, it fits after every quarter turn: 90°, 180°, 270° and 360°. That is 4 times, so the order is 4.",
+      "misconceptions": {
+        "0": "You counted only the first quarter turn. It fits after 90°, 180°, 270° and 360°.",
+        "1": "You counted only the half turn and the full turn. It also fits after 90° and 270°.",
+        "2": "90 is the angle of the turn, not the order. Order = 360 ÷ 90 = 4."
+      },
+      "skill": "order of rotational symmetry",
+      "source": "original"
+    },
+    {
+      "id": "m03-q043",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The drawing shows a ceiling fan seen from below. It has 3 identical blades, evenly spaced, so its order of rotational symmetry is 3. What is the smallest angle you must turn it through so that it looks the same again? Give your answer in degrees.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0.3746,
+            0.9272
+          ],
+          [
+            1.2096,
+            4.8515
+          ],
+          [
+            -1.3064,
+            5.2396
+          ],
+          [
+            -0.3746,
+            0.9272
+          ],
+          [
+            -0.9903,
+            -0.1392
+          ],
+          [
+            -4.8063,
+            -1.3782
+          ],
+          [
+            -3.8844,
+            -3.7512
+          ],
+          [
+            -0.6157,
+            -0.788
+          ],
+          [
+            0.6157,
+            -0.788
+          ],
+          [
+            3.5967,
+            -3.4733
+          ],
+          [
+            5.1908,
+            -1.4884
+          ],
+          [
+            0.9903,
+            -0.1392
+          ]
+        ],
+        "shaded": true,
+        "size": "small",
+        "alt": "A ceiling fan seen from below: three identical blades spaced evenly round the centre."
+      },
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "accept": [
+          "120°",
+          "120 degrees"
+        ]
+      },
+      "solution": "A full turn is 360°. The fan fits onto itself 3 times in a full turn (once for each blade), so each turn is 360 ÷ 3 = 120°.",
+      "misconceptions": {
+        "common": "Using 90° (a quarter turn) for every shape. The angle depends on the order: 360 ÷ order = 360 ÷ 3 = 120°."
+      },
+      "skill": "rotational symmetry of letters and patterns",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m03-q066",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The shape drawn is an isosceles trapezium (its two sloping sides are equal). What is its order of rotational symmetry?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "sides": [
+          null,
+          {
+            "ticks": 1
+          },
+          null,
+          {
+            "ticks": 1
+          }
+        ],
+        "size": "small"
+      },
+      "answer": {
+        "value": 1,
+        "tolerance": 0,
+        "accept": [
+          "order 1",
+          "one"
+        ]
+      },
+      "solution": "Turn the trapezium about its centre. After a half turn the long side would be at the top, so it does not fit. It only looks the same after a full turn, so its order of rotational symmetry is 1. (It has 1 line of symmetry, but that is a different kind of symmetry.)",
+      "misconceptions": {
+        "common": "If you said 0: every shape fits onto itself after a full turn, so the smallest order is 1. If you said 2: the trapezium has a line of symmetry, but a half turn puts the long side at the top, so it does not fit."
+      },
+      "skill": "order of rotational symmetry",
+      "source": "original"
+    },
+    {
+      "id": "m03-q067",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the four shapes. Shape C is an equilateral triangle and shape D is a square. Which shape has rotational symmetry of order 2?",
+      "optionDiagrams": [
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6.5,
+              3
+            ],
+            [
+              1.5,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "arrows": 1
+            },
+            {
+              "arrows": 2
+            },
+            {
+              "arrows": 1
+            },
+            {
+              "arrows": 2
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              2,
+              0
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "ticks": 2
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 2
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "regular": 3
+        },
+        {
+          "type": "polygon",
+          "regular": 4
+        }
+      ],
+      "options": [
+        "Shape A",
+        "Shape B",
+        "Shape C",
+        "Shape D"
+      ],
+      "answer": 0,
+      "solution": "Shape A is a parallelogram. Turn it halfway round (180°) about its centre and it fits onto itself; it fits again after a full turn. That is 2 times, so its order is 2. Shape B (a kite) has order 1, the equilateral triangle C has order 3 and the square D has order 4.",
+      "misconceptions": {
+        "1": "Shape B is a kite. It has one line of symmetry, but it only fits onto itself after a full turn, so its order is 1.",
+        "2": "The equilateral triangle fits onto itself 3 times in a full turn (every 120°), so its order is 3, not 2.",
+        "3": "The square fits onto itself after every quarter turn, 4 times in all, so its order is 4, not 2."
+      },
+      "skill": "order of rotational symmetry",
+      "source": "original"
+    },
+    {
+      "id": "m03-q068",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The shape drawn is a rectangle that is not a square. What is the smallest angle you must turn it through, about its centre, so that it looks exactly the same again? Give your answer in degrees.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          {
+            "right": true
+          }
+        ],
+        "size": "small"
+      },
+      "answer": {
+        "value": 180,
+        "tolerance": 0,
+        "accept": [
+          "180°",
+          "180 degrees",
+          "a half turn"
+        ]
+      },
+      "solution": "After a quarter turn (90°) the long sides would be upright, so the rectangle does not fit. After a half turn (180°) it fits exactly. So the smallest angle is 180°, and the order of rotational symmetry is 2 (360 ÷ 180 = 2).",
+      "misconceptions": {
+        "common": "If you said 90°, you used a quarter turn for every shape. A rectangle that is not a square only fits again after a half turn: 180°. If you said 2, that is the order, not the angle."
+      },
+      "skill": "rotational symmetry of letters and patterns",
+      "source": "original"
+    },
+    {
+      "id": "m14-q063",
+      "subtopicId": "m14-s1",
+      "bookSection": "14A",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Shape P touches the mirror line x = -1. Which grid shows the reflection of shape P in the mirror line x = -1? The dashed shape is the image.",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -6,
+            4
+          ],
+          "y": [
+            0,
+            5
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  -1,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  -1,
+                  4
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  -2,
+                  1
+                ],
+                [
+                  -3,
+                  3
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "x": -1,
+              "label": "x = -1"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -6,
+            4
+          ],
+          "y": [
+            0,
+            5
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  -1,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  -1,
+                  4
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  -5,
+                  1
+                ],
+                [
+                  -2,
+                  1
+                ],
+                [
+                  -1,
+                  3
+                ],
+                [
+                  -5,
+                  4
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "x": -1,
+              "label": "x = -1"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -6,
+            4
+          ],
+          "y": [
+            0,
+            5
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  -1,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  -1,
+                  4
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  -1,
+                  1
+                ],
+                [
+                  -4,
+                  1
+                ],
+                [
+                  -5,
+                  3
+                ],
+                [
+                  -1,
+                  4
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "x": -1,
+              "label": "x = -1"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -6,
+            4
+          ],
+          "y": [
+            0,
+            5
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  -1,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  -1,
+                  4
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  -2,
+                  1
+                ],
+                [
+                  -5,
+                  1
+                ],
+                [
+                  -6,
+                  3
+                ],
+                [
+                  -2,
+                  4
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "x": -1,
+              "label": "x = -1"
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "answer": 2,
+      "solution": "Step 1: P's upright side, from (-1, 1) to (-1, 4), lies ON the mirror line, so it does not move. Step 2: corner (2, 1) is 3 squares right of x = -1, so its image is 3 squares left of the line: (-4, 1). Step 3: corner (3, 3) is 4 squares right of the line, so its image is (-5, 3). Step 4: the image shares the upright side with P and is flipped over, like a mirror picture. Grid C shows this. Trap: the mirror is x = -1, not the y-axis.",
+      "misconceptions": {
+        "0": "This image is the reflection in the y-axis (the line x = 0), not in x = -1. Use the dashed line x = -1 as the mirror: count each corner's distance from THAT line, then count the same distance on the other side.",
+        "1": "This shape has been slid to the left without flipping: its upright side is now on the far left. In a reflection the upright side of P lies on the mirror line, so it stays exactly where it is and the shape flips over it.",
+        "3": "This image is flipped the right way, but it is 1 square too far from the mirror line, so there is a gap. P touches the mirror line, so its image must touch it too: each corner is the same distance from x = -1 on the other side."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m14-q064",
+      "subtopicId": "m14-s2",
+      "bookSection": "14A",
+      "type": "match",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Quadrilateral ABCD crosses the diagonal mirror line y = x drawn on the grid. It is reflected in the mirror line. Match each corner to the coordinates of its image.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          6
+        ],
+        "y": [
+          0,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                5,
+                3
+              ],
+              [
+                2,
+                4
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              4,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              5,
+              3
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              2,
+              4
+            ],
+            "label": "D"
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
+      "options": {
+        "left": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "right": [
+          "(4, 2)",
+          "(1, 1)",
+          "(-1, -4)",
+          "(3, 5)",
+          "(2, 4)",
+          "(1, 4)",
+          "(-3, -5)"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "Read the corners: A(1, 1), B(4, 1), C(5, 3), D(2, 4). In the mirror line y = x the two coordinates of each point swap places. A is ON the mirror line, so it stays at (1, 1). B goes to (1, 4) and C goes to (3, 5). D is on the other side of the line, but the rule is the same: (2, 4) goes to (4, 2). So the image crosses the line too. Trap: do not change any signs; that is a different mirror line.",
+      "misconceptions": {
+        "common": "For the mirror line y = x, just swap the two numbers of each corner; do not make them negative (that would be the other diagonal). A corner on the mirror line, like A, does not move, and a corner on the other side, like D(2, 4), still swaps: (4, 2)."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q065",
+      "subtopicId": "m14-s1",
+      "bookSection": "14A",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Quadrilateral ABCD is reflected in a mirror line. Its image A'B'C'D' is the dashed shape on the grid; corner A does not move. Mei Lin says: \"A is on the diagonal line y = x and it did not move, so the mirror line is y = x.\" Is she correct? Tick one.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          6
+        ],
+        "y": [
+          -2,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                2,
+                2
+              ],
+              [
+                5,
+                3
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                2,
+                5
+              ]
+            ]
+          },
+          {
+            "points": [
+              [
+                2,
+                2
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                4,
+                -1
+              ],
+              [
+                2,
+                -1
+              ]
+            ],
+            "style": "dashed"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              2
+            ],
+            "label": "A, A'"
+          },
+          {
+            "at": [
+              5,
+              3
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              4,
+              5
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              2,
+              5
+            ],
+            "label": "D"
+          },
+          {
+            "at": [
+              5,
+              1
+            ],
+            "label": "B'"
+          },
+          {
+            "at": [
+              4,
+              -1
+            ],
+            "label": "C'"
+          },
+          {
+            "at": [
+              2,
+              -1
+            ],
+            "label": "D'"
+          }
+        ]
+      },
+      "options": [
+        "Yes. A point on the mirror line does not move, and A is on the line y = x.",
+        "No. B(5, 3) goes to B'(5, 1); halfway between them is y = 2, so the mirror line is y = 2.",
+        "Yes. The image is exactly the same size and shape as ABCD.",
+        "No. The image is below ABCD, so the mirror line must be the x-axis."
+      ],
+      "answer": 1,
+      "solution": "Step 1: A not moving only tells you A is on the mirror line. Step 2: check another corner. B is (5, 3) and B' is (5, 1): same x, so the mirror line is horizontal. Step 3: halfway between y = 3 and y = 1 is y = 2. Step 4: check C: (4, 5) is 3 above y = 2 and C'(4, -1) is 3 below. The mirror line is y = 2, so Mei Lin is wrong. Trap: one corner that fits is not enough.",
+      "misconceptions": {
+        "0": "A did not move, but that only shows A is on the mirror line. Many lines pass through A. Check another corner: in y = x, B(5, 3) would go to (3, 5), but B' is at (5, 1). Always check more than one corner.",
+        "2": "Every reflection keeps the size and shape, whatever the mirror line, so this reason cannot show WHICH line it is. Check where the corners go.",
+        "3": "In the x-axis, B(5, 3) would go to (5, -3), but B' is at (5, 1). The mirror line is exactly halfway between a point and its image: halfway between y = 3 and y = 1 is y = 2."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q066",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "match",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Quadrilateral ABCD is drawn on the grid. It is rotated 90° clockwise about vertex B. Match each of the corners A, C and D to the coordinates of its image.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          6
+        ],
+        "y": [
+          -3,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -3,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                -2,
+                4
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              1,
+              3
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              -2,
+              4
+            ],
+            "label": "D"
+          }
+        ]
+      },
+      "options": {
+        "left": [
+          "A",
+          "C",
+          "D"
+        ],
+        "right": [
+          "(1, -3)",
+          "(3, 1)",
+          "(4, -2)",
+          "(1, 5)",
+          "(-2, -2)",
+          "(5, 1)",
+          "(4, 4)",
+          "(-1, 1)"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "solution": "B(1, 1) is the centre, so it stays put. Work from B to each corner, then turn that move a quarter turn clockwise (right becomes down, up becomes right, left becomes up). A is 4 left of B, so A' is 4 up: (1, 5). C is 2 up, so C' is 2 right: (3, 1). D is 3 left and 3 up, so D' is 3 up and 3 right: (4, 4). Check: each corner stays the same distance from B.",
+      "misconceptions": {
+        "common": "Turning anticlockwise instead, which sends A to (1, -3), C to (-1, 1) and D to (-2, -2); or making a half turn, which sends A to (5, 1). Clockwise is the way clock hands go: an arm from B that points left turns to point up."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q067",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Shape PQRS has been rotated 90° about one of its own corners. Its image is the dashed shape on the grid. Which rotation was it?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -2,
+          6
+        ],
+        "y": [
+          0,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                2,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                3
+              ],
+              [
+                2,
+                4
+              ]
+            ]
+          },
+          {
+            "points": [
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                -1,
+                1
+              ]
+            ],
+            "style": "dashed"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              1
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              5,
+              1
+            ],
+            "label": "Q"
+          },
+          {
+            "at": [
+              5,
+              3
+            ],
+            "label": "R"
+          },
+          {
+            "at": [
+              2,
+              4
+            ],
+            "label": "S"
+          }
+        ]
+      },
+      "options": [
+        "Rotation of 90° clockwise about P",
+        "Rotation of 90° anticlockwise about S",
+        "Rotation of 90° clockwise about S",
+        "Rotation of 90° anticlockwise about P"
+      ],
+      "answer": 3,
+      "solution": "Step 1: the image has corners at P(2, 1) and at S(2, 4), so the centre could be P or S. Step 2: test P as the centre. PQ is 3 squares right of P; the image has a side 3 squares UP from P, to (2, 4). Right turning to up is a quarter turn anticlockwise. Step 3: check R: from P it is 3 right and 2 up; turned anticlockwise that is 3 up and 2 left: (0, 4), a corner of the image. Step 4: S was 3 up; it turns to 3 left: (-1, 1). It all fits: 90° anticlockwise about P. Trap: the corner at S's place is Q', not S.",
+      "misconceptions": {
+        "0": "The centre is right, but check the direction. From P, side PQ pointed right; in the image the matching side points up. Right to up is a quarter turn ANTICLOCKWISE (against the clock hands).",
+        "1": "The image has a corner where S is, but that corner is the image of Q, not S. If the turn were about S, S would stay put and P would swing to (5, 4), and the image has no corner there. Find the corner whose OWN image is itself: P.",
+        "2": "If the turn were clockwise about S, P would swing to (-1, 4), and the image has no corner there. The corner at S's place is really the image of Q. The centre is P, and the turn is anticlockwise."
+      },
+      "skill": "describing a transformation",
+      "source": "original"
+    },
+    {
+      "id": "m14-q068",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle ABC is drawn on the grid. One dashed triangle is ABC rotated 90° about A. The other is ABC reflected in a line through A. Which statement names the rotation AND gives a reason that proves it is the rotation? Tick one.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -1,
+          7
+        ],
+        "y": [
+          -2,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                3,
+                2
+              ],
+              [
+                6,
+                2
+              ],
+              [
+                3,
+                4
+              ]
+            ]
+          },
+          {
+            "points": [
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                -1
+              ],
+              [
+                5,
+                2
+              ]
+            ],
+            "style": "dashed",
+            "label": "X"
+          },
+          {
+            "points": [
+              [
+                3,
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "style": "dashed",
+            "label": "Y"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              2
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              6,
+              2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              3,
+              4
+            ],
+            "label": "C"
+          }
+        ]
+      },
+      "options": [
+        "X. Side AB pointed right and in X it points down; side AC pointed up and in X it points right. Each side from A has turned a quarter turn clockwise.",
+        "Y, because Y is exactly the same size and shape as ABC.",
+        "Y, because corner A has not moved.",
+        "X, because it is below triangle ABC and the same size."
+      ],
+      "answer": 0,
+      "solution": "Step 1: in a rotation about A, every side from A turns through the same quarter turn. Step 2: in X, AB (3 squares right) has become 3 squares down, and AC (2 squares up) has become 2 squares right. Both turned a quarter turn clockwise, so X is the rotation. Step 3: in Y, AB has flipped to point left but AC still points up: one side turned and one did not, so Y is a reflection (in x = 3). Trap: 'same size and shape', 'A has not moved' and 'it is below' are true or nearly true for both, so they are not reasons.",
+      "misconceptions": {
+        "1": "X and Y are both the same size and shape as ABC: rotations and reflections both keep size and shape. So this reason cannot tell them apart. Y is the reflection (in the line x = 3): it is flipped, not turned.",
+        "2": "A has not moved in X either: a rotation about A and a reflection in a line through A both keep A still. Look at how each side has moved: in Y, side AB has flipped to point left, which a quarter turn cannot do.",
+        "3": "X is the rotation, but 'below' does not prove it: a reflection in the line y = 2 through A would also land below ABC. A full answer says how the sides have turned: right became down and up became right."
+      },
+      "skill": "describing a transformation",
+      "source": "original"
+    },
+    {
+      "id": "m14-q069",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Look at the six shapes. Select ALL the shapes that have rotational symmetry of order 2.",
+      "optionDiagrams": [
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "angles": [
+            {
+              "right": true
+            },
+            {
+              "right": true
+            },
+            {
+              "right": true
+            },
+            {
+              "right": true
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "angles": [
+            {
+              "right": true
+            },
+            {
+              "right": true
+            },
+            {
+              "right": true
+            },
+            {
+              "right": true
+            }
+          ],
+          "sides": [
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "grid": true
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              3,
+              0
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "sides": [
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 2
+            },
+            {
+              "ticks": 2
+            },
+            {
+              "ticks": 1
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              6.4,
+              3.2
+            ],
+            [
+              2.4,
+              3.2
+            ]
+          ],
+          "sides": [
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              4.5,
+              3
+            ],
+            [
+              1.5,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "arrows": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "arrows": 1
+            },
+            {
+              "ticks": 1
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Shape A",
+        "Shape B",
+        "Shape C",
+        "Shape D",
+        "Shape E",
+        "Shape F"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Turn each shape about its centre and count how many times it fits onto itself in one full turn. A (rectangle, not a square): after a half turn and a full turn, so order 2. B (square): after every quarter turn, so order 4, not 2. C (the Z shape): after a half turn and a full turn, order 2, even though it has no line of symmetry. D (kite) and F (trapezium): only after a full turn, order 1. E (rhombus, not a square): order 2. Answer: A, C and E.",
+      "misconceptions": {
+        "1": "The square does fit after a half turn, but it also fits after every quarter turn: 4 times in a full turn. Its order is 4, not 2.",
+        "3": "The kite has a line of symmetry, but after a half turn its long point is at the top. It only fits after a full turn, so its order is 1.",
+        "5": "The trapezium has a line of symmetry, but after a half turn the short side is at the bottom. It only fits after a full turn, so its order is 1.",
+        "common": "Order 2 means the shape fits onto itself exactly 2 times in a full turn: after the half turn and the full turn. Line symmetry is a different thing: the Z shape has no lines of symmetry but still has order 2."
+      },
+      "skill": "order of rotational symmetry",
+      "source": "original"
+    },
+    {
+      "id": "m14-q070",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The shaded pattern on the grid is turned about the marked centre. What is the smallest angle it must turn through to look exactly the same again? Give your answer in degrees.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -4,
+          4
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                -1,
+                1
+              ]
+            ],
+            "style": "shaded"
+          },
+          {
+            "points": [
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "style": "shaded"
+          },
+          {
+            "points": [
+              [
+                -1,
+                1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                -1,
+                3
+              ]
+            ],
+            "style": "shaded"
+          },
+          {
+            "points": [
+              [
+                -4,
+                -1
+              ],
+              [
+                -1,
+                -1
+              ],
+              [
+                -1,
+                0
+              ],
+              [
+                -4,
+                0
+              ]
+            ],
+            "style": "shaded"
+          },
+          {
+            "points": [
+              [
+                0,
+                -3
+              ],
+              [
+                1,
+                -3
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ],
+            "style": "shaded"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              0,
+              0
+            ],
+            "label": "centre",
+            "style": "cross"
+          }
+        ],
+        "alt": "A shaded pattern on a grid: a 2 by 2 square on the marked centre with four arms. The arm to the right and the arm to the left are each 3 squares long; the arm going up and the arm going down are each 2 squares long."
+      },
+      "answer": {
+        "value": 180,
+        "tolerance": 0,
+        "accept": [
+          "180°",
+          "180 degrees"
+        ]
+      },
+      "solution": "Step 1: try a quarter turn (90°). The right arm is 3 squares long, but it would turn into the place of the up arm, which is only 2 squares long. So 90° does not work. Step 2: try a half turn (180°). The right arm goes to the left arm (both 3 long) and the up arm goes to the down arm (both 2 long). It fits. The smallest angle is 180° (order 2).",
+      "misconceptions": {
+        "common": "Answering 90° because the pattern has four arms. Check the arm lengths: the left and right arms are 3 squares long, the up and down arms only 2. After a quarter turn they would not match, so you need a half turn: 180°."
+      },
+      "skill": "rotational symmetry of letters and patterns",
+      "source": "original"
+    },
+    {
+      "id": "m14-q071",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Kumar wants the pattern on the grid to have rotational symmetry of order 2 about the marked centre. He shades as few extra squares as possible. Select ALL the lettered squares he must shade.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          6
+        ],
+        "y": [
+          0,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                3
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "style": "shaded"
+          },
+          {
+            "points": [
+              [
+                4,
+                3
+              ],
+              [
+                5,
+                3
+              ],
+              [
+                5,
+                4
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "style": "shaded"
+          },
+          {
+            "points": [
+              [
+                5,
+                4
+              ],
+              [
+                6,
+                4
+              ],
+              [
+                6,
+                5
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "style": "shaded"
+          },
+          {
+            "points": [
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "style": "shaded"
+          },
+          {
+            "points": [
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "style": "shaded"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              3
+            ],
+            "label": "centre",
+            "style": "cross"
+          },
+          {
+            "at": [
+              1.5,
+              2.5
+            ],
+            "label": "A",
+            "style": "hollow"
+          },
+          {
+            "at": [
+              0.5,
+              4.5
+            ],
+            "label": "B",
+            "style": "hollow"
+          },
+          {
+            "at": [
+              5.5,
+              1.5
+            ],
+            "label": "C",
+            "style": "hollow"
+          },
+          {
+            "at": [
+              0.5,
+              1.5
+            ],
+            "label": "D",
+            "style": "hollow"
+          },
+          {
+            "at": [
+              4.5,
+              2.5
+            ],
+            "label": "E",
+            "style": "hollow"
+          },
+          {
+            "at": [
+              4.5,
+              0.5
+            ],
+            "label": "F",
+            "style": "hollow"
+          }
+        ]
+      },
+      "options": [
+        "Square A",
+        "Square B",
+        "Square C",
+        "Square D",
+        "Square E",
+        "Square F"
+      ],
+      "answer": [
+        0,
+        3,
+        4
+      ],
+      "solution": "Step 1: for order 2, every shaded square needs a partner after a half turn about the centre: the same distance away on the exact opposite side. Step 2: the two squares touching the centre corner to corner are already partners, so they need nothing. Step 3: a half turn sends the middle of a square from (a, b) to (6 - a, 6 - b), because the centre is (3, 3). The shaded square with its middle at (4.5, 3.5) goes to (1.5, 2.5): square A. The one at (5.5, 4.5) goes to (0.5, 1.5): square D. The one at (1.5, 3.5) goes to (4.5, 2.5): square E. Answer: A, D and E. Trap: B and C are mirror images, not half-turn images, and F is a quarter turn.",
+      "misconceptions": {
+        "1": "Square B is where the top-right square would go in a vertical mirror line through the centre. A half turn sends a square to the OPPOSITE side, both across and down.",
+        "2": "Square C is where the top-right square would go in a horizontal mirror line through the centre. A half turn moves it across AND down, to the opposite side of the centre: square D.",
+        "5": "Square F is where the top-right square would go after a quarter turn. Order 2 needs a half turn (180°), not a quarter turn.",
+        "common": "Turn the page upside down in your head: each shaded square must land on another shaded square. Two squares that are already opposite each other through the centre need nothing extra."
+      },
+      "skill": "rotational symmetry of letters and patterns",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m14-q072",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Siti starts with the L-shaped piece shaded in the top right of each grid. She adds more pieces so that her pattern has rotational symmetry of order 4 about the marked centre. Which grid shows her finished pattern?",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  -3,
+                  0
+                ],
+                [
+                  -3,
+                  2
+                ],
+                [
+                  -2,
+                  2
+                ],
+                [
+                  -2,
+                  1
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  -2
+                ],
+                [
+                  2,
+                  -2
+                ],
+                [
+                  2,
+                  -1
+                ],
+                [
+                  0,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  -3,
+                  0
+                ],
+                [
+                  -3,
+                  -2
+                ],
+                [
+                  -2,
+                  -2
+                ],
+                [
+                  -2,
+                  -1
+                ],
+                [
+                  0,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                0
+              ],
+              "style": "cross"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  -2,
+                  3
+                ],
+                [
+                  -2,
+                  2
+                ],
+                [
+                  -1,
+                  2
+                ],
+                [
+                  -1,
+                  0
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  -3,
+                  0
+                ],
+                [
+                  -3,
+                  -2
+                ],
+                [
+                  -2,
+                  -2
+                ],
+                [
+                  -2,
+                  -1
+                ],
+                [
+                  0,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -2
+                ],
+                [
+                  1,
+                  -2
+                ],
+                [
+                  1,
+                  0
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                0
+              ],
+              "style": "cross"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  -3,
+                  0
+                ],
+                [
+                  -3,
+                  -2
+                ],
+                [
+                  -2,
+                  -2
+                ],
+                [
+                  -2,
+                  -1
+                ],
+                [
+                  0,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                0
+              ],
+              "style": "cross"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  -3,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  -1,
+                  2
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  -3,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  -2
+                ],
+                [
+                  3,
+                  -2
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  2,
+                  -1
+                ],
+                [
+                  0,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  -3,
+                  -2
+                ],
+                [
+                  0,
+                  -2
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  -1,
+                  0
+                ],
+                [
+                  -1,
+                  -1
+                ],
+                [
+                  -3,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                0
+              ],
+              "style": "cross"
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "answer": 1,
+      "solution": "Step 1: order 4 means the pattern fits onto itself after every quarter turn (90°, 180°, 270°, 360°). Step 2: so the pattern must contain the L, the L turned a quarter turn, a half turn and three quarter turns about the centre. Step 3: in Grid B the four L shapes are each a quarter turn round from the next, like a pinwheel. Grid A is mirror images (order 2), Grid C has only two L shapes (order 2), and Grid D's copies are not turned. Answer: Grid B.",
+      "misconceptions": {
+        "0": "Grid A copies the L as mirror images in the two lines through the centre. That pattern only fits onto itself after a half turn: order 2. For order 4, each new L must be the L TURNED a quarter turn about the centre.",
+        "2": "Grid C only adds a half-turn copy, so it fits after 180° and 360°: order 2. Order 4 needs a copy after every quarter turn: four L shapes.",
+        "3": "Grid D slides copies of the L into the other quarters without turning them. A quarter turn does not fit this pattern onto itself. Turn each copy a quarter turn about the centre."
+      },
+      "skill": "rotational symmetry of letters and patterns",
+      "source": "original"
+    },
+    {
+      "id": "m14-q073",
+      "subtopicId": "m14-s4",
+      "bookSection": "14C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Priya says: \"Every shape that has rotational symmetry of order 2 or more also has at least one line of symmetry.\" Look at the shapes. Which shape shows that Priya is wrong?",
+      "optionDiagrams": [
+        {
+          "type": "polygon",
+          "regular": 3
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "angles": [
+            {
+              "right": true
+            },
+            {
+              "right": true
+            },
+            {
+              "right": true
+            },
+            {
+              "right": true
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              4.0,
+              0.0
+            ],
+            [
+              4.0,
+              1.5
+            ],
+            [
+              -0.5,
+              0.866
+            ],
+            [
+              -2.0,
+              3.4641
+            ],
+            [
+              -3.299,
+              2.7141
+            ],
+            [
+              -0.5,
+              -0.866
+            ],
+            [
+              -2.0,
+              -3.4641
+            ],
+            [
+              -0.701,
+              -4.2141
+            ]
+          ],
+          "shaded": true
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              2,
+              0
+            ],
+            [
+              4,
+              1.5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              0,
+              1.5
+            ]
+          ],
+          "sides": [
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 2
+            },
+            {
+              "ticks": 2
+            },
+            {
+              "ticks": 1
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Shape A (equilateral triangle)",
+        "Shape B (rectangle)",
+        "Shape C (three-armed shape)",
+        "Shape D (kite)"
+      ],
+      "answer": 2,
+      "solution": "Step 1: to show a claim is wrong, find a shape where the first part is true but the second part is false: rotational symmetry, but no line of symmetry. Step 2: Shape C (three identical bent arms) fits onto itself after every third of a turn (120°), so it has order 3. Step 3: fold it along any line and the bent arms point the wrong way, so it has no lines of symmetry. Shape C shows Priya is wrong. The triangle and the rectangle have both kinds of symmetry, and the kite has no rotational symmetry.",
+      "misconceptions": {
+        "0": "The equilateral triangle has rotational symmetry of order 3 AND 3 lines of symmetry, so it agrees with Priya. To show she is wrong you need a shape with rotational symmetry and NO lines of symmetry.",
+        "1": "The rectangle has rotational symmetry of order 2 AND 2 lines of symmetry, so it agrees with Priya. Look for a shape that turns onto itself but cannot be folded in half to match.",
+        "3": "The kite has a line of symmetry but no rotational symmetry (order 1), so it does not test Priya's claim at all. Her claim is about shapes that DO have rotational symmetry."
+      },
+      "skill": "symmetry in patterns",
+      "source": "original"
+    },
+    {
+      "id": "m14-q074",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Triangle ABC is drawn on the grid. It is rotated 90° clockwise about vertex A. What are the coordinates of the image of B?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -2,
+          6
+        ],
+        "y": [
+          -1,
+          7
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                2,
+                3
+              ],
+              [
+                5,
+                3
+              ],
+              [
+                2,
+                5
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              3
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              5,
+              3
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              2,
+              5
+            ],
+            "label": "C"
+          }
+        ]
+      },
+      "options": [
+        "(2, 6)",
+        "(-1, 3)",
+        "(3, -5)",
+        "(2, 0)"
+      ],
+      "answer": 3,
+      "solution": "Step 1: Trace the shape, pin the tracing down at the centre with your pencil point, and turn the tracing a quarter turn clockwise: an arm from the centre that pointed right now points down, and one that pointed up now points right. Step 2: A(2, 3) stays where it is. The arm AB points 3 squares right of A. Step 3: after a quarter turn clockwise it points 3 squares down from A: (2, 3 - 3) = (2, 0). Check: the arm is still 3 squares long and has turned through 90°.",
+      "misconceptions": {
+        "0": "(2, 6) is a quarter turn ANTICLOCKWISE: the arm AB would point up. Clockwise is the way clock hands go, so an arm pointing right turns to point down.",
+        "1": "(-1, 3) is a half turn (180°): the arm AB would point left. A 90° turn is only a quarter turn, so the arm should point down.",
+        "2": "(3, -5) is what you get by turning about the origin (0, 0). The centre here is A(2, 3): pin the tracing at A, not at (0, 0)."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q075",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Rectangle PQRS is drawn on the grid. It is rotated 90° anticlockwise about vertex P. What are the coordinates of the image of Q?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          2
+        ],
+        "y": [
+          -3,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -2,
+                1
+              ],
+              [
+                -2,
+                4
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              1
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              -2,
+              4
+            ],
+            "label": "Q"
+          },
+          {
+            "at": [
+              0,
+              4
+            ],
+            "label": "R"
+          },
+          {
+            "at": [
+              0,
+              1
+            ],
+            "label": "S"
+          }
+        ]
+      },
+      "options": [
+        "(-5, 1)",
+        "(1, 1)",
+        "(-4, -2)",
+        "(-2, -2)"
+      ],
+      "answer": 0,
+      "solution": "Step 1: Trace the shape, pin the tracing down at the centre with your pencil point, and turn the tracing a quarter turn anticlockwise: an arm from the centre that pointed right now points up, and one that pointed up now points left. Step 2: P(-2, 1) stays where it is. The arm PQ points 3 squares up from P. Step 3: after a quarter turn anticlockwise it points 3 squares left of P: (-2 - 3, 1) = (-5, 1). Check: the arm is still 3 squares long and has turned through 90°.",
+      "misconceptions": {
+        "1": "(1, 1) is a quarter turn CLOCKWISE: the arm PQ would point right. Anticlockwise is against the clock hands, so an arm pointing up turns to point left.",
+        "2": "(-4, -2) is what you get by turning Q about the origin (0, 0). The centre here is P(-2, 1): pin the tracing at P.",
+        "3": "(-2, -2) is a half turn (180°): the arm PQ would point down. A 90° turn is only a quarter turn, so the arm should point left."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q076",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Triangle KLM is drawn on the grid. It is rotated 90° clockwise about vertex K. What are the coordinates of the image of M?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          6
+        ],
+        "y": [
+          -2,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                2
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                3,
+                5
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              2
+            ],
+            "label": "K"
+          },
+          {
+            "at": [
+              4,
+              2
+            ],
+            "label": "L"
+          },
+          {
+            "at": [
+              3,
+              5
+            ],
+            "label": "M"
+          }
+        ]
+      },
+      "options": [
+        "(-2, 4)",
+        "(4, 0)",
+        "(-1, 5)",
+        "(5, -3)",
+        "(-1, -1)"
+      ],
+      "answer": 1,
+      "solution": "Step 1: Trace the shape, pin the tracing down at the centre with your pencil point, and turn the tracing a quarter turn clockwise: an arm from the centre that pointed right now points down, and one that pointed up now points right. Step 2: K(1, 2) stays put. To get from K to M you go 2 right and 3 up. Step 3: turn each move a quarter turn clockwise: 2 right becomes 2 down, and 3 up becomes 3 right. Step 4: from K go 3 right and 2 down: (1 + 3, 2 - 2) = (4, 0). Check: L (3 right of K) goes to 3 down, (1, -1); each side from K keeps its length and turns through 90°.",
+      "misconceptions": {
+        "0": "(-2, 4) is a quarter turn ANTICLOCKWISE. Clockwise is the way clock hands go: from K, 'right' turns into 'down' and 'up' turns into 'right'.",
+        "2": "(-1, 5) is a reflection in the upright line through K: M has been flipped to the left, not turned. In a rotation every arm from K turns through 90°; here the arm KM has not turned through 90°.",
+        "3": "(5, -3) is what you get by turning M about the origin (0, 0). The centre is K(1, 2): work out the moves from K, not from (0, 0).",
+        "4": "(-1, -1) is a half turn (180°). A 90° turn is only a quarter turn: 'right' turns into 'down', not into 'left'."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q077",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Triangle ABC is rotated 90° anticlockwise about the marked vertex A. Which grid shows the correct image? The dashed triangle is the image.",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  5,
+                  3
+                ],
+                [
+                  4,
+                  5
+                ]
+              ]
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  5,
+                  2
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ],
+              "label": "A"
+            },
+            {
+              "at": [
+                5,
+                3
+              ],
+              "label": "B"
+            },
+            {
+              "at": [
+                4,
+                5
+              ],
+              "label": "C"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  5,
+                  3
+                ],
+                [
+                  4,
+                  5
+                ]
+              ]
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ],
+              "label": "A"
+            },
+            {
+              "at": [
+                5,
+                3
+              ],
+              "label": "B"
+            },
+            {
+              "at": [
+                4,
+                5
+              ],
+              "label": "C"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  5,
+                  3
+                ],
+                [
+                  4,
+                  5
+                ]
+              ]
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  5,
+                  3
+                ],
+                [
+                  4,
+                  1
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ],
+              "label": "A"
+            },
+            {
+              "at": [
+                5,
+                3
+              ],
+              "label": "B"
+            },
+            {
+              "at": [
+                4,
+                5
+              ],
+              "label": "C"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  5,
+                  3
+                ],
+                [
+                  4,
+                  5
+                ]
+              ]
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  5
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ],
+              "label": "A"
+            },
+            {
+              "at": [
+                5,
+                3
+              ],
+              "label": "B"
+            },
+            {
+              "at": [
+                4,
+                5
+              ],
+              "label": "C"
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "answer": 3,
+      "solution": "Step 1: Trace the shape, pin the tracing down at the centre with your pencil point, and turn the tracing a quarter turn anticlockwise: an arm from the centre that pointed right now points up, and one that pointed up now points left. Step 2: A(3, 3) stays put. Side AB goes 2 squares right, so in the image it goes 2 squares up: (3, 5). Step 3: from A, C is 1 right and 2 up; turned anticlockwise that is 1 up and 2 left: (1, 4). Step 4: the image has corners (3, 3), (3, 5) and (1, 4): Grid D. Check: each side from A keeps its length and has turned through 90°.",
+      "misconceptions": {
+        "0": "Grid A shows a quarter turn CLOCKWISE: side AB, which pointed right, now points down. Anticlockwise is against the clock hands, so AB should point up.",
+        "1": "Grid B shows a half turn (180°): side AB now points left. A 90° turn is only a quarter turn, so AB should point up.",
+        "2": "Grid C shows a reflection in the horizontal line through A: side AB has not moved at all and the triangle is flipped over. In a rotation every side from A turns through 90°."
+      },
+      "skill": "rotating 90° about a vertex",
       "source": "original"
     }
   ]

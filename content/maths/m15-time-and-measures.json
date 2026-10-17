@@ -3,28 +3,40 @@
   "topicId": "m15-time-and-measures",
   "title": "Time and Measures",
   "order": 15,
-  "bookChapter": "No separate book chapter: Stage 6 time objective 6Gt.01, plus measure conversions used throughout the book",
+  "bookChapter": "Extra topic, not a book chapter: Stage 6 time objective and measures used across the book (shown after Chapter 14)",
+  "bookChapterNumber": null,
+  "bookSections": [
+    {
+      "id": "XA",
+      "title": "Time: the 24-hour clock, durations and timetables",
+      "page": null
+    },
+    {
+      "id": "XB",
+      "title": "Converting metric units",
+      "page": null
+    },
+    {
+      "id": "XC",
+      "title": "Measurement problems: perimeter and area",
+      "page": null
+    }
+  ],
   "frameworkRefs": [
-    "6Gt.01",
     "6Np.02",
     "6Nf.09"
   ],
   "preamble": {
-    "whatYouWillLearn": "You will change times between decimals and hours and minutes, like 2.5 hours = 2 hours 30 minutes. You will work out how long things take using the 24-hour clock and timetables, even past midnight. You will convert lengths, masses and capacities, and solve perimeter and area problems with mixed units.",
-    "whyItMatters": "Time does not work like ordinary decimals, because an hour has 60 minutes, not 100. Knowing this stops a very common mistake. Changing units correctly is needed in almost every measurement question in your exams.",
+    "whatYouWillLearn": "This is an extra topic: the book has no chapter for it, but its skills are used all through the book. You will work out how long things take using the 24-hour clock and timetables, even past midnight. You will convert lengths, masses and capacities, and solve perimeter and area problems with mixed units. (Changing times between decimals and hours and minutes is in Chapter 9, section 9D.)",
+    "whyItMatters": "Changing units correctly is needed in almost every measurement question in your exams. Time does not work like ordinary decimals, because an hour has 60 minutes, not 100. Knowing this stops a very common mistake.",
     "realWorld": [
       "Working out how long a bus from KL to Penang takes using the timetable",
       "Changing a recipe's 1.5 kg of rice into grams for the kitchen scale",
       "Counting how many floor tiles are needed for a room",
-      "Knowing a 0.75-hour badminton session is 45 minutes, not 75",
-      "Working out what time a night flight lands after crossing midnight"
+      "Working out what time a night flight lands after crossing midnight",
+      "Measuring a curtain in metres and centimetres and buying the right length of cloth"
     ],
     "subtopics": [
-      {
-        "id": "m15-s1",
-        "title": "Time as decimals and mixed units",
-        "summary": "Convert time between decimal hours and hours and minutes, for example 1.75 h = 1 h 45 min and 0.2 h = 12 min."
-      },
       {
         "id": "m15-s2",
         "title": "Time calculations and timetables",
@@ -44,323 +56,9 @@
   },
   "questions": [
     {
-      "id": "m15-q001",
-      "subtopicId": "m15-s1",
-      "type": "mcq",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "How long is 2.5 hours in hours and minutes?",
-      "options": [
-        "2 hours 50 minutes",
-        "250 minutes",
-        "2 hours 30 minutes",
-        "2 hours 5 minutes"
-      ],
-      "answer": 2,
-      "solution": "The 2 is 2 whole hours. The 0.5 means half an hour. Half of 60 minutes is 30 minutes. So 2.5 hours = 2 hours 30 minutes.",
-      "misconceptions": {
-        "0": "You read the .5 as 50 minutes. But an hour has 60 minutes, not 100, so 0.5 of an hour is half of 60 = 30 minutes.",
-        "1": "You multiplied 2.5 by 100. There are 60 minutes in an hour, so 2.5 hours = 2.5 x 60 = 150 minutes.",
-        "3": "You read the digit 5 as 5 minutes. The 5 is 5 tenths of an hour, and 0.5 x 60 = 30 minutes."
-      },
-      "skill": "converting decimal hours to hours and minutes",
-      "source": "original"
-    },
-    {
-      "id": "m15-q002",
-      "subtopicId": "m15-s1",
-      "type": "numeric",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "How many minutes are there in 0.75 hours? Give your answer in minutes.",
-      "answer": {
-        "value": 45,
-        "tolerance": 0,
-        "accept": [
-          "45 minutes",
-          "45 min",
-          "45 mins"
-        ]
-      },
-      "solution": "0.75 is the same as 3/4. One quarter of an hour is 60 / 4 = 15 minutes, so three quarters is 3 x 15 = 45 minutes. Or work it out as 0.75 x 60 = 45.",
-      "misconceptions": {
-        "common": "Answering 75 minutes by reading the decimal digits as minutes. An hour has 60 minutes, so multiply by 60: 0.75 x 60 = 45."
-      },
-      "skill": "converting decimal hours to minutes",
-      "source": "original"
-    },
-    {
-      "id": "m15-q003",
-      "subtopicId": "m15-s1",
-      "type": "mcq",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "Which shows 1 hour 45 minutes as a decimal number of hours?",
-      "options": [
-        "1.45 h",
-        "1.75 h",
-        "1.25 h",
-        "105 h"
-      ],
-      "answer": 1,
-      "solution": "45 minutes is 45 out of 60 minutes, which is 45/60 = 3/4 of an hour. 3/4 = 0.75. So 1 hour 45 minutes = 1.75 hours.",
-      "misconceptions": {
-        "0": "You copied the 45 minutes straight after the decimal point. Minutes are sixtieths of an hour, not hundredths, so 45 minutes = 45/60 = 0.75 h.",
-        "2": "0.25 h is only a quarter of an hour, which is 15 minutes. 45 minutes is three quarters of an hour, so it is 0.75 h.",
-        "3": "1 hour 45 minutes is 105 MINUTES, not 105 hours. To change minutes to hours, divide by 60: 105 / 60 = 1.75 h."
-      },
-      "skill": "converting hours and minutes to decimal hours",
-      "source": "original"
-    },
-    {
-      "id": "m15-q004",
-      "subtopicId": "m15-s1",
-      "type": "mcq",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "How many minutes is 0.2 hours?",
-      "options": [
-        "12 minutes",
-        "20 minutes",
-        "2 minutes",
-        "120 minutes"
-      ],
-      "answer": 0,
-      "solution": "0.2 hours means 2 tenths of an hour. One tenth of 60 minutes is 6 minutes, so 2 tenths is 2 x 6 = 12 minutes. Or: 0.2 x 60 = 12.",
-      "misconceptions": {
-        "1": "You read 0.2 as 20 minutes, as if an hour had 100 minutes. An hour has 60 minutes, so 0.2 x 60 = 12 minutes.",
-        "2": "You read the digit 2 as 2 minutes. The 2 means 2 tenths of an hour, and one tenth of an hour is 6 minutes.",
-        "3": "You worked out 2 x 60 and lost the decimal point. 0.2 is much less than 1 hour, so the answer must be less than 60 minutes."
-      },
-      "skill": "converting decimal hours to minutes",
-      "source": "original"
-    },
-    {
-      "id": "m15-q005",
-      "subtopicId": "m15-s1",
-      "type": "truefalse",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "True or false: 3.3 hours is the same as 3 hours 30 minutes.",
-      "answer": false,
-      "solution": "0.3 hours is 3 tenths of an hour. One tenth of an hour is 6 minutes, so 0.3 h = 3 x 6 = 18 minutes. So 3.3 hours = 3 hours 18 minutes, not 3 hours 30 minutes. The statement is false.",
-      "misconceptions": {
-        "common": "Reading the digits after the decimal point as minutes. Hours are split into 60 minutes, not 100, so 0.3 h = 0.3 x 60 = 18 minutes. (3 hours 30 minutes would be 3.5 hours.)"
-      },
-      "skill": "converting decimal hours to hours and minutes",
-      "source": "inspired-by: KS2"
-    },
-    {
-      "id": "m15-q006",
-      "subtopicId": "m15-s1",
-      "type": "short",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "Write 4.25 hours in hours and minutes.",
-      "answer": {
-        "accept": [
-          "4 h 15 min",
-          "4 hours 15 minutes",
-          "4h 15min",
-          "4h15min",
-          "4 hours and 15 minutes",
-          "4 hr 15 min",
-          "4 hrs 15 mins",
-          "4 h 15 mins",
-          "4 hours 15 mins",
-          "4h 15m",
-          "4 h 15 m",
-          "4 hour 15 minutes",
-          "4 hours 15 min",
-          "4 hr 15 mins",
-          "4hrs 15mins",
-          "4 hrs 15 min",
-          "4hr 15min"
-        ],
-        "keywords": []
-      },
-      "solution": "4 whole hours stay as 4 hours. 0.25 = 1/4, and a quarter of 60 minutes is 15 minutes. So 4.25 hours = 4 hours 15 minutes.",
-      "misconceptions": {
-        "common": "Writing 4 hours 25 minutes. The .25 is a quarter of an hour, which is 15 minutes, because an hour has 60 minutes, not 100."
-      },
-      "skill": "converting decimal hours to hours and minutes",
-      "source": "original"
-    },
-    {
-      "id": "m15-q007",
-      "subtopicId": "m15-s1",
-      "type": "numeric",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "Write 2 hours 24 minutes as a decimal number of hours. Give your answer as a decimal.",
-      "answer": {
-        "value": 2.4,
-        "tolerance": 0,
-        "accept": [
-          "2.40",
-          "2.4 h",
-          "2.4 hours",
-          "2 2/5"
-        ]
-      },
-      "solution": "Change the minutes to a fraction of an hour: 24/60. Divide top and bottom by 12 to get 2/5. 2/5 = 0.4. So 2 hours 24 minutes = 2.4 hours.",
-      "misconceptions": {
-        "common": "Writing 2.24 hours by putting the minutes after the decimal point. Minutes are sixtieths of an hour, so 24 minutes = 24/60 = 0.4 h."
-      },
-      "skill": "converting hours and minutes to decimal hours",
-      "source": "original"
-    },
-    {
-      "id": "m15-q008",
-      "subtopicId": "m15-s1",
-      "type": "mcq",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "A film lasts 96 minutes. How long is that as a decimal number of hours?",
-      "options": [
-        "1.36 h",
-        "0.96 h",
-        "9.6 h",
-        "1.6 h"
-      ],
-      "answer": 3,
-      "solution": "Divide by 60 to change minutes to hours: 96 / 60 = 1.6. Check: 1.6 h = 1 hour + 0.6 x 60 minutes = 1 hour 36 minutes = 96 minutes.",
-      "misconceptions": {
-        "0": "96 minutes is 1 hour 36 minutes, but 36 minutes is not 0.36 h. 36 minutes = 36/60 = 0.6 h, so the answer is 1.6 h.",
-        "1": "You divided by 100 as if an hour had 100 minutes. Divide by 60: 96 / 60 = 1.6 h. (96 minutes is more than 1 hour, so the answer must be more than 1.)",
-        "2": "You divided by 10 instead of 60. 9.6 hours would be almost 10 hours, far too long for a film of 96 minutes."
-      },
-      "skill": "converting minutes to decimal hours",
-      "source": "original"
-    },
-    {
-      "id": "m15-q009",
-      "subtopicId": "m15-s1",
-      "type": "match",
-      "difficulty": 2,
-      "marks": 2,
-      "prompt": "Match each time in decimal hours to the same time in hours and minutes.",
-      "options": {
-        "left": [
-          "1.5 h",
-          "1.1 h",
-          "1.25 h",
-          "1.9 h"
-        ],
-        "right": [
-          "1 h 10 min",
-          "1 h 30 min",
-          "1 h 15 min",
-          "1 h 50 min",
-          "1 h 6 min",
-          "1 h 54 min"
-        ]
-      },
-      "answer": [
-        [
-          0,
-          1
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          3,
-          5
-        ]
-      ],
-      "solution": "Multiply the decimal part by 60. 0.5 x 60 = 30, so 1.5 h = 1 h 30 min. 0.1 x 60 = 6, so 1.1 h = 1 h 6 min. 0.25 x 60 = 15, so 1.25 h = 1 h 15 min. 0.9 x 60 = 54, so 1.9 h = 1 h 54 min.",
-      "misconceptions": {
-        "common": "Copying the decimal digits as minutes, for example matching 1.1 h with 1 h 10 min or 1.5 h with 1 h 50 min. Multiply the decimal part by 60 instead."
-      },
-      "skill": "converting decimal hours to hours and minutes",
-      "source": "original"
-    },
-    {
-      "id": "m15-q010",
-      "subtopicId": "m15-s1",
-      "type": "order",
-      "difficulty": 3,
-      "marks": 2,
-      "prompt": "Put these lengths of time in order from shortest to longest.",
-      "options": [
-        "1.3 hours",
-        "1 hour 20 minutes",
-        "75 minutes",
-        "1.2 hours"
-      ],
-      "answer": [
-        3,
-        2,
-        0,
-        1
-      ],
-      "solution": "Change them all to minutes. 1.2 hours = 1.2 x 60 = 72 minutes. 75 minutes stays 75. 1.3 hours = 1.3 x 60 = 78 minutes. 1 hour 20 minutes = 60 + 20 = 80 minutes. Shortest to longest: 1.2 hours, 75 minutes, 1.3 hours, 1 hour 20 minutes.",
-      "misconceptions": {
-        "common": "Thinking 1.3 hours is 1 hour 30 minutes and putting it last. 0.3 h is only 0.3 x 60 = 18 minutes, so 1.3 hours = 78 minutes."
-      },
-      "skill": "comparing times in different units",
-      "source": "original"
-    },
-    {
-      "id": "m15-q011",
-      "subtopicId": "m15-s1",
-      "type": "mcq",
-      "difficulty": 3,
-      "marks": 2,
-      "prompt": "Aisha practised the piano for 0.4 hours on Monday and for 1 hour 35 minutes on Tuesday. How long did she practise altogether?",
-      "options": [
-        "2 h 15 min",
-        "1 h 59 min",
-        "1.75 h",
-        "1 h 39 min"
-      ],
-      "answer": 1,
-      "solution": "First change 0.4 hours to minutes: 0.4 x 60 = 24 minutes. Then add: 24 minutes + 1 hour 35 minutes = 1 hour 59 minutes. Well done if you changed to the same units first!",
-      "misconceptions": {
-        "0": "You took 0.4 hours to be 40 minutes. An hour has 60 minutes, so 0.4 h = 0.4 x 60 = 24 minutes, not 40.",
-        "2": "You added 0.4 + 1.35, treating 1 hour 35 minutes as 1.35 hours. 35 minutes is not 0.35 h. Change both to minutes before adding.",
-        "3": "You took 0.4 hours to be 4 minutes. 0.4 is 4 tenths of an hour, and each tenth is 6 minutes, so 0.4 h = 24 minutes."
-      },
-      "skill": "adding times given in different forms",
-      "source": "inspired-by: Singapore P6"
-    },
-    {
-      "id": "m15-q012",
-      "subtopicId": "m15-s1",
-      "type": "multi",
-      "difficulty": 3,
-      "marks": 2,
-      "prompt": "Select ALL the lengths of time that are LONGER than 2.4 hours.",
-      "options": [
-        "2 h 30 min",
-        "2 h 20 min",
-        "145 minutes",
-        "2.35 hours",
-        "2 h 25 min"
-      ],
-      "answer": [
-        0,
-        2,
-        4
-      ],
-      "solution": "Change everything to minutes. 2.4 hours = 2 x 60 + 0.4 x 60 = 120 + 24 = 144 minutes. 2 h 30 min = 150 (longer). 2 h 20 min = 140 (shorter). 145 minutes (longer). 2.35 hours = 120 + 0.35 x 60 = 120 + 21 = 141 (shorter). 2 h 25 min = 145 (longer).",
-      "misconceptions": {
-        "1": "2 h 20 min = 140 minutes, which is less than 2.4 h = 144 minutes.",
-        "3": "2.35 hours = 141 minutes, which is less than 144 minutes. Compare 2.35 and 2.40 as decimals: 2.35 is smaller.",
-        "common": "Thinking 2.4 hours means 2 hours 40 minutes (160 minutes). Then nothing on the list would look longer. 0.4 h is 24 minutes, so 2.4 h = 2 h 24 min."
-      },
-      "skill": "comparing times in different units",
-      "source": "inspired-by: Cambridge Checkpoint style"
-    },
-    {
       "id": "m15-q013",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -382,6 +80,7 @@
     {
       "id": "m15-q014",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -409,6 +108,7 @@
     {
       "id": "m15-q015",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "short",
       "difficulty": 2,
       "marks": 1,
@@ -445,6 +145,7 @@
     {
       "id": "m15-q016",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -468,6 +169,7 @@
     {
       "id": "m15-q017",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -491,6 +193,7 @@
     {
       "id": "m15-q018",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -514,6 +217,7 @@
     {
       "id": "m15-q019",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -529,6 +233,7 @@
     {
       "id": "m15-q020",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "order",
       "difficulty": 2,
       "marks": 1,
@@ -557,6 +262,7 @@
     {
       "id": "m15-q021",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "short",
       "difficulty": 3,
       "marks": 2,
@@ -585,6 +291,7 @@
     {
       "id": "m15-q022",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -608,6 +315,7 @@
     {
       "id": "m15-q023",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -631,6 +339,7 @@
     {
       "id": "m15-q024",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -652,6 +361,7 @@
     {
       "id": "m15-q025",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -675,6 +385,7 @@
     {
       "id": "m15-q026",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -698,6 +409,7 @@
     {
       "id": "m15-q027",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -724,6 +436,7 @@
     {
       "id": "m15-q028",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -747,6 +460,7 @@
     {
       "id": "m15-q029",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -762,6 +476,7 @@
     {
       "id": "m15-q030",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -786,6 +501,7 @@
     {
       "id": "m15-q031",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "order",
       "difficulty": 2,
       "marks": 1,
@@ -814,6 +530,7 @@
     {
       "id": "m15-q032",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -862,6 +579,7 @@
     {
       "id": "m15-q033",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -895,6 +613,7 @@
     {
       "id": "m15-q034",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -923,6 +642,7 @@
     {
       "id": "m15-q035",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -945,6 +665,7 @@
     {
       "id": "m15-q036",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -999,6 +720,7 @@
     {
       "id": "m15-q037",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1053,6 +775,7 @@
     {
       "id": "m15-q038",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1107,6 +830,7 @@
     {
       "id": "m15-q039",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1161,6 +885,7 @@
     {
       "id": "m15-q040",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -1176,6 +901,7 @@
     {
       "id": "m15-q041",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1254,6 +980,7 @@
     {
       "id": "m15-q042",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1308,6 +1035,7 @@
     {
       "id": "m15-q043",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -1332,6 +1060,7 @@
     {
       "id": "m15-q044",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
@@ -1391,6 +1120,7 @@
     {
       "id": "m15-q045",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -1413,6 +1143,7 @@
     {
       "id": "m15-q046",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1467,6 +1198,7 @@
     {
       "id": "m15-q047",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1490,6 +1222,7 @@
     {
       "id": "m15-q048",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1535,6 +1268,7 @@
     {
       "id": "m15-q049",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -1563,6 +1297,7 @@
     {
       "id": "m15-q050",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1591,6 +1326,7 @@
     {
       "id": "m15-q051",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -1620,6 +1356,7 @@
     {
       "id": "m15-q052",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1665,6 +1402,7 @@
     {
       "id": "m15-q053",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1734,6 +1472,7 @@
     {
       "id": "m15-q054",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -1768,6 +1507,7 @@
     {
       "id": "m15-q055",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1802,6 +1542,7 @@
     {
       "id": "m15-q056",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -1837,6 +1578,7 @@
     {
       "id": "m15-q057",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1890,6 +1632,7 @@
     {
       "id": "m15-q058",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -1950,6 +1693,7 @@
     {
       "id": "m15-q059",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -2018,6 +1762,7 @@
     {
       "id": "m15-q060",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -2086,6 +1831,7 @@
     {
       "id": "m15-q061",
       "subtopicId": "m15-s2",
+      "bookSection": "XA",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -2146,6 +1892,7 @@
     {
       "id": "m15-q062",
       "subtopicId": "m15-s3",
+      "bookSection": "XB",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -2178,6 +1925,7 @@
     {
       "id": "m15-q063",
       "subtopicId": "m15-s4",
+      "bookSection": "XC",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,

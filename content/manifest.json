@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-10-17T10:08:01+00:00",
- "contentVersion": "06e4f8e53a65",
+ "generatedAt": "2026-10-17T14:13:53+00:00",
+ "contentVersion": "bfca1785e1c7",
  "samples": false,
  "subjects": [
   {
@@ -11,6 +11,27 @@
      "title": "Place Value",
      "order": 1,
      "bookChapter": "Chapter 1: Place Value",
+     "bookChapterNumber": 1,
+     "bookSections": [
+      {
+       "id": "1A",
+       "title": "Understand Decimals up to Thousandths",
+       "page": 2,
+       "questions": 28
+      },
+      {
+       "id": "1B",
+       "title": "Multiply and Divide by 10, 100 or 1000",
+       "page": 7,
+       "questions": 9
+      },
+      {
+       "id": "1C",
+       "title": "Round Decimals to the Nearest Whole Number or Tenth",
+       "page": 11,
+       "questions": 9
+      }
+     ],
      "file": "content/maths/m01-place-value.json",
      "questions": 46,
      "subtopics": 5
@@ -20,24 +41,105 @@
      "title": "The Number System",
      "order": 2,
      "bookChapter": "Chapter 2: The Number System",
+     "bookChapterNumber": 2,
+     "bookSections": [
+      {
+       "id": "2A",
+       "title": "Count On and Back",
+       "page": 18,
+       "questions": 22
+      },
+      {
+       "id": "2B",
+       "title": "Use the Order of Operations",
+       "page": 22,
+       "questions": 11
+      },
+      {
+       "id": "2C",
+       "title": "Use Brackets",
+       "page": 26,
+       "questions": 10
+      }
+     ],
      "file": "content/maths/m02-number-system.json",
-     "questions": 45,
-     "subtopics": 4
+     "questions": 43,
+     "subtopics": 3
     },
     {
      "topicId": "m03-2d-shapes-and-angles",
      "title": "2D Shapes and Angles",
      "order": 3,
      "bookChapter": "Chapter 3: 2D Shapes and Angles",
+     "bookChapterNumber": 3,
+     "bookSections": [
+      {
+       "id": "3A",
+       "title": "Identify, Describe, Classify and Sketch Quadrilaterals",
+       "page": 32,
+       "questions": 10
+      },
+      {
+       "id": "3B",
+       "title": "Identify Parts of a Circle",
+       "page": 38,
+       "questions": 8
+      },
+      {
+       "id": "3C",
+       "title": "Construct a Circle",
+       "page": 41,
+       "questions": 2
+      },
+      {
+       "id": "3D",
+       "title": "Find the Area of Triangles",
+       "page": 44,
+       "questions": 11
+      },
+      {
+       "id": "3E",
+       "title": "Classify, Estimate, Measure and Draw Angles",
+       "page": 47,
+       "questions": 16
+      },
+      {
+       "id": "3F",
+       "title": "Find Angles in Triangles",
+       "page": 51,
+       "questions": 12
+      }
+     ],
      "file": "content/maths/m03-2d-shapes-and-angles.json",
-     "questions": 69,
-     "subtopics": 6
+     "questions": 59,
+     "subtopics": 5
     },
     {
      "topicId": "m04-3d-shapes-volume-capacity",
      "title": "3D Shapes, Volume and Capacity",
      "order": 4,
      "bookChapter": "Chapter 4: 3D Shapes, Volume and Capacity",
+     "bookChapterNumber": 4,
+     "bookSections": [
+      {
+       "id": "4A",
+       "title": "Identify, Describe and Sketch Compound 3D Shapes",
+       "page": 57,
+       "questions": 17
+      },
+      {
+       "id": "4B",
+       "title": "Identify and Sketch Nets of 3D Shapes",
+       "page": 61,
+       "questions": 28
+      },
+      {
+       "id": "4C",
+       "title": "Understand the Difference between Capacity and Volume",
+       "page": 65,
+       "questions": 19
+      }
+     ],
      "file": "content/maths/m04-3d-shapes-volume-capacity.json",
      "questions": 64,
      "subtopics": 4
@@ -47,6 +149,33 @@
      "title": "Addition and Subtraction",
      "order": 5,
      "bookChapter": "Chapter 5: Addition and Subtraction",
+     "bookChapterNumber": 5,
+     "bookSections": [
+      {
+       "id": "5A",
+       "title": "Use Letters for Numbers",
+       "page": 70,
+       "questions": 8
+      },
+      {
+       "id": "5B",
+       "title": "Add and Subtract Numbers",
+       "page": 73,
+       "questions": 26
+      },
+      {
+       "id": "5C",
+       "title": "Add Decimals",
+       "page": 76,
+       "questions": 6
+      },
+      {
+       "id": "5D",
+       "title": "Subtract Decimals",
+       "page": 80,
+       "questions": 5
+      }
+     ],
      "file": "content/maths/m05-addition-and-subtraction.json",
      "questions": 45,
      "subtopics": 4
@@ -56,17 +185,71 @@
      "title": "Multiplication and Division",
      "order": 6,
      "bookChapter": "Chapter 6: Multiplication and Division",
+     "bookChapterNumber": 6,
+     "bookSections": [
+      {
+       "id": "6A",
+       "title": "Multiply by 1-digit and 2-digit Numbers",
+       "page": 87,
+       "questions": 11
+      },
+      {
+       "id": "6B",
+       "title": "Divide by 1-digit and 2-digit Numbers",
+       "page": 90,
+       "questions": 12
+      },
+      {
+       "id": "6C",
+       "title": "Use Multiples and Factors",
+       "page": 93,
+       "questions": 11
+      },
+      {
+       "id": "6D",
+       "title": "Use Tests of Divisibility",
+       "page": 96,
+       "questions": 11
+      },
+      {
+       "id": "6E",
+       "title": "Multiply Decimals",
+       "page": 99,
+       "questions": 9
+      },
+      {
+       "id": "6F",
+       "title": "Divide Decimals",
+       "page": 103,
+       "questions": 4
+      }
+     ],
      "file": "content/maths/m06-multiplication-and-division.json",
-     "questions": 45,
-     "subtopics": 5
+     "questions": 58,
+     "subtopics": 6
     },
     {
      "topicId": "m07-number-patterns",
      "title": "Number Patterns",
      "order": 7,
      "bookChapter": "Chapter 7: Number Patterns",
+     "bookChapterNumber": 7,
+     "bookSections": [
+      {
+       "id": "7A",
+       "title": "Find and Use the Position-to-Term Rule",
+       "page": 110,
+       "questions": 22
+      },
+      {
+       "id": "7B",
+       "title": "Find Terms in Special Sequences",
+       "page": 114,
+       "questions": 23
+      }
+     ],
      "file": "content/maths/m07-number-patterns.json",
-     "questions": 44,
+     "questions": 45,
      "subtopics": 4
     },
     {
@@ -74,6 +257,21 @@
      "title": "Probability",
      "order": 8,
      "bookChapter": "Chapter 8: Probability",
+     "bookChapterNumber": 8,
+     "bookSections": [
+      {
+       "id": "8A",
+       "title": "Describe and Compare Possible Outcomes",
+       "page": 122,
+       "questions": 39
+      },
+      {
+       "id": "8B",
+       "title": "Carry out Chance Experiments",
+       "page": 127,
+       "questions": 12
+      }
+     ],
      "file": "content/maths/m08-probability.json",
      "questions": 51,
      "subtopics": 4
@@ -83,15 +281,69 @@
      "title": "Fractions, Percentages and Decimals",
      "order": 9,
      "bookChapter": "Chapter 9: Fractions, Percentages and Decimals",
+     "bookChapterNumber": 9,
+     "bookSections": [
+      {
+       "id": "9A",
+       "title": "Use Fractions as Division",
+       "page": 135,
+       "questions": 9
+      },
+      {
+       "id": "9B",
+       "title": "Use Fractions, Decimals and Percentages",
+       "page": 138,
+       "questions": 29
+      },
+      {
+       "id": "9C",
+       "title": "Compare and Order Fractions, Decimals and Percentages",
+       "page": 142,
+       "questions": 10
+      },
+      {
+       "id": "9D",
+       "title": "Convert Time Intervals",
+       "page": 146,
+       "questions": 12
+      }
+     ],
      "file": "content/maths/m09-fractions-percentages-decimals.json",
-     "questions": 48,
-     "subtopics": 5
+     "questions": 60,
+     "subtopics": 6
     },
     {
      "topicId": "m10-calculations-with-fractions",
      "title": "Calculations with Fractions",
      "order": 10,
      "bookChapter": "Chapter 10: Calculations with Fractions",
+     "bookChapterNumber": 10,
+     "bookSections": [
+      {
+       "id": "10A",
+       "title": "Add and Subtract Fractions",
+       "page": 152,
+       "questions": 19
+      },
+      {
+       "id": "10B",
+       "title": "Use Fractions as Operators",
+       "page": 156,
+       "questions": 18
+      },
+      {
+       "id": "10C",
+       "title": "Multiply Proper Fractions by Whole Numbers",
+       "page": 160,
+       "questions": 8
+      },
+      {
+       "id": "10D",
+       "title": "Divide Proper Fractions by Whole Numbers",
+       "page": 163,
+       "questions": 8
+      }
+     ],
      "file": "content/maths/m10-calculations-with-fractions.json",
      "questions": 53,
      "subtopics": 6
@@ -101,8 +353,23 @@
      "title": "Ratio and Proportion",
      "order": 11,
      "bookChapter": "Chapter 11: Ratio and Proportion",
+     "bookChapterNumber": 11,
+     "bookSections": [
+      {
+       "id": "11A",
+       "title": "Understand Equivalent Ratios",
+       "page": 169,
+       "questions": 46
+      },
+      {
+       "id": "11B",
+       "title": "Understand Direct Proportions",
+       "page": 172,
+       "questions": 22
+      }
+     ],
      "file": "content/maths/m11-ratio-and-proportion.json",
-     "questions": 47,
+     "questions": 68,
      "subtopics": 5
     },
     {
@@ -110,8 +377,53 @@
      "title": "Data Handling and Statistical Inquiry",
      "order": 12,
      "bookChapter": "Chapter 12: Data Handling and Statistical Inquiry",
+     "bookChapterNumber": 12,
+     "bookSections": [
+      {
+       "id": "12A",
+       "title": "Plan an Investigation and Make Predictions",
+       "page": 178,
+       "questions": 17
+      },
+      {
+       "id": "12B",
+       "title": "Read and Make Pie Charts",
+       "page": 183,
+       "questions": 18
+      },
+      {
+       "id": "12C",
+       "title": "Read and Make Frequency Charts and Scales",
+       "page": 186,
+       "questions": 18
+      },
+      {
+       "id": "12D",
+       "title": "Read and Make Scatter Graphs",
+       "page": 191,
+       "questions": 18
+      },
+      {
+       "id": "12E",
+       "title": "Record, Organise and Represent Data",
+       "page": 195,
+       "questions": 18
+      },
+      {
+       "id": "12F",
+       "title": "Describe Data using Mean, Median, Mode and Range",
+       "page": 199,
+       "questions": 21
+      },
+      {
+       "id": "12G",
+       "title": "Identify Patterns and Draw Conclusions",
+       "page": 203,
+       "questions": 18
+      }
+     ],
      "file": "content/maths/m12-data-handling.json",
-     "questions": 62,
+     "questions": 128,
      "subtopics": 4
     },
     {
@@ -119,8 +431,29 @@
      "title": "The Coordinate Grid",
      "order": 13,
      "bookChapter": "Chapter 13: The Coordinate Grid",
+     "bookChapterNumber": 13,
+     "bookSections": [
+      {
+       "id": "13A",
+       "title": "Read and Plot Coordinates",
+       "page": 211,
+       "questions": 29
+      },
+      {
+       "id": "13B",
+       "title": "Form Lines and Shapes",
+       "page": 216,
+       "questions": 24
+      },
+      {
+       "id": "13C",
+       "title": "Translate 2D Shapes",
+       "page": 220,
+       "questions": 21
+      }
+     ],
      "file": "content/maths/m13-coordinate-grid.json",
-     "questions": 63,
+     "questions": 74,
      "subtopics": 3
     },
     {
@@ -128,18 +461,60 @@
      "title": "Reflection and Rotation",
      "order": 14,
      "bookChapter": "Chapter 14: Reflection and Rotation",
+     "bookChapterNumber": 14,
+     "bookSections": [
+      {
+       "id": "14A",
+       "title": "Reflect 2D Shapes",
+       "page": 228,
+       "questions": 37
+      },
+      {
+       "id": "14B",
+       "title": "Rotate Shapes Around a Vertex",
+       "page": 231,
+       "questions": 27
+      },
+      {
+       "id": "14C",
+       "title": "Identify Rotational Symmetry",
+       "page": 234,
+       "questions": 23
+      }
+     ],
      "file": "content/maths/m14-reflection-and-rotation.json",
-     "questions": 62,
-     "subtopics": 4
+     "questions": 87,
+     "subtopics": 5
     },
     {
      "topicId": "m15-time-and-measures",
      "title": "Time and Measures",
      "order": 15,
-     "bookChapter": "No separate book chapter: Stage 6 time objective 6Gt.01, plus measure conversions used throughout the book",
+     "bookChapter": "Extra topic, not a book chapter: Stage 6 time objective and measures used across the book (shown after Chapter 14)",
+     "bookChapterNumber": null,
+     "bookSections": [
+      {
+       "id": "XA",
+       "title": "Time: the 24-hour clock, durations and timetables",
+       "page": null,
+       "questions": 18
+      },
+      {
+       "id": "XB",
+       "title": "Converting metric units",
+       "page": null,
+       "questions": 16
+      },
+      {
+       "id": "XC",
+       "title": "Measurement problems: perimeter and area",
+       "page": null,
+       "questions": 17
+      }
+     ],
      "file": "content/maths/m15-time-and-measures.json",
-     "questions": 63,
-     "subtopics": 4
+     "questions": 51,
+     "subtopics": 3
     }
    ]
   },
@@ -151,6 +526,8 @@
      "title": "The Respiratory and Circulatory Systems",
      "order": 1,
      "bookChapter": "Chapter 1: The Respiratory and Circulatory Systems",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s01-respiratory-and-circulatory-systems.json",
      "questions": 50,
      "subtopics": 5
@@ -160,6 +537,8 @@
      "title": "The Human Reproductive System",
      "order": 2,
      "bookChapter": "Chapter 2: The Human Reproductive System",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s02-human-reproductive-system.json",
      "questions": 36,
      "subtopics": 4
@@ -169,6 +548,8 @@
      "title": "Human Diseases",
      "order": 3,
      "bookChapter": "Chapter 3: Human Diseases",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s03-human-diseases.json",
      "questions": 38,
      "subtopics": 4
@@ -178,6 +559,8 @@
      "title": "Food Chains and Food Webs",
      "order": 4,
      "bookChapter": "Chapter 4: Food Chains and Food Webs",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s04-food-chains-and-food-webs.json",
      "questions": 55,
      "subtopics": 4
@@ -187,6 +570,8 @@
      "title": "Properties of Matter",
      "order": 5,
      "bookChapter": "Chapter 5: Properties of Matter",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s05-properties-of-matter.json",
      "questions": 35,
      "subtopics": 4
@@ -196,6 +581,8 @@
      "title": "Physical and Chemical Changes",
      "order": 6,
      "bookChapter": "Chapter 6: Physical and Chemical Changes",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s06-physical-and-chemical-changes.json",
      "questions": 35,
      "subtopics": 5
@@ -205,6 +592,8 @@
      "title": "Effects of Forces",
      "order": 7,
      "bookChapter": "Chapter 7: Effects of Forces",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s07-effects-of-forces.json",
      "questions": 53,
      "subtopics": 5
@@ -214,6 +603,8 @@
      "title": "Movement of Light",
      "order": 8,
      "bookChapter": "Chapter 8: Movement of Light",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s08-movement-of-light.json",
      "questions": 48,
      "subtopics": 4
@@ -223,6 +614,8 @@
      "title": "More About Electrical Circuits",
      "order": 9,
      "bookChapter": "Chapter 9: More About Electrical Circuits",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s09-electrical-circuits.json",
      "questions": 51,
      "subtopics": 4
@@ -232,6 +625,8 @@
      "title": "More About Rocks",
      "order": 10,
      "bookChapter": "Chapter 10: More About Rocks",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s10-more-about-rocks.json",
      "questions": 37,
      "subtopics": 5
@@ -241,6 +636,8 @@
      "title": "Soil",
      "order": 11,
      "bookChapter": "Chapter 11: Soil",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s11-soil.json",
      "questions": 36,
      "subtopics": 4
@@ -250,11 +647,87 @@
      "title": "More About the Solar System",
      "order": 12,
      "bookChapter": "Chapter 12: More About the Solar System",
+     "bookChapterNumber": null,
+     "bookSections": [],
      "file": "content/science/s12-more-about-the-solar-system.json",
      "questions": 53,
      "subtopics": 4
     }
    ]
+  }
+ ],
+ "papers": [
+  {
+   "id": "mp1-ch11-14",
+   "title": "Mock Paper 1",
+   "subtitle": "Chapters 11-14: Ratio and Proportion; Data Handling; The Coordinate Grid; Reflection and Rotation",
+   "subject": "maths",
+   "bookChapters": [
+    11,
+    12,
+    13,
+    14
+   ],
+   "minutes": 45,
+   "totalMarks": 40,
+   "level": "standard",
+   "items": 32,
+   "questions": 31,
+   "file": "content/papers/mp1-ch11-14.json"
+  },
+  {
+   "id": "mp2-ch11-14",
+   "title": "Mock Paper 2",
+   "subtitle": "Chapters 11-14: Ratio and Proportion; Data Handling; The Coordinate Grid; Reflection and Rotation",
+   "subject": "maths",
+   "bookChapters": [
+    11,
+    12,
+    13,
+    14
+   ],
+   "minutes": 45,
+   "totalMarks": 40,
+   "level": "standard",
+   "items": 33,
+   "questions": 29,
+   "file": "content/papers/mp2-ch11-14.json"
+  },
+  {
+   "id": "mp3-ch11-14",
+   "title": "Mock Paper 3: Quick Check",
+   "subtitle": "Chapters 11-14: Ratio and Proportion; Data Handling; The Coordinate Grid; Reflection and Rotation. One quick question or two on every book section.",
+   "subject": "maths",
+   "bookChapters": [
+    11,
+    12,
+    13,
+    14
+   ],
+   "minutes": 25,
+   "totalMarks": 25,
+   "level": "quick",
+   "items": 22,
+   "questions": 20,
+   "file": "content/papers/mp3-ch11-14.json"
+  },
+  {
+   "id": "mp4-ch11-14",
+   "title": "Mock Paper 4: Stretch",
+   "subtitle": "Chapters 11-14: Ratio and Proportion; Data Handling; The Coordinate Grid; Reflection and Rotation",
+   "subject": "maths",
+   "bookChapters": [
+    11,
+    12,
+    13,
+    14
+   ],
+   "minutes": 50,
+   "totalMarks": 40,
+   "level": "stretch",
+   "items": 27,
+   "questions": 21,
+   "file": "content/papers/mp4-ch11-14.json"
   }
  ]
 }

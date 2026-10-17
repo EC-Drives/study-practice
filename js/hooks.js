@@ -27,6 +27,7 @@
 // setExtensions().
 
 import { powers } from './marking.js';
+import { bookSectionFor } from './bookmap.js';
 
 let diagrams = null;
 let generators = null;
@@ -117,6 +118,11 @@ export function misconceptionLabel(code) {
 /** Display preparation, as content.js does for bank questions (answers stay as written). */
 export function prepareGenerated(q, topic) {
   const out = { ...q, topicId: topic.topicId, subject: topic.subject };
+  // its book section (the generators stamp one; this covers a question made before they did)
+  if (out.subject === 'maths' && !(typeof out.bookSection === 'string' && out.bookSection)) {
+    const sec = bookSectionFor(out.subtopicId, out.skill);
+    if (sec) out.bookSection = sec;
+  }
   if (q.generatorId && generators && generators.GENERATOR_VERSION) out.generatorVersion = generators.GENERATOR_VERSION;
   out.prompt = powers(out.prompt);
   out.solution = powers(out.solution);
@@ -210,6 +216,7 @@ export function validQuestion(q) {
   if (!(q.marks == null || int(q.marks, 1, 10)) || !(q.difficulty == null || int(q.difficulty, 1, 3))) return false;
   if (!(q.subtopicId == null || str(q.subtopicId, 120)) || !(q.skill == null || str(q.skill, 300)) || !(q.topicId == null || str(q.topicId, 120))) return false;
   if (!strMap(q.misconceptions) || !strMap(q.misconceptionCodes, 100)) return false;
+  if (!(q.bookSection == null || str(q.bookSection, 20))) return false;
   if (!optObj(q.diagram) || !(q.optionDiagrams == null || (Array.isArray(q.optionDiagrams) && q.optionDiagrams.length <= 20 && q.optionDiagrams.every(optObj)))) return false;
   // pictures: the renderer's own checker (types, fields, and limits that keep drawing cheap)
   if (diagrams && typeof diagrams.validateDiagram === 'function') {

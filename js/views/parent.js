@@ -5,14 +5,14 @@
 // (local: email, PIN, export/import; linked: her account, export).
 
 import { h, clear, icon, button, dialog, toast, shareOrDownload, downloadFile, pct } from '../ui.js';
-import { SUBJECTS, loadAll, subjectTitle, indexQuestions, indexTopics } from '../content.js';
+import { SUBJECTS, loadAll, subjectTitle, indexQuestions, indexTopics, papersFor, bookOrder, chapterLabel } from '../content.js';
 import { questionsForSession } from '../hooks.js';
 import { hashPin, verifyPin, validPin, lockoutSeconds } from '../pin.js';
-import { activity, totals, streak, longestStreak, subtopicMastery, topicSummary, currentTopic, formatDate, formatTime, levelFor } from '../stats.js';
+import { activity, totals, streak, longestStreak, subtopicMastery, topicSummary, currentTopic, formatDate, formatTime, levelFor, sectionTally } from '../stats.js';
 import { progressAnalysis } from '../analysis.js';
 import { columnChart, levelBadge, meter } from '../charts.js';
 import { formatDuration } from '../timer.js';
-import { reportBodyHtml, reportFileName } from '../report.js';
+import { reportBodyHtml, reportFileName, attemptLabel } from '../report.js';
 import { buildExport, importExport, exportFileName, MAX_IMPORT_BYTES } from '../exportimport.js';
 import { APP_VERSION } from '../practice.js';
 import { sendReport, shareReport, copyReport } from './results.js';
@@ -102,7 +102,8 @@ export async function parentView(el, app, tab, arg) {
       button('Try again', { icon: 'again', cls: 'btn-primary', onClick: () => { if (src.refresh) src.refresh(); parentView(el, app, tab, arg); } })));
     return;
   }
-  const data = { sessions: sessions.filter((s) => s.status === 'complete'), attempts, topics };
+  const done = sessions.filter((s) => s.status === 'complete');
+  const data = { sessions: done, attempts, topics, papers: await papersFor(done) };
   if (tab === 'report') await reportPage(body, app, arg, data);
   else if (current === 'chapters') chaptersPage(body, data);
   else if (current === 'reports') await reportsPage(body, app, data);
@@ -234,12 +235,13 @@ async function latestSession(body, app, data) {
 /** The questions of one session as she saw them: the bank, with that session's generated ones. */
 function sessionQuestions(data, sessionId, attempts) {
   const session = data.sessions.find((x) => x.id === sessionId) || null;
-  data.qmap ||= indexQuestions(data.topics);
+  data.qmap ||= indexQuestions(data.topics, data.papers || []);
   data.tmap ||= indexTopics(data.topics);
   return questionsForSession(data.qmap, session, attempts, data.tmap);
 }
 
 async function overviewPage(body, app, data) {
+  if (app.mode !== 'linked') await backupReminder(body, app, data);
   await latestSession(body, app, data);
   const { sessions, attempts, topics } = data;
   const t = totals(sessions);
@@ -301,8 +303,78 @@ async function overviewPage(body, app, data) {
     if (an.misconceptions.length) sec.append(h('h3', { text: 'Misconceptions seen in the last 30 days' }), h('ul', {}, ...an.misconceptions.map((m) => h('li', { text: `${m.note}${m.count > 1 ? ` (seen ${m.count} times)` : ''}` }))));
   }
   sec.append(h('h3', { text: 'Recommended next' }), h('ol', {}, ...an.recommendations.map((r) => h('li', { text: r }))));
-  sec.append(h('p', { class: 'muted small', text: 'For a deeper written analysis by Claude, use Settings, Export progress, and pass the file to the Chief Learning Officer.' }));
+  sec.append(h('p', { class: 'muted small', text: 'For a deeper written analysis by Claude, use Settings, Back up progress, and pass the file to the Chief Learning Officer.' }));
   body.append(sec);
+}
+
+// ---------------------------------------------------------------- backup (local mode)
+
+export const BACKUP_DAYS = 7;
+
+/**
+ * The backup file's text, made ahead of the tap: Safari only opens the share sheet straight from
+ * a tap, so nothing slow may run between the tap and navigator.share().
+ */
+export async function prepareBackup(app) {
+  const exp = await buildExport(app.db, { appVersion: APP_VERSION, contentVersion: app.manifest.contentVersion });
+  return { name: exportFileName(), text: JSON.stringify(exp, null, 1) };
+}
+
+/**
+ * Save a backup file (share sheet on a tablet or phone, a download on a laptop) and remember when.
+ * `ready` is a promise from prepareBackup(), started when the page was drawn. The date is recorded
+ * only when the share sheet completed, or when a download is confirmed: a backup that did not
+ * really happen must not silence the reminder.
+ */
+export async function backUpNow(app, ready = null) {
+  let file;
+  try {
+    file = await (ready || prepareBackup(app));
+  } catch (e) {
+    toast(`The backup could not be made: ${(e && e.message) || e}`);
+    return false;
+  }
+  const res = await shareOrDownload(file.name, file.text, 'application/json', 'Study Practice backup');
+  if (res === 'cancelled') return false;
+  if (res === 'downloaded') {
+    const ok = await dialog('Did the backup save?', `A file called ${file.name} should now be in your Downloads (or Files). Keep it somewhere safe.`, [
+      { label: 'No, it did not', value: false, cls: 'btn-ghost' },
+      { label: 'Yes, it saved', value: true, cls: 'btn-primary', icon: 'check' },
+    ]);
+    if (!ok) {
+      toast('Nothing recorded. Try again, or try on another device.');
+      return false;
+    }
+  }
+  await app.db.setSetting('lastBackupAt', Date.now());
+  toast('Backup done. Keep the file somewhere safe.');
+  const card = document.getElementById('backup-reminder');
+  if (card) card.remove();
+  return true;
+}
+
+/** Is a backup due? Never backed up (with something to lose), or the last one older than 7 days. */
+export function backupDue(lastBackupAt, sessions, now = Date.now()) {
+  const finished = (sessions || []).filter((s) => s.status === 'complete');
+  if (!finished.length) return false;
+  if (!lastBackupAt) return true;
+  const newer = finished.some((s) => (s.endedAt || s.startedAt) > lastBackupAt);
+  return newer && now - lastBackupAt > BACKUP_DAYS * 86400000;
+}
+
+async function backupReminder(body, app, data) {
+  const last = await app.db.getSetting('lastBackupAt', null);
+  if (!backupDue(last, data.sessions)) return;
+  let ready = prepareBackup(app);
+  ready.catch(() => {});
+  body.append(h('section', { class: 'card alert backup-reminder', id: 'backup-reminder', role: 'status' },
+    h('h2', {}, icon('download'), h('span', { text: 'Time for a backup' })),
+    h('p', { text: last
+      ? `The last backup of her progress was on ${formatDate(last, true)}, more than ${BACKUP_DAYS} days ago. Her progress is kept only on this device, so a fresh backup protects her recent work.`
+      : 'Her progress is kept only on this device and has not been backed up yet. A backup takes a few seconds.' }),
+    h('div', { class: 'row wrap' },
+      button('Back up now', { icon: 'download', cls: 'btn-primary', onClick: () => { backUpNow(app, ready); ready = prepareBackup(app); ready.catch(() => {}); } }),
+      h('a', { href: '#/parent/settings', class: 'btn btn-ghost' }, h('span', { text: 'More about backups' })))));
 }
 
 function tile(ic, value, label) {
@@ -314,13 +386,16 @@ function tile(ic, value, label) {
 function chaptersPage(body, data) {
   const { sessions, attempts, topics } = data;
   const mastery = subtopicMastery(attempts);
+  // answers by book section; an answer saved before sections existed is placed by its question
+  data.qmap ||= indexQuestions(topics, data.papers || []);
+  const secs = sectionTally(attempts, (a) => a.bookSection || (data.qmap.get(a.questionId) || {}).bookSection);
   const cur = currentTopic(sessions);
   const lastAt = new Map();
   for (const a of attempts) lastAt.set(a.topicId, Math.max(lastAt.get(a.topicId) || 0, a.answeredAt));
   const curTopic = topics.find((t) => t.topicId === cur);
   body.append(h('section', { class: 'card' }, h('p', {}, h('strong', { text: 'Chapter she is on now: ' }), curTopic ? `${subjectTitle(curTopic.subject)}, ${curTopic.title}` : 'none yet')));
   for (const s of SUBJECTS) {
-    const list = topics.filter((t) => t.subject === s.id).sort((a, b) => a.order - b.order);
+    const list = bookOrder(topics.filter((t) => t.subject === s.id));
     if (!list.length) continue;
     const sec = h('section', { class: 'card' }, h('h2', {}, icon(s.id), h('span', { text: s.title })));
     const covered = list.filter((t) => attempts.some((a) => a.topicId === t.topicId)).length;
@@ -329,8 +404,9 @@ function chaptersPage(body, data) {
       const sum = topicSummary(t, mastery, attempts);
       const det = h('details', { class: `chapter${t.topicId === cur ? ' is-current' : ''}` },
         h('summary', {},
-          h('span', { class: 'topic-num', text: String(t.order) }),
+          h('span', { class: 'topic-num', 'aria-hidden': (t.bookSections || []).length ? 'true' : null, text: Number.isInteger(t.bookChapterNumber) ? String(t.bookChapterNumber) : (t.bookSections || []).length ? '+' : String(t.order) }),
           h('span', { class: 'chapter-body' },
+            (t.bookSections || []).length ? h('span', { class: 'muted small', text: Number.isInteger(t.bookChapterNumber) ? chapterLabel(t) : 'Extra topic (not a book chapter)' }) : null,
             h('span', { class: 'topic-title', text: `${t.title}${t.topicId === cur ? ' (current)' : ''}` }),
             h('span', { class: 'row tight' }, levelBadge(sum.level), sum.score != null ? meter(sum.score) : null),
             h('span', { class: 'muted small', text: `${sum.n} answers · seen ${Math.round(sum.coverage * 100)}% of the questions${lastAt.get(t.topicId) ? ` · last ${formatDate(lastAt.get(t.topicId))}` : ''}` }))),
@@ -341,9 +417,34 @@ function chaptersPage(body, data) {
             h('td', {}, levelBadge(x.m ? x.m.level : levelFor(0, 0))),
             h('td', {}, x.m ? meter(x.m.score) : h('span', { class: 'muted', text: '–' })),
             h('td', { class: 'num', text: String(x.m ? x.m.n : 0) }))))));
+      if ((t.bookSections || []).length) {
+        // the same chapter by book section, with the page, from every answer she has given
+        det.append(h('table', { class: 'tbl' },
+          h('thead', {}, h('tr', {}, h('th', { text: 'Book section' }), h('th', { class: 'num', text: 'Page' }), h('th', { class: 'num', text: 'Answers' }), h('th', { text: 'Right' }))),
+          h('tbody', {}, ...t.bookSections.map((b) => {
+            const g = secs.get(b.id);
+            return h('tr', {},
+              h('td', { text: `${b.id} ${b.title}` }),
+              h('td', { class: 'num', text: b.page != null ? String(b.page) : '–' }),
+              h('td', { class: 'num', text: String(g ? g.answers : 0) }),
+              h('td', {}, g ? meter(g.correct / g.answers, { label: `${b.id}: ${pct(g.correct / g.answers)} right` }) : h('span', { class: 'muted', text: '–' })));
+          }))));
+      }
       sec.append(det);
     }
     body.append(sec);
+  }
+  // mock papers: every attempt, with its score
+  const paperSessions = sessions.filter((s) => s.mode === 'paper').sort((a, b) => a.startedAt - b.startedAt);
+  if (paperSessions.length) {
+    body.append(h('section', { class: 'card' }, h('h2', {}, icon('paper'), h('span', { text: 'Mock papers' })),
+      h('table', { class: 'tbl' },
+        h('thead', {}, h('tr', {}, h('th', { text: 'Paper' }), h('th', { text: 'Date' }), h('th', { class: 'num', text: 'Marks' }), h('th', { class: 'num', text: 'Time' }))),
+        h('tbody', {}, ...paperSessions.map((s) => h('tr', {},
+          h('td', {}, h('a', { href: `#/parent/report/${encodeURIComponent(s.id)}`, text: `${s.paperTitle || s.topicTitle}${s.attemptNo > 1 ? `, ${attemptLabel(s.attemptNo)}` : ''}` })),
+          h('td', { text: formatDate(s.startedAt) }),
+          h('td', { class: 'num', text: s.score ? `${s.score.earned} / ${s.score.max}` : '–' }),
+          h('td', { class: 'num', text: formatDuration(s.timeUsedSec) })))))));
   }
   body.append(h('p', { class: 'muted small', text: 'Mastery weighs her most recent 20 answers in each subtopic, with newer and harder questions counting more. "Mastered" needs 85% or more over at least 6 answers.' }));
 }
@@ -488,7 +589,7 @@ async function linkedSettingsPage(body, app, data, firstRun) {
     const t = totals(data.sessions);
     body.append(h('section', { class: 'card' }, h('h2', {}, icon('download'), h('span', { text: 'Her progress file' })),
       h('p', { class: 'small', text: `Her account holds ${t.sessions} sessions and ${data.attempts.length} answers.` }),
-      button('Export her progress', { icon: 'download', cls: 'btn-primary', onClick: async () => {
+      button('Export her progress (a backup file)', { icon: 'download', cls: 'btn-primary', onClick: async () => {
         const exp = await buildExport(app.source, { appVersion: APP_VERSION, contentVersion: app.manifest.contentVersion });
         const res = await shareOrDownload(exportFileName(), JSON.stringify(exp, null, 1), 'application/json', 'Study Practice progress');
         if (res === 'downloaded') toast('Progress file saved.');
@@ -538,26 +639,25 @@ async function settingsPage(body, app, data) {
       if (f.size > MAX_IMPORT_BYTES) throw new Error('This file is too large to be a progress file.');
       const res = await importExport(db, await f.text());
       const a = res.added;
-      await dialog('Progress imported', `Added ${a.sessions} sessions, ${a.attempts} answers and ${a.reports} reports${res.fromDevice ? ` from "${res.fromDevice}"` : ''}. ${res.skipped.sessions} sessions were already on this device and were kept as they were.${res.invalid ? ` ${res.invalid} damaged records were skipped.` : ''}`, [{ label: 'OK', value: true, cls: 'btn-primary' }]);
+      await dialog('Backup restored', `Added ${a.sessions} sessions, ${a.attempts} answers and ${a.reports} reports${res.fromDevice ? ` from "${res.fromDevice}"` : ''}. ${res.skipped.sessions} sessions were already on this device and were kept as they were.${res.invalid ? ` ${res.invalid} damaged records were skipped.` : ''}`, [{ label: 'OK', value: true, cls: 'btn-primary' }]);
     } catch (e) {
-      await dialog('Could not import', e.message, [{ label: 'OK', value: true, cls: 'btn-primary' }]);
+      await dialog('Could not restore', e.message, [{ label: 'OK', value: true, cls: 'btn-primary' }]);
     }
     fileIn.value = '';
   });
   const t = totals(data.sessions);
-  body.append(h('section', { class: 'card' }, h('h2', {}, icon('download'), h('span', { text: 'Progress on this device' })),
-    h('p', { class: 'notice' }, icon('info'), h('span', { text: 'Progress is saved on each device separately (this laptop, tablet or phone). To move it or combine devices, export it here and import the file on the other device. Importing adds what is missing and never deletes anything.' })),
-    h('p', { class: 'small', text: `This device holds ${t.sessions} sessions and ${data.attempts.length} answers.` }),
-    labelForm,
+  const lastBackup = await db.getSetting('lastBackupAt', null);
+  let ready = prepareBackup(app);
+  ready.catch(() => {});
+  body.append(h('section', { class: 'card', id: 'backup' }, h('h2', {}, icon('download'), h('span', { text: 'Back up her progress' })),
+    h('p', { class: 'notice' }, icon('info'), h('span', { text: 'Her progress is kept only on this device. If the device is lost or reset, or the browser clears its data, it is gone. A backup is a small file you keep somewhere safe (Files, iCloud Drive, or email it to yourself). Restoring a backup adds what is missing and never deletes anything, so it is also how to move her progress to another device.' })),
+    h('p', { class: 'small', text: `This device holds ${t.sessions} session${t.sessions === 1 ? "" : "s"} and ${data.attempts.length} answer${data.attempts.length === 1 ? "" : "s"}. ${lastBackup ? `Last backup: ${formatDate(lastBackup, true)} at ${formatTime(lastBackup)}.` : 'No backup made on this device yet.'}` }),
     h('div', { class: 'row wrap' },
-      button('Export progress', { icon: 'download', cls: 'btn-primary', onClick: async () => {
-        const exp = await buildExport(db, { appVersion: APP_VERSION, contentVersion: app.manifest.contentVersion });
-        const res = await shareOrDownload(exportFileName(), JSON.stringify(exp, null, 1), 'application/json', 'Study Practice progress');
-        if (res === 'downloaded') toast('Progress file saved.');
-      } }),
-      h('label', { for: 'importfile', class: 'btn btn-ghost', tabindex: '0', role: 'button', onKeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileIn.click(); } } }, icon('upload'), h('span', { text: 'Import progress' })),
+      button('Back up progress', { icon: 'download', cls: 'btn-primary', onClick: () => { backUpNow(app, ready); ready = prepareBackup(app); ready.catch(() => {}); } }),
+      h('label', { for: 'importfile', class: 'btn btn-ghost', tabindex: '0', role: 'button', onKeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileIn.click(); } } }, icon('upload'), h('span', { text: 'Restore from a backup' })),
       fileIn),
-    h('p', { class: 'small muted', text: 'The export file contains every answer with its question, timing and result, ready for a deeper analysis by the Chief Learning Officer. It does not contain the PIN or the parent email.' })));
+    h('p', { class: 'small muted', text: 'On an iPad or iPhone, "Back up progress" opens the share sheet: choose "Save to Files". The file has every answer with its question, timing and result, so it is also what the Chief Learning Officer needs for a deeper analysis. It does not contain the PIN or the parent email.' }),
+    labelForm));
 
   // PIN
   body.append(h('section', { class: 'card' }, h('h2', {}, icon('lock'), h('span', { text: 'Parent PIN' })),
@@ -577,7 +677,7 @@ async function settingsPage(body, app, data) {
   try {
     const persisted = navigator.storage && navigator.storage.persisted ? await navigator.storage.persisted() : false;
     const est = navigator.storage && navigator.storage.estimate ? await navigator.storage.estimate() : null;
-    storageText = `${persisted ? 'The browser has agreed to keep this data.' : 'The browser may clear this data if the device runs short of space, so export now and then.'}${est && est.usage != null ? ` About ${Math.max(1, Math.round(est.usage / 1024))} KB used.` : ''}`;
+    storageText = `${persisted ? 'The browser has agreed to keep this data.' : 'The browser may clear this data if the device runs short of space, so back up now and then.'}${est && est.usage != null ? ` About ${Math.max(1, Math.round(est.usage / 1024))} KB used.` : ''}`;
   } catch { /* ignore */ }
   body.append(h('section', { class: 'card' }, h('h2', {}, icon('info'), h('span', { text: 'Storage and about' })),
     h('p', { class: 'small', text: storageText }),

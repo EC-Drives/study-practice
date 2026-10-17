@@ -11,7 +11,7 @@ import { loadExtensions } from './hooks.js';
 import { connectAi } from './ai.js';
 import { loginView } from './views/login.js';
 import { homeView, subjectView } from './views/home.js';
-import { topicView, mixedView } from './views/topic.js';
+import { topicView, mixedView, sectionView, papersView, paperView } from './views/topic.js';
 import { sessionView } from './views/session.js';
 import { resultsView } from './views/results.js';
 import { parentView } from './views/parent.js';
@@ -101,6 +101,18 @@ async function route() {
       case 'mixed':
         await mixedView(el, app, a);
         setTitle('Mixed revision');
+        break;
+      case 'section':
+        await sectionView(el, app, a, b);
+        setTitle(el.dataset.title);
+        break;
+      case 'papers':
+        await papersView(el, app, a || 'maths');
+        setTitle('Mock papers');
+        break;
+      case 'paper':
+        await paperView(el, app, a);
+        setTitle(el.dataset.title);
         break;
       case 'session':
         setTitle('Practice');

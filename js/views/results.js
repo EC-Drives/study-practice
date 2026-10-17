@@ -2,19 +2,20 @@
 // went wrong" grouped by skill. Also the buttons that send or share the parent report.
 
 import { h, clear, icon, button, link, dialog, toast, shareOrDownload, pct } from '../ui.js';
-import { loadSubject, indexQuestions, indexTopics, subjectTitle } from '../content.js';
+import { loadSubject, indexQuestions, indexTopics, subjectTitle, loadPaper } from '../content.js';
 import { responseText, correctAnswerText } from '../marking.js';
 import { scoreRing, pictograms, attemptKind, meter } from '../charts.js';
 import { formatDuration } from '../timer.js';
-import { reportMailto, reportHtmlDocument, reportFileName, emailSubject, pinResetNotice, reportPlainText } from '../report.js';
+import { reportMailto, reportHtmlDocument, reportFileName, emailSubject, pinResetNotice, reportPlainText, sessionTitle, sectionRows } from '../report.js';
 import { streak } from '../stats.js';
 import { aiAvailable } from '../ai.js';
 import { workingView } from '../working.js';
 import { diagramFor, questionsForSession } from '../hooks.js';
 import { choicePictures } from '../visual-report.js';
 
-function cheer(p) {
-  if (p >= 0.9) return ['Brilliant work!', 'You really know this chapter.'];
+function cheer(p, mode) {
+  const what = mode === 'paper' ? 'these chapters' : mode === 'section' ? 'this section' : mode === 'mixed' ? 'your maths' : 'this chapter';
+  if (p >= 0.9) return ['Brilliant work!', `You really know ${what}.`];
   if (p >= 0.75) return ['Great job!', 'You got most of these right.'];
   if (p >= 0.5) return ['Good effort!', 'You are getting there. The review below shows what to look at next.'];
   return ['Well done for practising!', 'Every try helps you learn. Let\'s look at the answers together.'];
@@ -70,18 +71,25 @@ export async function resultsView(el, app, sessionId) {
     app.db.getAll('sessions'),
   ]);
   attempts.sort((a, b) => a.position - b.position);
-  const qmap = questionsForSession(indexQuestions(topics), session, attempts, indexTopics(topics));
+  const paperMode = session.mode === 'paper';
+  let paper = null;
+  if (paperMode) {
+    try { paper = await loadPaper(session.paperId); } catch { paper = null; }
+  }
+  const qmap = questionsForSession(indexQuestions(topics, paper ? [paper] : []), session, attempts, indexTopics(topics));
+  const numberOf = (q, i) => (paperMode && q && q.number ? q.number : String(i + 1));
   const subTitle = new Map();
   for (const t of topics) for (const s of t.preamble.subtopics) subTitle.set(s.id, s.title);
   const sc = session.score;
-  const [big, small] = cheer(sc.pct);
-  const title = session.mode === 'mixed' ? `Mixed revision: ${subjectTitle(session.subject)}` : session.topicTitle;
+  const [big, small] = cheer(sc.pct, session.mode);
+  const title = sessionTitle(session);
 
   const page = h('div', { class: 'stack results' });
   page.append(h('nav', { class: 'crumbs', 'aria-label': 'Breadcrumb' },
     h('a', { href: '#/' }, icon('home', { size: 18 }), h('span', { text: 'Home' })),
     h('span', { 'aria-hidden': 'true', text: '›' }),
-    session.topicId ? h('a', { href: `#/topic/${encodeURIComponent(session.topicId)}`, text: session.topicTitle }) : h('a', { href: `#/subject/${session.subject}`, text: subjectTitle(session.subject) })));
+    paperMode ? h('a', { href: `#/papers/${session.subject}`, text: 'Mock papers' })
+      : session.topicId ? h('a', { href: `#/topic/${encodeURIComponent(session.topicId)}`, text: session.topicTitle }) : h('a', { href: `#/subject/${session.subject}`, text: subjectTitle(session.subject) })));
 
   if (session.timedOut) page.append(h('p', { class: 'banner', role: 'status' }, icon('clock'), h('span', { text: "Time's up! Here is how you did." })));
 
@@ -118,10 +126,25 @@ export async function resultsView(el, app, sessionId) {
       h('div', { class: 'tile' }, icon('flag'), h('b', { text: String(attempts.filter((a) => a.flagged).length) }), h('span', { text: 'flagged' }))),
     badges.childNodes.length ? badges : null,
     h('h2', { class: 'small-title', text: 'Question by question (tap one to see it)' }),
-    pictograms(attempts, jump)));
+    pictograms(attempts, jump, (i) => numberOf(qmap.get(attempts[i].questionId), i))));
+
+  // ---- by book section (maths): marks for a paper, questions right for practice
+  const secs = report ? sectionRows(report) : [];
+  if (secs.length) {
+    page.append(h('section', { class: 'card' },
+      h('h2', {}, icon('book'), h('span', { text: paperMode ? 'Your marks in each book section' : 'How you did in each book section' })),
+      h('ul', { class: 'part-list' }, ...secs.map((g) => {
+        const p = paperMode ? (g.max ? g.earned / g.max : 0) : (g.total ? g.correct / g.total : 0);
+        return h('li', {},
+          h('span', { class: 'part-name' }, h('strong', { text: g.id }), h('span', { text: ` ${g.title}` }), g.page != null ? h('span', { class: 'muted small', text: ` · book page ${g.page}` }) : null),
+          h('span', { class: 'part-score', text: paperMode ? `${g.earned} of ${g.max} mark${g.max === 1 ? '' : 's'}` : `${g.correct} of ${g.total} right` }),
+          meter(p, { label: `${g.id} ${g.title}: ${Math.round(p * 100)} percent` }));
+      })),
+      paperMode ? h('p', { class: 'small muted', text: 'To improve a section, open Maths, find the section in the chapter list and practise it.' }) : null));
+  }
 
   // ---- by part
-  if (report && report.bySubtopic.length) {
+  if (report && report.bySubtopic.length && !paperMode) {
     page.append(h('section', { class: 'card' },
       h('h2', {}, icon('chart'), h('span', { text: 'How you did in each part' })),
       h('ul', { class: 'part-list' }, ...report.bySubtopic.map((g) => h('li', {},
@@ -154,7 +177,9 @@ export async function resultsView(el, app, sessionId) {
       button('Copy report', { icon: 'download', cls: 'btn-ghost', onClick: () => report && copyReport(report) }),
       button('Save or share the report', { icon: 'share', cls: 'btn-ghost', onClick: () => report && shareReport(report) })),
     h('div', { class: 'row wrap' },
-      session.topicId ? link('Practise again', `#/topic/${encodeURIComponent(session.topicId)}`, { icon: 'again' }) : link('Practise again', `#/mixed/${session.subject}`, { icon: 'again' }),
+      paperMode ? link('Back to the mock papers', `#/papers/${session.subject}`, { icon: 'again' })
+        : session.mode === 'section' && session.topicId ? link('Practise this section again', `#/section/${encodeURIComponent(session.topicId)}/${encodeURIComponent(session.bookSection)}`, { icon: 'again' })
+          : session.topicId ? link('Practise again', `#/topic/${encodeURIComponent(session.topicId)}`, { icon: 'again' }) : link('Practise again', `#/mixed/${session.subject}`, { icon: 'again' }),
       link('Home', '#/', { icon: 'home', cls: 'btn-ghost' })));
   page.append(actions);
 
@@ -170,7 +195,8 @@ export async function resultsView(el, app, sessionId) {
     const kind = attemptKind(a);
     const status = { right: ['check', 'Right!'], part: ['star', `Part right: ${a.earned} of ${a.marks} marks`], wrong: ['bulb', 'Not yet: here is how it works'], skip: ['dash', 'Not answered'] }[kind];
     const item = h('li', { class: `review review-${kind}`, 'data-kind': kind },
-      h('h3', { tabindex: '-1' }, h('span', { class: 'rv-num', text: `Question ${i + 1}` }), h('span', { class: `rv-status rv-${kind}` }, icon(status[0], { size: 20 }), h('span', { text: status[1] }))),
+      h('h3', { tabindex: '-1' }, h('span', { class: 'rv-num', text: `Question ${numberOf(q, i)}` }), h('span', { class: `rv-status rv-${kind}` }, icon(status[0], { size: 20 }), h('span', { text: status[1] }))),
+      q && (q.groupStem || q.groupDiagram) ? h('div', { class: 'group-stem' }, q.groupStem ? h('p', { text: q.groupStem }) : null, q.groupDiagram ? diagramFor({ id: `${q.id}-group`, diagram: q.groupDiagram }, 'review') : null) : null,
       h('p', { class: 'rv-prompt', text: q ? q.prompt : '(This question is no longer in the bank.)' }));
     if (q) {
       item.append(h('dl', { class: 'rv-answers' },
@@ -184,7 +210,13 @@ export async function resultsView(el, app, sessionId) {
       const choices = choicePictures(q, a.response, 'review', { mine: 'Your answer', picked: 'You picked this' }); // picture choices: hers and the right one marked
       if (choices) item.insertBefore(choices, item.querySelector('.rv-answers'));
       item.append(h('details', { class: 'rv-solution', open: kind !== 'right' ? true : null }, h('summary', { text: 'How to solve it' }), h('p', { text: q.solution })));
-      item.append(h('p', { class: 'small muted', text: `${subTitle.get(q.subtopicId) || ''} · ${q.skill}` }));
+      if (Array.isArray(q.markScheme) && q.markScheme.length) {
+        // the examiner's mark scheme (B = a mark on its own, M = method, A = answer after the method)
+        item.append(h('details', { class: 'rv-scheme', open: kind !== 'right' ? true : null }, h('summary', { text: 'Mark scheme' }),
+          h('ul', { class: 'scheme' }, ...q.markScheme.map((m) => h('li', {}, h('strong', { text: String(m.code || '') }), h('span', { text: ` ${m.text || ''}` })))),
+          h('p', { class: 'small muted', text: 'On paper, M marks are for a correct method even if the answer is wrong. On screen only the final answer is marked.' })));
+      }
+      item.append(h('p', { class: 'small muted', text: `${a.bookSection || q.bookSection ? `Section ${a.bookSection || q.bookSection} · ` : ''}${subTitle.get(q.subtopicId) || ''} · ${q.skill}` }));
       if (aiAvailable() && kind !== 'right') item.append(h('p', { class: 'small muted', text: 'More help is available from the AI helper.' }));
     }
     if (a.working && a.working.strokes) {
@@ -217,7 +249,7 @@ export async function resultsView(el, app, sessionId) {
       h('ul', { class: 'skill-groups' }, ...groups.map((g) => h('li', {},
         h('h3', { text: g.skill }),
         h('p', { class: 'small' }, `${g.items.length} question${g.items.length === 1 ? '' : 's'} to look at again: `,
-          ...g.items.map((i, k) => [k ? ', ' : '', h('a', { href: '#review', onClick: (e) => { e.preventDefault(); jump(i); }, text: `Q${i + 1}` })])),
+          ...g.items.map((i, k) => [k ? ', ' : '', h('a', { href: '#review', onClick: (e) => { e.preventDefault(); jump(i); }, text: `Q${numberOf(qmap.get(attempts[i].questionId), i)}` })])),
         g.notes.size ? h('ul', { class: 'notes' }, ...[...g.notes].slice(0, 3).map((n) => h('li', { text: n }))) : null)))));
   } else {
     page.append(h('section', { class: 'card' }, h('h2', {}, icon('trophy'), h('span', { text: 'Nothing went wrong!' })), h('p', { text: 'Every answer was right. Try a longer session or the next chapter.' })));

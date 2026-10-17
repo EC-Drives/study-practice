@@ -577,7 +577,7 @@ check('no AI connected in version 1', aiAvailable() === false && (await explainM
 // tests-linked.js: accounts, data adapter, RLS intent, offline queue, working area, reports.
 // tests-integration.js: the diagram and generator engines wired into the app (their own full
 // suites are test/diagrams.html and test/generators.html). Each exports run({ check, setGroup, fixtures }).
-for (const path of ['./tests-linked.js', './tests-integration.js']) {
+for (const path of ['./tests-linked.js', './tests-integration.js', './tests-bookmap.js']) {
   let mod = null;
   try {
     mod = await import(path);

@@ -4,6 +4,44 @@
   "title": "Data Handling and Statistical Inquiry",
   "order": 12,
   "bookChapter": "Chapter 12: Data Handling and Statistical Inquiry",
+  "bookChapterNumber": 12,
+  "bookSections": [
+    {
+      "id": "12A",
+      "title": "Plan an Investigation and Make Predictions",
+      "page": 178
+    },
+    {
+      "id": "12B",
+      "title": "Read and Make Pie Charts",
+      "page": 183
+    },
+    {
+      "id": "12C",
+      "title": "Read and Make Frequency Charts and Scales",
+      "page": 186
+    },
+    {
+      "id": "12D",
+      "title": "Read and Make Scatter Graphs",
+      "page": 191
+    },
+    {
+      "id": "12E",
+      "title": "Record, Organise and Represent Data",
+      "page": 195
+    },
+    {
+      "id": "12F",
+      "title": "Describe Data using Mean, Median, Mode and Range",
+      "page": 199
+    },
+    {
+      "id": "12G",
+      "title": "Identify Patterns and Draw Conclusions",
+      "page": 203
+    }
+  ],
   "frameworkRefs": [
     "6Ss.01",
     "6Ss.02",
@@ -47,6 +85,7 @@
     {
       "id": "m12-q001",
       "subtopicId": "m12-s1",
+      "bookSection": "12A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -70,6 +109,7 @@
     {
       "id": "m12-q002",
       "subtopicId": "m12-s1",
+      "bookSection": "12A",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -93,6 +133,7 @@
     {
       "id": "m12-q003",
       "subtopicId": "m12-s1",
+      "bookSection": "12A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -108,6 +149,7 @@
     {
       "id": "m12-q004",
       "subtopicId": "m12-s1",
+      "bookSection": "12A",
       "type": "match",
       "difficulty": 1,
       "marks": 2,
@@ -148,6 +190,7 @@
     {
       "id": "m12-q005",
       "subtopicId": "m12-s1",
+      "bookSection": "12A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -171,6 +214,7 @@
     {
       "id": "m12-q006",
       "subtopicId": "m12-s1",
+      "bookSection": "12A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -194,6 +238,7 @@
     {
       "id": "m12-q007",
       "subtopicId": "m12-s1",
+      "bookSection": "12A",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -221,6 +266,7 @@
     {
       "id": "m12-q008",
       "subtopicId": "m12-s1",
+      "bookSection": "12A",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -236,6 +282,7 @@
     {
       "id": "m12-q009",
       "subtopicId": "m12-s1",
+      "bookSection": "12A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -259,6 +306,7 @@
     {
       "id": "m12-q010",
       "subtopicId": "m12-s1",
+      "bookSection": "12A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -282,6 +330,7 @@
     {
       "id": "m12-q011",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -334,6 +383,7 @@
     {
       "id": "m12-q012",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -357,6 +407,7 @@
     {
       "id": "m12-q013",
       "subtopicId": "m12-s2",
+      "bookSection": "12C",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -385,7 +436,8 @@
         "yLabel": "Number of pupils",
         "yMax": 10,
         "yStep": 2,
-        "minorStep": 1
+        "minorStep": 1,
+        "alt": "A bar chart showing how many brothers and sisters the pupils in a class have."
       },
       "answer": {
         "value": 22,
@@ -402,6 +454,7 @@
     {
       "id": "m12-q014",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -452,6 +505,7 @@
     {
       "id": "m12-q015",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -508,6 +562,7 @@
     {
       "id": "m12-q016",
       "subtopicId": "m12-s2",
+      "bookSection": "12B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -555,6 +610,7 @@
     {
       "id": "m12-q017",
       "subtopicId": "m12-s2",
+      "bookSection": "12B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -585,6 +641,7 @@
     {
       "id": "m12-q018",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -612,6 +669,7 @@
     {
       "id": "m12-q019",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -651,6 +709,7 @@
     {
       "id": "m12-q020",
       "subtopicId": "m12-s2",
+      "bookSection": "12D",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -666,6 +725,7 @@
     {
       "id": "m12-q021",
       "subtopicId": "m12-s2",
+      "bookSection": "12B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -689,6 +749,7 @@
     {
       "id": "m12-q022",
       "subtopicId": "m12-s2",
+      "bookSection": "12B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -743,6 +804,7 @@
     {
       "id": "m12-q023",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -778,6 +840,7 @@
     {
       "id": "m12-q024",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -801,6 +864,7 @@
     {
       "id": "m12-q025",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -851,6 +915,7 @@
     {
       "id": "m12-q026",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -874,6 +939,7 @@
     {
       "id": "m12-q027",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -893,6 +959,7 @@
     {
       "id": "m12-q028",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -916,6 +983,7 @@
     {
       "id": "m12-q029",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "multi",
       "difficulty": 2,
       "marks": 1,
@@ -942,6 +1010,7 @@
     {
       "id": "m12-q030",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -961,6 +1030,7 @@
     {
       "id": "m12-q031",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -984,6 +1054,7 @@
     {
       "id": "m12-q032",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -999,6 +1070,7 @@
     {
       "id": "m12-q033",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -1021,6 +1093,7 @@
     {
       "id": "m12-q034",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1044,6 +1117,7 @@
     {
       "id": "m12-q035",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -1063,6 +1137,7 @@
     {
       "id": "m12-q036",
       "subtopicId": "m12-s4",
+      "bookSection": "12C",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -1093,7 +1168,8 @@
         "yLabel": "Number of ice creams",
         "yMax": 40,
         "yStep": 5,
-        "minorStep": 1
+        "minorStep": 1,
+        "alt": "A bar chart of the number of ice creams sold at a stall on each day from Monday to Friday."
       },
       "answer": {
         "value": 17,
@@ -1110,6 +1186,7 @@
     {
       "id": "m12-q037",
       "subtopicId": "m12-s4",
+      "bookSection": "12G",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -1149,6 +1226,7 @@
     {
       "id": "m12-q038",
       "subtopicId": "m12-s4",
+      "bookSection": "12D",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1226,6 +1304,7 @@
     {
       "id": "m12-q039",
       "subtopicId": "m12-s4",
+      "bookSection": "12G",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1278,6 +1357,7 @@
     {
       "id": "m12-q040",
       "subtopicId": "m12-s4",
+      "bookSection": "12G",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1301,6 +1381,7 @@
     {
       "id": "m12-q041",
       "subtopicId": "m12-s4",
+      "bookSection": "12G",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -1354,6 +1435,7 @@
     {
       "id": "m12-q042",
       "subtopicId": "m12-s4",
+      "bookSection": "12F",
       "type": "order",
       "difficulty": 2,
       "marks": 2,
@@ -1380,6 +1462,7 @@
     {
       "id": "m12-q043",
       "subtopicId": "m12-s4",
+      "bookSection": "12G",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1403,6 +1486,7 @@
     {
       "id": "m12-q044",
       "subtopicId": "m12-s4",
+      "bookSection": "12F",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -1425,6 +1509,7 @@
     {
       "id": "m12-q045",
       "subtopicId": "m12-s4",
+      "bookSection": "12F",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -1444,6 +1529,7 @@
     {
       "id": "m12-q046",
       "subtopicId": "m12-s4",
+      "bookSection": "12C",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -1494,6 +1580,7 @@
     {
       "id": "m12-q047",
       "subtopicId": "m12-s4",
+      "bookSection": "12G",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1552,6 +1639,7 @@
     {
       "id": "m12-q048",
       "subtopicId": "m12-s4",
+      "bookSection": "12C",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -1607,6 +1695,7 @@
     {
       "id": "m12-q049",
       "subtopicId": "m12-s4",
+      "bookSection": "12G",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1661,6 +1750,7 @@
     {
       "id": "m12-q050",
       "subtopicId": "m12-s2",
+      "bookSection": "12B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -1707,6 +1797,7 @@
     {
       "id": "m12-q051",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -1766,6 +1857,7 @@
     {
       "id": "m12-q052",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1817,6 +1909,7 @@
     {
       "id": "m12-q053",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "short",
       "difficulty": 2,
       "marks": 1,
@@ -1870,6 +1963,7 @@
     {
       "id": "m12-q054",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -1919,6 +2013,7 @@
     {
       "id": "m12-q055",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -1970,6 +2065,7 @@
     {
       "id": "m12-q056",
       "subtopicId": "m12-s3",
+      "bookSection": "12F",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -2021,6 +2117,7 @@
     {
       "id": "m12-q057",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -2148,6 +2245,7 @@
     {
       "id": "m12-q058",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -2246,6 +2344,7 @@
     {
       "id": "m12-q059",
       "subtopicId": "m12-s4",
+      "bookSection": "12B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -2327,6 +2426,7 @@
     {
       "id": "m12-q060",
       "subtopicId": "m12-s4",
+      "bookSection": "12B",
       "type": "truefalse",
       "difficulty": 3,
       "marks": 2,
@@ -2366,6 +2466,7 @@
     {
       "id": "m12-q061",
       "subtopicId": "m12-s2",
+      "bookSection": "12E",
       "type": "match",
       "difficulty": 1,
       "marks": 2,
@@ -2448,6 +2549,7 @@
     {
       "id": "m12-q062",
       "subtopicId": "m12-s4",
+      "bookSection": "12G",
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
@@ -2513,6 +2615,4076 @@
       },
       "skill": "comparing data sets",
       "source": "original"
+    },
+    {
+      "id": "m12-q063",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Lina predicts: 'More pupils in my class walk to school than come by car.' Which data should she collect to test her prediction?",
+      "options": [
+        "The time each pupil in her class wakes up",
+        "How each pupil in her class travels to school",
+        "The number of cars in the school car park",
+        "How far the school is from the nearest bus stop"
+      ],
+      "answer": 1,
+      "solution": "Her prediction compares two ways of travelling: walking and coming by car. So she needs to know how each pupil in her class travels to school. Then she can count the walkers and the car pupils and compare the two numbers. The answer is: how each pupil in her class travels to school.",
+      "misconceptions": {
+        "0": "Waking-up time does not tell her how pupils travel. Collect data about the thing in the prediction: walking or coming by car.",
+        "2": "Many cars in the car park belong to teachers and visitors, and one car can bring several pupils. Ask each pupil how they travel instead.",
+        "3": "This is one fact about the school, not data about the pupils. Her prediction is about how each pupil travels."
+      },
+      "skill": "making and testing predictions",
+      "source": "original"
+    },
+    {
+      "id": "m12-q064",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Match each piece of data to the best way to collect it.",
+      "options": {
+        "left": [
+          "The favourite hawker food of each pupil",
+          "The number of buses that pass the school gate in 30 minutes",
+          "The hand span of each pupil",
+          "The time each pupil takes to run 50 m"
+        ],
+        "right": [
+          "Time with a stopwatch",
+          "Ask each pupil a question",
+          "Measure with a ruler",
+          "Watch and make a tally"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "A favourite food is an opinion, so ask each pupil. Buses passing the gate are counted as they happen, so watch and make a tally. A hand span is a length, so measure it with a ruler. A running time is measured with a stopwatch. Hand span and running time are continuous data: they are measured, not counted.",
+      "misconceptions": {
+        "common": "Mixing up asking, counting and measuring. Ask people for their opinions, count things that happen with a tally, measure lengths with a ruler and times with a stopwatch."
+      },
+      "skill": "planning an investigation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q065",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Siti predicts: 'Year 6 pupils sleep fewer hours on school nights than Year 4 pupils.' Which plan is the fairest way to test her prediction?",
+      "options": [
+        "Ask 30 Year 6 pupils how long they slept last night",
+        "Ask 30 Year 6 pupils and 3 Year 4 pupils how long they slept last night",
+        "Ask 30 Year 6 pupils the morning after a school camp, and 30 Year 4 pupils after a normal school night",
+        "Ask 30 Year 6 pupils and 30 Year 4 pupils, chosen from several classes in each year, how long they slept on the same school night"
+      ],
+      "answer": 3,
+      "solution": "To compare two groups fairly: ask both groups, ask a similar number in each, choose pupils from different classes, and ask about the same kind of night. Only the last plan does all of these. Trap: a plan can ask enough pupils and still be unfair if the groups are measured in different conditions.",
+      "misconceptions": {
+        "0": "Her prediction compares two year groups. With only Year 6 data there is nothing to compare with.",
+        "1": "3 Year 4 pupils is far too few: one unusual sleeper could change the result. Ask a similar number of pupils in each year group.",
+        "2": "A camp night is not a normal school night, so the two groups are not asked about the same kind of night. In a fair test only the year group changes."
+      },
+      "skill": "planning an investigation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q066",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Daniel is planning an investigation: 'Do taller pupils jump further in the standing long jump?' Select ALL the statements that are true.",
+      "options": [
+        "He should measure the jumps to the nearest whole metre.",
+        "Height is continuous data.",
+        "He must record each pupil's height and jump distance together, as a pair.",
+        "Jump distance is discrete data, because you can count the centimetres.",
+        "A scatter graph would help him see whether there is a link."
+      ],
+      "answer": [
+        1,
+        2,
+        4
+      ],
+      "solution": "Height and jump distance are both measured, so both are continuous data. To test a link, he must keep each pupil's two measurements together as a pair, then plot the pairs on a scatter graph. Measuring to the nearest whole metre is far too rough: almost every jump would be recorded as 1 m or 2 m. The true statements are: height is continuous; record the pairs; a scatter graph would help.",
+      "misconceptions": {
+        "0": "Most standing jumps are between 1 m and 2 m, so to the nearest metre almost every jump would be 1 m or 2 m and the differences would disappear. Measure to the nearest centimetre.",
+        "3": "Jump distance is measured, not counted, and it can be any value, such as 1.37 m. That makes it continuous data. The centimetre marks are just how a tape measure shows a measurement.",
+        "common": "Check each statement on its own. Measured data (height, distance, time) is continuous; to test a link, keep each pupil's two values together."
+      },
+      "skill": "types of data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q067",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Priya predicted: 'More than half of the pupils in Year 6 will choose nasi lemak as their favourite breakfast.' She asked all 36 pupils in Year 6. The bar chart shows her results. Was her prediction correct? Tick one answer with its reason.",
+      "diagram": {
+        "type": "barChart",
+        "title": "Favourite breakfast of Year 6 pupils",
+        "categories": [
+          "Nasi lemak",
+          "Roti canai",
+          "Bread",
+          "Cereal"
+        ],
+        "series": [
+          {
+            "name": "Number of pupils",
+            "values": [
+              14,
+              9,
+              8,
+              5
+            ]
+          }
+        ],
+        "xLabel": "Breakfast",
+        "yLabel": "Number of pupils",
+        "yMax": 16,
+        "yStep": 2,
+        "minorStep": 1,
+        "alt": "A bar chart of the favourite breakfasts of the 36 Year 6 pupils: nasi lemak, roti canai, bread and cereal."
+      },
+      "options": [
+        "Yes, because more pupils chose nasi lemak than any other breakfast.",
+        "Yes, because 14 is more than half of 36.",
+        "No, because half of 36 is 18, and only 14 pupils chose nasi lemak.",
+        "No, because she should have asked more than 36 pupils."
+      ],
+      "answer": 2,
+      "solution": "Read the nasi lemak bar: 14 pupils. Half of 36 = 36 ÷ 2 = 18. 14 is less than 18, so fewer than half of the pupils chose nasi lemak. Nasi lemak is the most popular breakfast, but the prediction said 'more than half', so the prediction was not correct. Trap: 'the most popular' is not the same as 'more than half'.",
+      "misconceptions": {
+        "0": "Nasi lemak is the most popular, but that is not what she predicted. 'More than half' means more than 18 of the 36 pupils, and only 14 chose it.",
+        "1": "Half of 36 is 36 ÷ 2 = 18. 14 is less than 18, so 14 is less than half.",
+        "3": "She asked all 36 pupils in Year 6, so her data covers the whole year group. The reason is in the result itself: 14 is less than half of 36."
+      },
+      "skill": "making and testing predictions",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q068",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Omar's main question is: 'How do pupils in our school spend their free time at weekends?' He writes some smaller questions to help him answer it. A statistical question is answered by collecting data that varies. Select ALL the smaller questions that are statistical AND help to answer his main question.",
+      "options": [
+        "What time does the school gate open on Monday?",
+        "How many hours do pupils spend on screens at weekends?",
+        "Which weekend activity do the most pupils take part in?",
+        "How many hours did Omar spend reading last Saturday?",
+        "How many days are there in a weekend?",
+        "Do older pupils spend more time on sport at weekends than younger pupils?"
+      ],
+      "answer": [
+        1,
+        2,
+        5
+      ],
+      "solution": "Check each question twice: does it need data from many pupils that varies, and is it about free time at weekends? Screen time at weekends, the most popular weekend activity, and comparing older and younger pupils all pass both checks. The gate time and the number of days in a weekend have one fixed answer, and Omar's own reading time is about one person only.",
+      "misconceptions": {
+        "0": "This has one fixed answer, and it is about school, not free time at weekends.",
+        "3": "This is about one person only, so the answer does not vary. A statistical question collects data from many pupils.",
+        "4": "This has one fixed answer (2 days). No data needs to be collected.",
+        "common": "A statistical question needs data from many people, and the answers vary. It must also help with the main question."
+      },
+      "skill": "statistical questions",
+      "source": "original"
+    },
+    {
+      "id": "m12-q069",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Aisha predicts: 'Most pupils in my class spend between 1 and 2 hours on homework each day.' She is writing a questionnaire to test this. Which set of answer boxes should she use?",
+      "options": [
+        "Less than 1 hour; 1 hour to less than 2 hours; 2 hours or more",
+        "0 to 1 hour; 1 to 2 hours; 2 to 3 hours",
+        "1 to 2 hours; 3 to 4 hours; 5 to 6 hours",
+        "A little; Some; A lot"
+      ],
+      "answer": 0,
+      "solution": "Homework time is continuous data, so the answer boxes must be number groups with no overlaps and no gaps, so every pupil ticks exactly one box. 'Less than 1 hour', '1 hour to less than 2 hours' and '2 hours or more' do this, and the middle box matches the group in her prediction. A pupil who does exactly 2 hours ticks '2 hours or more'. Trap: '0 to 1' and '1 to 2' both contain 1 hour.",
+      "misconceptions": {
+        "1": "These groups overlap: a pupil who does exactly 1 hour or exactly 2 hours could tick two boxes. A pupil who does more than 3 hours has no box at all.",
+        "2": "There are gaps: a pupil who does 30 minutes or 2 1/2 hours has no box to tick. Every possible answer needs exactly one box.",
+        "3": "'A little' means different things to different people, so she cannot tell who does between 1 and 2 hours. Use groups with numbers."
+      },
+      "skill": "planning an investigation",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q070",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The pie chart shows the favourite drinks of some pupils. What fraction of the pupils chose Milo?",
+      "diagram": {
+        "type": "pieChart",
+        "title": "Favourite drinks",
+        "slices": [
+          {
+            "label": "Milo",
+            "value": 2
+          },
+          {
+            "label": "Teh tarik",
+            "value": 1
+          },
+          {
+            "label": "Orange juice",
+            "value": 1
+          }
+        ],
+        "rightAngles": true,
+        "alt": "Pie chart titled Favourite drinks with three sectors: Milo, teh tarik and orange juice. The teh tarik and orange juice sectors are each marked as a right angle."
+      },
+      "options": [
+        "1/3",
+        "1/4",
+        "1/2",
+        "3/4"
+      ],
+      "answer": 2,
+      "solution": "The teh tarik and orange juice sectors are right angles, so each is 1/4 of the circle. Together they make 1/4 + 1/4 = 1/2. That leaves 1 - 1/2 = 1/2 for Milo, and its edges make a straight line through the centre. So 1/2 of the pupils chose Milo.",
+      "misconceptions": {
+        "0": "There are 3 sectors, but they are not the same size. The Milo sector is half of the circle: its two edges make one straight line through the centre.",
+        "1": "1/4 is the size of each smaller sector (each is marked as a right angle). The Milo sector is two right angles, so it is twice as big.",
+        "3": "3/4 would be three right angles. The Milo sector is two right angles, which is 2/4 = 1/2."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q071",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The pie chart shows what some pupils like to do at break time. What percentage of the pupils like reading best?",
+      "diagram": {
+        "type": "pieChart",
+        "title": "Favourite break-time activity",
+        "slices": [
+          {
+            "label": "Games 50%",
+            "value": 50
+          },
+          {
+            "label": "Eating 25%",
+            "value": 25
+          },
+          {
+            "label": "Reading ?",
+            "value": 15
+          },
+          {
+            "label": "Chatting 10%",
+            "value": 10
+          }
+        ],
+        "rightAngles": true,
+        "alt": "Pie chart titled Favourite break-time activity with four sectors: games 50%, eating 25% (marked as a right angle), reading (percentage not shown) and chatting 10%."
+      },
+      "answer": {
+        "value": 15,
+        "tolerance": 0,
+        "accept": [
+          "15%",
+          "15 %",
+          "15 percent"
+        ]
+      },
+      "solution": "The whole pie chart is 100%. Add the percentages you know: 50% + 25% + 10% = 85%. Reading is the rest: 100% - 85% = 15%.",
+      "misconceptions": {
+        "common": "Forgetting that the whole pie chart is 100%. Add the percentages you know (50 + 25 + 10 = 85), then take that away from 100."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q072",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "match",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The pie chart shows the favourite fruits of some pupils, but the key is missing. Durian is 50%, mango is 25%, banana is 15% and papaya is 10%. Match each fruit to its sector on the pie chart.",
+      "diagram": {
+        "type": "pieChart",
+        "title": "Favourite fruits",
+        "slices": [
+          {
+            "label": "A",
+            "value": 25
+          },
+          {
+            "label": "B",
+            "value": 10
+          },
+          {
+            "label": "C",
+            "value": 50
+          },
+          {
+            "label": "D",
+            "value": 15
+          }
+        ],
+        "rightAngles": true,
+        "alt": "Pie chart titled Favourite fruits with four sectors labelled A, B, C and D, clockwise from the top. One sector is marked as a right angle."
+      },
+      "options": {
+        "left": [
+          "Durian (50%)",
+          "Mango (25%)",
+          "Banana (15%)",
+          "Papaya (10%)"
+        ],
+        "right": [
+          "Sector A",
+          "Sector B",
+          "Sector C",
+          "Sector D"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "50% is half the circle: sector C, whose edges make a straight line through the centre. 25% is a quarter, a right angle: sector A. Of the two small sectors, the bigger one is 15% (banana): sector D. The smallest is 10% (papaya): sector B.",
+      "misconceptions": {
+        "common": "Mixing up the two smaller sectors. Find the half (50%) and the right angle (25%) first. Then 15% is the bigger of the two small sectors and 10% is the smallest."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q073",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The pie chart shows how 24 pupils voted for a class trip. Ahmad says: 'The Penang sector is 1/4 of the circle, so 4 pupils voted for Penang.' True or false: Ahmad is correct.",
+      "diagram": {
+        "type": "pieChart",
+        "title": "Class trip vote (24 pupils)",
+        "slices": [
+          {
+            "label": "Kuala Lumpur",
+            "value": 12
+          },
+          {
+            "label": "Penang",
+            "value": 6
+          },
+          {
+            "label": "Melaka",
+            "value": 3
+          },
+          {
+            "label": "Langkawi",
+            "value": 3
+          }
+        ],
+        "rightAngles": true,
+        "alt": "Pie chart titled Class trip vote (24 pupils) with four sectors: Kuala Lumpur, Penang, Melaka and Langkawi. The Penang sector is marked as a right angle."
+      },
+      "answer": false,
+      "solution": "The Penang sector is a right angle, so it is 1/4 of the circle. Ahmad is right about that. But 1/4 of 24 = 24 ÷ 4 = 6, so 6 pupils voted for Penang, not 4. The statement is false. Trap: the 4 in 1/4 is not the number of pupils.",
+      "misconceptions": {
+        "common": "Mixing up the fraction with the number of pupils. 1/4 means 'divide the total by 4': 1/4 of 24 = 24 ÷ 4 = 6 pupils."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q074",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Mei Lin is drawing a pie chart of the favourite colours of 20 pupils. Each pupil gets the same angle. What angle does each pupil get?",
+      "options": [
+        "5°",
+        "18°",
+        "20°",
+        "340°"
+      ],
+      "answer": 1,
+      "solution": "A full circle is 360°. Share it equally among the 20 pupils: 360 ÷ 20 = 18°. Check: 20 x 18° = 360°.",
+      "misconceptions": {
+        "0": "You shared 100 among the 20 pupils, as if the pie chart were out of 100. A full circle is 360°, so share 360°: 360 ÷ 20 = 18°.",
+        "2": "20 is the number of pupils, not the angle. Share the 360° of the circle equally among the 20 pupils: 360 ÷ 20.",
+        "3": "You subtracted 20 from 360. To share 360° equally among 20 pupils, divide: 360 ÷ 20 = 18°."
+      },
+      "skill": "drawing pie charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q075",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Ahmad asked 40 customers at his stall to choose their favourite dessert. The table shows the results. He wants to draw a pie chart. What angle should the ais kacang sector be? Give your answer in degrees.",
+      "diagram": {
+        "type": "table",
+        "title": "Favourite desserts of 40 customers",
+        "columns": [
+          "Dessert",
+          "Number of customers"
+        ],
+        "rows": [
+          [
+            "Ais kacang",
+            14
+          ],
+          [
+            "Cendol",
+            12
+          ],
+          [
+            "Pisang goreng",
+            8
+          ],
+          [
+            "Kuih lapis",
+            6
+          ]
+        ]
+      },
+      "answer": {
+        "value": 126,
+        "tolerance": 0,
+        "accept": [
+          "126°",
+          "126 °",
+          "126 degrees"
+        ]
+      },
+      "solution": "There are 40 customers and a full circle is 360°. Each customer gets 360 ÷ 40 = 9°. Ais kacang: 14 x 9° = 126°. Check all four: 126° + 108° + 72° + 54° = 360°.",
+      "misconceptions": {
+        "common": "Writing 14° (one degree per customer) or working out 360 ÷ 14. Divide 360 by the TOTAL number of customers (40) to get 9° each, then multiply by 14."
+      },
+      "skill": "drawing pie charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q076",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The table shows the favourite colours of 24 pupils. Which pie chart shows this data correctly?",
+      "diagram": {
+        "type": "table",
+        "title": "Favourite colours of 24 pupils",
+        "columns": [
+          "Colour",
+          "Number of pupils"
+        ],
+        "rows": [
+          [
+            "Blue",
+            12
+          ],
+          [
+            "Red",
+            6
+          ],
+          [
+            "Green",
+            4
+          ],
+          [
+            "Yellow",
+            2
+          ]
+        ]
+      },
+      "optionDiagrams": [
+        {
+          "type": "pieChart",
+          "title": "Favourite colours",
+          "slices": [
+            {
+              "label": "Blue",
+              "value": 12
+            },
+            {
+              "label": "Red",
+              "value": 4
+            },
+            {
+              "label": "Green",
+              "value": 6
+            },
+            {
+              "label": "Yellow",
+              "value": 2
+            }
+          ],
+          "rightAngles": true
+        },
+        {
+          "type": "pieChart",
+          "title": "Favourite colours",
+          "slices": [
+            {
+              "label": "Blue",
+              "value": 1
+            },
+            {
+              "label": "Red",
+              "value": 1
+            },
+            {
+              "label": "Green",
+              "value": 1
+            },
+            {
+              "label": "Yellow",
+              "value": 1
+            }
+          ],
+          "rightAngles": true
+        },
+        {
+          "type": "pieChart",
+          "title": "Favourite colours",
+          "slices": [
+            {
+              "label": "Blue",
+              "value": 6
+            },
+            {
+              "label": "Red",
+              "value": 12
+            },
+            {
+              "label": "Green",
+              "value": 4
+            },
+            {
+              "label": "Yellow",
+              "value": 2
+            }
+          ],
+          "rightAngles": true
+        },
+        {
+          "type": "pieChart",
+          "title": "Favourite colours",
+          "slices": [
+            {
+              "label": "Blue",
+              "value": 12
+            },
+            {
+              "label": "Red",
+              "value": 6
+            },
+            {
+              "label": "Green",
+              "value": 4
+            },
+            {
+              "label": "Yellow",
+              "value": 2
+            }
+          ],
+          "rightAngles": true
+        }
+      ],
+      "options": [
+        "Pie chart A",
+        "Pie chart B",
+        "Pie chart C",
+        "Pie chart D"
+      ],
+      "answer": 3,
+      "solution": "Each pupil gets 360 ÷ 24 = 15°. Blue: 12 x 15° = 180° (half the circle). Red: 6 x 15° = 90° (a right angle). Green: 4 x 15° = 60°. Yellow: 2 x 15° = 30°. Only pie chart D has blue as a half, red as the right angle, and green twice the size of yellow.",
+      "misconceptions": {
+        "0": "In this chart green is the right angle. Red is 6 out of 24 = 1/4, so red should be the right angle. Green (4 out of 24 = 1/6) should be smaller.",
+        "1": "All four sectors are the same size here, but the colours were not chosen by the same number of pupils. Each sector must match its own number: blue, 12 out of 24, is half.",
+        "2": "Here red is half the circle. Blue was chosen by 12 of the 24 pupils, so blue should be the half, and red (6 of 24) the quarter."
+      },
+      "skill": "drawing pie charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q077",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The pie chart shows how 120 visitors travelled up Penang Hill one morning. How many visitors took the funicular train?",
+      "diagram": {
+        "type": "pieChart",
+        "title": "How 120 visitors went up Penang Hill",
+        "slices": [
+          {
+            "label": "Funicular train",
+            "value": 48
+          },
+          {
+            "label": "Jeep",
+            "value": 36
+          },
+          {
+            "label": "Walking",
+            "value": 24
+          },
+          {
+            "label": "Car",
+            "value": 12
+          }
+        ],
+        "show": "degrees",
+        "alt": "Pie chart titled How 120 visitors went up Penang Hill: funicular train 144°, jeep 108°, walking 72°, car 36°."
+      },
+      "options": [
+        "48",
+        "3",
+        "72",
+        "144"
+      ],
+      "answer": 0,
+      "solution": "A full circle is 360° for 120 visitors, so each visitor is 360 ÷ 120 = 3°. The funicular train sector is 144°, so 144 ÷ 3 = 48 visitors. (Or: 144/360 = 2/5, and 2/5 of 120 = 48.)",
+      "misconceptions": {
+        "1": "3° is the angle for one visitor (360 ÷ 120 = 3). You stopped there. Now find how many lots of 3° are in 144°: 144 ÷ 3.",
+        "2": "72° is the angle of the walking sector, not the number of funicular visitors. Each visitor is 360 ÷ 120 = 3°, so the funicular's 144° stands for 144 ÷ 3 = 48 visitors.",
+        "3": "144 is the angle in degrees, not the number of visitors. Each visitor is 360 ÷ 120 = 3°, so 144° stands for 144 ÷ 3 visitors."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q078",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The pie chart shows the 80 durians sold at Stall P on Saturday. Stall Q sold 200 durians on Saturday. In Stall Q's pie chart, Musang King is 1/4, D24 is 1/2 and Red Prawn is 1/4. Select ALL the statements that are true.",
+      "diagram": {
+        "type": "pieChart",
+        "title": "Durians sold at Stall P (80 durians)",
+        "slices": [
+          {
+            "label": "Musang King",
+            "value": 40
+          },
+          {
+            "label": "D24",
+            "value": 20
+          },
+          {
+            "label": "Red Prawn",
+            "value": 20
+          }
+        ],
+        "show": "fraction",
+        "rightAngles": true,
+        "alt": "Pie chart titled Durians sold at Stall P (80 durians): Musang King 1/2, D24 1/4, Red Prawn 1/4."
+      },
+      "options": [
+        "Stall P sold more Musang King durians than Stall Q, because its Musang King sector is bigger.",
+        "Stall Q sold more Musang King durians than Stall P.",
+        "Red Prawn is 1/4 of both pie charts, so both stalls sold the same number of Red Prawn durians.",
+        "Musang King is a bigger fraction of Stall P's sales than of Stall Q's sales.",
+        "Stall Q sold 80 more D24 durians than Stall P."
+      ],
+      "answer": [
+        1,
+        3,
+        4
+      ],
+      "solution": "Work out the numbers from each stall's own total. Stall P (80): Musang King 1/2 of 80 = 40, D24 1/4 of 80 = 20, Red Prawn 20. Stall Q (200): Musang King 1/4 of 200 = 50, D24 1/2 of 200 = 100, Red Prawn 50. So Stall Q sold more Musang King (50 > 40) even though its sector is smaller; 1/2 is a bigger fraction than 1/4; and Stall Q sold 100 - 20 = 80 more D24. Trap: a bigger sector means a bigger fraction, not a bigger number.",
+      "misconceptions": {
+        "0": "A bigger sector means a bigger fraction of that stall's sales, not more durians. Stall P: 1/2 of 80 = 40. Stall Q: 1/4 of 200 = 50.",
+        "2": "The same fraction of different totals gives different numbers. Stall P: 1/4 of 80 = 20. Stall Q: 1/4 of 200 = 50.",
+        "common": "Comparing the sizes of the sectors. Work out the actual number of durians from each stall's own total before you compare."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m12-q079",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The pie chart shows how some pupils travel to school. 15 pupils walk. Daniel says: 'So 90 pupils were asked altogether.' Is Daniel correct? Tick one answer with its reason.",
+      "diagram": {
+        "type": "pieChart",
+        "title": "How pupils travel to school",
+        "slices": [
+          {
+            "label": "Walk",
+            "value": 15
+          },
+          {
+            "label": "Bus",
+            "value": 30
+          },
+          {
+            "label": "Car",
+            "value": 36
+          },
+          {
+            "label": "Bicycle",
+            "value": 9
+          }
+        ],
+        "show": "degrees",
+        "alt": "Pie chart titled How pupils travel to school: walk 60°, bus 120°, car 144°, bicycle 36°."
+      },
+      "options": [
+        "No. 360 ÷ 15 = 24, so 24 pupils were asked.",
+        "No. 60 + 15 = 75, so 75 pupils were asked.",
+        "Yes. 60° is 1/6 of 360°, so the 15 walkers are 1/6 of the pupils, and 6 x 15 = 90.",
+        "Yes. 360 ÷ 4 sectors = 90."
+      ],
+      "answer": 2,
+      "solution": "The walk sector is 60°. 60/360 = 1/6, so the 15 walkers are 1/6 of all the pupils. The total is 6 x 15 = 90 pupils, so Daniel is correct. Check with another sector: each pupil is 360 ÷ 90 = 4°, and the bus sector 120° ÷ 4 = 30 pupils, a whole number. Trap: one option has the right total with a wrong reason.",
+      "misconceptions": {
+        "0": "You divided 360 by the number of walkers. That gives the angle per pupil only if 15 were the total. Use the fraction: 60° is 1/6 of 360°, so 15 is 1/6 of the total.",
+        "1": "60 is an angle in degrees and 15 is a number of pupils. They measure different things, so they must not be added.",
+        "3": "90 is the right total, but this reason is wrong. Dividing by the number of sectors only works when every sector is the same size, and these are not. Use the walking sector: 60° is 1/6 of 360°."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q080",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The pie chart shows how 80 customers paid at a pasar malam stall. How many more customers paid with cash than by card?",
+      "diagram": {
+        "type": "pieChart",
+        "title": "How 80 customers paid",
+        "slices": [
+          {
+            "label": "Cash",
+            "value": 32
+          },
+          {
+            "label": "E-wallet",
+            "value": 28
+          },
+          {
+            "label": "Card",
+            "value": 12
+          },
+          {
+            "label": "Bank transfer",
+            "value": 8
+          }
+        ],
+        "show": "percent",
+        "alt": "Pie chart titled How 80 customers paid: cash 40%, e-wallet 35%, card 15%, bank transfer 10%."
+      },
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "accept": [
+          "20 customers"
+        ]
+      },
+      "solution": "Cash: 40% of 80 = 80 ÷ 10 × 4 = 32 customers. Card: 10% of 80 is 8 and 5% is 4, so 15% of 80 = 8 + 4 = 12 customers. Difference: 32 - 12 = 20. (Or: 40% - 15% = 25%, and 25% of 80 = 20.) Trap: 25 is the difference in percent, not in customers.",
+      "misconceptions": {
+        "common": "Giving 25 (the difference in percentages) or 32 (the cash customers only). Find 40% of 80 and 15% of 80, then subtract; or find 25% of 80."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q081",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Wei Ming asked 20 pupils how many times they ate at a hawker centre last week. These are their answers: 2, 0, 3, 1, 2, 4, 2, 1, 0, 3, 2, 1, 2, 3, 0, 2, 4, 1, 3, 2. He started the frequency table shown. What number should go in the box for 2 times?",
+      "diagram": {
+        "type": "table",
+        "title": "Visits to a hawker centre last week",
+        "columns": [
+          "Number of times",
+          "Frequency"
+        ],
+        "rows": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            "?"
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            2
+          ]
+        ]
+      },
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": [
+          "7 pupils"
+        ]
+      },
+      "solution": "Go through the list and count every 2, crossing each one off: there are 7. Check: the frequencies must add up to 20 pupils: 3 + 4 + 7 + 4 + 2 = 20. (You can also find it as 20 - 3 - 4 - 4 - 2 = 7.)",
+      "misconceptions": {
+        "common": "Losing your place when counting. Cross off each answer as you count it, then check that all the frequencies add up to 20."
+      },
+      "skill": "reading tally charts and frequency tables",
+      "source": "original"
+    },
+    {
+      "id": "m12-q082",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "match",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Match each set of data to the best way to show it. One way is not used.",
+      "options": {
+        "left": [
+          "The mass of a puppy, weighed on the first day of each month for a year",
+          "What fraction of the 200 durians sold at a stall were each of 4 varieties",
+          "Each pupil's leg length and how far that pupil can jump",
+          "Which pupils play football, which play badminton, which play both and which play neither"
+        ],
+        "right": [
+          "Scatter graph",
+          "Venn diagram",
+          "Line graph",
+          "Tally chart",
+          "Pie chart"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "The puppy's mass is continuous data that changes over time: line graph. Fractions of the 200 durians are parts of one whole: pie chart. Leg length and jump distance are two measurements for each pupil, to look for a link: scatter graph. Football, badminton, both or neither are overlapping groups: Venn diagram. A tally chart is for recording counts while you collect data, not for showing a pattern, so it is not used.",
+      "misconceptions": {
+        "common": "Choosing a chart by the type of data alone. Ask what the data is about: change over time (line graph), parts of a whole (pie chart), a link between two measurements (scatter graph), or overlapping groups (Venn diagram)."
+      },
+      "skill": "choosing a representation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q083",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "There are 40 pupils in Year 6. 22 play football, 15 play badminton and 8 play both. The Carroll diagram shows the 8 pupils who play both. How many pupils play neither football nor badminton?",
+      "diagram": {
+        "type": "carroll",
+        "columns": [
+          "Plays badminton",
+          "Does not play badminton"
+        ],
+        "rows": [
+          "Plays football",
+          "Does not play football"
+        ],
+        "cells": [
+          [
+            [
+              8
+            ],
+            []
+          ],
+          [
+            [],
+            [
+              "?"
+            ]
+          ]
+        ]
+      },
+      "answer": {
+        "value": 11,
+        "tolerance": 0,
+        "accept": [
+          "11 pupils"
+        ]
+      },
+      "solution": "Fill in the Carroll diagram. Plays football but not badminton: 22 - 8 = 14. Plays badminton but not football: 15 - 8 = 7. Pupils who play at least one sport: 8 + 14 + 7 = 29. Neither: 40 - 29 = 11. Check the football row: 8 + 14 = 22.",
+      "misconceptions": {
+        "common": "Working out 40 - 22 - 15 = 3. That takes the 8 pupils who play both away twice. Find football only (22 - 8 = 14) and badminton only (15 - 8 = 7) first, or answer 40 - 29 = 11."
+      },
+      "skill": "Venn and Carroll diagrams",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m12-q084",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Kumar counted the cars that stopped at a petrol station between 7 am and 8 am each day. His results were: Monday 12, Tuesday 18, Wednesday 9, Thursday 15, Friday 6. He drew the bar chart shown, but he made one mistake. Which day's bar is wrong?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Cars at the petrol station, 7 am to 8 am",
+        "categories": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "series": [
+          {
+            "name": "Number of cars",
+            "values": [
+              12,
+              18,
+              9,
+              16,
+              6
+            ]
+          }
+        ],
+        "xLabel": "Day",
+        "yLabel": "Number of cars",
+        "yMax": 20,
+        "yStep": 2,
+        "alt": "A bar chart of the cars at the petrol station, with one bar for each day from Monday to Friday, on a scale from 0 to 20 going up in 2s."
+      },
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "answer": 3,
+      "solution": "The scale goes up in 2s. Check each bar against the results. Monday 12, Tuesday 18 and Friday 6 end on their gridlines. Wednesday ends halfway between 8 and 10, which is 9: correct. Thursday ends on the line for 16, but the results say 15, so it should stop halfway between 14 and 16. Thursday's bar is wrong. Trap: a bar between two gridlines can be right, and a bar on a gridline can be wrong.",
+      "misconceptions": {
+        "0": "The Monday bar reaches the line for 12, which matches the table.",
+        "1": "The Tuesday bar reaches the line for 18, which matches the table.",
+        "2": "The Wednesday bar stops halfway between 8 and 10. Halfway is 9, which matches the table. A bar does not have to end on a gridline.",
+        "4": "The Friday bar reaches the line for 6, which matches the table."
+      },
+      "skill": "checking a chart against the data",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q085",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Rahim recorded how many durians each of 15 customers bought: 2, 1, 3, 2, 4, 3, 2, 1, 5, 3, 2, 4, 1, 3, 2. He drew the dot plot shown, but he left out one customer. How many durians did that customer buy?",
+      "diagram": {
+        "type": "dotPlot",
+        "title": "Durians bought by each customer",
+        "values": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          4,
+          4,
+          5
+        ],
+        "min": 0,
+        "max": 6,
+        "xLabel": "Number of durians bought",
+        "alt": "A dot plot of the number of durians bought by each customer, on a scale from 0 to 6. Each dot is one customer."
+      },
+      "answer": {
+        "value": 3,
+        "tolerance": 0,
+        "accept": [
+          "3 durians"
+        ]
+      },
+      "solution": "Tally the list: 1 durian: 3 customers; 2 durians: 5; 3 durians: 4; 4 durians: 2; 5 durians: 1 (15 in all). Count the dots: 1: 3; 2: 5; 3: 3; 4: 2; 5: 1 (14 in all). Only the column for 3 has one dot too few, so the missing customer bought 3 durians.",
+      "misconceptions": {
+        "common": "Looking at the tallest column, or counting dots without matching them to the list. Tally the list for each number, then compare each count with its column of dots: only one count is different."
+      },
+      "skill": "checking a chart against the data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q086",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Siti measured the heights of some sunflower plants. The frequency diagram shows her results. The modal class is the group with the most plants. Which group is the modal class?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Heights of sunflower plants",
+        "categories": [
+          "0 to under 20",
+          "20 to under 40",
+          "40 to under 60",
+          "60 to under 80"
+        ],
+        "series": [
+          {
+            "name": "Number of plants",
+            "values": [
+              4,
+              11,
+              7,
+              3
+            ]
+          }
+        ],
+        "xLabel": "Height (cm)",
+        "yLabel": "Number of plants",
+        "yMax": 12,
+        "yStep": 2,
+        "minorStep": 1
+      },
+      "options": [
+        "0 to under 20 cm",
+        "20 to under 40 cm",
+        "40 to under 60 cm",
+        "60 to under 80 cm"
+      ],
+      "answer": 1,
+      "solution": "Find the tallest bar. It is the bar for 20 to under 40 cm, with 11 plants. The tallest bar shows the group with the most plants. So the modal class is 20 to under 40 cm.",
+      "misconceptions": {
+        "0": "This group has only 4 plants. Look for the TALLEST bar: that group has the most plants.",
+        "2": "This bar (7 plants) is not the tallest. The bar for 20 to under 40 cm reaches 11.",
+        "3": "This group has the tallest PLANTS, but only 3 of them. The modal class is the group with the most plants, so look for the tallest bar, not the biggest heights."
+      },
+      "skill": "frequency diagrams for grouped data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q087",
+      "subtopicId": "m12-s2",
+      "bookSection": "12C",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Kumar asked some pupils how many minutes they spent on homework last night, to the nearest minute. He started the tally chart shown. One more pupil says 45 minutes. In which row should Kumar make the tally mark?",
+      "diagram": {
+        "type": "table",
+        "title": "Minutes spent on homework",
+        "columns": [
+          "Time (minutes)",
+          "Tally"
+        ],
+        "rows": [
+          [
+            "0 to 14",
+            {
+              "tally": 3
+            }
+          ],
+          [
+            "15 to 29",
+            {
+              "tally": 6
+            }
+          ],
+          [
+            "30 to 44",
+            {
+              "tally": 8
+            }
+          ],
+          [
+            "45 to 59",
+            {
+              "tally": 4
+            }
+          ]
+        ]
+      },
+      "options": [
+        "0 to 14",
+        "15 to 29",
+        "30 to 44",
+        "45 to 59"
+      ],
+      "answer": 3,
+      "solution": "45 minutes is a whole number of minutes. Check each row: 45 is not between 30 and 44, because 44 is the last number in that row. 45 is the first number in the row 45 to 59. So the tally goes in 45 to 59.",
+      "misconceptions": {
+        "0": "0 to 14 is for times from 0 to 14 minutes only. 45 is much bigger. Look for the row whose first and last numbers have 45 between them (or equal to one of them).",
+        "1": "15 to 29 stops at 29, so 45 does not fit. Find the row that starts with 45.",
+        "2": "30 to 44 stops at 44, so 45 is just past it. The row 45 to 59 starts at 45, so 45 goes there. Always check the first and last number of each group."
+      },
+      "skill": "grouping data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q088",
+      "subtopicId": "m12-s2",
+      "bookSection": "12C",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Wei Ming timed 20 pupils solving a puzzle, to the nearest second. Here are the times in seconds: 21, 34, 27, 25, 38, 29, 22, 31, 25, 36, 30, 24, 28, 33, 29, 20, 35, 26, 32, 39. He is making the grouped frequency table shown. What number goes in the box for 25 to 29 seconds?",
+      "diagram": {
+        "type": "table",
+        "title": "Time to solve the puzzle",
+        "columns": [
+          "Time (seconds)",
+          "Frequency"
+        ],
+        "rows": [
+          [
+            "20 to 24",
+            ""
+          ],
+          [
+            "25 to 29",
+            "?"
+          ],
+          [
+            "30 to 34",
+            ""
+          ],
+          [
+            "35 to 39",
+            ""
+          ]
+        ]
+      },
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": [
+          "7 pupils"
+        ]
+      },
+      "solution": "Go through the list in order and pick out every time from 25 to 29, including 25 and 29 themselves. They are 27, 25, 29, 25, 28, 29 and 26. That is 7 times. Check: the other groups have 4, 5 and 4, and 4 + 7 + 5 + 4 = 20, so every time has been counted once. The answer is 7.",
+      "misconceptions": {
+        "common": "The usual slip is with the boundary values: 25 and 29 both belong in 25 to 29 (there are two 25s and two 29s). Cross off each time as you count it, then check that all the groups add up to 20."
+      },
+      "skill": "grouping data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q089",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The bar chart shows the number of visitors to a durian farm in Penang on five days. How many visitors were there on Wednesday?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Visitors to a durian farm",
+        "categories": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri"
+        ],
+        "series": [
+          {
+            "name": "Visitors",
+            "values": [
+              40,
+              65,
+              75,
+              90,
+              35
+            ]
+          }
+        ],
+        "xLabel": "Day",
+        "yLabel": "Number of visitors",
+        "yMax": 100,
+        "yStep": 20,
+        "minorStep": 5,
+        "alt": "A bar chart of the number of visitors to a durian farm from Monday to Friday. The scale goes from 0 to 100, labelled every 20, with small gridlines between the labels."
+      },
+      "answer": {
+        "value": 75,
+        "tolerance": 0,
+        "accept": [
+          "75 visitors"
+        ]
+      },
+      "solution": "First work out what one small step is worth. From 60 to 80 is 20, and there are 4 small steps, so each step is 20 ÷ 4 = 5. Wednesday's bar ends 3 small steps above 60. 60 + 3 × 5 = 75 visitors.",
+      "misconceptions": {
+        "common": "It looks like each small step was counted as 1 (giving 63). Always work out the size of a small step first: 20 ÷ 4 gaps = 5. Then count up from the labelled line below the bar: 60, 65, 70, 75."
+      },
+      "skill": "reading scales on charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q090",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The line graph shows the number of cars in a shopping-centre car park in KL one morning. How many cars were in the car park at 11 am?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Cars in the car park",
+        "categories": [
+          "9 am",
+          "10 am",
+          "11 am",
+          "12 noon",
+          "1 pm"
+        ],
+        "series": [
+          {
+            "name": "Cars",
+            "values": [
+              120,
+              180,
+              230,
+              260,
+              210
+            ]
+          }
+        ],
+        "xLabel": "Time",
+        "yLabel": "Number of cars",
+        "yMin": 0,
+        "yMax": 300,
+        "yStep": 50,
+        "minorStep": 10,
+        "alt": "A line graph of the number of cars in a car park from 9 am to 1 pm. The scale goes from 0 to 300, labelled every 50, with small gridlines between the labels."
+      },
+      "options": [
+        "240",
+        "230",
+        "215",
+        "203"
+      ],
+      "answer": 1,
+      "solution": "From 200 to 250 is 50, and there are 5 small steps, so each step is 50 ÷ 5 = 10. The point for 11 am is 3 small steps above 200. 200 + 3 × 10 = 230 cars.",
+      "misconceptions": {
+        "0": "240 is the gridline just above the point. Count the small steps carefully from 200: 210, 220, 230.",
+        "2": "It looks like each small step was taken as 5. There are 5 small steps between 200 and 250, so each one is 50 ÷ 5 = 10.",
+        "3": "It looks like each small step was counted as 1. Each small step here is 50 ÷ 5 = 10, so 3 steps above 200 is 230."
+      },
+      "skill": "reading scales on charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q091",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The frequency diagram shows how long the pupils in a swimming club took to swim one length. How many pupils took less than 30 seconds?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Time to swim one length",
+        "categories": [
+          "20 to under 25",
+          "25 to under 30",
+          "30 to under 35",
+          "35 to under 40",
+          "40 to under 45"
+        ],
+        "series": [
+          {
+            "name": "Number of pupils",
+            "values": [
+              3,
+              8,
+              11,
+              6,
+              2
+            ]
+          }
+        ],
+        "xLabel": "Time (seconds)",
+        "yLabel": "Number of pupils",
+        "yMax": 12,
+        "yStep": 2,
+        "minorStep": 1,
+        "alt": "A frequency diagram of the times pupils took to swim one length, in five groups from 20 to under 25 seconds up to 40 to under 45 seconds. The scale goes from 0 to 12, labelled every 2."
+      },
+      "answer": {
+        "value": 11,
+        "tolerance": 0,
+        "accept": [
+          "11 pupils"
+        ]
+      },
+      "solution": "Less than 30 seconds means the groups 20 to under 25 and 25 to under 30. Read those bars: 3 and 8. Add them: 3 + 8 = 11 pupils. (The group 30 to under 35 starts at 30, so it is not less than 30.)",
+      "misconceptions": {
+        "common": "Two slips are common here: reading only the bar for 25 to under 30 (8), or adding the bar for 30 to under 35 as well. 'Less than 30 seconds' means every group that ends before 30, so add the first two bars."
+      },
+      "skill": "frequency diagrams for grouped data",
+      "source": "original"
+    },
+    {
+      "id": "m12-q092",
+      "subtopicId": "m12-s2",
+      "bookSection": "12C",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The table shows the number of satay sticks four stalls sold in an hour. Daniel will draw a bar chart. The vertical axis on his paper has 10 equal large squares. Which scale should he use, so that every bar fits and the tallest bar uses most of the height?",
+      "diagram": {
+        "type": "table",
+        "title": "Satay sticks sold in an hour",
+        "columns": [
+          "Stall",
+          "Number of sticks"
+        ],
+        "rows": [
+          [
+            "Stall A",
+            64
+          ],
+          [
+            "Stall B",
+            87
+          ],
+          [
+            "Stall C",
+            45
+          ],
+          [
+            "Stall D",
+            72
+          ]
+        ]
+      },
+      "options": [
+        "0 to 100, going up in 10s",
+        "0 to 10, going up in 1s",
+        "0 to 50, going up in 5s",
+        "0 to 500, going up in 50s"
+      ],
+      "answer": 0,
+      "solution": "The largest number is 87, so the scale must go up to at least 87. 0 to 10 and 0 to 50 are too short. 0 to 100 and 0 to 500 both fit. On 0 to 500 the tallest bar would be less than 2 squares high, so the bars would be tiny and hard to compare. 0 to 100 in 10s is the best scale.",
+      "misconceptions": {
+        "1": "This scale stops at 10, but Stall B sold 87. Check the largest value first: the scale must reach it.",
+        "2": "This scale stops at 50, so the bars for 64, 72 and 87 would not fit. The scale must reach at least 87.",
+        "3": "Every bar fits, but 87 out of 500 is less than 2 of the 10 squares, so all the bars would be very short. Choose the smallest easy scale that still reaches the largest value."
+      },
+      "skill": "choosing a scale",
+      "source": "original"
+    },
+    {
+      "id": "m12-q093",
+      "subtopicId": "m12-s2",
+      "bookSection": "12C",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Daniel is drawing a bar chart. He writes these numbers up the vertical axis, with equal gaps between them: 0, 5, 10, 15, 25, 30, 35. True or false: Daniel's scale is correct.",
+      "answer": false,
+      "solution": "On a scale, equal gaps must stand for equal amounts. Find the jump between each pair of numbers: 5, 5, 5, then 10 (from 15 to 25), then 5, 5. Daniel has left out 20, so one gap stands for 10 instead of 5. The statement is false: his scale is wrong.",
+      "misconceptions": {
+        "common": "The numbers do go up, but that is not enough. Check every jump: 15 to 25 is a jump of 10, while the others are 5. Daniel missed out 20, so bars above 15 would be drawn at the wrong height."
+      },
+      "skill": "choosing a scale",
+      "source": "original"
+    },
+    {
+      "id": "m12-q094",
+      "subtopicId": "m12-s2",
+      "bookSection": "12C",
+      "type": "match",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The heights of 20 pupils in Year 6, to the nearest centimetre, are: 136, 141, 130, 145, 139, 140, 137, 148, 134, 143, 135, 149, 139, 140, 132, 146, 138, 144, 136, 142. Aisha groups them in a frequency table. Match each group to its frequency.",
+      "options": {
+        "left": [
+          "130 to 134 cm",
+          "135 to 139 cm",
+          "140 to 144 cm",
+          "145 to 149 cm"
+        ],
+        "right": [
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "Sort the heights into the groups, ticking each one off. 130 to 134: 130, 134, 132 (3). 135 to 139: 136, 139, 137, 135, 139, 138, 136 (7). 140 to 144: 141, 140, 143, 140, 144, 142 (6). 145 to 149: 145, 148, 149, 146 (4). Check: 3 + 7 + 6 + 4 = 20. Watch the boundary values: 134 goes in 130 to 134, and 135 and 140 start new groups.",
+      "misconceptions": {
+        "common": "Check the heights on the edges of the groups: 134 and 139 are the LAST numbers in their groups, and 135, 140 and 145 are the FIRST numbers in theirs. If your frequencies do not add up to 20, a height has been missed or counted twice."
+      },
+      "skill": "grouping data",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q095",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The frequency diagram shows the marks the pupils in Year 6 scored in a quiz. Omar says, 'The modal class is 41 to 50, because those are the highest marks.' Is Omar correct? Tick one.",
+      "diagram": {
+        "type": "barChart",
+        "title": "Quiz marks in Year 6",
+        "categories": [
+          "11 to 20",
+          "21 to 30",
+          "31 to 40",
+          "41 to 50"
+        ],
+        "series": [
+          {
+            "name": "Number of pupils",
+            "values": [
+              4,
+              9,
+              13,
+              6
+            ]
+          }
+        ],
+        "xLabel": "Mark",
+        "yLabel": "Number of pupils",
+        "yMax": 14,
+        "yStep": 2,
+        "minorStep": 1
+      },
+      "options": [
+        "Yes. 41 to 50 is the modal class, because those are the highest marks.",
+        "No. The modal class is 13, because that is the height of the tallest bar.",
+        "No. The modal class is 31 to 40, because that group has the most pupils.",
+        "No. Grouped data cannot have a modal class."
+      ],
+      "answer": 2,
+      "solution": "The modal class is the group with the highest frequency (the most pupils). The tallest bar is 31 to 40, with 13 pupils. 41 to 50 has only 6 pupils. So Omar is not correct: the modal class is 31 to 40.",
+      "misconceptions": {
+        "0": "The modal class is not the group with the biggest marks. It is the group with the MOST pupils, so look for the tallest bar. 41 to 50 has only 6 pupils.",
+        "1": "13 is how many pupils are in the modal class, not the class itself. The modal class is the group under the tallest bar: 31 to 40.",
+        "3": "Grouped data does have a modal class: the group with the highest frequency. Here it is 31 to 40."
+      },
+      "skill": "frequency diagrams for grouped data",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q096",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "The frequency diagram shows how many minutes some pupils spent on their phones one evening. Rahim says, 'The diagram shows that exactly 3 pupils spent 100 minutes or more on their phones.' Is Rahim correct? Tick one.",
+      "diagram": {
+        "type": "barChart",
+        "title": "Time spent on phones one evening",
+        "categories": [
+          "0 to under 30",
+          "30 to under 60",
+          "60 to under 90",
+          "90 to under 120"
+        ],
+        "series": [
+          {
+            "name": "Number of pupils",
+            "values": [
+              5,
+              9,
+              7,
+              3
+            ]
+          }
+        ],
+        "xLabel": "Time (minutes)",
+        "yLabel": "Number of pupils",
+        "yMax": 10,
+        "yStep": 2,
+        "minorStep": 1
+      },
+      "options": [
+        "No. The last bar shows 3 pupils spent from 90 to under 120 minutes, but not their exact times, so we cannot tell how many spent 100 minutes or more.",
+        "Yes. 100 is in the group 90 to under 120, so all 3 pupils in that group spent 100 minutes or more.",
+        "No. 10 pupils spent 100 minutes or more, because you add the last two bars: 7 + 3.",
+        "Yes. The last bar shows 3 pupils, so exactly 3 pupils spent 100 minutes or more."
+      ],
+      "answer": 0,
+      "solution": "The last bar shows 3 pupils in the group 90 to under 120 minutes. A pupil in that group could have spent 95 minutes or 115 minutes: the diagram does not show exact times. So somewhere from 0 to 3 pupils spent 100 minutes or more, and we cannot say exactly. Rahim is not correct.",
+      "misconceptions": {
+        "1": "Being in the group 90 to under 120 does not mean at least 100 minutes. A pupil in that group could have spent 92 minutes. Grouped data hides the exact values.",
+        "2": "The bar for 60 to under 90 is all times under 90 minutes, so none of those 7 pupils spent 100 minutes or more. Only the last group could include 100 minutes or more.",
+        "3": "The last bar is for 90 to under 120 minutes, not 100 minutes or more. Some of those 3 pupils may have spent less than 100 minutes, so we cannot say 'exactly 3'."
+      },
+      "skill": "frequency diagrams for grouped data",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q097",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The line graph shows the rainfall in a town in Malaysia each month for six months. How much more rain fell in March than in January? Give your answer in mm.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Monthly rainfall",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun"
+        ],
+        "series": [
+          {
+            "name": "Rainfall",
+            "values": [
+              46,
+              58,
+              74,
+              82,
+              64,
+              50
+            ]
+          }
+        ],
+        "xLabel": "Month",
+        "yLabel": "Rainfall (mm)",
+        "yMin": 40,
+        "yMax": 90,
+        "yStep": 10,
+        "minorStep": 2,
+        "alt": "A line graph of the monthly rainfall in a town from January to June. The scale goes from 40 to 90 mm, labelled every 10, with small gridlines between the labels."
+      },
+      "answer": {
+        "value": 28,
+        "tolerance": 0,
+        "accept": [
+          "28 mm"
+        ]
+      },
+      "solution": "Each labelled step is 10 mm and there are 5 small steps, so each small step is 10 ÷ 5 = 2 mm. January is 3 small steps above 40: 40 + 6 = 46 mm. March is 2 small steps above 70: 70 + 4 = 74 mm. Difference: 74 - 46 = 28 mm.",
+      "misconceptions": {
+        "common": "If you got 29, you probably counted each small step as 1 mm (43 mm and 72 mm). Each small step here is 10 ÷ 5 = 2 mm. Read each value carefully, then subtract the smaller from the larger."
+      },
+      "skill": "reading scales on charts",
+      "source": "original"
+    },
+    {
+      "id": "m12-q098",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Ahmad drew this line graph of the number of durians his stall sold each week. Look at where the vertical scale starts. Ahmad says, 'Sales in Week 4 were more than double the sales in Week 1.' Is Ahmad correct? Tick one.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Durians sold each week",
+        "categories": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "series": [
+          {
+            "name": "Durians sold",
+            "values": [
+              92,
+              95,
+              97,
+              100
+            ]
+          }
+        ],
+        "xLabel": "Week",
+        "yLabel": "Number of durians",
+        "yMin": 90,
+        "yMax": 100,
+        "yStep": 2,
+        "minorStep": 1,
+        "alt": "A line graph of the number of durians sold in Weeks 1 to 4. The vertical scale goes from 90 to 100, labelled every 2, with small gridlines every 1."
+      },
+      "options": [
+        "Yes. The point for Week 4 is about five times as high as the point for Week 1.",
+        "Yes. Sales went up every week.",
+        "No. Sales went down from Week 1 to Week 4.",
+        "No. Sales went from 92 to 100, only 8 more. The scale starts at 90, not 0, so the rise looks bigger than it is."
+      ],
+      "answer": 3,
+      "solution": "Read the values: Week 1 is 92 durians and Week 4 is 100 durians. Double 92 is 184, and 100 is far less than that. The rise is only 8 durians. The graph looks dramatic because the scale starts at 90 instead of 0. Ahmad is not correct.",
+      "misconceptions": {
+        "0": "The height above the bottom of the graph is misleading here, because the scale starts at 90, not 0. Read the actual numbers: 92 and 100. Double 92 is 184, so 100 is not double.",
+        "1": "Sales did go up every week, but going up is not the same as doubling. 92 doubled is 184, and Week 4 was only 100.",
+        "2": "The line goes up from left to right, so sales went up, from 92 to 100. The question is whether they doubled, and they did not."
+      },
+      "skill": "spotting a misleading scale",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q099",
+      "subtopicId": "m12-s2",
+      "bookSection": "12C",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The table shows the number of visitors to four stalls at a school fun fair. Priya will draw a bar chart. Her vertical axis starts at 0 and has 10 equal steps. Select ALL the step sizes that would let every bar fit on her chart (even if some bars would be short).",
+      "diagram": {
+        "type": "table",
+        "title": "Visitors to fun fair stalls",
+        "columns": [
+          "Stall",
+          "Number of visitors"
+        ],
+        "rows": [
+          [
+            "Hook-a-duck",
+            128
+          ],
+          [
+            "Cake stall",
+            172
+          ],
+          [
+            "Face painting",
+            95
+          ],
+          [
+            "Lucky dip",
+            150
+          ]
+        ]
+      },
+      "options": [
+        "Steps of 10",
+        "Steps of 15",
+        "Steps of 20",
+        "Steps of 25",
+        "Steps of 50"
+      ],
+      "answer": [
+        2,
+        3,
+        4
+      ],
+      "solution": "The largest value is 172, so the top of the scale must be at least 172. Top of each scale = 10 × step: steps of 10 reach 100, 15 reach 150, 20 reach 200, 25 reach 250, 50 reach 500. Only 200, 250 and 500 are 172 or more. So steps of 20, 25 and 50 all fit (steps of 20 uses the height best).",
+      "misconceptions": {
+        "0": "Steps of 10 only reach 10 × 10 = 100, but the cake stall had 172 visitors.",
+        "1": "Steps of 15 reach 10 × 15 = 150. That fits the lucky dip (150) but not the cake stall (172). Always check the LARGEST value.",
+        "common": "Work out the top of each scale (10 × the step) and compare it with the largest value, 172. Select every scale whose top is 172 or more."
+      },
+      "skill": "choosing a scale",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q100",
+      "subtopicId": "m12-s3",
+      "bookSection": "12F",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Select ALL the sets of five numbers that have a mode of 4, a median of 5 and a range of 6.",
+      "options": [
+        "10, 4, 7, 5, 4",
+        "4, 9, 5, 4, 3",
+        "4, 4, 5, 5, 10",
+        "4, 8, 5, 10, 4",
+        "4, 4, 5, 9, 11",
+        "9, 4, 4, 10, 5"
+      ],
+      "answer": [
+        0,
+        3,
+        5
+      ],
+      "solution": "Put each set in order first, then check all three. 4, 4, 5, 7, 10: mode 4, median 5, range 10 - 4 = 6. 4, 4, 5, 8, 10 and 4, 4, 5, 9, 10 also work. 3, 4, 4, 5, 9 has median 4. 4, 4, 5, 5, 10 has two modes (4 and 5). 4, 4, 5, 9, 11 has range 7. So the answers are 10, 4, 7, 5, 4 and 4, 8, 5, 10, 4 and 9, 4, 4, 10, 5.",
+      "misconceptions": {
+        "1": "In this set the middle number as written is 5, but in order it is 3, 4, 4, 5, 9, so the median is 4. Always put the numbers in order before finding the median.",
+        "2": "4 and 5 both appear twice, so this set has two modes, 4 and 5. The mode must be 4 only.",
+        "4": "The mode and median are right, but the range is 11 - 4 = 7, not 6.",
+        "common": "Sort each set into order first. Then check all three facts: the most common number, the middle number, and largest minus smallest. A set must pass all three. Two of the correct sets do not look right until they are sorted."
+      },
+      "skill": "mode, median and range together",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q101",
+      "subtopicId": "m12-s3",
+      "bookSection": "12F",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The dot plot shows how many times each pupil in a group went swimming last month. Each dot is one pupil. Work out the mean number of times a pupil went swimming.",
+      "diagram": {
+        "type": "dotPlot",
+        "title": "Swimming trips last month",
+        "values": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4,
+          5,
+          6
+        ],
+        "min": 0,
+        "max": 6,
+        "xLabel": "Number of times",
+        "alt": "A dot plot of how many times each pupil went swimming last month, on a scale from 0 to 6. Each dot is one pupil."
+      },
+      "answer": {
+        "value": 2,
+        "tolerance": 0,
+        "accept": [
+          "2 times"
+        ]
+      },
+      "solution": "Count the dots: 3 + 5 + 2 + 2 + 1 + 1 + 1 = 15 pupils. Find the total number of swims: 0 × 3 + 1 × 5 + 2 × 2 + 3 × 2 + 4 × 1 + 5 × 1 + 6 × 1 = 0 + 5 + 4 + 6 + 4 + 5 + 6 = 30. Mean = total ÷ number of pupils = 30 ÷ 15 = 2.",
+      "misconceptions": {
+        "common": "Common slips: stopping at the total (30), dividing by 7 (the number of marks on the scale) instead of 15 (the number of pupils), giving the mode or median (1), or taking the middle of the scale (3). Mean = total of all the values ÷ how many values there are, and each dot is one value."
+      },
+      "skill": "finding the mean",
+      "source": "original"
+    },
+    {
+      "id": "m12-q102",
+      "subtopicId": "m12-s3",
+      "bookSection": "12F",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The table shows the times, in seconds, that Aisha and Rahim took in five 100 m races. Wei Ming says, 'Rahim is usually faster, but Aisha is more consistent.' Use the median and the range to decide. Is Wei Ming correct? Tick one.",
+      "diagram": {
+        "type": "table",
+        "title": "100 m race times (seconds)",
+        "columns": [
+          "Runner",
+          "Race 1",
+          "Race 2",
+          "Race 3",
+          "Race 4",
+          "Race 5"
+        ],
+        "rows": [
+          [
+            "Aisha",
+            17,
+            18,
+            19,
+            17,
+            18
+          ],
+          [
+            "Rahim",
+            16,
+            20,
+            16,
+            15,
+            18
+          ]
+        ]
+      },
+      "options": [
+        "No. Aisha is usually faster, because her median time (18 s) is higher.",
+        "No. Rahim is more consistent, because his range (5 s) is bigger.",
+        "Yes. Rahim's median time (16 s) is lower, so he is usually faster, and Aisha's range (2 s) is smaller, so her times are more consistent.",
+        "Yes. Rahim's range (5 s) is bigger, so he is usually faster, and Aisha's median (18 s) is higher, so she is more consistent."
+      ],
+      "answer": 2,
+      "solution": "Put the times in order. Aisha: 17, 17, 18, 18, 19, so median 18 s and range 19 - 17 = 2 s. Rahim: 15, 16, 16, 18, 20, so median 16 s and range 20 - 15 = 5 s. In a race a lower time is faster, so Rahim is usually faster. A smaller range means the times are closer together, so Aisha is more consistent. Wei Ming is correct.",
+      "misconceptions": {
+        "0": "In a race, a LOWER time is faster. Aisha's median time (18 s) is higher than Rahim's (16 s), so she is usually slower.",
+        "1": "A bigger range means the times are MORE spread out, so Rahim is less consistent. The smaller range (Aisha's 2 s) shows the more consistent runner.",
+        "3": "The two measures are swapped. The median (an average) tells you who is usually faster; the range tells you who is more consistent. Wei Ming is right, but for the reasons in the other 'Yes' option."
+      },
+      "skill": "comparing with an average and the range",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q103",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The scatter graph shows how many hours some pupils revised and their score in a test out of 50. One pupil revised for 6 hours. What was this pupil's test score?",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Revision time and test score",
+        "xLabel": "Hours of revision",
+        "yLabel": "Test score",
+        "points": [
+          [
+            2,
+            15
+          ],
+          [
+            3,
+            25
+          ],
+          [
+            4,
+            20
+          ],
+          [
+            5,
+            30
+          ],
+          [
+            6,
+            35
+          ],
+          [
+            7,
+            30
+          ],
+          [
+            8,
+            40
+          ],
+          [
+            9,
+            45
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 10,
+        "xStep": 1,
+        "yMin": 0,
+        "yMax": 50,
+        "yStep": 5,
+        "alt": "A scatter graph of hours of revision and test score for 8 pupils."
+      },
+      "answer": {
+        "value": 35,
+        "tolerance": 0,
+        "accept": [
+          "35"
+        ]
+      },
+      "solution": "Find 6 on the bottom axis (hours of revision). Go straight up to the cross above 6. Go across to the side axis and read the score. Each gridline on the side is 5 marks, and the cross is on the line for 35. The pupil scored 35.",
+      "misconceptions": {
+        "common": "Check that you are reading the cross directly above 6, not a neighbour, and count the side gridlines in 5s. Reading the line next to it gives 30 or 40."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "original"
+    },
+    {
+      "id": "m12-q104",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The scatter graph shows the age and the price of some second-hand cars at a car dealer in Kuala Lumpur. Which sentence describes the relationship shown?",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Age and price of used cars",
+        "xLabel": "Age of car (years)",
+        "yLabel": "Price (RM thousands)",
+        "points": [
+          [
+            1,
+            80
+          ],
+          [
+            2,
+            72
+          ],
+          [
+            3,
+            60
+          ],
+          [
+            4,
+            58
+          ],
+          [
+            5,
+            45
+          ],
+          [
+            6,
+            40
+          ],
+          [
+            7,
+            30
+          ],
+          [
+            8,
+            28
+          ],
+          [
+            9,
+            20
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 10,
+        "xStep": 1,
+        "yMin": 0,
+        "yMax": 90,
+        "yStep": 10,
+        "alt": "A scatter graph of the age and price of 9 used cars."
+      },
+      "options": [
+        "As the age of the car goes up, the price goes up.",
+        "As the age of the car goes up, the price goes down.",
+        "There is no relationship between the age and the price.",
+        "All the cars cost about the same."
+      ],
+      "answer": 1,
+      "solution": "Look at the crosses from left to right. On the left (newer cars) the crosses are high; on the right (older cars) they are low. So the points go down from left to right: as the age goes up, the price goes down.",
+      "misconceptions": {
+        "0": "The crosses start high on the left and end low on the right, so they go DOWN. When the points go up from left to right, both values go up together.",
+        "2": "No relationship would look like crosses scattered everywhere. Here they follow a clear line going down.",
+        "3": "Read the side axis: the prices go from about RM 80 thousand down to about RM 20 thousand. That is a big difference."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "original"
+    },
+    {
+      "id": "m12-q105",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The scatter graph shows the shoe size and the spelling test score (out of 20) of 12 pupils. True or false: the graph shows that pupils with bigger feet scored higher in the spelling test.",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Shoe size and spelling score",
+        "xLabel": "Shoe size",
+        "yLabel": "Spelling score",
+        "points": [
+          [
+            3,
+            15
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            4,
+            18
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            5,
+            16
+          ],
+          [
+            6,
+            12
+          ],
+          [
+            6,
+            19
+          ],
+          [
+            7,
+            10
+          ],
+          [
+            7,
+            14
+          ],
+          [
+            8,
+            17
+          ],
+          [
+            8,
+            9
+          ]
+        ],
+        "xMin": 2,
+        "xMax": 9,
+        "xStep": 1,
+        "yMin": 0,
+        "yMax": 20,
+        "yStep": 2,
+        "alt": "A scatter graph of shoe size and spelling score for 12 pupils."
+      },
+      "answer": false,
+      "solution": "Look at each shoe size. Pupils with size 3 scored 8 and 15; pupils with size 8 scored 9 and 17. For every shoe size there are high and low scores. The crosses are scattered with no pattern going up or down, so there is no relationship. The statement is false.",
+      "misconceptions": {
+        "common": "One high score on the right (size 8, 17 marks) does not make a pattern. Look at ALL the crosses: they are scattered, so shoe size and spelling score are not related."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "original"
+    },
+    {
+      "id": "m12-q106",
+      "subtopicId": "m12-s2",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Kumar is drawing a scatter graph of the mass and the price of watermelons at a pasar malam. He has plotted 6 watermelons, as shown. His next watermelon has a mass of 4 kg and costs RM 14. How should he plot it?",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Watermelons: mass and price",
+        "xLabel": "Mass (kg)",
+        "yLabel": "Price (RM)",
+        "points": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            5,
+            18
+          ],
+          [
+            6,
+            22
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 7,
+        "xStep": 1,
+        "yMin": 0,
+        "yMax": 24,
+        "yStep": 2
+      },
+      "options": [
+        "Go across to 4 kg, then up to RM 12.",
+        "Go across to 14, then up to 4.",
+        "Go across to 4 kg, then up to RM 14.",
+        "Go across to 5 kg, then up to RM 14."
+      ],
+      "answer": 2,
+      "solution": "Mass is on the bottom axis, so go across to 4 kg first. Price is on the side axis, so then go up to RM 14. Each side gridline is RM 2, so RM 14 is the 7th line up. Mark a cross where 4 kg and RM 14 meet.",
+      "misconceptions": {
+        "0": "Each gridline on the price axis is RM 2. RM 12 is one line too low: count up to RM 14.",
+        "1": "You swapped the two values. The bottom axis is mass, so go across to 4 kg; the side axis is price, so go up to RM 14.",
+        "3": "The mass is 4 kg, not 5 kg. Check the number on the bottom axis before you go up."
+      },
+      "skill": "plotting scatter graphs",
+      "source": "original"
+    },
+    {
+      "id": "m12-q107",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The scatter graph shows how many hours 10 pupils spend reading each week and how many books they read in a term. How many of these pupils read more than 10 books?",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Reading time and books read",
+        "xLabel": "Hours of reading each week",
+        "yLabel": "Books read in a term",
+        "points": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            4,
+            12
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            6,
+            14
+          ],
+          [
+            7,
+            12
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            9,
+            18
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 10,
+        "xStep": 1,
+        "yMin": 0,
+        "yMax": 20,
+        "yStep": 2,
+        "alt": "A scatter graph of reading time and books read for 10 pupils."
+      },
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "accept": [
+          "5",
+          "five"
+        ]
+      },
+      "solution": "Find 10 on the side axis (books read) and imagine a line across the graph there. Count the crosses ABOVE that line: they are at 12, 14, 12, 16 and 18 books. That is 5 pupils.",
+      "misconceptions": {
+        "common": "Books read is on the side axis. Count the crosses above the 10-books line, not the ones near 10 hours on the bottom axis."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q108",
+      "subtopicId": "m12-s2",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Mei Lin measured six friends. Siti: 135 cm, 32 kg. Arjun: 140 cm, 34 kg. Priya: 145 cm, 38 kg. Omar: 150 cm, 40 kg. Lina: 155 cm, 44 kg. Ahmad: 160 cm, 46 kg. She plotted the scatter graph shown, but one point is in the wrong place. Whose point is wrong?",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Height and mass",
+        "xLabel": "Height (cm)",
+        "yLabel": "Mass (kg)",
+        "points": [
+          [
+            135,
+            32
+          ],
+          [
+            140,
+            34
+          ],
+          [
+            145,
+            38
+          ],
+          [
+            150,
+            40
+          ],
+          [
+            160,
+            46
+          ],
+          [
+            150,
+            44
+          ]
+        ],
+        "xMin": 130,
+        "xMax": 165,
+        "xStep": 5,
+        "yMin": 30,
+        "yMax": 50,
+        "yStep": 2
+      },
+      "options": [
+        "Arjun",
+        "Omar",
+        "Ahmad",
+        "Lina"
+      ],
+      "answer": 3,
+      "solution": "Check each friend's height on the bottom axis and mass on the side axis. There is no cross above 155 cm, but there are two crosses above 150 cm: one at 40 kg (Omar, correct) and one at 44 kg. Lina's mass is 44 kg, so that cross is hers, plotted at 150 cm instead of 155 cm. Lina's point is wrong.",
+      "misconceptions": {
+        "0": "Arjun's cross is at 140 cm and 34 kg, which matches his data. Check every friend: there is no cross above 155 cm, so look for Lina's.",
+        "1": "There are two crosses above 150 cm. Omar's is the one at 40 kg, which is correct. The other one, at 44 kg, belongs to Lina and should be above 155 cm.",
+        "2": "Ahmad's cross is at 160 cm and 46 kg, which matches his data. Each side gridline is 2 kg, so count carefully."
+      },
+      "skill": "plotting scatter graphs",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q109",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The scatter graph shows how many hours 8 pupils practise badminton each week and how many matches each won this year. Siti: 1 h, 2 wins. Wei Ming: 2 h, 3 wins. Aisha: 3 h, 5 wins. Daniel: 4 h, 6 wins. Priya: 5 h, 8 wins. Kumar: 6 h, 9 wins. Rahim: 7 h, 11 wins. Mei Lin: 8 h, 2 wins. One point does not fit the pattern of the others. Write the name of the pupil whose point it is.",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Badminton practice and matches won",
+        "xLabel": "Hours of practice each week",
+        "yLabel": "Matches won",
+        "points": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7,
+            11
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 10,
+        "xStep": 1,
+        "yMin": 0,
+        "yMax": 12,
+        "yStep": 1
+      },
+      "answer": {
+        "accept": [
+          "Mei Lin",
+          "MeiLin"
+        ],
+        "keywords": []
+      },
+      "solution": "Most crosses go up from left to right: more practice goes with more wins. One cross is far below this pattern, at 8 hours and 2 wins. In the list, the pupil who practises 8 hours and won 2 matches is Mei Lin. (Siti also won 2, but she practises only 1 hour, so her cross fits the pattern.)",
+      "misconceptions": {
+        "common": "The odd point is not just the lowest one: Siti also won 2 matches but practises only 1 hour, so she fits the pattern. Look for the cross that is far from the line the other crosses make: 8 hours and only 2 wins."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "original"
+    },
+    {
+      "id": "m12-q110",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Arjun cycles in Penang. The scatter graph shows the distance and the time of 8 of his rides. Use the pattern to choose the best estimate of the time for a 7 km ride.",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Arjun's rides",
+        "xLabel": "Distance (km)",
+        "yLabel": "Time (minutes)",
+        "points": [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            3,
+            14
+          ],
+          [
+            4,
+            21
+          ],
+          [
+            5,
+            25
+          ],
+          [
+            6,
+            29
+          ],
+          [
+            8,
+            41
+          ],
+          [
+            9,
+            44
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 10,
+        "xStep": 1,
+        "yMin": 0,
+        "yMax": 50,
+        "yStep": 5
+      },
+      "options": [
+        "About 35 minutes",
+        "About 15 minutes",
+        "About 50 minutes",
+        "About 7 minutes"
+      ],
+      "answer": 0,
+      "solution": "There is no cross at 7 km, so use the pattern. The 6 km ride took about 29 minutes and the 8 km ride about 41 minutes. A 7 km ride should take somewhere in between, so about 35 minutes is the best estimate.",
+      "misconceptions": {
+        "1": "15 minutes is about the time for a 3 km ride. Find 7 km on the bottom axis and look at the crosses on each side of it.",
+        "2": "Even the 9 km ride took less than 45 minutes, so a shorter 7 km ride should take less time than that.",
+        "3": "7 is the distance, not the time. Use the crosses near 7 km to read the time on the side axis."
+      },
+      "skill": "predicting from a scatter graph",
+      "source": "original"
+    },
+    {
+      "id": "m12-q111",
+      "subtopicId": "m12-s2",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Wei Ming recorded the number of pages in 5 books and the number of days he took to read each one. He drew the scatter graph shown from one of the tables below. Which table did he use?",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Pages and days to read",
+        "xLabel": "Number of pages",
+        "yLabel": "Days to read",
+        "points": [
+          [
+            100,
+            2
+          ],
+          [
+            150,
+            4
+          ],
+          [
+            200,
+            5
+          ],
+          [
+            250,
+            6
+          ],
+          [
+            300,
+            8
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 350,
+        "xStep": 50,
+        "yMin": 0,
+        "yMax": 10,
+        "yStep": 1
+      },
+      "options": [
+        "Table A",
+        "Table B",
+        "Table C",
+        "Table D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "table",
+          "columns": [
+            "Book",
+            "Pages",
+            "Days to read"
+          ],
+          "rows": [
+            [
+              "Book 1",
+              100,
+              2
+            ],
+            [
+              "Book 2",
+              150,
+              4
+            ],
+            [
+              "Book 3",
+              200,
+              6
+            ],
+            [
+              "Book 4",
+              250,
+              6
+            ],
+            [
+              "Book 5",
+              300,
+              8
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Book",
+            "Pages",
+            "Days to read"
+          ],
+          "rows": [
+            [
+              "Book 1",
+              100,
+              2
+            ],
+            [
+              "Book 2",
+              175,
+              4
+            ],
+            [
+              "Book 3",
+              200,
+              5
+            ],
+            [
+              "Book 4",
+              250,
+              6
+            ],
+            [
+              "Book 5",
+              300,
+              8
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Book",
+            "Pages",
+            "Days to read"
+          ],
+          "rows": [
+            [
+              "Book 1",
+              100,
+              2
+            ],
+            [
+              "Book 2",
+              150,
+              4
+            ],
+            [
+              "Book 3",
+              200,
+              5
+            ],
+            [
+              "Book 4",
+              250,
+              6
+            ],
+            [
+              "Book 5",
+              300,
+              8
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Book",
+            "Pages",
+            "Days to read"
+          ],
+          "rows": [
+            [
+              "Book 1",
+              100,
+              2
+            ],
+            [
+              "Book 2",
+              150,
+              4
+            ],
+            [
+              "Book 3",
+              200,
+              6
+            ],
+            [
+              "Book 4",
+              250,
+              5
+            ],
+            [
+              "Book 5",
+              300,
+              8
+            ]
+          ]
+        }
+      ],
+      "answer": 2,
+      "solution": "Read each cross: across for pages, up for days. The crosses are at 100 pages, 2 days; 150, 4; 200, 5; 250, 6; 300, 8. Now check every row of every table. Table A has 200 pages taking 6 days, Table B has 175 pages, and Table D has 200 pages taking 6 days and 250 pages taking 5 days. Only Table C matches all five crosses.",
+      "misconceptions": {
+        "0": "Table A says the 200-page book took 6 days, but the cross above 200 is at 5 days. Check every row, not just the first few.",
+        "1": "Table B has a book with 175 pages, but there is no cross between the 150 and 200 gridlines. The cross is on the 150 line.",
+        "3": "Table D swaps the days for the 200-page and 250-page books. The cross above 200 is at 5 days and the cross above 250 is at 6 days."
+      },
+      "skill": "plotting scatter graphs",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q112",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The scatter graph shows the marks of 12 pupils in Test 1 and Test 2. Both tests were out of 50. How many pupils scored at least 30 marks in Test 2?",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Test 1 and Test 2 marks",
+        "xLabel": "Test 1 mark",
+        "yLabel": "Test 2 mark",
+        "points": [
+          [
+            10,
+            20
+          ],
+          [
+            15,
+            25
+          ],
+          [
+            20,
+            30
+          ],
+          [
+            25,
+            30
+          ],
+          [
+            25,
+            35
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            35,
+            40
+          ],
+          [
+            45,
+            45
+          ],
+          [
+            30,
+            25
+          ],
+          [
+            5,
+            15
+          ],
+          [
+            40,
+            35
+          ],
+          [
+            20,
+            20
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 50,
+        "xStep": 5,
+        "yMin": 0,
+        "yMax": 50,
+        "yStep": 5,
+        "alt": "A scatter graph of Test 1 and Test 2 marks for 12 pupils."
+      },
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": [
+          "7",
+          "seven"
+        ]
+      },
+      "solution": "Test 2 is on the side axis. 'At least 30' means 30 or more, so the crosses ON the 30 line count too. There are 3 crosses on the 30 line, and 4 crosses above it (at 35, 35, 40 and 45). 3 + 4 = 7 pupils.",
+      "misconceptions": {
+        "common": "If you got 4, you counted only the crosses above 30. 'At least 30' includes pupils who scored exactly 30, so the 3 crosses on the 30 line count as well. Also check you used the Test 2 axis (up the side)."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q113",
+      "subtopicId": "m12-s2",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A swimming coach recorded the number of training sessions in a month and the number of lengths each swimmer could swim without stopping. The scatter graph shows 6 swimmers. Three more swimmers are: Lina, 6 sessions, 10 lengths. Ahmad, 12 sessions, 14 lengths. Priya, 18 sessions, 16 lengths. Which graph shows all 9 swimmers plotted correctly?",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Training and lengths swum",
+        "xLabel": "Training sessions in a month",
+        "yLabel": "Lengths swum without stopping",
+        "points": [
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            16,
+            18
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 20,
+        "xStep": 2,
+        "yMin": 0,
+        "yMax": 20,
+        "yStep": 2
+      },
+      "options": [
+        "Graph A",
+        "Graph B",
+        "Graph C",
+        "Graph D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "scatterGraph",
+          "title": "Training and lengths swum",
+          "xLabel": "Training sessions in a month",
+          "yLabel": "Lengths swum without stopping",
+          "points": [
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              18
+            ],
+            [
+              10,
+              6
+            ],
+            [
+              12,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 20,
+          "xStep": 2,
+          "yMin": 0,
+          "yMax": 20,
+          "yStep": 2
+        },
+        {
+          "type": "scatterGraph",
+          "title": "Training and lengths swum",
+          "xLabel": "Training sessions in a month",
+          "yLabel": "Lengths swum without stopping",
+          "points": [
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              18
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              12,
+              14
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 20,
+          "xStep": 2,
+          "yMin": 0,
+          "yMax": 20,
+          "yStep": 2
+        },
+        {
+          "type": "scatterGraph",
+          "title": "Training and lengths swum",
+          "xLabel": "Training sessions in a month",
+          "yLabel": "Lengths swum without stopping",
+          "points": [
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              18
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              12,
+              16
+            ],
+            [
+              18,
+              16
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 20,
+          "xStep": 2,
+          "yMin": 0,
+          "yMax": 20,
+          "yStep": 2
+        },
+        {
+          "type": "scatterGraph",
+          "title": "Training and lengths swum",
+          "xLabel": "Training sessions in a month",
+          "yLabel": "Lengths swum without stopping",
+          "points": [
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              18
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              12,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 20,
+          "xStep": 2,
+          "yMin": 0,
+          "yMax": 20,
+          "yStep": 2
+        }
+      ],
+      "answer": 3,
+      "solution": "Plot each new swimmer: across for sessions, up for lengths (each gridline is 2). Lina goes at (6, 10), Ahmad at (12, 14) and Priya at (18, 16). Graph A has Lina at 10 sessions and 6 lengths (swapped). Graph B is missing Priya, so it has only 8 crosses. Graph C has Ahmad at 16 lengths. Graph D has all three new crosses in the right places, so it is correct. Trap: check that ALL three points are there.",
+      "misconceptions": {
+        "0": "In Graph A, Lina's cross is at 10 sessions and 6 lengths. Her values are the other way round: across to 6 sessions, then up to 10 lengths.",
+        "1": "Graph B has only 8 crosses: Priya (18 sessions, 16 lengths) is missing. When you plot several points, count them at the end.",
+        "2": "In Graph C, Ahmad's cross is at 16 lengths, one gridline too high. He swam 14 lengths."
+      },
+      "skill": "plotting scatter graphs",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q114",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The scatter graph shows the height and the hand span of 10 pupils. Aisha says, 'Taller pupils always have bigger hand spans.' Is Aisha correct? Choose the answer with the correct reason.",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Height and hand span",
+        "xLabel": "Height (cm)",
+        "yLabel": "Hand span (cm)",
+        "points": [
+          [
+            134,
+            13
+          ],
+          [
+            136,
+            14
+          ],
+          [
+            140,
+            15
+          ],
+          [
+            142,
+            17
+          ],
+          [
+            146,
+            15
+          ],
+          [
+            148,
+            16
+          ],
+          [
+            150,
+            17
+          ],
+          [
+            152,
+            18
+          ],
+          [
+            156,
+            18
+          ],
+          [
+            158,
+            19
+          ]
+        ],
+        "xMin": 130,
+        "xMax": 160,
+        "xStep": 5,
+        "yMin": 12,
+        "yMax": 20,
+        "yStep": 1
+      },
+      "options": [
+        "Yes. The points go up from left to right, so a taller pupil always has a bigger hand span.",
+        "No. There is no relationship between height and hand span.",
+        "No. Taller pupils usually have bigger hand spans, but not always: the pupil who is 146 cm tall has a smaller hand span (15 cm) than the pupil who is 142 cm tall (17 cm).",
+        "Yes. The tallest pupil has the biggest hand span."
+      ],
+      "answer": 2,
+      "solution": "The crosses go up from left to right, so taller pupils USUALLY have bigger hand spans. But 'always' means there are no exceptions. The pupil who is 146 cm tall has a hand span of 15 cm, while a shorter pupil, 142 cm, has 17 cm. One exception is enough, so Aisha is not correct. Trap: a pattern on a scatter graph tells you what usually happens, not what always happens.",
+      "misconceptions": {
+        "0": "The points do go up, but that shows what usually happens. Compare 142 cm (17 cm span) with 146 cm (15 cm span): the taller pupil has the smaller hand span, so 'always' is wrong.",
+        "1": "There is a relationship: the crosses go up from left to right. Aisha is wrong only because of the word 'always'.",
+        "3": "One pair of values does not prove 'always'. You need to check every pair. The 146 cm pupil has a smaller span than the 142 cm pupil."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q115",
+      "subtopicId": "m12-s2",
+      "bookSection": "12D",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which of these sets of data could be shown on a scatter graph? Select ALL the correct answers.",
+      "options": [
+        "The height and the mass of each pupil in a class",
+        "The favourite fruit and the favourite colour of each pupil",
+        "The hours of rain and the number of umbrellas a shop sold, on each day in a month",
+        "The number of pupils in each class who walk to school",
+        "The colour and the age of each car in a car park",
+        "The age and the height of each tree in a park"
+      ],
+      "answer": [
+        0,
+        2,
+        5
+      ],
+      "solution": "A scatter graph needs TWO number values for each person or thing, so that each one becomes a point (across, up). Height and mass: two numbers for each pupil. Hours of rain and umbrellas sold: two numbers for each day. Age and height: two numbers for each tree. Fruit and colour are words, not numbers. 'Pupils in each class who walk' is only one number per class (a bar chart). Colour is not a number, so the cars cannot be plotted.",
+      "misconceptions": {
+        "1": "Favourite fruit and favourite colour are categories (words), not numbers, so they cannot be placed on number axes.",
+        "3": "This is only ONE number for each class. A scatter graph needs two numbers for each item; this data suits a bar chart.",
+        "4": "The age is a number, but the colour is not. Both values must be numbers to plot a point.",
+        "common": "Check each answer: does every person or thing have TWO number values? If yes, it can be a scatter graph."
+      },
+      "skill": "choosing a representation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q116",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The scatter graph shows the screen time and the sleep of 14 pupils on one school night. How many pupils had MORE than 2 hours of screen time AND slept LESS than 8 hours?",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Screen time and sleep",
+        "xLabel": "Screen time (hours)",
+        "yLabel": "Sleep (hours)",
+        "points": [
+          [
+            1,
+            9.5
+          ],
+          [
+            1.5,
+            9
+          ],
+          [
+            2,
+            7.5
+          ],
+          [
+            2.5,
+            8
+          ],
+          [
+            3,
+            8.5
+          ],
+          [
+            3,
+            7.5
+          ],
+          [
+            3.5,
+            7
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            4.5,
+            7.5
+          ],
+          [
+            5,
+            6.5
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            5.5,
+            7
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            4,
+            9
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 6,
+        "xStep": 0.5,
+        "yMin": 6,
+        "yMax": 10,
+        "yStep": 0.5,
+        "alt": "A scatter graph of screen time and sleep for 14 pupils."
+      },
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "accept": [
+          "5",
+          "five"
+        ]
+      },
+      "solution": "Each gridline is half an hour. A pupil counts only if BOTH are true: screen time to the RIGHT of the 2 hour line (not on it) and sleep BELOW the 8 hour line (not on it). The crosses at 2 hours (7.5 h sleep), and at 8 hours of sleep (2.5 h and 4 h screen time) are on a line, so they do not count. The pupils who count are at (3, 7.5), (3.5, 7), (4.5, 7.5), (5, 6.5) and (5.5, 7). That is 5 pupils.",
+      "misconceptions": {
+        "common": "If you got 8, you counted the crosses that sit exactly on the 2 hour line or the 8 hour line. 'More than 2' does not include 2, and 'less than 8' does not include 8. Also check that each cross meets BOTH conditions, not just one."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q117",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The scatter graph shows the maths and science test marks (out of 50) of 10 pupils. Select ALL the statements that are true.",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Maths and science marks",
+        "xLabel": "Maths mark",
+        "yLabel": "Science mark",
+        "points": [
+          [
+            15,
+            20
+          ],
+          [
+            20,
+            15
+          ],
+          [
+            20,
+            25
+          ],
+          [
+            25,
+            25
+          ],
+          [
+            30,
+            25
+          ],
+          [
+            30,
+            35
+          ],
+          [
+            35,
+            30
+          ],
+          [
+            40,
+            40
+          ],
+          [
+            40,
+            45
+          ],
+          [
+            45,
+            40
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 50,
+        "xStep": 5,
+        "yMin": 0,
+        "yMax": 50,
+        "yStep": 5,
+        "alt": "A scatter graph of maths and science marks for 10 pupils."
+      },
+      "options": [
+        "In general, pupils who did well in maths also did well in science.",
+        "The pupil with the lowest maths mark also had the lowest science mark.",
+        "Exactly two pupils got the same mark in maths as in science.",
+        "More pupils scored higher in science than in maths.",
+        "Every pupil who scored more than 35 in maths scored at least 40 in science."
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "1: The crosses go up from left to right: true. 2: The lowest maths mark is 15, and that pupil scored 20 in science; the lowest science mark (15) belongs to the pupil with 20 in maths: false. 3: Same mark in both: (25, 25) and (40, 40), exactly two: true. 4: Science higher: (15, 20), (20, 25), (30, 35), (40, 45) = 4 pupils; maths higher: (20, 15), (30, 25), (35, 30), (45, 40) = 4 pupils. 4 is not more than 4: false. 5: More than 35 in maths: (40, 40), (40, 45), (45, 40), all at least 40: true. True: 1, 3 and 5.",
+      "misconceptions": {
+        "1": "The cross furthest left (15 in maths) is at 20 in science. The lowest cross (15 in science) is a different pupil, with 20 in maths. Check both axes.",
+        "3": "Count both groups: 4 pupils scored higher in science and 4 scored higher in maths. The two pupils on (25, 25) and (40, 40) scored the same. 4 is not more than 4.",
+        "common": "Check every statement against the graph one at a time, counting crosses carefully. Watch the words 'exactly', 'more than' and 'at least'."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q118",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel's athletics club recorded each runner's hours of training each week and their time to run 100 m in seconds. Daniel found that the more a runner trains, the faster they run. Which graph shows this?",
+      "options": [
+        "Graph A",
+        "Graph B",
+        "Graph C",
+        "Graph D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "scatterGraph",
+          "title": "Training and 100 m time",
+          "xLabel": "Hours of training each week",
+          "yLabel": "Time to run 100 m (seconds)",
+          "points": [
+            [
+              1,
+              13
+            ],
+            [
+              2,
+              14
+            ],
+            [
+              3,
+              14
+            ],
+            [
+              4,
+              15
+            ],
+            [
+              5,
+              16
+            ],
+            [
+              6,
+              17
+            ],
+            [
+              7,
+              17
+            ],
+            [
+              8,
+              18
+            ],
+            [
+              9,
+              19
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 10,
+          "xStep": 1,
+          "yMin": 12,
+          "yMax": 20,
+          "yStep": 1
+        },
+        {
+          "type": "scatterGraph",
+          "title": "Training and 100 m time",
+          "xLabel": "Hours of training each week",
+          "yLabel": "Time to run 100 m (seconds)",
+          "points": [
+            [
+              1,
+              19
+            ],
+            [
+              2,
+              18
+            ],
+            [
+              3,
+              18
+            ],
+            [
+              4,
+              17
+            ],
+            [
+              5,
+              16
+            ],
+            [
+              6,
+              16
+            ],
+            [
+              7,
+              15
+            ],
+            [
+              8,
+              14
+            ],
+            [
+              9,
+              13
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 10,
+          "xStep": 1,
+          "yMin": 12,
+          "yMax": 20,
+          "yStep": 1
+        },
+        {
+          "type": "scatterGraph",
+          "title": "Training and 100 m time",
+          "xLabel": "Hours of training each week",
+          "yLabel": "Time to run 100 m (seconds)",
+          "points": [
+            [
+              1,
+              15
+            ],
+            [
+              2,
+              19
+            ],
+            [
+              3,
+              13
+            ],
+            [
+              4,
+              17
+            ],
+            [
+              5,
+              14
+            ],
+            [
+              6,
+              18
+            ],
+            [
+              7,
+              15
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              9,
+              17
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 10,
+          "xStep": 1,
+          "yMin": 12,
+          "yMax": 20,
+          "yStep": 1
+        },
+        {
+          "type": "scatterGraph",
+          "title": "Training and 100 m time",
+          "xLabel": "Hours of training each week",
+          "yLabel": "Time to run 100 m (seconds)",
+          "points": [
+            [
+              1,
+              16
+            ],
+            [
+              2,
+              16
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              4,
+              16
+            ],
+            [
+              5,
+              16
+            ],
+            [
+              6,
+              16
+            ],
+            [
+              7,
+              16
+            ],
+            [
+              8,
+              16
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 10,
+          "xStep": 1,
+          "yMin": 12,
+          "yMax": 20,
+          "yStep": 1
+        }
+      ],
+      "answer": 1,
+      "solution": "Running faster means taking FEWER seconds to run 100 m. So as the hours of training go up, the time goes down. The crosses should go down from left to right. That is Graph B. Trap: 'faster' sounds like 'more', but a faster time is a smaller number of seconds.",
+      "misconceptions": {
+        "0": "In Graph A the times go UP, so runners who train more take more seconds, which means they are slower. Faster means fewer seconds.",
+        "2": "Graph C has no pattern, so it would show that training makes no difference. Daniel found a clear link.",
+        "3": "In Graph D every runner takes the same time, whatever their training. Daniel found that more training goes with faster times."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "original"
+    },
+    {
+      "id": "m12-q119",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The line graph shows the price of 1 kg of durians at a stall over six weeks of the durian season. Which sentence describes the trend?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Price of 1 kg of durians",
+        "categories": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4",
+          "Week 5",
+          "Week 6"
+        ],
+        "series": [
+          {
+            "name": "Price (RM)",
+            "values": [
+              60,
+              55,
+              50,
+              40,
+              35,
+              30
+            ]
+          }
+        ],
+        "xLabel": "Week",
+        "yLabel": "Price (RM)",
+        "yMin": 0,
+        "yMax": 70,
+        "yStep": 10,
+        "minorStep": 5,
+        "alt": "A line graph of the price of 1 kg of durians over six weeks."
+      },
+      "options": [
+        "The price went up every week.",
+        "The price stayed the same.",
+        "The price went up, then went down.",
+        "The price went down every week."
+      ],
+      "answer": 3,
+      "solution": "Follow the line from Week 1 to Week 6. Every part of the line slopes down: RM 60, 55, 50, 40, 35, 30. So the price went down every week.",
+      "misconceptions": {
+        "0": "Read the line from left to right (Week 1 to Week 6). It starts high and ends low, so the price went down.",
+        "1": "A price that stays the same would be a flat line. This line slopes down.",
+        "2": "Check each step of the line. It never goes up: it slopes down from Week 1 all the way to Week 6."
+      },
+      "skill": "identifying trends",
+      "source": "original"
+    },
+    {
+      "id": "m12-q120",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Siti let a ball roll down the same ramp from the same height 5 times and timed it with a stopwatch. Her results are in the table. Why are the times not all the same?",
+      "diagram": {
+        "type": "table",
+        "title": "Time for the ball to roll down the ramp",
+        "columns": [
+          "Try",
+          "Time (seconds)"
+        ],
+        "rows": [
+          [
+            "Try 1",
+            "2.4"
+          ],
+          [
+            "Try 2",
+            "2.6"
+          ],
+          [
+            "Try 3",
+            "2.5"
+          ],
+          [
+            "Try 4",
+            "2.4"
+          ],
+          [
+            "Try 5",
+            "2.7"
+          ]
+        ]
+      },
+      "options": [
+        "Small things change each time, such as exactly when she started and stopped the stopwatch.",
+        "The ramp was a different length each time.",
+        "Every result except one must be a mistake.",
+        "A stopwatch can only measure whole seconds."
+      ],
+      "answer": 0,
+      "solution": "The ramp and the height did not change. Small things change each time: exactly when Siti pressed start and stop, and exactly how she let go of the ball. This is why repeated measurements are slightly different. It is normal, and it is why scientists repeat measurements.",
+      "misconceptions": {
+        "1": "Siti used the same ramp and the same height every time. The differences come from small changes in how she timed it and let go.",
+        "2": "The results are all close together (2.4 to 2.7 seconds). Small differences like this are normal when you measure something several times.",
+        "3": "Her stopwatch measured tenths of a second (2.4, 2.6 ...). The differences come from small changes each try."
+      },
+      "skill": "explaining variation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q121",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The bar chart shows how many packets of nasi lemak two stalls sold from Monday to Friday. On how many days did Stall A sell more than Stall B?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Nasi lemak sold",
+        "categories": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri"
+        ],
+        "series": [
+          {
+            "name": "Stall A",
+            "values": [
+              40,
+              35,
+              50,
+              45,
+              30
+            ]
+          },
+          {
+            "name": "Stall B",
+            "values": [
+              35,
+              40,
+              45,
+              45,
+              35
+            ]
+          }
+        ],
+        "xLabel": "Day",
+        "yLabel": "Packets sold",
+        "yMax": 60,
+        "yStep": 10,
+        "minorStep": 5,
+        "alt": "A bar chart comparing nasi lemak sold by Stall A and Stall B from Monday to Friday."
+      },
+      "answer": {
+        "value": 2,
+        "tolerance": 0,
+        "accept": [
+          "2",
+          "two"
+        ]
+      },
+      "solution": "Compare the two bars for each day. Mon: A 40, B 35, A more. Tue: A 35, B 40, B more. Wed: A 50, B 45, A more. Thu: both 45, the same. Fri: A 30, B 35, B more. Stall A sold more on 2 days (Monday and Wednesday).",
+      "misconceptions": {
+        "common": "On Thursday both stalls sold 45, so Stall A did not sell MORE that day. Count only the days where A's bar is taller."
+      },
+      "skill": "comparing data sets",
+      "source": "original"
+    },
+    {
+      "id": "m12-q122",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The bar chart shows how many library books each year group borrowed in one month. True or false: Year 5 borrowed twice as many books as Year 3.",
+      "diagram": {
+        "type": "barChart",
+        "title": "Library books borrowed",
+        "categories": [
+          "Year 3",
+          "Year 4",
+          "Year 5",
+          "Year 6"
+        ],
+        "series": [
+          {
+            "name": "Books",
+            "values": [
+              40,
+              55,
+              80,
+              60
+            ]
+          }
+        ],
+        "xLabel": "Year group",
+        "yLabel": "Number of books",
+        "yMax": 90,
+        "yStep": 10,
+        "minorStep": 5,
+        "alt": "A bar chart of library books borrowed by Years 3 to 6."
+      },
+      "answer": true,
+      "solution": "Read the bars: Year 3 borrowed 40 books and Year 5 borrowed 80 books. Twice 40 is 80. So the statement is true.",
+      "misconceptions": {
+        "common": "Read the Year 3 and Year 5 bars carefully (each small gridline is 5 books): 40 and 80. Then check: 40 x 2 = 80, so it is exactly twice."
+      },
+      "skill": "comparing data sets",
+      "source": "original"
+    },
+    {
+      "id": "m12-q123",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The bar chart shows the rainfall in Ipoh each day for one week. Lina works out that the mean is 15 mm. She concludes: 'On a typical day this week, it rained about 15 mm.' What is the best reason why her conclusion is not reliable?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Daily rainfall in one week",
+        "categories": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ],
+        "series": [
+          {
+            "name": "Rainfall (mm)",
+            "values": [
+              5,
+              0,
+              10,
+              80,
+              5,
+              0,
+              5
+            ]
+          }
+        ],
+        "xLabel": "Day",
+        "yLabel": "Rainfall (mm)",
+        "yMax": 90,
+        "yStep": 10,
+        "minorStep": 5
+      },
+      "options": [
+        "Thursday's 80 mm is much more than the other days. This one unusual value makes the mean bigger than a typical day.",
+        "Her mean is wrong. It should be 80 mm.",
+        "She should have drawn a pie chart instead.",
+        "It did not rain on two days, so the mean cannot be worked out."
+      ],
+      "answer": 0,
+      "solution": "Read the bars: 5, 0, 10, 80, 5, 0 and 5 mm. The mean is (5 + 0 + 10 + 80 + 5 + 0 + 5) ÷ 7 = 105 ÷ 7 = 15 mm, so her mean is right. But one day, Thursday, had 80 mm, far more than any other day. That one unusual value pulls the mean up. On every other day it rained 10 mm or less, so 15 mm is not typical.",
+      "misconceptions": {
+        "1": "80 mm is the largest value, not the mean. The mean is 105 ÷ 7 = 15 mm, so her calculation is right. The problem is that 15 mm is not typical.",
+        "2": "Changing the chart does not change the data. The problem is the one very rainy day, which pulls the mean up.",
+        "3": "Days with 0 mm still count: add 0 and divide by 7 as usual. The real problem is Thursday's 80 mm."
+      },
+      "skill": "judging conclusions",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q124",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Before his survey, Kumar predicted: 'More than half of my class will choose football as their favourite sport.' The table shows his results. Was his prediction correct? Choose the answer with the correct reason.",
+      "diagram": {
+        "type": "table",
+        "title": "Favourite sport",
+        "columns": [
+          "Sport",
+          "Number of pupils"
+        ],
+        "rows": [
+          [
+            "Football",
+            14
+          ],
+          [
+            "Badminton",
+            8
+          ],
+          [
+            "Swimming",
+            4
+          ],
+          [
+            "Netball",
+            2
+          ]
+        ]
+      },
+      "options": [
+        "Yes, because football is the most popular sport.",
+        "Yes, because 14 out of 28 is half.",
+        "No, because 14 is exactly half of 28, not more than half.",
+        "No, because fewer pupils chose football than badminton and swimming together."
+      ],
+      "answer": 2,
+      "solution": "Total pupils: 14 + 8 + 4 + 2 = 28. Half of 28 is 14. Exactly 14 pupils chose football. 'More than half' would need 15 or more, so his prediction was not correct. Trap: football is the most popular, but 'most popular' is not the same as 'more than half'.",
+      "misconceptions": {
+        "0": "Football is the most popular, but the prediction was 'more than half'. 14 out of 28 is exactly half, so it is not more than half.",
+        "1": "You worked out the half correctly, but exactly half is not MORE than half. More than half would be 15 or more pupils.",
+        "3": "Badminton and swimming together are 8 + 4 = 12, which is less than 14. The real reason is that 14 is exactly half of 28."
+      },
+      "skill": "judging conclusions",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q125",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Omar grew two bean plants. Plant A was given plant food and Plant B was not. The line graph shows their heights each week. Select ALL the statements that are true.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Heights of two bean plants",
+        "categories": [
+          "Week 0",
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4",
+          "Week 5"
+        ],
+        "series": [
+          {
+            "name": "Plant A",
+            "values": [
+              4,
+              6,
+              9,
+              13,
+              16,
+              20
+            ]
+          },
+          {
+            "name": "Plant B",
+            "values": [
+              4,
+              7,
+              8,
+              10,
+              12,
+              13
+            ]
+          }
+        ],
+        "xLabel": "Week",
+        "yLabel": "Height (cm)",
+        "yMin": 0,
+        "yMax": 22,
+        "yStep": 2,
+        "minorStep": 1,
+        "alt": "A line graph of the heights of Plant A and Plant B from Week 0 to Week 5."
+      },
+      "options": [
+        "Plant A was taller than Plant B every week.",
+        "The difference between the heights was greatest in Week 5.",
+        "Plant B grew the same amount every week.",
+        "Plant A grew 4 cm between Week 2 and Week 3.",
+        "Plant B was taller than Plant A in Week 1.",
+        "Plant A grew more between Week 4 and Week 5 than in any other week."
+      ],
+      "answer": [
+        1,
+        3,
+        4
+      ],
+      "solution": "Read the heights. Plant A: 4, 6, 9, 13, 16, 20 cm. Plant B: 4, 7, 8, 10, 12, 13 cm. Week 0 they are equal and in Week 1 Plant B is taller, so A was not taller every week. Differences: 0, 1 (in Week 1 Plant B is 1 cm taller), 1, 3, 4, 7, greatest in Week 5 (true). Plant B grew 3, 1, 2, 2, 1 cm: not the same each week. Plant A from Week 2 to 3: 13 - 9 = 4 cm (true). Week 1: B 7 cm, A 6 cm (true). Plant A grew 2, 3, 4, 3, 4 cm: Week 4 to 5 (4 cm) ties with Week 2 to 3, so it is not MORE than every other week. True: statements 2, 4 and 5.",
+      "misconceptions": {
+        "0": "Check every week, including Week 0 and Week 1. In Week 0 the plants were the same height, and in Week 1 Plant B was taller.",
+        "2": "Work out each week's growth for Plant B: 3, 1, 2, 2, 1 cm. These are not all the same.",
+        "5": "Plant A grew 4 cm from Week 4 to 5, but it also grew 4 cm from Week 2 to 3. A tie is not 'more than any other week'.",
+        "common": "Test each statement against the graph one by one, and watch the words 'every', 'greatest' and 'more than'."
+      },
+      "skill": "comparing data sets",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q126",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The bar chart shows how many pupils walk to school at two schools in Shah Alam. School A has 600 pupils and School B has 150 pupils. Mei Lin concludes: 'Walking to school is more popular at School A than at School B.' Is she correct? Choose the answer with the correct reason.",
+      "diagram": {
+        "type": "barChart",
+        "title": "Pupils who walk to school",
+        "categories": [
+          "School A",
+          "School B"
+        ],
+        "series": [
+          {
+            "name": "Pupils who walk",
+            "values": [
+              60,
+              45
+            ]
+          }
+        ],
+        "xLabel": "School",
+        "yLabel": "Number of pupils",
+        "yMax": 70,
+        "yStep": 10,
+        "minorStep": 5
+      },
+      "options": [
+        "Yes, because 60 is more than 45.",
+        "No. 60 out of 600 is 1/10 of School A, but 45 out of 150 is 3/10 of School B, so walking is more popular at School B.",
+        "Yes, because School A is bigger, so more of its pupils walk.",
+        "No, because you can never compare two schools of different sizes."
+      ],
+      "answer": 1,
+      "solution": "Read the bars: 60 pupils walk at School A and 45 at School B. The schools are different sizes, so compare fractions. School A: 60 out of 600 = 1/10. School B: 45 out of 150 = 3/10. 3/10 is more than 1/10, so a bigger share of School B walks. Mei Lin is not correct. Trap: a bigger number is not a bigger share when the totals are different.",
+      "misconceptions": {
+        "0": "60 is more than 45, but School A has 4 times as many pupils. Compare fractions: 60/600 = 1/10 and 45/150 = 3/10.",
+        "2": "A bigger school will usually have more walkers just because it has more pupils. To compare fairly, find the fraction of each school who walk.",
+        "3": "You can compare them fairly by using fractions or percentages of each school: 1/10 for School A and 3/10 for School B."
+      },
+      "skill": "comparing data sets",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m12-q127",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Wei Ming dropped a ball from the same height 5 times and measured how high it bounced. The dot plot shows his results. Select ALL the statements that are true.",
+      "diagram": {
+        "type": "dotPlot",
+        "title": "Bounce height of the ball",
+        "values": [
+          44,
+          42,
+          46,
+          64,
+          44
+        ],
+        "min": 40,
+        "max": 64,
+        "step": 2,
+        "xLabel": "Bounce height (cm)",
+        "alt": "A dot plot of 5 bounce heights."
+      },
+      "options": [
+        "Most of the results are slightly different because small things change each time, such as how he let go and how he read the ruler.",
+        "The 64 cm result is very different from the others, so he should check it by dropping the ball again.",
+        "The results are not all the same, so the experiment is useless.",
+        "The mean, 48 cm, is a good typical value, because it uses every result.",
+        "The median, 44 cm, describes a typical bounce better than the mean does.",
+        "The range of the results is 64 cm."
+      ],
+      "answer": [
+        0,
+        1,
+        4
+      ],
+      "solution": "The results are 42, 44, 44, 46 and 64 cm. Small changes each time make repeated results differ a little (statement 1 true). 64 cm is far from the rest, so it should be checked (statement 2 true). Different results do not make an experiment useless. Mean = 240 ÷ 5 = 48 cm, which is bigger than 4 of the 5 results, because the 64 pulls it up, so it is not typical. Median = 44 cm, in the middle of the close results (statement 5 true). Range = 64 - 42 = 22 cm, not 64 cm. True: 1, 2 and 5.",
+      "misconceptions": {
+        "2": "Repeated measurements nearly always differ a little. Scientists repeat them and look at all the results; that makes the experiment better, not useless.",
+        "3": "The mean does use every result, but the unusual 64 cm pulls it up to 48 cm, which is more than 4 of the 5 results. The median, 44 cm, is more typical here.",
+        "5": "64 cm is the largest value, not the range. Range = largest - smallest = 64 - 42 = 22 cm.",
+        "common": "Check each statement: work out the mean, median and range from the dots, then decide which statements are true."
+      },
+      "skill": "explaining variation",
+      "source": "original"
+    },
+    {
+      "id": "m12-q128",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The line graph shows the number of visitors to Penang Hill each day for one week. True or false: on Saturday there were more than twice as many visitors as the mean number of visitors per day from Monday to Friday.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Visitors to Penang Hill",
+        "categories": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ],
+        "series": [
+          {
+            "name": "Visitors",
+            "values": [
+              150,
+              200,
+              150,
+              250,
+              300,
+              450,
+              500
+            ]
+          }
+        ],
+        "xLabel": "Day",
+        "yLabel": "Number of visitors",
+        "yMin": 0,
+        "yMax": 500,
+        "yStep": 100,
+        "minorStep": 50,
+        "alt": "A line graph of visitors to Penang Hill from Monday to Sunday."
+      },
+      "answer": true,
+      "solution": "Read Monday to Friday (each small gridline is 50): 150, 200, 150, 250, 300. Total = 1050. Mean = 1050 ÷ 5 = 210 visitors. Twice the mean = 420. Saturday had 450 visitors, and 450 is more than 420. So the statement is true.",
+      "misconceptions": {
+        "common": "Find the mean of the FIVE weekdays first (1050 ÷ 5 = 210), then double it (420) and compare with Saturday (450). Do not include Saturday or Sunday in the mean, and read the half gridlines (50s) carefully."
+      },
+      "skill": "comparing data sets",
+      "source": "inspired-by: Cambridge Checkpoint style"
     }
   ]
 }

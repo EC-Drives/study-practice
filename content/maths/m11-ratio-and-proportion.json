@@ -4,6 +4,19 @@
   "title": "Ratio and Proportion",
   "order": 11,
   "bookChapter": "Chapter 11: Ratio and Proportion",
+  "bookChapterNumber": 11,
+  "bookSections": [
+    {
+      "id": "11A",
+      "title": "Understand Equivalent Ratios",
+      "page": 169
+    },
+    {
+      "id": "11B",
+      "title": "Understand Direct Proportions",
+      "page": 172
+    }
+  ],
   "frameworkRefs": [
     "6Nf.12",
     "6Nf.13"
@@ -35,14 +48,14 @@
         "summary": "Add the parts, find the value of one part, then multiply. A ratio of 2 : 3 means the first share is 2/5 of the total."
       },
       {
-        "id": "m11-s4",
-        "title": "Direct proportion",
-        "summary": "When two quantities are in direct proportion, doubling one doubles the other. Use the unitary method (find the value of one) for recipes, prices and best buys."
-      },
-      {
         "id": "m11-s5",
         "title": "Multi-step ratio problems",
         "summary": "Solve longer problems where amounts change, or where you need several ratio steps, using parts like a bar model."
+      },
+      {
+        "id": "m11-s4",
+        "title": "Direct proportion",
+        "summary": "When two quantities are in direct proportion, doubling one doubles the other. Use the unitary method (find the value of one) for recipes, prices and best buys."
       }
     ]
   },
@@ -50,6 +63,7 @@
     {
       "id": "m11-q001",
       "subtopicId": "m11-s1",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -73,6 +87,7 @@
     {
       "id": "m11-q002",
       "subtopicId": "m11-s1",
+      "bookSection": "11A",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -97,6 +112,7 @@
     {
       "id": "m11-q003",
       "subtopicId": "m11-s1",
+      "bookSection": "11A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -112,6 +128,7 @@
     {
       "id": "m11-q004",
       "subtopicId": "m11-s1",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -135,6 +152,7 @@
     {
       "id": "m11-q005",
       "subtopicId": "m11-s1",
+      "bookSection": "11A",
       "type": "short",
       "difficulty": 2,
       "marks": 1,
@@ -159,6 +177,7 @@
     {
       "id": "m11-q006",
       "subtopicId": "m11-s1",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -182,6 +201,7 @@
     {
       "id": "m11-q007",
       "subtopicId": "m11-s1",
+      "bookSection": "11A",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -210,6 +230,7 @@
     {
       "id": "m11-q008",
       "subtopicId": "m11-s1",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -233,6 +254,7 @@
     {
       "id": "m11-q009",
       "subtopicId": "m11-s1",
+      "bookSection": "11A",
       "type": "short",
       "difficulty": 3,
       "marks": 2,
@@ -257,6 +279,7 @@
     {
       "id": "m11-q010",
       "subtopicId": "m11-s2",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -280,6 +303,7 @@
     {
       "id": "m11-q011",
       "subtopicId": "m11-s2",
+      "bookSection": "11A",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -299,6 +323,7 @@
     {
       "id": "m11-q012",
       "subtopicId": "m11-s2",
+      "bookSection": "11A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -314,6 +339,7 @@
     {
       "id": "m11-q013",
       "subtopicId": "m11-s2",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -337,6 +363,7 @@
     {
       "id": "m11-q014",
       "subtopicId": "m11-s2",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -360,6 +387,7 @@
     {
       "id": "m11-q015",
       "subtopicId": "m11-s2",
+      "bookSection": "11A",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -407,6 +435,7 @@
     {
       "id": "m11-q016",
       "subtopicId": "m11-s2",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -430,6 +459,7 @@
     {
       "id": "m11-q017",
       "subtopicId": "m11-s2",
+      "bookSection": "11A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -449,6 +479,7 @@
     {
       "id": "m11-q018",
       "subtopicId": "m11-s2",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -472,6 +503,7 @@
     {
       "id": "m11-q019",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 2,
@@ -512,6 +544,7 @@
     {
       "id": "m11-q020",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -527,6 +560,7 @@
     {
       "id": "m11-q021",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "numeric",
       "difficulty": 1,
       "marks": 2,
@@ -563,6 +597,7 @@
     {
       "id": "m11-q022",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -586,6 +621,7 @@
     {
       "id": "m11-q023",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -610,6 +646,7 @@
     {
       "id": "m11-q024",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -633,6 +670,7 @@
     {
       "id": "m11-q025",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -660,6 +698,7 @@
     {
       "id": "m11-q026",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -707,6 +746,7 @@
     {
       "id": "m11-q027",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -745,6 +785,7 @@
     {
       "id": "m11-q028",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -767,6 +808,7 @@
     {
       "id": "m11-q029",
       "subtopicId": "m11-s4",
+      "bookSection": "11B",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -791,6 +833,7 @@
     {
       "id": "m11-q030",
       "subtopicId": "m11-s4",
+      "bookSection": "11B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -814,6 +857,7 @@
     {
       "id": "m11-q031",
       "subtopicId": "m11-s4",
+      "bookSection": "11B",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -829,6 +873,7 @@
     {
       "id": "m11-q032",
       "subtopicId": "m11-s4",
+      "bookSection": "11B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -853,6 +898,7 @@
     {
       "id": "m11-q033",
       "subtopicId": "m11-s4",
+      "bookSection": "11B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -876,6 +922,7 @@
     {
       "id": "m11-q034",
       "subtopicId": "m11-s4",
+      "bookSection": "11B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -899,6 +946,7 @@
     {
       "id": "m11-q035",
       "subtopicId": "m11-s4",
+      "bookSection": "11B",
       "type": "order",
       "difficulty": 2,
       "marks": 2,
@@ -925,6 +973,7 @@
     {
       "id": "m11-q036",
       "subtopicId": "m11-s4",
+      "bookSection": "11B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 1,
@@ -948,6 +997,7 @@
     {
       "id": "m11-q037",
       "subtopicId": "m11-s4",
+      "bookSection": "11B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -970,6 +1020,7 @@
     {
       "id": "m11-q038",
       "subtopicId": "m11-s5",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 2,
@@ -993,6 +1044,7 @@
     {
       "id": "m11-q039",
       "subtopicId": "m11-s5",
+      "bookSection": "11A",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -1012,6 +1064,7 @@
     {
       "id": "m11-q040",
       "subtopicId": "m11-s5",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1035,6 +1088,7 @@
     {
       "id": "m11-q041",
       "subtopicId": "m11-s5",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 3,
@@ -1073,6 +1127,7 @@
     {
       "id": "m11-q042",
       "subtopicId": "m11-s5",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 3,
@@ -1111,6 +1166,7 @@
     {
       "id": "m11-q043",
       "subtopicId": "m11-s5",
+      "bookSection": "11A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -1165,6 +1221,7 @@
     {
       "id": "m11-q044",
       "subtopicId": "m11-s5",
+      "bookSection": "11A",
       "type": "truefalse",
       "difficulty": 3,
       "marks": 2,
@@ -1180,6 +1237,7 @@
     {
       "id": "m11-q045",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -1224,6 +1282,7 @@
     {
       "id": "m11-q046",
       "subtopicId": "m11-s5",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 3,
@@ -1262,6 +1321,7 @@
     {
       "id": "m11-q047",
       "subtopicId": "m11-s3",
+      "bookSection": "11A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -1293,6 +1353,984 @@
         "3": "3/7 uses the difference 5 - 2 = 3. Red is 2 units out of 2 + 5 = 7, so the fraction is 2/7."
       },
       "skill": "ratio and fractions",
+      "source": "original"
+    },
+    {
+      "id": "m11-q048",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "5 curry puffs cost RM 6. At the same price, how much does 1 curry puff cost? Give your answer in RM.",
+      "answer": {
+        "value": 1.2,
+        "tolerance": 0,
+        "accept": [
+          "1.20",
+          "RM 1.20",
+          "RM1.20",
+          "RM 1.2"
+        ]
+      },
+      "solution": "To find the cost of ONE curry puff, share the total cost by the number of curry puffs. RM 6 ÷ 5 = RM 1.20. Check: 5 x RM 1.20 = RM 6. So 1 curry puff costs RM 1.20.",
+      "misconceptions": {
+        "common": "If you got RM 30, you multiplied 6 by 5. To find the cost of one item, divide the total cost by the number of items: RM 6 ÷ 5 = RM 1.20. If you wrote 1.2 as 1.02, remember 1.2 = 1.20, which is RM 1 and 20 sen."
+      },
+      "skill": "unitary method",
+      "source": "original"
+    },
+    {
+      "id": "m11-q049",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The table shows the cost of bottles of mineral water. The cost is in direct proportion to the number of bottles. What is the missing number in the table?",
+      "diagram": {
+        "type": "table",
+        "title": "Cost of mineral water",
+        "columns": [
+          "Number of bottles",
+          "1",
+          "2",
+          "4",
+          "6"
+        ],
+        "rows": [
+          [
+            "Cost (RM)",
+            3,
+            6,
+            12,
+            "?"
+          ]
+        ]
+      },
+      "options": [
+        "14",
+        "15",
+        "18",
+        "24"
+      ],
+      "answer": 2,
+      "solution": "1 bottle costs RM 3, so every bottle costs RM 3. 6 bottles cost 6 x RM 3 = RM 18. The missing number is 18. Trap: the bottles go 1, 2, 4, 6, so do not just continue a pattern in the cost row. Use the cost of one bottle.",
+      "misconceptions": {
+        "0": "You added 2 to 12 because the bottles went up by 2 (from 4 to 6). In direct proportion you multiply, not add: each bottle costs RM 3, so 6 bottles cost 6 x 3 = 18.",
+        "1": "You added the cost of one more bottle (12 + 3). But 6 bottles is 2 more bottles than 4, not 1 more. Easier: 6 bottles x RM 3 = RM 18.",
+        "3": "You kept doubling (3, 6, 12, 24). The bottles do not double from 4 to 6, so the cost does not double. Use the cost of one bottle: 6 x RM 3 = RM 18."
+      },
+      "skill": "proportion tables",
+      "source": "original"
+    },
+    {
+      "id": "m11-q050",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "A kuih recipe for 8 people uses 4 eggs. Lina says she needs 2 eggs to make the same kuih for 2 people. True or false: Lina is correct.",
+      "answer": false,
+      "solution": "2 people is a quarter of 8 people (8 ÷ 4 = 2). So she needs a quarter of the eggs: 4 ÷ 4 = 1 egg. Lina needs 1 egg, not 2, so the statement is false.",
+      "misconceptions": {
+        "common": "Halving 8 people gives 4 people, not 2. To go from 8 people to 2 people you divide by 4, so divide the eggs by 4 too: 4 ÷ 4 = 1 egg."
+      },
+      "skill": "scaling a recipe",
+      "source": "original"
+    },
+    {
+      "id": "m11-q051",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The conversion graph shows the cost of petrol at a petrol station. Use the graph. How much do 15 litres of petrol cost?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Cost of petrol",
+        "series": [
+          {
+            "name": "Cost",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                40,
+                80
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 40,
+        "xStep": 5,
+        "yMin": 0,
+        "yMax": 80,
+        "yStep": 10,
+        "minorStep": 5,
+        "xLabel": "Petrol (litres)",
+        "yLabel": "Cost (RM)",
+        "markers": false,
+        "alt": "A straight-line conversion graph from 0 litres and RM 0 to 40 litres and RM 80. Petrol in litres is on the x axis, cost in RM on the y axis."
+      },
+      "options": [
+        "RM 30",
+        "RM 15",
+        "RM 25",
+        "RM 35"
+      ],
+      "answer": 0,
+      "solution": "Find 15 litres on the bottom (litres) axis. Go straight up to the line, then straight across to the cost axis. You reach RM 30. Check: 40 litres cost RM 80, so 1 litre costs RM 2, and 15 x RM 2 = RM 30.",
+      "misconceptions": {
+        "1": "RM 15 is just the number of litres. Go up from 15 litres to the line, then across to the cost axis to read the cost.",
+        "2": "RM 25 is the faint line just below. Each faint line is RM 5; go across from the line carefully. 15 litres reach RM 30.",
+        "3": "RM 35 is the faint line just above. Each faint line is RM 5; read across from the line carefully. 15 litres reach RM 30."
+      },
+      "skill": "conversion graphs",
+      "source": "original"
+    },
+    {
+      "id": "m11-q052",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A nasi lemak recipe for 4 people uses 300 ml of coconut milk. How much coconut milk is needed for 6 people? Give your answer in ml.",
+      "answer": {
+        "value": 450,
+        "tolerance": 0,
+        "accept": [
+          "450 ml",
+          "450ml"
+        ]
+      },
+      "solution": "6 is not a multiple of 4, so find the amount for 1 person first (the unitary method). 1 person: 300 ÷ 4 = 75 ml. 6 people: 6 x 75 = 450 ml. (Or: 2 people need half of 300 ml = 150 ml, and 4 + 2 people need 300 + 150 = 450 ml.) The recipe needs 450 ml of coconut milk.",
+      "misconceptions": {
+        "common": "Adding instead of multiplying (for example 302 ml, because 2 more people), or doubling to 600 ml. 6 people is not double 4 people. Find the milk for 1 person (300 ÷ 4 = 75 ml), then multiply by 6."
+      },
+      "skill": "scaling a recipe",
+      "source": "original"
+    },
+    {
+      "id": "m11-q053",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The table shows two packs of the same teh tarik mix. Which pack is better value? Choose the answer with the correct reason.",
+      "diagram": {
+        "type": "table",
+        "title": "Teh tarik mix",
+        "columns": [
+          "Pack",
+          "Number of sachets",
+          "Price"
+        ],
+        "rows": [
+          [
+            "Pack A",
+            6,
+            "RM 4.20"
+          ],
+          [
+            "Pack B",
+            10,
+            "RM 6.50"
+          ]
+        ]
+      },
+      "options": [
+        "Pack A, because it costs less money",
+        "Pack B, because 1 sachet costs less",
+        "Pack A, because 1 sachet costs less",
+        "Pack B, because it has more sachets"
+      ],
+      "answer": 1,
+      "solution": "Compare the price of the same amount: 1 sachet. Pack A: RM 4.20 ÷ 6 = RM 0.70 (70 sen) for 1 sachet. Pack B: RM 6.50 ÷ 10 = RM 0.65 (65 sen) for 1 sachet. 1 sachet from Pack B costs less, so Pack B is better value. Trap: a lower price on the label does not mean better value.",
+      "misconceptions": {
+        "0": "Pack A has the lower price, but you also get fewer sachets. Compare the price of 1 sachet: 70 sen in Pack A and 65 sen in Pack B.",
+        "2": "Check the division: RM 4.20 ÷ 6 = RM 0.70 and RM 6.50 ÷ 10 = RM 0.65. 1 sachet from Pack B is cheaper.",
+        "3": "Pack B is the right pack, but not for that reason. A bigger pack is not always better value. It is better value because 1 sachet costs 65 sen instead of 70 sen."
+      },
+      "skill": "best buy",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m11-q054",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "8 kaya buns cost RM 12. Which calculation gives the cost, in RM, of 7 kaya buns? Tip: work out the cost first, then check each calculation.",
+      "options": [
+        "12 − 1",
+        "12 ÷ 7 × 8",
+        "8 ÷ 12 × 7",
+        "12 ÷ 8 × 7"
+      ],
+      "answer": 3,
+      "solution": "1 bun costs RM 12 ÷ 8 = RM 1.50. 7 buns cost 7 x RM 1.50 = RM 10.50. Now check: 12 ÷ 8 × 7 = 1.5 × 7 = 10.5. That is the right calculation: divide by 8 to find one bun, then multiply by 7. Trap: 12 − 1 = 11 just takes RM 1 off, but one bun costs RM 1.50.",
+      "misconceptions": {
+        "0": "One bun fewer does not mean RM 1 less. One bun costs RM 12 ÷ 8 = RM 1.50, so 7 buns cost RM 12 − RM 1.50 = RM 10.50. In proportion questions, find the cost of one first.",
+        "1": "The numbers are the wrong way round. 12 ÷ 7 shares the cost between 7 buns, but the RM 12 is for 8 buns. Divide by 8 to get one bun, then multiply by 7.",
+        "2": "8 ÷ 12 works out how many buns you get for RM 1, not the cost of one bun. Divide the cost by the number of buns: 12 ÷ 8 = 1.50, then × 7."
+      },
+      "skill": "unitary method",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m11-q055",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the tables that show two quantities in direct proportion.",
+      "options": [
+        "Table A",
+        "Table B",
+        "Table C",
+        "Table D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "table",
+          "columns": [
+            "Petrol (L)",
+            "Cost (RM)"
+          ],
+          "rows": [
+            [
+              2,
+              5
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              6,
+              15
+            ]
+          ],
+          "rowHeaders": false
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Time (h)",
+            "Distance (km)"
+          ],
+          "rows": [
+            [
+              1,
+              40
+            ],
+            [
+              2,
+              80
+            ],
+            [
+              3,
+              100
+            ]
+          ],
+          "rowHeaders": false
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Mass (kg)",
+            "Cost (RM)"
+          ],
+          "rows": [
+            [
+              3,
+              6
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              8,
+              11
+            ]
+          ],
+          "rowHeaders": false
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Tickets",
+            "Cost (RM)"
+          ],
+          "rows": [
+            [
+              2,
+              14
+            ],
+            [
+              5,
+              35
+            ],
+            [
+              10,
+              70
+            ]
+          ],
+          "rowHeaders": false
+        }
+      ],
+      "answer": [
+        0,
+        3
+      ],
+      "solution": "In direct proportion you always multiply by the same number to get from the first quantity to the second. Table A: 5 ÷ 2 = 2.5, 10 ÷ 4 = 2.5, 15 ÷ 6 = 2.5. Yes. Table B: 1 h gives 40 km, so 3 h should give 120 km, not 100 km. No. Table C: 3 kg cost RM 6 (RM 2 for 1 kg) but 5 kg cost RM 8 (RM 1.60 for 1 kg). No. Table D: every ticket costs RM 7 (14 ÷ 2 = 35 ÷ 5 = 70 ÷ 10 = 7). Yes. The answer is Tables A and D.",
+      "misconceptions": {
+        "1": "Table B starts well (40 km in 1 h, 80 km in 2 h), but check every row: 3 h should give 3 x 40 = 120 km, not 100 km.",
+        "2": "In Table C the cost is always 3 more than the mass (3 + 3 = 6, 5 + 3 = 8, 8 + 3 = 11). That is adding, not multiplying. 3 kg cost RM 2 per kg but 8 kg cost about RM 1.38 per kg, so it is not direct proportion.",
+        "common": "Check every row: divide the second number by the first. In direct proportion the answer is the same for every row."
+      },
+      "skill": "recognising direct proportion",
+      "source": "original"
+    },
+    {
+      "id": "m11-q056",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "2 kg of rambutans cost RM 9. Omar says: '6 kg of rambutans cost RM 13, because 4 more kilograms means RM 4 more.' Is Omar correct? Choose the answer with the correct reason.",
+      "options": [
+        "Yes. 4 more kilograms means RM 4 more, so 6 kg cost RM 13.",
+        "No. 6 kg is 3 times 2 kg, so 6 kg cost 3 x RM 9 = RM 27.",
+        "No. The mass doubles, so 6 kg cost 2 x RM 9 = RM 18.",
+        "No. 1 kg costs RM 9, so 6 kg cost 6 x RM 9 = RM 54."
+      ],
+      "answer": 1,
+      "solution": "The cost is in direct proportion to the mass, so you multiply, not add. 6 kg ÷ 2 kg = 3, so 6 kg is 3 times as much fruit as 2 kg. The cost is 3 times as much too: 3 x RM 9 = RM 27. (Or: 1 kg costs RM 9 ÷ 2 = RM 4.50, and 6 x RM 4.50 = RM 27.) Omar is wrong: he added instead of multiplying.",
+      "misconceptions": {
+        "0": "This is Omar's mistake: adding the same amount instead of multiplying by the same number. In direct proportion, 3 times the mass costs 3 times as much: 3 x RM 9 = RM 27.",
+        "2": "From 2 kg to 6 kg is not doubling. 6 ÷ 2 = 3, so the mass is 3 times as much and the cost is 3 x RM 9 = RM 27.",
+        "3": "RM 9 is the cost of 2 kg, not 1 kg. 1 kg costs RM 9 ÷ 2 = RM 4.50, so 6 kg cost 6 x RM 4.50 = RM 27."
+      },
+      "skill": "direct proportion",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m11-q057",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The conversion graph changes Malaysian ringgit (RM) into Thai baht on one day. Aisha changes RM 200 into baht at the same rate. Use the graph to work out how many baht she gets.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Ringgit to Thai baht",
+        "series": [
+          {
+            "name": "Baht",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                40,
+                300
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 40,
+        "xStep": 5,
+        "yMin": 0,
+        "yMax": 300,
+        "yStep": 50,
+        "minorStep": 10,
+        "xLabel": "Malaysian ringgit (RM)",
+        "yLabel": "Thai baht",
+        "markers": false,
+        "alt": "A straight-line conversion graph from RM 0 and 0 baht to RM 40 and 300 baht, with ringgit on the x axis and baht on the y axis."
+      },
+      "answer": {
+        "value": 1500,
+        "tolerance": 0,
+        "accept": [
+          "1500 baht",
+          "1500baht"
+        ]
+      },
+      "solution": "RM 200 is off the graph, so read an easy value and scale up. From the graph, RM 20 changes to 150 baht. RM 200 = 10 x RM 20, so Aisha gets 10 x 150 = 1500 baht. (Or: RM 40 = 300 baht, and RM 200 = 5 x RM 40, so 5 x 300 = 1500 baht.) Aisha gets 1500 baht.",
+      "misconceptions": {
+        "common": "150 or 300 baht is a reading from the graph, not the answer for RM 200. Read a value you can see (RM 20 = 150 baht), then multiply both by the same number: RM 200 is 10 times RM 20, so the baht is 10 times 150. Do not add: RM 40 + RM 160 does not give 300 + 160 baht."
+      },
+      "skill": "conversion graphs",
+      "source": "original"
+    },
+    {
+      "id": "m11-q058",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Each graph shows the distance a cyclist has travelled against time. Which graph shows distance and time in direct proportion?",
+      "options": [
+        "Graph A",
+        "Graph B",
+        "Graph C",
+        "Graph D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "lineGraph",
+          "series": [
+            {
+              "name": "Distance",
+              "points": [
+                [
+                  0,
+                  10
+                ],
+                [
+                  5,
+                  60
+                ]
+              ]
+            }
+          ],
+          "xMin": 0,
+          "xMax": 5,
+          "xStep": 1,
+          "yMin": 0,
+          "yMax": 60,
+          "yStep": 10,
+          "xLabel": "Time (hours)",
+          "yLabel": "Distance (km)",
+          "markers": false
+        },
+        {
+          "type": "lineGraph",
+          "series": [
+            {
+              "name": "Distance",
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  3,
+                  12
+                ],
+                [
+                  4,
+                  20
+                ],
+                [
+                  5,
+                  30
+                ]
+              ]
+            }
+          ],
+          "xMin": 0,
+          "xMax": 5,
+          "xStep": 1,
+          "yMin": 0,
+          "yMax": 60,
+          "yStep": 10,
+          "xLabel": "Time (hours)",
+          "yLabel": "Distance (km)",
+          "markers": false
+        },
+        {
+          "type": "lineGraph",
+          "series": [
+            {
+              "name": "Distance",
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  5,
+                  50
+                ]
+              ]
+            }
+          ],
+          "xMin": 0,
+          "xMax": 5,
+          "xStep": 1,
+          "yMin": 0,
+          "yMax": 60,
+          "yStep": 10,
+          "xLabel": "Time (hours)",
+          "yLabel": "Distance (km)",
+          "markers": false
+        },
+        {
+          "type": "lineGraph",
+          "series": [
+            {
+              "name": "Distance",
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  30
+                ],
+                [
+                  3,
+                  30
+                ],
+                [
+                  5,
+                  50
+                ]
+              ]
+            }
+          ],
+          "xMin": 0,
+          "xMax": 5,
+          "xStep": 1,
+          "yMin": 0,
+          "yMax": 60,
+          "yStep": 10,
+          "xLabel": "Time (hours)",
+          "yLabel": "Distance (km)",
+          "markers": false
+        }
+      ],
+      "answer": 2,
+      "solution": "Two quantities are in direct proportion when their graph is ONE straight line that starts at 0. Graph A is straight but starts at 10 km, not 0. Graph B starts at 0 but curves. Graph D starts at 0 but has a flat part (the cyclist stopped), so it is not one straight line. Graph C is one straight line from 0: 10 km every hour, so twice the time gives twice the distance. The answer is Graph C.",
+      "misconceptions": {
+        "0": "Graph A is a straight line, but it does not start at 0: at 0 hours the distance is already 10 km. At 1 hour the distance is 20 km, but at 2 hours it is 30 km, not 40 km, so doubling the time does not double the distance. A direct proportion graph must start at 0.",
+        "1": "Graph B starts at 0 but is curved: the cyclist goes further in each new hour (speeding up). A direct proportion graph is one straight line through 0.",
+        "3": "Graph D starts at 0, but the flat part shows the cyclist stopped. After 2 hours the distance is 30 km, but after 4 hours it is 40 km, not 60 km. A direct proportion graph is one straight line all the way."
+      },
+      "skill": "recognising direct proportion",
+      "source": "original"
+    },
+    {
+      "id": "m11-q059",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "match",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "The table shows the cost of satay sticks at a stall. The cost is in direct proportion to the number of sticks. Match each letter in the table to its missing number. Three numbers are not used.",
+      "diagram": {
+        "type": "table",
+        "title": "Satay prices",
+        "columns": [
+          "Number of satay sticks",
+          "Cost (RM)"
+        ],
+        "rows": [
+          [
+            10,
+            8
+          ],
+          [
+            15,
+            "A"
+          ],
+          [
+            "B",
+            20
+          ],
+          [
+            35,
+            "C"
+          ]
+        ],
+        "rowHeaders": false
+      },
+      "options": {
+        "left": [
+          "A",
+          "B",
+          "C"
+        ],
+        "right": [
+          "25",
+          "13",
+          "28",
+          "12",
+          "33",
+          "22"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "solution": "10 sticks cost RM 8, so 5 sticks cost RM 4 (half of each). A: 15 sticks = 10 + 5 sticks, so RM 8 + RM 4 = RM 12. B: RM 20 = 5 lots of RM 4, so 5 lots of 5 sticks = 25 sticks. C: 35 sticks = 7 lots of 5 sticks, so 7 x RM 4 = RM 28. So A = 12, B = 25, C = 28. (Or use 1 stick = RM 0.80.) Trap: adding the same number to both columns gives 13, 22 and 33.",
+      "misconceptions": {
+        "common": "If you matched 13, 22 or 33, you added the same amount to both columns (for example 10 + 5 sticks, so RM 8 + 5). In direct proportion you multiply. Find the cost of an easy number of sticks first (5 sticks = RM 4) and build from it."
+      },
+      "skill": "proportion tables",
+      "source": "original"
+    },
+    {
+      "id": "m11-q060",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The table shows three bags of the same rice. Select ALL the statements that are true.",
+      "diagram": {
+        "type": "table",
+        "title": "Rice prices",
+        "columns": [
+          "Bag",
+          "Mass",
+          "Price"
+        ],
+        "rows": [
+          [
+            "P",
+            "2 kg",
+            "RM 7.60"
+          ],
+          [
+            "Q",
+            "5 kg",
+            "RM 18.50"
+          ],
+          [
+            "R",
+            "10 kg",
+            "RM 36.00"
+          ]
+        ]
+      },
+      "options": [
+        "1 kg of rice from bag Q costs RM 3.70.",
+        "Bag P is the best buy because it has the lowest price.",
+        "Bag R is the best buy.",
+        "Two of bag Q cost less than one of bag R.",
+        "Five of bag P cost RM 38.00."
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Find the price of 1 kg for each bag. P: RM 7.60 ÷ 2 = RM 3.80. Q: RM 18.50 ÷ 5 = RM 3.70. R: RM 36.00 ÷ 10 = RM 3.60. Bag R is cheapest for each kilogram, so it is the best buy. Two of bag Q cost 2 x RM 18.50 = RM 37.00, which is MORE than RM 36.00. Five of bag P cost 5 x RM 7.60 = RM 38.00. The true statements are the 1st, 3rd and 5th.",
+      "misconceptions": {
+        "1": "Bag P has the lowest price, but you get only 2 kg. Compare the price of 1 kg: P costs RM 3.80 for 1 kg, the most of the three.",
+        "3": "Two of bag Q give the same 10 kg as bag R, but cost 2 x RM 18.50 = RM 37.00, which is more than RM 36.00.",
+        "common": "Read each statement on its own and check it with a calculation. Compare bags by the price of the same amount (1 kg), not by the price on the label."
+      },
+      "skill": "best buy",
+      "source": "original"
+    },
+    {
+      "id": "m11-q061",
+      "subtopicId": "m11-s5",
+      "bookSection": "11A",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Mei Lin makes a bracelet by repeating the bead pattern shown in the bar model a whole number of times (R = red, W = white, B = blue). The finished bracelet has 18 white beads. How many beads are on the bracelet altogether?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "One pattern",
+            "parts": [
+              {
+                "size": 1,
+                "text": "R"
+              },
+              {
+                "size": 1,
+                "text": "W"
+              },
+              {
+                "size": 1,
+                "text": "W"
+              },
+              {
+                "size": 1,
+                "text": "B"
+              },
+              {
+                "size": 1,
+                "text": "R"
+              },
+              {
+                "size": 1,
+                "text": "W"
+              }
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "accept": [
+          "36 beads"
+        ]
+      },
+      "solution": "Count one pattern: 2 red, 3 white and 1 blue, so red : white : blue = 2 : 3 : 1, and one pattern has 6 beads. 18 white beads ÷ 3 white beads in each pattern = 6 patterns. 6 patterns x 6 beads = 36 beads. Trap: do not add 18 + 2 + 1; the red and blue beads repeat 6 times too.",
+      "misconceptions": {
+        "common": "If you got 21, you added 18 white beads to the 2 red and 1 blue in ONE pattern. If you got 6, that is the number of patterns. Each pattern has 3 white beads, so there are 18 ÷ 3 = 6 patterns, and every pattern has 6 beads: 6 x 6 = 36."
+      },
+      "skill": "multi-step ratio problems",
+      "source": "original"
+    },
+    {
+      "id": "m11-q062",
+      "subtopicId": "m11-s2",
+      "bookSection": "11A",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Kumar packs rambutans and mangosteens into gift boxes. In every box the ratio of rambutans to mangosteens is 3 : 1. A box holds at most 12 fruits, and no box is empty. Select ALL the possible ways to fill a box.",
+      "options": [
+        "3 rambutans and 1 mangosteen",
+        "4 rambutans and 2 mangosteens",
+        "6 rambutans and 2 mangosteens",
+        "0 rambutans and 0 mangosteens",
+        "12 rambutans and 4 mangosteens",
+        "9 rambutans and 3 mangosteens",
+        "1 rambutan and 3 mangosteens"
+      ],
+      "answer": [
+        0,
+        2,
+        5
+      ],
+      "solution": "The ratio 3 : 1 means 3 rambutans for every 1 mangosteen, so multiply BOTH numbers by the same number. x 1: 3 and 1 (4 fruits). x 2: 6 and 2 (8 fruits). x 3: 9 and 3 (12 fruits, allowed because 'at most 12' includes 12). x 4: 12 and 4 (16 fruits) is too many. 0 and 0 is an empty box, which is not allowed. So the three possible ways are 3 and 1, 6 and 2, 9 and 3.",
+      "misconceptions": {
+        "1": "4 and 2 adds 1 to each number. Ratios stay the same only when you multiply both numbers by the same number. 4 : 2 = 2 : 1, not 3 : 1.",
+        "3": "0 and 0 would be an empty box, and the question says no box is empty.",
+        "4": "12 and 4 is in the ratio 3 : 1, but that is 16 fruits. A box holds at most 12 fruits.",
+        "6": "1 rambutan and 3 mangosteens is the ratio the wrong way round (1 : 3). The ratio is rambutans to mangosteens = 3 : 1, so there must be more rambutans.",
+        "common": "Check every option against EVERY condition: the ratio 3 : 1, at most 12 fruits, and not empty. 'At most 12' includes 12."
+      },
+      "skill": "equivalent ratios",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m11-q063",
+      "subtopicId": "m11-s2",
+      "bookSection": "11A",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A builder mixes cement, sand and gravel in the ratio 2 : 3 : 5. Select ALL the mixes below that are in the same ratio (cement : sand : gravel).",
+      "options": [
+        "4 : 5 : 7",
+        "6 : 9 : 15",
+        "3 : 2 : 5",
+        "12 : 18 : 30",
+        "4 : 6 : 15",
+        "10 : 15 : 25",
+        "12 : 13 : 15"
+      ],
+      "answer": [
+        1,
+        3,
+        5
+      ],
+      "solution": "A ratio stays the same only if ALL three numbers are multiplied by the same number. 6 : 9 : 15 is 2 : 3 : 5 x 3. 12 : 18 : 30 is x 6. 10 : 15 : 25 is x 5. 4 : 6 : 15 multiplies the first two by 2 but the last by 3, so it is not equivalent. 4 : 5 : 7 and 12 : 13 : 15 add the same number to each part, and 3 : 2 : 5 swaps the order. The equivalent mixes are 6 : 9 : 15, 12 : 18 : 30 and 10 : 15 : 25.",
+      "misconceptions": {
+        "0": "4 : 5 : 7 adds 2 to each part. Adding changes a ratio; multiply every part by the same number instead.",
+        "2": "3 : 2 : 5 has the cement and sand swapped. The order matters: cement : sand : gravel = 2 : 3 : 5.",
+        "4": "4 : 6 : 15 multiplies 2 and 3 by 2, but 5 by 3. All three parts must be multiplied by the SAME number (it should be 4 : 6 : 10).",
+        "6": "12 : 13 : 15 adds 10 to each part. Adding changes a ratio; multiply every part by the same number instead.",
+        "common": "Check that the SAME multiplier works for all three parts, not just the first two."
+      },
+      "skill": "equivalent ratios",
+      "source": "original"
+    },
+    {
+      "id": "m11-q064",
+      "subtopicId": "m11-s2",
+      "bookSection": "11A",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Priya makes a rose syrup drink with 2 cups of syrup and 5 cups of water. Wei Ming makes one with 4 cups of syrup and 7 cups of water. Whose drink tastes more strongly of syrup? Choose the answer with the correct reason.",
+      "options": [
+        "They taste the same, because Wei Ming's mix is Priya's mix with 2 more cups of each.",
+        "Priya's drink is stronger, because Wei Ming uses more water.",
+        "They taste the same, because both drinks have 3 more cups of water than syrup.",
+        "Wei Ming's drink is stronger, because he has less water for each cup of syrup."
+      ],
+      "answer": 3,
+      "solution": "Make the syrup the same in both drinks. Priya's 2 : 5 doubled is 4 : 10, so for 4 cups of syrup Priya would use 10 cups of water. Wei Ming uses 4 cups of syrup with only 7 cups of water, so his drink has less water for the same syrup. Wei Ming's drink is stronger. Trap: adding the same number to both parts (2 + 2 : 5 + 2) does not give an equivalent ratio.",
+      "misconceptions": {
+        "0": "Adding 2 cups to each part changes the ratio. Equivalent ratios come from multiplying both parts by the same number: 2 : 5 = 4 : 10, not 4 : 7.",
+        "1": "Wei Ming uses more water, but he also uses twice as much syrup. Compare the same amount of syrup: Priya's mix with 4 cups of syrup would need 10 cups of water, Wei Ming uses only 7.",
+        "2": "The difference being the same does not make two ratios equal. 2 : 5 and 4 : 7 both differ by 3, but 2 : 5 = 4 : 10, so Wei Ming's 4 : 7 has less water for the same syrup."
+      },
+      "skill": "equivalent ratios",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m11-q065",
+      "subtopicId": "m11-s3",
+      "bookSection": "11A",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Siti, Arjun and Lina share some money in the ratio 2 : 3 : 6. Lina gets RM 27 more than Arjun, as the bar model shows. How much money do they share altogether?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Siti",
+            "units": 2
+          },
+          {
+            "label": "Arjun",
+            "units": 3
+          },
+          {
+            "label": "Lina",
+            "units": 6
+          }
+        ],
+        "braces": [
+          {
+            "bar": 2,
+            "from": 3,
+            "to": 6,
+            "label": "RM 27",
+            "side": "below"
+          }
+        ],
+        "totalBrace": {
+          "label": "?"
+        }
+      },
+      "options": [
+        "RM 99",
+        "RM 297",
+        "RM 54",
+        "RM 18"
+      ],
+      "answer": 0,
+      "solution": "Lina has 6 units and Arjun has 3 units, so Lina's extra is 6 − 3 = 3 units. 3 units = RM 27, so 1 unit = RM 27 ÷ 3 = RM 9. Altogether there are 2 + 3 + 6 = 11 units. Total = 11 x RM 9 = RM 99. Check: Siti RM 18, Arjun RM 27, Lina RM 54, and RM 54 − RM 27 = RM 27.",
+      "misconceptions": {
+        "1": "You treated RM 27 as ONE unit. The brace covers 3 units (6 − 3), so 1 unit = RM 27 ÷ 3 = RM 9, and the total is 11 x RM 9.",
+        "2": "RM 54 is Lina's share (6 units). The question asks for the total of all three shares: 11 units = RM 99.",
+        "3": "RM 18 is Siti's share (2 units). Read the question again: it asks for the money shared altogether, 11 units = RM 99."
+      },
+      "skill": "ratio problems using the difference",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m11-q066",
+      "subtopicId": "m11-s3",
+      "bookSection": "11A",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Lina and Rahim share 30 counters in the ratio 2 : 3. How many counters does Rahim get?",
+      "options": [
+        "15",
+        "6",
+        "12",
+        "18"
+      ],
+      "answer": 3,
+      "solution": "Add the parts: 2 + 3 = 5 parts. Find one part: 30 ÷ 5 = 6 counters. Multiply: Rahim has 3 parts, so 3 x 6 = 18 counters. Check: Lina gets 2 x 6 = 12, and 12 + 18 = 30. Rahim gets 18 counters.",
+      "misconceptions": {
+        "0": "You shared the counters equally between the 2 people (30 ÷ 2). A ratio 2 : 3 means 5 parts, not 2 halves: 30 ÷ 5 = 6 for one part.",
+        "1": "6 is the size of ONE part. Rahim has 3 parts, so multiply: 3 x 6 = 18.",
+        "2": "12 is Lina's share (2 parts). Rahim is the second person in the ratio, so he gets 3 parts: 3 x 6 = 18."
+      },
+      "skill": "sharing in a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q067",
+      "subtopicId": "m11-s3",
+      "bookSection": "11A",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "A tray holds 40 kuih. The ratio of kuih lapis to onde-onde on the tray is 3 : 5. How many onde-onde are on the tray?",
+      "answer": {
+        "value": 25,
+        "tolerance": 0,
+        "accept": [
+          "25 onde-onde"
+        ]
+      },
+      "solution": "Add the parts: 3 + 5 = 8 parts. Find one part: 40 ÷ 8 = 5 kuih. Multiply: onde-onde are 5 parts, so 5 x 5 = 25. Check: kuih lapis = 3 x 5 = 15, and 15 + 25 = 40. There are 25 onde-onde.",
+      "misconceptions": {
+        "common": "If you got 8, you divided 40 by 5 (one number in the ratio) instead of by the total number of parts, 3 + 5 = 8. If you got 20, you shared 40 between 2 kinds equally. If you got 5, that is one part: multiply it by 5 parts for the onde-onde."
+      },
+      "skill": "sharing in a ratio",
+      "source": "original"
+    },
+    {
+      "id": "m11-q068",
+      "subtopicId": "m11-s3",
+      "bookSection": "11A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Siti and Kumar share RM 56 in the ratio 3 : 4. Siti then spends RM 9 of her share on a book. How much money does Siti have left?",
+      "options": [
+        "RM 24",
+        "RM 15",
+        "RM 19",
+        "RM 23"
+      ],
+      "answer": 1,
+      "solution": "Add the parts: 3 + 4 = 7 parts. Find one part: RM 56 ÷ 7 = RM 8. Multiply: Siti has 3 parts, so 3 x RM 8 = RM 24. She spends RM 9, so she has RM 24 − RM 9 = RM 15 left. Trap: there are two steps. Do not stop at her share.",
+      "misconceptions": {
+        "0": "RM 24 is Siti's share BEFORE she buys the book. Finish the second step: RM 24 − RM 9 = RM 15.",
+        "2": "You shared RM 56 equally (RM 28 each). The ratio 3 : 4 means 7 parts: one part is RM 56 ÷ 7 = RM 8, so Siti gets 3 x RM 8 = RM 24, then RM 24 − RM 9 = RM 15.",
+        "3": "RM 32 − RM 9 uses Kumar's share (4 parts). Siti is first in the ratio, so she has 3 parts = RM 24."
+      },
+      "skill": "sharing in a ratio",
       "source": "original"
     }
   ]

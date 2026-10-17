@@ -4,7 +4,7 @@ Applies to `supabase/migrations/20261017000100_linked_accounts.sql` and `2026101
 
 **The intent, in one line:** a student reads and writes only her own rows; a parent reads his linked child's rows and writes nothing; anyone signed out sees nothing; nothing can be deleted through the app.
 
-Each item below is checked automatically by the test page (`test/tests-linked.js`, group "v2 SQL review checklist", items C1 to C22) against the SQL text. The same rules are mirrored line by line in `js/data/mock-backend.js` and exercised as real reads and writes (group "v2 access rules"). Re-run the tests after any change to the migrations: `python tools\run_tests.py`.
+Each item below is checked automatically by the test page (`test/tests-linked.js`, group "v2 SQL review checklist", items C1 to C22) against the SQL text. The same rules are mirrored line by line in `js/data/mock-backend.js` and exercised as real reads and writes (group "v2 access rules"). Re-run the tests after any change to the migrations: open `test/index.html` in a browser with the local server running.
 
 | # | Check | Why |
 |---|---|---|

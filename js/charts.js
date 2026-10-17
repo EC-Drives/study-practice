@@ -59,13 +59,14 @@ export function attemptKind(a) {
 const KIND_LABEL = { right: 'Right', part: 'Part right', wrong: 'Not yet', skip: 'Not answered' };
 
 /** One pictogram per question (star = right, half star = part right, ring = not yet). */
-export function pictograms(attempts, onPick) {
+export function pictograms(attempts, onPick, labelOf = (i) => String(i + 1)) {
   const wrap = h('div', { class: 'pictos' });
   const row = h('ol', { class: 'picto-row', 'aria-label': 'Your answers, question by question' });
   attempts.forEach((a, i) => {
     const kind = attemptKind(a);
-    const btn = h('button', { type: 'button', class: `picto picto-${kind}`, title: `Question ${i + 1}: ${KIND_LABEL[kind]}`, 'aria-label': `Question ${i + 1}: ${KIND_LABEL[kind]}`, onClick: () => onPick && onPick(i) },
-      starSvg(kind), h('span', { class: 'picto-n', text: String(i + 1) }));
+    const lab = labelOf(i);
+    const btn = h('button', { type: 'button', class: `picto picto-${kind}`, title: `Question ${lab}: ${KIND_LABEL[kind]}`, 'aria-label': `Question ${lab}: ${KIND_LABEL[kind]}`, onClick: () => onPick && onPick(i) },
+      starSvg(kind), h('span', { class: 'picto-n', text: lab }));
     row.appendChild(h('li', {}, btn));
   });
   const counts = { right: 0, part: 0, wrong: 0, skip: 0 };

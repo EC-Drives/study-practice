@@ -1,0 +1,2655 @@
+{
+  "id": "mp1-ch11-14",
+  "title": "Mock Paper 1",
+  "subtitle": "Chapters 11-14: Ratio and Proportion; Data Handling; The Coordinate Grid; Reflection and Rotation",
+  "subject": "maths",
+  "bookChapters": [
+    11,
+    12,
+    13,
+    14
+  ],
+  "minutes": 45,
+  "totalMarks": 40,
+  "calculator": false,
+  "level": "standard",
+  "instructions": [
+    "Answer all the questions.",
+    "Write your answer on the answer line, or tick the boxes, as each question asks.",
+    "Show your working. You may get marks for your method even if your answer is wrong.",
+    "You may not use a calculator.",
+    "You may use a ruler and a protractor.",
+    "How to use your time: about 1 minute per mark. If you are stuck, write your best answer, mark the question and move on; come back at the end. Never leave an answer blank."
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "title": "Section A"
+    }
+  ],
+  "groups": [
+    {
+      "id": "10",
+      "stem": "The scatter graph shows the number of weeds and the number of chillies picked in 12 plots of the school garden.",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Weeds and chillies in 12 garden plots",
+        "points": [
+          [
+            2,
+            50
+          ],
+          [
+            4,
+            46
+          ],
+          [
+            5,
+            42
+          ],
+          [
+            7,
+            44
+          ],
+          [
+            8,
+            36
+          ],
+          [
+            10,
+            30
+          ],
+          [
+            11,
+            34
+          ],
+          [
+            13,
+            24
+          ],
+          [
+            14,
+            22
+          ],
+          [
+            16,
+            18
+          ],
+          [
+            17,
+            12
+          ],
+          [
+            19,
+            10
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 20,
+        "xStep": 2,
+        "yMin": 0,
+        "yMax": 60,
+        "yStep": 10,
+        "xLabel": "Number of weeds",
+        "yLabel": "Number of chillies picked",
+        "alt": "A scatter graph of the number of weeds against the number of chillies picked for 12 garden plots."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "mp1-q01",
+      "number": "1",
+      "section": "A",
+      "subtopicId": "m11-s1",
+      "bookSection": "11A",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "At the school fun fair, Mei Lin's drinks stall sold 18 cups of sugar cane juice and 12 cups of coconut water. Write the ratio of coconut water to sugar cane juice in its simplest form.",
+      "answer": {
+        "accept": [
+          "2 : 3",
+          "2:3"
+        ],
+        "keywords": []
+      },
+      "solution": "Coconut water comes first in the question, so start with 12 : 18. Both numbers divide by 6 (the highest common factor). 12 ÷ 6 = 2 and 18 ÷ 6 = 3. The ratio of coconut water to sugar cane juice is 2 : 3.",
+      "misconceptions": {
+        "common": "Check the order and the simplifying. 3 : 2 is the wrong way round: the question names coconut water first, so its number goes first. 12 : 18 and 6 : 9 are correct but not in simplest form: divide both numbers by 6."
+      },
+      "skill": "simplifying a ratio",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "2 : 3 (accept 2:3). Do not accept 3 : 2, 12 : 18 or 6 : 9."
+        }
+      ],
+      "print": {
+        "answerLabel": "coconut water : sugar cane juice = ____ : ____",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp1-q02",
+      "number": "2",
+      "section": "A",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The map of the school fun fair is drawn on the coordinate grid. The ticket booth is at (-4, 3). Which point on the grid shows the ticket booth?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              -4
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              -4,
+              3
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              -3,
+              4
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              4,
+              -3
+            ],
+            "label": "D"
+          }
+        ],
+        "alt": "A coordinate grid from -5 to 5 on both axes with four points labelled A, B, C and D."
+      },
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": 1,
+      "solution": "The first number is x: go across first. -4 means 4 units LEFT of the origin. The second number is y: 3 means 3 units UP. Left 4, up 3 lands on point B. The ticket booth is at B.",
+      "misconceptions": {
+        "0": "Point A is at (3, -4): the two numbers are swapped. Always go across first (x = -4, left 4), then up or down (y = 3, up 3).",
+        "2": "Point C is at (-3, 4): you went left 3 and up 4, so the numbers are swapped. Across first: left 4, then up 3.",
+        "3": "Point D is at (4, -3): the numbers are swapped and the signs are lost. -4 means LEFT 4, and 3 means UP 3."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "On screen: B. On paper: T plotted at (-4, 3), within half a square, and labelled (or the only point plotted). A point at (3, -4) scores 0."
+        }
+      ],
+      "print": {
+        "prompt": "The map of the school fun fair is drawn on the coordinate grid. The ticket booth is at (-4, 3). Plot the ticket booth on the grid and label it T.",
+        "diagram": {
+          "type": "coordinateGrid",
+          "x": [
+            -5,
+            5
+          ],
+          "y": [
+            -5,
+            5
+          ]
+        },
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp1-q03",
+      "number": "3",
+      "section": "A",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "multi",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The garden club records some facts about each tomato plant in the school garden. Select ALL the facts that are discrete data.",
+      "options": [
+        "The number of tomatoes on the plant",
+        "The height of the plant in cm",
+        "The number of leaves on the plant",
+        "The mass of the tomatoes picked, in g",
+        "The colour of the flowers"
+      ],
+      "answer": [
+        0,
+        2
+      ],
+      "solution": "Discrete data is counted, so it can only be whole numbers: the number of tomatoes and the number of leaves. Height and mass are measured, so they are continuous. Colour is a group name, so it is categorical.",
+      "misconceptions": {
+        "1": "Height is measured with a ruler and can be any value, such as 23.5 cm. Measured data is continuous, not discrete.",
+        "3": "Mass is measured on a scale and can be any value, such as 412.5 g. That is continuous data.",
+        "4": "Colour is a name, not a number. Data in groups like this is categorical.",
+        "common": "Ask: is it counted (discrete), measured (continuous) or a name (categorical)?"
+      },
+      "skill": "types of data",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Both 'number of tomatoes' and 'number of leaves' ticked, and no others."
+        }
+      ],
+      "print": {
+        "prompt": "The garden club records some facts about each tomato plant in the school garden. Which facts are discrete data?"
+      }
+    },
+    {
+      "id": "mp1-q04",
+      "number": "4",
+      "section": "A",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "At the fun fair, 5 ride tickets cost RM 8. At the same price, how much do 15 ride tickets cost? Give your answer in RM.",
+      "answer": {
+        "value": 24,
+        "tolerance": 0,
+        "accept": [
+          "RM 24",
+          "24.00",
+          "RM 24.00"
+        ]
+      },
+      "solution": "15 tickets is 3 times as many as 5 tickets (5 × 3 = 15). So the cost is 3 times as much: RM 8 × 3 = RM 24.",
+      "misconceptions": {
+        "common": "If you got RM 18, you added 10 because 15 is 10 more than 5. In direct proportion you multiply: 3 times the tickets cost 3 times as much."
+      },
+      "skill": "direct proportion",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "24 (accept RM 24, RM 24.00)."
+        }
+      ],
+      "print": {
+        "answerLabel": "RM",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp1-q05",
+      "number": "5",
+      "section": "A",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The bar chart shows the number of tickets sold for four rides at the fun fair. How many tickets were sold for the bumper cars?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Tickets sold for rides",
+        "categories": [
+          "Ferris wheel",
+          "Bumper cars",
+          "Carousel",
+          "Ghost train"
+        ],
+        "series": [
+          {
+            "name": "Tickets",
+            "values": [
+              26,
+              38,
+              14,
+              32
+            ]
+          }
+        ],
+        "xLabel": "Ride",
+        "yLabel": "Number of tickets",
+        "yMax": 40,
+        "yStep": 10,
+        "minorStep": 2,
+        "alt": "A bar chart of tickets sold for four rides: Ferris wheel, bumper cars, carousel and ghost train."
+      },
+      "answer": {
+        "value": 38,
+        "tolerance": 0,
+        "accept": [
+          "38 tickets"
+        ]
+      },
+      "solution": "Each labelled gridline goes up in 10s, and there are 5 small steps between them, so each small step is 2 tickets. The bumper cars bar is 4 small steps above 30: 30 + 4 × 2 = 38 tickets.",
+      "misconceptions": {
+        "common": "If you got 34, you counted each small step as 1. There are 5 steps between 30 and 40, so each step is 2 tickets."
+      },
+      "skill": "reading and comparing data",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "38."
+        }
+      ],
+      "print": {
+        "answerLabel": "tickets",
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp1-q06",
+      "number": "6",
+      "section": "A",
+      "subtopicId": "m14-s1",
+      "bookSection": "14A",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "On the plan of the school garden, a bird bath is at point P. P is reflected in the mirror line x = -1 shown on the grid. What are the coordinates of the image of P?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          4
+        ],
+        "y": [
+          -2,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              3
+            ],
+            "label": "P"
+          }
+        ],
+        "lines": [
+          {
+            "x": -1,
+            "label": "x = -1"
+          }
+        ]
+      },
+      "options": [
+        "(-2, 3)",
+        "(-1, 3)",
+        "(-4, 3)",
+        "(2, -3)"
+      ],
+      "answer": 2,
+      "solution": "P is at x = 2. The mirror line is x = -1, so P is 3 units to the right of the line. The image is 3 units to the LEFT of the line: -1 - 3 = -4. The y-coordinate does not change. The image is (-4, 3).",
+      "misconceptions": {
+        "0": "(-2, 3) is the reflection in the y-axis. The mirror line here is x = -1, not x = 0. Count from the mirror line: P is 3 units from it.",
+        "1": "(-1, 3) is ON the mirror line. The image must be the same distance on the other side: 3 units past the line.",
+        "3": "(2, -3) is the reflection in the x-axis. The mirror line is upright (x = -1), so only the x-coordinate changes."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(-4, 3)."
+        }
+      ]
+    },
+    {
+      "id": "mp1-q07",
+      "number": "7",
+      "section": "A",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "At the ring-toss game, each pupil threw 5 rings. The dot plot shows how many rings each pupil landed. Each dot is one pupil. How many pupils landed 3 rings or more?",
+      "diagram": {
+        "type": "dotPlot",
+        "title": "Rings landed by each pupil",
+        "values": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          5
+        ],
+        "min": 0,
+        "max": 5,
+        "xLabel": "Number of rings landed",
+        "alt": "A dot plot of the number of rings each pupil landed, on a scale from 0 to 5."
+      },
+      "answer": {
+        "value": 8,
+        "tolerance": 0,
+        "accept": [
+          "8 pupils"
+        ]
+      },
+      "solution": "'3 or more' means 3, 4 or 5 rings. Count the dots: 4 pupils landed 3, 3 pupils landed 4 and 1 pupil landed 5. 4 + 3 + 1 = 8 pupils.",
+      "misconceptions": {
+        "common": "If you got 4, you left out the pupils who landed exactly 3. '3 or more' includes 3. Count the dots, not the ring numbers."
+      },
+      "skill": "reading dot plots",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "8."
+        }
+      ],
+      "print": {
+        "answerLabel": "pupils",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp1-q08",
+      "number": "8",
+      "section": "A",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "On the fun fair map, the balloon stall is at (-2, 1). The stall is moved 5 units to the right and 3 units down. What are its new coordinates?",
+      "options": [
+        "(-7, 4)",
+        "(3, -2)",
+        "(1, -4)",
+        "(3, 1)"
+      ],
+      "answer": 1,
+      "solution": "Right 5 changes x: -2 + 5 = 3. Down 3 changes y: 1 - 3 = -2. The new position is (3, -2).",
+      "misconceptions": {
+        "0": "(-7, 4) moves 5 LEFT and 3 UP: the opposite way. Right makes x bigger; down makes y smaller.",
+        "2": "(1, -4) moves 3 right and 5 down: the two amounts are swapped. Right or left changes x; up or down changes y.",
+        "3": "(3, 1) only moves 5 right. Do the 3 units down as well: 1 - 3 = -2."
+      },
+      "skill": "translating points and shapes",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(3, -2)."
+        }
+      ]
+    },
+    {
+      "id": "mp1-q09",
+      "number": "9",
+      "section": "A",
+      "subtopicId": "m12-s3",
+      "bookSection": "12F",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The heights of five bean plants are 34 cm, 52 cm, 41 cm, 29 cm and 47 cm. Lina says, \"The range of the heights is 47 - 34 = 13 cm.\" True or false: Lina is correct.",
+      "answer": false,
+      "solution": "The range is the highest value minus the lowest value, not the last minus the first. Highest = 52 cm, lowest = 29 cm. 52 - 29 = 23 cm. So Lina is not correct: the range is 23 cm.",
+      "misconceptions": {
+        "common": "Lina took the last value minus the first value. Find the highest (52) and the lowest (29) first: the range is 52 - 29 = 23 cm."
+      },
+      "skill": "finding the range",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "No (Lina is not correct), with a reason: the range is 52 - 29 = 23 cm, or 'range is highest minus lowest, not last minus first'. 'No' with no reason or a wrong reason scores 0."
+        }
+      ],
+      "print": {
+        "prompt": "The heights of five bean plants are 34 cm, 52 cm, 41 cm, 29 cm and 47 cm. Is Lina correct? Explain how you know.",
+        "speech": [
+          {
+            "name": "Lina",
+            "text": "The range of the heights is 47 - 34 = 13 cm."
+          }
+        ],
+        "lines": 2
+      }
+    },
+    {
+      "id": "mp1-q10a",
+      "number": "10(a)",
+      "section": "A",
+      "group": "10",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the scatter graph. Which statement best describes it?",
+      "options": [
+        "Plots with more weeds tend to have more chillies.",
+        "Plots with more weeds tend to have fewer chillies.",
+        "There is no link between the number of weeds and the number of chillies.",
+        "Every plot with more weeds than another plot had fewer chillies than that plot."
+      ],
+      "answer": 1,
+      "solution": "Read the crosses from left to right: as the number of weeds goes up, the number of chillies goes down. That is a pattern that goes down. It is a trend, not a rule for every plot: the plot with 7 weeds had more chillies than the plot with 5 weeds.",
+      "misconceptions": {
+        "0": "More weeds with more chillies would show crosses going UP from left to right. These go down.",
+        "2": "No link would look like crosses scattered everywhere. These crosses make a clear pattern going down.",
+        "3": "'Every' is too strong. The plot with 7 weeds had 44 chillies, more than the plot with 5 weeds (42). A scatter graph shows what tends to happen, not a rule for every plot."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "'Plots with more weeds tend to have fewer chillies' only."
+        }
+      ]
+    },
+    {
+      "id": "mp1-q10b",
+      "number": "10(b)",
+      "section": "A",
+      "group": "10",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the scatter graph. How many plots had more than 30 chillies picked?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": [
+          "6 plots"
+        ]
+      },
+      "solution": "Find the gridline at 30 and count the crosses above it: 50, 46, 42, 44, 36 and 34. That is 6 plots. The plot with exactly 30 chillies is not MORE than 30, so do not count it.",
+      "misconceptions": {
+        "common": "If you got 7, you counted the cross that sits exactly on 30. 'More than 30' does not include 30."
+      },
+      "skill": "interpreting scatter graphs",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "6."
+        }
+      ],
+      "print": {
+        "answerLabel": "plots",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp1-q11",
+      "number": "11",
+      "section": "A",
+      "subtopicId": "m11-s3",
+      "bookSection": "11A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A strip of the school garden is 35 m long. The dashed line splits it into a vegetable plot on the left and a flower plot on the right. The lengths of the vegetable plot and the flower plot are in the ratio 2 : 5. The diagram shown is not drawn to scale. How long is the vegetable plot?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            10,
+            3
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "sides": [
+          {
+            "label": "35 m"
+          },
+          null,
+          null,
+          null
+        ],
+        "extraLines": [
+          {
+            "from": [
+              3,
+              0
+            ],
+            "to": [
+              3,
+              3
+            ],
+            "dashed": true
+          }
+        ],
+        "notToScale": true
+      },
+      "options": [
+        "17.5 m",
+        "25 m",
+        "14 m",
+        "10 m"
+      ],
+      "answer": 3,
+      "solution": "Count the parts: 2 + 5 = 7 parts. One part = 35 ÷ 7 = 5 m. The vegetable plot is 2 parts: 2 × 5 = 10 m. Check: the flower plot is 5 × 5 = 25 m, and 10 + 25 = 35 m. Do not measure the drawing: it is not to scale.",
+      "misconceptions": {
+        "0": "17.5 m is half of 35 m. The plots are not equal: the ratio 2 : 5 has 7 parts, so divide by 7, not by 2.",
+        "1": "25 m is the FLOWER plot (5 parts). The question asks for the vegetable plot, which is 2 parts.",
+        "2": "14 m comes from 35 ÷ 5 × 2. There are 2 + 5 = 7 parts in all, so one part is 35 ÷ 7 = 5 m."
+      },
+      "skill": "sharing in a ratio",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "10 m."
+        }
+      ]
+    },
+    {
+      "id": "mp1-q12",
+      "number": "12",
+      "section": "A",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Priya says, \"Bean plants that get more sunlight grow taller.\" She wants to collect data to test her prediction. Which plan is best?",
+      "options": [
+        "Grow 10 bean plants in the sunny corner and 10 in the shady corner, in the same soil and with the same water. Measure all their heights after 4 weeks.",
+        "Grow 10 bean plants in the sunny corner. Measure their heights after 4 weeks.",
+        "Grow bean plants in the sunny corner and chilli plants in the shady corner. Measure their heights after 4 weeks.",
+        "Ask 10 pupils whether they think plants grow taller in the sun."
+      ],
+      "answer": 0,
+      "solution": "To test the prediction she must compare plants with MORE sunlight and plants with LESS sunlight, keep everything else the same (same kind of plant, soil and water), and measure the heights. Only the first plan does all of that.",
+      "misconceptions": {
+        "1": "With only sunny plants there is nothing to compare with. She also needs plants that get less sunlight.",
+        "2": "Beans and chillies grow to different heights anyway, so she could not tell whether the sunlight made the difference. Use the same kind of plant.",
+        "3": "Opinions are not measurements. To test a prediction, collect real data: measure the plants."
+      },
+      "skill": "planning an investigation",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "The plan with 10 bean plants in the sunny corner and 10 in the shady corner, same soil and water, heights measured."
+        }
+      ],
+      "print": {
+        "prompt": "Priya wants to collect data to test her prediction. Which plan is best?",
+        "speech": [
+          {
+            "name": "Priya",
+            "text": "Bean plants that get more sunlight grow taller."
+          }
+        ]
+      }
+    },
+    {
+      "id": "mp1-q13",
+      "number": "13",
+      "section": "A",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A bench on the garden plan is the rectangle ABCD drawn on the grid. The bench is rotated 90° clockwise about corner B. What are the coordinates of the image of D? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          5
+        ],
+        "y": [
+          -3,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -2,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                -2,
+                3
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              1,
+              3
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              -2,
+              3
+            ],
+            "label": "D"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(3, 4)"
+        ],
+        "keywords": []
+      },
+      "solution": "B stays still. From B, corner D is 3 units left and 2 units up. A quarter turn clockwise turns 'left' into 'up' and 'up' into 'right'. So the image of D is 3 units up and 2 units right of B: (1 + 2, 1 + 3) = (3, 4). Check with tracing paper: the image is a rectangle standing upright with corners (1, 1), (1, 4), (3, 4) and (3, 1).",
+      "misconceptions": {
+        "common": "If you got (-1, -2), you turned anticlockwise; clockwise is the way clock hands move. If you got (4, -1), you made a half turn. Turn the arrow from B to D a quarter turn only, keeping B still."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(3, 4)."
+        }
+      ],
+      "print": {
+        "prompt": "A bench on the garden plan is the rectangle ABCD drawn on the grid. The bench is rotated 90° clockwise about corner B. Write the coordinates of the image of D. You may draw on the grid.",
+        "answerLabel": "( ____ , ____ )",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp1-q14",
+      "number": "14",
+      "section": "A",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "At the garden shop, the cost of seed packets is in direct proportion to the number of packets. The table shows some of the costs. What is the missing cost? Give your answer in RM.",
+      "diagram": {
+        "type": "table",
+        "title": "Cost of seed packets",
+        "columns": [
+          "Number of seed packets",
+          "2",
+          "5",
+          "8"
+        ],
+        "rows": [
+          [
+            "Cost (RM)",
+            "3.00",
+            "?",
+            "12.00"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 7.5,
+        "tolerance": 0,
+        "accept": [
+          "7.50",
+          "RM 7.50",
+          "RM 7.5"
+        ]
+      },
+      "solution": "Find the cost of one packet: 2 packets cost RM 3, so 1 packet costs RM 3 ÷ 2 = RM 1.50. 5 packets cost 5 × RM 1.50 = RM 7.50. Check: 8 × RM 1.50 = RM 12.",
+      "misconceptions": {
+        "common": "If you got RM 6, you added 3 because 5 is 3 more than 2. Direct proportion means multiply, not add: find the cost of one packet first."
+      },
+      "skill": "unitary method",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "7.50 (accept 7.5, RM 7.50)."
+        }
+      ],
+      "print": {
+        "answerLabel": "RM",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp1-q15",
+      "number": "15",
+      "section": "A",
+      "subtopicId": "m12-s2",
+      "bookSection": "12C",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The garden club measured the heights of 30 sunflowers. The table shows the results. How many sunflowers are 140 cm or taller?",
+      "diagram": {
+        "type": "table",
+        "title": "Heights of 30 sunflowers",
+        "columns": [
+          "Height (cm)",
+          "Frequency"
+        ],
+        "rows": [
+          [
+            "100 to less than 120",
+            4
+          ],
+          [
+            "120 to less than 140",
+            9
+          ],
+          [
+            "140 to less than 160",
+            11
+          ],
+          [
+            "160 to less than 180",
+            6
+          ]
+        ]
+      },
+      "options": [
+        "11",
+        "26",
+        "17",
+        "13"
+      ],
+      "answer": 2,
+      "solution": "140 cm or taller means the groups '140 to less than 160' and '160 to less than 180'. 11 + 6 = 17 sunflowers. The group '120 to less than 140' is all shorter than 140 cm, so it is not included.",
+      "misconceptions": {
+        "0": "11 is only the '140 to less than 160' group. The sunflowers in '160 to less than 180' are also 140 cm or taller: 11 + 6.",
+        "1": "26 includes the '120 to less than 140' group, but those sunflowers are all LESS than 140 cm. Use only 11 + 6.",
+        "3": "13 is the number SHORTER than 140 cm (4 + 9). The question asks for 140 cm or taller."
+      },
+      "skill": "reading tally charts and frequency tables",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "17."
+        }
+      ]
+    },
+    {
+      "id": "mp1-q16",
+      "number": "16",
+      "section": "A",
+      "subtopicId": "m13-s2",
+      "bookSection": "13B",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A vegetable bed is the rectangle drawn on the grid, with corners at (-3, 1), (5, 1), (5, 4) and (-3, 4). Each square of the grid is 1 m by 1 m. Select ALL the calculations that give the area of the vegetable bed in m^2.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          6
+        ],
+        "y": [
+          -1,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -3,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                4
+              ],
+              [
+                -3,
+                4
+              ]
+            ]
+          }
+        ]
+      },
+      "options": [
+        "8 × 3",
+        "5 × 4",
+        "(5 - 3) × (4 - 1)",
+        "(5 + 3) × (4 - 1)",
+        "8 + 3 + 8 + 3"
+      ],
+      "answer": [
+        0,
+        3
+      ],
+      "solution": "Work out the area first. Width: from x = -3 to x = 5 is 8 m (count the squares). Height: from y = 1 to y = 4 is 3 m. Area = 8 × 3 = 24 m^2. Now test each calculation: 8 × 3 = 24 and (5 + 3) × (4 - 1) = 8 × 3 = 24 are correct. 5 × 4 = 20, (5 - 3) × (4 - 1) = 6 and 8 + 3 + 8 + 3 = 22 (the perimeter) are not.",
+      "misconceptions": {
+        "1": "5 × 4 multiplies two coordinates of one corner. Lengths are the gaps between coordinates: 8 m across and 3 m up.",
+        "2": "5 - 3 forgets that -3 is on the other side of 0. From -3 to 5 is 3 + 5 = 8 units.",
+        "4": "8 + 3 + 8 + 3 = 22 is the perimeter (the distance round the edge), not the area.",
+        "common": "Work out the value first (count the squares: 24), then check which calculations give 24."
+      },
+      "skill": "perimeter and area from coordinates",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Both '8 × 3' and '(5 + 3) × (4 - 1)' ticked, and no others."
+        }
+      ],
+      "print": {
+        "prompt": "A vegetable bed is the rectangle drawn on the grid, with corners at (-3, 1), (5, 1), (5, 4) and (-3, 4). Each square of the grid is 1 m by 1 m. Which calculations give the area of the vegetable bed in m^2?"
+      }
+    },
+    {
+      "id": "mp1-q17",
+      "number": "17",
+      "section": "A",
+      "subtopicId": "m11-s3",
+      "bookSection": "11A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "In the school garden, 3/8 of the plants are herbs. All the other plants are vegetables. Omar says, \"The ratio of herbs to vegetables is 3 : 8.\" Is Omar correct? Choose the answer with the correct reason.",
+      "options": [
+        "Yes, because 3 out of every 8 plants are herbs.",
+        "No, because the ratio should be 8 : 3.",
+        "No, because 3 out of every 8 plants are herbs, so 5 out of every 8 are vegetables. The ratio is 3 : 5.",
+        "No, because the ratio should be 3 : 11."
+      ],
+      "answer": 2,
+      "solution": "3/8 means 3 out of every 8 plants are herbs. The other 8 - 3 = 5 out of every 8 are vegetables. A ratio compares the two groups: herbs : vegetables = 3 : 5. Omar's 3 : 8 compares herbs with ALL the plants, so he is not correct.",
+      "misconceptions": {
+        "0": "3 out of 8 is herbs compared with ALL the plants (part to whole). The ratio herbs : vegetables compares herbs with vegetables: 3 : 5.",
+        "1": "8 : 3 just turns Omar's numbers round. The 8 is all the plants, not the vegetables. Vegetables are 8 - 3 = 5 parts.",
+        "3": "3 : 11 adds 3 and 8. The 8 already includes the herbs. Vegetables are 8 - 3 = 5 parts, so the ratio is 3 : 5."
+      },
+      "skill": "ratio and fractions",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "No, with an explanation that vegetables are 5 out of every 8 plants (or 5/8), so herbs : vegetables is 3 : 5; or that 3 : 8 compares herbs with all the plants. 'No' alone, or 'it should be 8 : 3', scores 0."
+        }
+      ],
+      "print": {
+        "prompt": "In the school garden, 3/8 of the plants are herbs. All the other plants are vegetables. Is Omar correct? Explain how you know.",
+        "speech": [
+          {
+            "name": "Omar",
+            "text": "The ratio of herbs to vegetables is 3 : 8."
+          }
+        ],
+        "lines": 2
+      }
+    },
+    {
+      "id": "mp1-q18",
+      "number": "18",
+      "section": "A",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The table shows the Year 5 and Year 6 pupils who helped at the fun fair. Some numbers are missing. How many Year 6 girls helped?",
+      "diagram": {
+        "type": "table",
+        "title": "Fun fair helpers",
+        "columns": [
+          "Year group",
+          "Boys",
+          "Girls",
+          "Total"
+        ],
+        "rows": [
+          [
+            "Year 5",
+            14,
+            11,
+            25
+          ],
+          [
+            "Year 6",
+            "",
+            "?",
+            32
+          ],
+          [
+            "Total",
+            27,
+            "",
+            ""
+          ]
+        ]
+      },
+      "answer": {
+        "value": 19,
+        "tolerance": 0,
+        "accept": [
+          "19 girls"
+        ]
+      },
+      "solution": "First find the Year 6 boys: 27 boys in total, and 14 are in Year 5, so 27 - 14 = 13 Year 6 boys. Year 6 has 32 helpers, so Year 6 girls = 32 - 13 = 19.",
+      "misconceptions": {
+        "common": "Work in two steps. If you got 21, you took away the Year 5 girls (32 - 11); if you got 18, you took away the Year 5 boys (32 - 14). Find the Year 6 boys first (27 - 14 = 13), then 32 - 13 = 19."
+      },
+      "skill": "reading tally charts and frequency tables",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "19."
+        }
+      ],
+      "print": {
+        "answerLabel": "girls",
+        "space": "small"
+      }
+    },
+    {
+      "id": "mp1-q19",
+      "number": "19",
+      "section": "A",
+      "subtopicId": "m13-s2",
+      "bookSection": "13B",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "ABCD is a parallelogram-shaped flower bed, with its corners in that order. Corners A, B and C are plotted on the grid and joined. What are the coordinates of D? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          6
+        ],
+        "y": [
+          -3,
+          4
+        ],
+        "segments": [
+          {
+            "from": [
+              -3,
+              -1
+            ],
+            "to": [
+              2,
+              -1
+            ]
+          },
+          {
+            "from": [
+              2,
+              -1
+            ],
+            "to": [
+              4,
+              2
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              -1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              2,
+              -1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              4,
+              2
+            ],
+            "label": "C"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(-1, 2)"
+        ],
+        "keywords": []
+      },
+      "solution": "In a parallelogram, DC is parallel to AB and the same length. From A to B is 5 units right, so from D to C is also 5 units right. So D is 5 units left of C: (4 - 5, 2) = (-1, 2). Check: from A to D is 2 right and 3 up, the same as from B to C.",
+      "misconceptions": {
+        "common": "If you got (-3, 2), you made a trapezium with a right angle at A: AD must slope the same way as BC (2 right, 3 up). Move from C the same way as from B to A: 5 units left."
+      },
+      "skill": "finding a missing vertex",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(-1, 2). On paper, also accept D plotted correctly at (-1, 2) with the parallelogram completed, if the coordinates are not written."
+        }
+      ],
+      "print": {
+        "prompt": "ABCD is a parallelogram-shaped flower bed, with its corners in that order. Corners A, B and C are plotted on the grid and joined. Complete the parallelogram on the grid. Write the coordinates of D.",
+        "answerLabel": "D = ( ____ , ____ )",
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp1-q20",
+      "number": "20",
+      "section": "A",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The line graph shows the number of drinks sold each hour at two stalls at the fun fair. Select ALL the statements that are true.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Drinks sold each hour",
+        "categories": [
+          "10 am",
+          "11 am",
+          "12 noon",
+          "1 pm",
+          "2 pm",
+          "3 pm"
+        ],
+        "series": [
+          {
+            "name": "Juice stall",
+            "values": [
+              10,
+              18,
+              30,
+              34,
+              24,
+              20
+            ]
+          },
+          {
+            "name": "Coconut stall",
+            "values": [
+              20,
+              22,
+              24,
+              30,
+              32,
+              26
+            ]
+          }
+        ],
+        "yMin": 0,
+        "yMax": 40,
+        "yStep": 10,
+        "minorStep": 2,
+        "xLabel": "Time",
+        "yLabel": "Number of drinks",
+        "alt": "A line graph of drinks sold each hour from 10 am to 3 pm at the juice stall and the coconut stall."
+      },
+      "options": [
+        "At 11 am, the coconut stall sold more drinks than the juice stall.",
+        "The juice stall sold more drinks each hour than the hour before.",
+        "The biggest difference between the two stalls was at 1 pm.",
+        "At one of the times shown, both stalls sold the same number of drinks.",
+        "The coconut stall's sales were highest at 2 pm."
+      ],
+      "answer": [
+        0,
+        4
+      ],
+      "solution": "Read both lines at each time. At 11 am: coconut 22, juice 18, so the first statement is true. Juice sales fell after 1 pm (34, 24, 20), so the second is false. The gaps are 10, 4, 6, 4, 8 and 6: the biggest is at 10 am, not 1 pm. The lines cross between the times shown, but at every time shown the two numbers are different. The coconut line is highest at 2 pm (32), so the last statement is true.",
+      "misconceptions": {
+        "1": "Check every hour: after 1 pm the juice line goes DOWN (34, then 24, then 20).",
+        "2": "At 1 pm the juice stall sold its most (34), but the GAP between the stalls was only 34 - 30 = 4. The biggest gap was 10, at 10 am.",
+        "3": "The lines cross between 11 am and 12 noon, and between 1 pm and 2 pm, but not at a time shown. At each time the two numbers are different.",
+        "common": "Read each value carefully: each small step on the scale is 2 drinks."
+      },
+      "skill": "comparing data sets",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Exactly the two statements 'At 11 am, the coconut stall sold more drinks than the juice stall' and 'The coconut stall's sales were highest at 2 pm' ticked."
+        }
+      ],
+      "print": {
+        "prompt": "The line graph shows the number of drinks sold each hour at two stalls at the fun fair. Which statements are true?"
+      }
+    },
+    {
+      "id": "mp1-q21",
+      "number": "21",
+      "section": "A",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "To feed the plants, the garden club mixes 30 ml of plant food with 4 litres of water. At the same rate, how much plant food should they mix with 10 litres of water? Give your answer in ml.",
+      "answer": {
+        "value": 75,
+        "tolerance": 0,
+        "accept": [
+          "75 ml"
+        ]
+      },
+      "solution": "Find the amount for 1 litre: 30 ÷ 4 = 7.5 ml. For 10 litres: 7.5 × 10 = 75 ml. (Or: 2 litres need 30 ÷ 2 = 15 ml, and 10 litres is 5 lots of 2 litres: 15 × 5 = 75 ml.)",
+      "misconceptions": {
+        "common": "If you got 36 ml, you added 6 because 10 litres is 6 more than 4. If you got 300 ml, you multiplied 30 by 10. Find the amount for 1 litre (or 2 litres) first, then multiply."
+      },
+      "skill": "unitary method",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "A correct first step: 30 ÷ 4 = 7.5 (ml per litre), or 30 ÷ 2 = 15 (ml for 2 litres), or 10 ÷ 4 = 2.5 (scale factor) seen."
+        },
+        {
+          "code": "A1",
+          "text": "75 (accept 75 ml)."
+        }
+      ],
+      "print": {
+        "answerLabel": "ml",
+        "space": "medium"
+      }
+    },
+    {
+      "id": "mp1-q22",
+      "number": "22",
+      "section": "A",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The pie chart shows the plants in the school garden. There are 18 herbs. How many flowers are there?",
+      "diagram": {
+        "type": "pieChart",
+        "title": "Plants in the school garden",
+        "slices": [
+          {
+            "label": "Vegetables",
+            "value": 180
+          },
+          {
+            "label": "Flowers",
+            "value": 90
+          },
+          {
+            "label": "Herbs",
+            "value": 60
+          },
+          {
+            "label": "Fruit trees",
+            "value": 30
+          }
+        ],
+        "show": "degrees",
+        "rightAngles": true
+      },
+      "answer": {
+        "value": 27,
+        "tolerance": 0,
+        "accept": [
+          "27 flowers"
+        ]
+      },
+      "solution": "The herbs sector is 60° and stands for 18 plants. So 10° stands for 18 ÷ 6 = 3 plants. The flowers sector is 90°, which is 9 lots of 10°: 9 × 3 = 27 flowers. (Or: 90° is 1.5 times 60°, and 1.5 × 18 = 27. Or: the whole garden is 18 × 6 = 108 plants and flowers are 1/4 of 108 = 27.)",
+      "misconceptions": {
+        "common": "If you got 90, you gave the angle, not the number of plants. Use the herbs: 60° is 18 plants, so 10° is 3 plants."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "A correct link between angle and plants: 18 ÷ 60 or 18 ÷ 6 = 3 (plants per 10°), or 90 ÷ 60 = 1.5, or total 108 plants seen."
+        },
+        {
+          "code": "A1",
+          "text": "27."
+        }
+      ],
+      "print": {
+        "answerLabel": "flowers",
+        "space": "medium"
+      }
+    },
+    {
+      "id": "mp1-q23",
+      "number": "23",
+      "section": "A",
+      "subtopicId": "m14-s2",
+      "bookSection": "14A",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Lina is drawing a design for a flower bed. The dashed diagonal line through (0, 0), (1, 1) and (2, 2) is a line of symmetry of the finished design. Half of the design is drawn on the grid. When the design is complete, it has one more corner. What are the coordinates of the new corner? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          7
+        ],
+        "y": [
+          0,
+          7
+        ],
+        "segments": [
+          {
+            "from": [
+              1,
+              1
+            ],
+            "to": [
+              6,
+              3
+            ]
+          },
+          {
+            "from": [
+              6,
+              3
+            ],
+            "to": [
+              5,
+              5
+            ]
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "mirror line"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(3, 6)"
+        ],
+        "keywords": []
+      },
+      "solution": "The corners (1, 1) and (5, 5) are on the mirror line, so they stay where they are. Only (6, 3) needs a mirror image. In this diagonal mirror line the coordinates swap places: (6, 3) goes to (3, 6). Join (5, 5) to (3, 6) to (1, 1) to finish the kite.",
+      "misconceptions": {
+        "common": "In the diagonal line through (0, 0), (1, 1) and (2, 2), a point's image has its two coordinates swapped: (6, 3) becomes (3, 6). Do not change the signs, and do not reflect in an upright or a flat line."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(3, 6). On paper, also accept the design correctly completed with the new corner at (3, 6) joined to (5, 5) and (1, 1), if the coordinates are not written."
+        }
+      ],
+      "print": {
+        "prompt": "Lina is drawing a design for a flower bed. The dashed diagonal line through (0, 0), (1, 1) and (2, 2) is a line of symmetry of the finished design. Half of the design is drawn on the grid. Complete the design on the grid. Write the coordinates of the new corner.",
+        "answerLabel": "( ____ , ____ )",
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp1-q24",
+      "number": "24",
+      "section": "A",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A bird bath is placed in the school garden at a point with whole-number coordinates. It is exactly 2 units from the x-axis and exactly 3 units from the y-axis. Select ALL the possible positions of the bird bath.",
+      "options": [
+        "(3, 2)",
+        "(2, 3)",
+        "(-3, 2)",
+        "(-2, -3)",
+        "(-3, -2)",
+        "(3, -2)",
+        "(2, -3)"
+      ],
+      "answer": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "solution": "2 units from the x-axis means the point is 2 up or 2 down: y = 2 or y = -2. 3 units from the y-axis means it is 3 right or 3 left: x = 3 or x = -3. So there are four positions, one in each quadrant: (3, 2), (-3, 2), (-3, -2) and (3, -2). Remember x comes first.",
+      "misconceptions": {
+        "1": "(2, 3) has the numbers swapped. Distance from the y-axis is the x-coordinate (3), and distance from the x-axis is the y-coordinate (2).",
+        "3": "(-2, -3) has the numbers swapped: it is 3 units from the x-axis. The x-coordinate must be 3 or -3.",
+        "6": "(2, -3) has the numbers swapped. Distance from the y-axis is measured across, so x must be 3 or -3.",
+        "common": "There is one answer in each of the four quadrants. Check each one: x must be 3 or -3, and y must be 2 or -2."
+      },
+      "skill": "distance from an axis",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B2",
+          "text": "All four positions (3, 2), (-3, 2), (-3, -2), (3, -2) and no wrong ones. Otherwise B1 for at least two correct positions with at most one wrong (for example swapped) point."
+        }
+      ],
+      "print": {
+        "prompt": "A bird bath is placed in the school garden at a point with whole-number coordinates. It is exactly 2 units from the x-axis and exactly 3 units from the y-axis. Write all the possible coordinates of the bird bath.",
+        "lines": 2
+      }
+    },
+    {
+      "id": "mp1-q25",
+      "number": "25",
+      "section": "A",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Siti and Ahmad each grew five bean plants. The table shows their heights after 4 weeks. Siti says, \"My plants grew better, because the mean height of my plants is bigger.\" Which is the best reply to Siti?",
+      "diagram": {
+        "type": "table",
+        "title": "Heights of bean plants after 4 weeks (cm)",
+        "columns": [
+          "Plant",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "rows": [
+          [
+            "Siti",
+            12,
+            13,
+            11,
+            14,
+            40
+          ],
+          [
+            "Ahmad",
+            15,
+            16,
+            15,
+            17,
+            16
+          ]
+        ]
+      },
+      "options": [
+        "Siti is right: a bigger mean always means the plants grew better.",
+        "Siti is not right: Ahmad's range is bigger, so his plants grew better.",
+        "Siti is not right: Ahmad's mean is bigger, so his plants grew better.",
+        "Siti's mean is bigger only because of one very tall plant. Four of her five plants are shorter than every one of Ahmad's plants."
+      ],
+      "answer": 3,
+      "solution": "Siti's mean is 90 ÷ 5 = 18 cm and Ahmad's is 79 ÷ 5 = 15.8 cm, so her mean is bigger. But one plant (40 cm) is far taller than the rest. Her other four plants (11 to 14 cm) are all shorter than Ahmad's shortest (15 cm). Her median is 13 cm, Ahmad's is 16 cm. The 40 cm plant pulls her mean up, so the mean alone does not show that her plants grew better.",
+      "misconceptions": {
+        "0": "A mean can be pulled up by one unusual value. Siti's 40 cm plant does that: her other four plants are all shorter than Ahmad's.",
+        "1": "Ahmad's range is 17 - 15 = 2 cm and Siti's is 40 - 11 = 29 cm, so Siti's range is bigger, not Ahmad's. A range shows spread, not who grew better.",
+        "2": "Work out both means: Siti 90 ÷ 5 = 18 cm, Ahmad 79 ÷ 5 = 15.8 cm. Siti's mean IS bigger; the point is that one tall plant causes it."
+      },
+      "skill": "effect of an outlier",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "The reply that Siti's mean is bigger only because of one very tall plant (four of her plants are shorter than all of Ahmad's)."
+        }
+      ],
+      "print": {
+        "prompt": "Siti and Ahmad each grew five bean plants. The table shows their heights after 4 weeks. Which is the best reply to Siti?",
+        "speech": [
+          {
+            "name": "Siti",
+            "text": "My plants grew better, because the mean height of my plants is bigger."
+          }
+        ]
+      }
+    },
+    {
+      "id": "mp1-q26",
+      "number": "26",
+      "section": "A",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The drinks stall at the fun fair has two deals. Deal A: 4 cups for RM 5.00. Deal B: 6 cups for RM 7.20. Which deal is better value? Choose the answer with the correct reason.",
+      "options": [
+        "Deal B, because one cup costs RM 1.20 in Deal B and RM 1.25 in Deal A.",
+        "Deal A, because RM 5.00 is less than RM 7.20.",
+        "Deal B, because you get more cups.",
+        "Deal A, because one cup costs RM 1.25 in Deal A and RM 1.20 in Deal B."
+      ],
+      "answer": 0,
+      "solution": "Compare the cost of ONE cup. Deal A: RM 5.00 ÷ 4 = RM 1.25. Deal B: RM 7.20 ÷ 6 = RM 1.20. One cup is cheaper in Deal B, so Deal B is better value. (Or compare 12 cups: Deal A 3 × RM 5.00 = RM 15.00, Deal B 2 × RM 7.20 = RM 14.40.)",
+      "misconceptions": {
+        "1": "RM 5.00 is less, but you also get fewer cups. Compare the cost of the same number of cups, such as 1 cup each.",
+        "2": "Deal B is the better deal, but not because it has more cups: more cups for more money could still be worse value. The reason is that one cup costs less (RM 1.20 instead of RM 1.25).",
+        "3": "Better value means a LOWER cost for each cup. Deal A's cup costs more (RM 1.25), so Deal A is the worse value."
+      },
+      "skill": "best buy",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "A correct comparison of the same amount: the cost of 1 cup in both deals (RM 1.25 and RM 1.20, or 125 sen and 120 sen), or the cost of 12 cups (RM 15.00 and RM 14.40), or another common number of cups."
+        },
+        {
+          "code": "A1",
+          "text": "Deal B, supported by correct values. 'Deal B' with no working or with wrong working scores 0."
+        }
+      ],
+      "print": {
+        "prompt": "The drinks stall at the fun fair has two deals. Deal A: 4 cups for RM 5.00. Deal B: 6 cups for RM 7.20. Which deal is better value? Show how you decide.",
+        "space": "medium",
+        "lines": 2
+      }
+    },
+    {
+      "id": "mp1-q27",
+      "number": "27",
+      "section": "A",
+      "subtopicId": "m14-s4",
+      "bookSection": "14C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "A pattern for a garden tile has three shaded squares. One more square is shaded so that the whole pattern has rotational symmetry of order 2 about the centre marked with a dot. Which grid shows the finished pattern?",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            4
+          ],
+          "y": [
+            0,
+            4
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  0,
+                  3
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  3,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  3,
+                  2
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                2,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            4
+          ],
+          "y": [
+            0,
+            4
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  0,
+                  3
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                2,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            4
+          ],
+          "y": [
+            0,
+            4
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  0,
+                  3
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  3,
+                  2
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  4,
+                  3
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                2,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            4
+          ],
+          "y": [
+            0,
+            4
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  0,
+                  3
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                2,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "answer": 0,
+      "solution": "A pattern with order 2 looks the same after a half turn about the centre. In a half turn each shaded square moves to the opposite side of the centre. The top square (from x = 1 to 2) and the bottom square (from x = 2 to 3) already swap with each other. The left square (from y = 2 to 3) moves to the right-hand column, from y = 1 to 2. Only Grid A has that square shaded.",
+      "misconceptions": {
+        "1": "Grid B adds the square just below the left square: that is a reflection in a flat line, not a half turn. After a half turn the left square moves to the right-hand side.",
+        "2": "Grid C adds the square straight across from the left square: that is a reflection in an upright line. A half turn also moves it down, to y = 1 to 2.",
+        "3": "Grid D adds the square a quarter turn away from the left square. Order 2 needs the half turn: the opposite side of the centre, to the right and down."
+      },
+      "skill": "symmetry in patterns",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "On screen: Grid A. On paper: only the square with corners (3, 1) and (4, 2) shaded (right-hand column, second row from the bottom)."
+        }
+      ],
+      "print": {
+        "prompt": "A pattern for a garden tile has three shaded squares. Shade one more square so that the whole pattern has rotational symmetry of order 2 about the centre marked with a dot.",
+        "diagram": {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            4
+          ],
+          "y": [
+            0,
+            4
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  0,
+                  3
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                2,
+                2
+              ]
+            }
+          ]
+        },
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp1-q28",
+      "number": "28",
+      "section": "A",
+      "subtopicId": "m12-s3",
+      "bookSection": "12F",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "At the fun fair ring-toss game, Kumar has five turns. On each turn he scores a whole number of points from 0 to 10. His scores for the first three turns are 7, 9 and 8. The mean of all five of his scores is 6. Select ALL the pairs of scores he could have got for his last two turns. (The order does not matter: 1 and 5 is the same pair as 5 and 1.)",
+      "options": [
+        "0 and 6",
+        "1 and 5",
+        "6 and 6",
+        "2 and 4",
+        "5 and 7",
+        "3 and 3"
+      ],
+      "answer": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "solution": "Mean 6 for 5 turns means the total is 6 × 5 = 30 points. The first three add up to 7 + 9 + 8 = 24. So the last two turns add up to 30 - 24 = 6. Pairs that add to 6: 0 and 6, 1 and 5, 2 and 4, 3 and 3. Do not forget 0 and 6: a score of 0 is allowed.",
+      "misconceptions": {
+        "2": "6 and 6 makes each of the last two scores equal to the mean. The mean is for all five scores together: the last two must add up to 30 - 24 = 6.",
+        "4": "5 and 7 add up to 12, as if the last two scores alone had a mean of 6. Use the total of all five: 6 × 5 = 30, and 30 - 24 = 6.",
+        "common": "Find the total first (6 × 5 = 30), take away the scores you know (24), then list every pair that adds to 6, starting with 0 and 6."
+      },
+      "skill": "using the mean to find a missing value",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "30 - 24 = 6 seen (the last two scores add up to 6), or at least two correct pairs."
+        },
+        {
+          "code": "A1",
+          "text": "All four pairs 0 and 6, 1 and 5, 2 and 4, 3 and 3, and no wrong pairs (a pair written both ways, such as 1 and 5 and 5 and 1, is not penalised)."
+        }
+      ],
+      "print": {
+        "prompt": "At the fun fair ring-toss game, Kumar has five turns. On each turn he scores a whole number of points from 0 to 10. His scores for the first three turns are 7, 9 and 8. The mean of all five of his scores is 6. Write all the possible pairs of scores for his last two turns. (The order does not matter: 1 and 5 is the same pair as 5 and 1.)",
+        "space": "medium",
+        "lines": 3
+      }
+    },
+    {
+      "id": "mp1-q29",
+      "number": "29",
+      "section": "A",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle PQR was translated 4 units left and 3 units up. Its image, triangle P'Q'R', is drawn on the grid. What were the coordinates of R before the translation? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          5
+        ],
+        "y": [
+          -3,
+          7
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -4,
+                2
+              ],
+              [
+                -1,
+                2
+              ],
+              [
+                -1,
+                5
+              ]
+            ],
+            "style": "dashed"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -4,
+              2
+            ],
+            "label": "P'"
+          },
+          {
+            "at": [
+              -1,
+              2
+            ],
+            "label": "Q'"
+          },
+          {
+            "at": [
+              -1,
+              5
+            ],
+            "label": "R'"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(3, 2)"
+        ],
+        "keywords": []
+      },
+      "solution": "Work backwards: undo the translation by moving 4 units RIGHT and 3 units DOWN. R' is at (-1, 5). -1 + 4 = 3 and 5 - 3 = 2, so R was at (3, 2). (P was at (0, -1) and Q at (3, -1).) Check: from (3, 2), 4 left and 3 up gives (-1, 5).",
+      "misconceptions": {
+        "common": "If you got (-5, 8), you moved R' 4 left and 3 up again. The image is AFTER the move, so go backwards: 4 right and 3 down."
+      },
+      "skill": "finding the original point before a translation",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "The reverse move used (4 right and 3 down) for at least one corner, e.g. P at (0, -1) or Q at (3, -1) written or plotted, or a triangle of the right shape drawn 4 right and 3 down of the image."
+        },
+        {
+          "code": "A1",
+          "text": "R = (3, 2)."
+        }
+      ],
+      "print": {
+        "prompt": "Triangle PQR was translated 4 units left and 3 units up. Its image, triangle P'Q'R', is drawn on the grid. Draw triangle PQR on the grid. Write the coordinates of R.",
+        "answerLabel": "R = ( ____ , ____ )",
+        "space": "none"
+      }
+    },
+    {
+      "id": "mp1-q30",
+      "number": "30",
+      "section": "A",
+      "subtopicId": "m11-s5",
+      "bookSection": "11A",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "At the fun fair, a jar of prize sweets has red sweets and green sweets in the ratio 3 : 4. There are 56 sweets in the jar. Aisha adds some more green sweets. Now the ratio of red sweets to green sweets is 1 : 2. How many green sweets did Aisha add?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0,
+        "accept": [
+          "16 sweets"
+        ]
+      },
+      "solution": "At first: 3 + 4 = 7 parts, and one part = 56 ÷ 7 = 8. Red = 3 × 8 = 24 and green = 4 × 8 = 32. The red sweets do not change. With red : green = 1 : 2, there must be 2 × 24 = 48 green sweets. Aisha added 48 - 32 = 16 green sweets.",
+      "misconceptions": {
+        "common": "Find the red and green sweets first (24 and 32). The red stay the same, so the new green is 2 × 24 = 48. 48 is the new total of green; the number ADDED is 48 - 32 = 16."
+      },
+      "skill": "before-and-after ratio problems",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "56 ÷ 7 = 8 and red = 24 (or green = 32) seen, or 48 green at the end seen."
+        },
+        {
+          "code": "A1",
+          "text": "16."
+        }
+      ],
+      "print": {
+        "answerLabel": "green sweets",
+        "space": "large"
+      }
+    },
+    {
+      "id": "mp1-q31",
+      "number": "31",
+      "section": "A",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A flag for the fun fair is the triangle drawn on the grid, with its corner P marked. Which grid shows the triangle rotated 90° anticlockwise about P? The dashed triangle is the image.",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  3,
+                  5
+                ]
+              ]
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  5,
+                  3
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ],
+              "label": "P"
+            }
+          ],
+          "size": "small"
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  3,
+                  5
+                ]
+              ]
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  3,
+                  1
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ],
+              "label": "P"
+            }
+          ],
+          "size": "small"
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  3,
+                  5
+                ]
+              ]
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  3,
+                  5
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ],
+              "label": "P"
+            }
+          ],
+          "size": "small"
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  3,
+                  5
+                ]
+              ]
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  1,
+                  3
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ],
+              "label": "P"
+            }
+          ],
+          "size": "small"
+        }
+      ],
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "answer": 3,
+      "solution": "P stays still. The long side goes 3 squares RIGHT from P, and the short side goes 2 squares UP from P. A quarter turn anticlockwise turns 'right' into 'up' and 'up' into 'left'. So in the image the long side goes 3 squares up, to (3, 6), and the short side goes 2 squares left, to (1, 3). Only Grid D shows that.",
+      "misconceptions": {
+        "0": "Grid A shows a quarter turn CLOCKWISE (the long side now points down). Anticlockwise is against the clock: 'right' turns to 'up'.",
+        "1": "Grid B shows a half turn (180°): the long side points left. A 90° turn is only a quarter turn, so the long side should point up.",
+        "2": "Grid C shows a reflection: the triangle has been flipped over, so the short side still points up. A rotation turns the whole shape; tracing paper never flips."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original",
+      "markScheme": [
+        {
+          "code": "B2",
+          "text": "On screen: Grid D. On paper: the image drawn with corners at (3, 3), (3, 6) and (1, 3). Award B1 only (on paper) for: the triangle correctly rotated 90° CLOCKWISE about P (corners (3, 3), (3, 0), (5, 3)), or an image with P fixed and one of the other two corners correct."
+        }
+      ],
+      "print": {
+        "prompt": "A flag for the fun fair is the triangle drawn on the grid, with its corner P marked. Rotate the triangle 90° anticlockwise about P. Draw the image on the grid.",
+        "diagram": {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  3,
+                  5
+                ]
+              ]
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ],
+              "label": "P"
+            }
+          ]
+        },
+        "space": "none"
+      }
+    }
+  ]
+}

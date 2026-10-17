@@ -3,6 +3,7 @@
 // relative, so the app works from any folder (for example a GitHub Pages project address).
 
 import { powers } from './marking.js';
+import { currentSubtopicId } from './bookmap.js';
 
 let manifestPromise = null;
 const topicCache = new Map();
@@ -91,10 +92,112 @@ export async function loadAll() {
   return out;
 }
 
-export function indexQuestions(topics) {
+/** Map question id -> question, over topics and (optionally) mock papers. Ids are unique across both. */
+export function indexQuestions(topics, papers = []) {
   const m = new Map();
   for (const t of topics) for (const q of t.questions) m.set(q.id, q);
+  for (const p of papers || []) for (const q of p.questions) m.set(q.id, q);
   return m;
+}
+
+// ---------------------------------------------------------------- book chapters and sections
+
+/** "Chapter 11", or "Extra topic" for a topic that is not a book chapter (m15). */
+export function chapterLabel(t) {
+  return Number.isInteger(t.bookChapterNumber) ? `Chapter ${t.bookChapterNumber}` : 'Extra topic';
+}
+
+/** Topics in book order: by chapter number, topics without one (extra topics) last. */
+export function bookOrder(topics) {
+  const key = (t) => (Number.isInteger(t.bookChapterNumber) ? t.bookChapterNumber : 1000 + (t.order || 0));
+  return [...topics].sort((a, b) => key(a) - key(b) || (a.order || 0) - (b.order || 0));
+}
+
+/**
+ * Every book section of the given topics: Map sectionId -> { id, title, page, topicId, topicTitle,
+ * chapter (number or null), chapterLabel, rank (book order) }.
+ */
+export function sectionIndex(topics) {
+  const m = new Map();
+  let rank = 0;
+  for (const t of bookOrder(topics)) {
+    for (const s of t.bookSections || []) {
+      m.set(s.id, { id: s.id, title: s.title, page: s.page ?? null, topicId: t.topicId, topicTitle: t.title, chapter: Number.isInteger(t.bookChapterNumber) ? t.bookChapterNumber : null, chapterLabel: chapterLabel(t), rank: rank++ });
+    }
+  }
+  return m;
+}
+
+/** "12D Read and Make Scatter Graphs (p. 191)" */
+export function sectionLabel(s, { page = true } = {}) {
+  if (!s) return '';
+  return `${s.id} ${s.title}${page && s.page != null ? ` (p. ${s.page})` : ''}`;
+}
+
+// ---------------------------------------------------------------- mock papers
+
+const paperCache = new Map();
+
+/** The mock papers of a subject, from the manifest (no questions loaded). */
+export async function paperList(subject = 'maths') {
+  const m = await loadManifest();
+  return (m.papers || []).filter((p) => p.subject === subject);
+}
+
+/** The topic a question belongs to, from its subtopic id ("m12-s4" -> "m12-data-handling"). */
+function topicIdForSubtopic(manifest, subtopicId) {
+  const prefix = String(currentSubtopicId(subtopicId) || '').split('-')[0];
+  for (const s of manifest.subjects || []) for (const t of s.topics) if (t.topicId.split('-')[0] === prefix) return t.topicId;
+  return null;
+}
+
+/**
+ * One mock paper, ready to sit: every question gets its topicId and subject (so it counts towards
+ * her progress like any question), and a question in a group carries the group's stem and
+ * diagram (groupStem, groupDiagram). Everything under `print` is for the printed paper and is
+ * left alone.
+ */
+export async function loadPaper(paperId) {
+  if (paperCache.has(paperId)) return paperCache.get(paperId);
+  const m = await loadManifest();
+  const entry = (m.papers || []).find((p) => p.id === paperId);
+  if (!entry) throw new Error(`Unknown paper ${paperId}`);
+  const p = getJson(entry.file).then((paper) => preparePaper(paper, m));
+  paperCache.set(paperId, p);
+  p.catch(() => paperCache.delete(paperId));
+  return p;
+}
+
+export function preparePaper(paper, manifest = { subjects: [] }) {
+  const groups = new Map((paper.groups || []).map((g) => [g.id, g]));
+  paper.instructions = (paper.instructions || []).map(powers);
+  for (const q of paper.questions) {
+    q.paperId = paper.id;
+    q.subject = paper.subject;
+    q.topicId = topicIdForSubtopic(manifest, q.subtopicId);
+    const g = q.group != null ? groups.get(q.group) : null;
+    if (g) {
+      q.groupStem = powers(g.stem || '');
+      if (g.diagram) q.groupDiagram = g.diagram;
+    }
+    q.prompt = powers(q.prompt);
+    q.solution = powers(q.solution);
+    if (Array.isArray(q.options)) q.options = q.options.map(powers);
+    else if (q.options && q.options.left) q.options = { left: q.options.left.map(powers), right: q.options.right.map(powers) };
+    if (q.misconceptions) for (const k of Object.keys(q.misconceptions)) q.misconceptions[k] = powers(q.misconceptions[k]);
+    if (Array.isArray(q.markScheme)) q.markScheme = q.markScheme.map((x) => ({ code: x.code, text: powers(x.text) }));
+  }
+  return paper;
+}
+
+/** The papers a list of sessions used (for indexing their questions). */
+export async function papersFor(sessions) {
+  const ids = [...new Set((sessions || []).filter((s) => s && s.mode === 'paper' && typeof s.paperId === 'string').map((s) => s.paperId))];
+  const out = [];
+  for (const id of ids) {
+    try { out.push(await loadPaper(id)); } catch { /* a paper that no longer exists: its review shows what was saved */ }
+  }
+  return out;
 }
 
 export function indexTopics(topics) {

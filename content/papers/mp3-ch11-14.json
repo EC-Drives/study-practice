@@ -1,0 +1,1437 @@
+{
+  "id": "mp3-ch11-14",
+  "title": "Mock Paper 3: Quick Check",
+  "subtitle": "Chapters 11-14: Ratio and Proportion; Data Handling; The Coordinate Grid; Reflection and Rotation. One quick question or two on every book section.",
+  "subject": "maths",
+  "bookChapters": [
+    11,
+    12,
+    13,
+    14
+  ],
+  "minutes": 25,
+  "totalMarks": 25,
+  "calculator": false,
+  "level": "quick",
+  "instructions": [
+    "Answer all the questions.",
+    "Write your answer on the answer line, or tick the boxes as the question asks: one box when it says one, all the correct boxes when it says all.",
+    "You may not use a calculator.",
+    "Show your working in the 2-mark questions: a correct method can earn a mark even if the answer is wrong.",
+    "How to use your time: about 1 minute per mark. If you are stuck, write your best answer and move on. Never leave an answer blank."
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "title": "Section A"
+    }
+  ],
+  "groups": [
+    {
+      "id": "8",
+      "stem": "The scatter graph shows the age and the shell length of 10 turtles at the aquarium.",
+      "diagram": {
+        "type": "scatterGraph",
+        "title": "Age and shell length of turtles",
+        "points": [
+          [
+            2,
+            18
+          ],
+          [
+            3,
+            24
+          ],
+          [
+            4,
+            26
+          ],
+          [
+            5,
+            30
+          ],
+          [
+            6,
+            34
+          ],
+          [
+            7,
+            40
+          ],
+          [
+            8,
+            38
+          ],
+          [
+            9,
+            46
+          ],
+          [
+            10,
+            52
+          ],
+          [
+            12,
+            48
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 14,
+        "xStep": 2,
+        "yMin": 0,
+        "yMax": 60,
+        "yStep": 5,
+        "xLabel": "Age (years)",
+        "yLabel": "Shell length (cm)",
+        "alt": "A scatter graph of age in years against shell length in cm for 10 turtles."
+      }
+    },
+    {
+      "id": "12",
+      "stem": "The map of the zoo is drawn on a coordinate grid. Some places are marked with letters. P is the penguin pool.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              4
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              -1.5,
+              2.5
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              2.5,
+              1.5
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              2.5,
+              -1.5
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              1.5,
+              -2.5
+            ],
+            "label": "D"
+          }
+        ],
+        "alt": "A coordinate grid from -5 to 5 on both axes, with points P, A, B, C and D marked."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q01",
+      "number": "1",
+      "subtopicId": "m11-s1",
+      "bookSection": "11A",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "At the zoo's bird lake you count 12 flamingos and 20 storks. What is the ratio of flamingos to storks in its simplest form?",
+      "options": [
+        "5 : 3",
+        "3 : 5",
+        "6 : 10",
+        "3 : 8"
+      ],
+      "answer": 1,
+      "solution": "Flamingos come first, so start with 12 : 20. The highest common factor of 12 and 20 is 4. Divide both parts by 4: 12 ÷ 4 = 3 and 20 ÷ 4 = 5. The ratio is 3 : 5.",
+      "misconceptions": {
+        "0": "This is the right numbers the wrong way round. The question asks for flamingos to storks, so the flamingos (12) come first: 3 : 5.",
+        "2": "You divided both parts by 2, which is a good start, but 6 and 10 can both still be divided by 2. Divide by the highest common factor, 4, to get 3 : 5.",
+        "3": "This compares flamingos with ALL the birds (12 : 32). The question compares flamingos with storks only: 12 : 20 = 3 : 5."
+      },
+      "skill": "simplifying a ratio",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "3 : 5 only (one box ticked)."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q02",
+      "number": "2",
+      "subtopicId": "m11-s3",
+      "bookSection": "11A",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "On the zoo trip, the ratio of adults to children is 2 : 7. There are 45 people altogether. How many more children than adults are there?",
+      "answer": {
+        "value": 25,
+        "tolerance": 0,
+        "accept": [
+          "25 children",
+          "25 more"
+        ]
+      },
+      "solution": "The ratio has 2 + 7 = 9 parts. One part is 45 ÷ 9 = 5 people. Adults: 2 × 5 = 10. Children: 7 × 5 = 35. Difference: 35 - 10 = 25. (Quicker: children have 5 more parts, and 5 × 5 = 25.) Trap: the question asks how many MORE, not how many children.",
+      "misconceptions": {
+        "common": "If you got 35, that is the number of children; the question asks how many MORE children than adults (35 - 10 = 25). If you divided 45 by 2 or by 7, remember to add the parts first: 2 + 7 = 9 parts, so one part is 5."
+      },
+      "skill": "sharing in a ratio",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "45 ÷ 9 (= 5) for one part, or 10 adults and 35 children seen, or 5 × 5 seen."
+        },
+        {
+          "code": "A1",
+          "text": "25. (35 alone, or 10 and 35 with no answer, scores M1 only.) A correct answer with no working scores 2 marks."
+        }
+      ],
+      "print": {
+        "space": "medium",
+        "answerLabel": "more children"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q03",
+      "number": "3",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "4 child tickets for the zoo cost RM 36. At the same price, how much do 7 child tickets cost? Give your answer in RM.",
+      "answer": {
+        "value": 63,
+        "tolerance": 0,
+        "accept": [
+          "RM 63",
+          "RM63",
+          "63.00",
+          "RM 63.00"
+        ]
+      },
+      "solution": "Find the cost of one ticket first: RM 36 ÷ 4 = RM 9. Then 7 tickets cost 7 × RM 9 = RM 63.",
+      "misconceptions": {
+        "common": "Find the cost of ONE ticket first (RM 36 ÷ 4 = RM 9), then multiply by 7. Adding 3 to RM 36 (RM 39) or multiplying RM 36 by 7 does not keep the price per ticket the same."
+      },
+      "skill": "unitary method",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "63 (accept RM 63, RM 63.00)."
+        }
+      ],
+      "print": {
+        "space": "small",
+        "answerLabel": "RM"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q04",
+      "number": "4",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A zookeeper uses 6 kg of fish to feed 4 sea lions. Omar says, \"10 is 6 more than 4, so I add 6 kg. 10 sea lions need 12 kg of fish.\" Is Omar correct? Choose the answer with the correct reason.",
+      "options": [
+        "Yes. He added the same amount to both numbers, so the rate stays the same.",
+        "No. 10 sea lions need 60 kg, because 6 × 10 = 60.",
+        "No. 10 sea lions need 1.5 kg, because 6 ÷ 4 = 1.5.",
+        "No. 10 sea lions need 15 kg, because each sea lion needs 6 ÷ 4 = 1.5 kg."
+      ],
+      "answer": 3,
+      "solution": "In direct proportion you multiply, not add. One sea lion needs 6 ÷ 4 = 1.5 kg. So 10 sea lions need 10 × 1.5 = 15 kg. (Or: 10 is 2.5 times 4, and 2.5 × 6 = 15.) Omar is not correct: he added 6, which is the trap.",
+      "misconceptions": {
+        "0": "Adding the same amount does not keep a rate the same. 4 sea lions share 6 kg (1.5 kg each), but Omar's 12 kg for 10 sea lions is only 1.2 kg each. Multiply instead: 10 × 1.5 = 15 kg.",
+        "1": "6 kg is for 4 sea lions, not for one. Find the amount for ONE sea lion first (6 ÷ 4 = 1.5 kg), then multiply by 10.",
+        "2": "1.5 kg is the fish for ONE sea lion. You stopped one step early: 10 sea lions need 10 × 1.5 = 15 kg."
+      },
+      "skill": "direct proportion",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "Finds the fish for one sea lion, 6 ÷ 4 = 1.5 kg, or the scale factor 10 ÷ 4 = 2.5, or 2 sea lions need 3 kg."
+        },
+        {
+          "code": "A1",
+          "text": "\"No\" with 15 kg given as the fish for 10 sea lions. \"No\" with no working or reason scores 0. On screen, the correct option is one such explanation. \"No, 15 kg\" with no working scores M1 A1 (15 implies the method)."
+        }
+      ],
+      "print": {
+        "prompt": "A zookeeper uses 6 kg of fish to feed 4 sea lions. Omar works out how much fish 10 sea lions need. Is Omar correct? Explain how you know, and work out how much fish 10 sea lions need.",
+        "speech": [
+          {
+            "name": "Omar",
+            "text": "10 is 6 more than 4, so I add 6 kg. 10 sea lions need 12 kg of fish."
+          }
+        ],
+        "lines": 3
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q05",
+      "number": "5",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "On the trip, your class collects some data. Select ALL the sets of data that are continuous.",
+      "options": [
+        "The number of penguins in each pool",
+        "The mass of each baby tortoise",
+        "The colour of each parrot",
+        "The time each seal stays under water",
+        "The length of each crocodile",
+        "The number of tickets sold each day"
+      ],
+      "answer": [
+        1,
+        3,
+        4
+      ],
+      "solution": "Continuous data is measured, so it can take any value in a range (2.35 kg, 4.5 minutes). Mass, time and length are measured: continuous. The numbers of penguins and tickets are counted: discrete. Colours are groups: categorical.",
+      "misconceptions": {
+        "0": "Penguins are counted (you cannot have 3.5 penguins), so this is discrete data, not continuous.",
+        "2": "Colours are names of groups, so this is categorical data. Continuous data is measured with numbers.",
+        "5": "Tickets are counted in whole numbers, so this is discrete data.",
+        "common": "Ask: is it measured (continuous) or counted (discrete)? Mass, time and length are all measured, so tick all three."
+      },
+      "skill": "types of data",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Exactly three boxes ticked: mass of each baby tortoise, time each seal stays under water, length of each crocodile."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q06",
+      "number": "6",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "36 pupils each chose their favourite sea creature at the aquarium. The pie chart shows the results, with the angle of each sector. How many pupils chose jellyfish?",
+      "diagram": {
+        "type": "pieChart",
+        "title": "Favourite sea creature",
+        "slices": [
+          {
+            "label": "Sharks",
+            "value": 12
+          },
+          {
+            "label": "Turtles",
+            "value": 10
+          },
+          {
+            "label": "Jellyfish",
+            "value": 8
+          },
+          {
+            "label": "Seahorses",
+            "value": 6
+          }
+        ],
+        "show": "degrees",
+        "alt": "Pie chart titled Favourite sea creature. Sharks 120°, turtles 100°, jellyfish 80°, seahorses 60°."
+      },
+      "answer": {
+        "value": 8,
+        "tolerance": 0,
+        "accept": [
+          "8 pupils"
+        ]
+      },
+      "solution": "The whole circle, 360°, stands for 36 pupils. So each pupil is 360 ÷ 36 = 10°. The jellyfish sector is 80°, so 80 ÷ 10 = 8 pupils.",
+      "misconceptions": {
+        "common": "80 is the ANGLE of the sector, not the number of pupils. Find the angle for one pupil first (360° ÷ 36 = 10°), then 80 ÷ 10 = 8."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "8."
+        }
+      ],
+      "print": {
+        "space": "small",
+        "answerLabel": "pupils"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q07",
+      "number": "7",
+      "subtopicId": "m12-s4",
+      "bookSection": "12C",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The bar chart shows how many pupils watched each feeding show. How many pupils watched the seal show?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Pupils at each feeding show",
+        "categories": [
+          "Penguins",
+          "Seals",
+          "Elephants",
+          "Otters"
+        ],
+        "series": [
+          {
+            "name": "Pupils",
+            "values": [
+              14,
+              22,
+              30,
+              18
+            ]
+          }
+        ],
+        "yLabel": "Number of pupils",
+        "yMax": 40,
+        "yStep": 10,
+        "minorStep": 2,
+        "alt": "A bar chart of the number of pupils at four feeding shows."
+      },
+      "answer": {
+        "value": 22,
+        "tolerance": 0,
+        "accept": [
+          "22 pupils"
+        ]
+      },
+      "solution": "The labelled lines go up in 10s, and there are 5 small steps between them, so each small step is 10 ÷ 5 = 2. The seal bar stops one small step above 20, so 20 + 2 = 22 pupils.",
+      "misconceptions": {
+        "common": "Check what one small step is worth: 10 ÷ 5 = 2, not 1. The seal bar is one small step above 20, so it shows 22 (not 21)."
+      },
+      "skill": "reading and comparing data",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "22."
+        }
+      ],
+      "print": {
+        "space": "none",
+        "answerLabel": "pupils"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q08a",
+      "number": "8(a)",
+      "group": "8",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the scatter graph. How many of the turtles have a shell length of more than 40 cm?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0,
+        "accept": [
+          "3 turtles"
+        ]
+      },
+      "solution": "Find the 40 cm line and count the crosses ABOVE it: 46 cm, 52 cm and 48 cm. That is 3 turtles. The turtle on the line has exactly 40 cm, which is not MORE than 40 cm.",
+      "misconceptions": {
+        "common": "If you got 4, you counted the turtle whose shell is exactly 40 cm. 'More than 40' does not include 40 itself."
+      },
+      "skill": "interpreting scatter graphs",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "3."
+        }
+      ],
+      "print": {
+        "space": "none",
+        "answerLabel": "turtles"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q08b",
+      "number": "8(b)",
+      "group": "8",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the scatter graph. True or false: the oldest turtle has the longest shell.",
+      "answer": false,
+      "solution": "The oldest turtle is the cross furthest right (12 years). Its shell is 48 cm. The longest shell is the highest cross, 52 cm, and that turtle is 10 years old. So the statement is false. Older turtles TEND to have longer shells, but that is not true for every turtle.",
+      "misconceptions": {
+        "common": "The graph goes up overall, but a trend is not true for every point. Check the actual crosses: the furthest right (oldest) is not the highest (longest)."
+      },
+      "skill": "interpreting scatter graphs",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "False."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q09",
+      "number": "9",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Your group made this tally chart of the birds you counted at the bird park. How many birds did you count altogether?",
+      "diagram": {
+        "type": "table",
+        "title": "Birds counted at the bird park",
+        "columns": [
+          "Bird",
+          "Tally"
+        ],
+        "rows": [
+          [
+            "Parrots",
+            {
+              "tally": 13
+            }
+          ],
+          [
+            "Flamingos",
+            {
+              "tally": 8
+            }
+          ],
+          [
+            "Hornbills",
+            {
+              "tally": 6
+            }
+          ],
+          [
+            "Peacocks",
+            {
+              "tally": 11
+            }
+          ]
+        ],
+        "alt": "A tally chart of four kinds of birds."
+      },
+      "answer": {
+        "value": 38,
+        "tolerance": 0,
+        "accept": [
+          "38 birds"
+        ]
+      },
+      "solution": "Each gate (four lines with a line across) is 5. Parrots 5 + 5 + 3 = 13, flamingos 5 + 3 = 8, hornbills 5 + 1 = 6, peacocks 5 + 5 + 1 = 11. Total 13 + 8 + 6 + 11 = 38.",
+      "misconceptions": {
+        "common": "Each gate counts as 5, not 4: the line across is the fifth mark. Counting gates as 4 gives 32 instead of 38."
+      },
+      "skill": "reading tally charts and frequency tables",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "38."
+        }
+      ],
+      "print": {
+        "space": "small",
+        "answerLabel": "birds"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q10",
+      "number": "10",
+      "subtopicId": "m12-s3",
+      "bookSection": "12F",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Lina timed an otter under water on 6 dives. Her times, in seconds, were: 14, 9, 21, 12, 9, 17. Find the median time.",
+      "answer": {
+        "value": 13,
+        "tolerance": 0,
+        "accept": [
+          "13 seconds",
+          "13 s"
+        ]
+      },
+      "solution": "Put the times in order first: 9, 9, 12, 14, 17, 21. There are 6 times, so there are two middle values, 12 and 14. The median is halfway between them: (12 + 14) ÷ 2 = 13 seconds. Trap: taking the middle of the list before ordering it.",
+      "misconceptions": {
+        "common": "Order the times first (9, 9, 12, 14, 17, 21). With 6 values there are two middle values, 12 and 14, so the median is halfway between them: 13. Taking the middle of the unordered list gives 16.5; 9 is the mode, not the median."
+      },
+      "skill": "finding the median",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "The six times written in order (9, 9, 12, 14, 17, 21), or 12 and 14 picked out as the two middle values."
+        },
+        {
+          "code": "A1",
+          "text": "13. A correct answer with no working scores 2 marks."
+        }
+      ],
+      "print": {
+        "space": "medium",
+        "answerLabel": "seconds"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q11",
+      "number": "11",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The line graph shows the mass of a baby elephant on the first day of each month. Which conclusion is correct? Choose one.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Mass of a baby elephant",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun"
+        ],
+        "series": [
+          {
+            "name": "Mass",
+            "values": [
+              110,
+              140,
+              160,
+              160,
+              200,
+              220
+            ]
+          }
+        ],
+        "yMin": 100,
+        "yMax": 240,
+        "yStep": 20,
+        "minorStep": 10,
+        "xLabel": "Month (first day)",
+        "yLabel": "Mass (kg)"
+      },
+      "options": [
+        "Its mass stayed the same from March to April.",
+        "Its mass went up from every month to the next.",
+        "It gained the same mass every month.",
+        "It gained the most mass from January to February."
+      ],
+      "answer": 0,
+      "solution": "Read each pair of points: Jan to Feb +30 kg, Feb to Mar +20 kg, Mar to Apr 0 kg (the line is flat), Apr to May +40 kg, May to Jun +20 kg. The flat part from March to April means the mass stayed the same. The biggest gain was April to May, the steepest part.",
+      "misconceptions": {
+        "1": "Look at March to April: the line is flat, so the mass did not go up then.",
+        "2": "The gains are different (30, 20, 0, 40 and 20 kg). The same gain every month would make a perfectly straight line.",
+        "3": "January to February is +30 kg, but April to May is +40 kg. The steepest part of the line shows the biggest gain."
+      },
+      "skill": "identifying trends",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "\"Its mass stayed the same from March to April\" only (one box ticked)."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q12a",
+      "number": "12(a)",
+      "group": "12",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the grid. What are the coordinates of the penguin pool, P? Write them like (x, y).",
+      "answer": {
+        "accept": [
+          "(-3, 4)",
+          "(-3,4)"
+        ],
+        "keywords": []
+      },
+      "solution": "Start at the origin. P is 3 units LEFT (x = -3) and 4 units UP (y = 4). Across first, then up: (-3, 4).",
+      "misconceptions": {
+        "common": "Across first, then up or down. (4, -3) has the numbers swapped; P is 3 to the left, so x = -3, and 4 up, so y = 4."
+      },
+      "skill": "reading and plotting coordinates",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(-3, 4). Not (4, -3)."
+        }
+      ],
+      "print": {
+        "space": "none",
+        "answerLabel": "( ____ , ____ )"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q12b",
+      "number": "12(b)",
+      "group": "12",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the grid. The gift shop is at (2.5, -1.5). Which letter marks the gift shop?",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": 2,
+      "solution": "x = 2.5: go 2.5 units right (halfway between 2 and 3). y = -1.5: then go 1.5 units down (halfway between -1 and -2). That point is C.",
+      "misconceptions": {
+        "0": "A is at (-1.5, 2.5): the two numbers are swapped. Go across first (2.5 right), then down (1.5 down).",
+        "1": "B is at (2.5, 1.5), which is UP. The y-coordinate is -1.5, so go down, below the x-axis.",
+        "3": "D is at (1.5, -2.5): the sizes of the two numbers are swapped. Go 2.5 across and 1.5 down."
+      },
+      "skill": "reading and plotting coordinates",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "C."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q13",
+      "number": "13",
+      "subtopicId": "m13-s2",
+      "bookSection": "13B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A straight path joins the lion house L and the tiger house T, as shown on the grid. A fountain is exactly halfway along the path. What are the coordinates of the fountain?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          6
+        ],
+        "y": [
+          -1,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -4,
+              3
+            ],
+            "label": "L",
+            "showCoords": true
+          },
+          {
+            "at": [
+              5,
+              3
+            ],
+            "label": "T",
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -4,
+              3
+            ],
+            "to": [
+              5,
+              3
+            ]
+          }
+        ]
+      },
+      "options": [
+        "(4.5, 3)",
+        "(0.5, 3)",
+        "(1, 3)",
+        "(3, 0.5)"
+      ],
+      "answer": 1,
+      "solution": "The path is horizontal, so y stays 3. The path goes from x = -4 to x = 5, which is 9 units. Half of 9 is 4.5. Start at -4 and go 4.5 right: -4 + 4.5 = 0.5. (Or (-4 + 5) ÷ 2 = 0.5.) The fountain is at (0.5, 3).",
+      "misconceptions": {
+        "0": "4.5 is half the LENGTH of the path, not the x-coordinate of the middle. Start at -4 and add 4.5 to get 0.5.",
+        "2": "You added -4 and 5 to get 1, but did not halve it. The midpoint is (-4 + 5) ÷ 2 = 0.5.",
+        "3": "The numbers are swapped. The path is level at y = 3, so the y-coordinate is 3 and x = 0.5."
+      },
+      "skill": "midpoints of horizontal and vertical lines",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(0.5, 3)."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q14",
+      "number": "14",
+      "subtopicId": "m13-s2",
+      "bookSection": "13B",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "The goat pen at the petting zoo is a parallelogram ABCD, with its corners in that order. Corners A, B and C are plotted on the grid and joined. What are the coordinates of D? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -4,
+          4
+        ],
+        "points": [
+          {
+            "at": [
+              -4,
+              -2
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              1,
+              -2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              3,
+              2
+            ],
+            "label": "C"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -4,
+              -2
+            ],
+            "to": [
+              1,
+              -2
+            ]
+          },
+          {
+            "from": [
+              1,
+              -2
+            ],
+            "to": [
+              3,
+              2
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(-2, 2)",
+          "(-2,2)"
+        ],
+        "keywords": []
+      },
+      "solution": "In a parallelogram, opposite sides are equal and parallel. To go from B to C you move 2 right and 4 up. AD must be the same move, so from A(-4, -2) go 2 right and 4 up: D = (-2, 2). Check: D to C is 5 right, the same as A to B. Trap: a parallelogram is not a rectangle, so D is not straight above A.",
+      "misconceptions": {
+        "common": "If you got (-4, 2), you made a rectangle, with D straight above A. In a parallelogram AD must be parallel to BC: BC goes 2 right and 4 up, so D is 2 right and 4 up from A, at (-2, 2)."
+      },
+      "skill": "finding a missing vertex",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(-2, 2) written, or D clearly plotted and labelled at (-2, 2) if the coordinates are not written. Drawing the sides AD and DC is expected but earns no extra mark."
+        }
+      ],
+      "print": {
+        "prompt": "The goat pen at the petting zoo is a parallelogram ABCD, with its corners in that order. Corners A, B and C are plotted on the grid and joined. Complete the parallelogram on the grid. Write the coordinates of D.",
+        "diagram": {
+          "type": "coordinateGrid",
+          "x": [
+            -5,
+            5
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "points": [
+            {
+              "at": [
+                -4,
+                -2
+              ],
+              "label": "A"
+            },
+            {
+              "at": [
+                1,
+                -2
+              ],
+              "label": "B"
+            },
+            {
+              "at": [
+                3,
+                2
+              ],
+              "label": "C"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -4,
+                -2
+              ],
+              "to": [
+                1,
+                -2
+              ]
+            },
+            {
+              "from": [
+                1,
+                -2
+              ],
+              "to": [
+                3,
+                2
+              ]
+            }
+          ]
+        },
+        "answerLabel": "D = ( ____ , ____ )"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q15",
+      "number": "15",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The feeding platform, rectangle ABCD, is drawn on the grid. It is translated 5 units right and 3 units down. What are the coordinates of the image of C?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -3,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -4,
+                1
+              ],
+              [
+                -1,
+                1
+              ],
+              [
+                -1,
+                3
+              ],
+              [
+                -4,
+                3
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -4,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              -1,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              -1,
+              3
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              -4,
+              3
+            ],
+            "label": "D"
+          }
+        ]
+      },
+      "options": [
+        "(-6, 6)",
+        "(4, 3)",
+        "(0, 4)",
+        "(4, 0)"
+      ],
+      "answer": 3,
+      "solution": "C is at (-1, 3). 5 units right: x = -1 + 5 = 4. 3 units down: y = 3 - 3 = 0. The image of C is (4, 0).",
+      "misconceptions": {
+        "0": "You moved C the opposite way (5 left and 3 up). Right means add to x; down means take away from y.",
+        "1": "You did the move to the right but forgot the 3 units down. A translation can have two moves: do both.",
+        "2": "The coordinates are swapped. x = 4 (across) and y = 0, so (4, 0)."
+      },
+      "skill": "translating points and shapes",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(4, 0)."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q16",
+      "number": "16",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A toy boat at point P is translated 3 units left and 5 units down. Its image, P', is plotted on the grid. What were the coordinates of P? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -1,
+              -2
+            ],
+            "label": "P'"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(2, 3)",
+          "(2,3)"
+        ],
+        "keywords": []
+      },
+      "solution": "P' is at (-1, -2). Work backwards: undo each move. Undo 3 left by going 3 right: x = -1 + 3 = 2. Undo 5 down by going 5 up: y = -2 + 5 = 3. So P was at (2, 3). Check: (2, 3) moved 3 left and 5 down is (-1, -2).",
+      "misconceptions": {
+        "common": "If you got (-4, -7), you did the translation again from P'. P' is the image, so to find P go the opposite way: 3 right and 5 up."
+      },
+      "skill": "finding the original point before a translation",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(2, 3)."
+        }
+      ],
+      "print": {
+        "space": "small",
+        "answerLabel": "( ____ , ____ )"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q17",
+      "number": "17",
+      "subtopicId": "m14-s1",
+      "bookSection": "14A",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The zoo's logo, triangle ABC, is drawn on the grid. It is reflected in the mirror line y = -1 (shown dashed). What are the coordinates of B', the image of B? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          4
+        ],
+        "y": [
+          -6,
+          4
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -3,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                0
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              1,
+              3
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              2,
+              0
+            ],
+            "label": "C"
+          }
+        ],
+        "lines": [
+          {
+            "y": -1,
+            "label": "y = -1"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(1, -5)",
+          "(1,-5)"
+        ],
+        "keywords": []
+      },
+      "solution": "B is at (1, 3). The mirror line is y = -1, so B is 3 - (-1) = 4 units above it. The image is 4 units BELOW the line: y = -1 - 4 = -5. A horizontal mirror line does not change x. So B' = (1, -5).",
+      "misconceptions": {
+        "common": "If you got (1, -3), you reflected in the x-axis instead of the line y = -1. If you got (1, -1), you stopped on the mirror line. Count from the mirror line: B is 4 units above it, so B' is 4 units below it, at (1, -5)."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(1, -5)."
+        }
+      ],
+      "print": {
+        "space": "small",
+        "answerLabel": "B' = ( ____ , ____ )"
+      }
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q18",
+      "number": "18",
+      "subtopicId": "m14-s2",
+      "bookSection": "14A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Point F (a flamingo statue) is plotted on the grid. It is reflected in the diagonal mirror line through (0, 0), (1, 1) and (2, 2), shown dashed. What are the coordinates of its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              4
+            ],
+            "label": "F"
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
+      "options": [
+        "(4, -2)",
+        "(2, -4)",
+        "(-4, 2)",
+        "(-2, 4)"
+      ],
+      "answer": 0,
+      "solution": "F is at (-2, 4). Reflecting in this diagonal line swaps the two coordinates: (-2, 4) becomes (4, -2). Check: F is above the line and the image (4, -2) is below it, the same distance away.",
+      "misconceptions": {
+        "1": "You changed the signs of both numbers. That is a half turn about the origin, not a reflection in the diagonal. For this line, swap the coordinates: (4, -2).",
+        "2": "You swapped the numbers but left the minus sign in the first place. Swap the whole coordinates: x = -2 and y = 4 become (4, -2).",
+        "3": "F is not on the mirror line, so it must move. Swap the coordinates to get (4, -2)."
+      },
+      "skill": "reflecting in a diagonal line",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(4, -2)."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q19",
+      "number": "19",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Triangle JKL is drawn on the grid. It is rotated 90° clockwise about K. What are the coordinates of the image of J?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          7
+        ],
+        "y": [
+          -4,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -2,
+                1
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                3
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              1
+            ],
+            "label": "J"
+          },
+          {
+            "at": [
+              2,
+              1
+            ],
+            "label": "K"
+          },
+          {
+            "at": [
+              2,
+              3
+            ],
+            "label": "L"
+          }
+        ]
+      },
+      "options": [
+        "(2, -3)",
+        "(6, 1)",
+        "(2, 5)",
+        "(1, 2)"
+      ],
+      "answer": 2,
+      "solution": "K(2, 1) stays where it is. From K, J is 4 units to the LEFT. A quarter turn clockwise turns 'left' into 'up' (like a clock hand moving from 9 to 12). So the image of J is 4 units UP from K: (2, 1 + 4) = (2, 5).",
+      "misconceptions": {
+        "0": "This is a 90° ANTICLOCKWISE turn: 'left' turned to 'down'. Clockwise (the way clock hands go) turns 'left' to 'up'.",
+        "1": "This is a half turn (180°): J ends up on the opposite side of K. A 90° turn is only a quarter turn.",
+        "3": "This turns J about the origin (0, 0), not about K. The centre of the turn is K(2, 1), which does not move."
+      },
+      "skill": "rotating 90° about a vertex",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(2, 5)."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "source": "original",
+      "id": "mp3-q20",
+      "number": "20",
+      "subtopicId": "m14-s5",
+      "bookSection": "14C",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The drawing shows the star-shaped sign at the zoo entrance. What is its order of rotational symmetry?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            0,
+            -5
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -5,
+            0
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        "shaded": true,
+        "alt": "A star shape with four identical points."
+      },
+      "options": [
+        "1",
+        "2",
+        "4",
+        "8"
+      ],
+      "answer": 2,
+      "solution": "Turn the star about its centre. Each point moves onto the next point after a quarter turn (90°). It fits onto itself 4 times in a full turn (90°, 180°, 270°, 360°), so the order of rotational symmetry is 4. Trap: do not count the corners.",
+      "misconceptions": {
+        "0": "Order 1 means it only fits onto itself after a full turn. This star fits onto itself after every quarter turn, so its order is 4.",
+        "1": "A half turn works, but so does a quarter turn: each point lands on the next point. Count every position in one full turn where it looks the same: 4.",
+        "3": "8 is the number of corners (4 outer points and 4 inner corners). The order is how many times the shape fits onto itself in a full turn: 4."
+      },
+      "skill": "order of rotational symmetry",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "4."
+        }
+      ]
+    }
+  ]
+}

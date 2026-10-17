@@ -4,33 +4,46 @@
   "title": "Number Patterns",
   "order": 7,
   "bookChapter": "Chapter 7: Number Patterns",
+  "bookChapterNumber": 7,
+  "bookSections": [
+    {
+      "id": "7A",
+      "title": "Find and Use the Position-to-Term Rule",
+      "page": 110
+    },
+    {
+      "id": "7B",
+      "title": "Find Terms in Special Sequences",
+      "page": 114
+    }
+  ],
   "frameworkRefs": [
-    "6Nc.01",
+    "6Nc.02",
     "6Nc.03",
     "6Nc.04",
-    "6Nc.02",
+    "6Ni.08",
     "TWM.02"
   ],
   "preamble": {
-    "whatYouWillLearn": "You will find missing terms in sequences that go up or down in equal steps, including fractions, decimals and negative numbers. You will use position-to-term rules to find any term, like the 50th, without listing them all. You will also explore square and cube number patterns, matchstick and tile patterns, and function machines.",
+    "whatYouWillLearn": "You will use position-to-term rules to find any term in a sequence, like the 50th, without listing them all, and work forwards and backwards through function machines. You will also find terms in special sequences: square numbers, cube numbers, and matchstick and tile patterns.",
     "whyItMatters": "Spotting a pattern lets you predict what comes next instead of counting one by one. Position-to-term rules and letters for unknown numbers are the start of algebra, which you will use a lot in secondary school. Patterns also train you to explain why a rule works.",
     "realWorld": [
-      "An LRT train that arrives every 6 minutes: when do the next trains come?",
+      "Rows of seats in a stadium that grow by the same number each row: how many seats in row 30?",
       "Saving RM 5 more each week in a savings jar",
-      "Rows of seats in a stadium that grow by the same number each row",
-      "The temperature dropping by the same amount each hour on top of Mount Kinabalu at night",
-      "Floor tiles laid in growing square patterns"
+      "Floor tiles laid in growing square patterns",
+      "Stacking cubes into bigger and bigger cubes: 1, 8, 27, 64 ...",
+      "A taxi fare rule: a fixed charge plus an amount for every kilometre"
     ],
     "subtopics": [
-      {
-        "id": "m07-s1",
-        "title": "Sequences with constant steps",
-        "summary": "Count on and back in equal steps, including fractions, decimals and negative numbers, and find the term-to-term rule."
-      },
       {
         "id": "m07-s2",
         "title": "Position-to-term rules",
         "summary": "Use a rule like term = 4 x position + 1 to find any term, and work backwards to test whether a number is in a sequence."
+      },
+      {
+        "id": "m07-s4",
+        "title": "Function machines and letters",
+        "summary": "Find outputs and inputs of function machines, and use letters for unknown numbers in addition and subtraction."
       },
       {
         "id": "m07-s3",
@@ -38,267 +51,17 @@
         "summary": "Use square and cube numbers to make sequences, and find rules for matchstick and tile patterns."
       },
       {
-        "id": "m07-s4",
-        "title": "Function machines and letters",
-        "summary": "Find outputs and inputs of function machines, and use letters for unknown numbers in addition and subtraction."
+        "id": "m07-s5",
+        "title": "Square numbers and cube numbers",
+        "summary": "Recognise square numbers such as 7^2 = 49 (7^2 means 7 x 7) and cube numbers from 1 to 125 such as 4^3 = 64 (4^3 means 4 x 4 x 4)."
       }
     ]
   },
   "questions": [
     {
-      "id": "m07-q001",
-      "subtopicId": "m07-s1",
-      "type": "mcq",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "What is the next term in this sequence? 3, 7, 11, 15, ...",
-      "options": [
-        "18",
-        "19",
-        "16",
-        "30"
-      ],
-      "answer": 1,
-      "solution": "Find the step: 7 - 3 = 4, 11 - 7 = 4, 15 - 11 = 4. The rule is 'add 4'. The next term is 15 + 4 = 19. Well done if you checked every gap!",
-      "misconceptions": {
-        "0": "You added 3. Check the step: 7 - 3 = 4, so the sequence goes up by 4 each time, and 15 + 4 = 19.",
-        "2": "You counted on by 1. The step between the terms is 4, not 1, so the next term is 15 + 4 = 19.",
-        "3": "You doubled 15. This sequence does not multiply; it adds 4 each time, so the next term is 15 + 4 = 19."
-      },
-      "skill": "finding the next term (constant step)",
-      "source": "original"
-    },
-    {
-      "id": "m07-q002",
-      "subtopicId": "m07-s1",
-      "type": "mcq",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "A sequence counts back in steps of 4: 10, 6, 2, ... What is the next term?",
-      "options": [
-        "2",
-        "0",
-        "-6",
-        "-2"
-      ],
-      "answer": 3,
-      "solution": "The rule is 'subtract 4'. From 2, count back 4 steps on a number line: 1, 0, -1, -2. So the next term is -2.",
-      "misconceptions": {
-        "0": "You worked out 4 - 2 instead of 2 - 4. Counting back 4 from 2 takes you past zero: 1, 0, -1, -2.",
-        "1": "You stopped at zero. Sequences can carry on below zero into negative numbers: 2 - 4 = -2.",
-        "2": "You added the 2 and the 4 and made it negative. Count back 4 steps from 2: 1, 0, -1, -2. The answer is -2."
-      },
-      "skill": "counting on and back past zero",
-      "source": "original"
-    },
-    {
-      "id": "m07-q003",
-      "subtopicId": "m07-s1",
-      "type": "short",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "What is the term-to-term rule for this sequence? 2.5, 3, 3.5, 4, ... Write your answer like 'add 2' or 'subtract 2'.",
-      "answer": {
-        "accept": [
-          "add 0.5",
-          "add 1/2",
-          "+0.5",
-          "+ 0.5",
-          "plus 0.5",
-          "add a half",
-          "add one half",
-          "add half",
-          "+1/2",
-          "+ 1/2",
-          "add 0.50",
-          "plus a half",
-          "add on 0.5"
-        ],
-        "keywords": []
-      },
-      "solution": "Each term is 0.5 more than the one before: 3 - 2.5 = 0.5, 3.5 - 3 = 0.5, 4 - 3.5 = 0.5. So the rule is 'add 0.5' (add a half).",
-      "misconceptions": {
-        "common": "Writing 'add 1' because the whole numbers 3 and 4 appear. Check the gap between every pair of terms: it is 0.5."
-      },
-      "skill": "finding the term-to-term rule",
-      "source": "original"
-    },
-    {
-      "id": "m07-q004",
-      "subtopicId": "m07-s1",
-      "type": "truefalse",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "True or false: The sequence 1/4, 1/2, 3/4, 1, ... goes up in equal steps of 1/4.",
-      "answer": true,
-      "solution": "Write every term as quarters: 1/4, 2/4, 3/4, 4/4. Each term is one more quarter, so the step is always 1/4. True!",
-      "misconceptions": {
-        "common": "Thinking that 1/4 to 1/2 is a bigger jump than 1/2 to 3/4. But 1/2 is the same as 2/4, so every step is 1/4."
-      },
-      "skill": "sequences with fractions and decimals",
-      "source": "original"
-    },
-    {
-      "id": "m07-q005",
-      "subtopicId": "m07-s1",
-      "type": "mcq",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "Find the missing term in this sequence: 0.7, 0.9, ___, 1.3, 1.5",
-      "options": [
-        "1.1",
-        "0.11",
-        "0.10",
-        "1.0"
-      ],
-      "answer": 0,
-      "solution": "The step is 0.9 - 0.7 = 0.2. So the missing term is 0.9 + 0.2 = 1.1. Check: 1.1 + 0.2 = 1.3, which matches the next term.",
-      "misconceptions": {
-        "1": "You added 9 tenths and 2 tenths and wrote 11 after the point. 11 tenths is 1 whole and 1 tenth, which is 1.1.",
-        "2": "You counted 0.8, 0.9, 0.10 as if decimals work like whole numbers. After 0.9 comes 1.0, and 0.9 + 0.2 = 1.1.",
-        "3": "You added 0.1. The step is 0.9 - 0.7 = 0.2, so the missing term is 0.9 + 0.2 = 1.1. Check: 1.1 + 0.2 = 1.3."
-      },
-      "skill": "sequences with fractions and decimals",
-      "source": "original"
-    },
-    {
-      "id": "m07-q006",
-      "subtopicId": "m07-s1",
-      "type": "mcq",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "At midnight the temperature on top of a high mountain is 5 °C. It falls by 3 °C every hour. What is the temperature 4 hours after midnight?",
-      "options": [
-        "7 °C",
-        "-12 °C",
-        "-7 °C",
-        "-4 °C"
-      ],
-      "answer": 2,
-      "solution": "Count back 3 each hour: 5, 2, -1, -4, -7. After 4 hours it is -7 °C. Or: the total fall is 4 x 3 = 12 degrees, and 5 - 12 = -7.",
-      "misconceptions": {
-        "0": "You worked out 12 - 5 instead of 5 - 12. The temperature falls below zero, so the answer is negative: -7 °C.",
-        "1": "You found the total fall (4 x 3 = 12 degrees) but forgot it started at 5 °C. 5 - 12 = -7.",
-        "3": "You counted only 3 hours (5, 2, -1, -4). After 4 hours there is one more step: -4 - 3 = -7."
-      },
-      "skill": "counting on and back past zero",
-      "source": "inspired-by: KS2"
-    },
-    {
-      "id": "m07-q007",
-      "subtopicId": "m07-s1",
-      "type": "order",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "These are the first five terms of a sequence that starts at 2 and counts back in steps of 0.25, but they are mixed up. Put them in order from first term to last term.",
-      "options": [
-        "1.25",
-        "2",
-        "1",
-        "1.75",
-        "1.5"
-      ],
-      "answer": [
-        1,
-        3,
-        4,
-        0,
-        2
-      ],
-      "solution": "Start at 2 and subtract 0.25 each time: 2, 1.75, 1.5, 1.25, 1.",
-      "misconceptions": {
-        "common": "Thinking 1.25 is bigger than 1.5 because 25 is bigger than 5. Compare the tenths: 1.5 has 5 tenths but 1.25 has only 2 tenths, so 1.5 is bigger and comes first."
-      },
-      "skill": "sequences with fractions and decimals",
-      "source": "original"
-    },
-    {
-      "id": "m07-q008",
-      "subtopicId": "m07-s1",
-      "type": "mcq",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "Which sequence has the term-to-term rule 'subtract 3'?",
-      "options": [
-        "8, 11, 14, 17, ...",
-        "3, 6, 9, 12, ...",
-        "8, 5, 2, -1, ...",
-        "8, 5, 2, 0, ..."
-      ],
-      "answer": 2,
-      "solution": "Check each gap. In 8, 5, 2, -1 every step is 'subtract 3': 8 - 3 = 5, 5 - 3 = 2, 2 - 3 = -1.",
-      "misconceptions": {
-        "0": "This sequence adds 3 each time. Subtracting makes the terms get smaller.",
-        "1": "These are the multiples of 3. The rule is 'add 3', not 'subtract 3'.",
-        "3": "The last step, 2 to 0, is only 2. Sequences can go below zero: 2 - 3 = -1."
-      },
-      "skill": "finding the term-to-term rule",
-      "source": "original"
-    },
-    {
-      "id": "m07-q009",
-      "subtopicId": "m07-s1",
-      "type": "numeric",
-      "difficulty": 3,
-      "marks": 2,
-      "prompt": "A sequence goes up in equal steps. The 1st term is 3/4 and the 4th term is 3. What is the 2nd term? Give your answer as a mixed number.",
-      "answer": {
-        "value": 1.5,
-        "tolerance": 0,
-        "accept": [
-          "1 1/2",
-          "3/2",
-          "1.5"
-        ]
-      },
-      "solution": "From the 1st term to the 4th term there are 3 steps. The total increase is 3 - 3/4 = 2 1/4 = 9/4. Each step is 9/4 ÷ 3 = 3/4. The 2nd term is 3/4 + 3/4 = 6/4 = 1 1/2. Check: 3/4, 1 1/2, 2 1/4, 3.",
-      "misconceptions": {
-        "common": "Dividing by 4 because it is the 4th term. From the 1st term to the 4th term there are only 3 jumps, so divide the increase by 3."
-      },
-      "skill": "sequences with fractions and decimals",
-      "source": "original"
-    },
-    {
-      "id": "m07-q010",
-      "subtopicId": "m07-s1",
-      "type": "mcq",
-      "difficulty": 3,
-      "marks": 1,
-      "prompt": "A sequence starts at 20 and counts back in steps of 6: 20, 14, 8, ... What is the first term that is less than -10?",
-      "options": [
-        "-16",
-        "-10",
-        "-4",
-        "-22"
-      ],
-      "answer": 0,
-      "solution": "Keep subtracting 6: 20, 14, 8, 2, -4, -10, -16. -10 is not less than -10, so the first term less than -10 is -16.",
-      "misconceptions": {
-        "1": "-10 is in the sequence, but it is equal to -10, not less than it. The next term, -16, is the first one below -10.",
-        "2": "-4 is the first negative term, but -4 is greater than -10. Keep counting back: -4, -10, -16.",
-        "3": "You went one step too far. -16 is already less than -10, so it is the first one."
-      },
-      "skill": "counting on and back past zero",
-      "source": "inspired-by: Cambridge Checkpoint style"
-    },
-    {
-      "id": "m07-q011",
-      "subtopicId": "m07-s1",
-      "type": "truefalse",
-      "difficulty": 3,
-      "marks": 1,
-      "prompt": "True or false: If you start at -2.5 and count on in steps of 1.5, one of the terms will be exactly 4.",
-      "answer": false,
-      "solution": "Count on 1.5 each time: -2.5, -1, 0.5, 2, 3.5, 5, ... The terms jump from 3.5 to 5, so 4 is never a term. False.",
-      "misconceptions": {
-        "common": "Thinking 4 must be a term because the sequence goes past it. A sequence only lands on the numbers it steps to."
-      },
-      "skill": "counting on and back past zero",
-      "source": "inspired-by: KS2"
-    },
-    {
       "id": "m07-q012",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -322,6 +85,7 @@
     {
       "id": "m07-q013",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -345,6 +109,7 @@
     {
       "id": "m07-q014",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -360,6 +125,7 @@
     {
       "id": "m07-q015",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -401,6 +167,7 @@
     {
       "id": "m07-q016",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -424,6 +191,7 @@
     {
       "id": "m07-q017",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -443,6 +211,7 @@
     {
       "id": "m07-q018",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -466,6 +235,7 @@
     {
       "id": "m07-q019",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -489,6 +259,7 @@
     {
       "id": "m07-q020",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -510,6 +281,7 @@
     {
       "id": "m07-q021",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "truefalse",
       "difficulty": 3,
       "marks": 1,
@@ -525,6 +297,7 @@
     {
       "id": "m07-q022",
       "subtopicId": "m07-s2",
+      "bookSection": "7A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -548,6 +321,7 @@
     {
       "id": "m07-q023",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -571,6 +345,7 @@
     {
       "id": "m07-q024",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -594,6 +369,7 @@
     {
       "id": "m07-q025",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -609,6 +385,7 @@
     {
       "id": "m07-q026",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -683,6 +460,7 @@
     {
       "id": "m07-q027",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -715,6 +493,7 @@
     {
       "id": "m07-q028",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
@@ -744,6 +523,7 @@
     {
       "id": "m07-q029",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "order",
       "difficulty": 2,
       "marks": 1,
@@ -772,6 +552,7 @@
     {
       "id": "m07-q030",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -840,6 +621,7 @@
     {
       "id": "m07-q031",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -861,6 +643,7 @@
     {
       "id": "m07-q032",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -893,6 +676,7 @@
     {
       "id": "m07-q033",
       "subtopicId": "m07-s3",
+      "bookSection": "7B",
       "type": "truefalse",
       "difficulty": 3,
       "marks": 1,
@@ -908,6 +692,7 @@
     {
       "id": "m07-q034",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -940,6 +725,7 @@
     {
       "id": "m07-q035",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -959,6 +745,7 @@
     {
       "id": "m07-q036",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "short",
       "difficulty": 1,
       "marks": 1,
@@ -990,6 +777,7 @@
     {
       "id": "m07-q037",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
@@ -1005,6 +793,7 @@
     {
       "id": "m07-q038",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -1028,6 +817,7 @@
     {
       "id": "m07-q039",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -1056,6 +846,7 @@
     {
       "id": "m07-q040",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "match",
       "difficulty": 2,
       "marks": 2,
@@ -1104,6 +895,7 @@
     {
       "id": "m07-q041",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -1127,6 +919,7 @@
     {
       "id": "m07-q042",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -1155,6 +948,7 @@
     {
       "id": "m07-q043",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
@@ -1184,6 +978,7 @@
     {
       "id": "m07-q044",
       "subtopicId": "m07-s4",
+      "bookSection": "7A",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1203,6 +998,301 @@
       },
       "skill": "letters for unknown quantities",
       "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m02-q034",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 7^2?",
+      "options": [
+        "49",
+        "14",
+        "77",
+        "343"
+      ],
+      "answer": 0,
+      "solution": "7^2 means 7 squared, which is 7 x 7 = 49.",
+      "misconceptions": {
+        "1": "This works out 7 x 2. 7^2 means 7 x 7.",
+        "2": "This writes 7 twice. 7^2 means 7 multiplied by itself.",
+        "3": "343 is 7^3 = 7 x 7 x 7. 7^2 uses only two 7s."
+      },
+      "skill": "square numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q035",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is 4^3?",
+      "answer": {
+        "value": 64,
+        "tolerance": 0,
+        "accept": [
+          "sixty-four"
+        ]
+      },
+      "solution": "4^3 means 4 cubed: 4 x 4 x 4. 4 x 4 = 16, then 16 x 4 = 64.",
+      "misconceptions": {
+        "common": "Answering 12 by working out 4 x 3. 4^3 means 4 x 4 x 4."
+      },
+      "skill": "cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q036",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these is a cube number?",
+      "options": [
+        "9",
+        "6",
+        "27",
+        "16"
+      ],
+      "answer": 2,
+      "solution": "Cube numbers are 1 x 1 x 1 = 1, 2 x 2 x 2 = 8, 3 x 3 x 3 = 27, 4 x 4 x 4 = 64, 5 x 5 x 5 = 125. 27 is in the list.",
+      "misconceptions": {
+        "0": "9 = 3 x 3, so it is a SQUARE number, not a cube number.",
+        "1": "6 = 2 x 3. A cube number is a number times itself three times, e.g. 2 x 2 x 2 = 8.",
+        "3": "16 = 4 x 4, a square number. It is not 1, 8, 27, 64 or 125."
+      },
+      "skill": "cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q037",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the special name for the numbers 1, 8, 27, 64 and 125?",
+      "answer": {
+        "accept": [
+          "cube numbers",
+          "cube number",
+          "cubes",
+          "cube",
+          "cubed numbers",
+          "cubic numbers"
+        ],
+        "keywords": []
+      },
+      "solution": "1 = 1 x 1 x 1, 8 = 2 x 2 x 2, 27 = 3 x 3 x 3, 64 = 4 x 4 x 4, 125 = 5 x 5 x 5. They are cube numbers, because a cube of small blocks that is 2 long, 2 wide and 2 high has 8 blocks.",
+      "misconceptions": {
+        "common": "Saying square numbers. Square numbers come from 2 equal numbers multiplied (like 3 x 3 = 9); these come from 3 equal numbers multiplied."
+      },
+      "skill": "cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q038",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Work out each value, then put them in order from smallest to largest.",
+      "options": [
+        "5^2",
+        "3^3",
+        "2^3",
+        "4^2",
+        "1^3"
+      ],
+      "answer": [
+        4,
+        2,
+        3,
+        0,
+        1
+      ],
+      "solution": "5^2 = 25. 3^3 = 27. 2^3 = 8. 4^2 = 16. 1^3 = 1. Smallest to largest: 1^3 (1), 2^3 (8), 4^2 (16), 5^2 (25), 3^3 (27).",
+      "misconceptions": {
+        "common": "Treating the small number as 'times', e.g. 3^3 = 9 or 2^3 = 6. The small number tells you how many times to multiply the number by itself."
+      },
+      "skill": "square and cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q039",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the square numbers.",
+      "options": [
+        "36",
+        "48",
+        "64",
+        "90",
+        "100",
+        "125"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "Square numbers: 6 x 6 = 36, 8 x 8 = 64, 10 x 10 = 100. 48, 90 and 125 are not the result of a whole number multiplied by itself.",
+      "misconceptions": {
+        "1": "48 is between 6 x 6 = 36 and 7 x 7 = 49, so it is not a square number.",
+        "3": "90 is between 9 x 9 = 81 and 10 x 10 = 100, so it is not a square number.",
+        "5": "125 = 5 x 5 x 5 is a CUBE number. It is between 11 x 11 = 121 and 12 x 12 = 144, so it is not a square number."
+      },
+      "skill": "square numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q040",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "A square garden has an area of 121 m^2. How long is one side of the garden?",
+      "options": [
+        "60.5 m",
+        "11 m",
+        "30.25 m",
+        "12 m"
+      ],
+      "answer": 1,
+      "solution": "Area of a square = side x side. Which number times itself is 121? 11 x 11 = 121. So each side is 11 m.",
+      "misconceptions": {
+        "0": "This halves the area. For a square, you need the number that multiplied by ITSELF gives 121.",
+        "2": "This divides 121 by 4, which you would do with a perimeter, not an area.",
+        "3": "12 x 12 = 144, not 121. Try one less: 11 x 11 = 121."
+      },
+      "skill": "square numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q041",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Work out 6^2 + 2^3.",
+      "options": [
+        "18",
+        "42",
+        "288",
+        "44"
+      ],
+      "answer": 3,
+      "solution": "6^2 = 6 x 6 = 36. 2^3 = 2 x 2 x 2 = 8. 36 + 8 = 44.",
+      "misconceptions": {
+        "0": "This works out 6 x 2 = 12 and 2 x 3 = 6, then 12 + 6. The powers mean 6 x 6 and 2 x 2 x 2.",
+        "1": "6^2 = 36 is right, but 2^3 is 2 x 2 x 2 = 8, not 2 x 3 = 6.",
+        "2": "This multiplies 36 x 8. The sign is +, so add: 36 + 8."
+      },
+      "skill": "square and cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q042",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 2^3 is the same as 3^2.",
+      "answer": false,
+      "solution": "2^3 = 2 x 2 x 2 = 8. 3^2 = 3 x 3 = 9. 8 is not the same as 9, so the statement is false.",
+      "misconceptions": {
+        "common": "Thinking the order does not matter because both use a 2 and a 3. 2^3 means three 2s multiplied; 3^2 means two 3s multiplied."
+      },
+      "skill": "square and cube numbers",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m02-q043",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which number is BOTH a square number and a cube number?",
+      "options": [
+        "8",
+        "16",
+        "64",
+        "27"
+      ],
+      "answer": 2,
+      "solution": "64 = 8 x 8, so it is a square number. 64 = 4 x 4 x 4, so it is also a cube number. It is both!",
+      "misconceptions": {
+        "0": "8 = 2 x 2 x 2 is a cube number, but no whole number times itself makes 8 (2 x 2 = 4, 3 x 3 = 9).",
+        "1": "16 = 4 x 4 is a square number, but it is not a cube number (2 x 2 x 2 = 8, 3 x 3 x 3 = 27).",
+        "3": "27 = 3 x 3 x 3 is a cube number, but it is not a square number (5 x 5 = 25, 6 x 6 = 36)."
+      },
+      "skill": "square and cube numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q044",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel builds the large cube in the diagram from small 1 cm cubes. It is 5 small cubes long, 5 wide and 5 high. He then takes away a block of small cubes that is 3 long, 3 wide and 3 high from one corner. How many small cubes are left?",
+      "diagram": {
+        "type": "cuboid",
+        "l": 5,
+        "w": 5,
+        "h": 5,
+        "unitCubes": true,
+        "hiddenEdges": false
+      },
+      "answer": {
+        "value": 98,
+        "tolerance": 0,
+        "accept": [
+          "98 cubes"
+        ]
+      },
+      "solution": "The large cube has 5 x 5 x 5 = 125 small cubes. The block taken away has 3 x 3 x 3 = 27 small cubes. 125 - 27 = 98 small cubes are left.",
+      "misconceptions": {
+        "common": "Answering 116 by taking away 3 x 3 = 9 instead of 3 x 3 x 3 = 27. The block that is removed is a cube too, so it has 3^3 = 27 small cubes."
+      },
+      "skill": "cube numbers",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m02-q045",
+      "subtopicId": "m07-s5",
+      "bookSection": "7B",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "How many square numbers are there between 50 and 150?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "accept": [
+          "five"
+        ]
+      },
+      "solution": "7 x 7 = 49 is too small. Then 8 x 8 = 64, 9 x 9 = 81, 10 x 10 = 100, 11 x 11 = 121, 12 x 12 = 144. 13 x 13 = 169 is too big. That is 5 square numbers.",
+      "misconceptions": {
+        "common": "Missing 144 (12 x 12) or 121 (11 x 11) because they are past the 10 times table."
+      },
+      "skill": "square numbers",
+      "source": "inspired-by: Cambridge Checkpoint style"
     }
   ]
 }

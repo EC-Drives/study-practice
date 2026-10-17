@@ -28,8 +28,8 @@ export async function buildExport(db, meta = {}) {
     contentVersion: meta.contentVersion || '',
     device: { id: deviceId || '', label: (await db.getSetting('deviceLabel')) || '' },
     guide: {
-      sessions: 'One record per finished practice session: subject, topicId, mode (topic/subtopic/weak/mixed), durationMin, limitSec, timeUsedSec, startedAt/endedAt (ms since 1970), questionIds in the order shown, score; instances: the generated questions of that session in full (id -> question, with generatorId and seed).',
-      attempts: 'One record per question in a finished session: questionId, topicId, subtopicId, skill, type, difficulty, marks, response (raw), responseText, answered, correct, earned, fraction, misconceptions shown, misconceptionCodes (catalogue codes of those misconceptions), generated (generatorId, seed, difficulty for a generated question), timeSec on the question, flagged.',
+      sessions: 'One record per finished practice session: subject, topicId, mode (topic/subtopic/section/weak/mixed/paper; a section session has bookSection, a mock paper has paperId and attemptNo), durationMin, limitSec, timeUsedSec, startedAt/endedAt (ms since 1970), questionIds in the order shown, score; instances: the generated questions of that session in full (id -> question, with generatorId and seed).',
+      attempts: 'One record per question in a finished session: questionId, topicId, subtopicId, bookSection (maths), skill, type, difficulty, marks, response (raw), responseText, answered, correct, earned, fraction, misconceptions shown, misconceptionCodes (catalogue codes of those misconceptions), generated (generatorId, seed, difficulty for a generated question), timeSec on the question, flagged.',
       reports: 'The parent report made after each session.',
     },
     summary: {
@@ -63,7 +63,7 @@ const SUBJECTS = ['maths', 'science'];
 // a session's generated questions: each one complete and well formed (js/hooks.js)
 const checkInstances = (x) => x == null || (isObj(x) && Object.keys(x).length <= 1000 && Object.entries(x).every(([k, q]) => isStr(k) && validQuestion(q)));
 const checkRef = (g) => g == null || (isObj(g) && isStr(g.generatorId) && isNum(g.seed) && optNum(g.difficulty) && optText(g.v, 50));
-const MODES = ['topic', 'subtopic', 'weak', 'mixed'];
+const MODES = ['topic', 'subtopic', 'section', 'weak', 'mixed', 'paper'];
 
 function checkScore(s) {
   return isObj(s) && ['earned', 'max', 'pct', 'correct', 'total', 'answered'].every((k) => isNum(s[k])) && optNum(s.unanswered);
@@ -74,6 +74,9 @@ export function checkSession(s) {
     && isNum(s.startedAt) && optNum(s.endedAt) && isNum(s.durationMin) && optNum(s.limitSec) && optNum(s.timeUsedSec)
     && optText(s.topicId, 300) && optText(s.topicTitle, 500) && optText(s.subtopicId, 300) && optText(s.subtopicTitle, 500)
     && optBool(s.submittedEarly) && optBool(s.timedOut)
+    && optText(s.bookSection, 20) && optText(s.bookSectionTitle, 500) && optNum(s.bookPage)
+    && optText(s.paperId, 100) && optText(s.paperTitle, 500) && optText(s.paperSubtitle, 1000) && optNum(s.attemptNo)
+    && (s.mode !== 'paper' || isStr(s.paperId)) && (s.mode !== 'section' || isStr(s.bookSection))
     && listOf(s.questionIds, isStr, 1000) && checkScore(s.score) && checkInstances(s.instances);
 }
 
@@ -82,7 +85,7 @@ const isResponse = (r) => r == null || isBool(r) || isNum(r) || isText(r, 1000) 
 export function checkAttempt(a) {
   return isObj(a) && isStr(a.id) && isStr(a.sessionId) && isStr(a.questionId) && isNum(a.answeredAt)
     && isBool(a.correct) && optBool(a.answered) && optBool(a.flagged)
-    && optText(a.topicId, 300) && optText(a.subtopicId, 300) && optText(a.subject, 50) && optText(a.skill, 500) && optText(a.type, 50)
+    && optText(a.topicId, 300) && optText(a.subtopicId, 300) && optText(a.bookSection, 20) && optText(a.subject, 50) && optText(a.skill, 500) && optText(a.type, 50)
     && optNum(a.difficulty) && optNum(a.marks) && optNum(a.position) && optNum(a.earned) && optNum(a.fraction) && optNum(a.timeSec)
     && isResponse(a.response) && optText(a.responseText)
     && (a.misconceptions == null || listOf(a.misconceptions, (m) => isObj(m) && isText(m.note) && optText(m.key, 300), 50))
@@ -98,12 +101,15 @@ export function checkReport(r) {
   if (!(isNum(r.durationMin) && isNum(r.limitSec) && isNum(r.timeUsedSec) && isNum(r.avgSecPerAnswer) && isNum(r.quickWrong))) return false;
   if (!(isObj(r.byDifficulty) && [1, 2, 3].every((d) => isObj(r.byDifficulty[d]) && isNum(r.byDifficulty[d].total) && isNum(r.byDifficulty[d].correct)))) return false;
   if (!(listOf(r.bySubtopic, isGroup, 200) && listOf(r.bySkill, isGroup, 200))) return false;
+  if (!(r.bySection == null || listOf(r.bySection, (g) => isGroup(g) && isStr(g.id) && optNum(g.page) && optNum(g.earned) && optNum(g.max), 200))) return false;
+  if (!(optText(r.paperId, 100) && optNum(r.attemptNo) && optText(r.bookSection, 20))) return false;
+  if (!(r.perQuestion == null || listOf(r.perQuestion, (q) => isObj(q) && optText(q.label, 12), 1000))) return false;
   if (!(isStrList(r.understands) && isStrList(r.needsWork) && isStrList(r.recommendations))) return false;
   if (!(r.strongSkills == null || isStrList(r.strongSkills)) || !(r.weakSkills == null || isStrList(r.weakSkills))) return false;
   if (!listOf(r.misconceptions, (m) => isObj(m) && isText(m.note) && optText(m.subtopic, 500), 200)) return false;
   if (!(r.misconceptionCodes == null || listOf(r.misconceptionCodes, (c) => isObj(c) && isStr(c.code) && isNum(c.count) && optText(c.label, 500), 200))) return false;
   if (!listOf(r.mistakes, (m) => isObj(m) && isNum(m.position) && isNum(m.earned) && isNum(m.marks)
-    && ['prompt', 'subtopic', 'yourAnswer', 'correctAnswer'].every((k) => isText(m[k])) && optText(m.skill, 500), 1000)) return false;
+    && ['prompt', 'subtopic', 'yourAnswer', 'correctAnswer'].every((k) => isText(m[k])) && optText(m.skill, 500) && optText(m.label, 12), 1000)) return false;
   if (!listOf(r.masteryAfter, (m) => isObj(m) && isText(m.title, 500) && isNum(m.score) && optText(m.level, 100), 200)) return false;
   const c = r.comparison;
   if (!(isObj(c) && optNum(c.previousPct) && optNum(c.improvement) && optNum(c.previousBest) && (c.personalBest == null || isBool(c.personalBest) || c.personalBest === 'first'))) return false;

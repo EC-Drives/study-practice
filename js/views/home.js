@@ -1,8 +1,9 @@
 // Home page and subject (chapter list) page.
 
 import { h, clear, icon, link, button, dialog, pct } from '../ui.js';
-import { SUBJECTS, topicList, loadSubject, subjectTitle } from '../content.js';
-import { streak, personalBests, subtopicMastery, topicSummary, currentTopic, totals } from '../stats.js';
+import { SUBJECTS, topicList, loadSubject, subjectTitle, bookOrder, chapterLabel, paperList, indexQuestions } from '../content.js';
+import { streak, personalBests, subtopicMastery, topicSummary, currentTopic, totals, sectionTally, scopeKey } from '../stats.js';
+import { sessionTitle } from '../report.js';
 import { levelBadge, meter } from '../charts.js';
 import { formatClock } from '../timer.js';
 import { legacyProgress, importLegacy, declineLegacy } from '../data/migrate.js';
@@ -41,7 +42,7 @@ export async function homeView(el, app) {
     const answered = s.state ? Object.values(s.state.responses || {}).filter((r) => r != null && r !== '').length : 0;
     const card = h('section', { class: 'card card-resume' },
       h('h2', {}, icon('play'), h('span', { text: 'Carry on where you stopped' })),
-      h('p', { text: `${s.mode === 'mixed' ? `Mixed revision: ${subjectTitle(s.subject)}` : s.topicTitle}. ${answered} of ${s.questionIds.length} answered, ${formatClock(left)} left.` }),
+      h('p', { text: `${sessionTitle(s)}. ${answered} of ${s.questionIds.length} answered, ${formatClock(left)} left.` }),
       h('div', { class: 'row' },
         link('Continue', `#/session/${encodeURIComponent(s.id)}`, { icon: 'play', cls: 'btn-primary' }),
         button('Start fresh instead', {
@@ -106,9 +107,8 @@ export async function homeView(el, app) {
   const bests = [...personalBests(sessions).entries()].sort((a, b) => b[1].at - a[1].at).slice(0, 3);
   if (bests.length) {
     const titleOf = (k) => {
-      if (k.startsWith('mixed:')) return `Mixed revision: ${subjectTitle(k.slice(6))}`;
-      const ses = sessions.find((x) => x.topicId === k);
-      return ses ? ses.topicTitle : k;
+      const ses = sessions.find((x) => x.status === 'complete' && scopeKey(x) === k);
+      return ses ? sessionTitle({ ...ses, attemptNo: 1 }) : k;
     };
     page.append(h('section', { class: 'card' },
       h('h2', {}, icon('trophy'), h('span', { text: 'Your personal bests' })),
@@ -147,17 +147,48 @@ export async function subjectView(el, app, subject) {
       h('span', { class: 'subject-title', text: 'Mixed revision' }),
       h('span', { class: 'muted', text: 'Questions from every chapter. Great before exams.' })),
     icon('right', { cls: 'chev' })));
-  page.append(h('h2', { class: 'section-title', text: 'Chapters' }));
+  // mock papers (maths): timed exam practice, before the chapter list so she finds them quickly
+  const papers = await paperList(subject);
+  if (papers.length) {
+    const chs = [...new Set(papers.flatMap((p) => p.bookChapters || []))].sort((a, b) => a - b);
+    const done = sessions.filter((x) => x.status === 'complete' && x.mode === 'paper').length;
+    page.append(h('a', { class: 'card mixed-card paper-card', href: `#/papers/${subject}` },
+      h('span', { class: 'subject-icon' }, icon('paper', { size: 32 })),
+      h('span', { class: 'subject-body' },
+        h('span', { class: 'subject-title', text: 'Mock papers' }),
+        h('span', { class: 'muted', text: `${papers.length} timed exam papers${chs.length ? ` on Chapters ${chs[0]}-${chs[chs.length - 1]}` : ''}.${done ? ` You have sat ${done}.` : ''}` })),
+      icon('right', { cls: 'chev' })));
+  }
+  const book = topics.some((t) => Array.isArray(t.bookSections) && t.bookSections.length);
+  page.append(h('h2', { class: 'section-title', text: book ? 'Chapters in your book' : 'Chapters' }));
+  if (book) page.append(h('p', { class: 'muted small', text: 'Tap a chapter to read about it and practise all of it, or tap a section to practise just that part of your book.' }));
+  const qIndex = indexQuestions(topics);
+  const secAnswers = sectionTally(attempts, (a) => a.bookSection || (qIndex.get(a.questionId) || {}).bookSection);
   const list = h('ol', { class: 'topic-list' });
-  for (const t of topics) {
+  for (const t of bookOrder(topics)) {
     const sum = topicSummary(t, mastery, attempts);
-    list.append(h('li', {}, h('a', { class: `card topic-card${t.topicId === cur ? ' is-current' : ''}`, href: `#/topic/${encodeURIComponent(t.topicId)}` },
-      h('span', { class: 'topic-num', text: String(t.order) }),
+    const numText = Number.isInteger(t.bookChapterNumber) ? String(t.bookChapterNumber) : book ? '+' : String(t.order);
+    const head = h('a', { class: `card topic-card${t.topicId === cur ? ' is-current' : ''}`, href: `#/topic/${encodeURIComponent(t.topicId)}` },
+      h('span', { class: 'topic-num', 'aria-hidden': book ? 'true' : null, text: numText }),
       h('span', { class: 'topic-body' },
+        book ? h('span', { class: 'muted small chapter-label', text: Number.isInteger(t.bookChapterNumber) ? chapterLabel(t) : 'Extra topic (not a book chapter)' }) : null,
         h('span', { class: 'topic-title', text: t.title }),
-        h('span', { class: 'muted small', text: `${t.preamble.subtopics.length} parts · ${t.questions.length} questions${t.topicId === cur ? ' · you are here' : ''}` }),
+        h('span', { class: 'muted small', text: `${book && (t.bookSections || []).length ? `${t.bookSections.length} sections` : `${t.preamble.subtopics.length} parts`} · ${t.questions.length} questions${t.topicId === cur ? ' · you are here' : ''}` }),
         h('span', { class: 'row tight' }, levelBadge(sum.level), sum.score != null ? meter(sum.score, { label: `${t.title}: ${pct(sum.score)}` }) : null)),
-      icon('right', { cls: 'chev' }))));
+      icon('right', { cls: 'chev' }));
+    const li = h('li', { class: 'chapter-item' }, head);
+    if ((t.bookSections || []).length) {
+      li.append(h('ul', { class: 'section-list', 'aria-label': `Sections of ${t.title}` }, ...t.bookSections.map((sec) => {
+        const n = t.questions.filter((q) => q.bookSection === sec.id).length;
+        const g = secAnswers.get(sec.id);
+        return h('li', {}, h('a', { class: 'section-row', href: `#/section/${encodeURIComponent(t.topicId)}/${encodeURIComponent(sec.id)}` },
+          h('span', { class: 'section-id', text: sec.id }),
+          h('span', { class: 'section-title' }, h('span', { text: sec.title }),
+            h('span', { class: 'muted small', text: `${sec.page != null ? `Book page ${sec.page} · ` : ''}${n} question${n === 1 ? '' : 's'}${g ? ` · ${Math.round((g.correct / g.answers) * 100)}% right so far` : ''}` })),
+          icon('right', { cls: 'chev', size: 20 })));
+      })));
+    }
+    list.append(li);
   }
   page.append(list);
   clear(el).append(page);

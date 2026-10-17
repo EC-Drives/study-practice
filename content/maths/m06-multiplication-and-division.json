@@ -4,30 +4,58 @@
   "title": "Multiplication and Division",
   "order": 6,
   "bookChapter": "Chapter 6: Multiplication and Division",
+  "bookChapterNumber": 6,
+  "bookSections": [
+    {
+      "id": "6A",
+      "title": "Multiply by 1-digit and 2-digit Numbers",
+      "page": 87
+    },
+    {
+      "id": "6B",
+      "title": "Divide by 1-digit and 2-digit Numbers",
+      "page": 90
+    },
+    {
+      "id": "6C",
+      "title": "Use Multiples and Factors",
+      "page": 93
+    },
+    {
+      "id": "6D",
+      "title": "Use Tests of Divisibility",
+      "page": 96
+    },
+    {
+      "id": "6E",
+      "title": "Multiply Decimals",
+      "page": 99
+    },
+    {
+      "id": "6F",
+      "title": "Divide Decimals",
+      "page": 103
+    }
+  ],
   "frameworkRefs": [
-    "6Ni.02",
-    "6Ni.03",
     "6Ni.04",
     "6Ni.05",
+    "6Ni.06",
+    "6Ni.07",
     "6Nf.10",
     "6Nf.11"
   ],
   "preamble": {
-    "whatYouWillLearn": "You will use the order of operations and brackets, and the laws of arithmetic, to make calculations easier. You will multiply whole numbers by 1-digit and 2-digit numbers, and divide whole numbers, deciding what to do with a remainder. You will also multiply and divide decimals by whole numbers, and solve multi-step word problems.",
-    "whyItMatters": "Multiplying and dividing let you work out totals, shares and costs quickly. Estimating first tells you if an answer is sensible. Knowing the order of operations means everyone gets the same answer to the same calculation.",
+    "whatYouWillLearn": "You will multiply whole numbers by 1-digit and 2-digit numbers, and divide whole numbers, deciding what to do with a remainder. You will find factors, multiples and prime numbers, common factors and common multiples, and use tests of divisibility. You will also multiply and divide decimals by whole numbers, and solve multi-step word problems.",
+    "whyItMatters": "Multiplying and dividing let you work out totals, shares and costs quickly. Estimating first tells you if an answer is sensible. Knowing factors helps you simplify fractions, and divisibility tests let you check an answer in seconds.",
     "realWorld": [
       "Working out the cost of 3 Grab rides and the change from RM 50",
       "Finding how many buses are needed for a school trip",
-      "Sharing a 2-litre bottle of soya milk equally between glasses",
-      "Working out a hawker stall's takings from bowls of laksa and plates of chicken rice",
-      "Counting how many weeks of saving you need to buy a bicycle"
+      "Sharing 24 kuih equally among friends with none left over (the group sizes are factors of 24)",
+      "Working out when buses on two different routes next leave the station together (common multiples)",
+      "Sharing a 2-litre bottle of soya milk equally between glasses"
     ],
     "subtopics": [
-      {
-        "id": "m06-s1",
-        "title": "Order of operations and laws of arithmetic",
-        "summary": "Work out brackets first, then multiplication and division, then addition and subtraction. Use the commutative, associative and distributive laws to make calculations easier."
-      },
       {
         "id": "m06-s2",
         "title": "Multiplying whole numbers",
@@ -39,241 +67,32 @@
         "summary": "Divide whole numbers up to 1000 by 1-digit and 2-digit numbers. Decide whether to round a remainder up or down in a real problem."
       },
       {
-        "id": "m06-s4",
-        "title": "Multiplying and dividing decimals",
-        "summary": "Multiply and divide numbers with one or two decimal places by whole numbers, and use estimation to place the decimal point."
-      },
-      {
         "id": "m06-s5",
         "title": "Multi-step word problems",
         "summary": "Solve problems with money and measures that need more than one step of multiplication, division, addition or subtraction."
+      },
+      {
+        "id": "m06-s6",
+        "title": "Factors, multiples and primes",
+        "summary": "Find factors and multiples, common factors and common multiples (including the highest common factor and the lowest common multiple), and spot prime numbers."
+      },
+      {
+        "id": "m06-s7",
+        "title": "Tests of divisibility",
+        "summary": "Use quick tests to check whether a number divides exactly by 2, 3, 4, 5, 6, 9, 10 or 25, with a focus on 3, 6 and 9."
+      },
+      {
+        "id": "m06-s4",
+        "title": "Multiplying and dividing decimals",
+        "summary": "Multiply and divide numbers with one or two decimal places by whole numbers, and use estimation to place the decimal point."
       }
     ]
   },
   "questions": [
     {
-      "id": "m06-q001",
-      "subtopicId": "m06-s1",
-      "type": "mcq",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "Work out 20 - 3 × 4.",
-      "options": [
-        "68",
-        "12",
-        "8",
-        "32"
-      ],
-      "answer": 2,
-      "solution": "Multiply before you subtract. 3 x 4 = 12. Then 20 - 12 = 8.",
-      "misconceptions": {
-        "0": "You worked from left to right (20 - 3 = 17, then 17 x 4 = 68). Multiplication is done before subtraction.",
-        "1": "You worked out 3 x 4 = 12 but forgot to subtract it from 20.",
-        "3": "You multiplied first, which is right, but then added 20 + 12 instead of subtracting."
-      },
-      "skill": "order of operations",
-      "source": "original"
-    },
-    {
-      "id": "m06-q002",
-      "subtopicId": "m06-s1",
-      "type": "numeric",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "Work out (5 + 7) × 3.",
-      "answer": {
-        "value": 36,
-        "tolerance": 0,
-        "accept": []
-      },
-      "solution": "Brackets first: 5 + 7 = 12. Then 12 x 3 = 36.",
-      "misconceptions": {
-        "common": "Ignoring the brackets and multiplying first: 5 + 7 x 3 = 5 + 21 = 26. Whatever is inside brackets is always worked out first."
-      },
-      "skill": "order of operations",
-      "source": "original"
-    },
-    {
-      "id": "m06-q003",
-      "subtopicId": "m06-s1",
-      "type": "truefalse",
-      "difficulty": 1,
-      "marks": 1,
-      "prompt": "True or false: 6 × 15 = 15 × 6",
-      "answer": true,
-      "solution": "6 x 15 = 90 and 15 x 6 = 90. You can multiply two numbers in either order and get the same answer. This is the commutative law. The statement is true.",
-      "misconceptions": {
-        "common": "Thinking that changing the order changes the answer. That is true for subtraction and division (10 - 2 is not 2 - 10), but not for multiplication or addition."
-      },
-      "skill": "laws of arithmetic",
-      "source": "inspired-by: KS2"
-    },
-    {
-      "id": "m06-q004",
-      "subtopicId": "m06-s1",
-      "type": "mcq",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "Which calculation gives the same answer as 7 × 48?",
-      "options": [
-        "7 × 50 - 7 × 2",
-        "7 × 50 - 2",
-        "7 × 40 + 8",
-        "7 × 50 + 7 × 2"
-      ],
-      "answer": 0,
-      "solution": "48 = 50 - 2. So 7 x 48 = 7 x 50 - 7 x 2 = 350 - 14 = 336. Multiplying each part of a number and then combining is the distributive law.",
-      "misconceptions": {
-        "1": "You took 2 away only once. 48 is 50 - 2, so you need to take away seven lots of 2, which is 7 x 2 = 14.",
-        "2": "You multiplied the 40 by 7 but forgot to multiply the 8 by 7. It should be 7 x 40 + 7 x 8.",
-        "3": "48 is 2 LESS than 50, so you subtract 7 x 2, not add it."
-      },
-      "skill": "laws of arithmetic",
-      "source": "original"
-    },
-    {
-      "id": "m06-q005",
-      "subtopicId": "m06-s1",
-      "type": "numeric",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "Work out 25 × 37 × 4. Hint: you can multiply the numbers in any order.",
-      "answer": {
-        "value": 3700,
-        "tolerance": 0,
-        "accept": [
-          "3 700",
-          "3,700"
-        ]
-      },
-      "solution": "Multiply 25 x 4 first, because it makes 100. Then 100 x 37 = 3700.",
-      "misconceptions": {
-        "common": "Thinking you must work strictly from left to right (25 x 37 = 925, then 925 x 4). That still gives 3700, but it is slow and easy to slip. With only multiplication, you can choose the easiest order."
-      },
-      "skill": "laws of arithmetic",
-      "source": "original"
-    },
-    {
-      "id": "m06-q006",
-      "subtopicId": "m06-s1",
-      "type": "match",
-      "difficulty": 2,
-      "marks": 2,
-      "prompt": "Match each calculation to its answer.",
-      "options": {
-        "left": [
-          "3 + 4 × 5",
-          "(3 + 4) × 5",
-          "3 × 4 + 5",
-          "3 × (4 + 5)"
-        ],
-        "right": [
-          "27",
-          "23",
-          "60",
-          "35",
-          "17"
-        ]
-      },
-      "answer": [
-        [
-          0,
-          1
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          2,
-          4
-        ],
-        [
-          3,
-          0
-        ]
-      ],
-      "solution": "3 + 4 x 5: multiply first, 3 + 20 = 23. (3 + 4) x 5: brackets first, 7 x 5 = 35. 3 x 4 + 5: multiply first, 12 + 5 = 17. 3 x (4 + 5): brackets first, 3 x 9 = 27.",
-      "misconceptions": {
-        "common": "Working from left to right every time, which gives 35 for 3 + 4 x 5. Without brackets, multiplication comes before addition."
-      },
-      "skill": "order of operations",
-      "source": "original"
-    },
-    {
-      "id": "m06-q007",
-      "subtopicId": "m06-s1",
-      "type": "short",
-      "difficulty": 2,
-      "marks": 1,
-      "prompt": "Which law of arithmetic is used here?  6 × 23 = 6 × 20 + 6 × 3. Answer with one word.",
-      "answer": {
-        "accept": [
-          "distributive",
-          "distributive law",
-          "the distributive law",
-          "distributive property",
-          "the distributive property",
-          "Distributive"
-        ],
-        "keywords": []
-      },
-      "solution": "23 is split into 20 + 3, and each part is multiplied by 6: 120 + 18 = 138. Splitting a number into parts and multiplying each part is the distributive law.",
-      "misconceptions": {
-        "common": "Answering 'commutative' or 'associative'. Commutative means swapping the order (6 x 23 = 23 x 6). Associative means grouping differently ((2 x 3) x 4 = 2 x (3 x 4))."
-      },
-      "skill": "laws of arithmetic",
-      "source": "original"
-    },
-    {
-      "id": "m06-q008",
-      "subtopicId": "m06-s1",
-      "type": "mcq",
-      "difficulty": 3,
-      "marks": 2,
-      "prompt": "Work out 36 ÷ (4 + 2) × 3.",
-      "options": [
-        "2",
-        "15",
-        "6",
-        "18"
-      ],
-      "answer": 3,
-      "solution": "Brackets first: 4 + 2 = 6. Then division and multiplication from left to right: 36 ÷ 6 = 6, then 6 x 3 = 18.",
-      "misconceptions": {
-        "0": "You multiplied 6 x 3 before dividing. Division and multiplication have equal priority, so after the brackets work from left to right: 36 ÷ 6 = 6, then 6 x 3 = 18.",
-        "1": "You ignored the brackets: 36 ÷ 4 + 2 x 3 = 9 + 6 = 15. Brackets must be worked out first.",
-        "2": "You did the brackets and the division (36 ÷ 6 = 6) but forgot to multiply by 3."
-      },
-      "skill": "order of operations",
-      "source": "original"
-    },
-    {
-      "id": "m06-q009",
-      "subtopicId": "m06-s1",
-      "type": "mcq",
-      "difficulty": 3,
-      "marks": 2,
-      "prompt": "Where should brackets go so that 8 + 4 × 6 - 2 equals 48?",
-      "options": [
-        "(8 + 4) × 6 - 2",
-        "(8 + 4) × (6 - 2)",
-        "8 + 4 × (6 - 2)",
-        "8 + (4 × 6) - 2"
-      ],
-      "answer": 1,
-      "solution": "Try each one. (8 + 4) x (6 - 2) = 12 x 4 = 48. This is the only one that makes 48.",
-      "misconceptions": {
-        "0": "This gives 12 x 6 - 2 = 72 - 2 = 70. The subtraction needs brackets too.",
-        "2": "This gives 8 + 4 x 4 = 8 + 16 = 24. The multiplication is still done before the addition.",
-        "3": "These brackets change nothing, because multiplication is done first anyway: 8 + 24 - 2 = 30."
-      },
-      "skill": "order of operations",
-      "source": "inspired-by: KS2"
-    },
-    {
       "id": "m06-q010",
       "subtopicId": "m06-s2",
+      "bookSection": "6A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -297,6 +116,7 @@
     {
       "id": "m06-q011",
       "subtopicId": "m06-s2",
+      "bookSection": "6A",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -319,6 +139,7 @@
     {
       "id": "m06-q012",
       "subtopicId": "m06-s2",
+      "bookSection": "6A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -342,6 +163,7 @@
     {
       "id": "m06-q013",
       "subtopicId": "m06-s2",
+      "bookSection": "6A",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -365,6 +187,7 @@
     {
       "id": "m06-q014",
       "subtopicId": "m06-s2",
+      "bookSection": "6A",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -387,6 +210,7 @@
     {
       "id": "m06-q015",
       "subtopicId": "m06-s2",
+      "bookSection": "6A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -410,6 +234,7 @@
     {
       "id": "m06-q016",
       "subtopicId": "m06-s2",
+      "bookSection": "6A",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -425,6 +250,7 @@
     {
       "id": "m06-q017",
       "subtopicId": "m06-s2",
+      "bookSection": "6A",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -444,6 +270,7 @@
     {
       "id": "m06-q018",
       "subtopicId": "m06-s2",
+      "bookSection": "6A",
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
@@ -471,6 +298,7 @@
     {
       "id": "m06-q019",
       "subtopicId": "m06-s3",
+      "bookSection": "6B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -494,6 +322,7 @@
     {
       "id": "m06-q020",
       "subtopicId": "m06-s3",
+      "bookSection": "6B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -517,6 +346,7 @@
     {
       "id": "m06-q021",
       "subtopicId": "m06-s3",
+      "bookSection": "6B",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -540,6 +370,7 @@
     {
       "id": "m06-q022",
       "subtopicId": "m06-s3",
+      "bookSection": "6B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -563,6 +394,7 @@
     {
       "id": "m06-q023",
       "subtopicId": "m06-s3",
+      "bookSection": "6B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -584,6 +416,7 @@
     {
       "id": "m06-q024",
       "subtopicId": "m06-s3",
+      "bookSection": "6B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -603,6 +436,7 @@
     {
       "id": "m06-q025",
       "subtopicId": "m06-s3",
+      "bookSection": "6B",
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
@@ -618,6 +452,7 @@
     {
       "id": "m06-q026",
       "subtopicId": "m06-s3",
+      "bookSection": "6B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -637,6 +472,7 @@
     {
       "id": "m06-q027",
       "subtopicId": "m06-s3",
+      "bookSection": "6B",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -658,6 +494,7 @@
     {
       "id": "m06-q028",
       "subtopicId": "m06-s4",
+      "bookSection": "6E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -681,6 +518,7 @@
     {
       "id": "m06-q029",
       "subtopicId": "m06-s4",
+      "bookSection": "6F",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -700,6 +538,7 @@
     {
       "id": "m06-q030",
       "subtopicId": "m06-s4",
+      "bookSection": "6E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
@@ -723,6 +562,7 @@
     {
       "id": "m06-q031",
       "subtopicId": "m06-s4",
+      "bookSection": "6E",
       "type": "order",
       "difficulty": 1,
       "marks": 2,
@@ -749,6 +589,7 @@
     {
       "id": "m06-q032",
       "subtopicId": "m06-s4",
+      "bookSection": "6E",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -768,6 +609,7 @@
     {
       "id": "m06-q033",
       "subtopicId": "m06-s4",
+      "bookSection": "6F",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -791,6 +633,7 @@
     {
       "id": "m06-q034",
       "subtopicId": "m06-s4",
+      "bookSection": "6E",
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
@@ -814,6 +657,7 @@
     {
       "id": "m06-q035",
       "subtopicId": "m06-s4",
+      "bookSection": "6F",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -835,6 +679,7 @@
     {
       "id": "m06-q036",
       "subtopicId": "m06-s4",
+      "bookSection": "6E",
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
@@ -857,6 +702,7 @@
     {
       "id": "m06-q037",
       "subtopicId": "m06-s5",
+      "bookSection": "6E",
       "type": "mcq",
       "difficulty": 1,
       "marks": 2,
@@ -880,6 +726,7 @@
     {
       "id": "m06-q038",
       "subtopicId": "m06-s5",
+      "bookSection": "6A",
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
@@ -901,6 +748,7 @@
     {
       "id": "m06-q039",
       "subtopicId": "m06-s5",
+      "bookSection": "6A",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -924,6 +772,7 @@
     {
       "id": "m06-q040",
       "subtopicId": "m06-s5",
+      "bookSection": "6B",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -947,6 +796,7 @@
     {
       "id": "m06-q041",
       "subtopicId": "m06-s5",
+      "bookSection": "6E",
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
@@ -970,6 +820,7 @@
     {
       "id": "m06-q042",
       "subtopicId": "m06-s5",
+      "bookSection": "6B",
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
@@ -991,6 +842,7 @@
     {
       "id": "m06-q043",
       "subtopicId": "m06-s5",
+      "bookSection": "6E",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -1015,6 +867,7 @@
     {
       "id": "m06-q044",
       "subtopicId": "m06-s5",
+      "bookSection": "6B",
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
@@ -1036,6 +889,7 @@
     {
       "id": "m06-q045",
       "subtopicId": "m06-s5",
+      "bookSection": "6F",
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
@@ -1088,6 +942,543 @@
       },
       "skill": "multi-step word problems with x and ÷",
       "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m02-q012",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which number is a multiple of 6?",
+      "options": [
+        "3",
+        "16",
+        "42",
+        "26"
+      ],
+      "answer": 2,
+      "solution": "Multiples of 6 are in the 6 times table: 6, 12, 18, 24, 30, 36, 42... 6 x 7 = 42, so 42 is a multiple of 6.",
+      "misconceptions": {
+        "0": "3 is a FACTOR of 6 (it divides into 6). A multiple of 6 is in the 6 times table, like 6, 12, 18...",
+        "1": "16 ends in 6, but that does not make it a multiple of 6. 6 x 2 = 12 and 6 x 3 = 18, so 16 is not in the 6 times table.",
+        "3": "26 ends in 6, but 6 x 4 = 24 and 6 x 5 = 30, so 26 is not in the 6 times table."
+      },
+      "skill": "factors and multiples",
+      "source": "original"
+    },
+    {
+      "id": "m02-q013",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which of these is a prime number?",
+      "options": [
+        "23",
+        "21",
+        "1",
+        "27"
+      ],
+      "answer": 0,
+      "solution": "A prime number has exactly two factors: 1 and itself. 23 can only be divided exactly by 1 and 23, so it is prime. 21 = 3 x 7 and 27 = 3 x 9, and 1 has only one factor.",
+      "misconceptions": {
+        "1": "21 is odd, but not every odd number is prime. 21 = 3 x 7, so it has the factors 1, 3, 7 and 21.",
+        "2": "1 is not a prime number. A prime has exactly TWO factors (1 and itself). 1 has only one factor.",
+        "3": "27 = 3 x 9, so it has more than two factors (1, 3, 9, 27). It is not prime."
+      },
+      "skill": "prime numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q014",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: 2 is the only even prime number.",
+      "answer": true,
+      "solution": "2 has exactly two factors (1 and 2), so it is prime. Every other even number can be divided by 2 as well as by 1 and itself, so it has more than two factors. So 2 is the only even prime. True!",
+      "misconceptions": {
+        "common": "Thinking all prime numbers are odd, so 2 cannot be prime. 2 has exactly two factors, 1 and 2, so it is prime."
+      },
+      "skill": "prime numbers",
+      "source": "original"
+    },
+    {
+      "id": "m02-q015",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the factors of 18.",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "9",
+        "12",
+        "36"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "solution": "The factors of 18 come in pairs: 1 x 18, 2 x 9, 3 x 6. So the factors are 1, 2, 3, 6, 9 and 18. From the list, 2, 6 and 9 are factors.",
+      "misconceptions": {
+        "1": "4 does not divide exactly into 18: 4 x 4 = 16 and 4 x 5 = 20.",
+        "4": "12 does not divide exactly into 18: 18 ÷ 12 = 1 remainder 6.",
+        "5": "36 is a MULTIPLE of 18 (18 x 2), not a factor. Factors of 18 can never be bigger than 18."
+      },
+      "skill": "factors and multiples",
+      "source": "original"
+    },
+    {
+      "id": "m02-q016",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What is the highest common factor of 24 and 36?",
+      "options": [
+        "4",
+        "6",
+        "12",
+        "72"
+      ],
+      "answer": 2,
+      "solution": "Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Common factors: 1, 2, 3, 4, 6, 12. The highest is 12.",
+      "misconceptions": {
+        "0": "4 is a common factor of 24 and 36, but it is not the highest one.",
+        "1": "6 is a common factor of 24 and 36, but 12 is higher and also divides both.",
+        "3": "72 is the lowest common MULTIPLE of 24 and 36. A factor of 24 cannot be bigger than 24."
+      },
+      "skill": "highest common factor",
+      "source": "original"
+    },
+    {
+      "id": "m02-q017",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "What is the lowest common multiple of 4 and 6?",
+      "options": [
+        "12",
+        "2",
+        "10",
+        "24"
+      ],
+      "answer": 0,
+      "solution": "Multiples of 4: 4, 8, 12, 16, 20, 24... Multiples of 6: 6, 12, 18, 24... The first number in both lists is 12.",
+      "misconceptions": {
+        "1": "2 is the highest common FACTOR of 4 and 6. A multiple of 4 must be 4 or more.",
+        "2": "This adds 4 + 6. 10 is not in the 4 times table.",
+        "3": "24 = 4 x 6 is a common multiple, but there is a smaller one: 12."
+      },
+      "skill": "lowest common multiple",
+      "source": "original"
+    },
+    {
+      "id": "m02-q018",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which number is a common factor of 20 and 30?",
+      "options": [
+        "4",
+        "10",
+        "60",
+        "3"
+      ],
+      "answer": 1,
+      "solution": "10 divides exactly into both: 20 ÷ 10 = 2 and 30 ÷ 10 = 3. So 10 is a common factor of 20 and 30.",
+      "misconceptions": {
+        "0": "4 is a factor of 20, but not of 30 (30 ÷ 4 = 7 remainder 2). A common factor must divide BOTH numbers.",
+        "2": "60 is a common MULTIPLE of 20 and 30, not a factor. Factors cannot be bigger than the number.",
+        "3": "3 is a factor of 30, but not of 20 (20 ÷ 3 = 6 remainder 2)."
+      },
+      "skill": "common factors",
+      "source": "original"
+    },
+    {
+      "id": "m02-q019",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Match each number to the number of factors it has.",
+      "options": {
+        "left": [
+          "17",
+          "25",
+          "1",
+          "12"
+        ],
+        "right": [
+          "has exactly 1 factor",
+          "has exactly 2 factors",
+          "has exactly 3 factors",
+          "has exactly 6 factors",
+          "has exactly 4 factors"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "solution": "17: 1 and 17, so 2 factors (it is prime). 25: 1, 5, 25, so 3 factors. 1: only 1, so 1 factor. 12: 1, 2, 3, 4, 6, 12, so 6 factors. No number here has exactly 4 factors.",
+      "misconceptions": {
+        "common": "Missing a factor pair, or counting 5 twice for 25. 5 x 5 = 25 gives just one factor, 5, so 25 has 1, 5 and 25: three factors."
+      },
+      "skill": "factors and multiples",
+      "source": "original"
+    },
+    {
+      "id": "m02-q020",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Route A buses leave the bus station every 12 minutes. Route B buses leave every 18 minutes. A bus from each route leaves together at 7:00 am. How many minutes later will a bus from each route next leave together?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "accept": [
+          "36 minutes",
+          "36 min"
+        ]
+      },
+      "solution": "Route A leaves after 12, 24, 36, 48... minutes. Route B leaves after 18, 36, 54... minutes. The first time in both lists is 36 minutes. They next leave together after 36 minutes, at 7:36 am.",
+      "misconceptions": {
+        "common": "Answering 216 (12 x 18) or 6. 12 x 18 is a time when they leave together, but not the FIRST time. You need the lowest common multiple."
+      },
+      "skill": "lowest common multiple",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m02-q021",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Wei Ming has 36 red beads and 48 blue beads. He uses ALL the beads to make identical bracelets: every bracelet has the same number of red beads and the same number of blue beads. What is the greatest number of bracelets he can make?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "accept": [
+          "12 bracelets"
+        ]
+      },
+      "solution": "The number of bracelets must be a factor of 36 and of 48. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Factors of 48: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. The highest common factor is 12. So 12 bracelets, each with 3 red and 4 blue beads.",
+      "misconceptions": {
+        "common": "Answering 144 (the lowest common multiple) or 84 (36 + 48). The number of bracelets must divide both 36 and 48 exactly, so you need the highest common factor."
+      },
+      "skill": "highest common factor",
+      "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m02-q022",
+      "subtopicId": "m06-s6",
+      "bookSection": "6C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "I am a number between 40 and 50. I am a multiple of 3 and a factor of 90. What number am I?",
+      "options": [
+        "42",
+        "48",
+        "30",
+        "45"
+      ],
+      "answer": 3,
+      "solution": "Factors of 90: 1, 2, 3, 5, 6, 9, 10, 15, 18, 30, 45, 90. The only one between 40 and 50 is 45. Check: 45 = 3 x 15, so it is a multiple of 3. The number is 45.",
+      "misconceptions": {
+        "0": "42 is a multiple of 3, but it is not a factor of 90 (90 ÷ 42 = 2 remainder 6).",
+        "1": "48 is a multiple of 3, but it is not a factor of 90 (90 ÷ 48 = 1 remainder 42).",
+        "2": "30 is a multiple of 3 and a factor of 90, but it is not between 40 and 50."
+      },
+      "skill": "factors and multiples",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m02-q023",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which number is divisible by 5?",
+      "options": [
+        "352",
+        "535",
+        "553",
+        "5 001"
+      ],
+      "answer": 1,
+      "solution": "A number is divisible by 5 if its last digit is 0 or 5. Only 535 ends in 5. Check: 535 ÷ 5 = 107.",
+      "misconceptions": {
+        "0": "352 has a 5 in it, but the test only looks at the LAST digit. 352 ends in 2, so it is not divisible by 5.",
+        "2": "553 starts with 5, but it ends in 3. A number is divisible by 5 only if its last digit is 0 or 5.",
+        "3": "5 001 starts with 5, but it ends in 1, so it is not divisible by 5."
+      },
+      "skill": "divisibility tests",
+      "source": "original"
+    },
+    {
+      "id": "m02-q024",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which number is divisible by 3? (Hint: add up the digits.)",
+      "options": [
+        "212",
+        "502",
+        "471",
+        "3 001"
+      ],
+      "answer": 2,
+      "solution": "A number is divisible by 3 if the sum of its digits is a multiple of 3. 4 + 7 + 1 = 12, and 12 is a multiple of 3. Check: 471 ÷ 3 = 157.",
+      "misconceptions": {
+        "0": "2 + 1 + 2 = 5. 5 is not a multiple of 3, so 212 is not divisible by 3.",
+        "1": "5 + 0 + 2 = 7. 7 is not a multiple of 3, so 502 is not divisible by 3.",
+        "3": "3 001 starts with 3, but that does not matter. 3 + 0 + 0 + 1 = 4, which is not a multiple of 3."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q025",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which number, 3, 6 or 9, has this divisibility test: 'the number is even AND the sum of its digits is a multiple of 3'?",
+      "answer": {
+        "accept": [
+          "6",
+          "six"
+        ],
+        "keywords": []
+      },
+      "solution": "6 = 2 x 3. So a number divisible by 6 must pass the test for 2 (it is even) AND the test for 3 (digit sum is a multiple of 3). The answer is 6.",
+      "misconceptions": {
+        "common": "Answering 3 or 9. The test for 3 only needs the digit sum. Needing to be even as well (divisible by 2) is what makes the test for 6, because 6 = 2 x 3."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q026",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The 3-digit number 47? is divisible by 9. The ? stands for a missing digit. What is the missing digit?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": [
+          "seven"
+        ]
+      },
+      "solution": "For a number to be divisible by 9, its digit sum must be a multiple of 9. 4 + 7 = 11. The next multiple of 9 is 18, and 18 - 11 = 7. So the digit is 7. Check: 477 ÷ 9 = 53.",
+      "misconceptions": {
+        "common": "Answering 6 by stopping at a multiple of 3 (4 + 7 + 1 = 12). For 9, the digit sum must be a multiple of 9."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q027",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Select ALL the numbers that are divisible by 6.",
+      "options": [
+        "126",
+        "234",
+        "316",
+        "405",
+        "522",
+        "16"
+      ],
+      "answer": [
+        0,
+        1,
+        4
+      ],
+      "solution": "Divisible by 6 means even AND digit sum a multiple of 3. 126: even, 1 + 2 + 6 = 9. Yes. 234: even, 9. Yes. 316: even, 10. No. 405: odd. No. 522: even, 9. Yes. 16: even, 7. No.",
+      "misconceptions": {
+        "2": "316 is even, but 3 + 1 + 6 = 10, which is not a multiple of 3. So it is not divisible by 6.",
+        "3": "4 + 0 + 5 = 9, so 405 is divisible by 3. But it is odd, so it is not divisible by 2 and so not by 6.",
+        "5": "16 ends in 6, but that does not make it divisible by 6. 1 + 6 = 7 is not a multiple of 3."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q028",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which number is divisible by 4? (Hint: look at the last two digits.)",
+      "options": [
+        "1 342",
+        "3 114",
+        "4 442",
+        "2 516"
+      ],
+      "answer": 3,
+      "solution": "A number is divisible by 4 if its last two digits make a number divisible by 4. 2 516 ends in 16, and 16 ÷ 4 = 4. So 2 516 is divisible by 4. (2 516 ÷ 4 = 629.)",
+      "misconceptions": {
+        "0": "1 342 is even, but being even only shows it divides by 2. The last two digits, 42, are not divisible by 4 (42 ÷ 4 = 10 remainder 2).",
+        "1": "3 114 ends in 4, but the test for 4 uses the last TWO digits: 14 is not divisible by 4.",
+        "2": "Starting with 4s does not matter. The last two digits are 42, which is not divisible by 4."
+      },
+      "skill": "divisibility tests",
+      "source": "original"
+    },
+    {
+      "id": "m02-q029",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "True or false: 7 245 is divisible by 9.",
+      "answer": true,
+      "solution": "Add the digits: 7 + 2 + 4 + 5 = 18. 18 is a multiple of 9, so 7 245 is divisible by 9. The statement is true. Check: 7 245 ÷ 9 = 805.",
+      "misconceptions": {
+        "common": "Thinking it cannot be divisible by 9 because it is odd or does not end in 9. The test for 9 uses the digit sum, not the last digit."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q030",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Which of these numbers does 2 475 divide by exactly, with no remainder?",
+      "options": [
+        "2",
+        "4",
+        "9",
+        "10"
+      ],
+      "answer": 2,
+      "solution": "Digit sum: 2 + 4 + 7 + 5 = 18, which is a multiple of 9. So 2 475 is divisible by 9 (2 475 ÷ 9 = 275). It is odd, so not divisible by 2, 4 or 10.",
+      "misconceptions": {
+        "0": "2 475 starts with 2, but the test for 2 looks at the last digit. It ends in 5, which is odd.",
+        "1": "There is a 4 in 2 475, but the test for 4 uses the last two digits: 75 is not divisible by 4.",
+        "3": "To be divisible by 10 a number must end in 0. 2 475 ends in 5."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "original"
+    },
+    {
+      "id": "m02-q031",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The 3-digit number 53? is divisible by 6. The ? stands for a missing digit. What is the missing digit?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0,
+        "accept": [
+          "four"
+        ]
+      },
+      "solution": "Divisible by 6 means even AND digit sum a multiple of 3. 5 + 3 = 8, so the missing digit must make 9, 12 or 15: it could be 1, 4 or 7. It must also be even, so it is 4. Check: 534 ÷ 6 = 89.",
+      "misconceptions": {
+        "common": "Answering 1 or 7: these make the digit sum a multiple of 3, but 531 and 537 are odd. A number divisible by 6 must also be even."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "m02-q032",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which statement is ALWAYS true?",
+      "options": [
+        "Every number divisible by 3 is divisible by 9.",
+        "Every number divisible by 9 is divisible by 3.",
+        "Every number divisible by 3 is divisible by 6.",
+        "Every even number is divisible by 4."
+      ],
+      "answer": 1,
+      "solution": "9 = 3 x 3, so every multiple of 9 is also a multiple of 3. For example 18 = 3 x 6 and 27 = 3 x 9. Each of the other statements can be broken by one example: 12, 9 and 6.",
+      "misconceptions": {
+        "0": "Not always. 12 is divisible by 3 but not by 9 (12 ÷ 9 = 1 remainder 3).",
+        "2": "Not always. 9 is divisible by 3 but not by 6, because 9 is odd.",
+        "3": "Not always. 6 is even but not divisible by 4 (6 ÷ 4 = 1 remainder 2)."
+      },
+      "skill": "divisibility by 3, 6 and 9",
+      "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m02-q033",
+      "subtopicId": "m06-s7",
+      "bookSection": "6D",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "I am a 2-digit number. I am divisible by 3 and also by 25. What number am I?",
+      "answer": {
+        "value": 75,
+        "tolerance": 0,
+        "accept": [
+          "seventy-five"
+        ]
+      },
+      "solution": "2-digit numbers divisible by 25: 25, 50, 75. Digit sums: 2 + 5 = 7, 5 + 0 = 5, 7 + 5 = 12. Only 12 is a multiple of 3, so the number is 75. Check: 75 ÷ 3 = 25.",
+      "misconceptions": {
+        "common": "Answering 25 or 50. They pass the test for 25 (ending in 00, 25, 50 or 75) but their digit sums (7 and 5) are not multiples of 3."
+      },
+      "skill": "divisibility tests",
+      "source": "original"
     }
   ]
 }

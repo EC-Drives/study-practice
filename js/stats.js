@@ -1,6 +1,8 @@
 // Progress arithmetic: mastery per subtopic and chapter, time and questions per day / week /
 // month, streaks, personal bests and question history. Pure functions over stored records.
 
+import { currentSubtopicId } from './bookmap.js';
+
 const DAY = 86400000;
 const DIFF_WEIGHT = { 1: 1, 2: 1.25, 3: 1.5 };
 
@@ -120,8 +122,10 @@ export function levelFor(score, n) {
 export function subtopicMastery(attempts) {
   const by = new Map();
   for (const a of attempts) {
-    if (!by.has(a.subtopicId)) by.set(a.subtopicId, []);
-    by.get(a.subtopicId).push(a);
+    // answers saved before the book mapping (17 Oct 2026) count under the subtopic's new id
+    const sid = currentSubtopicId(a.subtopicId);
+    if (!by.has(sid)) by.set(sid, []);
+    by.get(sid).push(a);
   }
   const out = new Map();
   for (const [sid, list] of by) {
@@ -223,7 +227,12 @@ export function longestStreak(sessions) {
   return best;
 }
 
-export const scopeKey = (s) => (s.mode === 'mixed' ? `mixed:${s.subject}` : s.topicId);
+export const scopeKey = (s) => {
+  if (s.mode === 'mixed') return `mixed:${s.subject}`;
+  if (s.mode === 'paper') return `paper:${s.paperId}`;
+  if (s.mode === 'section') return `section:${s.bookSection}`;
+  return s.topicId;
+};
 
 const pct = (s) => (s.score && s.score.max ? s.score.earned / s.score.max : 0);
 
@@ -278,7 +287,7 @@ export function misconceptionTally(attempts, sinceTs = 0) {
       const k = code ? `code:${code}` : `${a.questionId}|${m.key}`;
       if (seen.has(k)) continue;
       seen.add(k);
-      const cur = by.get(k) || { questionId: a.questionId, subtopicId: a.subtopicId, topicId: a.topicId, skill: a.skill, note: m.note, code, count: 0, lastAt: 0 };
+      const cur = by.get(k) || { questionId: a.questionId, subtopicId: currentSubtopicId(a.subtopicId), topicId: a.topicId, skill: a.skill, note: m.note, code, count: 0, lastAt: 0 };
       cur.count += 1;
       cur.lastAt = Math.max(cur.lastAt, a.answeredAt);
       by.set(k, cur);
@@ -301,12 +310,34 @@ export function misconceptionCodeTally(attempts, sinceTs = 0) {
       const cur = by.get(code) || { code, count: 0, lastAt: 0, subtopicIds: [], skills: [] };
       cur.count += 1;
       cur.lastAt = Math.max(cur.lastAt, a.answeredAt);
-      if (a.subtopicId && !cur.subtopicIds.includes(a.subtopicId)) cur.subtopicIds.push(a.subtopicId);
+      const sid = currentSubtopicId(a.subtopicId);
+      if (sid && !cur.subtopicIds.includes(sid)) cur.subtopicIds.push(sid);
       if (a.skill && !cur.skills.includes(a.skill)) cur.skills.push(a.skill);
       by.set(code, cur);
     }
   }
   return [...by.values()].sort((x, y) => y.count - x.count || y.lastAt - x.lastAt || (x.code < y.code ? -1 : 1));
+}
+
+/**
+ * Answers per book section over all her attempts: Map sectionId -> { answers, correct, earned,
+ * max, lastAt }. `sectionOf(attempt)` gives an attempt's section (attempts saved before sections
+ * existed carry none; the caller can look the question up).
+ */
+export function sectionTally(attempts, sectionOf = (a) => a.bookSection) {
+  const out = new Map();
+  for (const a of attempts) {
+    const id = sectionOf(a);
+    if (typeof id !== 'string' || !id) continue;
+    const g = out.get(id) || { id, answers: 0, correct: 0, earned: 0, max: 0, lastAt: 0 };
+    g.answers += 1;
+    if (a.correct) g.correct += 1;
+    g.earned += a.earned || 0;
+    g.max += a.marks || 1;
+    g.lastAt = Math.max(g.lastAt, a.answeredAt || 0);
+    out.set(id, g);
+  }
+  return out;
 }
 
 /** Correct / total per skill. */

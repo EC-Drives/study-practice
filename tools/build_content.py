@@ -10,7 +10,9 @@ What it does:
 2. Copies the good files to content/maths and content/science (the CLO folder stays the source;
    copies of banks that no longer exist there are removed from content/).
 3. Writes content/manifest.json: the list of chapters the app shows, and a content version.
-4. Rewrites sw.js from tools/sw.template.js with the list of every file to keep offline and a
+4. Checks every mock paper in <source>/papers with validate.py (validate_paper) and copies the good
+   ones to content/papers; the manifest lists them.
+5. Rewrites sw.js from tools/sw.template.js with the list of every file to keep offline and a
    version stamp, so devices pick up new questions on their next visit.
 
 Standard library only. Exit code 1 if nothing could be built.
@@ -81,6 +83,81 @@ def collect(source, validator, is_sample, seen_ids, seen_topics):
     return good
 
 
+def build_papers(source, validator, bank_ids=frozenset()):
+    """Validate and copy the mock papers; returns (manifest entries, copied paths)."""
+    from pathlib import Path
+    folder = os.path.join(source, 'papers')
+    out_dir = os.path.join(OUT, 'papers')
+    entries, paths = [], []
+    names = sorted(n for n in os.listdir(folder) if n.endswith('.json')) if os.path.isdir(folder) else []
+    if names and validator is not None and hasattr(validator, 'validate_paper'):
+        topics_full, bank = validator.load_topics_full(), validator.load_bank()
+    for name in names:
+        path = os.path.join(folder, name)
+        errors, data = [], None
+        try:
+            with open(path, encoding='utf-8') as f:
+                data = json.load(f)
+        except Exception as e:  # noqa: BLE001
+            errors = [f'not valid JSON ({e})']
+        if not errors and validator is not None and hasattr(validator, 'validate_paper'):
+            rep, _stats = validator.validate_paper(Path(path), topics_full, {}, bank)
+            errors = rep.errors
+        if not errors:
+            errors = basic_paper_check(data, bank_ids)
+        if errors:
+            print(f'  LEFT OUT papers/{name}: {len(errors)} error(s)')
+            for e in errors[:5]:
+                print(f'      {e}')
+            continue
+        os.makedirs(out_dir, exist_ok=True)
+        dest = os.path.join(out_dir, name)
+        shutil.copyfile(path, dest)
+        paths.append(dest)
+        entries.append({
+            'id': data['id'], 'title': data['title'], 'subtitle': data.get('subtitle', ''), 'subject': data['subject'],
+            'bookChapters': data.get('bookChapters', []), 'minutes': data['minutes'], 'totalMarks': data['totalMarks'],
+            'level': data.get('level', ''), 'items': len(data['questions']),
+            'questions': len({str(q.get('number', q.get('id'))).split('(')[0] for q in data['questions']}),
+            'file': f'content/papers/{name}',
+        })
+        print(f'  ok       papers/{name}: {len(data["questions"])} items, {data["totalMarks"]} marks, {data["minutes"]} min')
+    if os.path.isdir(out_dir):
+        keep = {os.path.normcase(p) for p in paths}
+        for name in os.listdir(out_dir):
+            p = os.path.join(out_dir, name)
+            if name.endswith('.json') and os.path.normcase(p) not in keep:
+                os.remove(p)
+                print(f'  removed stale copy content/papers/{name}')
+    return entries, paths
+
+
+def basic_paper_check(data, bank_ids):
+    """The checks the app relies on, even without the CLO's validator: a list of errors."""
+    if not isinstance(data, dict):
+        return ['not a paper']
+    errs = [f'missing {k}' for k in ('id', 'title', 'subject', 'minutes', 'totalMarks', 'questions') if k not in data]
+    if errs:
+        return errs
+    qs = data['questions']
+    if not isinstance(qs, list) or not qs or not all(isinstance(q, dict) for q in qs):
+        return ['questions must be a list of questions']
+    ids = [q.get('id') for q in qs]
+    if len(set(ids)) != len(ids):
+        errs.append('question ids repeat')
+    clash = [i for i in ids if i in bank_ids]
+    if clash:
+        errs.append(f'question ids also used in the banks: {", ".join(map(str, clash[:5]))}')
+    groups = {g.get('id') for g in data.get('groups', []) if isinstance(g, dict)}
+    errs += [f'{q.get("id")}: unknown group {q["group"]}' for q in qs if q.get('group') is not None and q['group'] not in groups]
+    nums = [q.get('number') for q in qs]
+    if len(set(nums)) != len(nums):
+        errs.append('question numbers repeat')
+    if sum(q.get('marks', 0) if isinstance(q.get('marks'), int) else 0 for q in qs) != data['totalMarks']:
+        errs.append('marks do not add up to totalMarks')
+    return errs
+
+
 def sha(paths):
     h = hashlib.sha256()
     for p in sorted(paths):
@@ -122,7 +199,8 @@ def main(argv):
                     os.remove(p)
                     print(f'  removed stale copy content/{subject}/{name}')
 
-    content_paths = sorted(wanted)
+    papers, paper_paths = build_papers(source, validator, frozenset(seen_ids))
+    content_paths = sorted(wanted) + paper_paths
     manifest = {
         'generatedAt': datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat(),
         'contentVersion': sha(content_paths)[:12],
@@ -134,17 +212,24 @@ def main(argv):
         for s, name, _path, d in files:
             if s != subject:
                 continue
+            counts = {}
+            for q in d['questions']:
+                if q.get('bookSection'):
+                    counts[q['bookSection']] = counts.get(q['bookSection'], 0) + 1
             topics.append({
                 'topicId': d['topicId'],
                 'title': d['title'],
                 'order': d['order'],
                 'bookChapter': d.get('bookChapter', ''),
+                'bookChapterNumber': d.get('bookChapterNumber'),
+                'bookSections': [{**s, 'questions': counts.get(s['id'], 0)} for s in d.get('bookSections', [])],
                 'file': f'content/{subject}/{name}',
                 'questions': len(d['questions']),
                 'subtopics': len(d['preamble'].get('subtopics', [])),
             })
         topics.sort(key=lambda t: t['order'])
         manifest['subjects'].append({'id': subject, 'topics': topics})
+    manifest['papers'] = papers
     with open(os.path.join(OUT, 'manifest.json'), 'w', encoding='utf-8', newline='\n') as f:
         json.dump(manifest, f, indent=1, ensure_ascii=False)
         f.write('\n')

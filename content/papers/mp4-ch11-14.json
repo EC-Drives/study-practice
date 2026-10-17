@@ -1,0 +1,2529 @@
+{
+  "id": "mp4-ch11-14",
+  "title": "Mock Paper 4: Stretch",
+  "subtitle": "Chapters 11-14: Ratio and Proportion; Data Handling; The Coordinate Grid; Reflection and Rotation",
+  "subject": "maths",
+  "bookChapters": [
+    11,
+    12,
+    13,
+    14
+  ],
+  "minutes": 50,
+  "totalMarks": 40,
+  "calculator": false,
+  "level": "stretch",
+  "instructions": [
+    "Answer all the questions.",
+    "Show your working. You may get marks for correct working even if your final answer is wrong.",
+    "A correct answer with no working still scores full marks; working can earn marks when the answer is wrong.",
+    "You may not use a calculator.",
+    "This paper is harder than the real exam is likely to be, so a lower score than usual is normal.",
+    "How to use your time: about 1 minute per mark. If you are stuck, write your best answer, mark the question and move on; come back at the end. Never leave an answer blank."
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "title": "Section A"
+    }
+  ],
+  "groups": [
+    {
+      "id": "5",
+      "stem": "Ahmad's family restaurant needs to buy rice. The table shows the prices at three shops.",
+      "diagram": {
+        "type": "table",
+        "title": "Rice prices",
+        "columns": [
+          "Shop",
+          "Size of bag",
+          "Price of one bag",
+          "Special offer"
+        ],
+        "rows": [
+          [
+            "A",
+            "10 kg",
+            "RM 36.00",
+            "None"
+          ],
+          [
+            "B",
+            "1 kg",
+            "RM 3.50",
+            "None"
+          ],
+          [
+            "C",
+            "2 kg",
+            "RM 10.20",
+            "Buy 3 bags, pay for only 2"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "10",
+      "stem": "The science club measured the lengths of 20 leaves. Each length was rounded to the nearest centimetre. The lengths, in cm, are: 7, 12, 15, 9, 10, 14, 19, 20, 15, 11, 8, 16, 14, 10, 24, 15, 13, 5, 19, 20. The club starts to make the grouped frequency table shown.",
+      "diagram": {
+        "type": "table",
+        "title": "Lengths of 20 leaves",
+        "columns": [
+          "Length (cm)",
+          "Frequency"
+        ],
+        "rows": [
+          [
+            "5 to 9",
+            4
+          ],
+          [
+            "10 to 14",
+            "?"
+          ],
+          [
+            "15 to 19",
+            ""
+          ],
+          [
+            "20 to 24",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "id": "11",
+      "stem": "The science club dropped a ball from different heights and measured how high it bounced. The scatter graph shows their results.",
+      "diagram": {
+        "type": "scatterGraph",
+        "points": [
+          [
+            20,
+            12
+          ],
+          [
+            30,
+            19
+          ],
+          [
+            40,
+            24
+          ],
+          [
+            50,
+            31
+          ],
+          [
+            60,
+            35
+          ],
+          [
+            70,
+            20
+          ],
+          [
+            80,
+            49
+          ],
+          [
+            90,
+            54
+          ],
+          [
+            100,
+            61
+          ]
+        ],
+        "xMin": 0,
+        "xMax": 100,
+        "xStep": 10,
+        "yMin": 0,
+        "yMax": 70,
+        "yStep": 10,
+        "title": "Drop height and bounce height",
+        "xLabel": "Drop height (cm)",
+        "yLabel": "Bounce height (cm)",
+        "alt": "A scatter graph with drop height (cm) across the bottom and bounce height (cm) up the side. It shows 9 crosses."
+      }
+    },
+    {
+      "id": "15",
+      "stem": "The map of a town is drawn on a coordinate grid. P is the post office, C is the clinic, S is the school, L is the library and M is the mosque. A straight road joins C and S.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          6
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -3.5,
+              -2
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              4,
+              3
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              4,
+              -4
+            ],
+            "label": "S"
+          },
+          {
+            "at": [
+              -2,
+              4
+            ],
+            "label": "L"
+          },
+          {
+            "at": [
+              -5,
+              2
+            ],
+            "label": "M"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              4,
+              3
+            ],
+            "to": [
+              4,
+              -4
+            ]
+          }
+        ],
+        "alt": "A town map on a coordinate grid from -6 to 6 across and -5 to 5 up, with places P, C, S, L and M marked and a straight road from C to S."
+      }
+    },
+    {
+      "id": "18",
+      "stem": "Triangle T has corners A, B and C, as shown on the grid. The dashed line is the mirror line x = -2.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -7,
+          6
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                -3
+              ],
+              [
+                4,
+                -3
+              ],
+              [
+                4,
+                -1
+              ]
+            ],
+            "label": "T"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              -3
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              4,
+              -3
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              4,
+              -1
+            ],
+            "label": "C"
+          }
+        ],
+        "lines": [
+          {
+            "x": -2,
+            "label": "x = -2"
+          }
+        ],
+        "alt": "A coordinate grid from -7 to 6 across and -5 to 5 up, with triangle T (corners A, B, C) below the x-axis and the mirror line x = -2."
+      }
+    },
+    {
+      "id": "21",
+      "stem": "Mei Lin is designing a square tile for her family's batik shop. The grid shows the squares she has shaded so far. The dot marks the centre of the tile.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          3
+        ],
+        "y": [
+          -3,
+          3
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "style": "shaded"
+          },
+          {
+            "points": [
+              [
+                -1,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                -1,
+                -1
+              ]
+            ],
+            "style": "shaded"
+          },
+          {
+            "points": [
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "style": "shaded"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              0,
+              0
+            ]
+          }
+        ],
+        "alt": "A square grid with three shaded squares and a dot at the centre."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "mp4-q01",
+      "number": "1",
+      "subtopicId": "m11-s3",
+      "bookSection": "11A",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Kumar, Lina and Ahmad share RM 720 from their family's kuih stall in the ratio 2 : 3 : 7, as the bar model shows. Then Ahmad gives one third of his share to Kumar. How much money does Kumar have now? Give your answer in RM.",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Kumar",
+            "units": 2
+          },
+          {
+            "label": "Lina",
+            "units": 3
+          },
+          {
+            "label": "Ahmad",
+            "units": 7
+          }
+        ],
+        "totalBrace": {
+          "label": "RM 720"
+        }
+      },
+      "answer": {
+        "value": 260,
+        "tolerance": 0,
+        "accept": [
+          "RM 260",
+          "260.00",
+          "RM 260.00"
+        ]
+      },
+      "solution": "There are 2 + 3 + 7 = 12 parts, so 1 part = RM 720 ÷ 12 = RM 60. Kumar gets 2 x RM 60 = RM 120 and Ahmad gets 7 x RM 60 = RM 420. One third of RM 420 is RM 140. Kumar now has RM 120 + RM 140 = RM 260. Trap: divide by the 12 parts, not by the 3 people.",
+      "misconceptions": {
+        "common": "If you got RM 120, you stopped at Kumar's first share: he also gets one third of Ahmad's RM 420. If you got RM 240 or RM 320, you divided RM 720 by the 3 people instead of by the 12 parts. If you got RM 140, that is only the money Ahmad gives away."
+      },
+      "skill": "sharing in a ratio",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "RM 720 ÷ 12 = RM 60 for one part, or Kumar's share RM 120 and Ahmad's share RM 420 seen."
+        },
+        {
+          "code": "A1",
+          "text": "RM 260 (accept 260)."
+        }
+      ],
+      "print": {
+        "answerLabel": "RM",
+        "space": "medium"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q02",
+      "number": "2",
+      "subtopicId": "m11-s2",
+      "bookSection": "11A",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Aisha makes rose syrup drinks for her family's stall. In Jug A she mixes syrup and water in the ratio 1 : 4. In Jug B she mixes syrup and water in the ratio 3 : 16. Aisha says, \"Jug B tastes more of syrup, because it has 3 parts of syrup and Jug A has only 1 part.\" Is Aisha correct? Choose the answer with the correct reason.",
+      "options": [
+        "Yes, because 3 parts of syrup is more than 1 part of syrup.",
+        "No, because 1 : 4 = 3 : 12, so for the same 3 parts of syrup, Jug B has more water (16 parts, not 12).",
+        "No, because Jug B has 19 parts altogether, so it is a bigger jug.",
+        "No, because in Jug B the water is 13 parts more than the syrup, but in Jug A it is only 3 parts more."
+      ],
+      "answer": 1,
+      "solution": "Compare the jugs using the same amount of syrup. Multiply 1 : 4 by 3 to get 3 : 12. Jug A has 3 parts of syrup to 12 parts of water; Jug B has 3 parts of syrup to 16 parts of water. Jug B has more water for the same syrup, so it tastes LESS of syrup. Aisha is not correct. Trap: a ratio compares the parts with each other; the number of syrup parts on its own tells you nothing.",
+      "misconceptions": {
+        "0": "3 parts against 1 part does not decide it, because Jug B also has many more parts of water. Make the syrup parts the same first: 1 : 4 = 3 : 12, then compare the water.",
+        "2": "The answer 'No' is right, but the reason is not. The size of the jug does not change how strong the drink tastes. Compare 3 : 12 (Jug A) with 3 : 16 (Jug B).",
+        "3": "The answer 'No' is right, but taking away does not compare ratios. Ratios are compared by multiplying to make one part the same: 1 : 4 = 3 : 12, and 12 parts of water is less than 16."
+      },
+      "skill": "equivalent ratios",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "No, with a correct comparison: for example 1 : 4 = 3 : 12, so for the same syrup Jug B has more water (16 > 12); or the syrup is 1/5 of Jug A but 3/19 of Jug B, and 1/5 = 3/15 is more than 3/19; or Jug A has 4 parts of water for each part of syrup and Jug B has more than 5. 'No' with no reason, or a reason using differences (16 - 3 = 13), scores 0."
+        }
+      ],
+      "print": {
+        "prompt": "Aisha makes rose syrup drinks for her family's stall. In Jug A she mixes syrup and water in the ratio 1 : 4. In Jug B she mixes syrup and water in the ratio 3 : 16. Is Aisha correct? Explain how you know.",
+        "speech": [
+          {
+            "name": "Aisha",
+            "text": "Jug B tastes more of syrup, because it has 3 parts of syrup and Jug A has only 1 part."
+          }
+        ],
+        "lines": 2
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q03",
+      "number": "3",
+      "subtopicId": "m11-s5",
+      "bookSection": "11A",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Siti and Rahim collect plastic bottles for the science club's recycling project. At first, the ratio of Siti's bottles to Rahim's bottles is 7 : 5, as the bar model shows. Then Siti gives 42 of her bottles to Rahim. Now the ratio of Siti's bottles to Rahim's bottles is 1 : 2. How many bottles did Rahim have at first?",
+      "diagram": {
+        "type": "barModel",
+        "caption": "At first",
+        "bars": [
+          {
+            "label": "Siti",
+            "units": 7
+          },
+          {
+            "label": "Rahim",
+            "units": 5,
+            "right": "?"
+          }
+        ]
+      },
+      "answer": {
+        "value": 70,
+        "tolerance": 0,
+        "accept": [
+          "70 bottles"
+        ]
+      },
+      "solution": "The bottles only move from Siti to Rahim, so the total stays the same: 7 + 5 = 12 parts. Write 1 : 2 with 12 parts too: 1 : 2 = 4 : 8. Siti goes from 7 parts to 4 parts, so she gave away 3 parts. 3 parts = 42 bottles, so 1 part = 14 bottles. At first Rahim had 5 x 14 = 70 bottles. Check: Siti 98 - 42 = 56 and Rahim 70 + 42 = 112, and 56 : 112 = 1 : 2.",
+      "misconceptions": {
+        "common": "If you got 210, you took the 42 bottles as one part; Siti gave away 3 parts. If you got 35, you compared 7 parts with 1 part without first making the totals match: 1 : 2 must be written as 4 : 8 so both ratios have 12 parts. If you got 112, that is how many Rahim has at the end."
+      },
+      "skill": "before-and-after ratio problems",
+      "source": "inspired-by: Singapore P6",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "Total unchanged, so 1 : 2 written as 4 : 8 (12 parts), or Siti's share goes from 7 parts to 4 parts, or an equivalent correct method (for example trial and check that reaches 56 : 112)."
+        },
+        {
+          "code": "M1",
+          "text": "3 parts = 42, so 1 part = 14 (dependent on the first M1)."
+        },
+        {
+          "code": "A1",
+          "text": "70."
+        }
+      ],
+      "print": {
+        "space": "large"
+      },
+      "section": "A"
+    },
+    {
+      "id": "mp4-q04",
+      "number": "4",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Ahmad's family shop sells these items. For which items is the cost in direct proportion to the number bought? Select ALL the correct answers.",
+      "options": [
+        "2 bags RM 5, 4 bags RM 9, 6 bags RM 13",
+        "1 box RM 4, 3 boxes RM 12, 5 boxes RM 20",
+        "1 pen RM 2, 2 pens RM 3, 3 pens RM 4",
+        "3 cans RM 4.50, 6 cans RM 9.00, 10 cans RM 15.00",
+        "4 eggs RM 2, 8 eggs RM 4, 12 eggs RM 5"
+      ],
+      "answer": [
+        1,
+        3
+      ],
+      "solution": "In direct proportion the cost of ONE item is always the same. Boxes: RM 4 each every time. Cans: RM 4.50 ÷ 3 = RM 1.50, RM 9 ÷ 6 = RM 1.50, RM 15 ÷ 10 = RM 1.50. Bags: 2 bags cost RM 5, so 4 bags should cost RM 10, not RM 9. Pens: 2 pens should cost RM 4, not RM 3. Eggs: 12 eggs should cost RM 6, not RM 5. Trap: check every pair, not just the first two.",
+      "misconceptions": {
+        "0": "The bags go up by RM 4 each time, but that is adding, not multiplying. Double the bags (2 to 4) should double the cost (RM 5 to RM 10).",
+        "2": "The pens go up by RM 1 each time, but 2 pens should cost twice as much as 1 pen: RM 4, not RM 3.",
+        "4": "The first two egg prices match (50 sen each), but 12 eggs should cost 3 x RM 2 = RM 6, not RM 5. Check every pair.",
+        "common": "Work out the cost of one item for every pair. It must be the same each time."
+      },
+      "skill": "recognising direct proportion",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Both the boxes and the cans ticked, and nothing else."
+        }
+      ],
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q05a",
+      "number": "5(a)",
+      "group": "5",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the table. With the special offer, what is the cost of 1 kg of rice at Shop C? Give your answer in RM.",
+      "answer": {
+        "value": 3.4,
+        "tolerance": 0,
+        "accept": [
+          "RM 3.40",
+          "3.40",
+          "RM 3.4"
+        ]
+      },
+      "solution": "With the offer, 3 bags cost the same as 2 bags: 2 x RM 10.20 = RM 20.40. 3 bags hold 3 x 2 kg = 6 kg. 1 kg costs RM 20.40 ÷ 6 = RM 3.40.",
+      "misconceptions": {
+        "common": "If you got RM 5.10, you left out the special offer (RM 10.20 ÷ 2). If you got RM 6.80, that is the cost of one bag (2 kg) with the offer, not 1 kg. With the offer you get 6 kg for the price of 2 bags."
+      },
+      "skill": "best buy",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "3 bags (6 kg) for 2 x RM 10.20 = RM 20.40 seen, or RM 20.40 ÷ 6."
+        },
+        {
+          "code": "A1",
+          "text": "RM 3.40 (accept 3.4)."
+        }
+      ],
+      "print": {
+        "answerLabel": "RM",
+        "space": "medium"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q05b",
+      "number": "5(b)",
+      "group": "5",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Look at the table again. Ahmad's restaurant buys a lot of rice, so it can use the special offer. Which shop gives the best value for money?",
+      "options": [
+        "Shop A",
+        "Shop B",
+        "Shop C"
+      ],
+      "answer": 2,
+      "solution": "Find the cost of 1 kg at each shop. Shop A: RM 36.00 ÷ 10 = RM 3.60. Shop B: RM 3.50. Shop C with the offer: RM 3.40 (from part (a)). The lowest cost for each kg is Shop C. Trap: the biggest bag (A) and the lowest price on the shelf (B) are not the best value.",
+      "misconceptions": {
+        "0": "Shop A has the biggest bag, but a bigger pack is not always cheaper per kg. Shop A costs RM 3.60 for each kg, which is the most.",
+        "1": "Shop B has the lowest price for a bag, but it is a small bag. Per kg it is RM 3.50, more than Shop C's RM 3.40 with the offer. Did you leave out the offer at Shop C?"
+      },
+      "skill": "best buy",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Shop C, with a correct comparison: RM 3.60, RM 3.50 and RM 3.40 per kg, or the cost of the same amount at each shop (for example 30 kg: RM 108, RM 105, RM 102). Follow through: the shop that is cheapest per kg using their (a) value, with all three per-kg costs shown."
+        }
+      ],
+      "print": {
+        "prompt": "Which shop gives the best value for money? Explain how you know.",
+        "lines": 2
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q06",
+      "number": "6",
+      "subtopicId": "m11-s4",
+      "bookSection": "11B",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Ahmad's family restaurant makes curry puffs. A batch of 24 curry puffs uses 600 g of filling. The filling is potato and chicken in the ratio 3 : 1. How many grams of chicken are needed for 60 curry puffs?",
+      "answer": {
+        "value": 375,
+        "tolerance": 0,
+        "accept": [
+          "375 g",
+          "375 grams"
+        ]
+      },
+      "solution": "One curry puff uses 600 ÷ 24 = 25 g of filling. 60 curry puffs use 60 x 25 = 1500 g of filling. Chicken is 1 part out of 3 + 1 = 4 parts, so chicken = 1500 ÷ 4 = 375 g.",
+      "misconceptions": {
+        "common": "If you got 500 g, you divided by 3, but there are 3 + 1 = 4 parts in the filling. If you got 1125 g, that is the potato. If you got 1500 g, you stopped at the total filling. If you got 150 g, that is the chicken for only 24 curry puffs."
+      },
+      "skill": "direct proportion",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "1500 g of filling for 60 puffs, or 25 g per puff, or 150 g of chicken for 24 puffs, or 6.25 g of chicken per puff."
+        },
+        {
+          "code": "A1",
+          "text": "375."
+        }
+      ],
+      "print": {
+        "answerLabel": "g",
+        "space": "medium"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q07",
+      "number": "7",
+      "subtopicId": "m12-s1",
+      "bookSection": "12A",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The science club predicts: \"More than half of the pupils in our school take less than 15 minutes to get to school.\" They ask 80 pupils, chosen at random. Which result would NOT support the prediction?",
+      "options": [
+        "52 of the 80 pupils take less than 15 minutes.",
+        "41 of the 80 pupils take less than 15 minutes.",
+        "44 of the 80 pupils take less than 15 minutes.",
+        "36 of the 80 pupils take less than 15 minutes."
+      ],
+      "answer": 3,
+      "solution": "Half of 80 is 40. The prediction says MORE than 40 pupils take less than 15 minutes. 52, 41 and 44 are all more than 40, so they agree with the prediction. Only 36 is not more than half, so that result does not support the prediction.",
+      "misconceptions": {
+        "0": "52 is more than half of 80 (40), so this result agrees with the prediction.",
+        "1": "Half of 80 is 40, and 41 is more than 40, so this result just agrees with the prediction.",
+        "2": "44 is more than half of 80 (40), so this result agrees with the prediction."
+      },
+      "skill": "planning an investigation",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "36 of the 80 pupils (the fourth option)."
+        }
+      ],
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q08",
+      "number": "8",
+      "subtopicId": "m12-s2",
+      "bookSection": "12B",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Kumar's family has two bakery shops. On Saturday, Shop A sold 720 items. The pie chart shows what Shop A sold. How many bread items did Shop A sell?",
+      "diagram": {
+        "type": "pieChart",
+        "title": "Shop A (720 items)",
+        "show": "degrees",
+        "rightAngles": true,
+        "slices": [
+          {
+            "label": "Bread",
+            "value": 150
+          },
+          {
+            "label": "Cakes",
+            "value": 90
+          },
+          {
+            "label": "Curry puffs",
+            "value": 60
+          },
+          {
+            "label": "Kuih",
+            "value": 60
+          }
+        ],
+        "alt": "Pie chart for Shop A: bread 150°, cakes 90°, curry puffs 60°, kuih 60°."
+      },
+      "answer": {
+        "value": 300,
+        "tolerance": 0,
+        "accept": [
+          "300 items"
+        ]
+      },
+      "solution": "The whole pie chart (360°) stands for 720 items, so each 1° stands for 720 ÷ 360 = 2 items. Bread is 150°, so 150 x 2 = 300 bread items.",
+      "misconceptions": {
+        "common": "If you got 150, you used the angle as the number of items. Here 360° stands for 720 items, so 1° is 2 items."
+      },
+      "skill": "reading pie charts and waffle charts",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "300."
+        }
+      ],
+      "print": {
+        "space": "small"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q09",
+      "number": "9",
+      "subtopicId": "m12-s4",
+      "bookSection": "12B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "On Saturday, Shop A sold 720 items and its curry puff sector was 60°. Shop B sold 240 items, as shown in the pie chart for Shop B. Lina says, \"Shop B sold more curry puffs than Shop A, because its curry puff sector is bigger.\" Is Lina correct? Choose the answer with the correct reason.",
+      "diagram": {
+        "type": "pieChart",
+        "title": "Shop B (240 items)",
+        "show": "degrees",
+        "rightAngles": true,
+        "slices": [
+          {
+            "label": "Curry puffs",
+            "value": 90
+          },
+          {
+            "label": "Bread",
+            "value": 120
+          },
+          {
+            "label": "Cakes",
+            "value": 60
+          },
+          {
+            "label": "Kuih",
+            "value": 90
+          }
+        ],
+        "alt": "Pie chart for Shop B: curry puffs 90°, bread 120°, cakes 60°, kuih 90°."
+      },
+      "options": [
+        "Yes, because 90° is bigger than 60°.",
+        "No, because Shop A sold 120 curry puffs and Shop B sold only 60.",
+        "No, because you can never compare two pie charts.",
+        "Yes, because 1/4 of the items in Shop B is more than 1/6 of the items in Shop A."
+      ],
+      "answer": 1,
+      "solution": "A sector shows a FRACTION of that shop's items. Shop A: 60° is 1/6 of the chart, and 1/6 of 720 = 120 curry puffs. Shop B: 90° is 1/4 of the chart, and 1/4 of 240 = 60 curry puffs. Shop A sold more, so Lina is not correct. Trap: you can only compare sector sizes when the totals are the same.",
+      "misconceptions": {
+        "0": "A bigger sector means a bigger fraction of THAT shop's items. Shop A sold three times as many items, so work out the numbers: 1/6 of 720 = 120 and 1/4 of 240 = 60.",
+        "2": "You can compare two pie charts, but only after you turn each sector into a number of items. Shop A: 60/360 of 720 = 120. Shop B: 90/360 of 240 = 60. So Lina is not correct.",
+        "3": "1/4 is a bigger fraction than 1/6, but the fractions are of different totals. 1/4 of 240 = 60 is less than 1/6 of 720 = 120."
+      },
+      "skill": "comparing data sets",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "60/360 x 720 = 120 or 90/360 x 240 = 60 (or 1/6 of 720, or 1/4 of 240) seen."
+        },
+        {
+          "code": "A1",
+          "text": "No, with both 120 and 60 (Shop A sold more curry puffs), or an equivalent correct comparison (for example: Shop A sold 3 times as many items, and 1/6 of 3 lots is more than 1/4 of 1 lot)."
+        }
+      ],
+      "print": {
+        "prompt": "On Saturday, Shop A sold 720 items and its curry puff sector was 60°. Shop B sold 240 items, as shown in the pie chart for Shop B. Is Lina correct? Explain how you know.",
+        "speech": [
+          {
+            "name": "Lina",
+            "text": "Shop B sold more curry puffs than Shop A, because its curry puff sector is bigger."
+          }
+        ],
+        "lines": 3
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q10a",
+      "number": "10(a)",
+      "group": "10",
+      "subtopicId": "m12-s2",
+      "bookSection": "12C",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Use the list of lengths to find the frequency for the group 10 to 14 in the table.",
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": []
+      },
+      "solution": "The group 10 to 14 includes 10, 11, 12, 13 and 14. From the list: 12, 10, 14, 11, 14, 10, 13. That is 7 leaves. The three leaves of 15 cm go in the next group.",
+      "misconceptions": {
+        "common": "If you got 10, you included the 15s; 15 belongs to the group 15 to 19. If you got 5, you left out the two 10s or the two 14s; both ends of 10 to 14 are in the group. Cross off each number as you count it."
+      },
+      "skill": "reading tally charts and frequency tables",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "7."
+        }
+      ],
+      "print": {
+        "space": "small"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q10b",
+      "number": "10(b)",
+      "group": "10",
+      "subtopicId": "m12-s2",
+      "bookSection": "12C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Before rounding, one leaf measured 14.6 cm. Which group in the table is it in?",
+      "options": [
+        "15 to 19",
+        "10 to 14",
+        "It fits in both 10 to 14 and 15 to 19",
+        "It does not fit in any group, because it is between 14 and 15"
+      ],
+      "answer": 0,
+      "solution": "Every length was rounded to the nearest centimetre before it went in the table. 14.6 cm rounds UP to 15 cm (the tenths digit is 6, which is 5 or more). 15 is in the group 15 to 19.",
+      "misconceptions": {
+        "1": "14.6 rounded to the nearest centimetre is 15, not 14. Chopping off the .6 is not rounding.",
+        "2": "Each value goes in exactly one group. Round 14.6 cm first: it becomes 15 cm, which is in 15 to 19 only.",
+        "3": "The gaps between the groups are not a problem, because every length was rounded to a whole number first. 14.6 cm becomes 15 cm."
+      },
+      "skill": "reading tally charts and frequency tables",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "15 to 19."
+        }
+      ],
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q11a",
+      "number": "11(a)",
+      "group": "11",
+      "subtopicId": "m12-s4",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "One result on the scatter graph does not fit the pattern. From what height was that ball dropped?",
+      "options": [
+        "Dropped from 20 cm",
+        "Dropped from 50 cm",
+        "Dropped from 70 cm",
+        "Dropped from 100 cm"
+      ],
+      "answer": 2,
+      "solution": "The pattern: the higher the drop, the higher the bounce, and each bounce is a bit more than half the drop. The ball dropped from 70 cm bounced only 20 cm. That is lower than the bounce from 40 cm, so it does not fit. It should have been about 42 cm.",
+      "misconceptions": {
+        "0": "The 20 cm drop has the smallest bounce, but it is also the smallest drop, so it fits the pattern. Look for a cross that is far from the line the others make.",
+        "1": "The 50 cm drop bounced 31 cm, a bit more than half, like the others. It fits the pattern.",
+        "3": "The 100 cm drop has the biggest bounce, but it also has the biggest drop, so it fits the pattern. An odd result is one that breaks the pattern, not the largest one."
+      },
+      "skill": "interpreting scatter graphs",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "70 cm (accept the cross at (70, 20) identified)."
+        }
+      ],
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q11b",
+      "number": "11(b)",
+      "group": "11",
+      "subtopicId": "m12-s2",
+      "bookSection": "12D",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "The club then drops the ball from 45 cm, and it bounces 25 cm. Which graph shows this result plotted correctly?",
+      "options": [
+        "Graph A",
+        "Graph B",
+        "Graph C",
+        "Graph D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "scatterGraph",
+          "points": [
+            [
+              20,
+              12
+            ],
+            [
+              30,
+              19
+            ],
+            [
+              40,
+              24
+            ],
+            [
+              50,
+              31
+            ],
+            [
+              60,
+              35
+            ],
+            [
+              70,
+              20
+            ],
+            [
+              80,
+              49
+            ],
+            [
+              90,
+              54
+            ],
+            [
+              100,
+              61
+            ],
+            [
+              45,
+              25
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 100,
+          "xStep": 10,
+          "yMin": 0,
+          "yMax": 70,
+          "yStep": 10,
+          "title": "Graph A",
+          "xLabel": "Drop height (cm)",
+          "yLabel": "Bounce height (cm)",
+          "size": "small"
+        },
+        {
+          "type": "scatterGraph",
+          "points": [
+            [
+              20,
+              12
+            ],
+            [
+              30,
+              19
+            ],
+            [
+              40,
+              24
+            ],
+            [
+              50,
+              31
+            ],
+            [
+              60,
+              35
+            ],
+            [
+              70,
+              20
+            ],
+            [
+              80,
+              49
+            ],
+            [
+              90,
+              54
+            ],
+            [
+              100,
+              61
+            ],
+            [
+              25,
+              45
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 100,
+          "xStep": 10,
+          "yMin": 0,
+          "yMax": 70,
+          "yStep": 10,
+          "title": "Graph B",
+          "xLabel": "Drop height (cm)",
+          "yLabel": "Bounce height (cm)",
+          "size": "small"
+        },
+        {
+          "type": "scatterGraph",
+          "points": [
+            [
+              20,
+              12
+            ],
+            [
+              30,
+              19
+            ],
+            [
+              40,
+              24
+            ],
+            [
+              50,
+              31
+            ],
+            [
+              60,
+              35
+            ],
+            [
+              70,
+              20
+            ],
+            [
+              80,
+              49
+            ],
+            [
+              90,
+              54
+            ],
+            [
+              100,
+              61
+            ],
+            [
+              50,
+              25
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 100,
+          "xStep": 10,
+          "yMin": 0,
+          "yMax": 70,
+          "yStep": 10,
+          "title": "Graph C",
+          "xLabel": "Drop height (cm)",
+          "yLabel": "Bounce height (cm)",
+          "size": "small"
+        },
+        {
+          "type": "scatterGraph",
+          "points": [
+            [
+              20,
+              12
+            ],
+            [
+              30,
+              19
+            ],
+            [
+              40,
+              24
+            ],
+            [
+              50,
+              31
+            ],
+            [
+              60,
+              35
+            ],
+            [
+              70,
+              20
+            ],
+            [
+              80,
+              49
+            ],
+            [
+              90,
+              54
+            ],
+            [
+              100,
+              61
+            ],
+            [
+              45,
+              35
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 100,
+          "xStep": 10,
+          "yMin": 0,
+          "yMax": 70,
+          "yStep": 10,
+          "title": "Graph D",
+          "xLabel": "Drop height (cm)",
+          "yLabel": "Bounce height (cm)",
+          "size": "small"
+        }
+      ],
+      "answer": 0,
+      "solution": "Drop height goes across: 45 is halfway between 40 and 50. Bounce height goes up: 25 is halfway between 20 and 30. The new cross is at (45, 25), which is Graph A.",
+      "misconceptions": {
+        "1": "Graph B has the cross at 25 across and 45 up: the two values are swapped. Drop height goes across the bottom, bounce height goes up the side.",
+        "2": "Graph C has the cross at 50 across, on the gridline. 45 is halfway between the 40 and 50 gridlines.",
+        "3": "Graph D has the cross at 35 up. 25 is halfway between the 20 and 30 gridlines."
+      },
+      "skill": "plotting scatter graphs",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "Cross at (45, 25): halfway between the 40 and 50 gridlines across and halfway between the 20 and 30 gridlines up (tolerance ±2 units on each axis). A cross on a gridline scores 0. On screen: Graph A."
+        }
+      ],
+      "print": {
+        "prompt": "The club then drops the ball from 45 cm, and it bounces 25 cm. Plot this result on the scatter graph.",
+        "diagram": {
+          "type": "scatterGraph",
+          "points": [
+            [
+              20,
+              12
+            ],
+            [
+              30,
+              19
+            ],
+            [
+              40,
+              24
+            ],
+            [
+              50,
+              31
+            ],
+            [
+              60,
+              35
+            ],
+            [
+              70,
+              20
+            ],
+            [
+              80,
+              49
+            ],
+            [
+              90,
+              54
+            ],
+            [
+              100,
+              61
+            ]
+          ],
+          "xMin": 0,
+          "xMax": 100,
+          "xStep": 10,
+          "yMin": 0,
+          "yMax": 70,
+          "yStep": 10,
+          "title": "Drop height and bounce height",
+          "xLabel": "Drop height (cm)",
+          "yLabel": "Bounce height (cm)",
+          "alt": "The scatter graph, for plotting the new result."
+        }
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q12",
+      "number": "12",
+      "subtopicId": "m12-s2",
+      "bookSection": "12E",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The table shows the 32 members of the science club, sorted by year group and by whether they wear glasses. Some boxes are empty. How many Year 6 members do not wear glasses?",
+      "diagram": {
+        "type": "table",
+        "title": "Science club members",
+        "columns": [
+          "Year group",
+          "Wears glasses",
+          "Does not wear glasses",
+          "Total"
+        ],
+        "rows": [
+          [
+            "Year 5",
+            5,
+            9,
+            14
+          ],
+          [
+            "Year 6",
+            6,
+            "?",
+            ""
+          ],
+          [
+            "Total",
+            11,
+            "",
+            32
+          ]
+        ]
+      },
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "accept": [
+          "12 members"
+        ]
+      },
+      "solution": "There are 32 members and 14 are in Year 5, so 32 - 14 = 18 are in Year 6. 6 of them wear glasses, so 18 - 6 = 12 do not. Check another way: 32 - 11 = 21 do not wear glasses; 21 - 9 = 12.",
+      "misconceptions": {
+        "common": "If you got 18, that is all the Year 6 members; take away the 6 who wear glasses. If you got 21, that is everyone who does not wear glasses; take away the 9 in Year 5."
+      },
+      "skill": "reading tally charts and frequency tables",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "12."
+        }
+      ],
+      "print": {
+        "space": "small"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q13",
+      "number": "13",
+      "subtopicId": "m12-s3",
+      "bookSection": "12F",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "The science club planted seeds in 4 trays, A, B, C and D. The mean number of seeds that sprouted in each tray was 6. In tray A, 12 seeds sprouted. In tray B, 7 seeds sprouted. In tray D, more seeds sprouted than in tray C. Select ALL the possible pairs of numbers for trays C and D.",
+      "options": [
+        "Tray C: 3, Tray D: 2",
+        "Tray C: 0, Tray D: 5",
+        "Tray C: 6, Tray D: 6",
+        "Tray C: 2, Tray D: 3",
+        "Tray C: 5, Tray D: 0",
+        "Tray C: 1, Tray D: 4",
+        "Tray C: 2, Tray D: 4"
+      ],
+      "answer": [
+        1,
+        3,
+        5
+      ],
+      "solution": "A mean of 6 for 4 trays means a total of 4 x 6 = 24 seeds. Trays A and B have 12 + 7 = 19, so trays C and D have 24 - 19 = 5 between them. Pairs that add to 5 with D bigger than C: C 0 and D 5, C 1 and D 4, C 2 and D 3. Do not forget 0: a tray where no seeds sprouted is possible.",
+      "misconceptions": {
+        "0": "3 + 2 = 5, but tray D must have MORE than tray C. Here D has fewer.",
+        "2": "The mean is 6, but that does not mean each tray had 6. Work with the total: 4 x 6 = 24, so C and D share 5.",
+        "4": "5 + 0 = 5, but tray D must have more than tray C. Here D has none.",
+        "6": "2 + 4 = 6. C and D must add to 24 - 12 - 7 = 5.",
+        "common": "Find the total first (mean x number of trays), take away the known trays, then list every pair, starting from 0."
+      },
+      "skill": "using the mean to find a missing value",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "Total 4 × 6 = 24 seen, or implied by C + D = 5 or by a correct pair."
+        },
+        {
+          "code": "M1",
+          "text": "C + D = 24 - 12 - 7 = 5 seen, or at least one correct pair (this mark can be given without the first)."
+        },
+        {
+          "code": "A1",
+          "text": "Exactly the three pairs C 0 and D 5, C 1 and D 4, C 2 and D 3, and no others."
+        }
+      ],
+      "print": {
+        "prompt": "The science club planted seeds in 4 trays, A, B, C and D. The mean number of seeds that sprouted in each tray was 6. In tray A, 12 seeds sprouted. In tray B, 7 seeds sprouted. In tray D, more seeds sprouted than in tray C. Write all the possible pairs of numbers of seeds that sprouted in trays C and D.",
+        "lines": 3
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q14",
+      "number": "14",
+      "subtopicId": "m12-s4",
+      "bookSection": "12G",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The science club measured the temperature of a cup of hot water every 2 minutes. The line graph shows the results. Omar says, \"The water cooled by 16 °C in the first 2 minutes, so at 12 minutes it will be about 18 °C.\" Is Omar correct? Choose the answer with the correct reason.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Temperature of the water",
+        "categories": [
+          "0",
+          "2",
+          "4",
+          "6",
+          "8",
+          "10"
+        ],
+        "series": [
+          {
+            "name": "Temperature",
+            "values": [
+              80,
+              64,
+              52,
+              44,
+              38,
+              34
+            ]
+          }
+        ],
+        "yMin": 20,
+        "yMax": 80,
+        "yStep": 10,
+        "minorStep": 2,
+        "xLabel": "Time (minutes)",
+        "yLabel": "Temperature (°C)",
+        "alt": "A line graph of the temperature of the water every 2 minutes, from 0 to 10 minutes."
+      },
+      "options": [
+        "Yes, because the temperature fell by 16 °C in the first 2 minutes.",
+        "Yes, because the line always goes down, so it will keep going down quickly.",
+        "No, because the falls get smaller (only 4 °C from 8 to 10 minutes), so at 12 minutes it will be only a little below 34 °C.",
+        "No, because the temperature will start to go up again after 10 minutes."
+      ],
+      "answer": 2,
+      "solution": "Read the graph: 80, 64, 52, 44, 38, 34 °C. The falls are 16, 12, 8, 6 and 4 °C: they get smaller each time. From 10 to 12 minutes it will fall by less than 4 °C, so it will be a little below 34 °C, about 31 to 33 °C. Omar used only the first fall. Trap: check the whole pattern, not just the first step.",
+      "misconceptions": {
+        "0": "The first fall was 16 °C, but the later falls are smaller: 12, 8, 6, then only 4 °C. Use the whole graph, not just the first step.",
+        "1": "The line does keep going down, but it gets flatter: the water cools more slowly as it gets cooler. From 8 to 10 minutes it fell only 4 °C.",
+        "3": "'No' is right, but nothing on the graph shows the temperature going up. The reason is that the falls are getting smaller."
+      },
+      "skill": "identifying trends",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "A later fall read correctly to show the falls get smaller (for example 38 to 34 is 4 °C, or the falls 16, 12, 8, 6, 4), or a correct description such as 'the line gets less steep' or 'it cools more slowly'."
+        },
+        {
+          "code": "A1",
+          "text": "No, with the conclusion that at 12 minutes it will be only a little below 34 °C (any value from 30 to 33 °C), not 18 °C."
+        }
+      ],
+      "print": {
+        "prompt": "The science club measured the temperature of a cup of hot water every 2 minutes. The line graph shows the results. Is Omar correct? Explain how you know.",
+        "speech": [
+          {
+            "name": "Omar",
+            "text": "The water cooled by 16 °C in the first 2 minutes, so at 12 minutes it will be about 18 °C."
+          }
+        ],
+        "lines": 3
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q15a",
+      "number": "15(a)",
+      "group": "15",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the map. What are the coordinates of the post office, P? Write them like (x, y).",
+      "answer": {
+        "accept": [
+          "(-3.5, -2)",
+          "(-3 1/2, -2)",
+          "(-7/2, -2)"
+        ],
+        "keywords": []
+      },
+      "solution": "Go across first: P is halfway between -4 and -3, so x = -3.5. Then down: P is on the line y = -2. P is at (-3.5, -2).",
+      "misconceptions": {
+        "common": "If you wrote (-2, -3.5), the coordinates are swapped: x (across) comes first. If you wrote (-3, -2) or (-4, -2), P is halfway between two grid lines, so x = -3.5."
+      },
+      "skill": "reading and plotting coordinates",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(-3.5, -2) (accept (-3 1/2, -2))."
+        }
+      ],
+      "print": {
+        "answerLabel": "( ____ , ____ )"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q15b",
+      "number": "15(b)",
+      "group": "15",
+      "subtopicId": "m13-s2",
+      "bookSection": "13B",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Look at the road drawn from the clinic C to the school S. A bus stop is exactly halfway along this road. What are the coordinates of the bus stop? Write them like (x, y).",
+      "answer": {
+        "accept": [
+          "(4, -0.5)",
+          "(4, -1/2)"
+        ],
+        "keywords": []
+      },
+      "solution": "C is at (4, 3) and S is at (4, -4). The road is upright, so x stays 4. It goes from y = 3 down to y = -4: that is 3 + 4 = 7 units. Half of 7 is 3.5, and 3 - 3.5 = -0.5. The bus stop is at (4, -0.5).",
+      "misconceptions": {
+        "common": "If you wrote (4, 3.5), that is half the LENGTH of the road (7 ÷ 2), not the halfway point. Count 3.5 units down from C: 3 - 3.5 = -0.5. If you wrote (4, 0.5), check the sign: halfway is just below the x-axis."
+      },
+      "skill": "midpoints of horizontal and vertical lines",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(4, -0.5) (accept (4, -1/2))."
+        }
+      ],
+      "print": {
+        "answerLabel": "( ____ , ____ )"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q16",
+      "number": "16",
+      "subtopicId": "m13-s1",
+      "bookSection": "13A",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Arjun says, \"The point (0, -2.5) is in the fourth quadrant, because it is below the x-axis.\" True or false: Arjun is correct. (Quadrants are numbered anticlockwise, starting from the top right: first = top right, second = top left, third = bottom left, fourth = bottom right.)",
+      "answer": false,
+      "solution": "The x-coordinate is 0, so the point is ON the y-axis, 2.5 units below the origin. Points on an axis are not in any quadrant. Arjun is not correct.",
+      "misconceptions": {
+        "common": "The point is below the x-axis, but its x-coordinate is 0, so it sits on the y-axis, between the third and fourth quadrants. A point on an axis is not in any quadrant."
+      },
+      "skill": "points on the axes",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "No, because the point is on the y-axis (x = 0), so it is not in any quadrant."
+        }
+      ],
+      "print": {
+        "prompt": "Arjun is talking about the point (0, -2.5). Is Arjun correct? Explain how you know.",
+        "speech": [
+          {
+            "name": "Arjun",
+            "text": "The point (0, -2.5) is in the fourth quadrant, because it is below the x-axis."
+          }
+        ],
+        "lines": 2
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q17",
+      "number": "17",
+      "subtopicId": "m13-s2",
+      "bookSection": "13B",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "ABCD is a parallelogram with its corners in that order, so AB is parallel to DC and BC is parallel to AD. Corners A, B and C are plotted on the grid and joined. What are the coordinates of D? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          6
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -4,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              -1,
+              -3
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              4,
+              -1
+            ],
+            "label": "C"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -4,
+              1
+            ],
+            "to": [
+              -1,
+              -3
+            ]
+          },
+          {
+            "from": [
+              -1,
+              -3
+            ],
+            "to": [
+              4,
+              -1
+            ]
+          }
+        ],
+        "alt": "A coordinate grid from -6 to 6 across and -5 to 5 up, with corners A, B and C plotted and joined A to B to C."
+      },
+      "answer": {
+        "accept": [
+          "(1, 3)",
+          "D(1, 3)",
+          "D = (1, 3)"
+        ],
+        "keywords": []
+      },
+      "solution": "Read the corners: A(-4, 1), B(-1, -3), C(4, -1). From B to C you go 5 right and 2 up. AD is parallel to BC and the same length, so from A make the same move: D = (-4 + 5, 1 + 2) = (1, 3). Check: from C to D is 3 left and 4 up, the same as from B to A.",
+      "misconceptions": {
+        "common": "If you got (7, -5), you made the parallelogram A, B, D, C, where D is joined to B and C. In ABCD, D must be joined to A and C. Use the move from B to C (5 right, 2 up) and do the same move from A. If you got (1, -3) or (-1, 3), check the signs of each move."
+      },
+      "skill": "finding a missing vertex",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "A correct move used: B to C is 5 right and 2 up, applied from A; or B to A is 3 left and 4 up, applied from C; or D plotted correctly."
+        },
+        {
+          "code": "A1",
+          "text": "(1, 3)."
+        }
+      ],
+      "print": {
+        "prompt": "ABCD is a parallelogram with its corners in that order, so AB is parallel to DC and BC is parallel to AD. Corners A, B and C are plotted on the grid. Plot D and complete the parallelogram. Write the coordinates of D.",
+        "answerLabel": "( ____ , ____ )"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q18a",
+      "number": "18(a)",
+      "group": "18",
+      "subtopicId": "m13-s3",
+      "bookSection": "13C",
+      "type": "match",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the grid. Triangle T is translated 5 units left and 4 units up to give triangle T'. Match each corner of T to the coordinates of its image.",
+      "options": {
+        "left": [
+          "A",
+          "B",
+          "C"
+        ],
+        "right": [
+          "(-1, 3)",
+          "(-4, 1)",
+          "(-3, 2)",
+          "(-1, 1)",
+          "(6, 1)"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "solution": "5 units left: take 5 from each x-coordinate. 4 units up: add 4 to each y-coordinate. A(1, -3) goes to (-4, 1). B(4, -3) goes to (-1, 1). C(4, -1) goes to (-1, 3).",
+      "misconceptions": {
+        "common": "(6, 1) moves 5 RIGHT instead of left (add to x only for a move right). (-3, 2) swaps the moves: 4 left and 5 up. Left and right change x; up and down change y."
+      },
+      "skill": "translating points and shapes",
+      "markScheme": [
+        {
+          "code": "B2",
+          "text": "All three correct: A' (-4, 1), B' (-1, 1), C' (-1, 3) (drawn or written). Otherwise B1 for two images correct, or for all three moved correctly in one direction only (for example 5 left but 4 down)."
+        }
+      ],
+      "print": {
+        "prompt": "Triangle T is translated 5 units left and 4 units up to give triangle T'. Draw T' on the grid and label it T'. Write the coordinates of its corners.",
+        "lines": 2
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q18b",
+      "number": "18(b)",
+      "group": "18",
+      "subtopicId": "m14-s1",
+      "bookSection": "14A",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle T' (from part (a)) is then reflected in the mirror line x = -2 shown on the grid, to give triangle T''. What are the coordinates of the corners of T''?",
+      "options": [
+        "A'' (4, 1), B'' (1, 1), C'' (1, 3)",
+        "A'' (-5, -3), B'' (-8, -3), C'' (-8, -1)",
+        "A'' (-4, -5), B'' (-1, -5), C'' (-1, -7)",
+        "A'' (0, 1), B'' (-3, 1), C'' (-3, 3)"
+      ],
+      "answer": 3,
+      "solution": "Start from T': A'(-4, 1), B'(-1, 1), C'(-1, 3). The mirror line x = -2 is upright, so y stays the same and each point ends up the same distance on the other side. A' is 2 left of the line, so A'' is 2 right: (0, 1). B' is 1 right of the line, so B'' is 1 left: (-3, 1). C' is 1 right, so C'' is (-3, 3).",
+      "misconceptions": {
+        "0": "This is a reflection in the y-axis (x = 0). The mirror line here is x = -2: measure each distance from that line, not from the y-axis.",
+        "1": "This reflects the first triangle T, not T'. The question reflects the image from part (a), so translate first, then reflect.",
+        "2": "This reflects in a flat line y = -2, so the y-coordinates changed. The mirror line x = -2 is upright, so only the x-coordinates change."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "At least one corner of their T' correctly reflected in x = -2 (follow through from (a))."
+        },
+        {
+          "code": "A1",
+          "text": "All three: (0, 1), (-3, 1), (-3, 3)."
+        }
+      ],
+      "print": {
+        "prompt": "T' is then reflected in the mirror line x = -2 to give triangle T''. Draw T'' on the grid and label it T''. Write the coordinates of its corners.",
+        "lines": 2
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q19",
+      "number": "19",
+      "subtopicId": "m14-s2",
+      "bookSection": "14A",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Half of a shape is drawn on the grid, on one side of the diagonal mirror line through (0, 0), (1, 1) and (2, 2). Siti completes the shape so that the mirror line is a line of symmetry. Which point is the corner that matches Q?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "segments": [
+          {
+            "from": [
+              -2,
+              -2
+            ],
+            "to": [
+              -4,
+              1
+            ]
+          },
+          {
+            "from": [
+              -4,
+              1
+            ],
+            "to": [
+              -1,
+              3
+            ]
+          },
+          {
+            "from": [
+              -1,
+              3
+            ],
+            "to": [
+              2,
+              2
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -1,
+              3
+            ],
+            "label": "Q"
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "mirror line"
+          }
+        ],
+        "alt": "A coordinate grid from -5 to 5 each way with a diagonal mirror line through the origin and half of a shape drawn above it, with one corner labelled Q."
+      },
+      "options": [
+        "(3, -1)",
+        "(1, -3)",
+        "(-3, 1)",
+        "(1, 3)"
+      ],
+      "answer": 0,
+      "solution": "Q is at (-1, 3). In the diagonal mirror line through (0, 0), (1, 1) and (2, 2), a point's coordinates swap places: (a, b) goes to (b, a). So the matching corner is (3, -1). Check: (-1, 3) is above the line and (3, -1) is the same distance below it.",
+      "misconceptions": {
+        "1": "(1, -3) changes both signs but does not swap the coordinates. For this diagonal line, swap them: (-1, 3) becomes (3, -1).",
+        "2": "(-3, 1) swaps the numbers but keeps the minus sign in the first place. Swap the whole coordinates: x = -1 becomes the new y.",
+        "3": "(1, 3) is the reflection in the y-axis. The mirror line here is the diagonal one, so swap the coordinates."
+      },
+      "skill": "reflecting in a diagonal line",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "(3, -1) (on paper, the completed shape need not be drawn for the mark)."
+        }
+      ],
+      "print": {
+        "prompt": "Half of a shape is drawn on the grid, on one side of the diagonal mirror line through (0, 0), (1, 1) and (2, 2). Complete the shape so that the mirror line is a line of symmetry. Write the coordinates of the corner that matches Q.",
+        "answerLabel": "( ____ , ____ )"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q20",
+      "number": "20",
+      "subtopicId": "m14-s3",
+      "bookSection": "14B",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Shape PQRS is drawn on the grid. It is rotated 90° clockwise about vertex Q. What are the coordinates of the image of S?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          6
+        ],
+        "y": [
+          -5,
+          4
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -3,
+                -2
+              ],
+              [
+                1,
+                -2
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                -1,
+                1
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              -2
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              1,
+              -2
+            ],
+            "label": "Q"
+          },
+          {
+            "at": [
+              1,
+              0
+            ],
+            "label": "R"
+          },
+          {
+            "at": [
+              -1,
+              1
+            ],
+            "label": "S"
+          }
+        ],
+        "alt": "A coordinate grid from -5 to 6 across and -5 to 4 up, with a four-sided shape PQRS drawn on it."
+      },
+      "options": [
+        "(1, 1)",
+        "(-2, -4)",
+        "(3, -5)",
+        "(4, 0)"
+      ],
+      "answer": 3,
+      "solution": "Q(1, -2) stays where it is. From Q, S(-1, 1) is 2 left and 3 up. A quarter turn clockwise turns 'up' into 'right' and 'left' into 'up'. So the image of S is 3 right and 2 up from Q: (1 + 3, -2 + 2) = (4, 0). The other corners go to P'(1, 2) and R'(3, -2).",
+      "misconceptions": {
+        "0": "(1, 1) is S turned about the origin (0, 0). The centre of turning is vertex Q(1, -2), so measure every move from Q.",
+        "1": "(-2, -4) is a quarter turn ANTICLOCKWISE. Clockwise is the way clock hands move: a move 'up' from Q turns to point right.",
+        "2": "(3, -5) is a half turn (180°). A 90° turn is only a quarter turn."
+      },
+      "skill": "rotating 90° about a vertex",
+      "markScheme": [
+        {
+          "code": "M1",
+          "text": "Correct method: S is 2 left and 3 up from Q, turned to 3 right and 2 up; or the image of PQRS drawn correctly; or at least two of P'(1, 2), R'(3, -2), S'(4, 0) correct."
+        },
+        {
+          "code": "A1",
+          "text": "(4, 0)."
+        }
+      ],
+      "print": {
+        "prompt": "Shape PQRS is drawn on the grid. Draw the image of PQRS after a rotation of 90° clockwise about vertex Q. Write the coordinates of the image of S.",
+        "answerLabel": "( ____ , ____ )"
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q21a",
+      "number": "21(a)",
+      "group": "21",
+      "subtopicId": "m14-s4",
+      "bookSection": "14C",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Mei Lin shades ONE more square so that the tile has rotational symmetry of order 2 about the dot. Which grid shows her finished tile?",
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -3,
+            3
+          ],
+          "y": [
+            -3,
+            3
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  -1,
+                  -2
+                ],
+                [
+                  0,
+                  -2
+                ],
+                [
+                  0,
+                  -1
+                ],
+                [
+                  -1,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  -3
+                ],
+                [
+                  1,
+                  -3
+                ],
+                [
+                  1,
+                  -2
+                ],
+                [
+                  0,
+                  -2
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                0
+              ]
+            }
+          ],
+          "size": "small"
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -3,
+            3
+          ],
+          "y": [
+            -3,
+            3
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  -1,
+                  -2
+                ],
+                [
+                  0,
+                  -2
+                ],
+                [
+                  0,
+                  -1
+                ],
+                [
+                  -1,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  -3,
+                  -1
+                ],
+                [
+                  -2,
+                  -1
+                ],
+                [
+                  -2,
+                  0
+                ],
+                [
+                  -3,
+                  0
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                0
+              ]
+            }
+          ],
+          "size": "small"
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -3,
+            3
+          ],
+          "y": [
+            -3,
+            3
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  -1,
+                  -2
+                ],
+                [
+                  0,
+                  -2
+                ],
+                [
+                  0,
+                  -1
+                ],
+                [
+                  -1,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  -3,
+                  0
+                ],
+                [
+                  -2,
+                  0
+                ],
+                [
+                  -2,
+                  1
+                ],
+                [
+                  -3,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                0
+              ]
+            }
+          ],
+          "size": "small"
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -3,
+            3
+          ],
+          "y": [
+            -3,
+            3
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  -1,
+                  -2
+                ],
+                [
+                  0,
+                  -2
+                ],
+                [
+                  0,
+                  -1
+                ],
+                [
+                  -1,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  -1,
+                  2
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  -1,
+                  3
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                0
+              ]
+            }
+          ],
+          "size": "small"
+        }
+      ],
+      "answer": 1,
+      "solution": "Order 2 means the tile looks the same after a half turn (180°) about the dot. Two of the shaded squares already swap places in a half turn. The square on the right needs a partner opposite it: the same distance from the dot on the other side, on the left and just below the centre line. That is Grid B.",
+      "misconceptions": {
+        "0": "In Grid A the new square is where the right-hand square goes after a QUARTER turn. Order 2 needs the half-turn partner, directly opposite through the dot.",
+        "2": "In Grid C the new square is a mirror image of the right-hand square in the upright line, not its half-turn partner. A half turn also moves it below the centre line.",
+        "3": "In Grid D the new square is where the right-hand square goes after a quarter turn anticlockwise. For order 2, use a half turn: go through the dot to the opposite side."
+      },
+      "skill": "symmetry in patterns",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "The square opposite the right-hand square through the dot (from (-3, -1) to (-2, 0)) shaded, and no other (on screen: Grid B)."
+        }
+      ],
+      "print": {
+        "prompt": "Shade ONE more square on the grid so that the tile has rotational symmetry of order 2 about the dot.",
+        "diagram": {
+          "type": "coordinateGrid",
+          "x": [
+            -3,
+            3
+          ],
+          "y": [
+            -3,
+            3
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  -1,
+                  -2
+                ],
+                [
+                  0,
+                  -2
+                ],
+                [
+                  0,
+                  -1
+                ],
+                [
+                  -1,
+                  -1
+                ]
+              ],
+              "style": "shaded"
+            },
+            {
+              "points": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "shaded"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                0
+              ]
+            }
+          ],
+          "alt": "The grid with three shaded squares, for shading.",
+          "caption": "Shade on this grid."
+        }
+      },
+      "source": "original",
+      "section": "A"
+    },
+    {
+      "id": "mp4-q21b",
+      "number": "21(b)",
+      "group": "21",
+      "subtopicId": "m14-s4",
+      "bookSection": "14C",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Mei Lin starts again from the three squares shaded on the grid. This time she wants the tile to have rotational symmetry of order 4 about the dot. What is the smallest number of extra squares she must shade?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "accept": [
+          "5 squares"
+        ]
+      },
+      "solution": "Order 4 means the tile looks the same after every quarter turn. Each shaded square needs all four of its quarter-turn positions shaded. The square just above the dot and the square just below it are two of one set of four, so 2 more of that set are needed. The square on the right needs its other 3 positions. 2 + 3 = 5 extra squares, making 8 in all.",
+      "misconceptions": {
+        "common": "If you got 1, that is enough for order 2, not order 4. If you got 6, you forgot that the two squares near the dot already belong to the same set of four. Turn each shaded square a quarter turn at a time and count the empty places it lands on."
+      },
+      "skill": "symmetry in patterns",
+      "markScheme": [
+        {
+          "code": "B1",
+          "text": "5 (accept the five correct squares shaded)."
+        }
+      ],
+      "print": {
+        "space": "small"
+      },
+      "source": "original",
+      "section": "A"
+    }
+  ]
+}

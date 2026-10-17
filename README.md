@@ -2,7 +2,18 @@
 
 A practice website for Cambridge Primary Stage 6 Mathematics and Science (Year 6, exams November 2026). It runs in any modern browser on a laptop, tablet or phone, can be added to the Home Screen, and works offline after the first visit. Built by the Chief Tech Officer; the questions and preambles come from the Chief Learning Officer.
 
-## Version 2: linked accounts (branch `v2-linked`, not yet published)
+## Version 2 (branch `v2-linked`, not yet published)
+
+**First release: local mode on her iPad** (`config.js` empty). The release notes, the checklist of what was verified and a step-by-step guide for EC (Safari, Add to Home Screen, PIN, report email, backups) are in [`docs/RELEASE-local-ipad.md`](docs/RELEASE-local-ipad.md).
+
+New on 17 Oct 2026 (book map and exam pack, from the Chief Learning Officer):
+
+- **Maths follows her textbook.** Chapters 1-14 in book order, each with its sections and page numbers (for example 12D Read and Make Scatter Graphs, p. 191); "Time and Measures" last as an extra topic. Science keeps its list until its book contents are mapped.
+- **Practice by book section** (`#/section/<topicId>/<sectionId>`): the section's bank questions plus generated ones stamped with that section.
+- **Mock papers** (`#/papers/maths`, `#/paper/<id>`): the four Chapter 11-14 papers as timed papers. One timer, free movement, flags, the paper's own numbering ("10(a)") with the shared stem and picture above each part, and a list of blank questions (tap to go) before handing in. Marked all or nothing on screen; the review shows the mark scheme. Paper attempts count towards her progress and appear in the reports as mock papers ("second attempt" on a repeat), with marks by book section.
+- **Reports by book section:** a line per section practised (questions, % right; for a paper, marks) in the results, the visual report, the full report and the email.
+- **Back up and restore** in the parent area (local mode), with a reminder when the last backup is more than 7 days old.
+- `js/bookmap.js` holds the CLO's id map: the seven subtopic ids that moved (answers saved under an old id still count) and the book section of each subtopic and skill.
 
 Version 2 can run in two ways. Which one depends only on `config.js`:
 
@@ -73,7 +84,7 @@ It checks every file with the CLO's `validate.py` (a file with errors is left ou
 
 ## Tests
 
-Run `python tools\run_tests.py`. It opens the three test pages in a hidden browser and prints the results: the app suite (430 tests in v2), the diagram checks (913) and the generator checks (157,000 generated questions, each answer worked out again independently; `python tools\run_tests.py generators --seeds 50` for a quick run). `python tools\e2e.py` drives the whole app end to end (local mode, offline with the server stopped, and linked mode against the stand-in server) and saves screenshots to `screenshots\v2-integration\`. Or, with the laptop server running, open http://localhost:8766/test/ . The test page checks the marking of every question type and the edge cases for number and short answers, marks every question in the built banks with its own right answer and with a wrong one, and checks question sampling, the timer, reports and the email link, statistics, the PIN, and the export/import round trip (in a temporary database). Version 2 adds `test/tests-integration.js` (the diagram and generator engines inside the app: every bank picture drawn, every generator marked through the app, sessions mixing generated questions, rebuilding them on another device, named mistakes in reports, the offline list) and `test/tests-linked.js`: the data adapter and its Supabase requests, the access rules (Row Level Security intent) against a stand-in server, the SQL review checklist, the offline queue, the working area (format, pen, palm, eraser, undo), the visual reports, the one-time import and the integration hooks.
+Open the test pages in a browser, with the laptop server running (`python tools\serve.py`, or the "study-practice-linked" preview on port 8768): http://localhost:8766/test/ (the app suite), http://localhost:8766/test/diagrams.html (the diagram checks) and http://localhost:8766/test/generators.html (every generator at 500 seeds per level, each answer worked out again independently; add `?seeds=50` for a quick run, `?only=m10` for one topic). Each page shows its result at the top. (The command-line runner `tools\run_tests.py` was removed on 17 Oct 2026: the laptop's antivirus flags scripts that start a hidden browser. `tools\e2e.py` and `tools\cdp.py` start a hidden browser too and are kept for reference only; do not run them on this laptop. End-to-end checks are done by hand in a browser, as listed in `docs/RELEASE-local-ipad.md`.) The test page checks the marking of every question type and the edge cases for number and short answers, marks every question in the built banks with its own right answer and with a wrong one, and checks question sampling, the timer, reports and the email link, statistics, the PIN, and the export/import round trip (in a temporary database). Version 2 adds `test/tests-integration.js` (the diagram and generator engines inside the app: every bank picture drawn, every generator marked through the app, sessions mixing generated questions, rebuilding them on another device, named mistakes in reports, the offline list) and `test/tests-linked.js`: the data adapter and its Supabase requests, the access rules (Row Level Security intent) against a stand-in server, the SQL review checklist, the offline queue, the working area (format, pen, palm, eraser, undo), the visual reports, the one-time import and the integration hooks.
 
 ## Publishing (GitHub Pages)
 
@@ -103,5 +114,5 @@ Everything uses relative paths, so the site works at a project address such as `
 | `docs/` | Set-up guides for EC, architecture, security checklist |
 | `content/` | Copies of the CLO's question banks (generated) |
 | `sw.js` | Offline support (generated from `tools/sw.template.js`) |
-| `tools/` | Build, local server, test runner, end-to-end run (`e2e.py`, `cdp.py`), icon drawing, and a small sample chapter for testing (`--samples`) |
+| `tools/` | Build (`build_content.py`: banks and mock papers, checked with the CLO's validate.py), local server, the old end-to-end scripts (`e2e.py`, `cdp.py`, not to be run on this laptop), icon drawing, and a small sample chapter for testing (`--samples`) |
 | `test/` | The test pages: app (`index.html`), diagram gallery and checks (`diagrams.html`), generator checks (`generators.html`) |
