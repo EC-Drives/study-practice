@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generator tests</title>
+<style>
+  body { margin: 0; padding: 16px; background: #f6f4ee; color: #1b1b1a; font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h2 { font-size: 16px; margin: 20px 0 6px; }
+  #summary { font-size: 17px; font-weight: 700; margin: 8px 0 12px; }
+  #summary.ok { color: #0b7a0b; } #summary.bad { color: #b42318; }
+  table { border-collapse: collapse; background: #fff; font-size: 12.5px; }
+  th, td { border: 1px solid #e1dfd7; padding: 3px 8px; text-align: left; vertical-align: top; }
+  tr.bad td { background: #fdecea; }
+  li { font-size: 12px; margin: 2px 0; }
+  pre { white-space: pre-wrap; font-size: 12px; background: #fff; padding: 10px; }
+  code { background: #fff; padding: 0 4px; }
+</style>
+</head>
+<body>
+<h1>Maths generator tests</h1>
+<p>Every generator, every difficulty, 500 seeds each (<code>?seeds=100</code> for a quicker run, <code>?only=m10</code> for one topic or generator). Answers are worked out again independently and compared; distractors, ranges, marking by the app, solutions and diagrams are checked; then every topic and part is filled to a 30-minute session without repeats. <code>?show=m10.add-sub-unlike&amp;d=2&amp;n=5</code> prints sample questions.</p>
+<div id="summary">Running...</div>
+<h2>Generators</h2>
+<table id="gens"></table>
+<h2>30-minute sessions</h2>
+<table id="sessions"></table>
+<h2>Problems</h2>
+<ul id="failures"></ul>
+<pre id="sample"></pre>
+<script type="module" src="generators.js"></script>
+</body>
+</html>

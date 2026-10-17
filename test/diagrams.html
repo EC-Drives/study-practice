@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagram gallery</title>
+<link rel="stylesheet" href="../css/app.css">
+<style>
+  body { padding: 16px; max-width: 1200px; margin: 0 auto; font-size: 16px; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 14px; }
+  .bar button, .bar select { font: inherit; font-size: 14px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; min-height: 36px; }
+  .bar button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  #summary { font-weight: 700; }
+  #summary.ok { color: var(--good); } #summary.bad { color: #b42318; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; min-width: 0; }
+  .card h3 { font-size: 15px; margin: 0 0 2px; }
+  .card .type { font: 12px ui-monospace, Consolas, monospace; color: var(--muted); }
+  .card .desc { font-size: 13px; color: var(--ink-2); margin: 6px 0 0; }
+  .card details { font-size: 12px; margin-top: 6px; }
+  .card pre { white-space: pre-wrap; word-break: break-word; font-size: 11.5px; background: var(--surface-2); padding: 8px; border-radius: 8px; margin: 6px 0 0; }
+  .card.fail { outline: 2px solid #b42318; }
+  .errs { color: #b42318; font-size: 12px; }
+  h2 { font-size: 18px; margin: 26px 0 10px; }
+  textarea { width: 100%; min-height: 160px; font: 12.5px ui-monospace, Consolas, monospace; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 10px; }
+  .opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .opt { border: 1px solid var(--line); border-radius: 12px; padding: 8px; background: var(--surface); }
+  .opt b { display: block; font-size: 14px; }
+  .checks { font-size: 13px; }
+  .checks li.bad { color: #b42318; }
+  .compact .card .desc, .compact .card details, .compact .card .type { display: none; }
+  .compact .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; }
+  .compact .card { padding: 6px 8px; }
+  .fixed-cols .grid { grid-template-columns: repeat(var(--cols), 1fr); }
+  .only h2, .only #picture, .only #checks, .only #paste, .only #draw, .only #pasteOut, .only h1 + p { display: none; }
+</style>
+</head>
+<body>
+<h1>Diagram gallery</h1>
+<p>Every diagram type in <code>docs/diagram-spec.md</code>, drawn from its sample data. Under each picture: the description a screen reader hears, and the JSON. Use the theme buttons to check light and dark.</p>
+<div class="bar">
+  <span>Theme:</span>
+  <button type="button" data-theme-btn="auto" aria-pressed="true">Device</button>
+  <button type="button" data-theme-btn="light" aria-pressed="false">Light</button>
+  <button type="button" data-theme-btn="dark" aria-pressed="false">Dark</button>
+  <label>Type <select id="filter"><option value="">All types</option></select></label>
+  <span id="summary">Running...</span>
+</div>
+
+<div id="gallery" class="grid"></div>
+
+<h2>Picture-choice question (optionDiagrams)</h2>
+<div id="picture"></div>
+
+<h2>Checks</h2>
+<ul id="checks" class="checks"></ul>
+
+<h2>Try your own</h2>
+<p>Paste a diagram, a question with a <code>diagram</code> or <code>optionDiagrams</code>, a list of them, or a whole topic file. Each diagram is drawn and checked.</p>
+<textarea id="paste" spellcheck="false" aria-label="Diagram JSON">{"type": "clock", "time": "7:20"}</textarea>
+<div class="bar"><button type="button" id="draw">Draw</button></div>
+<div id="pasteOut" class="grid"></div>
+
+<script type="module" src="diagrams.js"></script>
+</body>
+</html>
