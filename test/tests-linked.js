@@ -194,14 +194,16 @@ export async function run({ check, setGroup, fixtures }) {
     check('student writes her own session', (await asS.select('sessions', {})).length === 1);
     check('student cannot write a session as another student', await denied(() => asS.upsert('sessions', [sesRow('ses-x', T)])));
     await asT.upsert('sessions', [sesRow('ses-t1', T)]);
-    check('student cannot overwrite another student\'s row (same id)', await denied(() => asS.upsert('sessions', [sesRow('ses-t1', S)])));
+    await asS.upsert('sessions', [sesRow('ses-t1', S)]);
+    check('rows are keyed per student: the same id used by someone else neither blocks nor touches hers', server.tables.sessions.get(`${T}|ses-t1`).student_id === T && server.tables.sessions.get(`${S}|ses-t1`).student_id === S);
+    check('a student cannot change another student\'s row', await denied(() => asS.upsert('sessions', [{ ...sesRow('ses-t1', T), score_pct: 1 }])) && server.tables.sessions.get(`${T}|ses-t1`).score_pct === 0.5);
     check('student cannot read another student\'s sessions', (await asT.select('sessions', {})).every((r) => r.student_id === T) && !(await asS.select('sessions', {})).some((r) => r.student_id === T));
-    check('parent reads his linked child\'s sessions', (await asP.select('sessions', { eq: { student_id: S } })).length === 1);
+    check('parent reads his linked child\'s sessions', (await asP.select('sessions', { eq: { student_id: S } })).length === 2);
     check('another parent sees nothing of her', (await asQ.select('sessions', { eq: { student_id: S } })).length === 0);
     check('a parent cannot write her data', await denied(() => asP.upsert('sessions', [sesRow('ses-p', S)])) && await denied(() => asP.upsert('sessions', [sesRow('ses-p2', P)])));
     check('signed out: nothing at all', (await anon.select('sessions', {})).length === 0 && (await anon.select('profiles', {})).length === 0 && await denied(() => anon.upsert('sessions', [sesRow('ses-a', S)])));
     let fk = '';
-    try { await asS.upsert('attempts', [{ id: 'ses-t1|q', session_id: 'ses-t1', student_id: S, question_id: 'q', correct: true, answered_at: 'x', data: {} }]); } catch (e) { fk = e.code; }
+    try { await asS.upsert('attempts', [{ id: 'ses-t9|q', session_id: 'ses-t9', student_id: S, question_id: 'q', correct: true, answered_at: 'x', data: {} }]); } catch (e) { fk = e.code; }
     check('an answer cannot be attached to someone else\'s session', fk === '23503');
     const profS = await asS.select('profiles', {});
     const profP = await asP.select('profiles', {});
@@ -226,7 +228,8 @@ export async function run({ check, setGroup, fixtures }) {
     await asP.invoke('manage-student', { action: 'set-password', studentId: S, password: 'new-student-pass' });
     let oldOk = true;
     try { await new MockBackend(server).signIn(studentEmail('stu-s'), 'student-pass-1'); } catch { oldOk = false; }
-    check('the parent can reset her password (old one stops working)', !oldOk);
+    check('the parent can reset her password (old one stops working, and she is signed out everywhere)', !oldOk && asS.session() === null);
+    await asS.signIn(studentEmail('stu-s'), 'new-student-pass');
   }
 
   // ================================================================ SQL review checklist
@@ -248,10 +251,12 @@ export async function run({ check, setGroup, fixtures }) {
     check('C7 reads: own rows, or a linked parent', ['sessions', 'attempts', 'reports'].every((t) => /student_id = \(select auth\.uid\(\)\) or public\.is_parent_of\(student_id\)/.test(pol(t, 'select')[0].body)));
     check('C8 profiles and ask_log are read-only from the app', pol('profiles', 'insert').length + pol('profiles', 'update').length + pol('ask_log', 'insert').length + pol('ask_log', 'update').length === 0 && pol('ask_log', 'select').length === 1);
     const definers = [...sql.matchAll(/create function ([\w.]+)\(([\s\S]*?)\$\$/g)].filter((m) => /security definer/.test(m[2]));
-    check('C9 every SECURITY DEFINER function has a fixed, empty search_path', definers.length === 4 && definers.every((m) => /set search_path = ''/.test(m[2])));
+    check('C9 every SECURITY DEFINER function has a fixed, empty search_path', definers.length === 6 && definers.every((m) => /set search_path = ''/.test(m[2])));
     check('C10 make_parent() cannot be called from the app', /revoke execute on function public\.make_parent\(text, text\) from public, anon, authenticated/.test(sql) && !/grant execute on function public\.make_parent/.test(sql));
     check('C11 table privileges: nothing for anon, no delete for anyone', /revoke all on table public\.profiles, public\.sessions, public\.attempts, public\.reports, public\.ask_log from public, anon, authenticated/.test(sql) && !/grant[^;]*to anon/.test(sql) && !/grant[^;]*delete/.test(sql));
-    check('C12 answers and reports must belong to the same student as their session', /foreign key \(session_id, student_id\)\s+references public\.sessions \(id, student_id\)/.test(sql) && (sql.match(/references public\.sessions \(id, student_id\)/g) || []).length === 2);
+    check('C12 answers and reports must belong to the same student as their session', /foreign key \(student_id, session_id\)\s+references public\.sessions \(student_id, id\)/.test(sql) && (sql.match(/references public\.sessions \(student_id, id\)/g) || []).length === 2);
+    check('C21 her rows are keyed per student (no one can take an id first)', (sql.match(/primary key \(student_id, (id|session_id)\)/g) || []).length === 3);
+    check('C22 end_sessions() and the student cap: only the server may call them', /revoke execute on function public\.end_sessions\(uuid\) from public, anon, authenticated/.test(sql) && /grant execute on function public\.end_sessions\(uuid\) to service_role/.test(sql) && /revoke execute on function public\.limit_students\(\) from public, anon, authenticated/.test(sql) && /before insert on public\.profiles/.test(sql));
     check('C13 a student always has a parent; nobody is their own parent', /profiles_role_shape/.test(sql) && /parent_id <> id/.test(sql));
     check('C14 the working bucket is private, PNG only, size-capped', /values \('working', 'working', false, 524288, array\['image\/png'\]\)/.test(sql) && /set public = false/.test(sql));
     const st = (cmd) => policies.find((p) => p.table === 'storage.objects' && p.cmd === cmd);
@@ -263,7 +268,7 @@ export async function run({ check, setGroup, fixtures }) {
     check('C17 no key, token or password in the client or functions (no JWT, sb_secret_, sk-ant-)', texts.every((t) => !/eyJ[A-Za-z0-9_-]{20,}|sb_secret_[A-Za-z0-9]|sk-ant-[A-Za-z0-9]/.test(t)));
     check('C18 the Anthropic key is read only from the function environment', /Deno\.env\.get\('ANTHROPIC_API_KEY'\)/.test(texts[6]) && texts.slice(7, 10).every((t) => !/ANTHROPIC_API_KEY'\)/.test(t) || /Deno\.env/.test(t)));
     check('C19 the page may talk only to itself and *.supabase.co', /connect-src 'self' https:\/\/\*\.supabase\.co;/.test(texts[10]) && /script-src 'self';/.test(texts[10]));
-    check('C20 the student-account function checks the caller is a parent and owns the child', /who\.role !== 'parent'/.test(texts[5]) && /parent_id=eq\./.test(texts[5]) && /email_confirm: true/.test(texts[5]));
+    check('C20 the student-account function checks the caller is a parent and owns the child, and signs her out after a reset', /who\.role !== 'parent'/.test(texts[5]) && /parent_id=eq\./.test(texts[5]) && /email_confirm: true/.test(texts[5]) && /rpc\/end_sessions/.test(texts[5]));
   }
 
   // ================================================================ offline queue
@@ -285,13 +290,13 @@ export async function run({ check, setGroup, fixtures }) {
     check('a finished session goes into the outbox', (await q.pending()) === 1 && statuses.at(-1).pending === 1);
     server.offline = true;
     const r1 = await q.flush();
-    check('offline: nothing is lost, the session waits', r1.offline && (await q.pending()) === 1 && !server.tables.sessions.has(done.id));
+    check('offline: nothing is lost, the session waits', r1.offline && (await q.pending()) === 1 && !server.tables.sessions.has(`${S}|${done.id}`));
     server.offline = false;
     const r2 = await q.flush();
-    const remote = server.tables.sessions.get(done.id);
+    const remote = server.tables.sessions.get(`${S}|${done.id}`);
     const rAtt = [...server.tables.attempts.values()].filter((a) => a.session_id === done.id);
     check('back online: sent, outbox empty', r2.sent === 1 && (await q.pending()) === 0 && statuses.at(-1).pending === 0);
-    check('session, every answer and the report are online', remote && remote.student_id === S && rAtt.length === 7 && server.tables.reports.has(done.id));
+    check('session, every answer and the report are online', remote && remote.student_id === S && rAtt.length === 7 && server.tables.reports.has(`${S}|${done.id}`));
     const a1 = rAtt.find((a) => a.question_id === 'm91-q001');
     check('her working: strokes in the answer row, picture in her private folder', a1.working_strokes && a1.working_strokes.s.length === 1 && a1.working_path === workingPath(S, done.id, 'm91-q001') && server.objects.has(`working/${a1.working_path}`));
     check('the answer data itself carries no picture (kept small)', !('working' in a1.data) && a1.data.hasWorking === true && rAtt.filter((a) => a.working_path).length === 2);
@@ -301,7 +306,7 @@ export async function run({ check, setGroup, fixtures }) {
     const [fa, fb] = [q.flush(), q.flush()];
     check('two sends at once share one run', fa === fb);
     await fa;
-    check('sending again is harmless (still one session, seven answers)', server.log.filter((x) => x === 'upsert sessions').length === before + 1 && [...server.tables.attempts.values()].filter((a) => a.session_id === done.id).length === 7 && server.tables.sessions.size === 3);
+    check('sending again is harmless (still one session, seven answers)', server.log.filter((x) => x === 'upsert sessions').length === before + 1 && [...server.tables.attempts.values()].filter((a) => a.session_id === done.id).length === 7 && server.tables.sessions.size === 4);
     // a server error: retried later with a back-off, not in a tight loop
     const s2 = planSession({ subject: 'maths', topic: sampleTopic, topics: [sampleTopic], mode: 'topic', durationMin: 15, attempts: [], seed: 4 });
     s2.questionIds = sampleTopic.questions.map((x) => x.id);
@@ -333,7 +338,7 @@ export async function run({ check, setGroup, fixtures }) {
     const rs = await src.getAll('sessions');
     const ra = await src.getAll('attempts');
     const rr = await src.get('reports', done.id);
-    check('parent sees her sessions, answers and reports', rs.length === 3 && ra.length === 14 && rr && rr.sessionId === done.id);
+    check('parent sees her sessions, answers and reports', rs.length === 4 && ra.length === 14 && rr && rr.sessionId === done.id);
     check('parent can open one session\'s answers', (await src.getAllByIndex('attempts', 'sessionId', done.id)).length === 7);
     const one = ra.find((a) => a.sessionId === done.id && a.questionId === 'm91-q001');
     const strokes = await workingFor(src, one);
@@ -361,7 +366,7 @@ export async function run({ check, setGroup, fixtures }) {
       const res = await importLegacy(fakeApp, LEG);
       check('it is copied into her account on this device and queued', res.added.sessions === 2 && res.added.attempts === 14 && (await q.pending()) >= 0);
       await q.flush({ force: true });
-      check('and goes online', [...server.tables.sessions.values()].filter((x) => x.student_id === S).length === 5);
+      check('and goes online', [...server.tables.sessions.values()].filter((x) => x.student_id === S).length === 6);
       const again = await legacyProgress(S, LEG);
       check('offered only once', again.already === true && again.sameAccount === true);
       const leg2 = await Db.open(LEG);

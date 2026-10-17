@@ -391,6 +391,12 @@ async function reportPage(body, app, id, data) {
 
 const USERNAME = /^[a-z0-9][a-z0-9._-]{2,29}$/;
 
+/** Show a page, even when it is the one already in the address bar (then no hashchange fires). */
+function goTo(hash) {
+  if (location.hash === hash) window.dispatchEvent(new HashChangeEvent('hashchange'));
+  else location.hash = hash;
+}
+
 function field(id, label, attrs) {
   const input = h('input', { id, class: 'answer-input', ...attrs });
   return { input, el: h('div', { class: 'field' }, h('label', { for: id, text: label }), input) };
@@ -413,9 +419,11 @@ async function linkedSettingsPage(body, app, data, firstRun) {
       e.preventDefault();
       if (pw.input.value.length < 8) { msg.textContent = 'Use at least 8 characters.'; return; }
       try {
-        await backend.invoke('manage-student', { action: 'set-password', studentId: c.id, password: pw.input.value });
+        const res = await backend.invoke('manage-student', { action: 'set-password', studentId: c.id, password: pw.input.value });
         pw.input.value = '';
-        msg.textContent = 'Password changed. She uses the new one next time she signs in.';
+        msg.textContent = res && res.signedOut
+          ? 'Password changed, and she is signed out on her devices. She signs in again with the new one.'
+          : 'Password changed. Devices she is already signed in on could not be signed out, so they stay signed in until she signs out there.';
       } catch (err) {
         msg.textContent = err.message || 'Could not change the password.';
       }
@@ -445,7 +453,7 @@ async function linkedSettingsPage(body, app, data, firstRun) {
         p2.input.value = '';
         await connect(app);
         await dialog('Her account is ready', `She signs in on her own device with the username "${username}" and the password you chose. Choose "I am practising" on the sign-in page.`, [{ label: 'OK', value: true, cls: 'btn-primary' }]);
-        location.hash = '#/parent/overview';
+        goTo('#/parent/overview');
       } catch (err) {
         msg.textContent = err.message || 'The account could not be created.';
       } finally {
@@ -455,7 +463,7 @@ async function linkedSettingsPage(body, app, data, firstRun) {
     if (kids.length) accounts.append(h('details', {}, h('summary', { text: 'Add another student account' }), form));
     else accounts.append(form);
   }
-  accounts.append(h('p', { class: 'small muted', text: 'Her account has no email address: she signs in with the username. Only you can change her password, here.' }));
+  accounts.append(h('p', { class: 'small muted', text: 'Her account has no email address: she signs in with the username. You can reset her password here at any time; that also signs her out on every device.' }));
   body.append(accounts);
 
   if (data) {

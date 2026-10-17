@@ -11,7 +11,9 @@
 
 import { BackendError, memoryStorage } from './supabase-backend.js';
 
-const KEYS = { profiles: 'id', sessions: 'id', attempts: 'id', reports: 'session_id', ask_log: 'id' };
+// primary keys, as in the SQL: her rows are keyed per student (student_id + id)
+const KEYS = { profiles: ['id'], sessions: ['student_id', 'id'], attempts: ['student_id', 'id'], reports: ['student_id', 'session_id'], ask_log: ['id'] };
+export const keyOf = (table, row) => KEYS[table].map((k) => row[k]).join('|');
 const WRITABLE = new Set(['sessions', 'attempts', 'reports']); // insert/update policies exist only here
 const USERNAME = /^[a-z0-9][a-z0-9._-]{2,29}$/;
 const AUTH_KEY = 'study-practice-auth';
@@ -33,6 +35,7 @@ export class MockServer {
     this.offline = false; // simulate no connection
     this.failNext = 0; // simulate server errors (count)
     this.studentDomain = 'students.study-practice.invalid';
+    this.sessionEpoch = new Map(); // user id -> number: end_sessions() bumps it, signing them out everywhere
     this.log = []; // every call, for tests
     this.onChange = null;
     if (state) this.load(state);
@@ -49,7 +52,7 @@ export class MockServer {
 
   load(s) {
     for (const u of s.users || []) this.users.set(u.id, u);
-    for (const [t, rows] of Object.entries(s.tables || {})) for (const r of rows) this.tables[t].set(r[KEYS[t]], r);
+    for (const [t, rows] of Object.entries(s.tables || {})) for (const r of rows) this.tables[t].set(keyOf(t, r), r);
     for (const [k, v] of s.objects || []) this.objects.set(k, v);
   }
 
@@ -114,8 +117,8 @@ export class MockServer {
       if (!['maths', 'science'].includes(row.subject)) throw new BackendError(400, 'subject check failed', '23514');
       if (!row.data || !row.started_at) throw new BackendError(400, 'not null', '23502');
     } else {
-      // composite foreign key (session_id, student_id) -> sessions(id, student_id)
-      const ses = this.tables.sessions.get(row.session_id);
+      // composite foreign key (student_id, session_id) -> sessions(student_id, id)
+      const ses = this.tables.sessions.get(`${row.student_id}|${row.session_id}`);
       if (!ses || ses.student_id !== row.student_id) throw new BackendError(409, 'foreign key violation', '23503');
       if (table === 'attempts' && row.working_path && row.working_path.split('/')[0] !== row.student_id) {
         throw new BackendError(400, 'working_path check failed', '23514');
@@ -149,7 +152,8 @@ export class MockBackend {
   session() {
     try {
       const s = JSON.parse(this.store.getItem(AUTH_KEY) || 'null');
-      return s && s.user && this.server.users.has(s.user.id) ? s : null;
+      const epoch = s && s.user ? this.server.sessionEpoch.get(s.user.id) || 0 : 0;
+      return s && s.user && this.server.users.has(s.user.id) && (s.epoch || 0) === epoch ? s : null;
     } catch {
       return null;
     }
@@ -168,7 +172,7 @@ export class MockBackend {
     this.server.gate('signIn');
     const u = [...this.server.users.values()].find((x) => x.email === String(email).toLowerCase());
     if (!u || u.password !== password) throw new BackendError(401, 'That username or password is not right.');
-    const s = { accessToken: `mock-${u.id}`, refreshToken: `mock-r-${u.id}`, expiresAt: Date.now() + 3600000, user: { id: u.id, email: u.email } };
+    const s = { accessToken: `mock-${u.id}`, refreshToken: `mock-r-${u.id}`, expiresAt: Date.now() + 3600000, epoch: this.server.sessionEpoch.get(u.id) || 0, user: { id: u.id, email: u.email } };
     this.store.setItem(AUTH_KEY, JSON.stringify(s));
     this._profile = null;
     return s;
@@ -205,12 +209,11 @@ export class MockBackend {
   async upsert(table, rows) {
     this.server.gate(`upsert ${table}`);
     const uid = this._needUser();
-    const key = KEYS[table];
     const map = this.server.tables[table];
     if (!map) throw new BackendError(404, 'relation does not exist');
     // all or nothing, like one INSERT statement
-    for (const r of rows) this.server.checkWrite(table, r, uid, map.get(r[key]));
-    for (const r of rows) map.set(r[key], { ...map.get(r[key]), ...JSON.parse(JSON.stringify(r)) });
+    for (const r of rows) this.server.checkWrite(table, r, uid, map.get(keyOf(table, r)));
+    for (const r of rows) map.set(keyOf(table, r), { ...map.get(keyOf(table, r)), ...JSON.parse(JSON.stringify(r)) });
     this.server.changed();
   }
 
@@ -276,8 +279,9 @@ export class MockBackend {
       if (!p || p.parent_id !== uid) throw new BackendError(403, 'That student is not linked to your account.');
       if (!pwOk(body.password)) throw new BackendError(400, 'The password must be 8 to 72 characters.');
       this.server.users.get(p.id).password = body.password;
+      this.server.sessionEpoch.set(p.id, (this.server.sessionEpoch.get(p.id) || 0) + 1); // like public.end_sessions()
       this.server.changed();
-      return { ok: true };
+      return { ok: true, signedOut: true };
     }
     throw new BackendError(400, 'Unknown action.');
   }

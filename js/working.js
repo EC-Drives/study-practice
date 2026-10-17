@@ -346,6 +346,9 @@ export function workingPad(opts = {}) {
       note.textContent = 'The working area is full. Clear it or carry on below in your head.';
       return;
     }
+    // the pad's pixel size must match its size on screen before drawing (rotation, resizing)
+    const dpr = Math.min(3, globalThis.devicePixelRatio || 1);
+    if (Math.abs(canvas.width - Math.round(cssWidth() * dpr)) > 1 || Math.abs(canvas.height - Math.round(cssHeight() * dpr)) > 1) sizeCanvas();
     ensureWorking();
     const erase = tool === 'eraser' || (e.pointerType === 'pen' && (e.button === 5 || (e.buttons & 32) === 32));
     const upp = unitsPerPx();
@@ -441,6 +444,7 @@ export function workingPad(opts = {}) {
     ro.observe(paper);
   }
   requestAnimationFrame(sizeCanvas);
+  setTimeout(sizeCanvas, 0); // also when the page is in the background (no animation frames)
   syncButtons();
 
   return {
@@ -483,5 +487,6 @@ export function workingView(working, opts = {}) {
     }).observe(wrap);
   }
   requestAnimationFrame(draw);
+  setTimeout(() => { if (wrap.isConnected) draw(); }, 0);
   return wrap;
 }

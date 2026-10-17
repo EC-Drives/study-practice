@@ -7,7 +7,9 @@
 // decides what the function may see (a parent sees only his linked child). The service-role key
 // is used only to write the ask_log row.
 
-import Anthropic from 'npm:@anthropic-ai/sdk'; // pin an exact version when deploying (see README)
+// BEFORE DEPLOYING: pin an exact, current SDK version here, e.g. 'npm:@anthropic-ai/sdk@<x.y.z>'
+// (check the version list on npmjs.com that day), so a future release cannot change behaviour.
+import Anthropic from 'npm:@anthropic-ai/sdk';
 
 export const SUPABASE_URL = Deno.env.get('SUPABASE_URL') ?? '';
 export const ANON_KEY = Deno.env.get('SUPABASE_ANON_KEY') ?? '';
@@ -87,6 +89,32 @@ export async function downloadAsCaller(token: string, bucket: string, path: stri
   });
   if (!res.ok) throw new Problem(404, 'That image was not found.');
   return new Uint8Array(await res.arrayBuffer());
+}
+
+// Daily allowance per account (supabase/step-b/ai_usage.sql). Override with the secrets
+// LIMIT_ASK, LIMIT_HANDWRITING, LIMIT_GENERATE.
+export const DAILY_LIMITS = {
+  ask: Number(Deno.env.get('LIMIT_ASK') ?? 20),
+  handwriting: Number(Deno.env.get('LIMIT_HANDWRITING') ?? 200),
+  generate: Number(Deno.env.get('LIMIT_GENERATE') ?? 10),
+};
+
+/** Take one call from today's allowance, or refuse with 429. Fails closed. */
+export async function takeQuota(userId: string, feature: 'ask' | 'handwriting' | 'generate'): Promise<void> {
+  const key = serviceKey();
+  const headers: Record<string, string> = { apikey: key, 'Content-Type': 'application/json' };
+  if (key.startsWith('eyJ')) headers.Authorization = `Bearer ${key}`;
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/ai_take`, { method: 'POST', headers, body: JSON.stringify({ p_user: userId, p_feature: feature, p_limit: DAILY_LIMITS[feature] }) });
+  if (!res.ok) throw new Problem(503, 'The daily allowance could not be checked, so Claude was not asked.');
+  if ((await res.json()) !== true) throw new Problem(429, 'That is enough for today. It resets tomorrow.');
+}
+
+/**
+ * JSON for inside a <data> block in a prompt: < and > are escaped, so text she typed can never
+ * close the block or open a tag of its own.
+ */
+export function promptJson(value: unknown): string {
+  return JSON.stringify(value).replace(/</g, '\\u003c').replace(/>/g, '\\u003e');
 }
 
 /** Insert a row with the service-role key (used only for ask_log). */

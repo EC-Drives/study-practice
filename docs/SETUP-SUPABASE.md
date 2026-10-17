@@ -48,6 +48,7 @@ Only you will create accounts: yours by hand in Step 5, and your daughter's from
 1. In the left menu, click **Authentication**.
 2. Open **Sign In / Providers** (on some screens it is **Settings** or **Providers**).
 3. Turn **off** **Allow new users to sign up**, then click **Save**.
+4. On the same page, check that **Allow anonymous sign-ins** is **off** (it is off unless someone turned it on).
 
 ## Step 5. Create your own (parent) account
 

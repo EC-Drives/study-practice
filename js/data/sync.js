@@ -137,9 +137,10 @@ export class SyncQueue {
       const blob = dataUrlToBlob(u.dataUrl);
       if (blob) await this.backend.upload(WORKING_BUCKET, u.path, blob);
     }
-    await this.backend.upsert('sessions', [sessionRow], 'id');
-    for (let i = 0; i < attemptRows.length; i += 200) await this.backend.upsert('attempts', attemptRows.slice(i, i + 200), 'id');
-    if (reportRow) await this.backend.upsert('reports', [reportRow], 'session_id');
+    // rows are keyed per student (student_id + id): safe to send again, and no one else's ids matter
+    await this.backend.upsert('sessions', [sessionRow], 'student_id,id');
+    for (let i = 0; i < attemptRows.length; i += 200) await this.backend.upsert('attempts', attemptRows.slice(i, i + 200), 'student_id,id');
+    if (reportRow) await this.backend.upsert('reports', [reportRow], 'student_id,session_id');
     await this.db.put('sessions', { ...session, syncedAt: this.now() });
   }
 

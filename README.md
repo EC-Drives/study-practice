@@ -16,6 +16,8 @@ New in both modes:
 
 Set-up guides: [`docs/SETUP-SUPABASE.md`](docs/SETUP-SUPABASE.md) (accounts and database, about 30 minutes) and, for Step B only, [`docs/SETUP-ANTHROPIC.md`](docs/SETUP-ANTHROPIC.md). How it fits together, the integration hooks and the Step B seams: [`docs/v2-architecture.md`](docs/v2-architecture.md). Security rules: [`docs/rls-review-checklist.md`](docs/rls-review-checklist.md).
 
+**Before going linked: one decision for EC.** All EC-Drives sites share the address `ec-drives.github.io`, and browsers keep sign-in tokens and stored data per address. In linked mode her sign-in and progress would be readable by any other EC-Drives site (today, Drive Timer). The safer set-up gives Study Practice its own address: a custom domain, or a separate GitHub account or organisation. Details are in `docs/v2-architecture.md`, Security notes.
+
 **Trying linked mode on this laptop without Supabase:** open http://localhost:8766/?backend=mock&demo=1&as=parent (parent view with a fortnight of made-up practice) or `...&as=student&switch=1` (her view). This uses a pretend server kept in the browser, and works only on this laptop.
 
 ## What it does (version 1, still true in local mode)

@@ -36,8 +36,8 @@ export async function askProgress(studentId, question) {
 }
 
 /**
- * Read her handwritten final answer. input: { attemptId } for a saved answer, or
- * { imagePng (base64, no data: prefix), prompt, answerKind: 'number' | 'text' } during practice.
+ * Read her handwritten final answer. input: { studentId, attemptId } for a saved answer, or
+ * { imagePng (base64, no data: prefix), answerKind: 'number' | 'text' } during practice.
  * Returns { text, confidence, note }: a suggestion she confirms before it is marked.
  */
 export async function readHandwriting(input) {

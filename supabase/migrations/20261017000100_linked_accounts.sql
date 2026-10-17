@@ -91,7 +91,7 @@ grant execute on function public.can_read_student_folder(text) to authenticated;
 -- ------------------------------------------------------------------ sessions
 
 create table public.sessions (
-  id text primary key check (char_length(id) between 1 and 100),
+  id text not null check (char_length(id) between 1 and 100),
   student_id uuid not null references public.profiles (id) on delete cascade,
   subject text not null check (subject in ('maths', 'science')),
   topic_id text check (char_length(topic_id) <= 100),
@@ -102,8 +102,9 @@ create table public.sessions (
   questions integer check (questions between 0 and 1000),
   data jsonb not null check (octet_length(data::text) < 1000000),
   synced_at timestamptz not null default now(),
-  -- lets attempts and reports prove they belong to the same student as their session
-  constraint sessions_id_student_key unique (id, student_id)
+  -- keyed per student: nobody can take an id first and block her row; attempts and reports
+  -- point at (student_id, id), so they always belong to the same student as their session
+  primary key (student_id, id)
 );
 
 create index sessions_student_started_idx on public.sessions (student_id, started_at desc);
@@ -111,7 +112,7 @@ create index sessions_student_started_idx on public.sessions (student_id, starte
 -- ------------------------------------------------------------------ attempts
 
 create table public.attempts (
-  id text primary key check (char_length(id) between 1 and 250),
+  id text not null check (char_length(id) between 1 and 250),
   session_id text not null,
   student_id uuid not null references public.profiles (id) on delete cascade,
   question_id text not null check (char_length(question_id) <= 120),
@@ -124,22 +125,24 @@ create table public.attempts (
     working_path is null
     or (split_part(working_path, '/', 1) = student_id::text and char_length(working_path) <= 300)
   ),
-  constraint attempts_session_fk foreign key (session_id, student_id)
-    references public.sessions (id, student_id) on delete cascade
+  primary key (student_id, id),
+  constraint attempts_session_fk foreign key (student_id, session_id)
+    references public.sessions (student_id, id) on delete cascade
 );
 
 create index attempts_student_idx on public.attempts (student_id, answered_at);
-create index attempts_session_idx on public.attempts (session_id);
+create index attempts_session_idx on public.attempts (student_id, session_id);
 
 -- ------------------------------------------------------------------ reports
 
 create table public.reports (
-  session_id text primary key,
+  session_id text not null,
   student_id uuid not null references public.profiles (id) on delete cascade,
   created_at timestamptz not null default now(),
   data jsonb not null check (octet_length(data::text) < 500000),
-  constraint reports_session_fk foreign key (session_id, student_id)
-    references public.sessions (id, student_id) on delete cascade
+  primary key (student_id, session_id),
+  constraint reports_session_fk foreign key (student_id, session_id)
+    references public.sessions (student_id, id) on delete cascade
 );
 
 create index reports_student_idx on public.reports (student_id, created_at desc);
@@ -221,6 +224,48 @@ revoke all on table public.profiles, public.sessions, public.attempts, public.re
 grant select on table public.profiles to authenticated;
 grant select, insert, update on table public.sessions, public.attempts, public.reports to authenticated;
 grant select on table public.ask_log to authenticated;
+
+-- ------------------------------------------------------------------ at most 5 students per parent
+
+create function public.limit_students()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  if new.role = 'student' then
+    perform pg_advisory_xact_lock(hashtext(new.parent_id::text));
+    if (select count(*) from public.profiles p where p.parent_id = new.parent_id and p.role = 'student') >= 5 then
+      raise exception 'A parent can have at most 5 student accounts.';
+    end if;
+  end if;
+  return new;
+end;
+$$;
+
+revoke execute on function public.limit_students() from public, anon, authenticated;
+
+create trigger profiles_limit_students
+  before insert on public.profiles
+  for each row execute function public.limit_students();
+
+-- ------------------------------------------------------------------ end_sessions()
+-- Signs an account out everywhere (its refresh tokens stop working; an access token already
+-- issued lasts at most an hour). Called by manage-student after the parent resets her password.
+-- Only the service role (inside the edge function) may call it.
+
+create function public.end_sessions(p_user uuid)
+returns void
+language sql
+security definer
+set search_path = ''
+as $$
+  delete from auth.sessions s where s.user_id = p_user;
+$$;
+
+revoke execute on function public.end_sessions(uuid) from public, anon, authenticated;
+grant execute on function public.end_sessions(uuid) to service_role;
 
 -- ------------------------------------------------------------------ make_parent()
 -- Run once from the SQL editor after creating the parent's user (docs/SETUP-SUPABASE.md, step 6):

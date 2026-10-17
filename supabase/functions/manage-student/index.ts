@@ -14,7 +14,11 @@
 //   * A student signs in with a username. Internally the account's email is
 //     <username>@<STUDENT_EMAIL_DOMAIN> (a reserved .invalid domain by default), confirmed at
 //     creation, so no email is ever sent and none is needed.
-//   * Passwords are never logged or returned.
+//   * Passwords are never logged or returned. Supabase's own error details go to the
+//     function log, not to the browser.
+//   * After a password reset her sessions are ended everywhere (public.end_sessions()), so a
+//     lost or borrowed device is signed out.
+//   * At most 5 student accounts per parent (also enforced by a database trigger).
 //
 // Request: POST with JSON
 //   { "action": "create", "username": "...", "password": "...", "displayName": "..." }
@@ -88,7 +92,10 @@ async function caller(req: Request): Promise<{ id: string; role: string }> {
 }
 
 function checkPassword(pw: unknown): string {
-  if (typeof pw !== 'string' || pw.length < 8 || pw.length > 72) throw new Problem(400, 'The password must be 8 to 72 characters.');
+  // 72 is the limit of the password hash in bytes, not characters
+  if (typeof pw !== 'string' || pw.length < 8 || new TextEncoder().encode(pw).length > 72) {
+    throw new Problem(400, 'The password must be at least 8 characters (and not extremely long).');
+  }
   return pw;
 }
 
@@ -115,7 +122,8 @@ async function createStudent(parentId: string, body: Record<string, unknown>) {
   if (!created.ok || typeof user.id !== 'string') {
     const msg = String(user.msg ?? user.message ?? user.error_description ?? '');
     if (created.status === 422 && /already|exists|registered/i.test(msg)) throw new Problem(409, 'That username is already taken. Please choose another.');
-    throw new Problem(502, `Supabase could not create the account${msg ? `: ${msg}` : '.'}`);
+    console.error('create user failed', created.status, msg.slice(0, 200)); // details stay in the function log
+    throw new Problem(502, `Supabase could not create the account (error ${created.status}). Please try again, or see SETUP-SUPABASE.`);
   }
 
   const prof = await fetch(`${SUPABASE_URL}/rest/v1/profiles`, {
@@ -124,8 +132,10 @@ async function createStudent(parentId: string, body: Record<string, unknown>) {
     body: JSON.stringify({ id: user.id, role: 'student', parent_id: parentId, username, display_name: displayName }),
   });
   if (!prof.ok) {
+    const why = await prof.text().catch(() => '');
     // do not leave an account without a profile behind
     await fetch(`${SUPABASE_URL}/auth/v1/admin/users/${user.id}`, { method: 'DELETE', headers: adminHeaders() });
+    if (/at most 5 student/.test(why)) throw new Problem(400, `A parent can have at most ${MAX_STUDENTS} student accounts.`);
     throw new Problem(502, 'The account could not be linked to you, so it was removed again. Please try once more.');
   }
   return { ok: true, studentId: user.id, username };
@@ -140,7 +150,13 @@ async function setPassword(parentId: string, body: Record<string, unknown>) {
   if (!Array.isArray(rows) || !rows.length) throw new Problem(403, 'That student is not linked to your account.');
   const res = await fetch(`${SUPABASE_URL}/auth/v1/admin/users/${studentId}`, { method: 'PUT', headers: adminHeaders(), body: JSON.stringify({ password }) });
   if (!res.ok) throw new Problem(502, 'Supabase could not change the password.');
-  return { ok: true };
+  // sign her out on every device (a lost iPad stays signed in otherwise): public.end_sessions()
+  const end = await fetch(`${SUPABASE_URL}/rest/v1/rpc/end_sessions`, { method: 'POST', headers: adminHeaders(), body: JSON.stringify({ p_user: studentId }) });
+  if (!end.ok) {
+    console.error('end_sessions failed', end.status);
+    return { ok: true, signedOut: false };
+  }
+  return { ok: true, signedOut: true };
 }
 
 Deno.serve(async (req: Request) => {

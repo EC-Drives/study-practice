@@ -196,6 +196,12 @@ async function mockPreview(backend) {
 }
 
 async function start() {
+  // never run inside someone else's frame (a page that frames it could trick taps); the
+  // laptop's own screenshot tool frames it on localhost, which is allowed
+  if (window.top !== window.self && !['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)) {
+    document.body.textContent = 'Study Practice must be opened on its own page.';
+    return;
+  }
   try {
     app.backend = await createBackend();
     connectAi(app.backend);

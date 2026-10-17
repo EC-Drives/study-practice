@@ -166,7 +166,8 @@ export class SupabaseBackend {
     this._profile = null;
     if (s) {
       try {
-        await this._raw('/auth/v1/logout', { method: 'POST', headers: this._headers(s.accessToken) });
+        // this device only: signing out on her iPad must not sign her out on the laptop
+        await this._raw('/auth/v1/logout?scope=local', { method: 'POST', headers: this._headers(s.accessToken) });
       } catch { /* offline: the local sign-out is what matters */ }
     }
   }

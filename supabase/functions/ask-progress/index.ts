@@ -9,10 +9,13 @@
 // * Only a compact digest is sent to Claude (scores, parts, skills, misconceptions, dates):
 //   no names, no emails, no working images.
 // * The question and answer are kept in public.ask_log for the parent to look back on.
+// * Text in her data (chapter titles, notes) is data she could in principle have written, so it
+//   is escaped (promptJson) and fenced as data, and the instructions say so. Only short fields go.
+// * A daily allowance per parent (takeQuota, supabase/step-b/ai_usage.sql).
 // * Model: the latest Sonnet (MODELS.ask), effort "medium".
 // Client seam: js/ai.js askProgress() calls this function once AI_FEATURES.askProgress is on.
 
-import { ask, asCaller, insertAsService, MODELS, Problem, serve } from '../_shared/common.ts';
+import { ask, asCaller, insertAsService, MODELS, Problem, promptJson, serve, takeQuota } from '../_shared/common.ts';
 
 const SYSTEM = `You help a parent understand his daughter's practice for the Cambridge Primary Stage 6
 Mathematics and Science exams. You are given her practice data as JSON, between <data> tags.
@@ -32,34 +35,38 @@ serve(async (req, who) => {
   if (!/^[0-9a-f-]{36}$/i.test(studentId)) throw new Problem(400, 'Unknown student.');
   if (question.length < 3 || question.length > 1000) throw new Problem(400, 'Please type a question of up to 1,000 characters.');
 
+  await takeQuota(who.id, 'ask');
   const id = encodeURIComponent(studentId);
   const sessions = (await asCaller(who.token, `sessions?student_id=eq.${id}&select=data&order=started_at.desc&limit=80`)) as Row[];
   if (!sessions.length) throw new Problem(404, 'There is no practice data for this student yet.');
   const reports = (await asCaller(who.token, `reports?student_id=eq.${id}&select=data&order=created_at.desc&limit=30`)) as Row[];
 
+  const short = (x: unknown, n = 120) => String(x ?? '').slice(0, n);
   const digest = {
     today: new Date().toISOString().slice(0, 10),
     sessions: sessions.map(({ data: s }) => ({
       date: new Date(Number(s.startedAt)).toISOString().slice(0, 16),
-      subject: s.subject,
-      chapter: s.topicTitle ?? 'mixed revision',
-      focus: s.mode,
-      minutes: Math.round(Number(s.timeUsedSec ?? 0) / 60),
-      score: s.score,
+      subject: s.subject === 'science' ? 'science' : 'maths',
+      chapter: short(s.topicTitle ?? 'mixed revision'),
+      focus: ['topic', 'subtopic', 'weak', 'mixed'].includes(String(s.mode)) ? s.mode : 'topic',
+      minutes: Math.round(Number(s.timeUsedSec ?? 0) / 60) || 0,
+      scorePct: Math.round(Number((s.score as { pct?: number } | undefined)?.pct ?? 0) * 100) || 0,
+      right: Number((s.score as { correct?: number } | undefined)?.correct ?? 0) || 0,
+      questions: Number((s.score as { total?: number } | undefined)?.total ?? 0) || 0,
     })),
     recentReports: reports.map(({ data: r }) => ({
       date: new Date(Number(r.startedAt)).toISOString().slice(0, 10),
-      title: r.title,
-      bySubtopic: r.bySubtopic,
-      weakSkills: r.weakSkills,
-      misconceptions: Array.isArray(r.misconceptions) ? (r.misconceptions as { note: string }[]).map((m) => m.note) : [],
-      recommendations: r.recommendations,
+      title: short(r.title),
+      parts: Array.isArray(r.bySubtopic) ? (r.bySubtopic as { title: string; correct: number; total: number }[]).slice(0, 20).map((g) => ({ part: short(g.title, 80), right: Number(g.correct), of: Number(g.total) })) : [],
+      weakSkills: Array.isArray(r.weakSkills) ? (r.weakSkills as string[]).slice(0, 10).map((x) => short(x, 80)) : [],
+      misconceptions: Array.isArray(r.misconceptions) ? (r.misconceptions as { note: string }[]).slice(0, 5).map((m) => short(m.note, 200)) : [],
     })),
   };
-  let json = JSON.stringify(digest);
-  if (json.length > 150000) json = json.slice(0, 150000); // keep the request bounded
+  // keep the request bounded by sending fewer reports, never by cutting the JSON
+  while (digest.recentReports.length > 3 && promptJson(digest).length > 120000) digest.recentReports.pop();
+  const json = promptJson(digest);
 
-  const res = await ask(MODELS.ask, SYSTEM, `<data>${json}</data>\n\nThe parent asks: ${question}`, { maxTokens: 2000, effort: 'medium' });
+  const res = await ask(MODELS.ask, SYSTEM, `<data>${json}</data>\n\nThe parent asks: ${question.replace(/</g, '(').replace(/>/g, ')')}`, { maxTokens: 2000, effort: 'medium' });
   await insertAsService('ask_log', {
     parent_id: who.id, student_id: studentId, question, answer: res.text, model: res.model,
     input_tokens: res.inputTokens, output_tokens: res.outputTokens,
