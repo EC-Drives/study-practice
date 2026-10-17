@@ -164,6 +164,25 @@ function jugRender(s, box, body, ctx) {
   box.addPts(outline).add(xl - flare - 22, top - 32).add(xr + 52, top + 130);
 }
 
+/** A measuring cylinder: a tall narrow tube with a foot, the scale up its side, liquid to the reading. */
+function cylinderRender(s, box, body) {
+  const top = 10; const Hs = 260; const bot = top + Hs;
+  const Y = (v) => bot - ((v - s.min) / (s.max - s.min)) * (Hs - 10);
+  const xl = 0; const xr = 64;
+  if (s.value != null) body.push(el('path', { d: `M${xl + 2},${round(Y(s.value) + 4, 2)}Q${(xl + xr) / 2},${round(Y(s.value) + 10, 2)} ${xr - 2},${round(Y(s.value) + 4, 2)}V${bot}H${xl + 2}Z`, class: 'dg-liquid' }));
+  body.push(el('path', { d: `M${xl - 6},${top - 4}L${xl},${top}V${bot}H${xr}V${top}`, class: 'dg-ink', 'stroke-width': 2.2, fill: 'none' }));
+  body.push(el('path', { d: `M${xl - 22},${bot + 12}H${xr + 22}`, class: 'dg-ink', 'stroke-width': 6 }), el('path', { d: `M${xl},${bot}L${xl - 10},${bot + 10}M${xr},${bot}L${xr + 10},${bot + 10}`, class: 'dg-ink', 'stroke-width': 2 }));
+  let d = '';
+  for (const t of scaleTicks(s)) {
+    const y = round(Y(t.v), 2);
+    d += `M${xr - 2},${y}H${xr - (t.major ? 22 : t.half ? 15 : 9)}`;
+    if (t.lab) body.push(label(xr + 8, y, fmt(t.v), { size: 12, anchor: 'start', halo: false }));
+  }
+  body.push(el('path', { d, class: 'dg-ink', 'stroke-width': 1.3 }));
+  if (s.unit) body.push(label(xl + 6, top + 14, s.unit, { size: 13, anchor: 'start', weight: 600 }));
+  box.rect(xl - 24, top - 8, xr + 70, Hs + 26);
+}
+
 function thermoRender(s, box, body) {
   const Hs = 260; const top = 0; const bot = top + Hs;
   const Y = (v) => bot - ((v - s.min) / (s.max - s.min)) * Hs;
@@ -208,7 +227,7 @@ function dialRender(s, box, body) {
   box.circle(0, 0, R + 12).add(0, -R - 46);
 }
 
-const KIND_NAME = { ruler: 'ruler', jug: 'measuring jug', thermometer: 'thermometer', weighing: 'weighing scale with a dial', newtonMeter: 'newton meter (spring balance)' };
+const KIND_NAME = { ruler: 'ruler', jug: 'measuring jug', thermometer: 'thermometer', weighing: 'weighing scale with a dial', cylinder: 'measuring cylinder', newtonMeter: 'newton meter (spring balance)' };
 
 /** A newton meter: a spring balance hanging from a ring, scale downwards from 0, pointer at the reading. */
 function newtonRender(s, box, body) {
@@ -244,7 +263,7 @@ function newtonRender(s, box, body) {
 const scale = {
   size: 'medium',
   schema: {
-    kind: F.enum('ruler', 'jug', 'thermometer', 'weighing', 'newtonMeter'), min: F.num(), max: F.num(), major: F.num(0.000001), minor: F.num(0.000001), load: F.str,
+    kind: F.enum('ruler', 'jug', 'cylinder', 'thermometer', 'weighing', 'newtonMeter'), min: F.num(), max: F.num(), major: F.num(0.000001), minor: F.num(0.000001), load: F.str,
     labelEvery: F.int(1, 10), unit: F.str, value: F.num(), from: F.num(), object: F.enum('bar', 'pencil', 'ribbon'),
   },
   required: ['kind', 'min', 'max', 'major'],
@@ -266,6 +285,7 @@ const scale = {
     const body = [];
     if (s.kind === 'ruler') rulerRender(s, box, body);
     else if (s.kind === 'jug') jugRender(s, box, body, ctx);
+    else if (s.kind === 'cylinder') cylinderRender(s, box, body);
     else if (s.kind === 'thermometer') thermoRender(s, box, body);
     else if (s.kind === 'newtonMeter') newtonRender(s, box, body);
     else dialRender(s, box, body);
@@ -276,7 +296,7 @@ const scale = {
     const parts = [`A ${KIND_NAME[s.kind]} marked from ${fmt(s.min)} to ${fmt(s.max)}${u}, numbered every ${fmt(s.major * (s.labelEvery || 1))}${s.minor && s.minor < s.major ? `, with ${Math.round(s.major / s.minor)} small divisions between large marks` : ''}.`];
     if (s.value != null) {
       if (s.kind === 'ruler') parts.push(`The ${s.object || 'bar'} starts ${scalePosition(s, s.from != null ? s.from : s.min, 'after')} and ends ${scalePosition(s, s.value, 'after')}.`);
-      else if (s.kind === 'jug') parts.push(`The liquid comes up to the level ${scalePosition(s, s.value)}.`);
+      else if (s.kind === 'jug' || s.kind === 'cylinder') parts.push(`The liquid comes up to the level ${scalePosition(s, s.value)}.`);
       else if (s.kind === 'thermometer') parts.push(`The liquid in the tube reaches ${scalePosition(s, s.value)}.`);
       else if (s.kind === 'newtonMeter') parts.push(`${s.load ? `A load labelled ${say(s.load)} hangs from the hook. ` : 'A load hangs from the hook. '}The pointer is ${scalePosition(s, s.value, 'below')}.`);
       else parts.push(`The pointer is ${scalePosition(s, s.value, 'after')}.`);

@@ -60,7 +60,7 @@ Conventions:
 
 ## 3. Types
 
-Thirty-one types. Each entry: what it is for, fields (required in **bold**), and a minimal example.
+Thirty-two types. Each entry: what it is for, fields (required in **bold**), and a minimal example.
 
 ### Geometry and number
 
@@ -116,7 +116,7 @@ For triangles, quadrilaterals, compound shapes, regular polygons.
 |---|---|---|
 | **`x`**, **`y`** | `[min, max]` integers | Axis ranges, e.g. `[-6, 6]`. Use `[0, 10]` for the first quadrant only. At most 20 units each way. |
 | `labelEvery` | integer | Number labels every n units (default 1, or 2 when the range is wide). |
-| `points` | list of `{ "at": [x, y], "label": "A", "showCoords": false, "style": "dot" }` | `style`: `dot`, `cross` or `hollow`. Fractions and decimals allowed in `at` (`"-9/2"`, `-4.5`). `showCoords` writes them as decimals when they are exact decimals (-4.5), otherwise as mixed numbers. |
+| `points` | list of `{ "at": [x, y], "label": "A", "showCoords": false, "style": "dot" }` | `style`: `dot`, `cross` or `hollow`. Fractions and decimals allowed in `at` (`"-9/2"`, `-4.5`). `showCoords` writes them as decimals when they are exact decimals (-4.5), otherwise as mixed numbers. The automatic description states each point's coordinates (what a pupil reads off the grid), so for a "read the coordinates" question set a neutral `alt`. |
 | `polygons` | list of `{ "points": [[x,y],...], "label": "P", "style": "solid" }` | `style`: `solid` (object), `dashed` (image), `shaded`. |
 | `segments` | list of `{ "from": [x,y], "to": [x,y], "dashed": false, "arrow": false, "label": "" }` | Line segments; `arrow` for a translation arrow; `label` is written beside the middle of the segment. |
 | `lines` | list | Mirror lines across the whole grid: `{ "x": 2, "label": "x = 2" }`, `{ "y": -1 }`, or `{ "through": [[0,0],[1,1]], "label": "y = x" }`. Drawn as a bold dashed line. |
@@ -359,7 +359,7 @@ Drawn as a real table.
 #### `scale` - ruler, jug, thermometer, weighing scale
 | Field | Type | Notes |
 |---|---|---|
-| **`kind`** | `"ruler"`, `"jug"`, `"thermometer"`, `"weighing"`, `"newtonMeter"` | `newtonMeter`: a spring balance hanging from a ring, scale from `min` at the top downwards, a red pointer at `value`, a load on the hook. |
+| **`kind`** | `"ruler"`, `"jug"`, `"cylinder"`, `"thermometer"`, `"weighing"`, `"newtonMeter"` | `cylinder`: a measuring cylinder (liquid with a meniscus at `value`). `newtonMeter`: a spring balance hanging from a ring, scale from `min` at the top downwards, a red pointer at `value`, a load on the hook. |
 | **`min`**, **`max`** | numbers | Scale range (thermometers may go negative). |
 | **`major`** | number | Labelled interval. |
 | `minor` | number | Small divisions (must divide `major` exactly). Default: none. |
@@ -503,6 +503,17 @@ Seen from above the North Pole: the Earth spins and the Moon orbits anticlockwis
 {"type": "moonPhases", "phases": ["new", "firstQuarter", "full", "lastQuarter"], "labels": true}
 ```
 
+#### `apparatus` - simple laboratory set-ups
+| Field | Type | Notes |
+|---|---|---|
+| **`setup`** | `"filtration"`, `"evaporation"`, `"heating"`, `"dissolving"` | Side views. |
+| `labels` | `"names"`, `"letters"`, `"none"` | As for `organ`: letters go on the parts in `parts`, in order. |
+| `parts` | list of part ids | Filtration: `funnel`, `filterPaper`, `beaker`, `filtrate`, `residue`, `stand`. Evaporation: `dish`, `solution`, `gauze`, `tripod`, `burner`, `flame`. Heating: `beaker`, `water`, `thermometer`, `gauze`, `tripod`, `burner`. Dissolving: `beaker`, `water`, `spoon`, `stirrer`, `solid`. |
+
+```json
+{"type": "apparatus", "setup": "evaporation", "labels": "letters", "parts": ["dish", "gauze", "tripod", "burner"]}
+```
+
 #### `organ` - simple labelled organ diagrams
 Schematic and accurate (front view, so the heart's left side is on the right of the picture, as in textbooks).
 
@@ -538,4 +549,4 @@ Colours come from the app's theme tokens (`--ink`, `--line`, `--accent`, `--surf
 ## 5. Change log
 
 - 17 Oct 2026: version 1 (27 types).
-- 17 Oct 2026: version 1.1. New: `forces` (force arrows), the `newtonMeter` scale, `functionMachine`, `dotPlot`, `scatterGraph`, refraction in `light`, and the female and male reproductive systems in `organ`. Documented: coordinate `segments[].label`, `axisLabels`, `fractionModel` limits (rows and cols up to 12 each, parts up to 24, wholes up to 4). Changed: food chains no longer tint the first box as a producer; coordinates with halves show as decimals (-4.5), not -9/2. Still to come (CLO's v1.1 list): lab apparatus.
+- 17 Oct 2026: version 1.1. New: `forces` (force arrows), the `newtonMeter` scale, `functionMachine`, `dotPlot`, `scatterGraph`, refraction in `light`, the female and male reproductive systems in `organ`, `apparatus` (lab set-ups) and the measuring `cylinder` scale. Documented: coordinate `segments[].label`, `axisLabels`, `fractionModel` limits (rows and cols up to 12 each, parts up to 24, wholes up to 4). Changed: food chains no longer tint the first box as a producer; coordinates with halves show as decimals (-4.5), not -9/2.
