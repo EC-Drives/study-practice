@@ -51,7 +51,9 @@ function fracParts(q) {
   return { a: Number(m[3]), b: Number(m[4]), askA: m[5] === m[1] };
 }
 function propParts(q) {
-  let m = q.prompt.match(/^A recipe for (\d+) people uses ([\d ]+) (\w+) of .+?\. How much .+ is needed for (\d+) people\?$/);
+  let m = q.prompt.match(/^A recipe for (\d+) people uses ([\d ]+) (\w+) of .+?\. .+? makes it for (\d+) people from a (\d+) (kg|L) (?:bag|carton) of .+?\. How much .+ is left\?$/);
+  if (m) return { kind: 'left', n: Number(m[1]), amount: num(m[2]), m: Number(m[4]), bag: Number(m[5]) * 1000 };
+  m = q.prompt.match(/^A recipe for (\d+) people uses ([\d ]+) (\w+) of .+?\. How much .+ is needed for (\d+) people\?$/);
   if (m) return { kind: 'recipe', n: Number(m[1]), amount: num(m[2]), m: Number(m[4]) };
   m = q.prompt.match(/^(\d+) .+? cost RM ([\d.]+)\. .+? buys (\d+) .+? and pays with RM ([\d.]+)\./);
   if (m) return { kind: 'change', n: Number(m[1]), amount: Number(m[2]) * 100, m: Number(m[3]), pay: Number(m[4]) * 100 };
@@ -60,8 +62,8 @@ function propParts(q) {
 }
 function rm2(sen) { const c = Math.round(sen); return c % 100 === 0 ? `RM ${c / 100}` : `RM ${Math.floor(c / 100)}.${String(c % 100).padStart(2, '0')}`; }
 function baParts(q) {
-  const m = q.prompt.match(/^The ratio of (.+?) to (.+?) in a group is (\d+) : (\d+)\. Then (\d+) more .+? join the group, and the ratio becomes (\d+) : (\d+)\. How many (.+?) are there (in the group|at first|now)\?$/);
-  return { A: m[1], B: m[2], b: Number(m[3]), g1: Number(m[4]), added: Number(m[5]), g2: Number(m[7]), ask: m[9] === 'in the group' ? 'fixed' : m[9] === 'at first' ? 'before' : 'after' };
+  const m = q.prompt.match(/^The ratio of (.+?) to (.+?) (?:in|at|on) .+? is (\d+) : (\d+)\. Then (\d+) more .+?, and the ratio becomes (\d+) : (\d+)\. How many (.+?) are there (altogether|at first|now)\?$/);
+  return { A: m[1], B: m[2], b: Number(m[3]), g1: Number(m[4]), added: Number(m[5]), g2: Number(m[7]), ask: m[9] === 'altogether' ? 'fixed' : m[9] === 'at first' ? 'before' : 'after' };
 }
 /** Best-buy packs from the table: [{ label, size, sen }]. */
 function packs(q) {
@@ -93,6 +95,7 @@ export const SOLVERS = {
     const p = propParts(q);
     const total = (p.amount * p.m) / p.n;
     if (p.kind === 'recipe') return { value: total };
+    if (p.kind === 'left') return { value: p.bag - total };
     if (p.kind === 'change') return { value: (p.pay - total) / 100 };
     return { value: total / 100 };
   },
@@ -103,7 +106,8 @@ export const SOLVERS = {
 export const MIS = {
   'm11.write-ratio': {
     'RATIO-REVERSED': (q) => { const p = writeParts(q); return [R(simp(p.whole ? [p.a + p.b, p.a] : [p.b, p.a]))]; },
-    'RATIO-PART-TO-WHOLE': (q) => { const p = writeParts(q); return [R(simp(p.whole ? [p.a, p.b] : [p.a, p.a + p.b]))]; },
+    'RATIO-PART-TO-WHOLE': (q) => { const p = writeParts(q); return p.whole ? [R(simp([p.a, p.b]))] : [R(simp([p.a, p.a + p.b])), R(simp([p.b, p.a + p.b]))]; },
+    'RATIO-GIVES-ONE-SHARE': (q) => { const p = writeParts(q); return [R(simp([p.b, p.a + p.b]))]; },
     'RATIO-PART-SIMPLIFIED': (q) => { const p = writeParts(q); const xs = p.whole ? [p.a, p.a + p.b] : [p.a, p.b]; return [R(xs.map((x) => x / 2))]; },
   },
   'm11.simplify-ratio': {
@@ -119,6 +123,7 @@ export const MIS = {
   },
   'm11.equivalent-ratio': {
     'RATIO-ADDITIVE': (q) => { const p = equivParts(q); return [p.q2 == null ? p.q1 + (p.p2 - p.p1) : p.p1 + (p.q2 - p.q1)]; },
+    'FR-EQUIV-CROSS': (q) => { const p = equivParts(q); return [p.q2 == null ? p.q1 * p.p2 : p.p1 * p.q2]; },
     'RATIO-FACTOR-ONLY': (q) => { const p = equivParts(q); const [x, y] = p.q2 == null ? [p.p1, p.p2] : [p.q1, p.q2]; return [Math.max(x, y) / Math.min(x, y)]; },
     'FR-EQUIV-SIMPLIFIED-ONLY': (q) => { const p = equivParts(q); return [p.q1 / G(p.p1, p.q1)]; },
   },
@@ -145,10 +150,11 @@ export const MIS = {
   },
   'm11.direct-proportion': {
     'PROP-ADDITIVE': (q) => { const p = propParts(q); const v = p.amount + (p.m - p.n) * 100; return p.kind === 'change' ? [(p.pay - v) / 100] : [v / 100]; },
-    'PROP-UNIT-ONLY': (q) => { const p = propParts(q); const u = p.amount / p.n; return p.kind === 'recipe' ? [u] : p.kind === 'change' ? [(p.pay - u) / 100] : [u / 100]; },
-    'PROP-TIMES-WHOLE': (q) => { const p = propParts(q); return p.kind === 'recipe' ? [p.amount * p.m] : [(p.amount * p.m) / 100]; },
+    'PROP-UNIT-ONLY': (q) => { const p = propParts(q); const u = p.amount / p.n; return p.kind === 'left' ? [p.bag - p.amount] : p.kind === 'recipe' ? [u] : p.kind === 'change' ? [(p.pay - u) / 100] : [u / 100]; },
+    'PROP-TIMES-WHOLE': (q) => { const p = propParts(q); return p.kind === 'left' ? [p.bag - p.amount * p.m] : p.kind === 'recipe' ? [p.amount * p.m] : [(p.amount * p.m) / 100]; },
+    'OP-SWAP': (q) => { const p = propParts(q); return [p.bag + (p.amount * p.m) / p.n]; },
     'PROP-INVERSE-SCALE': (q) => { const p = propParts(q); return [(p.amount * p.n) / p.m]; },
-    'FR-REMAINDER-ONE-STEP': (q) => { const p = propParts(q); return [(p.amount * p.m) / p.n / 100]; },
+    'FR-REMAINDER-ONE-STEP': (q) => { const p = propParts(q); return p.kind === 'left' ? [(p.amount * p.m) / p.n] : [(p.amount * p.m) / p.n / 100]; },
   },
   'm11.best-buy': {
     'BUY-CHEAPEST-PRICE': (q) => { const ps = packs(q); return [ps.reduce((a, b) => (b.sen < a.sen ? b : a)).label]; },

@@ -142,7 +142,7 @@ function checkQuestion(g, q, solver) {
     if (chk.min != null && v < chk.min - 1e-9) p.push(`value ${o} below ${chk.min}`);
     if (chk.max != null && v > chk.max + 1e-9) p.push(`value ${o} above ${chk.max}`);
     if (dpOf(o) > (chk.maxDp ?? 3)) p.push(`too many decimal places: ${o}`);
-    if (/^-0(\D|$)/.test(String(o).trim())) p.push(`negative zero: ${o}`);
+    if (/^-0(?![.\d])/.test(String(o).trim())) p.push(`negative zero: ${o}`);
   }
   if (chk.integer && q.type !== 'mcq' && !Number.isInteger(valueIn(ct))) p.push(`answer ${ct} is not a whole number`);
   if (chk.integer && q.type === 'mcq' && !Number.isInteger(valueIn(ct))) p.push(`answer ${ct} is not a whole number`);
