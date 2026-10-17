@@ -10,7 +10,7 @@ import { isAnswered, startingOrder } from '../marking.js';
 import { Countdown, QuestionClock, formatClock } from '../timer.js';
 import { submitSession } from '../practice.js';
 import { workingPad, thumbnailDataUrl } from '../working.js';
-import { diagramFor, questionsForSession } from '../hooks.js';
+import { diagramFor, optionDiagramFor, questionsForSession } from '../hooks.js';
 
 const LETTERS = 'ABCDEFGH';
 const TYPE_HINT = {
@@ -198,7 +198,8 @@ export async function sessionView(el, app, sessionId) {
             b.setAttribute('aria-checked', 'true');
           } },
           h('span', { class: 'opt-mark', 'aria-hidden': 'true' }, q.type === 'truefalse' ? icon(val ? 'check' : 'cross', { size: 22 }) : LETTERS[i]),
-          h('span', { class: 'opt-text', text }));
+          h('span', { class: 'opt-text', text }),
+          q.type === 'mcq' ? optionDiagramFor(q, i) : null); // INTEGRATION POINT: picture choices
           group.append(b);
         });
         return rovingRadios(group);
@@ -215,6 +216,7 @@ export async function sessionView(el, app, sessionId) {
           } },
           h('span', { class: 'opt-mark', 'aria-hidden': 'true' }, LETTERS[i]),
           h('span', { class: 'opt-text', text }),
+          optionDiagramFor(q, i), // INTEGRATION POINT: picture choices
           h('span', { class: 'opt-tick', 'aria-hidden': 'true' }, icon('check', { size: 20 })));
           group.append(b);
         });

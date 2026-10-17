@@ -182,7 +182,7 @@ export function timeChart(rows, o = {}) {
   for (let i = 0; i <= ticks; i++) {
     const v = (max / ticks) * i;
     svg.appendChild(s('line', { x1: padL, x2: W - padR, y1: y(v), y2: y(v), class: i === 0 ? 'axis' : 'grid' }));
-    svg.appendChild(s('text', { x: padL - 6, y: y(v), 'text-anchor': 'end', 'dominant-baseline': 'middle', class: 'tick' }, v >= 60 && v % 60 === 0 ? `${v / 60}m` : `${Math.round(v)}s`));
+    svg.appendChild(s('text', { x: padL - 6, y: y(v), 'text-anchor': 'end', 'dominant-baseline': 'middle', class: 'tick' }, max <= 180 ? `${Math.round(v)} s` : `${Math.round((v / 60) * 10) / 10} min`));
   }
   const tip = h('div', { class: 'tip', role: 'status' });
   const labelEvery = Math.ceil(rows.length / Math.max(2, Math.floor(innerW / 28)));
@@ -316,7 +316,7 @@ function workingGallery(report, rows, attempts, source) {
   const mistakes = new Map((report.mistakes || []).map((m) => [m.questionId, m]));
   const sec = h('section', { class: 'vr-block' }, h('h3', { text: 'Her working on the questions she got wrong' }));
   if (!withWork.length) {
-    sec.append(h('p', { class: 'muted', text: wrongIds.size ? 'She did not write any working on the questions she got wrong.' : 'Nothing wrong in this session.' }));
+    sec.append(h('p', { class: 'muted', text: wrongIds.size ? 'She did not write any working on the questions she got wrong.' : 'No wrong answers in this session.' }));
     return sec;
   }
   const grid = h('ul', { class: 'vr-working' });

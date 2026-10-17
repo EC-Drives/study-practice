@@ -6,8 +6,9 @@
 // absent. Contract:
 //
 //   js/diagrams/index.js    export function renderDiagram(spec, ctx) -> Element | null
-//       spec: question.diagram (any JSON the diagram engine defines)
-//       ctx:  { question, where: 'session' | 'review' | 'report' }
+//       spec: question.diagram, or question.optionDiagrams[i] for picture choices
+//       ctx:  { question, where: 'session' | 'review', option (index, for option pictures),
+//               idPrefix (unique per option picture) }
 //       Must build DOM/SVG safely (no innerHTML from question text). Returning null or
 //       throwing shows nothing (the question still works without its picture).
 //
@@ -55,6 +56,18 @@ export function diagramFor(question, where = 'session') {
     return node && typeof node === 'object' && 'nodeType' in node ? node : null;
   } catch (e) {
     console.warn('Diagram could not be drawn for', question.id, e);
+    return null;
+  }
+}
+
+/** The picture for answer option i (question.optionDiagrams[i], picture choices), or null. */
+export function optionDiagramFor(question, i, where = 'session') {
+  if (!question || !Array.isArray(question.optionDiagrams) || question.optionDiagrams[i] == null || !diagrams) return null;
+  try {
+    const node = diagrams.renderDiagram(question.optionDiagrams[i], { question, where, option: i, idPrefix: `${question.id}-o${i}-` });
+    return node && typeof node === 'object' && 'nodeType' in node ? node : null;
+  } catch (e) {
+    console.warn('Option picture could not be drawn for', question.id, e);
     return null;
   }
 }

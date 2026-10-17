@@ -225,7 +225,8 @@ export function workingPad(opts = {}) {
   let working = opts.working && validWorking(opts.working) ? JSON.parse(JSON.stringify(opts.working)) : null;
   const history = []; // undo: { add } or { clear, prev }
   let tool = 'pen';
-  let active = null; // { id, stroke, pts, erase }
+  let active = null; // { id, type, stroke, pts }
+  let recentTouch = []; // touch lines from the last moment, in case a palm made them before the pen arrived
   let total = pointCount(working);
 
   const wrap = el('div', 'workpad');
@@ -318,7 +319,25 @@ export function workingPad(opts = {}) {
   }
 
   function onDown(e) {
-    if (e.pointerType === 'pen') penSeen = true;
+    if (e.pointerType === 'pen') {
+      if (!penSeen) {
+        // first pen contact: lines a resting palm drew just before it are not her writing
+        penSeen = true;
+        const cut = Date.now() - 1500;
+        const palm = new Set(recentTouch.filter((t) => t.at > cut).map((t) => t.stroke));
+        if (palm.size && working) {
+          working.s = working.s.filter((st) => !palm.has(st));
+          total = pointCount(working);
+          redraw();
+          emit();
+        }
+      }
+      if (active && active.type === 'touch') {
+        // the palm is down and the pen has just touched: drop the palm's line, follow the pen
+        active = null;
+        redraw();
+      }
+    }
     if (e.pointerType === 'touch' && penSeen) return; // palm rejection
     if (active) return; // one line at a time (a second finger or the palm)
     if (e.pointerType === 'mouse' && e.button !== 0) return;
@@ -333,7 +352,7 @@ export function workingPad(opts = {}) {
     const stroke = { w: Math.round((erase ? ERASER_PX : PEN_PX) * upp * 10), p: [] };
     if (erase) stroke.e = 1;
     const pt = toUnits(e);
-    active = { id: e.pointerId, stroke, pts: [pt] };
+    active = { id: e.pointerId, type: e.pointerType, stroke, pts: [pt] };
     try { canvas.setPointerCapture(e.pointerId); } catch { /* old browsers */ }
     liveSegment(pt, pt, stroke);
     syncButtons();
@@ -355,10 +374,11 @@ export function workingPad(opts = {}) {
 
   function onUp(e) {
     if (!active || e.pointerId !== active.id) return;
-    const { stroke, pts } = active;
+    const { stroke, pts, type } = active;
     active = null;
     stroke.p = encodePoints(pts);
     working.s.push(stroke);
+    if (type === 'touch' && !penSeen) recentTouch = [...recentTouch.filter((t) => t.at > Date.now() - 1500), { stroke, at: Date.now() }];
     total += pts.length;
     history.push({ add: true });
     if (stroke.e) redraw();

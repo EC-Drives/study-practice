@@ -72,10 +72,17 @@ export async function parentView(el, app, tab, arg) {
   }
   clear(el).append(h('div', { class: 'stack parent' },
     h('div', { class: 'row space' },
-      h('h1', {}, icon(linked ? 'chart' : 'lock', { size: 28 }), h('span', { text: linked ? `${childName(app)}: progress` : 'Parent area' })),
+      h('h1', {}, icon(linked ? 'chart' : 'lock', { size: 28 }), h('span', { text: linked && app.child ? `${childName(app)}: progress` : 'Parent area' })),
       headRight),
     resetNote, nav, body));
 
+  if (linked && !app.child && app.offline) {
+    body.append(h('section', { class: 'card' },
+      h('h2', {}, icon('info'), h('span', { text: 'No connection' })),
+      h('p', { text: 'The parent area reads her progress online, and the server cannot be reached. Check the internet connection and try again.' }),
+      button('Try again', { icon: 'again', cls: 'btn-primary', onClick: async () => { await connect(app); parentView(el, app, tab, arg); } })));
+    return;
+  }
   if (linked && !app.child) {
     // first visit: no student account yet
     await linkedSettingsPage(body, app, null, true);

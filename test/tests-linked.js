@@ -16,7 +16,7 @@ import { buildReport, summaryLines, reportPlainText } from '../js/report.js';
 import { buildExport, importExport } from '../js/exportimport.js';
 import { visualReport, questionRows, trendChart, skillBand } from '../js/visual-report.js';
 import { encodePoints, decodePoints, emptyWorking, validWorking, thumbnailDataUrl, workingPad, hasInk, penDetected, resetPenDetection, workingView } from '../js/working.js';
-import { diagramFor, setExtensions, questionsForSession, instantiate, canGenerate } from '../js/hooks.js';
+import { diagramFor, optionDiagramFor, setExtensions, questionsForSession, instantiate, canGenerate } from '../js/hooks.js';
 import { aiAvailable, connectAi, askProgress } from '../js/ai.js';
 import { resultsView } from '../js/views/results.js';
 import { setContentRoot } from '../js/content.js';
@@ -456,6 +456,7 @@ export async function run({ check, setGroup, fixtures }) {
     stroke(1, 'mouse', 0.5);
     check('mouse draws a line', pad.get().s.length === 1 && decodePoints(pad.get().s[0].p).length >= 15);
     check('fingers draw while no pen has been used', (stroke(2, 'touch', 0), pad.get().s.length === 2));
+    await wait(1700); // older than a resting palm: kept when the pen arrives
     stroke(3, 'pen', 0.95);
     const penStroke = pad.get().s[2];
     check('a pen is detected, and its pressure is kept', penDetected() && Math.abs(decodePoints(penStroke.p)[3].p - 0.95) < 0.011);
@@ -484,6 +485,27 @@ export async function run({ check, setGroup, fixtures }) {
     const saved = pad.get();
     pad.destroy();
     pad.el.remove();
+    // a palm resting on the screen before the pen's first touch
+    resetPenDetection();
+    const pad2 = workingPad({});
+    pad2.el.style.width = '600px';
+    document.body.append(pad2.el);
+    const c2 = pad2.canvas;
+    const r2 = c2.getBoundingClientRect();
+    const fire2 = (type, id, pointerType, x, y) => c2.dispatchEvent(new PointerEvent(type, { pointerId: id, pointerType, clientX: r2.left + x, clientY: r2.top + y, pressure: 0.6, bubbles: true, cancelable: true, button: 0, buttons: type === 'pointerup' ? 0 : 1 }));
+    fire2('pointerdown', 20, 'touch', 400, 200);
+    fire2('pointermove', 20, 'touch', 420, 210);
+    fire2('pointerup', 20, 'touch', 430, 215);
+    fire2('pointerdown', 21, 'touch', 380, 220);
+    fire2('pointermove', 21, 'touch', 390, 230);
+    fire2('pointerdown', 22, 'pen', 50, 50);
+    fire2('pointermove', 22, 'pen', 90, 60);
+    fire2('pointermove', 22, 'pen', 130, 70);
+    fire2('pointerup', 22, 'pen', 140, 75);
+    fire2('pointerup', 21, 'touch', 395, 235);
+    check('palm before the first pen touch: its marks are removed and the pen is not blocked', pad2.get() && pad2.get().s.length === 1 && decodePoints(pad2.get().s[0].p)[0].x < 200);
+    pad2.destroy();
+    pad2.el.remove();
     const again = workingPad({ working: saved });
     check('saved working reopens on the pad', again.get().s.length === 5);
     const view = workingView(saved);
@@ -552,6 +574,9 @@ export async function run({ check, setGroup, fixtures }) {
     setExtensions({ diagram: { renderDiagram: (spec, ctx) => { const d = document.createElement('div'); d.className = 'dg'; d.textContent = `${spec.kind}/${ctx.where}`; return d; } } });
     const node = diagramFor(q, 'review');
     check('with it, question.diagram is drawn by renderDiagram()', node && node.textContent === 'bar-model/review');
+    const oq = { id: 'h-2', type: 'mcq', options: ['a', 'b'], optionDiagrams: [{ kind: 'p0' }, null] };
+    const on = optionDiagramFor(oq, 0);
+    check('picture choices: question.optionDiagrams[i] drawn for that option only', on && on.textContent === 'p0/session' && optionDiagramFor(oq, 1) === null && optionDiagramFor(q, 0) === null);
     setExtensions({ diagram: { renderDiagram: () => { throw new Error('bad'); } } });
     check('a failing diagram never breaks the question', diagramFor(q) === null);
     setExtensions({ diagram: { renderDiagram: () => '<b>html</b>' } });

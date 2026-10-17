@@ -1,18 +1,32 @@
 /* Study Practice v2: accounts, the working area, and the visual parent report.
    Uses the colour tokens of css/app.css, so light and dark both work. */
 
+/* Chart colours, checked with the data-viz palette validator (all pairs, light and dark):
+   result per question = aqua (right), yellow (part right), violet (not yet), neutral grey (not
+   answered); subjects = blue (Mathematics), green (Science). Every chart also has a legend with
+   icons and a table view, which covers the two light colours under 3:1 contrast. */
 :root {
   --paper: #fffef9;
   --paper-line: #e6ecf5;
-  --sw-right: var(--good);
-  --sw-part: var(--star);
-  --sw-wrong: var(--notyet);
-  --sw-skip: #8a877f;
+  --sw-right: #1baf7a;
+  --sw-part: #eda100;
+  --sw-wrong: #6250d6;
+  --sw-skip: #c4c2bb;
+  --tl-maths: #236fcc;
+  --tl-science: #12855c;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --paper: #1f1f1d; --paper-line: #2c3340; --sw-skip: #8f8d85; }
+  :root:not([data-theme="light"]) {
+    --paper: #1f1f1d; --paper-line: #2c3340;
+    --sw-right: #199e70; --sw-part: #c98500; --sw-wrong: #9085e9; --sw-skip: #55534e;
+    --tl-maths: #3987e5; --tl-science: #199e70;
+  }
 }
-:root[data-theme="dark"] { --paper: #1f1f1d; --paper-line: #2c3340; --sw-skip: #8f8d85; }
+:root[data-theme="dark"] {
+  --paper: #1f1f1d; --paper-line: #2c3340;
+  --sw-right: #199e70; --sw-part: #c98500; --sw-wrong: #9085e9; --sw-skip: #55534e;
+  --tl-maths: #3987e5; --tl-science: #199e70;
+}
 
 /* ------------------------------------------------------------ account bar */
 .account { margin-left: auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; min-width: 0; }
@@ -34,6 +48,9 @@
 
 /* ------------------------------------------------------------ working area */
 .workpad { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+/* a canvas's own pixel size must never widen the page (flex items default to min-width: auto) */
+.workpad, .wp-paper, .workview, .vr-working-card, .vr-working-img { min-width: 0; max-width: 100%; }
+.wp-canvas, .wv-canvas { min-width: 0; max-width: 100%; }
 .wp-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
 .wp-title { font-weight: 600; font-size: 0.88em; color: var(--ink-2); }
 .wp-tools { display: flex; gap: 4px; flex-wrap: wrap; }
@@ -131,17 +148,17 @@
 .linechart .tick { fill: var(--muted); font: 13px var(--font); font-variant-numeric: tabular-nums; }
 .linechart .tlabel { fill: var(--ink-2); font: 600 13px var(--font); }
 .linechart .tline { stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-.linechart .tline-maths { stroke: var(--maths); }
-.linechart .tline-science { stroke: var(--science); }
+.linechart .tline-maths { stroke: var(--tl-maths); }
+.linechart .tline-science { stroke: var(--tl-science); }
 .linechart .tdot { stroke: var(--surface); stroke-width: 2; }
-.linechart .tdot-maths { fill: var(--maths); }
-.linechart .tdot-science { fill: var(--science); }
+.linechart .tdot-maths { fill: var(--tl-maths); }
+.linechart .tdot-science { fill: var(--tl-science); }
 .linechart .tdot.is-this { stroke: var(--ink); stroke-width: 2.5; }
 .linechart .hit { fill: transparent; cursor: pointer; }
 .linechart .hit:focus { outline: none; fill: var(--accent-soft); fill-opacity: 0.5; }
 .vr-line-key { width: 18px; height: 2px; border-radius: 1px; display: inline-block; }
-.tline-key-maths { background: var(--maths); }
-.tline-key-science { background: var(--science); }
+.tline-key-maths { background: var(--tl-maths); }
+.tline-key-science { background: var(--tl-science); }
 .vr-dot-key { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 2.5px solid var(--ink); background: var(--surface); }
 
 .vr-working { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }

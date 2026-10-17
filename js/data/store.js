@@ -84,11 +84,12 @@ export async function connect(app, opts = {}) {
     app.sync = new SyncQueue({ db: app.db, backend, userId: user.id, onStatus: (st) => { app.syncStatus = st; if (app.onSyncStatus) app.onSyncStatus(st); } });
     if (opts.startSync !== false) app.sync.start();
   } else {
+    app.offline = false;
     try {
       app.children = await backend.children();
     } catch {
       app.children = [];
-      app.offline = true;
+      app.offline = true; // the parent area then says so, rather than offering to create an account
     }
     const pick = opts.childId || (app.children[0] && app.children[0].id);
     app.child = app.children.find((c) => c.id === pick) || null;

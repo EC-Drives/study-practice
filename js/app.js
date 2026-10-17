@@ -182,11 +182,25 @@ async function confirmSignOut() {
   renderAccount();
 }
 
+/** Laptop preview only (mock back-end): ?demo=1 adds demo data, ?as=parent|student signs in. */
+async function mockPreview(backend) {
+  const qs = new URLSearchParams(location.search);
+  if (!qs.has('demo') && !qs.has('as')) return;
+  const demo = await import('./data/mock-demo.js');
+  if (qs.has('demo')) await demo.seedDemo(backend.server, backend.server.studentDomain);
+  const as = qs.get('as');
+  if (as && (!backend.user() || qs.has('switch'))) {
+    await backend.signOut();
+    await demo.demoSignIn(backend, as, backend.server.studentDomain);
+  }
+}
+
 async function start() {
   try {
     app.backend = await createBackend();
     connectAi(app.backend);
     await loadExtensions();
+    if (app.backend && app.backend.kind === 'mock') await mockPreview(app.backend);
     await connect(app);
     await afterConnect();
   } catch (err) {

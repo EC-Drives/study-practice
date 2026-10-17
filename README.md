@@ -2,7 +2,23 @@
 
 A practice website for Cambridge Primary Stage 6 Mathematics and Science (Year 6, exams November 2026). It runs in any modern browser on a laptop, tablet or phone, can be added to the Home Screen, and works offline after the first visit. Built by the Chief Tech Officer; the questions and preambles come from the Chief Learning Officer.
 
-## What it does
+## Version 2: linked accounts (branch `v2-linked`, not yet published)
+
+Version 2 can run in two ways. Which one depends only on `config.js`:
+
+- **Local mode** (`config.js` empty, as shipped): exactly version 1. Progress stays on each device, the parent area is behind a PIN, and reports go by email that she sends.
+- **Linked mode** (`config.js` holds the Supabase project URL and its public anon key): you and she sign in on your own devices. Every session she finishes is saved online by itself (and sent later if she was offline). When you sign in you see a **visual report of her latest session** and an archive built automatically. There is no email step; "Copy report" and "Save or share" remain.
+
+New in both modes:
+
+- **A working area under every question.** She writes with an Apple Pencil, any stylus, a finger or the mouse, like a workbook margin. Pen pressure is kept. Once a pen is used, a resting hand leaves no marks. Pen, eraser, undo and clear. Writing never scrolls the page. Her working is saved with her answer and shown in her review and in your reports.
+- **The visual report:** a big score, a pictogram per question, a mastery bar per part, skills to work on as coloured chips, time per question, her working on the questions she got wrong, a two- or three-line summary in plain English, and her score trend across sessions.
+
+Set-up guides: [`docs/SETUP-SUPABASE.md`](docs/SETUP-SUPABASE.md) (accounts and database, about 30 minutes) and, for Step B only, [`docs/SETUP-ANTHROPIC.md`](docs/SETUP-ANTHROPIC.md). How it fits together, the integration hooks and the Step B seams: [`docs/v2-architecture.md`](docs/v2-architecture.md). Security rules: [`docs/rls-review-checklist.md`](docs/rls-review-checklist.md).
+
+**Trying linked mode on this laptop without Supabase:** open http://localhost:8766/?backend=mock&demo=1&as=parent (parent view with a fortnight of made-up practice) or `...&as=student&switch=1` (her view). This uses a pretend server kept in the browser, and works only on this laptop.
+
+## What it does (version 1, still true in local mode)
 
 **For your daughter (the site calls her "you"):**
 - Choose Mathematics or Science, then a chapter. Each chapter opens with what you will learn, why it matters, real-world uses and its parts (subtopics), with her level in each.
@@ -53,7 +69,7 @@ It checks every file with the CLO's `validate.py` (a file with errors is left ou
 
 ## Tests
 
-With the laptop server running, open http://localhost:8766/test/ . The test page checks the marking of every question type and the edge cases for number and short answers, marks every question in the built banks with its own right answer and with a wrong one, and checks question sampling, the timer, reports and the email link, statistics, the PIN, and the export/import round trip (in a temporary database).
+Run `python tools\run_tests.py`. It opens the test page in a hidden browser and prints the result (374 checks in v2). Or, with the laptop server running, open http://localhost:8766/test/ . The test page checks the marking of every question type and the edge cases for number and short answers, marks every question in the built banks with its own right answer and with a wrong one, and checks question sampling, the timer, reports and the email link, statistics, the PIN, and the export/import round trip (in a temporary database). Version 2 adds `test/tests-linked.js`: the data adapter and its Supabase requests, the access rules (Row Level Security intent) against a stand-in server, the SQL review checklist, the offline queue, the working area (format, pen, palm, eraser, undo), the visual reports, the one-time import and the integration hooks.
 
 ## Publishing (GitHub Pages)
 
@@ -72,7 +88,13 @@ Everything uses relative paths, so the site works at a project address such as `
 | `js/sampler.js`, `js/practice.js` | Choosing questions; creating, saving and finishing sessions |
 | `js/stats.js`, `js/analysis.js`, `js/report.js` | Mastery, streaks and totals; the analysis summary; the parent report and email text |
 | `js/db.js`, `js/exportimport.js`, `js/pin.js` | On-device storage, export and import, the parent PIN |
-| `js/ai.js` | The switched-off seam for future live AI help |
+| `js/ai.js` | Step B seam for Claude (ask about progress, read handwriting, new questions), switched off |
+| `config.js` | Supabase project URL and public key (empty = local mode); Step B switches |
+| `js/data/` | v2 data layer: mode choice, Supabase client, offline queue, the parent's online view, one-time import, the laptop-only stand-in server |
+| `js/working.js`, `js/visual-report.js`, `js/hooks.js` | The working area; the visual report; hooks for diagrams and generated questions |
+| `js/views/login.js`, `css/v2.css` | Sign-in page; v2 styles |
+| `supabase/` | Database set-up (migrations) and server functions (`manage-student` for Step A; three Step B stubs, not deployed) |
+| `docs/` | Set-up guides for EC, architecture, security checklist |
 | `content/` | Copies of the CLO's question banks (generated) |
 | `sw.js` | Offline support (generated from `tools/sw.template.js`) |
 | `tools/` | Build, local server, icon drawing, and a small sample chapter for testing (`--samples`) |
