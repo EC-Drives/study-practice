@@ -27,6 +27,12 @@ Other details: `id` is `<prefix>-g-<pattern>-d<difficulty>-<seed>` (cannot clash
 
 A generator that keeps redrawing without finding suitable numbers stops after 200 000 random draws and throws, so it can never freeze the page.
 
+Each topic file loads on its own (`index.js` uses dynamic `import()` with a top-level `await`), so a problem in one topic file only removes that topic's generators; `LOAD_ERRORS` lists any that failed. The offline cache must include every `js/generators/*.js` file (the build's file list should pick them up like the other scripts).
+
+## What is covered (17 Oct 2026)
+
+125 generators across all 15 maths topics: m01 7, m02 8, m03 10, m04 6, m05 10, m06 8, m07 7, m08 9, m09 9, m10 7, m11 9, m12 8, m13 11, m14 7, m15 9. Most offer D1, D2 and D3 as the CLO's guide defines them. Diagrams are drawn for angles, triangles, shapes, grids, charts, tables, Venn and Carroll diagrams, spinners, nets, cuboids, solids, clocks, scales, number lines, bar models and function machines. Patterns not generated (vocabulary, explaining, planning an investigation, quadrilateral properties) stay with the bank. Misconception codes a topic needed beyond the CLO's catalogue are in that topic file's `EXTRA_CODES` (and the shared ones in `misconceptions.js`); a few generic codes are declared in more than one topic with slightly different wording, and the last one loaded wins. They are proposed to the CLO for the catalogue.
+
 ## Integration hook (for the app side)
 
 1. **Explicit generator in the bank.** If a bank question has `"generator": "m10.add-sub-unlike"` (or `{ "id": "...", "difficulty": 2 }`), replace it at session start by `generate(id, freshSeed, difficulty ?? question.difficulty)`.

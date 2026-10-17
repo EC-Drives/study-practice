@@ -54,6 +54,7 @@ Conventions:
 - **Numbers that may be fractions** (number lines, fraction models) can be a number (`0.75`) or a string (`"3/4"`, `"-1 1/2"`). Strings keep exact values, so `"1/3"` lands exactly on a third.
 - **Directions** are degrees **anticlockwise from "east"** (pointing right): 0 = right, 90 = up, 180 = left, 270 = down. This is only for placing rays and lines; the question can talk about clockwise turns as usual.
 - **Coordinates** have y going **up** (as on a maths grid), in any units: shapes are scaled to fit.
+- **Reading questions need an `alt`.** Charts list their values, solids name their shape and counts, nets name the shape, clocks and scales give the reading, and grids give the coordinates of plotted points, because that is what a sighted pupil reads off the picture. When reading that value IS the question, give a neutral `alt` ("A bar chart of books read on five days.").
 - **Only what is drawn is described.** The automatic description states what a sighted pupil can see: labels, marked values and positions. It never states a value that the picture shows only as "?". For "read the scale" questions, the position of the pointer is described as a sighted pupil would read it, which is the answer: if that matters, set `alt`.
 - Unknown fields are reported as errors by the checker (catches typos such as `lable`).
 - Keep to about 8 labelled items per diagram; past that it gets crowded on a phone.
