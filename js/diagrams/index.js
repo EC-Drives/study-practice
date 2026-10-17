@@ -16,8 +16,9 @@ import { MEASURES } from './measures.js';
 import { SCIENCE } from './science.js';
 import { BODY } from './body.js';
 import { FORCES } from './forces.js';
+import { MORE } from './more.js';
 
-const REGISTRY = { ...GEOMETRY, ...CHARTS, ...SOLIDS, ...MEASURES, ...SCIENCE, ...FORCES, ...BODY };
+const REGISTRY = { ...GEOMETRY, ...CHARTS, ...SOLIDS, ...MEASURES, ...SCIENCE, ...FORCES, ...MORE, ...BODY };
 export const DIAGRAM_TYPES = Object.keys(REGISTRY);
 
 const SIZE_SCALE = { small: 0.85, medium: 1, large: 1.3 };

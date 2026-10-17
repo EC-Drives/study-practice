@@ -44,11 +44,15 @@ export const SAMPLES = [
   { title: 'Pie chart with percentages', spec: { type: 'pieChart', title: 'How pupils travel to school', slices: [{ label: 'Bus', value: 40 }, { label: 'Car', value: 25 }, { label: 'Walk', value: 20 }, { label: 'Bicycle', value: 10 }, { label: 'Train', value: 5 }], show: 'percent' } },
   { title: 'Tally chart', spec: { type: 'table', title: 'Colours of cars passing the school', columns: ['Colour', 'Tally', 'Frequency'], rows: [['Red', { tally: 7 }, 7], ['White', { tally: 12 }, '?'], ['Black', { tally: 4 }, 4], ['Silver', { tally: 9 }, 9]] } },
   { title: 'Frequency table', spec: { type: 'table', title: 'Goals scored per match', columns: ['Goals', 'Frequency'], rows: [[0, 3], [1, 7], [2, 5], [3, 2], ['Total', '?']] } },
+  { title: 'Dot plot', spec: { type: 'dotPlot', title: 'Goals scored in each match', values: [0, 1, 1, 2, 2, 2, 3, 1, 0, 2, 4, 1], min: 0, max: 5, xLabel: 'Goals' } },
+  { title: 'Scatter graph', spec: { type: 'scatterGraph', title: 'Height and arm span', points: [[130, 128], [135, 136], [140, 139], [142, 145], [148, 147], [150, 152], [155, 153], [158, 160]], xMin: 125, xMax: 160, xStep: 5, yMin: 125, yMax: 160, yStep: 5, xLabel: 'Height (cm)', yLabel: 'Arm span (cm)' } },
   { title: 'Venn diagram (2 sets)', spec: { type: 'venn', sets: ['Multiples of 2', 'Multiples of 3'], universe: 'Whole numbers 1 to 12', regions: { A: [2, 4, 8, 10], B: [3, 9], AB: [6, 12], outside: [1, 5, 7, 11] } } },
   { title: 'Venn diagram (3 sets, shaded)', spec: { type: 'venn', sets: ['Plays football', 'Swims', 'Cycles'], regions: { A: ['Ali'], B: ['Mei'], C: ['Raj', 'Tom'], AB: ['Siti'], AC: [], BC: ['Lin'], ABC: ['?'], outside: ['Nur'] }, shade: ['ABC'] } },
   { title: 'Carroll diagram', spec: { type: 'carroll', columns: ['Even', 'Not even'], rows: ['Less than 10', 'Not less than 10'], cells: [[[4, 8], [3, 7]], [[12, 16], [15, '?']]] } },
 
   // ---------------------------------------------------------------- 3D
+  { title: 'Function machine', spec: { type: 'functionMachine', steps: ['x 3', '+ 4'], input: '5', output: '?' } },
+  { title: 'Function machine backwards', spec: { type: 'functionMachine', steps: ['÷ 2', '- 7'], input: '?', output: '13' } },
   { title: 'Net of a cuboid', spec: { type: 'net', shape: 'cuboid', l: 5, w: 3, h: 2, labels: { l: '5 cm', w: '3 cm', h: '2 cm' } } },
   { title: 'Cube net (custom cells)', spec: { type: 'net', shape: 'custom', cells: [[1, 0], [0, 1], [1, 1], [2, 1], [3, 1], [1, 2]], faceLabels: ['A', 'B', 'C', 'D', 'E', 'F'], size: 'small' } },
   { title: 'Not a cube net', spec: { type: 'net', shape: 'custom', cells: [[0, 0], [1, 0], [0, 1], [1, 1], [2, 1], [3, 1]], size: 'small' } },

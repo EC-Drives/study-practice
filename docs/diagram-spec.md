@@ -60,7 +60,7 @@ Conventions:
 
 ## 3. Types
 
-Twenty-eight types. Each entry: what it is for, fields (required in **bold**), and a minimal example.
+Thirty-one types. Each entry: what it is for, fields (required in **bold**), and a minimal example.
 
 ### Geometry and number
 
@@ -236,6 +236,27 @@ Drawn as a real (accessible) table, not a picture.
  "rows": [["Red", {"tally": 7}, 7], ["White", {"tally": 12}, "?"], ["Black", {"tally": 4}, 4]]}
 ```
 
+#### `dotPlot` - a dot plot (line plot)
+| Field | Type | Notes |
+|---|---|---|
+| **`values`** | list of numbers | One dot per value, stacked over its mark. Up to 60. |
+| **`min`**, **`max`** | numbers | The scale; every value must sit on a step. |
+| `step` | number | Gap between marks (default 1). At most 24 steps. |
+| `title`, `xLabel` | strings | |
+
+```json
+{"type": "dotPlot", "title": "Goals scored in each match", "values": [0, 1, 1, 2, 2, 2, 3, 1, 0, 2, 4, 1], "min": 0, "max": 5, "xLabel": "Goals"}
+```
+
+#### `scatterGraph`
+| Field | Type | Notes |
+|---|---|---|
+| **`points`** | list of `[x, y]` | 2-40 points, drawn as crosses. |
+| `xMin`, `xMax`, `xStep`, `yMin`, `yMax`, `yStep` | numbers | Scales (worked out from the data when left out). |
+| `title`, `xLabel`, `yLabel` | strings | |
+
+The description lists the points and says whether they go up, go down, or show no clear pattern.
+
 #### `venn` - two or three sets
 | Field | Type | Notes |
 |---|---|---|
@@ -261,6 +282,16 @@ Drawn as a real table.
 ```json
 {"type": "carroll", "columns": ["Even", "Not even"], "rows": ["Less than 10", "Not less than 10"],
  "cells": [[[4, 8], [3, 7]], [[12, 16], [15, "?"]]]}
+```
+
+#### `functionMachine`
+| Field | Type | Notes |
+|---|---|---|
+| **`steps`** | list of 1-3 strings | The operations in order, e.g. `["x 3", "+ 4"]`. |
+| `input`, `output` | string or number | Shown in the IN and OUT circles; `"?"` draws an answer box; leave one out to show an empty circle. |
+
+```json
+{"type": "functionMachine", "steps": ["x 3", "+ 4"], "input": "5", "output": "?"}
 ```
 
 ### Shape and space (3D)
@@ -505,4 +536,4 @@ Colours come from the app's theme tokens (`--ink`, `--line`, `--accent`, `--surf
 ## 5. Change log
 
 - 17 Oct 2026: version 1 (27 types).
-- 17 Oct 2026: version 1.1. New: `forces` (force arrows) and the `newtonMeter` scale. Documented: coordinate `segments[].label`, `axisLabels`, `fractionModel` limits (rows and cols up to 12 each, parts up to 24, wholes up to 4). Changed: food chains no longer tint the first box as a producer; coordinates with halves show as decimals (-4.5), not -9/2. Still to come (CLO's v1.1 list): refraction, reproductive organs, lab apparatus, function machines, dot plot and scatter graph.
+- 17 Oct 2026: version 1.1. New: `forces` (force arrows), the `newtonMeter` scale, `functionMachine`, `dotPlot` and `scatterGraph`. Documented: coordinate `segments[].label`, `axisLabels`, `fractionModel` limits (rows and cols up to 12 each, parts up to 24, wholes up to 4). Changed: food chains no longer tint the first box as a producer; coordinates with halves show as decimals (-4.5), not -9/2. Still to come (CLO's v1.1 list): refraction, reproductive organs, lab apparatus.

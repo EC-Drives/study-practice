@@ -55,6 +55,10 @@ export const EXTRA_CHECKS = [
   }],
   ['balanced forces described as the same length', () => /same length/.test(describeDiagram({ type: 'forces', object: 'parachutist', arrows: [{ direction: 'up', size: 700 }, { direction: 'down', size: 700, name: 'weight' }] }))],
   ['newton meter reading described by marks', () => /pointer is on the 1st small mark below 6/.test(describeDiagram({ type: 'scale', kind: 'newtonMeter', min: 0, max: 10, major: 1, minor: 0.5, unit: 'N', value: 6.5 }))],
+  ['dot plot stacks one dot per value', () => svgOf({ type: 'dotPlot', values: [1, 1, 2, 3, 3, 3], min: 0, max: 4 }).querySelectorAll('circle.dg-s1').length === 6 && /3 at 3/.test(describeDiagram({ type: 'dotPlot', values: [1, 1, 2, 3, 3, 3], min: 0, max: 4 }))],
+  ['dot plot rejects a value off the steps', () => validateDiagram({ type: 'dotPlot', values: [1.5], min: 0, max: 4 }).length > 0],
+  ['function machine description keeps the order of the steps', () => /"x 3" and "\+ 4" in that order/.test(describeDiagram({ type: 'functionMachine', steps: ['x 3', '+ 4'], input: '5' }))],
+  ['scatter graph trend described', () => /go up/.test(describeDiagram({ type: 'scatterGraph', points: [[1, 2], [2, 3], [3, 5], [4, 6]] }))],
   ['alt text overrides the built description', () => describeDiagram({ type: 'clock', time: '10:35', alt: 'A clock.' }) === 'A clock.'],
   ['report markup carries its own styles', () => /<style>/.test(diagramMarkup({ type: 'clock', time: '10:35' }))],
   ['light and dark themes both define every colour token', () => {
