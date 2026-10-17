@@ -110,6 +110,7 @@ export const MIS = {
   'm09.equivalent-missing': {
     'FR-EQUIV-ADDITIVE': (q) => { const p = equivParts(q); return [p.top ? p.p1 + (p.q2 - p.q1) : p.q1 + (p.p2 - p.p1)]; },
     'FR-EQUIV-FACTOR-ONLY': (q) => { const p = equivParts(q); const [x, y] = p.top ? [p.q1, p.q2] : [p.p1, p.p2]; return [Math.max(x, y) / Math.min(x, y)]; },
+    'FR-EQUIV-CROSS': (q) => { const p = equivParts(q); const g = Number(bg(BigInt(p.p1), BigInt(p.q1))); return p.top ? [p.p1 * p.q2, (p.p1 / g) * p.q2] : [p.q1 * p.p2]; },
     'FR-EQUIV-SIMPLIFIED-ONLY': (q) => { const p = equivParts(q); const g = Number(bg(BigInt(p.p1), BigInt(p.q1))); return [p.top ? p.p1 / g : p.q1 / g]; },
   },
   'm09.simplest-form': {
@@ -147,6 +148,8 @@ export const MIS = {
   },
   'm09.compare-fdp': {
     'DEC-LONGER-BIGGER': (q) => { const decs = q.options.filter((o) => !o.includes('/') && !o.endsWith('%')); return [decs.reduce((a, b) => (dp(b) > dp(a) ? b : a))]; },
+    'DEC-SHORTER-BIGGER': (q) => { const decs = q.options.filter((o) => !o.includes('/') && !o.endsWith('%')); return [decs.reduce((a, b) => (dp(b) < dp(a) ? b : a))]; },
+    'FR-SMALLER-DEN-BIGGER': (q) => { const fr = q.options.filter((o) => o.includes('/')); return [fr.reduce((a, b) => (Number(b.split('/')[1]) < Number(a.split('/')[1]) ? b : a))]; },
     'FR-BIGGER-DEN-BIGGER': (q) => { const fr = q.options.filter((o) => o.includes('/')); return [fr.reduce((a, b) => (Number(b.split('/')[1]) > Number(a.split('/')[1]) ? b : a))]; },
     'FDP-DIGITS': (q) => q.options.filter((o) => o.endsWith('%') && o !== SOLVERS['m09.compare-fdp'](q).text),
   },
