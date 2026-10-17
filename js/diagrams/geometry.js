@@ -3,7 +3,7 @@
 
 import {
   el, g, F, Box, label, labelAt, fracLabel, tidy, textWidth, frac, fval, num, formatValue, round,
-  polar, dirOf, pathOf, arcPath, sectorPath, arrowHead, arrowLine, sideTicks, sideArrows, rad, listText, say, plural, pt,
+  polar, dirOf, pathOf, arcPath, sectorPath, arrowHead, arrowLine, sideTicks, sideArrows, rad, listText, say, plural, pt, withArticle,
 } from './core.js';
 
 // ---------------------------------------------------------------- shared helpers
@@ -179,7 +179,7 @@ const polygon = {
     const nameSide = (i) => (V[i] && V[(i + 1) % n] ? `side ${V[i]}${V[(i + 1) % n]}` : `side ${i + 1}`);
     const nameCorner = (i) => (V[i] ? `corner ${V[i]}` : `corner ${i + 1}`);
     const parts = [];
-    parts.push(s.regular ? `A regular ${shapeName(n)}.` : `A ${shapeName(corners)}${V.filter(Boolean).length ? ` ${V.join('')}` : ''}.`);
+    parts.push(s.regular ? `A regular ${shapeName(n)}.` : `${withArticle(shapeName(corners), true)}${V.filter(Boolean).length ? ` ${V.join('')}` : ''}.`);
     if (s.grid) parts.push('It is drawn on squared paper with 1-unit squares.');
     const sideL = []; const ticks = {}; const arrows = {};
     (s.sides || []).forEach((sd, i) => {
@@ -654,8 +654,8 @@ const fractionModel = {
   required: ['shape'],
   check(s) {
     const e = [];
-    if (['bar', 'circle'].includes(s.shape) && !s.parts) e.push(`a ${s.shape} needs parts`);
-    if (['grid', 'rectangle'].includes(s.shape) && !(s.rows && s.cols) && !s.parts) e.push(`a ${s.shape} needs rows and cols`);
+    if (['bar', 'circle'].includes(s.shape) && !s.parts) e.push(`${withArticle(s.shape)} needs parts`);
+    if (['grid', 'rectangle'].includes(s.shape) && !(s.rows && s.cols) && !s.parts) e.push(`${withArticle(s.shape)} needs rows and cols`);
     const per = partsPer(s);
     const total = per * (s.wholes || 1);
     if (typeof s.shaded === 'number' && s.shaded > total) e.push(`shaded (${s.shaded}) is more than the ${total} parts`);
@@ -717,7 +717,7 @@ const fractionModel = {
     const per = partsPer(s);
     const n = Array.isArray(s.shaded) ? s.shaded.length : s.shaded || 0;
     const what = s.shape === 'grid' || s.shape === 'rectangle' ? `${s.shape === 'grid' ? 'grid' : 'rectangle'} of ${s.rows || 1} rows and ${s.cols || per} columns (${per} equal squares)` : `${s.shape} split into ${per} equal parts`;
-    return `${wholes > 1 ? `${wholes} identical wholes, each a ${what}` : `A ${what}`}. ${n} ${n === 1 ? 'part is' : 'parts are'} shaded${wholes > 1 ? ' altogether' : ''}.`;
+    return `${wholes > 1 ? `${wholes} identical wholes, each ${withArticle(what)}` : withArticle(what, true)}. ${n} ${n === 1 ? 'part is' : 'parts are'} shaded${wholes > 1 ? ' altogether' : ''}.`;
   },
 };
 function partsPer(s) { return s.shape === 'grid' || s.shape === 'rectangle' ? (s.rows || 1) * (s.cols || s.parts || 1) : s.parts || 1; }

@@ -2,7 +2,7 @@
 // unit cubes, and named solids. Drawn in oblique projection: depth goes back and up to the right
 // at 30 degrees, at half scale, as in textbooks. Hidden edges are dashed.
 
-import { el, g, F, Box, label, labelAt, tidy, num, pathOf, listText, say, plural, pt, round } from './core.js';
+import { el, g, F, Box, label, labelAt, tidy, num, pathOf, listText, say, plural, pt, round, withArticle } from './core.js';
 
 const DEPTH_ANGLE = 30;
 const DEPTH_SCALE = 0.5;
@@ -127,7 +127,7 @@ const net = {
       });
       return `A net of ${plural(cells.length, 'square')} joined edge to edge. ${cap(desc.join('; '))}.${faceText(s)}`;
     }
-    const parts = [`The net of a ${names[s.shape]}.`];
+    const parts = [`The net of ${withArticle(names[s.shape])}.`];
     if (s.shape === 'cuboid') parts.push('Six rectangles: a column of four (top, front, bottom, back) with one side face either side of the front.');
     if (s.shape === 'triangularPrism') parts.push('Three rectangles side by side, with a triangle on the top and the bottom of the middle one.');
     if (s.shape === 'squarePyramid') parts.push('A square with a triangle on each of its four sides.');
@@ -323,7 +323,7 @@ const solid = {
   describe(s) {
     const f = SOLID_FACTS[s.shape];
     const curved = { cylinder: 'two flat circular faces and one curved surface', cone: 'one flat circular face, one curved surface and one point at the top', sphere: 'one curved surface', hemisphere: 'one flat circular face and one curved surface' }[s.shape];
-    return `A drawing of a ${s.label ? `3D shape labelled "${tidy(s.label)}"` : '3D shape'}${f ? ` with ${f[0]} faces, ${f[1]} edges and ${f[2]} vertices (hidden edges dashed)` : curved ? ` with ${curved}` : ''}. ${s.label ? '' : `It is a ${SOLID_NAMES[s.shape]}.`}`.trim();
+    return `A drawing of a ${s.label ? `3D shape labelled "${tidy(s.label)}"` : '3D shape'}${f ? ` with ${f[0]} faces, ${f[1]} edges and ${f[2]} vertices (hidden edges dashed)` : curved ? ` with ${curved}` : ''}. ${s.label ? '' : `It is ${withArticle(SOLID_NAMES[s.shape])}.`}`.trim();
   },
 };
 

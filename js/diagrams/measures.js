@@ -1,6 +1,6 @@
 // Measures: clock faces, measuring scales (ruler, jug, thermometer, weighing scale), spinners.
 
-import { el, g, F, Box, label, tidy, polar, pathOf, arcPath, sectorPath, arrowHead, listText, say, plural, round, pt, textWidth } from './core.js';
+import { el, g, F, Box, label, tidy, polar, pathOf, arcPath, sectorPath, arrowHead, listText, say, plural, round, pt, textWidth, withArticle } from './core.js';
 import { ordinal } from './geometry.js';
 
 const TIME = /^([01]?\d|2[0-3]):([0-5]\d)$/;
@@ -293,7 +293,7 @@ const scale = {
   },
   describe(s) {
     const u = s.unit ? ` ${tidy(s.unit)}` : '';
-    const parts = [`A ${KIND_NAME[s.kind]} marked from ${fmt(s.min)} to ${fmt(s.max)}${u}, numbered every ${fmt(s.major * (s.labelEvery || 1))}${s.minor && s.minor < s.major ? `, with ${Math.round(s.major / s.minor)} small divisions between large marks` : ''}.`];
+    const parts = [`${withArticle(KIND_NAME[s.kind], true)} marked from ${fmt(s.min)} to ${fmt(s.max)}${u}, numbered every ${fmt(s.major * (s.labelEvery || 1))}${s.minor && s.minor < s.major ? `, with ${Math.round(s.major / s.minor)} small divisions between large marks` : ''}.`];
     if (s.value != null) {
       if (s.kind === 'ruler') parts.push(`The ${s.object || 'bar'} starts ${scalePosition(s, s.from != null ? s.from : s.min, 'after')} and ends ${scalePosition(s, s.value, 'after')}.`);
       else if (s.kind === 'jug' || s.kind === 'cylinder') parts.push(`The liquid comes up to the level ${scalePosition(s, s.value)}.`);

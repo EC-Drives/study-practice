@@ -7,7 +7,7 @@
 // little stronger than in a dashboard, and there is deliberately no hover tooltip (it would give
 // the answer away). Every value is also in the text description.
 
-import { el, g, F, Box, label, tidy, textWidth, wrap, frac, niceStep, round, polar, sectorPath, listText, say, plural, pt } from './core.js';
+import { el, g, F, Box, label, tidy, textWidth, wrap, frac, niceStep, round, polar, sectorPath, listText, say, plural, pt, scaleMarks, withArticle } from './core.js';
 
 const SERIES = ['dg-s1', 'dg-s2', 'dg-s3'];
 const MARKERS = ['circle', 'square', 'triangle'];
@@ -61,7 +61,13 @@ function valueScale(values, o) {
   return { min: lo, max: hi > lo ? hi : lo + step, step };
 }
 
+/** ", numbered every 10" when the numbers on a scale were thinned out. */
+const numberedEvery = (marks, step) => (marks.every > 1 ? `, numbered every ${fmtNum(step * marks.every)}` : '');
+
 // ---------------------------------------------------------------- bar chart
+
+// the value axis is 220 long (upright bars) or 300 long (bars running across)
+const barMarks = (s, sc) => scaleMarks(sc.min, sc.max, sc.step, s.horizontal ? 300 : 220, !!s.horizontal, 12, fmtNum);
 
 const seriesSpec = F.obj({ name: F.str, values: F.arr(F.num(0), 1, 12) }, ['name', 'values']);
 const barChart = {
@@ -97,13 +103,16 @@ const barChart = {
     // gridlines
     let d1 = ''; let d2 = '';
     if (s.minorStep) for (let v = sc.min; v <= sc.max + 1e-9; v += s.minorStep) { const p = round(V(v), 2); if (H) d1 += `M${p},0V${PH}`; else d1 += `M0,${PH - p}H${PW}`; }
-    for (let v = sc.min; v <= sc.max + 1e-9; v += sc.step) {
+    // gridlines at every step; numbers thinned when they would touch (axisLabels)
+    const marks = barMarks(s, sc);
+    marks.vals.forEach((v, i) => {
       const p = round(V(v), 2);
       if (H) d2 += `M${p},0V${PH}`; else d2 += `M0,${PH - p}H${PW}`;
+      if (!marks.shows(i)) return;
       const t = fmtNum(v);
       if (H) { body.push(label(p, PH + 14, t, { size: 12, cls: 'dg-t2', halo: false })); box.text(p, PH + 14, t, 12); }
       else { body.push(label(-8, PH - p, t, { size: 12, cls: 'dg-t2', anchor: 'end', halo: false })); box.text(-8, PH - p, t, 12, 'end'); }
-    }
+    });
     if (d1) body.push(el('path', { d: d1, class: 'dg-grid' }));
     body.push(el('path', { d: d2, class: 'dg-grid2' }));
     // bars
@@ -153,16 +162,113 @@ const barChart = {
     return { box, body };
   },
   describe(s) {
-    const parts = [`A ${s.horizontal ? 'horizontal ' : ''}bar chart${s.title ? ` titled "${tidy(s.title)}"` : ''}.`];
+    const parts = [`${withArticle(`${s.horizontal ? 'horizontal ' : ''}bar chart`, true)}${s.title ? ` titled "${tidy(s.title)}"` : ''}.`];
     const sc = valueScale(s.series.flatMap((x) => x.values), { min: 0, max: s.yMax, step: s.yStep });
     const vAxis = s.horizontal ? s.xLabel : s.yLabel;
-    parts.push(`The scale${vAxis ? ` (${tidy(vAxis)})` : ''} goes from 0 to ${fmtNum(sc.max)} in steps of ${fmtNum(sc.step)}${s.minorStep ? `, with lighter lines every ${fmtNum(s.minorStep)}` : ''}.`);
+    parts.push(`The scale${vAxis ? ` (${tidy(vAxis)})` : ''} goes from 0 to ${fmtNum(sc.max)} in steps of ${fmtNum(sc.step)}${numberedEvery(barMarks(s, sc), sc.step)}${s.minorStep ? `, with lighter lines every ${fmtNum(s.minorStep)}` : ''}.`);
     for (const sr of s.series) parts.push(`${s.series.length > 1 ? `${tidy(sr.name)}: ` : ''}${listText(s.categories.map((c, i) => `${tidy(String(c))} ${fmtNum(sr.values[i])}`))}.`);
     return parts.join(' ');
   },
 };
 
 // ---------------------------------------------------------------- line graph
+
+/** A line graph's scales and which marks carry numbers (shared by the drawing and the description). */
+function lineScales(s) {
+  const PW = 340; const PH = 220;
+  const ys = s.series.flatMap((sr) => sr.values || sr.points.map((p) => p[1]));
+  const sc = valueScale(ys, { min: s.yMin != null ? s.yMin : Math.min(0, ...ys), max: s.yMax, step: s.yStep });
+  const xs = s.categories ? null : { min: s.xMin, max: s.xMax, step: s.xStep || niceStep(s.xMax - s.xMin, 6) };
+  const yMarks = scaleMarks(sc.min, sc.max, sc.step, PH, false, 12, fmtNum);
+  const xMarks = xs ? scaleMarks(xs.min, xs.max, xs.step, PW, true, 12, fmtNum) : null;
+  return { PW, PH, sc, xs, yMarks, xMarks };
+}
+
+const ptText = ([x, y]) => `(${fmtNum(x)}, ${fmtNum(y)})`;
+/**
+ * The shape of a line through `points` in words, from the data (CLO review, 17 Oct: never "straight"
+ * unless every part has the same gradient). Straight parts with the same gradient are one piece;
+ * pieces going the same way (up, down, flat) are one run.
+ *   one piece                       "a straight line going up from (0, 0) (the origin) to (5, 50)"
+ *   one run of 3+ pieces whose      "a curve that goes up from (0, 0) to (5, 30), getting steeper,
+ *   steepness keeps changing         through (1, 2), ..."
+ *   anything else                   "a line that is not straight: it goes up from (0, 0) to (2, 30),
+ *                                    is flat from (2, 30) to (3, 30), then goes up from ..."
+ * `origin` is true when the point (0, 0) is on the graph, so a straight line says whether it
+ * passes through it.
+ */
+export function lineShape(points, origin = false) {
+  const P = points.filter((p, i) => i === 0 || p[0] !== points[i - 1][0] || p[1] !== points[i - 1][1]);
+  if (P.length < 2) return `a single point at ${ptText(P[0])}`;
+  const yr = Math.max(1, ...P.map((p) => Math.abs(p[1])));
+  const pieces = [];
+  for (let i = 0; i + 1 < P.length; i++) {
+    const [x0, y0] = P[i]; const [x1, y1] = P[i + 1];
+    const dx = x1 - x0; const dy = y1 - y0;
+    const dir = Math.abs(dx) < 1e-12 ? (dy > 0 ? 'upright' : 'downright') : Math.abs(dy) <= 1e-12 * yr ? 'flat' : dy > 0 ? 'up' : 'down';
+    const slope = Math.abs(dx) < 1e-12 ? Infinity : dy / dx;
+    const last = pieces[pieces.length - 1];
+    const same = last && last.dir === dir && (slope === Infinity ? last.slope === Infinity : Math.abs(slope - last.slope) <= 1e-9 * Math.max(1, Math.abs(slope), Math.abs(last.slope)));
+    if (same) { last.to = P[i + 1]; last.n += 1; } else pieces.push({ from: P[i], to: P[i + 1], dir, slope, n: 1 });
+  }
+  const goes = { up: 'goes up', down: 'goes down', flat: 'is flat', upright: 'goes straight up', downright: 'goes straight down' };
+  const span = (a, b) => `from ${ptText(a)} to ${ptText(b)}`;
+  const isO = (p) => Math.abs(p[0]) < 1e-12 && Math.abs(p[1]) < 1e-12;
+  const named = (p) => `${ptText(p)}${isO(p) ? ' (the origin)' : ''}`;
+  const corners = new Set(pieces.flatMap((pc) => [ptText(pc.from), ptText(pc.to)]));
+  const through = (mentioned) => {
+    const rest = P.filter((p) => !mentioned.has(ptText(p)));
+    return rest.length ? `, through ${listText(rest.map(ptText))}` : '';
+  };
+  if (pieces.length === 1) {
+    const pc = pieces[0];
+    const a = P[0]; const b = P[P.length - 1];
+    const kind = { up: 'a straight line going up', down: 'a straight line going down', flat: 'a flat (horizontal) straight line', upright: 'a straight upright (vertical) line', downright: 'a straight upright (vertical) line' }[pc.dir];
+    let o = '';
+    if (origin && !isO(a) && !isO(b)) {
+      // does the drawn line pass through (0, 0)?
+      const lo = Math.min(a[0], b[0]); const hi = Math.max(a[0], b[0]);
+      const on = pc.slope === Infinity ? Math.abs(a[0]) < 1e-12 && Math.min(a[1], b[1]) <= 0 && Math.max(a[1], b[1]) >= 0
+        : lo <= 1e-12 && hi >= -1e-12 && Math.abs(a[1] - pc.slope * a[0]) <= 1e-9 * yr;
+      o = on ? ', passing through the origin (0, 0)' : ', not passing through the origin';
+    }
+    return `${kind} from ${named(a)} to ${named(b)}${through(new Set([ptText(a), ptText(b)]))}${o}`;
+  }
+  // runs: pieces going the same way, with how their steepness changes
+  const runs = [];
+  for (const pc of pieces) {
+    const last = runs[runs.length - 1];
+    if (last && last.dir === pc.dir) { last.to = pc.to; last.pieces.push(pc); } else runs.push({ from: pc.from, to: pc.to, dir: pc.dir, pieces: [pc] });
+  }
+  const trend = (run) => {
+    const m = run.pieces.map((pc) => Math.abs(pc.slope));
+    if (m.length < 2 || run.dir === 'flat' || m.includes(Infinity)) return '';
+    if (m.every((v, i) => i === 0 || v > m[i - 1])) return 'getting steeper';
+    if (m.every((v, i) => i === 0 || v < m[i - 1])) return 'getting less steep';
+    return 'unevenly (its steepness changes)';
+  };
+  if (runs.length === 1 && pieces.length >= 3 && /steep(er)?$/.test(trend(runs[0]))) {
+    const r = runs[0];
+    return `a curve that ${goes[r.dir]} ${span(r.from, r.to)}, ${trend(r)}${through(new Set([ptText(r.from), ptText(r.to)]))}`;
+  }
+  let steps;
+  let mentioned;
+  if (pieces.length <= 6) {
+    steps = pieces.map((pc, i) => {
+      const prev = pieces[i - 1];
+      let how = '';
+      if (prev && prev.dir === pc.dir && (pc.dir === 'up' || pc.dir === 'down')) how = Math.abs(pc.slope) > Math.abs(prev.slope) ? ' more steeply' : ' less steeply';
+      return `${goes[pc.dir]}${how} ${span(pc.from, pc.to)}`;
+    });
+    mentioned = corners;
+  } else {
+    steps = runs.map((r) => { const t = trend(r); return `${goes[r.dir]}${t ? ` ${t.startsWith('getting') ? `(${t})` : t}` : ''} ${span(r.from, r.to)}`; });
+    mentioned = new Set(runs.flatMap((r) => [ptText(r.from), ptText(r.to)]));
+  }
+  const said = steps.map((t, i) => (i === 0 ? `it ${t}` : `then ${t}`)).join(', ');
+  const rest = P.filter((p) => !mentioned.has(ptText(p)));
+  return `a line that is not straight: ${said}${rest.length ? `; it passes through ${listText(rest.map(ptText))}` : ''}`;
+}
 
 const lineSeries = F.obj({ name: F.str, values: F.arr(F.num(), 1, 24), points: F.arr(F.arr(F.num(), 2, 2), 2, 40) }, ['name']);
 const lineGraph = {
@@ -188,22 +294,20 @@ const lineGraph = {
   render(s) {
     const box = new Box();
     const body = [];
-    const PW = 340; const PH = 220;
-    const ys = s.series.flatMap((sr) => sr.values || sr.points.map((p) => p[1]));
-    const sc = valueScale(ys, { min: s.yMin != null ? s.yMin : Math.min(0, ...ys), max: s.yMax, step: s.yStep });
+    const { PW, PH, sc, xs, yMarks, xMarks } = lineScales(s);
     const Y = (v) => PH - ((v - sc.min) / (sc.max - sc.min)) * PH;
     const cat = !!s.categories;
     const n = cat ? s.categories.length : 0;
-    const xs = cat ? null : { min: s.xMin, max: s.xMax, step: s.xStep || niceStep(s.xMax - s.xMin, 6) };
     const X = cat ? (i) => (PW * (i + 0.5)) / n : (v) => ((v - xs.min) / (xs.max - xs.min)) * PW;
     if (s.title) { body.push(label(PW / 2, -40, s.title, { size: 15, weight: 700, halo: false })); box.text(PW / 2, -40, s.title, 15); }
     if (s.series.length > 1) body.push(...legend(s.series, 0, -16, box, 'line'));
     let d1 = ''; let d2 = '';
     if (s.minorStep) for (let v = sc.min; v <= sc.max + 1e-9; v += s.minorStep) d1 += `M0,${round(Y(v), 2)}H${PW}`;
-    for (let v = sc.min; v <= sc.max + 1e-9; v += sc.step) {
+    // gridlines at every step; numbers thinned when they would touch (axisLabels)
+    yMarks.vals.forEach((v, i) => {
       d2 += `M0,${round(Y(v), 2)}H${PW}`;
-      body.push(label(-8, Y(v), fmtNum(v), { size: 12, cls: 'dg-t2', anchor: 'end', halo: false })); box.text(-8, Y(v), fmtNum(v), 12, 'end');
-    }
+      if (yMarks.shows(i)) { body.push(label(-8, Y(v), fmtNum(v), { size: 12, cls: 'dg-t2', anchor: 'end', halo: false })); box.text(-8, Y(v), fmtNum(v), 12, 'end'); }
+    });
     if (cat) {
       s.categories.forEach((c, i) => {
         d1 += `M${round(X(i), 2)},0V${PH}`;
@@ -214,10 +318,10 @@ const lineGraph = {
         body.push(label(X(i), y, t, { size: 12, maxWidth: bw, halo: false })); box.text(X(i), y, t, 12, 'middle', bw);
       });
     } else {
-      for (let v = xs.min; v <= xs.max + 1e-9; v += xs.step) {
+      xMarks.vals.forEach((v, i) => {
         d2 += `M${round(X(v), 2)},0V${PH}`;
-        body.push(label(X(v), PH + 14, fmtNum(v), { size: 12, cls: 'dg-t2', halo: false })); box.text(X(v), PH + 14, fmtNum(v), 12);
-      }
+        if (xMarks.shows(i)) { body.push(label(X(v), PH + 14, fmtNum(v), { size: 12, cls: 'dg-t2', halo: false })); box.text(X(v), PH + 14, fmtNum(v), 12); }
+      });
       if (s.minorStep) for (let v = xs.min; v <= xs.max + 1e-9; v += s.minorStep * (xs.step / sc.step)) d1 += `M${round(X(v), 2)},0V${PH}`;
     }
     if (d1) body.push(el('path', { d: d1, class: 'dg-grid' }));
@@ -235,14 +339,15 @@ const lineGraph = {
     return { box, body };
   },
   describe(s) {
-    const ys = s.series.flatMap((sr) => sr.values || sr.points.map((p) => p[1]));
-    const sc = valueScale(ys, { min: s.yMin != null ? s.yMin : Math.min(0, ...ys), max: s.yMax, step: s.yStep });
+    const { sc, xs, yMarks, xMarks } = lineScales(s);
     const parts = [`A line graph${s.title ? ` titled "${tidy(s.title)}"` : ''}.`];
-    parts.push(`The vertical scale${s.yLabel ? ` (${tidy(s.yLabel)})` : ''} goes from ${fmtNum(sc.min)} to ${fmtNum(sc.max)} in steps of ${fmtNum(sc.step)}.`);
-    if (!s.categories) parts.push(`The horizontal scale${s.xLabel ? ` (${tidy(s.xLabel)})` : ''} goes from ${fmtNum(s.xMin)} to ${fmtNum(s.xMax)}.`);
+    parts.push(`The vertical scale${s.yLabel ? ` (${tidy(s.yLabel)})` : ''} goes from ${fmtNum(sc.min)} to ${fmtNum(sc.max)} in steps of ${fmtNum(sc.step)}${numberedEvery(yMarks, sc.step)}.`);
+    if (xs) parts.push(`The horizontal scale${s.xLabel ? ` (${tidy(s.xLabel)})` : ''} goes from ${fmtNum(xs.min)} to ${fmtNum(xs.max)} in steps of ${fmtNum(xs.step)}${numberedEvery(xMarks, xs.step)}.`);
+    const origin = !!xs && xs.min <= 0 && xs.max >= 0 && sc.min <= 0 && sc.max >= 0;
     for (const sr of s.series) {
-      const pts = sr.values ? s.categories.map((c, i) => `${tidy(String(c))} ${fmtNum(sr.values[i])}`) : sr.points.map(([x, y]) => `(${fmtNum(x)}, ${fmtNum(y)})`);
-      parts.push(`${s.series.length > 1 ? `${tidy(sr.name)}: ` : ''}${sr.values ? listText(pts) : `a straight line through ${listText(pts)}`}.`);
+      const many = s.series.length > 1;
+      const text = sr.values ? listText(s.categories.map((c, i) => `${tidy(String(c))} ${fmtNum(sr.values[i])}`)) : lineShape(sr.points, origin);
+      parts.push(`${many ? `${tidy(sr.name)}: ${text}` : cap(text)}.`);
     }
     return parts.join(' ');
   },

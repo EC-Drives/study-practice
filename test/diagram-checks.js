@@ -4,10 +4,117 @@ import { renderDiagram, describeDiagram, validateDiagram, diagramMarkup } from '
 import { clockAngles, scalePosition } from '../js/diagrams/measures.js';
 import { pieGeometry } from '../js/diagrams/charts.js';
 import { shadowOnScreen, webLevels } from '../js/diagrams/science.js';
-import { frac, formatValue } from '../js/diagrams/core.js';
+import { frac, formatValue, article, withArticle, round } from '../js/diagrams/core.js';
 
 const near = (a, b, tol = 0.01) => Math.abs(a - b) <= tol;
 const svgOf = (spec) => renderDiagram(spec).querySelector('svg.dg-svg');
+
+// ---------------------------------------------------------------- text collisions (CLO review, 17 Oct)
+/**
+ * Draw a diagram into the page (out of sight), and return each upright text's box in drawing units:
+ * its measured width, and the height of its digits (0.8 em about its centre, since a text's own box
+ * includes room for accents and descenders that numbers do not use).
+ */
+function textBoxes(spec) {
+  const fig = renderDiagram(spec);
+  fig.style.cssText = 'position:absolute;left:-9999px;top:0;width:600px';
+  document.body.appendChild(fig);
+  try {
+    return [...fig.querySelectorAll('svg.dg-svg text')].filter((t) => !t.getAttribute('transform') && t.textContent.trim()).map((t) => {
+      const b = t.getBBox();
+      const fs = Number(t.getAttribute('font-size')) || 15;
+      const cy = b.y + b.height / 2;
+      const half = 0.4 * fs + (Math.max(1, t.querySelectorAll('tspan').length) - 1) * 0.6 * fs; // wrapped labels: 1.2 em a line
+      return { text: t.textContent, x0: b.x, x1: b.x + b.width, y0: cy - half, y1: cy + half };
+    });
+  } finally { fig.remove(); }
+}
+/** Pairs of texts that touch: overlapping, or closer than `gap` side by side. */
+function collisions(boxes, gap = 2) {
+  const out = [];
+  for (let i = 0; i < boxes.length; i++) {
+    for (let j = i + 1; j < boxes.length; j++) {
+      const a = boxes[i]; const b = boxes[j];
+      if (a.x0 < b.x1 + gap && b.x0 < a.x1 + gap && a.y0 < b.y1 && b.y0 < a.y1) out.push(`"${a.text}" and "${b.text}"`);
+    }
+  }
+  return out;
+}
+const noCollisions = (spec) => { const c = collisions(textBoxes(spec)); return { ok: c.length === 0, detail: c.slice(0, 6).join('; ') }; };
+/** Numbers drawn on an axis: the texts that are numbers. */
+const axisNumbers = (spec) => textBoxes(spec).filter((b) => /^[−-]?\d+(\.\d+)?$/.test(b.text)).map((b) => b.text);
+/** Gridline segments in a chart's grid paths. */
+const gridSegments = (spec, cls) => [...svgOf(spec).querySelectorAll(`path.${cls}`)].reduce((a, p) => a + (p.getAttribute('d').match(/M/g) || []).length, 0);
+
+// m11-q058's four option graphs (distance against time), as the CLO wrote them
+const Q058 = (points) => ({ type: 'lineGraph', series: [{ name: 'Distance', points }], xMin: 0, xMax: 5, xStep: 1, yMin: 0, yMax: 60, yStep: 10, xLabel: 'Time (hours)', yLabel: 'Distance (km)', markers: false });
+const lineDesc = (points, extra = {}) => describeDiagram({ ...Q058(points), yMin: -60, ...extra });
+const DENSE_SCATTER = { type: 'scatterGraph', title: 'Height and hand span', xLabel: 'Height (cm)', yLabel: 'Hand span (cm)', points: [[134, 13], [136, 14], [140, 15], [142, 17], [146, 15], [148, 16], [150, 17], [152, 18], [156, 18], [158, 19]], xMin: 130, xMax: 160, xStep: 2, yMin: 12, yMax: 20, yStep: 1 };
+
+export const AXIS_AND_WORDING_CHECKS = [
+  // 1. line graph descriptions say the shape the data has
+  ['line graph m11-q058 A: a straight line not through the origin', () => { const d = describeDiagram(Q058([[0, 10], [5, 60]])); return { ok: /straight line going up from \(0, 10\) to \(5, 60\)/.test(d) && /not passing through the origin/.test(d), detail: d }; }],
+  ['line graph m11-q058 B: a curve getting steeper, never "straight"', () => { const d = describeDiagram(Q058([[0, 0], [1, 2], [2, 6], [3, 12], [4, 20], [5, 30]])); return { ok: /A curve that goes up from \(0, 0\) to \(5, 30\), getting steeper/.test(d) && /through \(1, 2\), \(2, 6\), \(3, 12\) and \(4, 20\)/.test(d) && !/straight/.test(d), detail: d }; }],
+  ['line graph m11-q058 C: a straight line from the origin', () => { const d = describeDiagram(Q058([[0, 0], [5, 50]])); return { ok: /straight line going up from \(0, 0\) \(the origin\) to \(5, 50\)/.test(d), detail: d }; }],
+  ['line graph m11-q058 D: says the flat part, never "straight line"', () => { const d = describeDiagram(Q058([[0, 0], [2, 30], [3, 30], [5, 50]])); return { ok: /not straight: it goes up from \(0, 0\) to \(2, 30\), then is flat from \(2, 30\) to \(3, 30\), then goes up from \(3, 30\) to \(5, 50\)/.test(d) && !/straight line/.test(d), detail: d }; }],
+  ['line graph: points on one straight line are a straight line (through the origin)', () => { const d = lineDesc([[-2, -4], [0, 0], [1, 2], [3, 6]], { xMin: -5 }); return { ok: /^A line graph.*A straight line going up from \(−2, −4\) to \(3, 6\), through \(0, 0\) and \(1, 2\), passing through the origin/.test(d), detail: d }; }],
+  ['line graph: up then down', () => { const d = describeDiagram(Q058([[0, 0], [2, 40], [5, 10]])); return { ok: /it goes up from \(0, 0\) to \(2, 40\), then goes down from \(2, 40\) to \(5, 10\)/.test(d) && !/straight line/.test(d), detail: d }; }],
+  ['line graph: a curve getting less steep', () => { const d = describeDiagram(Q058([[0, 0], [1, 20], [2, 35], [3, 45], [4, 50]])); return { ok: /A curve that goes up .*getting less steep/.test(d), detail: d }; }],
+  ['line graph: two straight parts say which is steeper', () => { const d = describeDiagram(Q058([[0, 0], [2, 40], [5, 50]])); return { ok: /goes up from \(0, 0\) to \(2, 40\), then goes up less steeply from \(2, 40\) to \(5, 50\)/.test(d), detail: d }; }],
+  ['line graph: a flat line', () => { const d = describeDiagram(Q058([[0, 20], [5, 20]])); return { ok: /flat \(horizontal\) straight line from \(0, 20\) to \(5, 20\)/.test(d), detail: d }; }],
+  ['line graph: many ups and downs are told as runs', () => { const pts = Array.from({ length: 11 }, (_, i) => [i / 2, [0, 15, 25, 30, 32, 20, 15, 5, 15, 30, 60][i]]); const d = describeDiagram(Q058(pts)); return { ok: /goes up \(getting less steep\) from \(0, 0\) to \(2, 32\), then goes down unevenly .* from \(2, 32\) to \(3.5, 5\), then goes up \(getting steeper\) from \(3.5, 5\) to \(5, 60\)/.test(d), detail: d }; }],
+  ['line graph with two series names each shape', () => { const d = describeDiagram({ ...Q058([[0, 0], [5, 50]]), series: [{ name: 'Ali', points: [[0, 0], [5, 50]] }, { name: 'Bea', points: [[0, 0], [2, 30], [3, 30], [5, 50]] }] }); return { ok: /Ali: a straight line/.test(d) && /Bea: a line that is not straight/.test(d), detail: d }; }],
+  // 2. "a" or "an"
+  ['polygon: "An octagon"', () => { const d = describeDiagram({ type: 'polygon', points: [[2, 0], [4, 0], [6, 2], [6, 4], [4, 6], [2, 6], [0, 4], [0, 2]] }); return { ok: /^An octagon\./.test(d), detail: d }; }],
+  ['polygon: "A hexagon", "An 11-sided shape"', () => {
+    const ring = (n) => Array.from({ length: n }, (_, i) => [round(5 * Math.cos((2 * Math.PI * i) / n), 3), round(5 * Math.sin((2 * Math.PI * i) / n), 3)]);
+    const a = describeDiagram({ type: 'polygon', points: ring(6) }); const b = describeDiagram({ type: 'polygon', points: ring(11) });
+    return { ok: /^A hexagon\./.test(a) && /^An 11-sided shape\./.test(b), detail: `${a} | ${b}` };
+  }],
+  ['article helper: an equilateral/isosceles/irregular/8/11/18/hour, a unit/one/hexagon/110', () => {
+    const want = { 'equilateral triangle': 'an', 'isosceles triangle': 'an', 'irregular pentagon': 'an', octagon: 'an', '8-sided shape': 'an', '11-sided shape': 'an', '18 cm line': 'an', '80': 'an', hour: 'an', 'apple': 'an', unit: 'a', 'one-sided': 'a', hexagon: 'a', '110': 'a', '1 100': 'a', '3D shape': 'a', 'uniform bar': 'a', 'European flag': 'a' };
+    const bad = Object.entries(want).filter(([w, a]) => article(w) !== a).map(([w]) => `${w}: ${article(w)}`);
+    return { ok: !bad.length && withArticle('octagon', true) === 'An octagon', detail: bad.join('; ') };
+  }],
+  ['force diagram and shadow: "an apple"', () => {
+    const f = describeDiagram({ type: 'forces', object: 'apple', arrows: [{ direction: 'down', name: 'weight' }] });
+    const l = describeDiagram({ type: 'light', scene: 'shadow', source: 'torch', object: 'apple' });
+    return { ok: /an apple/.test(f) && !/\ba apple/.test(f) && /an apple/.test(l) && !/\ba apple/.test(l), detail: `${f} | ${l}` };
+  }],
+  // 3. dense axes are thinned, with every gridline kept
+  ['scatter 130-160 in steps of 2 (m12-q114 first draft): axis numbers do not touch', () => noCollisions(DENSE_SCATTER)],
+  ['scatter 130-160 in steps of 2: numbers thinned to every 10, a gridline every 2', () => {
+    const n = axisNumbers(DENSE_SCATTER);
+    const xs = n.filter((t) => Number(t) >= 130);
+    return { ok: xs.join(',') === '130,140,150,160' && gridSegments(DENSE_SCATTER, 'dg-grid') === 16 + 9, detail: `${n.join(',')} / ${gridSegments(DENSE_SCATTER, 'dg-grid')} gridlines` };
+  }],
+  ['scatter 0-30 in steps of 1 and 0-100 in steps of 2: no touching numbers', () => noCollisions({ type: 'scatterGraph', points: [[1, 2], [29, 98]], xMin: 0, xMax: 30, xStep: 1, yMin: 0, yMax: 100, yStep: 2 })],
+  ['scatter with room keeps every number', () => { const n = axisNumbers({ type: 'scatterGraph', points: [[1, 2], [5, 9]], xMin: 0, xMax: 6, xStep: 1, yMin: 0, yMax: 10, yStep: 2 }); return { ok: n.length === 7 + 6, detail: n.join(',') }; }],
+  ['line graph 0-60 in steps of 2 by 0-120 in steps of 2: no touching numbers, every gridline', () => {
+    const spec = { type: 'lineGraph', series: [{ name: 'd', points: [[0, 0], [60, 120]] }], xMin: 0, xMax: 60, xStep: 2, yMin: 0, yMax: 120, yStep: 2 };
+    const c = noCollisions(spec);
+    return { ok: c.ok && gridSegments(spec, 'dg-grid2') === 31 + 61, detail: `${c.detail} / ${gridSegments(spec, 'dg-grid2')} gridlines` };
+  }],
+  ['line graph description says how the scale is numbered when thinned', () => { const d = describeDiagram({ type: 'lineGraph', series: [{ name: 'd', points: [[0, 0], [60, 120]] }], xMin: 0, xMax: 60, xStep: 2, yMin: 0, yMax: 120, yStep: 2 }); return { ok: /steps of 2, numbered every 10\./.test(d), detail: d }; }],
+  ['bar chart 0-100 in steps of 2 (upright and across): no touching numbers', () => {
+    const base = { type: 'barChart', categories: ['a', 'b', 'c'], series: [{ name: 's', values: [10, 50, 98] }], yMax: 100, yStep: 2 };
+    const a = noCollisions(base); const b = noCollisions({ ...base, horizontal: true });
+    return { ok: a.ok && b.ok && gridSegments(base, 'dg-grid2') === 51, detail: `${a.detail} | ${b.detail}` };
+  }],
+  ['dot plot 0-24: no touching numbers, a tick at every step', () => {
+    const spec = { type: 'dotPlot', values: [0, 3, 12, 12, 24], min: 0, max: 24 };
+    const c = noCollisions(spec);
+    const ticks = (svgOf(spec).querySelector('path.dg-ink').getAttribute('d').match(/M/g) || []).length;
+    return { ok: c.ok && ticks === 25, detail: `${c.detail} / ${ticks} ticks` };
+  }],
+  ['dot plot 0-10 keeps every number', () => { const n = axisNumbers({ type: 'dotPlot', values: [1, 2], min: 0, max: 10 }); return { ok: n.length === 11, detail: n.join(',') }; }],
+];
+
+/** Every chart sample in the gallery: no two texts touch. */
+export function sampleCollisionChecks(samples) {
+  return samples.filter((s) => ['barChart', 'lineGraph', 'scatterGraph', 'dotPlot'].includes(s.spec.type))
+    .map((s) => [`${s.spec.type}: ${s.title}: no touching texts`, () => noCollisions(s.spec)]);
+}
 
 export const EXTRA_CHECKS = [
   ['clock 10:35: hour hand 317.5°, minute hand 210°', () => { const a = clockAngles('10:35'); return a.hour === 317.5 && a.minute === 210; }],

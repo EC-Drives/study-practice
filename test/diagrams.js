@@ -2,7 +2,7 @@
 
 import { renderDiagram, describeDiagram, validateDiagram, validateQuestionDiagrams, diagramMarkup, DIAGRAM_TYPES } from '../js/diagrams/index.js';
 import { SAMPLES, PICTURE_CHOICE, BAD } from './diagram-samples.js';
-import { EXTRA_CHECKS } from './diagram-checks.js';
+import { EXTRA_CHECKS, AXIS_AND_WORDING_CHECKS, sampleCollisionChecks } from './diagram-checks.js';
 
 const $ = (s) => document.querySelector(s);
 const results = [];
@@ -125,7 +125,8 @@ for (const b of BAD) {
 }
 
 // ---------------------------------------------------------------- exact-geometry checks
-for (const [name, fn] of EXTRA_CHECKS) {
+// line-graph shapes, "a"/"an", and axis numbers that never touch (CLO review of 17 Oct, section 7)
+for (const [name, fn] of [...EXTRA_CHECKS, ...AXIS_AND_WORDING_CHECKS, ...sampleCollisionChecks(SAMPLES)]) {
   try {
     const r = fn();
     check(name, r === true || (r && r.ok), r && r.detail);
@@ -147,7 +148,7 @@ for (const r of [...fails, ...results.filter((x) => x.ok)]) {
   list.appendChild(li);
 }
 window.__diagramResults = { total: results.length, failed: fails.length, fails: fails.map((f) => `${f.name}: ${f.detail}`) };
-// for runs from the command line (tools/run_tests.py): report the result to the local server
+// for runs from the command line (a headless runner, if one is used): report the result to the local server
 if (params.has('beacon')) fetch(`./__result?${encodeURIComponent(JSON.stringify({ total: results.length, failed: fails.slice(0, 50).map((f) => `${f.name}: ${f.detail}`) }))}`).catch(() => {});
 
 // ---------------------------------------------------------------- paste box

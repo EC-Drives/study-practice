@@ -358,6 +358,71 @@ export const listText = (items) => {
 export const say = (t) => (String(t).trim() === '?' ? 'a question mark (the value to find)' : tidy(t));
 export const plural = (n, word, many = `${word}s`) => `${n} ${n === 1 ? word : many}`;
 
+/** "a" or "an" for the sound the phrase starts with: an octagon, an 8-sided shape, an 11, a unit, an hour. */
+export function article(phrase) {
+  const t = String(phrase ?? '').trim().toLowerCase().replace(/^["'(]+/, '');
+  const m = t.match(/^\d[\d,]*/);
+  if (m) {
+    // said as a number: 8, 80, 800, 8000 ("eight ..."), 11, 18, 11 000, 18 000 ("eleven ...", "eighteen ...")
+    const d = m[0].replace(/,/g, '');
+    if (d[0] === '8') return 'an';
+    return /^1[18]$/.test(d.slice(0, ((d.length - 1) % 3) + 1)) ? 'an' : 'a';
+  }
+  if (/^(hour|honest|honou?r|heir)/.test(t)) return 'an';
+  if (/^(uni|use|usu|uti|ura|ure|uro|eu|ewe|one\b|once)/.test(t)) return 'a';
+  return /^[aeiou]/.test(t) ? 'an' : 'a';
+}
+/** The phrase with "a" or "an" in front; `cap` starts it with a capital ("An octagon"). */
+export const withArticle = (phrase, cap = false) => {
+  const a = article(phrase);
+  return `${cap ? a[0].toUpperCase() + a.slice(1) : a} ${phrase}`;
+};
+
+/**
+ * Which marks on a chart axis carry a number, so the numbers never touch: every mark when there is
+ * room, otherwise every 2nd, 5th, 10th ... mark (gridlines and ticks stay at every mark).
+ *   min, step   the first mark's value and the gap between marks
+ *   count       number of gaps (marks are 0..count)
+ *   stepPx      distance between neighbouring marks on screen
+ *   need        room one number takes along the axis, gap included (its width on a horizontal
+ *               axis, its height on a vertical one)
+ * Prefers a spacing that numbers both ends when the next spacing up would do that, and round values
+ * (0, 10, 20 rather than 2, 12, 22). Returns { every, first, shows(i) } where i is the mark's index.
+ */
+export function axisLabels(min, step, count, stepPx, need) {
+  const KS = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000];
+  const fits = KS.filter((k) => k * stepPx >= need - 1e-9);
+  let every = fits.length ? fits[0] : KS[KS.length - 1];
+  if (every > 1 && count % every !== 0 && fits[1] != null && count % fits[1] === 0) every = fits[1];
+  let first = 0;
+  if (every > 1) {
+    const big = step * every;
+    for (let i = 0; i < every; i++) {
+      const v = (min + i * step) / big;
+      if (Math.abs(v - Math.round(v)) < 1e-6) { first = i; break; }
+    }
+  }
+  return { every, first, shows: (i) => i >= first && (i - first) % every === 0 };
+}
+/** Room a vertical axis's numbers need, one above the next. */
+export const rowNeed = (size) => size * 1.25;
+/** Room a horizontal axis's numbers need, side by side: the widest number and a gap. */
+export const colNeed = (texts, size) => Math.max(0, ...texts.map((t) => textWidth(t, size))) + 8;
+const axisNum = (v) => tidy(String(round(v, 4)));
+/**
+ * The marks of a number scale from min to max (worked out by index, so no rounding drift) and which
+ * of them carry a number: { vals, every, first, shows(i) }. lenPx is the axis length on screen;
+ * horizontal is true for an axis that runs across (numbers side by side); size is the font size.
+ */
+export function scaleMarks(min, max, step, lenPx, horizontal, size, fmt = axisNum) {
+  const vals = [];
+  for (let i = 0; min + i * step <= max + 1e-9; i++) vals.push(min + i * step);
+  const count = vals.length - 1;
+  const stepPx = max > min ? (lenPx * step) / (max - min) : lenPx;
+  const need = horizontal ? colNeed(vals.map(fmt), size) : rowNeed(size);
+  return { vals, ...axisLabels(min, step, count, stepPx, need) };
+}
+
 // ---------------------------------------------------------------- bounds
 
 /** Collects the extent of everything drawn, so the picture's frame always fits its labels. */

@@ -178,6 +178,8 @@ All bars share one unit length, so 3 units and 5 units compare truthfully.
 
 Charts follow the reading rules of exam papers: clear gridlines to read values from, a start at zero for bar charts, titles and axis labels as given. They do not show the values on hover (that would give the answer away); set `valueLabels` when the values should be shown.
 
+**Crowded number scales.** On the number scales of `barChart`, `lineGraph`, `scatterGraph` and `dotPlot`, every step keeps its gridline (or tick), but when the numbers would touch, only every 2nd, 5th, 10th ... step is numbered, on round values where possible (130, 140, 150, 160 for 130 to 160 in steps of 2). There is nothing to set: choose the step for reading the graph, and the renderer chooses the numbering. The description then says, for example, "in steps of 2, numbered every 10".
+
 #### `barChart`
 | Field | Type | Notes |
 |---|---|---|
@@ -203,6 +205,8 @@ Charts follow the reading rules of exam papers: clear gridlines to read values f
 | `yMin`, `yMax`, `yStep`, `minorStep` | numbers | `yMin` may be negative (temperatures). |
 | `title`, `xLabel`, `yLabel` | strings | |
 | `markers` | boolean | Dots at the data points. Default true. |
+
+For a `points` series the description says the shape the data has, worked out from the gradients: "a straight line" only when every part has the same gradient (and whether it passes through the origin, when (0, 0) is on the graph); "a curve that goes up ..., getting steeper / getting less steep" when the steepness keeps changing one way; otherwise each part in turn ("goes up from (0, 0) to (2, 30), then is flat from (2, 30) to (3, 30), then goes up ..."). A series against `categories` is described as its values.
 
 ```json
 {"type": "lineGraph", "title": "Temperature in the garden", "categories": ["6 am","9 am","12 noon","3 pm","6 pm"],
@@ -550,4 +554,5 @@ Colours come from the app's theme tokens (`--ink`, `--line`, `--accent`, `--surf
 ## 5. Change log
 
 - 17 Oct 2026: version 1 (27 types).
+- 17 Oct 2026: version 1.2 (CLO review, book-map spec section 7). `lineGraph` descriptions state the line's real shape (straight, curve, flat parts, up then down) instead of always "a straight line". Descriptions use "an" before a vowel sound ("An octagon", "an apple", "An 11-sided shape"). Crowded number scales on bar, line and scatter graphs and dot plots are numbered every 2nd, 5th, 10th ... step, with every gridline kept.
 - 17 Oct 2026: version 1.1. New: `forces` (force arrows), the `newtonMeter` scale, `functionMachine`, `dotPlot`, `scatterGraph`, refraction in `light`, the female and male reproductive systems in `organ`, `apparatus` (lab set-ups) and the measuring `cylinder` scale. Documented: coordinate `segments[].label`, `axisLabels`, `fractionModel` limits (rows and cols up to 12 each, parts up to 24, wholes up to 4). Changed: food chains no longer tint the first box as a producer; coordinates with halves show as decimals (-4.5), not -9/2.

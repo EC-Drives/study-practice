@@ -1,6 +1,6 @@
 // More diagrams from the CLO's v1.1 list: function machines, dot plots and scatter graphs.
 
-import { el, F, Box, label, tidy, textWidth, niceStep, round, arrowLine, listText, say, plural } from './core.js';
+import { el, F, Box, label, tidy, textWidth, niceStep, round, arrowLine, listText, say, plural, scaleMarks } from './core.js';
 
 const fmt = (v) => tidy(String(round(v, 4)));
 
@@ -47,6 +47,13 @@ const functionMachine = {
 
 // ---------------------------------------------------------------- dot plot
 
+/** Which marks of a dot plot's scale carry a number (the line is 200-380 long, 32 per step). */
+function dotMarks(s) {
+  const st = s.step || 1;
+  const n = Math.round((s.max - s.min) / st);
+  return scaleMarks(s.min, s.min + n * st, st, Math.min(380, Math.max(200, n * 32)), true, 13, fmt);
+}
+
 const dotPlot = {
   size: 'medium',
   schema: { values: F.arr(F.num(-1000, 1000), 1, 60), min: F.num(), max: F.num(), step: F.num(0.0001), title: F.str, xLabel: F.str },
@@ -68,9 +75,12 @@ const dotPlot = {
     const X = (v) => ((v - s.min) / (s.max - s.min)) * W;
     body.push(el('line', { x1: -10, y1: 0, x2: W + 10, y2: 0, class: 'dg-ink', 'stroke-width': 2 }));
     let d = '';
+    // a tick at every step; numbers thinned when they would touch (axisLabels)
+    const marks = dotMarks(s);
     for (let i = 0; i <= n; i++) {
       const v = s.min + i * st;
       d += `M${round(X(v), 2)},0V7`;
+      if (!marks.shows(i)) continue;
       body.push(label(X(v), 20, fmt(v), { size: 13, halo: false }));
       box.text(X(v), 20, fmt(v), 13);
     }
@@ -94,7 +104,10 @@ const dotPlot = {
     const counts = {};
     for (const v of s.values) counts[v] = (counts[v] || 0) + 1;
     const keys = Object.keys(counts).map(Number).sort((a, b) => a - b);
-    return `A dot plot${s.title ? ` titled "${tidy(s.title)}"` : ''}${s.xLabel ? ` of ${tidy(s.xLabel)}` : ''}, from ${fmt(s.min)} to ${fmt(s.max)}, with ${plural(s.values.length, 'dot')}: ${listText(keys.map((k) => `${counts[k]} at ${fmt(k)}`))}.`;
+    const marks = dotMarks(s);
+    const st = s.step || 1;
+    const numbered = marks.every > 1 ? ` (a mark every ${fmt(st)}, numbered every ${fmt(st * marks.every)})` : '';
+    return `A dot plot${s.title ? ` titled "${tidy(s.title)}"` : ''}${s.xLabel ? ` of ${tidy(s.xLabel)}` : ''}, from ${fmt(s.min)} to ${fmt(s.max)}${numbered}, with ${plural(s.values.length, 'dot')}: ${listText(keys.map((k) => `${counts[k]} at ${fmt(k)}`))}.`;
   },
 };
 
@@ -129,8 +142,12 @@ const scatterGraph = {
     const X = (v) => ((v - xMin) / (xMax - xMin)) * PW;
     const Y = (v) => PH - ((v - yMin) / (yMax - yMin)) * PH;
     let d = '';
-    for (let v = xMin; v <= xMax + 1e-9; v += xStep) { d += `M${round(X(v), 2)},0V${PH}`; body.push(label(X(v), PH + 14, fmt(v), { size: 12, cls: 'dg-t2', halo: false })); box.text(X(v), PH + 14, fmt(v), 12); }
-    for (let v = yMin; v <= yMax + 1e-9; v += yStep) { d += `M0,${round(Y(v), 2)}H${PW}`; body.push(label(-8, Y(v), fmt(v), { size: 12, cls: 'dg-t2', anchor: 'end', halo: false })); box.text(-8, Y(v), fmt(v), 12, 'end'); }
+    // gridlines at every step; numbers thinned when they would touch (axisLabels, CLO review 17 Oct:
+    // 130-160 in steps of 2 ran its numbers together)
+    const xm = scaleMarks(xMin, xMax, xStep, PW, true, 12, fmt);
+    const ym = scaleMarks(yMin, yMax, yStep, PH, false, 12, fmt);
+    xm.vals.forEach((v, i) => { d += `M${round(X(v), 2)},0V${PH}`; if (xm.shows(i)) { body.push(label(X(v), PH + 14, fmt(v), { size: 12, cls: 'dg-t2', halo: false })); box.text(X(v), PH + 14, fmt(v), 12); } });
+    ym.vals.forEach((v, i) => { d += `M0,${round(Y(v), 2)}H${PW}`; if (ym.shows(i)) { body.push(label(-8, Y(v), fmt(v), { size: 12, cls: 'dg-t2', anchor: 'end', halo: false })); box.text(-8, Y(v), fmt(v), 12, 'end'); } });
     body.push(el('path', { d, class: 'dg-grid' }), el('path', { d: `M0,0V${PH}H${PW}`, class: 'dg-axis' }));
     box.rect(0, 0, PW, PH);
     for (const [x, y] of s.points) {

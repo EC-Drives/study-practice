@@ -2,7 +2,7 @@
 // resistance, upthrust). Arrow lengths are in proportion to the sizes given, so balanced and
 // unbalanced forces look right.
 
-import { el, F, Box, label, tidy, arrowLine, listText, say, round, textWidth } from './core.js';
+import { el, F, Box, label, tidy, arrowLine, listText, say, round, textWidth, withArticle } from './core.js';
 
 const DIRS = { up: 90, down: 270, left: 180, right: 0 };
 const WORD = { up: 'upwards', down: 'downwards', left: 'to the left', right: 'to the right' };
@@ -100,7 +100,7 @@ const forces = {
     const what = s.object || 'box';
     const where = { ground: ' on the ground', table: ' on a table', water: ' on water', none: '' }[s.surface || (what === 'boat' ? 'water' : what === 'parachutist' || what === 'apple' ? 'none' : 'ground')];
     const list = s.arrows.map((a) => `${a.name ? `${tidy(a.name)}, ` : 'a force '}${WORD[a.direction]}${a.label ? `, labelled ${say(a.label)}` : ''}`);
-    const parts = [`A force diagram: ${s.label ? `${say(s.label)} (drawn as a ${what})` : `a ${what}`}${where} with ${s.arrows.length === 1 ? 'one force arrow' : `${s.arrows.length} force arrows`}: ${listText(list)}.`];
+    const parts = [`A force diagram: ${s.label ? `${say(s.label)} (drawn as ${withArticle(what)})` : withArticle(what)}${where} with ${s.arrows.length === 1 ? 'one force arrow' : `${s.arrows.length} force arrows`}: ${listText(list)}.`];
     // compare the lengths of opposite arrows, as a sighted pupil would see them
     const by = Object.fromEntries(s.arrows.map((a) => [a.direction, a]));
     for (const [p, q] of [['left', 'right'], ['up', 'down']]) {

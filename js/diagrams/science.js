@@ -1,7 +1,7 @@
 // Science diagrams: electric circuits, food chains and webs, light rays (mirror, shadow, seeing),
 // the Sun, Earth and Moon, and Moon phases.
 
-import { el, g, F, Box, label, labelAt, tidy, textWidth, wrap, polar, dirOf, pathOf, arcPath, arrowHead, arrowLine, listText, say, plural, round, pt, rad } from './core.js';
+import { el, g, F, Box, label, labelAt, tidy, textWidth, wrap, polar, dirOf, pathOf, arcPath, arrowHead, arrowLine, listText, say, plural, round, pt, rad, withArticle } from './core.js';
 
 const cap = (t) => (t ? t[0].toUpperCase() + t.slice(1) : t);
 
@@ -564,12 +564,12 @@ const light = {
     }
     if (s.scene === 'shadow') {
       const obj = s.object || 'box';
-      if (s.source === 'sun') return `Sunlight shines down at an angle onto a ${obj} standing on the ground, and the ${obj} casts a shadow on the ground on the side away from the Sun.${L.shadow ? ` The shadow is labelled ${say(L.shadow)}.` : ''}`;
-      if (s.screenDistance) return `A ${s.source || 'torch'} shines on a ${obj}. Behind the ${obj} is a screen. Light rays from the ${s.source || 'torch'} pass the edges of the ${obj}, and the ${obj} blocks the light between them, making a shadow on the screen that is bigger than the ${obj}. The ${obj} is ${round(s.sourceDistance, 3)} units from the ${s.source || 'torch'} and the screen is ${round(s.screenDistance, 3)} units away.`;
-      return `A ${s.source || 'torch'} above the ground shines on a ${obj}, which casts a shadow on the ground on the side away from the light.`;
+      if (s.source === 'sun') return `Sunlight shines down at an angle onto ${withArticle(obj)} standing on the ground, and the ${obj} casts a shadow on the ground on the side away from the Sun.${L.shadow ? ` The shadow is labelled ${say(L.shadow)}.` : ''}`;
+      if (s.screenDistance) return `${withArticle(s.source || 'torch', true)} shines on ${withArticle(obj)}. Behind the ${obj} is a screen. Light rays from the ${s.source || 'torch'} pass the edges of the ${obj}, and the ${obj} blocks the light between them, making a shadow on the screen that is bigger than the ${obj}. The ${obj} is ${round(s.sourceDistance, 3)} units from the ${s.source || 'torch'} and the screen is ${round(s.screenDistance, 3)} units away.`;
+      return `${withArticle(s.source || 'torch', true)} above the ground shines on ${withArticle(obj)}, which casts a shadow on the ground on the side away from the light.`;
     }
     const k = s.arrows || 'correct';
-    return `A ${s.source === 'sun' ? 'Sun' : 'lamp'}, a ${s.object || 'book'} and an eye. ${k === 'correct' ? `Arrows show light going from the ${s.source === 'sun' ? 'Sun' : 'lamp'} to the ${s.object || 'book'}, then from the ${s.object || 'book'} into the eye.` : k === 'fromEye' ? `Arrows show light going from the ${s.source === 'sun' ? 'Sun' : 'lamp'} to the ${s.object || 'book'}, and another arrow going from the eye to the ${s.object || 'book'}.` : 'Lines join the light, the object and the eye, with no arrows.'}`;
+    return `${s.source === 'sun' ? 'The Sun' : 'A lamp'}, ${withArticle(s.object || 'book')} and an eye. ${k === 'correct' ? `Arrows show light going from the ${s.source === 'sun' ? 'Sun' : 'lamp'} to the ${s.object || 'book'}, then from the ${s.object || 'book'} into the eye.` : k === 'fromEye' ? `Arrows show light going from the ${s.source === 'sun' ? 'Sun' : 'lamp'} to the ${s.object || 'book'}, and another arrow going from the eye to the ${s.object || 'book'}.` : 'Lines join the light, the object and the eye, with no arrows.'}`;
   },
 };
 
