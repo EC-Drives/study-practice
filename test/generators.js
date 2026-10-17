@@ -203,7 +203,7 @@ async function run() {
         row.questions++;
         try { q = generate(g.id, s, d); } catch (e) { row.failed++; if (!row.first) row.first = `seed ${s} d${d}: ${e.message}`; continue; }
         prompts.add(`${q.prompt}|${JSON.stringify(q.options || '')}|${JSON.stringify(q.diagram || '')}`);
-        levelPrompts.add(`${q.prompt}|${q.type === 'order' || /Which of these/.test(q.prompt) ? JSON.stringify([...(q.options || [])].sort()) : ''}|${JSON.stringify(q.diagram || '')}`);
+        levelPrompts.add(`${q.prompt}|${q.type === 'order' || /Which of these/.test(q.prompt) ? JSON.stringify([...(q.options || [])].sort()) : ''}|${JSON.stringify(q.diagram || '')}|${JSON.stringify(q.optionDiagrams || '')}`);
         const probs = checkQuestion(g.id, q, solver);
         if (s % 97 === 0 && JSON.stringify(generate(g.id, s, d)) !== JSON.stringify(q)) probs.push('not reproducible');
         if (q.difficulty !== d) probs.push('difficulty differs');

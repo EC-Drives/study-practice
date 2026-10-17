@@ -66,6 +66,7 @@ export const EXTRA_CHECKS = [
     const ang = Math.atan2(out[2] - out[0], out[3] - out[1]) * 180 / Math.PI; // from the downward normal
     return near(ang, Math.asin(Math.sin(50 * Math.PI / 180) / 1.33) * 180 / Math.PI, 0.6);
   }],
+  ['a long one-word bar label is set smaller to fit its bar', () => { const svg = svgOf({ type: 'barChart', categories: ['Mangosteen', 'Durian', 'Rambutan', 'Watermelon', 'Pineapple', 'Banana'], series: [{ name: 'n', values: [3, 4, 5, 6, 7, 8] }] }); const t = [...svg.querySelectorAll('text')].find((x) => x.textContent === 'Mangosteen'); return t && Number(t.getAttribute('font-size')) < 13; }],
   ['alt text overrides the built description', () => describeDiagram({ type: 'clock', time: '10:35', alt: 'A clock.' }) === 'A clock.'],
   ['report markup carries its own styles', () => /<style>/.test(diagramMarkup({ type: 'clock', time: '10:35' }))],
   ['light and dark themes both define every colour token', () => {

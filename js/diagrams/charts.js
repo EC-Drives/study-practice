@@ -127,10 +127,13 @@ const barChart = {
       const t = tidy(String(c));
       if (H) { body.push(label(-8, band * i + band / 2, t, { size: 13, anchor: 'end', halo: false })); box.text(-8, band * i + band / 2, t, 13, 'end'); }
       else {
-        const lines = wrap(t, band - 4, 13);
-        const y = PH + 14 + (lines.length - 1) * 7.8;
-        body.push(label(band * i + band / 2, y, t, { size: 13, maxWidth: band - 4, halo: false }));
-        box.text(band * i + band / 2, y, t, 13, 'middle', band - 4);
+        // a single long word that cannot wrap is set smaller so it fits its band
+        const longest = Math.max(...t.split(/\s+/).map((w) => textWidth(w, 13)));
+        const fs = Math.max(9, Math.min(13, (13 * (band - 4)) / longest));
+        const lines = wrap(t, band - 4, fs);
+        const y = PH + 14 + (lines.length - 1) * fs * 0.6;
+        body.push(label(band * i + band / 2, y, t, { size: fs, maxWidth: band - 4, halo: false }));
+        box.text(band * i + band / 2, y, t, fs, 'middle', band - 4);
       }
     });
     // axes
