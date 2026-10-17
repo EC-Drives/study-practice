@@ -412,7 +412,38 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A plank of wood is 2.5 m long. Daniel cuts off a piece 0.75 m long, and then another piece 1.2 m long. How long is the plank that is left?",
+      "prompt": "The bar model shows Daniel's plank of wood, 2.5 m long. He cuts off the two pieces labelled 0.75 m and 1.2 m. How long is the piece that is left?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Plank",
+            "parts": [
+              {
+                "size": 3,
+                "text": "0.75 m"
+              },
+              {
+                "size": 4.8,
+                "text": "1.2 m"
+              },
+              {
+                "size": 2.2,
+                "text": "?"
+              }
+            ]
+          }
+        ],
+        "braces": [
+          {
+            "bar": 0,
+            "from": 0,
+            "to": 10,
+            "label": "2.5 m",
+            "side": "above"
+          }
+        ]
+      },
       "options": [
         "0.55 m",
         "1.75 m",
@@ -420,7 +451,7 @@
         "4.45 m"
       ],
       "answer": 0,
-      "solution": "Length cut off: 0.75 + 1.2 = 1.95 m. Length left: 2.5 - 1.95 = 0.55 m. (Or: 2.5 - 0.75 = 1.75, then 1.75 - 1.2 = 0.55.)",
+      "solution": "The whole bar is the plank, 2.5 m. The two pieces cut off are 0.75 m and 1.2 m. Length cut off: 0.75 + 1.2 = 1.95 m. The piece left (marked ?) is 2.5 - 1.95 = 0.55 m. (Or: 2.5 - 0.75 = 1.75, then 1.75 - 1.2 = 0.55.)",
       "misconceptions": {
         "1": "You only took away the first piece (2.5 - 0.75). Two pieces were cut off, so subtract both.",
         "2": "You only took away the second piece (2.5 - 1.2). Two pieces were cut off, so subtract both.",
@@ -632,7 +663,17 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "At 6 am the temperature in a mountain village was -4 °C. By noon it had risen by 9 °C. What was the temperature at noon?",
+      "prompt": "The thermometer shows the temperature in a mountain village at 6 am. By noon the temperature had risen by 9 °C. What was the temperature at noon?",
+      "diagram": {
+        "type": "scale",
+        "kind": "thermometer",
+        "min": -10,
+        "max": 10,
+        "major": 5,
+        "minor": 1,
+        "unit": "°C",
+        "value": -4
+      },
       "options": [
         "-13 °C",
         "13 °C",
@@ -640,10 +681,10 @@
         "-5 °C"
       ],
       "answer": 2,
-      "solution": "Start at -4. Rising 4 degrees takes you to 0. There are 9 - 4 = 5 more degrees to rise, so the temperature at noon is 5 °C.",
+      "solution": "Each small mark on the thermometer is 1 °C. The liquid is 4 small marks below 0, so at 6 am it was -4 °C. Rising 4 degrees takes you to 0. There are 9 - 4 = 5 more degrees to rise, so the temperature at noon is 5 °C.",
       "misconceptions": {
         "0": "You moved down instead of up. 'Risen' means the temperature went up, so add 9.",
-        "1": "You added 4 and 9 and ignored the minus sign. The temperature started 4 degrees below zero.",
+        "1": "You added 4 and 9 and ignored the minus sign. The thermometer shows 4 degrees BELOW zero, -4 °C.",
         "3": "You found 9 - 4 = 5 but kept the minus sign. Rising 9 degrees from -4 °C passes 0 °C and reaches +5 °C."
       },
       "skill": "integers in context (temperature, floors)",
@@ -670,7 +711,23 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "One January morning, the temperature in Seoul was -6 °C and the temperature in Kuala Lumpur was 31 °C. What is the difference between the two temperatures?",
+      "prompt": "One January morning, the temperature in Seoul was -6 °C and the temperature in Kuala Lumpur was 31 °C. Both temperatures are marked on the number line. What is the difference between the two temperatures?",
+      "diagram": {
+        "type": "numberLine",
+        "min": -10,
+        "max": 35,
+        "step": 5,
+        "points": [
+          {
+            "at": -6,
+            "label": "Seoul"
+          },
+          {
+            "at": 31,
+            "label": "Kuala Lumpur"
+          }
+        ]
+      },
       "options": [
         "37 °C",
         "25 °C",
@@ -678,7 +735,7 @@
         "-25 °C"
       ],
       "answer": 0,
-      "solution": "Count the steps on a number line. From -6 °C up to 0 °C is 6 degrees. From 0 °C up to 31 °C is 31 degrees. Difference: 6 + 31 = 37 °C.",
+      "solution": "On the number line, count the steps from Seoul up to Kuala Lumpur. From -6 °C up to 0 °C is 6 degrees. From 0 °C up to 31 °C is 31 degrees. Difference: 6 + 31 = 37 °C.",
       "misconceptions": {
         "1": "You worked out 31 - 6. But -6 °C is below zero: it is 6 degrees up to 0 °C, then 31 more degrees, so 6 + 31 = 37.",
         "2": "A difference is the size of the gap between two temperatures, so it is never negative.",
@@ -742,7 +799,19 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "In a shopping centre, the ground floor is floor 0. The car park floors below ground are -1, -2, -3 and so on. A lift starts at floor 3. It goes down 5 floors, then up 8 floors, then down 9 floors. Which floor is the lift on now?",
+      "prompt": "In a shopping centre, the ground floor is floor 0 and the car park floors below ground are -1, -2, -3 and so on. The number line shows the floor numbers. A lift starts at the floor marked Start. It goes down 5 floors, then up 8 floors, then down 9 floors. Which floor is the lift on now?",
+      "diagram": {
+        "type": "numberLine",
+        "min": -5,
+        "max": 8,
+        "step": 1,
+        "points": [
+          {
+            "at": 3,
+            "label": "Start"
+          }
+        ]
+      },
       "answer": {
         "value": -3,
         "tolerance": 0,
@@ -752,7 +821,7 @@
           "Floor -3"
         ]
       },
-      "solution": "Start at floor 3. Down 5: 3 - 5 = -2. Up 8: -2 + 8 = 6. Down 9: 6 - 9 = -3. The lift is on floor -3, the third car park floor below ground.",
+      "solution": "The lift starts at floor 3 (marked Start on the number line). Down 5: 3 - 5 = -2. Up 8: -2 + 8 = 6. Down 9: 6 - 9 = -3. The lift is on floor -3, the third car park floor below ground.",
       "misconceptions": {
         "common": "Missing out floor 0 when counting. Floor 0 is a floor too: going down 1 from floor 0 takes you to floor -1."
       },
@@ -813,7 +882,17 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A freezer is at -18 °C. It is switched off, and its temperature rises by 3 °C every hour. What is its temperature after 5 hours?",
+      "prompt": "The thermometer shows the temperature inside a freezer. The freezer is switched off, and its temperature rises by 3 °C every hour. What is its temperature after 5 hours?",
+      "diagram": {
+        "type": "scale",
+        "kind": "thermometer",
+        "min": -20,
+        "max": 5,
+        "major": 5,
+        "minor": 1,
+        "unit": "°C",
+        "value": -18
+      },
       "options": [
         "-33 °C",
         "3 °C",
@@ -821,7 +900,7 @@
         "-3 °C"
       ],
       "answer": 3,
-      "solution": "In 5 hours the temperature rises 5 x 3 = 15 °C. Start at -18 and move 15 up: -18 + 15 = -3. The freezer is at -3 °C.",
+      "solution": "Each small mark on the thermometer is 1 °C. The liquid is 2 small marks above -20, so the freezer is at -18 °C. In 5 hours the temperature rises 5 x 3 = 15 °C. Start at -18 and move 15 up: -18 + 15 = -3. The freezer is at -3 °C.",
       "misconceptions": {
         "0": "You moved down instead of up. The temperature rises, so the 15 degrees are added: -18 + 15.",
         "1": "You found the right gap (18 - 15 = 3) but lost the minus sign. After rising 15 degrees from -18 °C, it is still 3 degrees below zero.",
@@ -1044,7 +1123,37 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Wei Ming and Aisha have 85 stickers altogether. Wei Ming has 17 more stickers than Aisha. How many stickers does Aisha have?",
+      "prompt": "Wei Ming and Aisha have 85 stickers altogether. Wei Ming has 17 more stickers than Aisha, as the bar model shows. How many stickers does Aisha have?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Aisha",
+            "parts": [
+              {
+                "size": 3,
+                "text": "?"
+              }
+            ]
+          },
+          {
+            "label": "Wei Ming",
+            "parts": [
+              {
+                "size": 3
+              },
+              {
+                "size": 1.2,
+                "text": "17"
+              }
+            ]
+          }
+        ],
+        "totalBrace": {
+          "label": "85"
+        },
+        "notToScale": true
+      },
       "answer": {
         "value": 34,
         "tolerance": 0,
@@ -1052,7 +1161,7 @@
           "34 stickers"
         ]
       },
-      "solution": "Draw a bar model in your head: Aisha's bar, and Wei Ming's bar which is the same length plus an extra 17. Take away the extra 17: 85 - 17 = 68. Now the two bars are equal, so each is 68 ÷ 2 = 34. Aisha has 34 stickers (and Wei Ming has 34 + 17 = 51). Check: 34 + 51 = 85.",
+      "solution": "In the bar model, Wei Ming's bar is the same length as Aisha's plus an extra 17. Take away the extra 17: 85 - 17 = 68. Now the two bars are equal, so each is 68 ÷ 2 = 34. Aisha has 34 stickers (and Wei Ming has 34 + 17 = 51). Check: 34 + 51 = 85.",
       "misconceptions": {
         "common": "Stopping at 85 - 17 = 68. The 68 is two equal bars (Aisha's amount twice), so it must be halved. Another slip is halving 85 first and then subtracting 17."
       },

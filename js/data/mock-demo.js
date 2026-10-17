@@ -16,6 +16,7 @@ import { SyncQueue } from './sync.js';
 import { userDbName } from './store.js';
 import { studentEmail } from './backend.js';
 import { makeRng } from '../sampler.js';
+import { questionsForSession } from '../hooks.js';
 
 export const DEMO_STUDENT = { username: 'demo-student', password: 'mock-student-pass', displayName: 'Demo' };
 
@@ -92,6 +93,16 @@ function rightResponse(q) {
 }
 
 function wrongResponse(q) {
+  // a generated question: pick a wrong answer that comes from a named misconception
+  const codes = q.misconceptionCodes || {};
+  if (q.type === 'mcq') {
+    const i = q.options.findIndex((_, k) => k !== q.answer && codes[String(k)] && codes[String(k)] !== 'NEAR-MISS');
+    if (i >= 0) return i;
+  }
+  if (q.type === 'numeric' || q.type === 'short') {
+    const k = Object.keys(codes).find((x) => x !== 'common' && codes[x] !== 'NEAR-MISS' && (q.misconceptions || {})[x]);
+    if (k) return k;
+  }
   switch (q.type) {
     case 'mcq': return (q.answer + 1) % q.options.length;
     case 'truefalse': return !q.answer;
@@ -132,7 +143,8 @@ export async function seedDemo(server, studentDomain) {
     const t0 = now - ago * day - (ago ? 3 * 3600000 : 1800000);
     const ses = planSession({ subject, topic, topics: [topic], mode: 'topic', durationMin: 15, attempts, deviceId: 'demo', contentVersion: 'demo', now: t0, seed: Math.floor(rng() * 1e9) });
     if (k === plan.length - 1) ses.id = 'ses-demo-last'; // a fixed address for screenshots
-    const qmap = indexQuestions([topic]);
+    const bank = indexQuestions([topic]);
+    const qmap = questionsForSession(bank, ses); // with the session's generated questions
     const st = ses.state;
     const thumbs = {};
     ses.questionIds.forEach((id, i) => {
@@ -148,7 +160,7 @@ export async function seedDemo(server, studentDomain) {
       }
     });
     const elapsed = Object.values(st.times).reduce((t, x) => t + x, 0);
-    const res = await submitSession(db, ses, { questions: qmap, topics: indexTopics([topic]), topicOrder: topics }, { now: t0 + elapsed * 1000, elapsedSec: Math.min(elapsed, ses.limitSec), early: elapsed < ses.limitSec, timedOut: elapsed >= ses.limitSec, thumbs });
+    const res = await submitSession(db, ses, { questions: bank, topics: indexTopics([topic]), topicOrder: topics }, { now: t0 + elapsed * 1000, elapsedSec: Math.min(elapsed, ses.limitSec), early: elapsed < ses.limitSec, timedOut: elapsed >= ses.limitSec, thumbs });
     attempts = attempts.concat(res.attempts);
     await queue.enqueue(ses.id);
   }

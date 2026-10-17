@@ -96,7 +96,8 @@ function shuffle(arr, rng) {
 /**
  * Pick the questions for a session.
  * opts: { pool: question[], durationMin, mode: 'topic'|'subtopic'|'weak'|'mixed',
- *         history: Map, mastery: Map, overallMastery: number|null, rng, now, maxQuestions }
+ *         history: Map, mastery: Map, overallMastery: number|null, rng, now, maxQuestions,
+ *         minQuestions (default MIN_QUESTIONS) }
  * Each question should carry topicId (used to spread mixed revision across topics).
  * Returns { questions, estimatedSeconds, budgetSeconds, allUsed }.
  */
@@ -122,12 +123,13 @@ export function selectQuestions(opts) {
   const chosen = [];
   let used = 0;
   const maxQ = opts.maxQuestions || Infinity;
+  const minQ = opts.minQuestions ?? MIN_QUESTIONS;
   let misses = 0;
   while (remaining.length && chosen.length < maxQ) {
     const i = weightedPick(remaining, weights, rng);
     const q = remaining[i];
     const est = estimateSeconds(q);
-    if (used + est > budget && chosen.length >= MIN_QUESTIONS) {
+    if (used + est > budget && chosen.length >= minQ) {
       // too long for the time left: try a few others, then stop
       if (++misses > 12 || used >= budget * 0.97) break;
       if (remaining.every((x) => used + estimateSeconds(x) > budget)) break;
@@ -145,11 +147,14 @@ export function selectQuestions(opts) {
       return w * f;
     });
   }
-  // easier first, shuffled within each difficulty
-  const byLevel = [1, 2, 3].map((d) => shuffle(chosen.filter((q) => q.difficulty === d), rng));
-  const other = chosen.filter((q) => ![1, 2, 3].includes(q.difficulty));
-  const ordered = [...byLevel.flat(), ...other];
-  return { questions: ordered, estimatedSeconds: used, budgetSeconds: budget, allUsed: remaining.length === 0 };
+  return { questions: easierFirst(chosen, rng), estimatedSeconds: used, budgetSeconds: budget, allUsed: remaining.length === 0 };
+}
+
+/** Easier first, shuffled within each difficulty. */
+export function easierFirst(list, rng) {
+  const byLevel = [1, 2, 3].map((d) => shuffle(list.filter((q) => q.difficulty === d), rng));
+  const other = list.filter((q) => ![1, 2, 3].includes(q.difficulty));
+  return [...byLevel.flat(), ...other];
 }
 
 /** Quick estimate for the set-up screen ("about 14 questions"). */

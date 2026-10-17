@@ -7,7 +7,8 @@
 //   mastery bars        one bar per part of the chapter, after this session
 //   skill chips         skills to work on (and going well), with icon and words, not colour alone
 //   time per question   a column per question, coloured by result, with a legend and a table
-//   her working         the working she wrote on the questions she got wrong
+//   named mistakes      catalogue misconceptions her wrong answers showed, counted
+//   wrong questions     each question she got wrong: its picture, her answer, her working
 //   trend               score across sessions (Mathematics and Science), this one marked
 //
 // Chart rules (from the team's data-viz guide): one axis per chart, thin marks with rounded data
@@ -18,9 +19,10 @@ import { h, icon, pct } from './ui.js';
 import { starSvg, levelBadge } from './charts.js';
 import { LEVELS, formatDate, formatTime } from './stats.js';
 import { formatDuration } from './timer.js';
-import { summaryLines } from './report.js';
+import { summaryLines, namedMistakes } from './report.js';
 import { workingView } from './working.js';
 import { workingFor } from './data/remote-source.js';
+import { diagramFor, optionDiagramFor } from './hooks.js';
 
 const SVG = 'http://www.w3.org/2000/svg';
 function s(tag, attrs = {}, ...kids) {
@@ -307,29 +309,77 @@ export function trendChart(sessions, o = {}) {
     legend, h('div', { class: 'chart-wrap' }, svg, tip), table);
 }
 
-// ------------------------------------------------------------------ her working
+// ------------------------------------------------------------------ named mistakes
 
-function workingGallery(report, rows, attempts, source) {
-  const wrongIds = new Set(rows.filter((q) => q.kind === 'wrong' || q.kind === 'part').map((q) => q.questionId));
-  const withWork = attempts.filter((a) => wrongIds.has(a.questionId) && ((a.working && a.working.strokes) || a.hasWorking || a.workingPath))
-    .sort((a, b) => a.position - b.position);
+function namedMistakesBlock(report) {
+  const codes = namedMistakes(report);
+  if (!codes.length) return null;
+  const max = Math.max(...codes.map((c) => c.count));
+  return h('section', { class: 'vr-block' },
+    h('h3', { text: 'Named mistakes in this session' }),
+    h('ul', { class: 'vr-named' }, ...codes.map((c) => h('li', {},
+      h('span', { class: 'vr-named-label', text: c.label }),
+      h('span', { class: 'vr-named-count', role: 'img', 'aria-label': `${c.count} time${c.count === 1 ? '' : 's'}` },
+        ...Array.from({ length: Math.min(c.count, 10) }, () => icon('bulb', { size: 16 })),
+        h('b', { 'aria-hidden': 'true', text: `${c.count}×` })),
+      c.subtopics.length ? h('span', { class: 'muted small vr-named-where', text: c.subtopics.join('; ') }) : null))),
+    h('p', { class: 'muted small', text: max > 1 ? 'A mistake made more than once is worth talking through together.' : 'The wrong options of generated questions are built from known mistakes, so the reason can be named.' }));
+}
+
+// ------------------------------------------------------------------ the questions she got wrong
+
+/**
+ * For a picture-choice question: the option pictures, with her choice and the right one marked.
+ * Returns null when the question has no option pictures.
+ */
+export function choicePictures(q, response, where = 'review', words = { mine: 'Her answer', picked: 'She picked this' }) {
+  if (!q || !Array.isArray(q.optionDiagrams) || !Array.isArray(q.options) || !q.optionDiagrams.some((d) => d != null)) return null;
+  const mine = new Set(Array.isArray(response) ? response : response == null ? [] : [response]);
+  const right = new Set(Array.isArray(q.answer) ? q.answer : [q.answer]);
+  const items = q.options.map((text, i) => {
+    const tags = [];
+    if (mine.has(i)) tags.push(h('span', { class: 'cp-tag cp-mine' }, icon(right.has(i) ? 'check' : 'cross', { size: 16 }), h('span', { text: q.type === 'multi' ? words.picked : words.mine })));
+    if (right.has(i)) tags.push(h('span', { class: 'cp-tag cp-right' }, icon('check', { size: 16 }), h('span', { text: 'Correct' })));
+    return h('li', { class: `cp-item${mine.has(i) ? ' is-mine' : ''}${right.has(i) ? ' is-right' : ''}` },
+      h('span', { class: 'cp-letter', text: String.fromCharCode(65 + i) }),
+      optionDiagramFor(q, i, where),
+      h('span', { class: 'cp-text', text }),
+      ...tags);
+  });
+  return h('ul', { class: 'choice-pictures', 'aria-label': 'The answer pictures' }, ...items);
+}
+
+function wrongQuestions(report, rows, attempts, source, questions) {
+  const wrongRows = rows.filter((q) => q.kind === 'wrong' || q.kind === 'part');
+  const byQ = new Map(attempts.map((a) => [a.questionId, a]));
   const mistakes = new Map((report.mistakes || []).map((m) => [m.questionId, m]));
-  const sec = h('section', { class: 'vr-block' }, h('h3', { text: 'Her working on the questions she got wrong' }));
-  if (!withWork.length) {
-    sec.append(h('p', { class: 'muted', text: wrongIds.size ? 'She did not write any working on the questions she got wrong.' : 'No wrong answers in this session.' }));
+  const labels = new Map(namedMistakes(report).map((c) => [c.code, c.label]));
+  const sec = h('section', { class: 'vr-block' }, h('h3', { text: 'The questions she got wrong, with her working' }));
+  if (!wrongRows.length) {
+    sec.append(h('p', { class: 'muted', text: 'No wrong answers in this session.' }));
     return sec;
   }
   const grid = h('ul', { class: 'vr-working' });
-  for (const a of withWork) {
-    const m = mistakes.get(a.questionId);
-    const slot = h('div', { class: 'vr-working-img' }, h('p', { class: 'muted small', text: 'Loading her working…' }));
+  for (const row of wrongRows) {
+    const a = byQ.get(row.questionId) || null;
+    const m = mistakes.get(row.questionId);
+    const q = questions ? questions.get(row.questionId) : null;
+    const n = a && Number.isFinite(a.position) ? a.position + 1 : row.n;
+    const hasWork = a && ((a.working && a.working.strokes) || a.hasWorking || a.workingPath);
+    const codes = (m && Array.isArray(m.codes) ? m.codes : []).filter((c) => typeof c === 'string');
+    const slot = hasWork ? h('div', { class: 'vr-working-img' }, h('p', { class: 'muted small', text: 'Loading her working…' })) : null;
     grid.append(h('li', { class: 'vr-working-card' },
-      h('p', { class: 'vr-working-q' }, h('strong', { text: `Question ${a.position + 1}` }), m ? ` ${m.prompt}` : ''),
+      h('p', { class: 'vr-working-q' }, h('strong', { text: `Question ${n}` }), ' ', h('span', { text: q ? q.prompt : m ? m.prompt : '' })),
+      q ? diagramFor(q, 'report') : null,
+      q ? choicePictures(q, a ? a.response : null, 'report') : null,
       m ? h('p', { class: 'small' }, 'Her answer: ', h('strong', { text: m.yourAnswer }), ' · Correct: ', h('strong', { text: m.correctAnswer })) : null,
-      slot));
-    workingFor(source, a).then((strokes) => {
-      slot.replaceChildren(strokes ? workingView(strokes, { label: `Her working for question ${a.position + 1}` }) : h('p', { class: 'muted small', text: 'Her working could not be loaded.' }));
-    }).catch(() => slot.replaceChildren(h('p', { class: 'muted small', text: 'Her working could not be loaded (no connection?).' })));
+      codes.length ? h('p', { class: 'small vr-why' }, icon('bulb', { size: 16 }), h('span', { text: `Likely mistake: ${codes.map((c) => labels.get(c) || c).join('; ')}` })) : null,
+      slot || h('p', { class: 'muted small', text: 'No working written on this one.' })));
+    if (slot) {
+      workingFor(source, a).then((strokes) => {
+        slot.replaceChildren(strokes ? workingView(strokes, { label: `Her working for question ${n}` }) : h('p', { class: 'muted small', text: 'Her working could not be loaded.' }));
+      }).catch(() => slot.replaceChildren(h('p', { class: 'muted small', text: 'Her working could not be loaded (no connection?).' })));
+    }
   }
   sec.append(grid);
   return sec;
@@ -339,7 +389,8 @@ function workingGallery(report, rows, attempts, source) {
 
 /**
  * report: a report record. ctx: { attempts (this session's), sessions (all, for the trend),
- * source (for loading working online), compact (leave out the trend) }
+ * source (for loading working online), compact (leave out the trend), questions (Map id ->
+ * question for this session, the bank plus its generated questions; draws their pictures) }
  */
 export function visualReport(report, ctx = {}) {
   const attempts = ctx.attempts || [];
@@ -353,8 +404,10 @@ export function visualReport(report, ctx = {}) {
   if (mb) root.append(mb);
   const chips = skillChips(report);
   if (chips) root.append(chips);
+  const named = namedMistakesBlock(report);
+  if (named) root.append(named);
   if (rows.length) root.append(timeChart(rows, { width: chartWidth(ctx.host) }));
-  root.append(workingGallery(report, rows, attempts, ctx.source));
+  root.append(wrongQuestions(report, rows, attempts, ctx.source, ctx.questions || null));
   if (!ctx.compact && ctx.sessions) {
     const t = trendChart(ctx.sessions, { highlightId: report.sessionId, width: chartWidth(ctx.host) });
     if (t) root.append(t);

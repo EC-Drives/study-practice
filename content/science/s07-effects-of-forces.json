@@ -194,7 +194,18 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A bag of oranges hangs from a newton meter. The newton meter reads 7 N. Use g = 10 N/kg (on Earth each 1 kg has a weight of 10 N). What is the mass of the oranges? Give your answer in kg.",
+      "prompt": "A bag of oranges hangs from a newton meter. Read the newton meter in the diagram. Use g = 10 N/kg (on Earth each 1 kg has a weight of 10 N). What is the mass of the oranges? Give your answer in kg.",
+      "diagram": {
+        "type": "scale",
+        "kind": "newtonMeter",
+        "min": 0,
+        "max": 10,
+        "major": 1,
+        "minor": 0.5,
+        "unit": "N",
+        "value": 7,
+        "load": "oranges"
+      },
       "answer": {
         "value": 0.7,
         "tolerance": 0,
@@ -203,9 +214,9 @@
           "7/10"
         ]
       },
-      "solution": "Every 1 kg weighs 10 N. To go from weight to mass, divide by 10: 7 ÷ 10 = 0.7 kg.",
+      "solution": "The newton meter reads 7 N, so the oranges weigh 7 N. Every 1 kg weighs 10 N. To go from weight to mass, divide by 10: 7 ÷ 10 = 0.7 kg.",
       "misconceptions": {
-        "common": "Multiplying by 10 instead of dividing gives 70 kg, which is far too heavy for a bag of oranges. Weight to mass: divide by 10."
+        "common": "Multiplying by 10 instead of dividing gives 70 kg, which is far too heavy for a bag of oranges. Weight to mass: divide by 10. Check the reading too: the pointer is at 7 N."
       },
       "skill": "calculating mass from weight",
       "source": "original"
@@ -239,7 +250,46 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Wei Ming hangs different masses on a newton meter. His results: 100 g gives 1 N; 200 g gives 2 N; 300 g gives 5 N; 400 g gives 4 N; 500 g gives 5 N. Which result is anomalous (does not fit the pattern)?",
+      "prompt": "Wei Ming hangs different masses on a newton meter. The line graph shows his results. Which result is anomalous (does not fit the pattern)?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Force needed to hold different masses",
+        "series": [
+          {
+            "name": "Reading",
+            "points": [
+              [
+                100,
+                1
+              ],
+              [
+                200,
+                2
+              ],
+              [
+                300,
+                5
+              ],
+              [
+                400,
+                4
+              ],
+              [
+                500,
+                5
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 500,
+        "xStep": 100,
+        "yMin": 0,
+        "yMax": 6,
+        "yStep": 1,
+        "xLabel": "Mass (g)",
+        "yLabel": "Newton meter reading (N)"
+      },
       "options": [
         "500 g gives 5 N",
         "100 g gives 1 N",
@@ -247,7 +297,7 @@
         "There is no anomalous result."
       ],
       "answer": 2,
-      "solution": "The pattern is: every 100 g adds 1 N. So 300 g should give 3 N. The reading of 5 N does not fit, so it is anomalous. Wei Ming should repeat that measurement.",
+      "solution": "Look at the points on the graph. The pattern is: every 100 g adds 1 N (100 g gives 1 N, 200 g gives 2 N, 400 g gives 4 N, 500 g gives 5 N). So 300 g should give 3 N. The point at 5 N for 300 g sits far above the pattern, so it is anomalous. Wei Ming should repeat that measurement.",
       "misconceptions": {
         "0": "The largest reading is not automatically the odd one out. 500 g = 0.5 kg, and 0.5 x 10 = 5 N, which fits the pattern.",
         "1": "100 g = 0.1 kg, and 0.1 x 10 = 1 N, so this result fits the pattern. The smallest value is not always the anomaly.",
@@ -515,43 +565,65 @@
       "type": "match",
       "difficulty": 1,
       "marks": 2,
-      "prompt": "Each arrow in a force diagram is described in words. Match each arrow to the name of the force it shows.",
+      "prompt": "The force diagram shows a motorboat moving forwards (to the right) across a lake. Match each arrow to the name of the force it shows.",
+      "diagram": {
+        "type": "forces",
+        "object": "boat",
+        "arrows": [
+          {
+            "direction": "up",
+            "name": "A"
+          },
+          {
+            "direction": "down",
+            "name": "B"
+          },
+          {
+            "direction": "right",
+            "name": "C"
+          },
+          {
+            "direction": "left",
+            "name": "D"
+          }
+        ]
+      },
       "options": {
         "left": [
-          "An arrow pointing down from a falling skydiver",
-          "An arrow pointing up from the skydiver's open parachute",
-          "An arrow pointing up from the water under a floating boat",
-          "An arrow pointing backwards on a sledge sliding forwards over the ground"
+          "Arrow A",
+          "Arrow B",
+          "Arrow C",
+          "Arrow D"
         ],
         "right": [
           "upthrust",
-          "friction",
+          "water resistance",
           "magnetic force",
           "weight (gravity)",
-          "air resistance"
+          "push from the engine"
         ]
       },
       "answer": [
         [
           0,
-          3
+          0
         ],
         [
           1,
-          4
+          3
         ],
         [
           2,
-          0
+          4
         ],
         [
           3,
           1
         ]
       ],
-      "solution": "Gravity pulls everything downwards, so the downward arrow is weight. Air pushes up against the falling parachute: air resistance. Water pushes up on a floating boat: upthrust. The ground rubs against the sliding sledge and acts against its movement: friction. Nothing here involves a magnet.",
+      "solution": "The water holds the boat up: arrow A is upthrust. Gravity pulls the boat down: arrow B is its weight. The engine pushes the boat forwards: arrow C. The water rubs against the moving boat and acts against its movement, so arrow D is water resistance (a kind of friction). Nothing here involves a magnet.",
       "misconceptions": {
-        "common": "Mixing up air resistance and upthrust because both can push upwards. Upthrust is the push from a liquid (or gas) holding an object up; air resistance acts against something moving through air."
+        "common": "Mixing up upthrust and weight, or forgetting which way water resistance acts. Upthrust is the push of the water holding the boat up; weight pulls down; water resistance always points the opposite way to the movement."
       },
       "skill": "naming forces",
       "source": "original"
@@ -562,7 +634,21 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A book rests on a table without moving. Its weight is 5 N. Which description of the forces on the book is correct?",
+      "prompt": "A book rests on a table without moving. The force diagram shows its weight, 5 N. Which description of ALL the forces on the book is correct?",
+      "diagram": {
+        "type": "forces",
+        "object": "box",
+        "surface": "table",
+        "label": "the book",
+        "arrows": [
+          {
+            "direction": "down",
+            "name": "weight",
+            "label": "5 N"
+          }
+        ],
+        "alt": "A force diagram: a book resting on a table with one force arrow: weight, downwards, labelled 5 N."
+      },
       "options": [
         "Weight 5 N down only; a table cannot push on anything.",
         "Weight 5 N down and a support force of 10 N up; the forces are unbalanced.",
@@ -600,7 +686,28 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "In a tug of war, Team A pulls to the left with a force of 450 N. Team B pulls to the right with a force of 380 N. How big is the overall (unbalanced) force on the rope? Give your answer in newtons (N).",
+      "prompt": "The force diagram shows the two teams pulling on the knot in the middle of a tug-of-war rope. How big is the overall (unbalanced) force on the knot? Give your answer in newtons (N).",
+      "diagram": {
+        "type": "forces",
+        "object": "ball",
+        "surface": "none",
+        "label": "the knot in the middle of the rope",
+        "arrows": [
+          {
+            "direction": "left",
+            "size": 450,
+            "name": "Team A",
+            "label": "450 N"
+          },
+          {
+            "direction": "right",
+            "size": 380,
+            "name": "Team B",
+            "label": "380 N"
+          }
+        ],
+        "alt": "A force diagram: the knot in the middle of a tug-of-war rope with 2 force arrows: Team A, to the left, labelled 450 N, and Team B, to the right, labelled 380 N. The arrow to the left is longer than the arrow to the right."
+      },
       "answer": {
         "value": 70,
         "tolerance": 0,
@@ -610,7 +717,7 @@
           "70 newtons"
         ]
       },
-      "solution": "The forces act in opposite directions, so subtract: 450 - 380 = 70 N. The overall force is 70 N to the left, so Team A starts to win.",
+      "solution": "Team A pulls 450 N to the left and Team B pulls 380 N to the right. The forces act in opposite directions, so subtract: 450 - 380 = 70 N. The overall force is 70 N to the left, so Team A starts to win.",
       "misconceptions": {
         "common": "Adding the two forces (830 N). When forces act in opposite directions they work against each other, so you find the difference."
       },
@@ -623,7 +730,23 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A car is moving to the right along a straight, flat road. A force diagram shows two arrows: the engine's forward force of 2000 N to the right, and friction and air resistance together of 2000 N to the left. Which statement is correct?",
+      "prompt": "A car is moving to the right along a straight, flat road. The force diagram shows the engine's forward force (to the right) and friction and air resistance together (to the left). Which statement is correct?",
+      "diagram": {
+        "type": "forces",
+        "object": "car",
+        "arrows": [
+          {
+            "direction": "right",
+            "size": 2000,
+            "label": "2000 N"
+          },
+          {
+            "direction": "left",
+            "size": 2000,
+            "label": "2000 N"
+          }
+        ]
+      },
       "options": [
         "The forces are balanced, so the car must slow down and stop.",
         "The forces are balanced, so the car keeps moving at the same speed.",
@@ -646,19 +769,40 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rocket stands on its launch pad. When its engines start, the upward thrust is 50 000 N and its weight is 40 000 N downwards. What happens to the rocket?",
+      "prompt": "A crane starts to lift a heavy crate straight up off the ground. The force diagram shows the two forces on the crate. What happens to the crate?",
+      "diagram": {
+        "type": "forces",
+        "object": "box",
+        "surface": "none",
+        "label": "the crate",
+        "arrows": [
+          {
+            "direction": "up",
+            "size": 5000,
+            "name": "pull of the cable",
+            "label": "5000 N"
+          },
+          {
+            "direction": "down",
+            "size": 4000,
+            "name": "weight",
+            "label": "4000 N"
+          }
+        ],
+        "alt": "A force diagram: a crate with 2 force arrows: pull of the cable, upwards, labelled 5000 N, and weight, downwards, labelled 4000 N. The arrow upwards is longer than the arrow downwards."
+      },
       "options": [
-        "It rises and speeds up, because there is an overall force of 10 000 N upwards.",
-        "It stays on the launch pad, because its weight is so large.",
-        "It rises at a steady speed, because there is an overall force of 10 000 N upwards.",
-        "It rises and speeds up, because there is an overall force of 90 000 N upwards."
+        "It rises and speeds up, because there is an overall force of 1000 N upwards.",
+        "It stays on the ground, because its weight is so large.",
+        "It rises at a steady speed, because there is an overall force of 1000 N upwards.",
+        "It rises and speeds up, because there is an overall force of 9000 N upwards."
       ],
       "answer": 0,
-      "solution": "Compare the forces: 50 000 N up and 40 000 N down. The difference is 50 000 - 40 000 = 10 000 N upwards. The forces are unbalanced, so the rocket starts to move upwards and keeps speeding up.",
+      "solution": "Compare the forces: 5000 N up and 4000 N down. The difference is 5000 - 4000 = 1000 N upwards. The forces are unbalanced, so the crate starts to move upwards and speeds up while the forces stay like this.",
       "misconceptions": {
-        "1": "A large weight does not matter on its own; you must compare the forces. The upward force is bigger, so the rocket moves up.",
-        "2": "An unbalanced force changes speed. A steady speed happens when forces are balanced; an overall upward force makes the rocket go faster and faster.",
-        "3": "The forces act in opposite directions, so subtract them (50 000 - 40 000), do not add them."
+        "1": "A large weight does not matter on its own; you must compare the forces. The upward pull is bigger, so the crate moves up.",
+        "2": "An unbalanced force changes speed. A steady speed happens when the forces are balanced; an overall upward force makes the crate go faster and faster.",
+        "3": "The forces act in opposite directions, so subtract them (5000 - 4000), do not add them."
       },
       "skill": "calculating the overall force",
       "source": "original"
@@ -780,7 +924,33 @@
       "type": "short",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Priya's results table shows how far her toy car rolled on each surface: carpet 60 cm, wooden floor 140 cm, sandpaper 35 cm, tiles 120 cm. Which surface produced the most friction?",
+      "prompt": "Priya rolls her toy car down a ramp onto different surfaces. The bar chart shows how far the car rolled on each surface. Which surface produced the most friction?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Distance the toy car rolled",
+        "categories": [
+          "carpet",
+          "wooden floor",
+          "sandpaper",
+          "tiles"
+        ],
+        "series": [
+          {
+            "name": "Distance",
+            "values": [
+              60,
+              140,
+              35,
+              120
+            ]
+          }
+        ],
+        "yMax": 160,
+        "yStep": 20,
+        "minorStep": 5,
+        "xLabel": "Surface",
+        "yLabel": "Distance rolled (cm)"
+      },
       "answer": {
         "accept": [
           "sandpaper",
@@ -788,9 +958,9 @@
         ],
         "keywords": []
       },
-      "solution": "More friction slows the car down more, so it stops sooner. The shortest distance (35 cm) was on sandpaper, so sandpaper produced the most friction.",
+      "solution": "More friction slows the car down more, so it stops sooner. The shortest bar is sandpaper (35 cm), so sandpaper produced the most friction.",
       "misconceptions": {
-        "common": "Choosing the wooden floor because it has the biggest number. The car went furthest there because there was the least friction."
+        "common": "Choosing the wooden floor because it has the tallest bar. The car went furthest there because there was the least friction."
       },
       "skill": "drawing conclusions from results",
       "source": "original"
@@ -922,7 +1092,18 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A toy duck floats without moving on the water. Its weight is 3 N. What is the size of the upthrust on the duck? Give your answer in newtons (N).",
+      "prompt": "A toy boat floats without moving on the water. The force diagram shows only its weight, 3 N. What is the size of the upthrust on the boat? Give your answer in newtons (N).",
+      "diagram": {
+        "type": "forces",
+        "object": "boat",
+        "arrows": [
+          {
+            "direction": "down",
+            "name": "weight",
+            "label": "3 N"
+          }
+        ]
+      },
       "answer": {
         "value": 3,
         "tolerance": 0,
@@ -932,9 +1113,9 @@
           "3 newtons"
         ]
       },
-      "solution": "The duck is floating and not moving up or down, so the forces are balanced. The upthrust must equal the weight: 3 N.",
+      "solution": "The boat is floating and not moving up or down, so the forces on it are balanced. The upthrust of the water pushes up and must equal the weight pulling down: 3 N.",
       "misconceptions": {
-        "common": "Thinking upthrust must be bigger than the weight for something to float. If upthrust were bigger, the duck would rise up out of the water until the forces balanced again."
+        "common": "Thinking upthrust must be bigger than the weight for something to float. If upthrust were bigger, the boat would rise up out of the water until the forces balanced again."
       },
       "skill": "upthrust",
       "source": "original"
@@ -945,7 +1126,18 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A stone hangs from a newton meter. In air the reading is 12 N. When the stone is lowered completely into a beaker of water, the reading drops to 9 N. What is the upthrust of the water on the stone? Give your answer in newtons (N).",
+      "prompt": "A stone hangs from a newton meter. In air the reading is 12 N. The diagram shows the reading when the stone is lowered completely into a beaker of water. What is the upthrust of the water on the stone? Give your answer in newtons (N).",
+      "diagram": {
+        "type": "scale",
+        "kind": "newtonMeter",
+        "min": 0,
+        "max": 15,
+        "major": 5,
+        "unit": "N",
+        "value": 9,
+        "load": "stone, under water",
+        "minor": 1
+      },
       "answer": {
         "value": 3,
         "tolerance": 0,
@@ -955,7 +1147,7 @@
           "3 newtons"
         ]
       },
-      "solution": "The water pushes up on the stone, so the newton meter does not need to hold as much. Upthrust = 12 - 9 = 3 N.",
+      "solution": "Under water the newton meter reads 9 N. The water pushes up on the stone, so the newton meter does not need to hold as much. Upthrust = 12 - 9 = 3 N.",
       "misconceptions": {
         "common": "Giving 9 N, the new reading. 9 N is how much the newton meter still holds; the upthrust is the difference, 12 - 9 = 3 N. The stone's weight itself has not changed."
       },
@@ -1009,6 +1201,672 @@
         "1": "A smaller ball pushes aside less water, so the upthrust gets smaller. It will still sink.",
         "3": "Adding weights increases the mass and the weight, so it is even more likely to sink.",
         "common": "Thinking only lighter objects can float. The shape, and how much water it pushes aside, matters too."
+      },
+      "skill": "mass and shape affect floating",
+      "source": "original"
+    },
+    {
+      "id": "s07-q042",
+      "subtopicId": "s07-s1",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Siti puts a bag of flour on a kitchen scale. Look at the scale. What is the mass of the flour? Give your answer in grams (g).",
+      "diagram": {
+        "type": "scale",
+        "kind": "weighing",
+        "min": 0,
+        "max": 1000,
+        "major": 200,
+        "minor": 50,
+        "unit": "g",
+        "value": 650,
+        "alt": "A kitchen weighing scale marked from 0 to 1000 g, labelled every 200 g with small marks every 50 g, and a pointer."
+      },
+      "answer": {
+        "value": 650,
+        "tolerance": 0,
+        "accept": [
+          "650 g",
+          "650g",
+          "650 grams"
+        ]
+      },
+      "solution": "The big marks go up in 200 g. There are 4 small spaces between them, so each small mark is 200 ÷ 4 = 50 g. The pointer is 3 small marks past 500 g: 500 + 50 + 50 + 50 = 650 g.",
+      "misconceptions": {
+        "common": "Counting each small mark as 10 g (giving 530 g). Work out the size of one small step first: 200 g shared into 4 spaces is 50 g each."
+      },
+      "skill": "mass and weight units",
+      "source": "original"
+    },
+    {
+      "id": "s07-q043",
+      "subtopicId": "s07-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Daniel weighs a watermelon on the scale shown. Read its mass from the scale, then work out its weight on Earth. Use g = 10 N/kg. Give your answer in newtons (N).",
+      "diagram": {
+        "type": "scale",
+        "kind": "weighing",
+        "min": 0,
+        "max": 5,
+        "major": 1,
+        "minor": 0.5,
+        "unit": "kg",
+        "value": 3.5,
+        "alt": "A weighing scale marked from 0 to 5 kg, labelled every 1 kg with a small mark halfway between, and a pointer."
+      },
+      "answer": {
+        "value": 35,
+        "tolerance": 0,
+        "accept": [
+          "35 N",
+          "35N",
+          "35 newtons"
+        ]
+      },
+      "solution": "The pointer is halfway between 3 kg and 4 kg, so the mass is 3.5 kg. Each 1 kg has a weight of 10 N, so the weight is 3.5 x 10 = 35 N.",
+      "misconceptions": {
+        "common": "Giving 3.5 (the mass in kg) as the weight. Mass is in kg; weight is a force in newtons. Multiply the mass in kg by 10: 3.5 x 10 = 35 N."
+      },
+      "skill": "calculating weight from mass",
+      "source": "original"
+    },
+    {
+      "id": "s07-q044",
+      "subtopicId": "s07-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Mei Lin puts a pineapple on the kitchen scale shown. Use g = 10 N/kg. What is the weight of the pineapple on Earth?",
+      "diagram": {
+        "type": "scale",
+        "kind": "weighing",
+        "min": 0,
+        "max": 2000,
+        "major": 500,
+        "minor": 100,
+        "unit": "g",
+        "value": 1200,
+        "alt": "A kitchen weighing scale marked from 0 to 2000 g, labelled every 500 g with small marks every 100 g, and a pointer."
+      },
+      "options": [
+        "12 N",
+        "1200 N",
+        "120 N",
+        "1.2 N"
+      ],
+      "answer": 0,
+      "solution": "Read the scale: each small mark is 100 g, and the pointer is 2 small marks past 1000 g, so the mass is 1200 g. Change to kilograms: 1200 g = 1.2 kg. Weight = 1.2 x 10 = 12 N.",
+      "misconceptions": {
+        "1": "1200 is the mass in grams, not the weight. Weight is in newtons: change 1200 g to 1.2 kg first, then multiply by 10.",
+        "2": "This treats 1200 g as 12 kg. There are 1000 g in 1 kg, so 1200 g is 1.2 kg, and the weight is 1.2 x 10 = 12 N.",
+        "3": "1.2 is the mass in kilograms. To get the weight in newtons you still need to multiply by 10: 1.2 x 10 = 12 N."
+      },
+      "skill": "calculating weight from mass",
+      "source": "original"
+    },
+    {
+      "id": "s07-q045",
+      "subtopicId": "s07-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Arjun hangs masses on a spring and measures how much it stretches. The line graph shows his results. Use the graph to find how much the spring would stretch with a 350 g mass. Give your answer in cm.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Stretch of a spring",
+        "series": [
+          {
+            "name": "Stretch",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                100,
+                2
+              ],
+              [
+                200,
+                4
+              ],
+              [
+                300,
+                6
+              ],
+              [
+                400,
+                8
+              ],
+              [
+                500,
+                10
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 500,
+        "xStep": 50,
+        "yMin": 0,
+        "yMax": 12,
+        "yStep": 2,
+        "minorStep": 1,
+        "xLabel": "Mass hung on the spring (g)",
+        "yLabel": "Stretch (cm)"
+      },
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "accept": [
+          "7 cm",
+          "7cm"
+        ]
+      },
+      "solution": "Find 350 g on the bottom axis, halfway between 300 g and 400 g. Go up to the line, then across to the stretch axis: 7 cm. This fits the pattern: every 100 g stretches the spring 2 cm, so 350 g stretches it 3.5 x 2 = 7 cm.",
+      "misconceptions": {
+        "common": "Reading 6 cm or 8 cm, the plotted points either side. 350 g is halfway between 300 g and 400 g, so the stretch is halfway between 6 cm and 8 cm: 7 cm."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "original"
+    },
+    {
+      "id": "s07-q046",
+      "subtopicId": "s07-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Kumar tests a different spring. The line graph shows how much it stretched with each mass. Which mass gave an anomalous result?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Stretch of Kumar's spring",
+        "series": [
+          {
+            "name": "Stretch",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                100,
+                3
+              ],
+              [
+                200,
+                6
+              ],
+              [
+                300,
+                11
+              ],
+              [
+                400,
+                12
+              ],
+              [
+                500,
+                15
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 500,
+        "xStep": 100,
+        "yMin": 0,
+        "yMax": 16,
+        "yStep": 2,
+        "minorStep": 1,
+        "xLabel": "Mass hung on the spring (g)",
+        "yLabel": "Stretch (cm)"
+      },
+      "options": [
+        "100 g",
+        "300 g",
+        "400 g",
+        "500 g"
+      ],
+      "answer": 1,
+      "solution": "Most points follow one pattern: every 100 g stretches the spring 3 cm (3, 6, 12, 15 cm). At 300 g the stretch should be 9 cm, but the graph shows 11 cm, so that point does not fit. 300 g gave the anomalous result, and Kumar should repeat it.",
+      "misconceptions": {
+        "0": "100 g gives 3 cm, which fits the pattern of 3 cm for every 100 g. The first point is not automatically the odd one out.",
+        "2": "400 g gives 12 cm = 4 x 3 cm, which fits the pattern. The line bends there only because the point before it (300 g) is too high.",
+        "3": "500 g gives 15 cm = 5 x 3 cm, which fits the pattern. The biggest mass is not automatically the anomaly."
+      },
+      "skill": "identifying anomalous results",
+      "source": "original"
+    },
+    {
+      "id": "s07-q047",
+      "subtopicId": "s07-s4",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Ahmad lets a toy car roll down the same ramp onto four different surfaces. The bar chart shows how far it rolled on each. Put the surfaces in order from the MOST friction to the LEAST friction.",
+      "diagram": {
+        "type": "barChart",
+        "title": "How far the toy car rolled",
+        "categories": [
+          "carpet",
+          "smooth plastic sheet",
+          "grass",
+          "wooden floor"
+        ],
+        "series": [
+          {
+            "name": "Distance",
+            "values": [
+              65,
+              210,
+              40,
+              150
+            ]
+          }
+        ],
+        "yMax": 250,
+        "yStep": 50,
+        "minorStep": 10,
+        "xLabel": "Surface",
+        "yLabel": "Distance rolled (cm)"
+      },
+      "options": [
+        "wooden floor",
+        "grass",
+        "smooth plastic sheet",
+        "carpet"
+      ],
+      "answer": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "solution": "More friction stops the car sooner, so the shortest distance means the most friction. From shortest to longest bar: grass (40 cm), carpet (65 cm), wooden floor (150 cm), smooth plastic sheet (210 cm). So the order from most to least friction is grass, carpet, wooden floor, smooth plastic sheet.",
+      "misconceptions": {
+        "common": "Putting the tallest bar first. A long distance means the car was slowed down less, so that surface has the LEAST friction."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "original"
+    },
+    {
+      "id": "s07-q048",
+      "subtopicId": "s07-s4",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Priya drops paper parachutes of different widths from the same height and times how long each takes to land. The bar chart shows her results. True or false: the results show that doubling the width of the parachute doubles the time it takes to fall.",
+      "diagram": {
+        "type": "barChart",
+        "title": "Time for each parachute to land",
+        "categories": [
+          "10 cm",
+          "20 cm",
+          "30 cm",
+          "40 cm"
+        ],
+        "series": [
+          {
+            "name": "Time",
+            "values": [
+              1.5,
+              2.5,
+              3.0,
+              4.0
+            ]
+          }
+        ],
+        "yMax": 5,
+        "yStep": 1,
+        "minorStep": 0.5,
+        "xLabel": "Width of parachute",
+        "yLabel": "Time to fall (s)"
+      },
+      "answer": false,
+      "solution": "False. The wider parachutes do take longer to fall, because they have more air resistance. But the time does not double. From 10 cm to 20 cm the time goes from 1.5 s to 2.5 s (double would be 3.0 s). From 20 cm to 40 cm it goes from 2.5 s to 4.0 s (double would be 5.0 s).",
+      "misconceptions": {
+        "common": "Seeing that the bars get taller and deciding the time doubles. Check the numbers: double 1.5 s is 3.0 s, but the 20 cm parachute took 2.5 s. 'Bigger gives longer' is true, but 'double gives double' is not."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "original"
+    },
+    {
+      "id": "s07-q049",
+      "subtopicId": "s07-s4",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Priya repeats her parachute test three times for each width. The table shows her results. One time in the table is anomalous. Which time is it? Give the time in seconds.",
+      "diagram": {
+        "type": "table",
+        "title": "Time for each parachute to land",
+        "columns": [
+          "Width of parachute (cm)",
+          "Test 1 (s)",
+          "Test 2 (s)",
+          "Test 3 (s)"
+        ],
+        "rows": [
+          [
+            "20",
+            2.4,
+            2.6,
+            2.5
+          ],
+          [
+            "30",
+            3.1,
+            1.9,
+            3.0
+          ],
+          [
+            "40",
+            4.0,
+            4.1,
+            3.9
+          ]
+        ]
+      },
+      "answer": {
+        "accept": [
+          "1.9",
+          "1.9 s",
+          "1.9s",
+          "1.9 seconds",
+          "1.9 sec"
+        ],
+        "keywords": []
+      },
+      "solution": "The times in each row should be close to each other, because they are repeats of the same test. For the 30 cm parachute, Tests 1 and 3 are 3.1 s and 3.0 s, but Test 2 is only 1.9 s. That result does not fit, so 1.9 s is anomalous. Priya should repeat that test.",
+      "misconceptions": {
+        "common": "Picking the biggest or smallest number in the whole table (4.1 s or 2.4 s). Compare the repeats in the same row: an anomalous result is one that is very different from the other repeats of the same test."
+      },
+      "skill": "identifying anomalous results",
+      "source": "original"
+    },
+    {
+      "id": "s07-q050",
+      "subtopicId": "s07-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The bar chart shows the weights of three objects on the Earth and on the Moon. A box has a weight of 90 N on the Earth. Use the pattern in the chart to find the weight of the box on the Moon. Give your answer in newtons (N).",
+      "diagram": {
+        "type": "barChart",
+        "title": "Weight on the Earth and on the Moon",
+        "categories": [
+          "Rock",
+          "School bag",
+          "Robot"
+        ],
+        "series": [
+          {
+            "name": "On the Earth",
+            "values": [
+              60,
+              30,
+              120
+            ]
+          },
+          {
+            "name": "On the Moon",
+            "values": [
+              10,
+              5,
+              20
+            ]
+          }
+        ],
+        "yMax": 140,
+        "yStep": 20,
+        "minorStep": 5,
+        "yLabel": "Weight (N)"
+      },
+      "answer": {
+        "value": 15,
+        "tolerance": 0,
+        "accept": [
+          "15 N",
+          "15N",
+          "15 newtons"
+        ]
+      },
+      "solution": "Read the pairs of bars: rock 60 N and 10 N, school bag 30 N and 5 N, robot 120 N and 20 N. Each time the weight on the Moon is 1/6 of the weight on the Earth (60 ÷ 6 = 10). So the box weighs 90 ÷ 6 = 15 N on the Moon.",
+      "misconceptions": {
+        "common": "Subtracting a fixed amount (for example 90 - 50 = 40 N). Look at how the bars compare: the Moon bar is always 1/6 of the Earth bar, because the Moon's gravity is about 1/6 of the Earth's. Divide by 6."
+      },
+      "skill": "weight changes when gravity changes",
+      "source": "original"
+    },
+    {
+      "id": "s07-q051",
+      "subtopicId": "s07-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Omar needs 1.5 kg of rice. Which kitchen scale shows a mass of 1.5 kg?",
+      "options": [
+        "Scale A",
+        "Scale B",
+        "Scale C"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "scale",
+          "kind": "weighing",
+          "min": 0,
+          "max": 2000,
+          "major": 500,
+          "minor": 50,
+          "unit": "g",
+          "value": 150,
+          "alt": "Kitchen scale A, marked from 0 to 2000 g, labelled every 500 g with small marks every 50 g, and a pointer."
+        },
+        {
+          "type": "scale",
+          "kind": "weighing",
+          "min": 0,
+          "max": 2000,
+          "major": 500,
+          "minor": 50,
+          "unit": "g",
+          "value": 1050,
+          "alt": "Kitchen scale B, marked from 0 to 2000 g, labelled every 500 g with small marks every 50 g, and a pointer."
+        },
+        {
+          "type": "scale",
+          "kind": "weighing",
+          "min": 0,
+          "max": 2000,
+          "major": 500,
+          "minor": 50,
+          "unit": "g",
+          "value": 1500,
+          "alt": "Kitchen scale C, marked from 0 to 2000 g, labelled every 500 g with small marks every 50 g, and a pointer."
+        }
+      ],
+      "answer": 2,
+      "solution": "The scales are marked in grams. 1 kg = 1000 g, so 1.5 kg = 1.5 x 1000 = 1500 g. Scale C points to 1500 g, halfway between 1000 g and 2000 g.",
+      "misconceptions": {
+        "0": "Scale A shows 150 g. To change kilograms to grams, multiply by 1000: 1.5 kg = 1500 g, not 150 g.",
+        "1": "Scale B shows 1050 g, which is 1 kg and 50 g. The .5 in 1.5 kg means half a kilogram, which is 500 g, so 1.5 kg = 1500 g."
+      },
+      "skill": "mass and weight units",
+      "source": "original"
+    },
+    {
+      "id": "s07-q052",
+      "subtopicId": "s07-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Aisha predicts: 'The wider the parachute, the longer it takes to fall.' Which graph shows results that match her prediction?",
+      "options": [
+        "Graph A",
+        "Graph B",
+        "Graph C",
+        "Graph D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "lineGraph",
+          "categories": [
+            "10 cm",
+            "20 cm",
+            "30 cm",
+            "40 cm"
+          ],
+          "series": [
+            {
+              "name": "Time",
+              "values": [
+                1.5,
+                2.5,
+                3.0,
+                4.0
+              ]
+            }
+          ],
+          "yMin": 0,
+          "yMax": 5,
+          "yStep": 1,
+          "xLabel": "Width of parachute",
+          "yLabel": "Time to fall (s)"
+        },
+        {
+          "type": "lineGraph",
+          "categories": [
+            "10 cm",
+            "20 cm",
+            "30 cm",
+            "40 cm"
+          ],
+          "series": [
+            {
+              "name": "Time",
+              "values": [
+                4.0,
+                3.0,
+                2.5,
+                1.5
+              ]
+            }
+          ],
+          "yMin": 0,
+          "yMax": 5,
+          "yStep": 1,
+          "xLabel": "Width of parachute",
+          "yLabel": "Time to fall (s)"
+        },
+        {
+          "type": "lineGraph",
+          "categories": [
+            "10 cm",
+            "20 cm",
+            "30 cm",
+            "40 cm"
+          ],
+          "series": [
+            {
+              "name": "Time",
+              "values": [
+                2.5,
+                2.5,
+                2.5,
+                2.5
+              ]
+            }
+          ],
+          "yMin": 0,
+          "yMax": 5,
+          "yStep": 1,
+          "xLabel": "Width of parachute",
+          "yLabel": "Time to fall (s)"
+        },
+        {
+          "type": "lineGraph",
+          "categories": [
+            "10 cm",
+            "20 cm",
+            "30 cm",
+            "40 cm"
+          ],
+          "series": [
+            {
+              "name": "Time",
+              "values": [
+                1.5,
+                3.5,
+                3.0,
+                2.0
+              ]
+            }
+          ],
+          "yMin": 0,
+          "yMax": 5,
+          "yStep": 1,
+          "xLabel": "Width of parachute",
+          "yLabel": "Time to fall (s)"
+        }
+      ],
+      "answer": 0,
+      "solution": "If wider parachutes take longer, the line must go up all the way from left to right: each wider parachute has a longer time. Only Graph A does this. A wider parachute pushes against more air, so the air resistance is bigger and it falls more slowly.",
+      "misconceptions": {
+        "1": "In Graph B the line goes down: the wider the parachute, the SHORTER the time. That is the opposite of Aisha's prediction.",
+        "2": "In Graph C the line is flat: the width makes no difference to the time. Her prediction says the time should go up.",
+        "3": "In Graph D the line goes up at first and then down, so the widest parachutes fall faster. A matching graph goes up all the way."
+      },
+      "skill": "drawing conclusions from results",
+      "source": "original"
+    },
+    {
+      "id": "s07-q053",
+      "subtopicId": "s07-s5",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Mei Lin makes four foil boats of different shapes from the same size of foil. The bar chart shows how many coins each boat held before it sank. Which boat held the most coins?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Coins held before sinking",
+        "categories": [
+          "Boat A",
+          "Boat B",
+          "Boat C",
+          "Boat D"
+        ],
+        "series": [
+          {
+            "name": "Coins",
+            "values": [
+              12,
+              8,
+              18,
+              25
+            ]
+          }
+        ],
+        "yMax": 30,
+        "yStep": 5,
+        "minorStep": 1,
+        "xLabel": "Boat",
+        "yLabel": "Number of coins"
+      },
+      "options": [
+        "Boat A",
+        "Boat B",
+        "Boat C",
+        "Boat D"
+      ],
+      "answer": 3,
+      "solution": "The tallest bar is Boat D, at 25 coins. Its shape pushed aside the most water before sinking, so it had the biggest upthrust to hold up the coins.",
+      "misconceptions": {
+        "0": "Boat A held 12 coins. Look for the tallest bar: Boat D held 25.",
+        "1": "Boat B has the shortest bar (8 coins), so it held the fewest coins, not the most.",
+        "2": "Boat C held 18 coins, which is a lot, but Boat D's bar is taller at 25 coins."
       },
       "skill": "mass and shape affect floating",
       "source": "original"

@@ -173,7 +173,18 @@
       "type": "order",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "You want to get dry salt back from a mixture of sand and salt. Put the steps in order, from first to last.",
+      "prompt": "You want to get dry salt back from a mixture of sand and salt. The diagram shows one of the steps. Put the steps in order, from first to last.",
+      "diagram": {
+        "type": "apparatus",
+        "setup": "filtration",
+        "labels": "names",
+        "parts": [
+          "funnel",
+          "filterPaper",
+          "beaker",
+          "stand"
+        ]
+      },
       "options": [
         "Heat the dish gently, or leave it somewhere warm, until all the water has evaporated",
         "Pour the mixture through filter paper in a funnel, into a beaker",
@@ -228,7 +239,19 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Aisha stirs a spoonful of salt and a spoonful of sand into a beaker of water. Then she pours it through filter paper in a funnel. What happens?",
+      "prompt": "Aisha stirs a spoonful of salt and a spoonful of sand into a beaker of water. Then she pours it through the filtering set-up in the diagram. What happens?",
+      "diagram": {
+        "type": "apparatus",
+        "setup": "filtration",
+        "labels": "names",
+        "parts": [
+          "funnel",
+          "filterPaper",
+          "beaker",
+          "stand"
+        ],
+        "alt": "A filtering set-up: a funnel lined with filter paper, held by a stand over a beaker. Labelled: funnel, filter paper, beaker and stand."
+      },
       "options": [
         "The sand stays on the filter paper, and salty water passes through",
         "The salt and the sand both stay on the filter paper, and pure water passes through",
@@ -411,7 +434,33 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Daniel's results are: water at 20 °C: 120 s. Water at 40 °C: 75 s. Water at 60 °C: 95 s. Water at 80 °C: 30 s. Which result does not fit the pattern (is anomalous)?",
+      "prompt": "Daniel times how long a spoonful of sugar takes to dissolve in water at four temperatures. The bar chart shows his results. Which result does not fit the pattern (is anomalous)?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Time for sugar to dissolve",
+        "categories": [
+          "20 °C",
+          "40 °C",
+          "60 °C",
+          "80 °C"
+        ],
+        "series": [
+          {
+            "name": "Time",
+            "values": [
+              120,
+              75,
+              95,
+              30
+            ]
+          }
+        ],
+        "xLabel": "Temperature of the water",
+        "yLabel": "Time to dissolve (s)",
+        "yMax": 140,
+        "yStep": 20,
+        "minorStep": 5
+      },
       "options": [
         "The 20 °C result",
         "The 40 °C result",
@@ -419,7 +468,7 @@
         "The 80 °C result"
       ],
       "answer": 2,
-      "solution": "The pattern is: the hotter the water, the shorter the time. So the 60 °C time should be between 75 s and 30 s. But it was 95 s, longer than at 40 °C. That result does not fit, so it is anomalous. Daniel should repeat it.",
+      "solution": "The pattern is: the hotter the water, the shorter the bar (the shorter the time). So the 60 °C bar should be between 75 s and 30 s. But it shows 95 s, longer than at 40 °C. That result does not fit, so it is anomalous. Daniel should repeat it.",
       "misconceptions": {
         "0": "120 s is the longest time, but that fits the pattern: the coldest water should take the longest.",
         "1": "75 s fits the pattern: it is shorter than at 20 °C and longer than at 80 °C.",
@@ -851,7 +900,47 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Aisha mixes two liquids in a cup and measures the temperature every 30 seconds. Her table shows: 0 s: 24 °C, 30 s: 27 °C, 60 s: 31 °C, 90 s: 31 °C, 120 s: 30 °C. By how many degrees did the temperature rise from the start to the highest reading? Give your answer in °C.",
+      "prompt": "Aisha mixes two liquids in a cup and measures the temperature every 30 seconds. The line graph shows her results. By how many degrees did the temperature rise from the start to the highest reading? Give your answer in °C.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Temperature of the mixture",
+        "series": [
+          {
+            "name": "Temperature",
+            "points": [
+              [
+                0,
+                24
+              ],
+              [
+                30,
+                27
+              ],
+              [
+                60,
+                31
+              ],
+              [
+                90,
+                31
+              ],
+              [
+                120,
+                30
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 120,
+        "xStep": 30,
+        "yMin": 20,
+        "yMax": 34,
+        "yStep": 2,
+        "minorStep": 1,
+        "xLabel": "Time (s)",
+        "yLabel": "Temperature (°C)"
+      },
       "answer": {
         "value": 7,
         "tolerance": 0,
@@ -861,9 +950,9 @@
           "7 degrees"
         ]
       },
-      "solution": "The starting temperature was 24 °C. The highest reading was 31 °C. Rise = 31 - 24 = 7 °C. A temperature change like this is evidence that a chemical reaction happened.",
+      "solution": "Read the graph. The starting temperature (at 0 s) was 24 °C. The highest point was 31 °C. Rise = 31 - 24 = 7 °C. A temperature change like this is evidence that a chemical reaction happened.",
       "misconceptions": {
-        "common": "Using the last reading (30 °C) instead of the highest (31 °C), which gives 6 °C."
+        "common": "Using the last point (30 °C) instead of the highest (31 °C), which gives 6 °C."
       },
       "skill": "reading results tables",
       "source": "inspired-by: Cambridge Checkpoint style"

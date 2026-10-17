@@ -73,7 +73,11 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "How many edges does a triangular prism have?",
+      "prompt": "Look at the triangular prism in the drawing. How many edges does it have?",
+      "diagram": {
+        "type": "solid",
+        "shape": "triangularPrism"
+      },
       "options": [
         "6",
         "5",
@@ -81,7 +85,7 @@
         "9"
       ],
       "answer": 3,
-      "solution": "Each triangular end has 3 edges: 3 + 3 = 6. Three more edges join the two ends: 6 + 3 = 9 edges.",
+      "solution": "Count the edges in the drawing, including the dashed ones at the back. Each triangular end has 3 edges: 3 + 3 = 6. Three more edges join the two ends: 6 + 3 = 9 edges.",
       "misconceptions": {
         "0": "6 is the number of vertices (corners) of a triangular prism.",
         "1": "5 is the number of faces (2 triangles and 3 rectangles).",
@@ -389,7 +393,11 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A net is made of 1 square and 4 identical triangles, with one triangle attached to each side of the square. What 3D shape does it fold into?",
+      "prompt": "Look at the net in the drawing. What 3D shape does it fold into?",
+      "diagram": {
+        "type": "net",
+        "shape": "squarePyramid"
+      },
       "options": [
         "square-based pyramid",
         "triangular prism",
@@ -397,7 +405,7 @@
         "triangular pyramid"
       ],
       "answer": 0,
-      "solution": "The square is the base. The 4 triangles fold up and meet at a point. That is a square-based pyramid.",
+      "solution": "The net has 1 square and 4 identical triangles, one on each side of the square. The square is the base. The 4 triangles fold up and meet at a point. That is a square-based pyramid.",
       "misconceptions": {
         "1": "A triangular prism's net has 2 triangles and 3 rectangles.",
         "2": "A cube's net has 6 squares and no triangles.",
@@ -434,9 +442,39 @@
       "type": "truefalse",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "True or false: These 6 squares fold up to make a cube: 4 squares in a straight row, with one more square attached to the top edge of the 2nd square in the row, and one more square attached to the bottom edge of the 3rd square in the row.",
+      "prompt": "True or false: The net in the drawing folds up to make a cube.",
+      "diagram": {
+        "type": "net",
+        "shape": "custom",
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
       "answer": true,
-      "solution": "The row of 4 squares wraps round to make 4 sides of the cube (the 1st and 4th squares meet). The square on top of the 2nd square folds over to make the top, and the square under the 3rd square folds to make the bottom. No faces overlap, so it is a cube net. The statement is true.",
+      "solution": "The row of 4 squares wraps round to make 4 sides of the cube (the 1st and 4th squares meet). The square above the row folds over to make the top, and the square below the row folds under to make the bottom. No faces overlap, so it is a cube net. The statement is true.",
       "misconceptions": {
         "common": "Thinking the two extra squares must be attached to the same square of the row. They can be on any squares of the row, as long as one is above the row and one is below it."
       },
@@ -449,9 +487,39 @@
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "True or false: 6 squares arranged in 2 rows of 3 (making a 2 by 3 rectangle) can be folded to make a cube.",
+      "prompt": "True or false: The 6 squares in the drawing can be folded to make a cube.",
+      "diagram": {
+        "type": "net",
+        "shape": "custom",
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      },
       "answer": false,
-      "solution": "No cube net contains a 2 by 2 block of squares, because those 4 squares would all meet at one corner, and only 3 faces of a cube meet at a corner. Try it with paper: two faces overlap and one face is missing. The statement is false.",
+      "solution": "The drawing is a 2 by 3 rectangle, and it contains a 2 by 2 block of squares. No cube net contains a 2 by 2 block, because those 4 squares would all meet at one corner, and only 3 faces of a cube meet at a corner. Try it with paper: two faces overlap and one face is missing. The statement is false.",
       "misconceptions": {
         "common": "Thinking that any 6 squares joined edge to edge will fold into a cube."
       },
@@ -464,19 +532,141 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Which of these arrangements of 6 squares is NOT the net of a cube?",
+      "prompt": "Look at the four arrangements of 6 squares. Which one is NOT the net of a cube?",
+      "optionDiagrams": [
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        },
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ]
+        },
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        }
+      ],
       "options": [
-        "A row of 4 squares, with one square above the 2nd square and one square below the 2nd square (a cross shape)",
-        "A row of 4 squares, with one square above the 1st square and one square below the 4th square",
-        "Two rows of 3 squares, with the bottom row moved 2 squares to the right, so only the 3rd square of the top row touches the 1st square of the bottom row",
-        "A row of 4 squares, with one square above the 1st square of the row and one more square above the 2nd square of the row"
+        "Net A",
+        "Net B",
+        "Net C",
+        "Net D"
       ],
       "answer": 3,
-      "solution": "When a row of 4 squares wraps round, it makes the 4 sides of the cube. The two extra squares must become the top and the bottom, so one must be above the row and one below it. If both are above the row, they both fold onto the top and overlap, leaving the bottom open. So that arrangement is not a cube net.",
+      "solution": "Net D. When its row of 4 squares wraps round, it makes the 4 sides of the cube. The two extra squares must become the top and the bottom, so one must be above the row and one below it. In Net D both extra squares are above the row, so they both fold onto the top and overlap, leaving the bottom open. So Net D is not a cube net.",
       "misconceptions": {
-        "0": "This cross shape is a cube net: the row wraps round and the two extra squares become the top and the bottom.",
-        "1": "This one does fold into a cube: one extra square is above the row and one is below, so they become the top and the bottom.",
-        "2": "This 'staircase' of two rows of 3 does fold into a cube. Try it with paper."
+        "0": "Net A is a cross shape, and it is a cube net: the row wraps round and the two extra squares become the top and the bottom.",
+        "1": "Net B does fold into a cube: one extra square is above the row and one is below, so they become the top and the bottom.",
+        "2": "Net C, the 'staircase' of two rows of 3, does fold into a cube. Try it with paper."
       },
       "skill": "nets of a cube",
       "source": "inspired-by: Cambridge Checkpoint style"
@@ -514,7 +704,11 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "How many rectangles are there in the net of a pentagonal prism?",
+      "prompt": "The drawing shows a pentagonal prism. How many rectangles are there in its net?",
+      "diagram": {
+        "type": "solid",
+        "shape": "pentagonalPrism"
+      },
       "options": [
         "7",
         "5",
@@ -522,7 +716,7 @@
         "10"
       ],
       "answer": 1,
-      "solution": "A pentagonal prism has 2 pentagon ends. Each of the 5 sides of the pentagon has a rectangle joining the two ends. So its net has 5 rectangles (and 2 pentagons).",
+      "solution": "The prism in the drawing has 2 pentagon ends. Each of the 5 sides of the pentagon has a rectangle joining the two ends. So its net has 5 rectangles (and 2 pentagons).",
       "misconceptions": {
         "0": "7 is the total number of faces, including the 2 pentagons. The question asks only for the rectangles.",
         "2": "2 is the number of pentagons (the two ends), not rectangles.",
@@ -537,7 +731,45 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A cube net is made of 4 squares in a row, labelled A, B, C and D from left to right. Square E is attached above square B, and square F is attached below square B. When the net is folded into a cube, which face is opposite face A?",
+      "prompt": "The faces of the cube net in the drawing are labelled A to F. When the net is folded into a cube, which face is opposite face A?",
+      "diagram": {
+        "type": "net",
+        "shape": "custom",
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "faceLabels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
       "options": [
         "B",
         "D",
@@ -545,11 +777,11 @@
         "C"
       ],
       "answer": 3,
-      "solution": "The row A, B, C, D wraps round the cube like a band. Neighbours in the band touch, and D comes round to touch A. So the face opposite A is the one two places along: C. (Also, B is opposite D, and E is opposite F.)",
+      "solution": "In the net, A, B, C and D are in a row. The row wraps round the cube like a band. Neighbours in the band touch, and D comes round to touch A. So the face opposite A is the one two places along: C. (Also, B is opposite D, and E is opposite F.)",
       "misconceptions": {
         "0": "B is right next to A in the net, so they share an edge on the cube too.",
         "1": "D is furthest from A in the net, but when the row wraps round, D folds back to touch A.",
-        "2": "E is attached to B and folds over to become the top, which touches A along an edge."
+        "2": "In the net, E is attached to B. It folds over to become the top, which touches A along an edge."
       },
       "skill": "nets of a cube",
       "source": "inspired-by: Cambridge Checkpoint style"
@@ -623,7 +855,16 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A cube has edges 4 cm long. What is its total surface area? Give your answer in cm².",
+      "prompt": "Look at the cube in the drawing. What is its total surface area? Give your answer in cm².",
+      "diagram": {
+        "type": "cuboid",
+        "l": 4,
+        "w": 4,
+        "h": 4,
+        "labels": {
+          "l": "4 cm"
+        }
+      },
       "answer": {
         "value": 96,
         "tolerance": 0,
@@ -632,7 +873,7 @@
           "96 cm^2"
         ]
       },
-      "solution": "One face: 4 x 4 = 16 cm². A cube has 6 faces: 6 x 16 = 96 cm².",
+      "solution": "Every edge of a cube is the same length: 4 cm. One face: 4 x 4 = 16 cm². A cube has 6 faces: 6 x 16 = 96 cm².",
       "misconceptions": {
         "common": "Working out the volume, 4 x 4 x 4 = 64, instead. Surface area adds the areas of all 6 faces."
       },
@@ -645,7 +886,18 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A cuboid is 5 cm long, 4 cm wide and 2 cm high. What is its total surface area?",
+      "prompt": "The drawing shows a cuboid. What is its total surface area?",
+      "diagram": {
+        "type": "cuboid",
+        "l": 5,
+        "w": 4,
+        "h": 2,
+        "labels": {
+          "l": "5 cm",
+          "w": "4 cm",
+          "h": "2 cm"
+        }
+      },
       "options": [
         "40 cm²",
         "76 cm²",
@@ -653,7 +905,7 @@
         "11 cm²"
       ],
       "answer": 1,
-      "solution": "Faces: top and bottom 5 x 4 = 20 each; front and back 5 x 2 = 10 each; ends 4 x 2 = 8 each. Total = 2 x (20 + 10 + 8) = 2 x 38 = 76 cm².",
+      "solution": "From the drawing, the cuboid is 5 cm long, 4 cm wide and 2 cm high. Top and bottom: 5 x 4 = 20 each; front and back: 5 x 2 = 10 each; ends: 4 x 2 = 8 each. Total = 2 x (20 + 10 + 8) = 2 x 38 = 76 cm².",
       "misconceptions": {
         "0": "5 x 4 x 2 = 40 is the volume (in cm³), not the surface area.",
         "2": "You added each different face once (20 + 10 + 8 = 38). A cuboid has two of each face, so double it.",
@@ -706,7 +958,19 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
-      "prompt": "Siti makes an open box (it has no lid) from card. The box is a cuboid 10 cm long, 6 cm wide and 4 cm high. What area of card does she need, with no overlaps? Give your answer in cm².",
+      "prompt": "Siti makes an open box (it has no lid) from card. The drawing shows the box's measurements. What area of card does she need, with no overlaps? Give your answer in cm².",
+      "diagram": {
+        "type": "cuboid",
+        "l": 10,
+        "w": 6,
+        "h": 4,
+        "labels": {
+          "l": "10 cm",
+          "w": "6 cm",
+          "h": "4 cm"
+        },
+        "caption": "The box has no lid."
+      },
       "answer": {
         "value": 188,
         "tolerance": 0,
@@ -751,7 +1015,18 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
-      "prompt": "Wei Ming paints all the outside faces of a box shaped like a cuboid, 20 cm long, 10 cm wide and 10 cm high. One small tin of paint covers 200 cm². How many tins does he need? Give a whole number.",
+      "prompt": "Wei Ming paints all the outside faces of the box in the drawing. One small tin of paint covers 200 cm². How many tins does he need? Give a whole number.",
+      "diagram": {
+        "type": "cuboid",
+        "l": 20,
+        "w": 10,
+        "h": 10,
+        "labels": {
+          "l": "20 cm",
+          "w": "10 cm",
+          "h": "10 cm"
+        }
+      },
       "answer": {
         "value": 5,
         "tolerance": 0,
@@ -870,7 +1145,14 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A cuboid is built from 1 cm cubes. It is 5 cubes long, 2 cubes wide and 3 cubes high. What is its volume?",
+      "prompt": "The cuboid in the drawing is built from 1 cm cubes. What is its volume?",
+      "diagram": {
+        "type": "cuboid",
+        "l": 5,
+        "w": 2,
+        "h": 3,
+        "unitCubes": true
+      },
       "options": [
         "10 cm³",
         "62 cm³",
@@ -878,7 +1160,7 @@
         "15 cm³"
       ],
       "answer": 2,
-      "solution": "Each layer has 5 x 2 = 10 cubes. There are 3 layers: 10 x 3 = 30 cubes. Each cube is 1 cm³, so the volume is 30 cm³.",
+      "solution": "The drawing shows 5 cubes along the front and 2 cubes going back, so each layer has 5 x 2 = 10 cubes. There are 3 layers: 10 x 3 = 30 cubes. Each cube is 1 cm³, so the volume is 30 cm³.",
       "misconceptions": {
         "0": "You counted only the bottom layer (5 x 2 = 10 cubes). There are 3 layers: 10 x 3 = 30.",
         "1": "62 is the number of square faces showing on the outside (the surface area in cm²), not the number of cubes.",
@@ -893,7 +1175,18 @@
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A cuboid is 6 cm long, 4 cm wide and 2 cm high. What is its volume? Give your answer in cm³.",
+      "prompt": "Look at the cuboid in the drawing. What is its volume? Give your answer in cm³.",
+      "diagram": {
+        "type": "cuboid",
+        "l": 6,
+        "w": 4,
+        "h": 2,
+        "labels": {
+          "l": "6 cm",
+          "w": "4 cm",
+          "h": "2 cm"
+        }
+      },
       "answer": {
         "value": 48,
         "tolerance": 0,
@@ -976,7 +1269,19 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "The inside of a fish tank is a cuboid 50 cm long, 30 cm wide and 40 cm high. What is the capacity of the tank in litres?",
+      "prompt": "The drawing shows the inside measurements of a fish tank. What is the capacity of the tank in litres?",
+      "diagram": {
+        "type": "cuboid",
+        "l": 50,
+        "w": 30,
+        "h": 40,
+        "labels": {
+          "l": "50 cm",
+          "w": "30 cm",
+          "h": "40 cm"
+        },
+        "caption": "Inside measurements"
+      },
       "options": [
         "60 000 L",
         "60 L",
@@ -1142,7 +1447,18 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A cuboid has a volume of 120 cm³. It is 6 cm long and 5 cm wide. How high is it?",
+      "prompt": "The cuboid in the drawing has a volume of 120 cm³. How high is it?",
+      "diagram": {
+        "type": "cuboid",
+        "l": 6,
+        "w": 5,
+        "h": 4,
+        "labels": {
+          "l": "6 cm",
+          "w": "5 cm",
+          "h": "?"
+        }
+      },
       "options": [
         "20 cm",
         "24 cm",
@@ -1150,7 +1466,7 @@
         "109 cm"
       ],
       "answer": 2,
-      "solution": "Volume = length x width x height. 6 x 5 = 30, so 30 x height = 120. Height = 120 ÷ 30 = 4 cm. Check: 6 x 5 x 4 = 120.",
+      "solution": "Volume = length x width x height. From the drawing, 6 x 5 = 30, so 30 x height = 120. Height = 120 ÷ 30 = 4 cm. Check: 6 x 5 x 4 = 120.",
       "misconceptions": {
         "0": "You divided by the length only (120 ÷ 6). Divide by length x width: 120 ÷ 30 = 4.",
         "1": "You divided by the width only (120 ÷ 5). Divide by length x width: 120 ÷ 30 = 4.",
@@ -1181,6 +1497,752 @@
       },
       "skill": "capacity and volume",
       "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m04-q050",
+      "subtopicId": "m04-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the four nets. Which one folds to make a cube?",
+      "optionDiagrams": [
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        },
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ]
+        }
+      ],
+      "options": [
+        "Net A",
+        "Net B",
+        "Net C",
+        "Net D"
+      ],
+      "answer": 1,
+      "solution": "Net B is the only one that works. Its middle row of 3 squares wraps round to make 3 sides. The square above the row folds over to make the top, the square below the row folds under to make the bottom, and the last square folds up to make the fourth side. Net A has a 2 by 2 block of squares, Net C has 5 squares in a row, and Net D has both extra squares above its row of 4, so none of those can make a cube.",
+      "misconceptions": {
+        "0": "Net A has a 2 by 2 block of squares. Those 4 squares would all meet at one corner, but only 3 faces of a cube meet at a corner, so two faces overlap.",
+        "2": "Net C has 5 squares in a row. A cube is only 4 faces round, so the 5th square folds back onto the 1st.",
+        "3": "In Net D both extra squares are above the row of 4. When the row wraps round, they both fold onto the top and overlap, and the bottom is left open."
+      },
+      "skill": "nets of a cube",
+      "source": "original"
+    },
+    {
+      "id": "m04-q051",
+      "subtopicId": "m04-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Daniel draws the four nets shown. Three of them fold to make a cube. Which one does NOT?",
+      "optionDiagrams": [
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ]
+        },
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        },
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "type": "net",
+          "shape": "custom",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        }
+      ],
+      "options": [
+        "Net A",
+        "Net B",
+        "Net C",
+        "Net D"
+      ],
+      "answer": 2,
+      "solution": "Net C. Its row of 4 squares wraps round to make the 4 sides of the cube. Both extra squares are above the row (one at each end), so both fold onto the top: they overlap and the bottom is left open. Net A (two rows of 3, like a staircase), Net B (a staircase of three pairs) and Net D (a row of 4 with one square above one end and one square below the other end) all fold into a cube.",
+      "misconceptions": {
+        "0": "Net A, two rows of 3 joined like a staircase, is one of the 11 cube nets. Try it with paper.",
+        "1": "Net B, a staircase of 2, 2 and 2 squares, does fold into a cube. Each pair folds round onto the next.",
+        "3": "Net D does fold: the row of 4 makes the sides, and one extra square is above the row and one is below it, so they become the top and the bottom."
+      },
+      "skill": "nets of a cube",
+      "source": "original"
+    },
+    {
+      "id": "m04-q052",
+      "subtopicId": "m04-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The net in the drawing is folded to make a cube. Which face is opposite face A?",
+      "diagram": {
+        "type": "net",
+        "shape": "custom",
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "faceLabels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "options": [
+        "E",
+        "D",
+        "F",
+        "B"
+      ],
+      "answer": 0,
+      "solution": "B, C and D are in a row, so they wrap round to make 3 sides. A is above B, so it folds over to make the top. E is below D, so it folds under to make the bottom. The top and the bottom are opposite, so E is opposite A. (F folds up to make the fourth side, opposite C.)",
+      "misconceptions": {
+        "1": "D is far from A in the net, but A becomes the top and D is one of the sides, so they share an edge on the cube.",
+        "2": "F is the furthest square from A in the net, but distance in the net does not decide it. F folds up to make a side, which touches the top face A.",
+        "3": "B is joined to A in the net, so they share an edge on the cube. Faces that touch in the net are never opposite."
+      },
+      "skill": "nets of a cube",
+      "source": "original"
+    },
+    {
+      "id": "m04-q053",
+      "subtopicId": "m04-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Each face of the net in the drawing has a number on it. The net is folded to make a cube. Which number is on the face opposite the 3?",
+      "diagram": {
+        "type": "net",
+        "shape": "custom",
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "faceLabels": [
+          "3",
+          "8",
+          "5",
+          "6",
+          "1",
+          "4"
+        ]
+      },
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": [
+          "six"
+        ]
+      },
+      "solution": "Find the pairs you can be sure of first. 5, 6 and 1 are in a row, so they wrap round to make 3 sides: 5 is opposite 1. 8 is above 5, so it folds over to make the top, and 4 is below 1, so it folds under to make the bottom: 8 is opposite 4. The two numbers left over, 3 and 6, must be opposite each other. So the number opposite the 3 is 6.",
+      "misconceptions": {
+        "common": "Choosing 8 or 5 because they are close to the 3 in the net. Faces joined in the net share an edge on the cube, so they are never opposite. Find the pairs you are sure of first (5 and 1, 8 and 4); the two numbers left over are opposite each other."
+      },
+      "skill": "nets of a cube",
+      "source": "original"
+    },
+    {
+      "id": "m04-q054",
+      "subtopicId": "m04-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "What is the name of the 3D shape in the drawing?",
+      "diagram": {
+        "type": "solid",
+        "shape": "triangularPyramid"
+      },
+      "options": [
+        "triangular prism",
+        "square-based pyramid",
+        "cone",
+        "triangular pyramid"
+      ],
+      "answer": 3,
+      "solution": "The shape has a triangle for its base, and 3 more triangles that meet at a point at the top. All 4 faces are triangles. It is a triangular pyramid (also called a tetrahedron).",
+      "misconceptions": {
+        "0": "A triangular prism has two triangle ends joined by 3 rectangles. This shape has no rectangles: its faces meet at a point.",
+        "1": "A square-based pyramid has a square base. Look at the base of this shape: it has 3 sides, so it is a triangle.",
+        "2": "A cone has a circle for its base and a curved surface. This shape has only flat faces and straight edges."
+      },
+      "skill": "naming 3D shapes",
+      "source": "original"
+    },
+    {
+      "id": "m04-q055",
+      "subtopicId": "m04-s1",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the hexagonal prism in the drawing. How many edges does it have?",
+      "diagram": {
+        "type": "solid",
+        "shape": "hexagonalPrism"
+      },
+      "answer": {
+        "value": 18,
+        "tolerance": 0,
+        "accept": [
+          "18 edges",
+          "eighteen"
+        ]
+      },
+      "solution": "Each hexagon end has 6 edges: 6 + 6 = 12. Six more edges join the two ends, one at each corner: 12 + 6 = 18 edges. Remember to count the dashed edges at the back too.",
+      "misconceptions": {
+        "common": "Counting only the edges drawn as solid lines. The dashed lines are edges at the back of the shape, and they count too. Another slip is 12, which is the number of vertices (corners), not edges."
+      },
+      "skill": "faces, edges and vertices",
+      "source": "original"
+    },
+    {
+      "id": "m04-q056",
+      "subtopicId": "m04-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Look at the square-based pyramid in the drawing. Select ALL the statements that are true.",
+      "diagram": {
+        "type": "solid",
+        "shape": "squarePyramid"
+      },
+      "options": [
+        "It has 5 faces.",
+        "It has 8 edges.",
+        "It has 5 vertices.",
+        "All of its faces are triangles.",
+        "It has 4 vertices."
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "Faces: 1 square base + 4 triangles = 5. Edges: 4 round the base + 4 going up to the point = 8. Vertices: 4 round the base + 1 at the top point = 5. So the first three statements are true.",
+      "misconceptions": {
+        "3": "The base is a square, so not every face is a triangle. There are 4 triangles and 1 square.",
+        "4": "There are 4 corners round the square base, plus 1 more at the top point: 5 vertices.",
+        "common": "Remember to count the dashed lines at the back as edges, and the base as a face."
+      },
+      "skill": "faces, edges and vertices",
+      "source": "original"
+    },
+    {
+      "id": "m04-q057",
+      "subtopicId": "m04-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Find the volume of the cuboid in the drawing. Give your answer in cm³.",
+      "diagram": {
+        "type": "cuboid",
+        "l": 9,
+        "w": 4,
+        "h": 5,
+        "labels": {
+          "l": "9 cm",
+          "w": "4 cm",
+          "h": "5 cm"
+        }
+      },
+      "answer": {
+        "value": 180,
+        "tolerance": 0,
+        "accept": [
+          "180 cm³",
+          "180 cm^3"
+        ]
+      },
+      "solution": "Volume = length x width x height = 9 x 4 x 5. 9 x 4 = 36, and 36 x 5 = 180 cm³.",
+      "misconceptions": {
+        "common": "Adding the three lengths (9 + 4 + 5 = 18) instead of multiplying them, or finding the area of one face (9 x 4 = 36) and stopping there."
+      },
+      "skill": "volume of cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q058",
+      "subtopicId": "m04-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Mei Lin builds the cuboid in the drawing from 1 cm cubes. There are no gaps inside. What is its volume?",
+      "diagram": {
+        "type": "cuboid",
+        "l": 4,
+        "w": 3,
+        "h": 2,
+        "unitCubes": true
+      },
+      "options": [
+        "24 cm³",
+        "12 cm³",
+        "52 cm³",
+        "9 cm³"
+      ],
+      "answer": 0,
+      "solution": "The bottom layer is 4 cubes long and 3 cubes wide: 4 x 3 = 12 cubes. There are 2 layers: 12 x 2 = 24 cubes. Each cube is 1 cm³, so the volume is 24 cm³.",
+      "misconceptions": {
+        "1": "12 is only the bottom layer (4 x 3). There are 2 layers, so 12 x 2 = 24.",
+        "2": "52 is the number of small squares on the outside of the cuboid (its surface area in cm²), not the number of cubes.",
+        "3": "You added 4 + 3 + 2. Volume needs multiplying: 4 x 3 x 2 = 24."
+      },
+      "skill": "volume of cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q059",
+      "subtopicId": "m04-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The drawing shows the net of a cuboid. What is the total surface area of the cuboid? Give your answer in cm².",
+      "diagram": {
+        "type": "net",
+        "shape": "cuboid",
+        "l": 7,
+        "w": 4,
+        "h": 2,
+        "labels": {
+          "l": "7 cm",
+          "w": "4 cm",
+          "h": "2 cm"
+        }
+      },
+      "answer": {
+        "value": 100,
+        "tolerance": 0,
+        "accept": [
+          "100 cm²",
+          "100 cm^2"
+        ]
+      },
+      "solution": "The net has 6 rectangles in 3 matching pairs. 7 x 4 = 28 cm², and there are two: 56 cm². 7 x 2 = 14 cm², and there are two: 28 cm². 4 x 2 = 8 cm², and there are two: 16 cm². Total: 56 + 28 + 16 = 100 cm².",
+      "misconceptions": {
+        "common": "Adding each different rectangle only once (28 + 14 + 8 = 50). The net shows every face, so each rectangle appears twice. Another slip is 56, which is the volume (7 x 4 x 2), not the surface area."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q060",
+      "subtopicId": "m04-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Kumar covers the gift box in the drawing with paper. He covers every face except the bottom. What area of paper does he use, with no overlaps?",
+      "diagram": {
+        "type": "cuboid",
+        "l": 8,
+        "w": 5,
+        "h": 3,
+        "labels": {
+          "l": "8 cm",
+          "w": "5 cm",
+          "h": "3 cm"
+        }
+      },
+      "options": [
+        "158 cm²",
+        "120 cm²",
+        "118 cm²",
+        "79 cm²"
+      ],
+      "answer": 2,
+      "solution": "Top: 8 x 5 = 40 cm². Front and back: 2 x (8 x 3) = 48 cm². Two ends: 2 x (5 x 3) = 30 cm². No bottom. Total: 40 + 48 + 30 = 118 cm².",
+      "misconceptions": {
+        "0": "158 cm² covers all 6 faces. Kumar leaves out the bottom, so take away 8 x 5 = 40: 158 - 40 = 118.",
+        "1": "8 x 5 x 3 = 120 is the volume of the box (in cm³), not an area of paper.",
+        "3": "You added each different face once (40 + 24 + 15 = 79). The box has two of each face, except the bottom, which is left out."
+      },
+      "skill": "surface area of cubes and cuboids",
+      "source": "original"
+    },
+    {
+      "id": "m04-q061",
+      "subtopicId": "m04-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "How much water is in the measuring jug? Give your answer in ml.",
+      "diagram": {
+        "type": "scale",
+        "kind": "jug",
+        "min": 0,
+        "max": 1000,
+        "major": 200,
+        "minor": 50,
+        "unit": "ml",
+        "value": 650,
+        "alt": "A measuring jug marked in ml from 0 to 1000, with a numbered mark every 200 ml and a small mark every 50 ml. It has some water in it."
+      },
+      "answer": {
+        "value": 650,
+        "tolerance": 0,
+        "accept": [
+          "650 ml",
+          "650ml",
+          "0.65 L"
+        ]
+      },
+      "solution": "The numbered marks go up in 200 ml. There are 4 small spaces between 0 and 200, so each small mark is 200 ÷ 4 = 50 ml. The water is 1 small mark above 600: 600 + 50 = 650 ml.",
+      "misconceptions": {
+        "common": "Counting each small mark as 10 ml (giving 610 ml) or as 100 ml (giving 700 ml). Work out what one small mark is worth first: 200 ÷ 4 = 50 ml."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q062",
+      "subtopicId": "m04-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Aisha needs exactly 2 litres of water for a recipe. The measuring jug shows how much water she has. How much more water does she need?",
+      "diagram": {
+        "type": "scale",
+        "kind": "jug",
+        "min": 0,
+        "max": 2000,
+        "major": 500,
+        "minor": 100,
+        "unit": "ml",
+        "value": 1300,
+        "alt": "A measuring jug marked in ml from 0 to 2000, with a numbered mark every 500 ml and a small mark every 100 ml. It has some water in it."
+      },
+      "options": [
+        "1300 ml",
+        "800 ml",
+        "300 ml",
+        "700 ml"
+      ],
+      "answer": 3,
+      "solution": "Each numbered mark is 500 ml more than the one before, and there are 5 small spaces between them, so each small mark is 100 ml. The water is 3 small marks above 1000: 1300 ml. 2 litres = 2000 ml. 2000 - 1300 = 700 ml more.",
+      "misconceptions": {
+        "0": "1300 ml is the water already in the jug. The question asks how much MORE she needs to reach 2000 ml.",
+        "1": "It looks like you read the level as 1200 ml. Each small mark is 100 ml and the water is 3 marks above 1000, so it is 1300 ml: 2000 - 1300 = 700.",
+        "2": "300 ml is how much more than 1 litre is in the jug. She needs 2 litres = 2000 ml, so 2000 - 1300 = 700 ml."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q063",
+      "subtopicId": "m04-s4",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "True or false: The drawing shows the inside measurements of Omar's turtle tank. When it is full, it holds 300 litres of water.",
+      "diagram": {
+        "type": "cuboid",
+        "l": 40,
+        "w": 25,
+        "h": 30,
+        "labels": {
+          "l": "40 cm",
+          "w": "25 cm",
+          "h": "30 cm"
+        },
+        "caption": "Inside measurements"
+      },
+      "answer": false,
+      "solution": "Capacity = 40 x 25 x 30. 40 x 25 = 1000, and 1000 x 30 = 30 000 cm³. 1 litre = 1000 cm³, so 30 000 ÷ 1000 = 30 litres. The tank holds 30 L, not 300 L. The statement is false.",
+      "misconceptions": {
+        "common": "Dividing 30 000 by 100 gives 300. There are 1000 cm³ (1000 ml) in 1 litre, so divide by 1000: 30 litres."
+      },
+      "skill": "capacity and volume",
+      "source": "original"
+    },
+    {
+      "id": "m04-q064",
+      "subtopicId": "m04-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Write the name of the 3D shape in the drawing.",
+      "diagram": {
+        "type": "solid",
+        "shape": "cone"
+      },
+      "answer": {
+        "accept": [
+          "cone",
+          "a cone"
+        ],
+        "keywords": []
+      },
+      "solution": "The shape has a flat circle for its base and one curved surface that rises to a point. It is a cone, like an ice-cream cone or a party hat.",
+      "misconceptions": {
+        "common": "Calling it a pyramid. A pyramid has flat triangle faces and straight edges; a cone has a circle for its base and a curved surface."
+      },
+      "skill": "3D shapes with curved surfaces",
+      "source": "original"
     }
   ]
 }

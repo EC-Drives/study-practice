@@ -44,7 +44,27 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Which quadrant is the point (-3, 5) in? (Quadrants are numbered anticlockwise, starting from the top right: first = top right, second = top left, third = bottom left, fourth = bottom right.)",
+      "prompt": "Point A is plotted on the grid. Which quadrant is point A in? (Quadrants are numbered anticlockwise, starting from the top right: first = top right, second = top left, third = bottom left, fourth = bottom right.)",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          6
+        ],
+        "y": [
+          -6,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              5
+            ],
+            "label": "A"
+          }
+        ]
+      },
       "options": [
         "The first quadrant",
         "The second quadrant",
@@ -52,11 +72,11 @@
         "The fourth quadrant"
       ],
       "answer": 1,
-      "solution": "x = -3 means 3 units LEFT of the origin. y = 5 means 5 units UP. Left and up is the top-left part of the grid, which is the second quadrant. (The quadrants are numbered anticlockwise, starting from the top right.)",
+      "solution": "Point A is to the LEFT of the y-axis (its x-coordinate is -3) and ABOVE the x-axis (its y-coordinate is 5). Left and up is the top-left part of the grid, which is the second quadrant. (The quadrants are numbered anticlockwise, starting from the top right.)",
       "misconceptions": {
-        "0": "The first quadrant is where both coordinates are positive. Here x = -3 is negative, so the point is to the left of the y-axis.",
-        "2": "In the third quadrant both coordinates are negative. Here y = 5 is positive, so the point is above the x-axis, not below it.",
-        "3": "This mixes up x and y. The fourth quadrant has positive x and negative y. Remember: the first number (x) tells you left or right, the second (y) tells you up or down."
+        "0": "The first quadrant is the top right, where both coordinates are positive. Point A is to the left of the y-axis, so its x-coordinate (-3) is negative.",
+        "2": "The third quadrant is the bottom left. Point A is above the x-axis, not below it, so its y-coordinate (5) is positive.",
+        "3": "The fourth quadrant is the bottom right, but point A is on the left and near the top. Count the quadrants anticlockwise from the top right: first, then second (top left), and so on."
       },
       "skill": "identifying quadrants",
       "source": "original"
@@ -67,7 +87,27 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Start at the origin (0, 0). Move 4 units to the right, then 2 units down. What are the coordinates of the point you reach?",
+      "prompt": "Start at the origin O on the grid. Move 4 units to the right, then 2 units down. What are the coordinates of the point you reach?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              0,
+              0
+            ],
+            "label": "O"
+          }
+        ]
+      },
       "options": [
         "(4, -2)",
         "(-2, 4)",
@@ -75,7 +115,7 @@
         "(-4, 2)"
       ],
       "answer": 0,
-      "solution": "Right 4 gives x = 4. Down 2 gives y = -2. Write x first: (4, -2).",
+      "solution": "Count the squares on the grid from O. Right 4 gives x = 4. Down 2 takes you below the x-axis, so y = -2. Write x first: (4, -2).",
       "misconceptions": {
         "1": "The coordinates were written the wrong way round. The x-coordinate (left/right) always comes first, then the y-coordinate (up/down).",
         "2": "Moving DOWN from the origin gives a negative y-coordinate. 2 units down is y = -2, not 2.",
@@ -176,7 +216,28 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Point P is at (-4.5, 3). How many units is P from the y-axis?",
+      "prompt": "Point P (-4.5, 3) is plotted on the grid. How many units is P from the y-axis?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          6
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -4.5,
+              3
+            ],
+            "label": "P"
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x from -6 to 6 and y from -5 to 5. Point P is plotted at (-4.5, 3)."
+      },
       "answer": {
         "value": 4.5,
         "tolerance": 0,
@@ -185,7 +246,7 @@
           "4 1/2"
         ]
       },
-      "solution": "The x-coordinate tells you how far left or right of the y-axis the point is. x = -4.5 means 4.5 units to the left. Distance is always positive, so P is 4.5 units from the y-axis.",
+      "solution": "The y-axis is the up-and-down line through 0. P is at (-4.5, 3). Its x-coordinate, -4.5, tells you it is 4 1/2 squares to the LEFT of the y-axis (count them on the grid). Distance is always positive, so P is 4.5 units from the y-axis.",
       "misconceptions": {
         "common": "Answering 3 by using the y-coordinate. The y-coordinate tells you the distance from the x-axis, not from the y-axis. Another slip is writing -4.5: a distance cannot be negative."
       },
@@ -432,7 +493,63 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Three corners of a rectangle are at (1, 1), (5, 1) and (5, 4). The sides of the rectangle are horizontal and vertical. What are the coordinates of the fourth corner?",
+      "prompt": "Three corners of a rectangle are plotted on the grid. The sides of the rectangle are horizontal and vertical. What are the coordinates of the fourth corner?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          7
+        ],
+        "y": [
+          0,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              1
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              5,
+              1
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              5,
+              4
+            ],
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              1,
+              1
+            ],
+            "to": [
+              5,
+              1
+            ]
+          },
+          {
+            "from": [
+              5,
+              1
+            ],
+            "to": [
+              5,
+              4
+            ]
+          }
+        ]
+      },
       "options": [
         "(1, 4)",
         "(4, 1)",
@@ -440,7 +557,7 @@
         "(1, 5)"
       ],
       "answer": 0,
-      "solution": "The bottom side goes from (1, 1) to (5, 1). The right side goes up to (5, 4), so the top is at y = 4. The missing corner is straight above (1, 1) at the height of the top side: (1, 4).",
+      "solution": "The bottom side goes from (1, 1) to (5, 1). The right side goes up to (5, 4), so the top side is at y = 4. The missing corner is straight above (1, 1) and level with (5, 4): (1, 4).",
       "misconceptions": {
         "1": "The coordinates have been written the wrong way round. The missing corner is above (1, 1), so x stays 1 and y becomes 4.",
         "2": "The rectangle is 4 units wide and 3 units tall, not a square. The fourth corner must line up with (1, 1) vertically and with (5, 4) horizontally.",
@@ -455,7 +572,46 @@
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A line is drawn from (2, 3) to (9, 3). How many units long is the line?",
+      "prompt": "The line drawn on the grid goes from (2, 3) to (9, 3). How many units long is the line?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          11
+        ],
+        "y": [
+          0,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              3
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              9,
+              3
+            ],
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              9,
+              3
+            ]
+          }
+        ]
+      },
       "answer": {
         "value": 7,
         "tolerance": 0,
@@ -463,9 +619,9 @@
           "7 units"
         ]
       },
-      "solution": "Both points have y = 3, so the line is horizontal. Its length is the difference between the x-coordinates: 9 - 2 = 7 units.",
+      "solution": "Both ends have y = 3, so the line is horizontal. Its length is the difference between the x-coordinates: 9 - 2 = 7 units. Check by counting the squares along the line on the grid: 7.",
       "misconceptions": {
-        "common": "Adding the x-coordinates (2 + 9 = 11) instead of finding the difference."
+        "common": "Adding the x-coordinates (2 + 9 = 11) instead of finding the difference, or counting the grid lines (8) instead of the spaces between them."
       },
       "skill": "lengths of horizontal and vertical lines",
       "source": "original"
@@ -514,7 +670,63 @@
       "type": "short",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A square has corners at (0, 0), (3, 0) and (3, 3). What are the coordinates of the fourth corner? Write them like (x, y).",
+      "prompt": "Three corners of a square are plotted on the grid. What are the coordinates of the fourth corner? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -1,
+          5
+        ],
+        "y": [
+          -1,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              0,
+              0
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              3,
+              0
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              3,
+              3
+            ],
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              3,
+              0
+            ]
+          },
+          {
+            "from": [
+              3,
+              0
+            ],
+            "to": [
+              3,
+              3
+            ]
+          }
+        ]
+      },
       "answer": {
         "accept": [
           "(0, 3)",
@@ -526,7 +738,7 @@
         ],
         "keywords": []
       },
-      "solution": "The square has sides of 3 units. From (3, 3) go 3 units left to reach x = 0. The fourth corner is (0, 3).",
+      "solution": "The square has sides of 3 units. From (3, 3) go 3 units left along the top to reach x = 0. The fourth corner is (0, 3), straight above (0, 0).",
       "misconceptions": {
         "common": "Writing (3, 0), which is already a corner, or swapping the numbers. The missing corner is directly above (0, 0)."
       },
@@ -539,7 +751,46 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A line is drawn from (-3, 2) to (5, 2). How many units long is it?",
+      "prompt": "The line drawn on the grid goes from (-3, 2) to (5, 2). How many units long is it?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          7
+        ],
+        "y": [
+          -2,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              2
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              5,
+              2
+            ],
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -3,
+              2
+            ],
+            "to": [
+              5,
+              2
+            ]
+          }
+        ]
+      },
       "answer": {
         "value": 8,
         "tolerance": 0,
@@ -547,7 +798,7 @@
           "8 units"
         ]
       },
-      "solution": "The line is horizontal (both y = 2). From x = -3 to x = 0 is 3 units, and from x = 0 to x = 5 is 5 units. 3 + 5 = 8 units. You can also do 5 - (-3) = 8.",
+      "solution": "Both ends have y = 2, so the line is horizontal. From x = -3 to x = 0 is 3 units, and from x = 0 to x = 5 is 5 units. 3 + 5 = 8 units. You can also count the 8 squares along the line, or work out 5 - (-3) = 8.",
       "misconceptions": {
         "common": "Working out 5 - 3 = 2. When the line crosses the y-axis, add the distance on each side of zero: 3 + 5 = 8."
       },
@@ -560,7 +811,46 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A line is drawn from (1, -4) to (1, 3). How many units long is it?",
+      "prompt": "The line drawn on the grid goes from (1, -4) to (1, 3). How many units long is it?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          5
+        ],
+        "y": [
+          -6,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              -4
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              1,
+              3
+            ],
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              1,
+              -4
+            ],
+            "to": [
+              1,
+              3
+            ]
+          }
+        ]
+      },
       "answer": {
         "value": 7,
         "tolerance": 0,
@@ -568,7 +858,7 @@
           "7 units"
         ]
       },
-      "solution": "The line is vertical (both x = 1). From y = -4 up to y = 0 is 4 units, then from 0 up to 3 is 3 units. 4 + 3 = 7 units.",
+      "solution": "Both ends have x = 1, so the line is vertical. From y = -4 up to y = 0 is 4 units, then from 0 up to 3 is 3 units. 4 + 3 = 7 units. Count the squares along the line to check.",
       "misconceptions": {
         "common": "Working out 4 - 3 = 1. The line crosses the x-axis, so the two parts add: 4 + 3 = 7."
       },
@@ -581,7 +871,46 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "What is the midpoint of the line joining (2, 5) and (8, 5)?",
+      "prompt": "The line drawn on the grid joins (2, 5) and (8, 5). What are the coordinates of its midpoint?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          10
+        ],
+        "y": [
+          0,
+          7
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              5
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              8,
+              5
+            ],
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              2,
+              5
+            ],
+            "to": [
+              8,
+              5
+            ]
+          }
+        ]
+      },
       "options": [
         "(6, 5)",
         "(5, 5)",
@@ -589,7 +918,7 @@
         "(3, 5)"
       ],
       "answer": 1,
-      "solution": "The line is horizontal at y = 5. Halfway between x = 2 and x = 8: (2 + 8) / 2 = 5. So the midpoint is (5, 5).",
+      "solution": "The line is horizontal at y = 5. It is 8 - 2 = 6 units long, so the midpoint is 3 units along from x = 2: 2 + 3 = 5. Or work out (2 + 8) / 2 = 5. So the midpoint is (5, 5).",
       "misconceptions": {
         "0": "6 is the LENGTH of the line (8 - 2). The midpoint is half of that length along from the start: 2 + 3 = 5.",
         "2": "This adds the x-coordinates (2 + 8 = 10) but forgets to halve the total.",
@@ -604,7 +933,66 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "ABCD is a square. A is (-2, 1), B is (2, 1) and C is (2, 5). What are the coordinates of D?",
+      "prompt": "ABCD is a square. Corners A, B and C are plotted on the grid. What are the coordinates of D?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -2,
+          7
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              1
+            ],
+            "label": "A",
+            "showCoords": true
+          },
+          {
+            "at": [
+              2,
+              1
+            ],
+            "label": "B",
+            "showCoords": true
+          },
+          {
+            "at": [
+              2,
+              5
+            ],
+            "label": "C",
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -2,
+              1
+            ],
+            "to": [
+              2,
+              1
+            ]
+          },
+          {
+            "from": [
+              2,
+              1
+            ],
+            "to": [
+              2,
+              5
+            ]
+          }
+        ]
+      },
       "options": [
         "(5, -2)",
         "(-2, -3)",
@@ -612,7 +1000,7 @@
         "(6, 5)"
       ],
       "answer": 2,
-      "solution": "AB goes 4 units right, so each side is 4 units. B to C goes 4 units up. D is 4 units up from A: (-2, 1 + 4) = (-2, 5). Check: D to C is 4 units across. It is a square.",
+      "solution": "AB goes 4 units right, so each side is 4 units. B to C goes 4 units up. D is 4 units up from A: (-2, 1 + 4) = (-2, 5). Check on the grid: D is straight above A and level with C, and D to C is 4 units across.",
       "misconceptions": {
         "0": "The correct numbers but in the wrong order. Write x first: D is at x = -2 (above A) and y = 5 (level with C).",
         "1": "This goes 4 units DOWN from A. But B to C goes up, so the square is above side AB and D must be above A.",
@@ -627,7 +1015,46 @@
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A straight line is drawn through (-1, 4) and (6, 4). It carries on in both directions. Select ALL the points that lie on this line.",
+      "prompt": "The straight line drawn on the grid passes through (-1, 4) and (6, 4). It carries on in both directions. Select ALL the points that lie on this line.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          8
+        ],
+        "y": [
+          -2,
+          7
+        ],
+        "points": [
+          {
+            "at": [
+              -1,
+              4
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              6,
+              4
+            ],
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -6,
+              4
+            ],
+            "to": [
+              8,
+              4
+            ]
+          }
+        ]
+      },
       "options": [
         "(2, 4)",
         "(4, 2)",
@@ -641,7 +1068,7 @@
         2,
         3
       ],
-      "solution": "Both given points have y = 4, so the line is horizontal: every point on it has y = 4, whatever x is. (2, 4), (-5, 4) and (0, 4) all have y = 4. (-5, 4) is still on the line because the line carries on to the left.",
+      "solution": "Both marked points have y = 4, so the line is horizontal: every point on it has y = 4, whatever x is. (2, 4), (-5, 4) and (0, 4) all have y = 4. (-5, 4) is still on the line because the line carries on to the left.",
       "misconceptions": {
         "1": "(4, 2) has the numbers swapped. Every point on this line has y = 4, so it is (4, 4) that is on the line.",
         "4": "(4, 6) is 2 units above the line. Points on the line all have y-coordinate 4.",
@@ -656,7 +1083,66 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "ABCD is a parallelogram with its corners in that order, so AB is parallel to DC and BC is parallel to AD. A is (0, 0), B is (4, 0) and C is (6, 3). What are the coordinates of D?",
+      "prompt": "ABCD is a parallelogram with its corners in that order, so AB is parallel to DC and BC is parallel to AD. Corners A, B and C are plotted on the grid. What are the coordinates of D?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          8
+        ],
+        "y": [
+          -2,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              0,
+              0
+            ],
+            "label": "A",
+            "showCoords": true
+          },
+          {
+            "at": [
+              4,
+              0
+            ],
+            "label": "B",
+            "showCoords": true
+          },
+          {
+            "at": [
+              6,
+              3
+            ],
+            "label": "C",
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              4,
+              0
+            ]
+          },
+          {
+            "from": [
+              4,
+              0
+            ],
+            "to": [
+              6,
+              3
+            ]
+          }
+        ]
+      },
       "options": [
         "(0, 3)",
         "(-2, 3)",
@@ -679,7 +1165,70 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rectangle has corners at (-3, -2), (5, -2), (5, 4) and (-3, 4). Each square on the grid is 1 cm by 1 cm. What is the perimeter of the rectangle in cm?",
+      "prompt": "The rectangle is drawn on a grid of 1 cm squares. What is the perimeter of the rectangle in cm?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          7
+        ],
+        "y": [
+          -4,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              -2
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              5,
+              -2
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              5,
+              4
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              -3,
+              4
+            ],
+            "showCoords": true
+          }
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -3,
+                -2
+              ],
+              [
+                5,
+                -2
+              ],
+              [
+                5,
+                4
+              ],
+              [
+                -3,
+                4
+              ]
+            ]
+          }
+        ]
+      },
       "answer": {
         "value": 28,
         "tolerance": 0,
@@ -687,7 +1236,7 @@
           "28 cm"
         ]
       },
-      "solution": "Width: from x = -3 to x = 5 is 5 - (-3) = 8 cm. Height: from y = -2 to y = 4 is 4 - (-2) = 6 cm. Perimeter = 8 + 6 + 8 + 6 = 28 cm.",
+      "solution": "Width: from x = -3 to x = 5 is 5 - (-3) = 8 cm (count 8 squares along the bottom). Height: from y = -2 to y = 4 is 4 - (-2) = 6 cm (count 6 squares up the side). Perimeter = 8 + 6 + 8 + 6 = 28 cm.",
       "misconceptions": {
         "common": "Working out 5 - 3 = 2 and 4 - 2 = 2 instead of counting across zero, or finding the area (8 x 6 = 48) instead of the perimeter."
       },
@@ -700,7 +1249,46 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Two corners of a square are next to each other at (-1, 2) and (4, 2). Each grid square is 1 cm by 1 cm. What is the area of the square?",
+      "prompt": "Two corners of a square, next to each other, are plotted on the grid and joined. Each grid square is 1 cm by 1 cm. What is the area of the square?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          6
+        ],
+        "y": [
+          -1,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -1,
+              2
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              4,
+              2
+            ],
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -1,
+              2
+            ],
+            "to": [
+              4,
+              2
+            ]
+          }
+        ]
+      },
       "options": [
         "25 cm^2",
         "9 cm^2",
@@ -708,7 +1296,7 @@
         "10 cm^2"
       ],
       "answer": 0,
-      "solution": "The side goes from x = -1 to x = 4, so it is 4 - (-1) = 5 cm long. Area of a square = 5 x 5 = 25 cm^2.",
+      "solution": "The side goes from x = -1 to x = 4, so it is 4 - (-1) = 5 cm long (count 5 squares along it). Area of a square = 5 x 5 = 25 cm^2.",
       "misconceptions": {
         "1": "This uses 4 - 1 = 3 as the side length. From x = -1 to x = 4 you cross zero: 1 + 4 = 5 cm.",
         "2": "This is 4 x 5, which is the perimeter of the square (4 sides of 5 cm), not the area.",
@@ -723,7 +1311,46 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 1,
-      "prompt": "What is the midpoint of the line joining (-3, 1) and (-3, 8)?",
+      "prompt": "The line drawn on the grid joins (-3, 1) and (-3, 8). What are the coordinates of its midpoint?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          3
+        ],
+        "y": [
+          -1,
+          10
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              1
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              -3,
+              8
+            ],
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -3,
+              1
+            ],
+            "to": [
+              -3,
+              8
+            ]
+          }
+        ]
+      },
       "options": [
         "(-3, 3.5)",
         "(-3, 4.5)",
@@ -731,7 +1358,7 @@
         "(-3, 9)"
       ],
       "answer": 1,
-      "solution": "The line is vertical (both x = -3), so the midpoint has x = -3. Halfway between y = 1 and y = 8: (1 + 8) / 2 = 9 / 2 = 4.5. Midpoint = (-3, 4.5).",
+      "solution": "The line is vertical (both ends have x = -3), so the midpoint has x = -3. Halfway between y = 1 and y = 8: (1 + 8) / 2 = 9 / 2 = 4.5. Midpoint = (-3, 4.5).",
       "misconceptions": {
         "0": "3.5 is half the LENGTH of the line (7 / 2). You must count 3.5 up from the start, y = 1, giving 4.5.",
         "2": "The line is vertical, so every point on it has x = -3. Do not halve the x-coordinate.",
@@ -746,7 +1373,70 @@
       "type": "short",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rectangle has corners at (-4, -1), (2, -1), (2, 3) and (-4, 3). What are the coordinates of the centre of the rectangle? Write them like (x, y).",
+      "prompt": "The rectangle is drawn on the grid. What are the coordinates of the centre of the rectangle? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          4
+        ],
+        "y": [
+          -3,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -4,
+              -1
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              2,
+              -1
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              2,
+              3
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              -4,
+              3
+            ],
+            "showCoords": true
+          }
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -4,
+                -1
+              ],
+              [
+                2,
+                -1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                -4,
+                3
+              ]
+            ]
+          }
+        ]
+      },
       "answer": {
         "accept": [
           "(-1, 1)",
@@ -758,7 +1448,7 @@
         ],
         "keywords": []
       },
-      "solution": "The centre is halfway across and halfway up. Halfway between x = -4 and x = 2: (-4 + 2) / 2 = -1. Halfway between y = -1 and y = 3: (-1 + 3) / 2 = 1. Centre = (-1, 1).",
+      "solution": "The centre is halfway across and halfway up. Halfway between x = -4 and x = 2: (-4 + 2) / 2 = -1. Halfway between y = -1 and y = 3: (-1 + 3) / 2 = 1. Centre = (-1, 1). On the grid: the rectangle is 6 squares wide, so go 3 squares right from x = -4; it is 4 squares tall, so go 2 squares up from y = -1.",
       "misconceptions": {
         "common": "Halving the width (6 / 2 = 3) and using 3 as the x-coordinate. You must count 3 on from x = -4, which gives -1."
       },
@@ -771,7 +1461,70 @@
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "True or false: The points (2, 1), (5, 1), (5, 5) and (2, 5) are the corners of a square.",
+      "prompt": "True or false: The shape drawn on the grid is a square.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          7
+        ],
+        "y": [
+          0,
+          7
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              1
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              5,
+              1
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              5,
+              5
+            ],
+            "showCoords": true
+          },
+          {
+            "at": [
+              2,
+              5
+            ],
+            "showCoords": true
+          }
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                2,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                5
+              ],
+              [
+                2,
+                5
+              ]
+            ]
+          }
+        ]
+      },
       "answer": false,
       "solution": "Bottom side: from x = 2 to x = 5 is 3 units. Right side: from y = 1 to y = 5 is 4 units. The sides are not all the same length, so the shape is a rectangle but NOT a square. False.",
       "misconceptions": {
@@ -786,7 +1539,28 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "The point (2, 3) is translated 4 units to the right. What are the coordinates of its image?",
+      "prompt": "Point A is plotted on the grid. It is translated 4 units to the right. What are the coordinates of its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          8
+        ],
+        "y": [
+          -1,
+          8
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              3
+            ],
+            "label": "A",
+            "showCoords": true
+          }
+        ]
+      },
       "options": [
         "(2, 7)",
         "(-2, 3)",
@@ -794,7 +1568,7 @@
         "(6, 7)"
       ],
       "answer": 2,
-      "solution": "Moving right adds to the x-coordinate: 2 + 4 = 6. The y-coordinate does not change. Image = (6, 3).",
+      "solution": "A is (2, 3). Moving right adds to the x-coordinate: 2 + 4 = 6. The y-coordinate does not change. Image = (6, 3).",
       "misconceptions": {
         "0": "This moves the point 4 units UP. Moving right changes the x-coordinate, not the y-coordinate.",
         "1": "This moves the point 4 units to the LEFT (2 - 4 = -2). Right means add to x.",
@@ -809,7 +1583,28 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "The point (5, 1) is translated 3 units down. What are the coordinates of its image?",
+      "prompt": "Point B is plotted on the grid. It is translated 3 units down. What are the coordinates of its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -1,
+          8
+        ],
+        "y": [
+          -4,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              5,
+              1
+            ],
+            "label": "B",
+            "showCoords": true
+          }
+        ]
+      },
       "options": [
         "(5, 4)",
         "(2, 1)",
@@ -817,7 +1612,7 @@
         "(5, -2)"
       ],
       "answer": 3,
-      "solution": "Down changes y. 1 - 3 = -2. x stays at 5. Image = (5, -2).",
+      "solution": "B is (5, 1). Down changes y: 1 - 3 = -2 (count 3 squares down on the grid, past the x-axis). x stays at 5. Image = (5, -2).",
       "misconceptions": {
         "0": "This moves the point UP (1 + 3 = 4). Moving down subtracts from y: 1 - 3 = -2.",
         "1": "This moves the point 3 units left. Down changes the y-coordinate, not the x-coordinate.",
@@ -832,7 +1627,28 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "The point (-1, 4) is translated 2 units left and 3 units down. Where is its image?",
+      "prompt": "Point C is plotted on the grid. It is translated 2 units left and 3 units down. Where is its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          3
+        ],
+        "y": [
+          -1,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              -1,
+              4
+            ],
+            "label": "C",
+            "showCoords": true
+          }
+        ]
+      },
       "options": [
         "(-3, 1)",
         "(1, 1)",
@@ -840,7 +1656,7 @@
         "(-4, 2)"
       ],
       "answer": 0,
-      "solution": "Left 2: x = -1 - 2 = -3. Down 3: y = 4 - 3 = 1. Image = (-3, 1).",
+      "solution": "C is (-1, 4). Left 2: x = -1 - 2 = -3. Down 3: y = 4 - 3 = 1. Image = (-3, 1).",
       "misconceptions": {
         "1": "This moves 2 units RIGHT (-1 + 2 = 1). Left means subtract from x: -1 - 2 = -3.",
         "2": "This moves 3 units UP. Down means subtract from y: 4 - 3 = 1.",
@@ -870,7 +1686,49 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A point moves from (1, -2) to (6, 1) by a translation. Describe the translation.",
+      "prompt": "Point P moves to P' by a translation, as shown by the arrow on the grid. Describe the translation.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -1,
+          8
+        ],
+        "y": [
+          -4,
+          3
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              -2
+            ],
+            "label": "P",
+            "showCoords": true
+          },
+          {
+            "at": [
+              6,
+              1
+            ],
+            "label": "P'",
+            "showCoords": true
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              1,
+              -2
+            ],
+            "to": [
+              6,
+              1
+            ],
+            "arrow": true
+          }
+        ]
+      },
       "options": [
         "5 units left and 3 units down",
         "5 units right and 3 units up",
@@ -878,7 +1736,7 @@
         "5 units right and 1 unit up"
       ],
       "answer": 1,
-      "solution": "Change in x: 6 - 1 = 5, so 5 units right. Change in y: 1 - (-2) = 3, so 3 units up.",
+      "solution": "P is (1, -2) and P' is (6, 1). Change in x: 6 - 1 = 5, so 5 units right. Change in y: from -2 up to 1 is 3 units (2 up to 0, then 1 more), so 3 units up. Count the squares on the grid to check.",
       "misconceptions": {
         "0": "This is the move from the IMAGE back to the original. Going from (1, -2) to (6, 1), x gets bigger (right) and y gets bigger (up).",
         "2": "The two amounts are swapped. The change in x (1 to 6) is 5, and the change in y (-2 to 1) is 3.",
@@ -893,7 +1751,28 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A point is translated 4 units right and 2 units up. Its image is at (0, -3). Where was the point before the translation?",
+      "prompt": "Point Q is translated 4 units right and 2 units up. Its image Q' is plotted on the grid. Where was Q before the translation?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          4
+        ],
+        "y": [
+          -7,
+          3
+        ],
+        "points": [
+          {
+            "at": [
+              0,
+              -3
+            ],
+            "label": "Q'",
+            "showCoords": true
+          }
+        ]
+      },
       "options": [
         "(4, -1)",
         "(-4, -1)",
@@ -901,7 +1780,7 @@
         "(-4, -5)"
       ],
       "answer": 3,
-      "solution": "Work backwards: undo 4 right by going 4 left, and undo 2 up by going 2 down. x = 0 - 4 = -4, y = -3 - 2 = -5. The original point was (-4, -5). Check: (-4, -5) moved 4 right and 2 up is (0, -3).",
+      "solution": "Work backwards from Q'(0, -3): undo 4 right by going 4 left, and undo 2 up by going 2 down. x = 0 - 4 = -4, y = -3 - 2 = -5. Q was at (-4, -5). Check: (-4, -5) moved 4 right and 2 up is (0, -3).",
       "misconceptions": {
         "0": "This applies the translation to the image again. To go backwards, undo it: move 4 LEFT and 2 DOWN.",
         "1": "The x part has been undone correctly, but the y part has not. Undo 2 up by going 2 down: -3 - 2 = -5.",
@@ -916,7 +1795,62 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Triangle ABC has corners A(1, 1), B(4, 1) and C(1, 5). It is translated 3 units left and 2 units up. What are the coordinates of the image of C?",
+      "prompt": "Triangle ABC is drawn on the grid. It is translated 3 units left and 2 units up. What are the coordinates of the image of C?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          6
+        ],
+        "y": [
+          -1,
+          8
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "A",
+            "showCoords": true
+          },
+          {
+            "at": [
+              4,
+              1
+            ],
+            "label": "B",
+            "showCoords": true
+          },
+          {
+            "at": [
+              1,
+              5
+            ],
+            "label": "C",
+            "showCoords": true
+          }
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                1,
+                5
+              ]
+            ]
+          }
+        ]
+      },
       "options": [
         "(-2, 7)",
         "(4, 7)",
@@ -966,13 +1900,56 @@
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A square has corners (2, 2), (5, 2), (5, 5) and (2, 5). It is translated 6 units to the left. What is the x-coordinate of the image of the corner (5, 5)?",
+      "prompt": "The square is drawn on the grid. It is translated 6 units to the left. What is the x-coordinate of the image of corner P?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          7
+        ],
+        "y": [
+          -1,
+          7
+        ],
+        "points": [
+          {
+            "at": [
+              5,
+              5
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                2,
+                2
+              ],
+              [
+                5,
+                2
+              ],
+              [
+                5,
+                5
+              ],
+              [
+                2,
+                5
+              ]
+            ]
+          }
+        ]
+      },
       "answer": {
         "value": -1,
         "tolerance": 0,
         "accept": []
       },
-      "solution": "Left 6 means subtract 6 from x: 5 - 6 = -1. The y-coordinate stays 5, so the image of (5, 5) is (-1, 5) and its x-coordinate is -1.",
+      "solution": "P is (5, 5). Left 6 means subtract 6 from x: 5 - 6 = -1. The y-coordinate stays 5, so the image of P is (-1, 5) and its x-coordinate is -1.",
       "misconceptions": {
         "common": "Answering 1 instead of -1. 5 - 6 goes one step past zero, into the negative numbers."
       },
@@ -985,7 +1962,60 @@
       "type": "match",
       "difficulty": 3,
       "marks": 3,
-      "prompt": "Triangle ABC has corners A(-3, 4), B(0, 2) and C(1.5, 6). It is translated 2 units right and 5 units down. Match each corner to its image.",
+      "prompt": "Triangle ABC is drawn on the grid. It is translated 2 units right and 5 units down. Match each corner to its image.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -4,
+          7
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              4
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              0,
+              2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              1.5,
+              6
+            ],
+            "label": "C"
+          }
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -3,
+                4
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1.5,
+                6
+              ]
+            ]
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x from -5 to 5 and y from -4 to 7. Triangle ABC is drawn with corners A(-3, 4), B(0, 2) and C(1.5, 6)."
+      },
       "options": {
         "left": [
           "A(-3, 4)",
@@ -993,25 +2023,25 @@
           "C(1.5, 6)"
         ],
         "right": [
-          "(-1, -1)",
-          "(2, -3)",
           "(3.5, 1)",
+          "(5, 0)",
+          "(-1, -1)",
           "(-5, 9)",
-          "(5, 0)"
+          "(2, -3)"
         ]
       },
       "answer": [
         [
           0,
-          0
+          2
         ],
         [
           1,
-          1
+          4
         ],
         [
           2,
-          2
+          0
         ]
       ],
       "solution": "Add 2 to every x-coordinate and subtract 5 from every y-coordinate. A: (-3 + 2, 4 - 5) = (-1, -1). B: (0 + 2, 2 - 5) = (2, -3). C: (1.5 + 2, 6 - 5) = (3.5, 1).",
@@ -1050,7 +2080,93 @@
       "type": "short",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rectangle has corners (-2, 1), (3, 1), (3, 4) and (-2, 4). It is translated so that the corner (-2, 1) moves to (1, -3). What are the coordinates of the image of the corner (3, 4)? Write them like (x, y).",
+      "prompt": "Rectangle ABCD is drawn on the grid. It is translated so that corner A moves to A', as shown by the arrow. What are the coordinates of the image of corner C? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          8
+        ],
+        "y": [
+          -5,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              1
+            ],
+            "label": "A",
+            "showCoords": true
+          },
+          {
+            "at": [
+              3,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              3,
+              4
+            ],
+            "label": "C",
+            "showCoords": true
+          },
+          {
+            "at": [
+              -2,
+              4
+            ],
+            "label": "D"
+          },
+          {
+            "at": [
+              1,
+              -3
+            ],
+            "label": "A'",
+            "showCoords": true
+          }
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -2,
+                1
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                -2,
+                4
+              ]
+            ]
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -2,
+              1
+            ],
+            "to": [
+              1,
+              -3
+            ],
+            "arrow": true
+          }
+        ]
+      },
       "answer": {
         "accept": [
           "(6, 0)",
@@ -1062,9 +2178,9 @@
         ],
         "keywords": []
       },
-      "solution": "First find the translation: (-2, 1) to (1, -3) is 3 units right (1 - (-2) = 3) and 4 units down (-3 - 1 = -4). Every corner moves the same way. (3, 4) moves to (3 + 3, 4 - 4) = (6, 0).",
+      "solution": "First find the translation from the arrow: A(-2, 1) to A'(1, -3) is 3 units right (1 - (-2) = 3) and 4 units down (-3 - 1 = -4). Every corner moves the same way. C(3, 4) moves to (3 + 3, 4 - 4) = (6, 0).",
       "misconceptions": {
-        "common": "Moving (3, 4) straight to (1, -3), or using the wrong direction for the translation. Find the movement first, then apply it to the other corner."
+        "common": "Moving C straight to A'(1, -3), or using the wrong direction for the translation. Find the movement from A to A' first (3 right, 4 down), then apply it to C."
       },
       "skill": "translating points and shapes",
       "source": "inspired-by: Singapore P6"
@@ -1090,7 +2206,48 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A point moves from (2.5, -1) to (-1, 1.5) by a translation. How many units to the LEFT did it move?",
+      "prompt": "Point P (2.5, -1) moves to P' (-1, 1.5) by a translation, as shown by the arrow on the grid. How many units to the LEFT did it move?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          5
+        ],
+        "y": [
+          -3,
+          3
+        ],
+        "points": [
+          {
+            "at": [
+              2.5,
+              -1
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              -1,
+              1.5
+            ],
+            "label": "P'"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              2.5,
+              -1
+            ],
+            "to": [
+              -1,
+              1.5
+            ],
+            "arrow": true
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x from -3 to 5 and y from -3 to 3. Point P is plotted at (2.5, -1) and point P' at (-1, 1.5). An arrow goes from P to P'."
+      },
       "answer": {
         "value": 3.5,
         "tolerance": 0,
@@ -1104,6 +2261,1394 @@
         "common": "Working out 2.5 - 1 = 1.5. Because the point crosses the y-axis, you must add the distances on each side of zero: 2.5 + 1 = 3.5."
       },
       "skill": "describing a translation",
+      "source": "original"
+    },
+    {
+      "id": "m13-q047",
+      "subtopicId": "m13-s1",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Points A, B, C and D are plotted on the grid, one in each quadrant. Match each point to its coordinates.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              2
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              -4,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              -2,
+              -3
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              1,
+              -4
+            ],
+            "label": "D"
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x from -5 to 5 and y from -5 to 5. Points A, B, C and D are plotted, one in each quadrant."
+      },
+      "options": {
+        "left": [
+          "Point A",
+          "Point B",
+          "Point C",
+          "Point D"
+        ],
+        "right": [
+          "(3, 2)",
+          "(2, 3)",
+          "(-4, 1)",
+          "(-2, -3)",
+          "(1, -4)",
+          "(-3, -2)"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "solution": "Read across first (x), then up or down (y). A: 3 right, 2 up = (3, 2). B: 4 left, 1 up = (-4, 1). C: 2 left, 3 down = (-2, -3). D: 1 right, 4 down = (1, -4).",
+      "misconceptions": {
+        "common": "(2, 3) and (-3, -2) have the numbers the wrong way round. Always go along the x-axis first (left or right), then up or down. Left of the y-axis or below the x-axis gives a negative number."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original"
+    },
+    {
+      "id": "m13-q048",
+      "subtopicId": "m13-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Point K is plotted on the grid. What are the coordinates of K? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              4
+            ],
+            "label": "K"
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x from -5 to 5 and y from -5 to 5, with point K plotted in the top-left quadrant."
+      },
+      "answer": {
+        "accept": [
+          "(-3, 4)",
+          "(-3,4)",
+          "-3, 4",
+          "-3,4"
+        ],
+        "keywords": []
+      },
+      "solution": "Start at the origin. K is 3 squares to the LEFT, so x = -3. It is 4 squares UP, so y = 4. Write x first: (-3, 4).",
+      "misconceptions": {
+        "common": "Writing (4, -3) or (3, 4). Go across first, then up. Left of the y-axis means the x-coordinate is negative."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original"
+    },
+    {
+      "id": "m13-q049",
+      "subtopicId": "m13-s1",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Point M is plotted on the grid. What are the coordinates of M? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -2.5,
+              -3
+            ],
+            "label": "M"
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x from -5 to 5 and y from -5 to 5, with point M plotted in the bottom-left quadrant, halfway between two vertical grid lines."
+      },
+      "answer": {
+        "accept": [
+          "(-2.5, -3)",
+          "(-2.5,-3)",
+          "-2.5, -3",
+          "-2.5,-3",
+          "(-2 1/2, -3)",
+          "(-2 1/2,-3)",
+          "-2 1/2, -3",
+          "-2 1/2,-3",
+          "(-5/2, -3)"
+        ],
+        "keywords": []
+      },
+      "solution": "M is to the left of the y-axis, exactly halfway between x = -2 and x = -3, so x = -2.5 (or -2 1/2). M is 3 squares below the x-axis, so y = -3. M is (-2.5, -3).",
+      "misconceptions": {
+        "common": "Rounding to the nearest grid line and writing -2 or -3 for x. M sits halfway between -2 and -3, which is -2.5. Also check both signs: M is to the left and below, so both numbers are negative."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original"
+    },
+    {
+      "id": "m13-q050",
+      "subtopicId": "m13-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Four points are plotted on the grid. Which point is at (-2, 3)?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              -2
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              -2,
+              3
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              2,
+              3
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              -3,
+              2
+            ],
+            "label": "D"
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x from -5 to 5 and y from -5 to 5, with points A, B, C and D plotted."
+      },
+      "options": [
+        "Point A",
+        "Point B",
+        "Point C",
+        "Point D"
+      ],
+      "answer": 1,
+      "solution": "(-2, 3) means start at the origin, go 2 units LEFT (x = -2), then 3 units UP (y = 3). Point B is there.",
+      "misconceptions": {
+        "0": "Point A is at (3, -2). That uses the numbers the wrong way round. For (-2, 3), go across first: 2 to the LEFT, then 3 UP.",
+        "2": "Point C is at (2, 3), to the right of the y-axis. The minus sign in -2 means go LEFT, not right.",
+        "3": "Point D is at (-3, 2): 3 left and 2 up. For (-2, 3) you go 2 left and 3 up. The first number is always the move across."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original"
+    },
+    {
+      "id": "m13-q051",
+      "subtopicId": "m13-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Four points are plotted on the axes of the grid. Which point is at (0, -3)?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              0
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              0,
+              3
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              0,
+              -3
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              3,
+              0
+            ],
+            "label": "D"
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x from -5 to 5 and y from -5 to 5, with points A, B, C and D plotted on the axes."
+      },
+      "options": [
+        "Point A",
+        "Point B",
+        "Point C",
+        "Point D"
+      ],
+      "answer": 2,
+      "solution": "In (0, -3), x = 0 means no move left or right, so the point is on the y-axis. y = -3 means 3 units DOWN from the origin. Point C is there.",
+      "misconceptions": {
+        "0": "Point A is at (-3, 0), on the x-axis. In (0, -3) the x-coordinate is 0, so the point has not moved left or right: it is on the y-axis.",
+        "1": "Point B is at (0, 3), above the origin. -3 is negative, so the point is 3 units DOWN.",
+        "3": "Point D is at (3, 0), on the x-axis. x = 0 means the point is on the y-axis, and y = -3 means 3 units below the origin."
+      },
+      "skill": "points on the axes",
+      "source": "original"
+    },
+    {
+      "id": "m13-q052",
+      "subtopicId": "m13-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "ABCD is a rectangle. Corners A, B and C are plotted on the grid and joined. What are the coordinates of D?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          6
+        ],
+        "y": [
+          -4,
+          3
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              -2
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              4,
+              -2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              4,
+              1
+            ],
+            "label": "C"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -3,
+              -2
+            ],
+            "to": [
+              4,
+              -2
+            ]
+          },
+          {
+            "from": [
+              4,
+              -2
+            ],
+            "to": [
+              4,
+              1
+            ]
+          }
+        ]
+      },
+      "options": [
+        "(1, -3)",
+        "(-3, -1)",
+        "(3, 1)",
+        "(-3, 1)"
+      ],
+      "answer": 3,
+      "solution": "Read the corners: A(-3, -2), B(4, -2), C(4, 1). D must be straight above A (same x as A, so x = -3) and level with C (same y as C, so y = 1). D is (-3, 1).",
+      "misconceptions": {
+        "0": "(1, -3) has the numbers the wrong way round. D is above A, so x = -3, and level with C, so y = 1. Write x first: (-3, 1).",
+        "1": "D is level with C, which is ABOVE the x-axis at y = 1. So the y-coordinate of D is 1, not -1.",
+        "2": "D is straight above A, which is to the LEFT of the y-axis at x = -3. So the x-coordinate of D is -3, not 3."
+      },
+      "skill": "finding a missing vertex",
+      "source": "original"
+    },
+    {
+      "id": "m13-q053",
+      "subtopicId": "m13-s2",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "ABCD is a square standing on one corner. Corners A, B and C are plotted on the grid and joined. What are the coordinates of D? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          7
+        ],
+        "y": [
+          -4,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              -1,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              2,
+              -2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              5,
+              1
+            ],
+            "label": "C"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -1,
+              1
+            ],
+            "to": [
+              2,
+              -2
+            ]
+          },
+          {
+            "from": [
+              2,
+              -2
+            ],
+            "to": [
+              5,
+              1
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(2, 4)",
+          "(2,4)",
+          "2, 4",
+          "2,4"
+        ],
+        "keywords": []
+      },
+      "solution": "Read the corners: A(-1, 1), B(2, -2), C(5, 1). From B to C you go 3 right and 3 up. In a square, opposite sides are equal and parallel, so from A to D is the same move: 3 right and 3 up. D = (-1 + 3, 1 + 3) = (2, 4). Check: D to C is 3 right and 3 down, the same as A to B.",
+      "misconceptions": {
+        "common": "Putting D level with A or C as if the sides were flat, which gives (-1, 4) or (5, 4). This square is tilted, so copy the move from B to C (3 right, 3 up), starting at A."
+      },
+      "skill": "finding a missing vertex",
+      "source": "original"
+    },
+    {
+      "id": "m13-q054",
+      "subtopicId": "m13-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "ABCD is a parallelogram with its corners in that order. Corners A, B and C are plotted on the grid and joined. What are the coordinates of D?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -7,
+          5
+        ],
+        "y": [
+          -4,
+          4
+        ],
+        "points": [
+          {
+            "at": [
+              -4,
+              -2
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              1,
+              -2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              3,
+              2
+            ],
+            "label": "C"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -4,
+              -2
+            ],
+            "to": [
+              1,
+              -2
+            ]
+          },
+          {
+            "from": [
+              1,
+              -2
+            ],
+            "to": [
+              3,
+              2
+            ]
+          }
+        ]
+      },
+      "options": [
+        "(-4, 2)",
+        "(-6, 2)",
+        "(-2, 2)",
+        "(2, -2)"
+      ],
+      "answer": 2,
+      "solution": "Read the corners: A(-4, -2), B(1, -2), C(3, 2). From B to C you go 2 right and 4 up. AD is parallel to BC and the same length, so from A make the same move: D = (-4 + 2, -2 + 4) = (-2, 2). Check: D to C is 5 units right, the same as A to B.",
+      "misconceptions": {
+        "0": "(-4, 2) puts D straight above A, which would make a rectangle. In this parallelogram BC slopes 2 right and 4 up, so AD must slope the same way.",
+        "1": "This moves 2 LEFT from A. B to C goes 2 RIGHT and 4 up, so from A you must also go 2 right and 4 up.",
+        "3": "The signs are the wrong way round. D is to the left of the y-axis (x = -2) and above the x-axis (y = 2)."
+      },
+      "skill": "finding a missing vertex",
+      "source": "original"
+    },
+    {
+      "id": "m13-q055",
+      "subtopicId": "m13-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Line EF is drawn on the grid. How many units long is EF?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -2,
+          6
+        ],
+        "y": [
+          -6,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              -5
+            ],
+            "label": "E"
+          },
+          {
+            "at": [
+              3,
+              4
+            ],
+            "label": "F"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              3,
+              -5
+            ],
+            "to": [
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "value": 9,
+        "tolerance": 0,
+        "accept": [
+          "9 units"
+        ]
+      },
+      "solution": "EF is a vertical line, so count the squares from E up to F. From E (y = -5) up to the x-axis is 5 units, and from the x-axis up to F (y = 4) is 4 units. 5 + 4 = 9 units.",
+      "misconceptions": {
+        "common": "Working out 5 - 4 = 1, or counting the grid lines (10) instead of the spaces between them. When a line crosses an axis, add the parts on each side: 5 + 4 = 9."
+      },
+      "skill": "lengths of horizontal and vertical lines",
+      "source": "original"
+    },
+    {
+      "id": "m13-q056",
+      "subtopicId": "m13-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Shape T is translated to the dashed shape T' on the grid. Describe the translation.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          5
+        ],
+        "y": [
+          -4,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -4,
+                1
+              ],
+              [
+                -2,
+                1
+              ],
+              [
+                -4,
+                4
+              ]
+            ],
+            "label": "T"
+          },
+          {
+            "points": [
+              [
+                1,
+                -2
+              ],
+              [
+                3,
+                -2
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "T'",
+            "style": "dashed"
+          }
+        ]
+      },
+      "options": [
+        "3 units right and 5 units down",
+        "5 units right and 3 units down",
+        "5 units left and 3 units up",
+        "5 units right and 3 units up"
+      ],
+      "answer": 1,
+      "solution": "Pick one corner and follow it. The right-angle corner of T at (-4, 1) moves to (1, -2) on T'. Change in x: -4 to 1 is 5 units right. Change in y: 1 to -2 is 3 units down. So the translation is 5 units right and 3 units down.",
+      "misconceptions": {
+        "0": "The two amounts are swapped. Follow one corner: it moves 5 squares to the right, then 3 squares down.",
+        "2": "This is the move from T' back to T. The question asks how T moves to T', so go from the solid shape to the dashed shape.",
+        "3": "T' is lower on the grid than T, so the shape moved DOWN, not up."
+      },
+      "skill": "describing a translation",
+      "source": "original"
+    },
+    {
+      "id": "m13-q057",
+      "subtopicId": "m13-s3",
+      "type": "short",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle PQR is drawn on the grid. It is translated by the move shown by the arrow. What are the coordinates of the image of Q? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          6
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -5,
+              0
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              -2,
+              0
+            ],
+            "label": "Q"
+          },
+          {
+            "at": [
+              -5,
+              3
+            ],
+            "label": "R"
+          }
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -5,
+                0
+              ],
+              [
+                -2,
+                0
+              ],
+              [
+                -5,
+                3
+              ]
+            ]
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              1,
+              -4
+            ],
+            "to": [
+              5,
+              -2
+            ],
+            "arrow": true
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(2, 2)",
+          "(2,2)",
+          "2, 2",
+          "2,2"
+        ],
+        "keywords": []
+      },
+      "solution": "First read the arrow: it starts at (1, -4) and ends at (5, -2), so the move is 4 units right and 2 units up. Q is at (-2, 0). Move it the same way: (-2 + 4, 0 + 2) = (2, 2).",
+      "misconceptions": {
+        "common": "Giving the end of the arrow, (5, -2), as the answer. The arrow only shows the size and direction of the move (4 right, 2 up). Apply that move to Q."
+      },
+      "skill": "translating points and shapes",
+      "source": "original"
+    },
+    {
+      "id": "m13-q058",
+      "subtopicId": "m13-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The rectangle is drawn on a grid of 1 cm squares. What is the area of the rectangle in cm^2?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          4
+        ],
+        "y": [
+          -5,
+          4
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -4,
+                -3
+              ],
+              [
+                2,
+                -3
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                -4,
+                2
+              ]
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "value": 30,
+        "tolerance": 0,
+        "accept": [
+          "30 cm^2",
+          "30 cm2"
+        ]
+      },
+      "solution": "Count the squares along the bottom: from x = -4 to x = 2 is 6 cm. Count up the side: from y = -3 to y = 2 is 5 cm. Area = 6 x 5 = 30 cm^2. (You can also count the squares inside: 5 rows of 6.)",
+      "misconceptions": {
+        "common": "Finding the perimeter (6 + 5 + 6 + 5 = 22 cm) instead of the area, or working out 4 - 2 = 2 for the width. The width crosses the y-axis: 4 squares on the left and 2 on the right make 6."
+      },
+      "skill": "perimeter and area from coordinates",
+      "source": "original"
+    },
+    {
+      "id": "m13-q059",
+      "subtopicId": "m13-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which grid shows the point P at (-3, 2)?",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "points": [
+            {
+              "at": [
+                2,
+                -3
+              ],
+              "label": "P"
+            }
+          ],
+          "size": "small",
+          "alt": "Grid A: a coordinate grid with one point plotted."
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                2
+              ],
+              "label": "P"
+            }
+          ],
+          "size": "small",
+          "alt": "Grid B: a coordinate grid with one point plotted."
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "points": [
+            {
+              "at": [
+                -3,
+                2
+              ],
+              "label": "P"
+            }
+          ],
+          "size": "small",
+          "alt": "Grid C: a coordinate grid with one point plotted."
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "points": [
+            {
+              "at": [
+                -3,
+                -2
+              ],
+              "label": "P"
+            }
+          ],
+          "size": "small",
+          "alt": "Grid D: a coordinate grid with one point plotted."
+        }
+      ],
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "answer": 2,
+      "solution": "(-3, 2): start at the origin, go 3 units LEFT (x = -3), then 2 units UP (y = 2). That is in the top-left part of the grid. Only Grid C has P there.",
+      "misconceptions": {
+        "0": "Grid A shows (2, -3): the numbers are the wrong way round. Go across first: 3 to the LEFT, then 2 UP.",
+        "1": "Grid B shows (3, 2), to the right of the y-axis. The minus sign in -3 means go LEFT.",
+        "3": "Grid D shows (-3, -2), below the x-axis. The 2 in (-3, 2) is positive, so the point is 2 units UP."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original"
+    },
+    {
+      "id": "m13-q060",
+      "subtopicId": "m13-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle T is translated 3 units right and 2 units down. Which diagram shows T and its image (dashed) correctly?",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -7,
+            4
+          ],
+          "y": [
+            -4,
+            7
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  -3,
+                  1
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  -3,
+                  4
+                ]
+              ],
+              "label": "T"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  0,
+                  6
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "size": "small"
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -7,
+            4
+          ],
+          "y": [
+            -4,
+            7
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  -3,
+                  1
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  -3,
+                  4
+                ]
+              ],
+              "label": "T"
+            },
+            {
+              "points": [
+                [
+                  -1,
+                  -2
+                ],
+                [
+                  1,
+                  -2
+                ],
+                [
+                  -1,
+                  1
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "size": "small"
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -7,
+            4
+          ],
+          "y": [
+            -4,
+            7
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  -3,
+                  1
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  -3,
+                  4
+                ]
+              ],
+              "label": "T"
+            },
+            {
+              "points": [
+                [
+                  -6,
+                  -1
+                ],
+                [
+                  -4,
+                  -1
+                ],
+                [
+                  -6,
+                  2
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "size": "small"
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -7,
+            4
+          ],
+          "y": [
+            -4,
+            7
+          ],
+          "polygons": [
+            {
+              "points": [
+                [
+                  -3,
+                  1
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  -3,
+                  4
+                ]
+              ],
+              "label": "T"
+            },
+            {
+              "points": [
+                [
+                  0,
+                  -1
+                ],
+                [
+                  2,
+                  -1
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "size": "small"
+        }
+      ],
+      "options": [
+        "Diagram A",
+        "Diagram B",
+        "Diagram C",
+        "Diagram D"
+      ],
+      "answer": 3,
+      "solution": "Follow one corner. The right-angle corner of T at (-3, 1) moves 3 right to x = 0 and 2 down to y = -1, so it goes to (0, -1). Only Diagram D has the dashed triangle's right-angle corner at (0, -1), with the same shape facing the same way.",
+      "misconceptions": {
+        "0": "In Diagram A the image has moved 2 units UP. Moving down makes the y-coordinates smaller, so the image should be lower than T.",
+        "1": "In Diagram B the amounts are swapped: the image moved 2 right and 3 down. Check one corner: it must move 3 squares across and 2 squares down.",
+        "2": "In Diagram C the image has moved 3 units LEFT. Moving right makes the x-coordinates bigger, so the image should be to the right of T."
+      },
+      "skill": "translating points and shapes",
+      "source": "original"
+    },
+    {
+      "id": "m13-q061",
+      "subtopicId": "m13-s1",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Which grid shows the point Q at (0, -2.5)?",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "points": [
+            {
+              "at": [
+                -2.5,
+                0
+              ],
+              "label": "Q"
+            }
+          ],
+          "size": "small",
+          "alt": "Grid A: a coordinate grid with one point plotted."
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                2.5
+              ],
+              "label": "Q"
+            }
+          ],
+          "size": "small",
+          "alt": "Grid B: a coordinate grid with one point plotted."
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                -2
+              ],
+              "label": "Q"
+            }
+          ],
+          "size": "small",
+          "alt": "Grid C: a coordinate grid with one point plotted."
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "points": [
+            {
+              "at": [
+                0,
+                -2.5
+              ],
+              "label": "Q"
+            }
+          ],
+          "size": "small",
+          "alt": "Grid D: a coordinate grid with one point plotted."
+        }
+      ],
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "answer": 3,
+      "solution": "x = 0 means the point is on the y-axis. y = -2.5 means 2 1/2 units DOWN from the origin, halfway between -2 and -3. Only Grid D shows this.",
+      "misconceptions": {
+        "0": "Grid A shows (-2.5, 0), on the x-axis. In (0, -2.5) the x-coordinate is 0, so the point is on the y-axis.",
+        "1": "Grid B shows (0, 2.5), above the origin. -2.5 is negative, so the point is 2.5 units BELOW the origin.",
+        "2": "Grid C shows (0, -2), exactly on a grid line. -2.5 is halfway between -2 and -3, so the point sits between two grid lines."
+      },
+      "skill": "points on the axes",
+      "source": "original"
+    },
+    {
+      "id": "m13-q062",
+      "subtopicId": "m13-s1",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: Point B on the grid is at (4, -2).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              4
+            ],
+            "label": "B"
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants, x from -5 to 5 and y from -5 to 5, with point B plotted in the top-left quadrant."
+      },
+      "answer": false,
+      "solution": "Read across first: B is 2 units to the LEFT of the origin, so x = -2. Then up: B is 4 units UP, so y = 4. B is at (-2, 4), not (4, -2). False.",
+      "misconceptions": {
+        "common": "(4, -2) uses the numbers the wrong way round. Always read across (x) first, then up or down (y)."
+      },
+      "skill": "reading and plotting coordinates",
+      "source": "original"
+    },
+    {
+      "id": "m13-q063",
+      "subtopicId": "m13-s1",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Six points are plotted on the grid. Select ALL the points that are exactly 3 units from the y-axis.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              -3,
+              -2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              1,
+              3
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              3,
+              -4
+            ],
+            "label": "D"
+          },
+          {
+            "at": [
+              -1,
+              -3
+            ],
+            "label": "E"
+          },
+          {
+            "at": [
+              0,
+              3
+            ],
+            "label": "F"
+          }
+        ]
+      },
+      "options": [
+        "Point A",
+        "Point B",
+        "Point C",
+        "Point D",
+        "Point E",
+        "Point F"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "The y-axis is the up-and-down line through 0. Count how many squares across each point is from it: A 3, B 3 (to the left), C 1, D 3, E 1, F 0. So A, B and D.",
+      "misconceptions": {
+        "2": "C is at (1, 3). It is 3 units from the x-axis (3 up), but only 1 unit from the y-axis.",
+        "4": "E is at (-1, -3). It is 3 units below the x-axis, but only 1 unit from the y-axis.",
+        "5": "F is at (0, 3), ON the y-axis, so it is 0 units from it. Its 3 is the distance from the x-axis.",
+        "common": "Distance from the y-axis is how far left or right the point is: the x-coordinate without its sign. B at x = -3 counts too: it is 3 units to the left."
+      },
+      "skill": "distance from an axis",
       "source": "original"
     }
   ]

@@ -53,7 +53,25 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "In a circuit diagram, which component is shown by a circle with a cross (X) inside?",
+      "prompt": "Look at the circuit diagram. What is the component labelled X?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "switch",
+            "closed": true
+          },
+          {
+            "kind": "bulb",
+            "label": "X"
+          }
+        ],
+        "alt": "A circuit diagram with three components joined in one loop. One of them is labelled X."
+      },
       "options": [
         "A cell",
         "A buzzer",
@@ -61,11 +79,11 @@
         "A switch"
       ],
       "answer": 2,
-      "solution": "The lamp symbol is a circle with a cross inside. You can remember it because the cross looks a little like the glowing wire inside a bulb. Well done if you knew it!",
+      "solution": "Component X is drawn as a circle with a cross inside. That is the symbol for a lamp. You can remember it because the cross looks a little like the glowing wire inside a bulb. The other two symbols in the loop are a cell and a closed switch.",
       "misconceptions": {
-        "0": "A cell is drawn as a long thin line next to a short thick line, not as a circle.",
-        "1": "A buzzer is drawn as a half-circle (dome) shape with two wires coming out of its flat side. The circle with a cross is the lamp.",
-        "3": "A switch is drawn as a line with a gap and a short line that can lift up or lie flat. It has no circle."
+        "0": "The cell is a different symbol in this circuit: a long thin line next to a short thick line. X is a circle with a cross, which is a lamp.",
+        "1": "A buzzer has its own symbol, and there is no buzzer in this circuit. The circle with a cross is the lamp.",
+        "3": "The switch in this circuit is the short line lying flat across a gap. It has no circle. X is a circle with a cross, so it is a lamp."
       },
       "skill": "circuit symbols",
       "source": "original"
@@ -76,19 +94,43 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Which description matches the circuit symbol for a cell?",
+      "prompt": "Look at the circuit diagram. Which component is the cell?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell",
+            "label": "A"
+          },
+          {
+            "kind": "bulb",
+            "label": "B"
+          },
+          {
+            "kind": "switch",
+            "label": "C",
+            "closed": false
+          },
+          {
+            "kind": "buzzer",
+            "label": "D"
+          }
+        ],
+        "alt": "A circuit diagram with four components joined in one loop, labelled A, B, C and D."
+      },
       "options": [
-        "A long thin line next to a short thick line",
-        "A circle with a cross (X) inside",
-        "A line with a gap, where a short line is lifted up at an angle like an open gate",
-        "A large dot where wires meet"
+        "Component A",
+        "Component B",
+        "Component C",
+        "Component D"
       ],
       "answer": 0,
-      "solution": "A cell is drawn as two lines side by side: a long thin line and a short thick line. The long line is the positive (+) side.",
+      "solution": "A cell is drawn as two lines side by side: a long thin line and a short thick line. That is component A. The long line is the positive (+) side. B is a lamp, C is an open switch and D is a buzzer.",
       "misconceptions": {
-        "1": "That is the lamp symbol.",
-        "2": "That is an open switch. The gap means electricity cannot flow.",
-        "3": "A dot is a junction, a place where wires join. It is not a component that pushes electricity."
+        "1": "B is a circle with a cross inside. That is the lamp symbol.",
+        "2": "C is a line with a gap, where a short line is lifted up. That is an open switch, which makes a gap so electricity cannot flow.",
+        "3": "D is the buzzer symbol. A buzzer makes a sound; it does not push electricity. A cell is drawn as a long thin line next to a short thick line."
       },
       "skill": "circuit symbols",
       "source": "original"
@@ -99,14 +141,42 @@
       "type": "match",
       "difficulty": 1,
       "marks": 2,
-      "prompt": "Match each circuit symbol (described in words) to the component it shows.",
+      "prompt": "Look at the circuit diagram. Match each labelled symbol to the component it shows.",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "bulb",
+            "label": "A"
+          },
+          {
+            "kind": "cell",
+            "label": "B"
+          },
+          {
+            "kind": "switch",
+            "label": "C",
+            "closed": false
+          },
+          {
+            "kind": "motor",
+            "label": "D"
+          },
+          {
+            "kind": "buzzer",
+            "label": "E"
+          }
+        ],
+        "alt": "A circuit diagram with five symbols joined in one loop, labelled A, B, C, D and E."
+      },
       "options": {
         "left": [
-          "A circle with a cross (X) inside",
-          "A long thin line next to a short thick line",
-          "A line with a gap, where a short line is lifted up at an angle like an open gate",
-          "A large dot where wires meet",
-          "A half-circle (dome) shape with two wires coming out of its flat side"
+          "Symbol A",
+          "Symbol B",
+          "Symbol C",
+          "Symbol D",
+          "Symbol E"
         ],
         "right": [
           "closed switch",
@@ -133,16 +203,16 @@
         ],
         [
           3,
-          1
+          6
         ],
         [
           4,
           3
         ]
       ],
-      "solution": "Circle with a cross = lamp. Long thin line and short thick line = cell. Gap with a lifted line = open switch. Big dot = junction (wires joined). Dome shape = buzzer. A motor would be a circle with the letter M inside, and a closed switch would have its line lying flat across the gap.",
+      "solution": "A is a circle with a cross: a lamp. B is a long thin line next to a short thick line: a cell. C has a gap with a lifted line: an open switch. D is a circle with the letter M inside: a motor. E is the buzzer symbol. A closed switch would have its line lying flat across the gap, and a junction is a large dot where wires join; neither of these is in this circuit.",
       "misconceptions": {
-        "common": "Mixing up the open and closed switch. If the line is lifted, there is a gap, so the switch is OPEN and the circuit is broken."
+        "common": "Mixing up the open and the closed switch. If the line is lifted, there is a gap, so the switch is OPEN. Also look carefully at the circles: a cross inside means a lamp, and the letter M inside means a motor."
       },
       "skill": "circuit symbols",
       "source": "original"
@@ -168,7 +238,30 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "How is the symbol for a CLOSED switch different from the symbol for an OPEN switch?",
+      "prompt": "Look at the circuit diagram. Switch P is open and switch Q is closed. How is the symbol for the CLOSED switch different from the symbol for the OPEN switch?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "switch",
+            "label": "P",
+            "closed": false
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "switch",
+            "label": "Q",
+            "closed": true
+          }
+        ],
+        "alt": "A circuit diagram: a cell, a lamp and two switches, P and Q, joined in one loop. Switch P is open and switch Q is closed."
+      },
       "options": [
         "In a closed switch a cross is drawn over the switch to show it is off",
         "In a closed switch the gap is drawn wider so that no electricity can pass",
@@ -176,7 +269,7 @@
         "In a closed switch the short line lies flat across the gap, joining both sides"
       ],
       "answer": 3,
-      "solution": "When a switch is closed, the moving part lies flat and touches both sides, so the circuit becomes a complete loop. When it is open, the moving part is lifted and there is a gap.",
+      "solution": "Look at switch Q, the closed switch: its short line lies flat and touches both sides, so the gap is joined. In switch P, the open switch, the short line is lifted and there is a gap. (In this circuit the lamp is off, because switch P is open.)",
       "misconceptions": {
         "0": "A cross inside a circle is the lamp symbol. Switches never have a cross.",
         "1": "This mixes up the words. 'Closed' means the gap is closed (joined), so electricity CAN pass. Think of a drawbridge: when it comes down flat, the gap is closed and you can cross.",
@@ -215,25 +308,115 @@
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Select ALL the circuits in which the lamp will light. Every part works properly.",
+      "prompt": "Look at circuits A to F. Every part works properly. In circuit E, a plastic ruler is clipped across the gap. Select ALL the circuits in which the lamp will light.",
+      "optionDiagrams": [
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "gap"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "switch",
+              "closed": true
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "switch",
+              "closed": false
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "gap",
+              "label": "plastic ruler"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "battery",
+              "cells": 2
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        }
+      ],
       "options": [
-        "A cell, a lamp and wires joined in a complete loop",
-        "A cell and a lamp with only one wire, going from one end of the cell to the lamp",
-        "A cell, a closed switch and a lamp joined in a complete loop",
-        "A cell, an open switch and a lamp joined in a loop",
-        "A cell, a lamp and a plastic ruler joining two of the wires in the loop",
-        "Two cells joined positive end to negative end, a lamp and wires in a complete loop"
+        "Circuit A",
+        "Circuit B",
+        "Circuit C",
+        "Circuit D",
+        "Circuit E",
+        "Circuit F"
       ],
       "answer": [
         0,
         2,
         5
       ],
-      "solution": "A lamp lights only when there is a complete loop of conductors from the cell, through the lamp and back. The first, third and last circuits are complete. The one-wire circuit has a break, the open switch makes a gap, and the plastic ruler does not conduct.",
+      "solution": "A lamp lights only when there is a complete loop of conductors from the cell, through the lamp and back. Circuits A, C (closed switch) and F (two cells joined as a battery) are complete loops, so their lamps light. Circuit B has a gap, circuit D has an open switch, and in circuit E the plastic ruler does not conduct.",
       "misconceptions": {
-        "1": "With one wire there is no complete loop. Electricity needs a path out of the cell, through the lamp and back again.",
-        "3": "An open switch makes a gap, so the loop is not complete.",
-        "4": "Plastic is an electrical insulator, so it acts like a gap in the circuit."
+        "1": "Circuit B has a gap in the wire, so there is no complete loop. Electricity needs a path out of the cell, through the lamp and back again.",
+        "3": "In circuit D the switch is open. An open switch makes a gap, so the loop is not complete.",
+        "4": "In circuit E the gap is bridged only by a plastic ruler. Plastic is an electrical insulator, so it acts like a gap."
       },
       "skill": "complete circuits",
       "source": "original"
@@ -244,7 +427,26 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A circuit diagram is described by going round the loop: a long thin line next to a short thick line; then a wire to a circle with a cross (X) inside; then a wire to a half-circle (dome) shape with two wires coming out of its flat side; then a wire to a line with a gap, where a short line is lifted up at an angle like an open gate; then a wire back to the start. What happens in this circuit?",
+      "prompt": "Look at the circuit diagram. What happens when the circuit is set up as shown?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "buzzer"
+          },
+          {
+            "kind": "switch",
+            "closed": false
+          }
+        ]
+      },
       "options": [
         "The lamp lights but the buzzer is silent, because the lamp uses up the electricity first",
         "The lamp is off and the buzzer is silent, because the switch is open",
@@ -252,10 +454,10 @@
         "Only the buzzer sounds, because it is the component nearest to the switch"
       ],
       "answer": 1,
-      "solution": "First name each symbol: cell, lamp, buzzer, open switch. They are all in one loop (a series circuit). The switch is open, so there is a gap and no electricity can flow. Nothing works until the switch is closed, and then both the lamp and the buzzer work.",
+      "solution": "First name each symbol in the diagram: a cell, a lamp, a buzzer and an open switch. They are all in one loop (a series circuit). The switch is open, so there is a gap and no electricity can flow. Nothing works until the switch is closed, and then both the lamp and the buzzer work.",
       "misconceptions": {
         "0": "Electricity is not used up by the first component. In any case, the switch is open, so nothing works at all.",
-        "2": "Look again at the last symbol. The lifted line means the switch is open, so the loop is broken.",
+        "2": "Look again at the switch symbol. The lifted line means the switch is open, so the loop is broken.",
         "3": "Being near the switch does not matter. In a single loop, an open switch stops the electricity everywhere."
       },
       "skill": "reading circuit diagrams",
@@ -267,7 +469,19 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A series circuit has one cell and one lamp. You add a second, identical lamp in series. What happens?",
+      "prompt": "The circuit diagram shows a series circuit with one cell and one lamp. You add a second, identical lamp in series. What happens?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "bulb"
+          }
+        ]
+      },
       "options": [
         "Both lamps are dimmer than the single lamp was",
         "Both lamps are brighter than the single lamp was",
@@ -275,7 +489,7 @@
         "Nothing changes; both lamps are as bright as the single lamp was"
       ],
       "answer": 0,
-      "solution": "In a series circuit everything is in one loop. Adding another lamp makes it harder for electricity to flow, so both lamps glow more dimly, and they are equally bright.",
+      "solution": "In a series circuit everything is in one loop. With a second lamp in the loop, the push from the one cell is shared by two lamps, so both lamps glow more dimly than the single lamp did, and they are equally bright.",
       "misconceptions": {
         "1": "More lamps do not mean more light from each lamp. The two lamps share the push from one cell, so each is dimmer.",
         "2": "Electricity is not used up by the first lamp. In a series circuit the lamps are the same brightness.",
@@ -290,9 +504,30 @@
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "True or false: In a series circuit with three lamps, if one lamp breaks, the other two lamps go out as well.",
+      "prompt": "Look at the series circuit with three lamps, A, B and C. True or false: If lamp B breaks, lamps A and C go out as well.",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "bulb",
+            "label": "A"
+          },
+          {
+            "kind": "bulb",
+            "label": "B"
+          },
+          {
+            "kind": "bulb",
+            "label": "C"
+          }
+        ]
+      },
       "answer": true,
-      "solution": "True. In a series circuit there is only one path. A broken lamp makes a gap in that path, so the electricity stops everywhere and all the lamps go out.",
+      "solution": "True. The diagram shows one single loop, so there is only one path. A broken lamp B makes a gap in that path, so the electricity stops everywhere and lamps A and C go out too.",
       "misconceptions": {
         "common": "Thinking the other lamps keep working. That happens in a parallel circuit, where each lamp has its own path."
       },
@@ -305,7 +540,22 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A series circuit has one cell and two lamps. You add a second cell, facing the same way as the first. What happens to the lamps?",
+      "prompt": "Look at the series circuit: one cell and two lamps. You add a second cell, facing the same way as the first. What happens to the lamps?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "bulb"
+          }
+        ]
+      },
       "options": [
         "Both lamps become dimmer, because there are more components in the circuit",
         "Only the lamp next to the new cell becomes brighter",
@@ -354,7 +604,30 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A series circuit has two cells, a closed switch and three lamps. All three lamps are lit. One lamp is unscrewed and taken out. How many lamps are still lit? Give a whole number.",
+      "prompt": "Look at the circuit diagram. All three lamps are lit. One lamp is unscrewed and taken out. How many lamps are still lit? Give a whole number.",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "battery",
+            "cells": 2
+          },
+          {
+            "kind": "switch",
+            "closed": true
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "bulb"
+          }
+        ]
+      },
       "answer": {
         "value": 0,
         "tolerance": 0,
@@ -433,19 +706,81 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "All cells and lamps are identical and all circuits are series circuits. Which circuit has lamps that glow with the SAME brightness as a circuit with 1 cell and 1 lamp?",
+      "prompt": "All cells and lamps are identical. Look at the series circuits A to D. Which circuit has lamps that glow with the SAME brightness as a circuit with 1 cell and 1 lamp?",
+      "optionDiagrams": [
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "battery",
+              "cells": 2
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "battery",
+              "cells": 2
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "battery",
+              "cells": 3
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        }
+      ],
       "options": [
-        "1 cell and 2 lamps",
-        "2 cells and 2 lamps",
-        "2 cells and 1 lamp",
-        "3 cells and 2 lamps"
+        "Circuit A",
+        "Circuit B",
+        "Circuit C",
+        "Circuit D"
       ],
       "answer": 1,
-      "solution": "With 1 cell and 1 lamp, each lamp gets the push of one cell. With 2 cells and 2 lamps, the push of two cells is shared by two lamps, so each lamp again gets the push of one cell. The brightness is the same.",
+      "solution": "Count the cells and the lamps in each circuit. With 1 cell and 1 lamp, each lamp gets the push of one cell. Circuit B has 2 cells and 2 lamps: the push of two cells is shared by two lamps, so each lamp again gets the push of one cell. The brightness is the same.",
       "misconceptions": {
-        "0": "Here the two lamps share the push from only one cell, so each lamp is dimmer.",
-        "2": "Two cells push one lamp, so it is brighter than 1 cell with 1 lamp.",
-        "3": "Three cells shared by two lamps gives each lamp more push than one cell, so they are brighter."
+        "0": "Circuit A has two lamps sharing the push from only one cell, so each lamp is dimmer.",
+        "2": "Circuit C has two cells pushing one lamp, so its lamp is brighter than 1 cell with 1 lamp.",
+        "3": "Circuit D has three cells shared by two lamps. That gives each lamp more push than one cell, so they are brighter."
       },
       "skill": "brightness of lamps in series",
       "source": "inspired-by: Cambridge Checkpoint style"
@@ -540,7 +875,28 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A cell is connected to two identical lamps in parallel. Compared with ONE of these lamps connected on its own to the same cell, how bright is each lamp?",
+      "prompt": "The circuit diagram shows a cell with two identical lamps in parallel. Compared with ONE of these lamps connected on its own to the same cell, how bright is each lamp?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "parallel",
+        "main": [
+          {
+            "kind": "cell"
+          }
+        ],
+        "branches": [
+          [
+            {
+              "kind": "bulb"
+            }
+          ],
+          [
+            {
+              "kind": "bulb"
+            }
+          ]
+        ]
+      },
       "options": [
         "About half as bright",
         "About twice as bright",
@@ -586,7 +942,36 @@
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Select ALL the true statements. A cell lights three identical lamps, P, Q and R. Each lamp is on its own parallel branch. Lamp Q breaks.",
+      "prompt": "Select ALL the true statements. Look at the circuit diagram: the identical lamps P, Q and R are each on their own parallel branch. Lamp Q breaks.",
+      "diagram": {
+        "type": "circuit",
+        "layout": "parallel",
+        "main": [
+          {
+            "kind": "cell"
+          }
+        ],
+        "branches": [
+          [
+            {
+              "kind": "bulb",
+              "label": "P"
+            }
+          ],
+          [
+            {
+              "kind": "bulb",
+              "label": "Q"
+            }
+          ],
+          [
+            {
+              "kind": "bulb",
+              "label": "R"
+            }
+          ]
+        ]
+      },
       "options": [
         "Lamp P stays lit",
         "Lamp R stays lit",
@@ -599,7 +984,7 @@
         1,
         4
       ],
-      "solution": "Q's branch now has a gap, so Q is off. P and R are on separate branches that are still complete loops with the cell, so they stay lit and about as bright as before.",
+      "solution": "Q's branch now has a gap, so Q is off. In the diagram, P and R are on separate branches that are still complete loops with the cell, so they stay lit and about as bright as before.",
       "misconceptions": {
         "2": "That would happen in series. Here P and R are on their own branches, which are still complete.",
         "3": "P and R still get the full push from the cell on their own branches, so they stay about as bright as before."
@@ -613,19 +998,56 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Circuit A: one cell with two lamps in series. Circuit B: one cell with two lamps in parallel. All the cells and lamps are identical. Which statement is correct?",
-      "options": [
-        "The lamps in circuit B are brighter than the lamps in circuit A",
-        "The lamps in circuit A are brighter than the lamps in circuit B",
-        "All four lamps are equally bright, because both circuits have one cell and two lamps",
-        "Only one lamp in circuit B lights, because the electricity can take only one branch"
+      "prompt": "Look at circuits A and B. Each has one cell and two lamps, and all the cells and lamps are identical. In which circuit are the lamps brighter?",
+      "optionDiagrams": [
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "parallel",
+          "main": [
+            {
+              "kind": "cell"
+            }
+          ],
+          "branches": [
+            [
+              {
+                "kind": "bulb"
+              }
+            ],
+            [
+              {
+                "kind": "bulb"
+              }
+            ]
+          ]
+        },
+        null
       ],
-      "answer": 0,
-      "solution": "In circuit A (series) the two lamps share one path and one cell, so each is dim. In circuit B (parallel) each lamp has its own branch and the full push of the cell, so each is as bright as a single lamp. So B's lamps are brighter.",
+      "options": [
+        "Circuit A",
+        "Circuit B",
+        "All four lamps are equally bright"
+      ],
+      "answer": 1,
+      "solution": "Circuit A is a series circuit: the two lamps share one path and one cell, so each is dim. Circuit B is a parallel circuit: each lamp has its own branch and gets the full push of the cell, so each is as bright as a single lamp. So the lamps in circuit B are brighter. (Both lamps in B light, because electricity flows through every complete branch at the same time.)",
       "misconceptions": {
-        "1": "This is the wrong way round. In series (A) the two lamps share the push of the cell, so they are dimmer.",
-        "2": "Having the same parts is not enough. The way they are joined changes the brightness.",
-        "3": "Electricity flows through every complete branch at the same time, so both lamps in B light."
+        "0": "This is the wrong way round. In series (circuit A) the two lamps share the push of the cell, so they are dimmer.",
+        "2": "Having the same parts is not enough. The way they are joined changes the brightness: lamps in parallel are brighter than lamps in series."
       },
       "skill": "comparing series and parallel circuits",
       "source": "inspired-by: Cambridge Checkpoint style"
@@ -636,7 +1058,32 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A cell is connected to two parallel branches. Branch 1 has a lamp and a switch. Branch 2 has a buzzer only. Both work while the switch is closed. Now the switch is opened. What happens?",
+      "prompt": "Look at the circuit diagram. The lamp and the buzzer both worked while the switch was closed. The switch has now been opened, as shown. What happens?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "parallel",
+        "main": [
+          {
+            "kind": "cell"
+          }
+        ],
+        "branches": [
+          [
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "switch",
+              "closed": false
+            }
+          ],
+          [
+            {
+              "kind": "buzzer"
+            }
+          ]
+        ]
+      },
       "options": [
         "The lamp and the buzzer both stop",
         "The lamp stays on and the buzzer stops",
@@ -644,7 +1091,7 @@
         "Nothing changes, because switches do not work in parallel circuits"
       ],
       "answer": 2,
-      "solution": "Opening the switch makes a gap in branch 1 only, so the lamp goes off. Branch 2 still makes a complete loop with the cell, so the buzzer keeps sounding.",
+      "solution": "The switch is on the lamp's branch only. Opening it makes a gap in that branch, so the lamp goes off. The buzzer's branch still makes a complete loop with the cell, so the buzzer keeps sounding.",
       "misconceptions": {
         "0": "That would be true in a series circuit. The switch is only on branch 1, so branch 2 is still a complete path.",
         "1": "A switch only controls the branch it is on. This switch is on the lamp's branch, not the buzzer's.",
@@ -659,9 +1106,34 @@
       "type": "truefalse",
       "difficulty": 3,
       "marks": 1,
-      "prompt": "True or false: A switch is placed in the wire right next to the cell, BEFORE the circuit splits into two parallel branches with one lamp each. Opening this switch turns off only one of the lamps.",
+      "prompt": "Look at the circuit diagram. The switch is in the main wire next to the cell, before the circuit splits into two branches. True or false: Opening this switch turns off only one of the lamps.",
+      "diagram": {
+        "type": "circuit",
+        "layout": "parallel",
+        "main": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "switch",
+            "closed": true
+          }
+        ],
+        "branches": [
+          [
+            {
+              "kind": "bulb"
+            }
+          ],
+          [
+            {
+              "kind": "bulb"
+            }
+          ]
+        ]
+      },
       "answer": false,
-      "solution": "False. Every bit of electricity has to pass through this part of the circuit before it splits. Opening the switch here breaks the path for both branches, so BOTH lamps go off.",
+      "solution": "False. In the diagram, all the electricity has to pass through the switch before the circuit splits. Opening the switch breaks the path for both branches, so BOTH lamps go off.",
       "misconceptions": {
         "common": "Thinking any switch in a parallel circuit controls only one lamp. It depends where the switch is: on a branch it controls that branch; in the main wire before the split it controls everything."
       },
@@ -726,7 +1198,23 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A circuit has a cell, a closed switch and a lamp, joined in a complete loop with copper wires. The lamp does not light. Which of these could be the reason?",
+      "prompt": "Look at the circuit diagram. The parts are joined in a complete loop with copper wires and the switch is closed, but the lamp does not light. Which of these could be the reason?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "switch",
+            "closed": true
+          },
+          {
+            "kind": "bulb"
+          }
+        ]
+      },
       "options": [
         "The switch is closed",
         "The thin wire (filament) inside the lamp is broken",
@@ -787,7 +1275,22 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Priya builds a circuit with a cell, a lamp and a gap between two crocodile clips. She clips different objects into the gap. How can she tell that an object is an electrical conductor?",
+      "prompt": "Priya builds the circuit shown in the diagram, with a gap between two crocodile clips. She clips different objects into the gap. How can she tell that an object is an electrical conductor?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "gap"
+          }
+        ]
+      },
       "options": [
         "The lamp lights when the object is clipped into the gap",
         "The object gets warm in her hand",
@@ -795,7 +1298,7 @@
         "The crocodile clips stick to the object"
       ],
       "answer": 0,
-      "solution": "The gap breaks the circuit, so the lamp is off. A conductor fills the gap and completes the loop, so electricity flows and the lamp lights. An insulator leaves the lamp off.",
+      "solution": "In the diagram the gap breaks the circuit, so the lamp is off. A conductor fills the gap and completes the loop, so electricity flows and the lamp lights. An insulator leaves the lamp off.",
       "misconceptions": {
         "1": "Warmth is not how we test for electrical conductors here. The lamp is the sign that electricity is flowing.",
         "2": "With a gap, the lamp is already off. A conductor completes the loop, so the lamp turns ON.",
@@ -871,6 +1374,1008 @@
         "3": "The copper wires always conduct. The wires did not change; the direction of one cell did."
       },
       "skill": "troubleshooting circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q037",
+      "subtopicId": "s09-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at circuits A to D. All the parts work. In which circuit will the lamp light?",
+      "optionDiagrams": [
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "switch",
+              "closed": false
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "gap"
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "switch",
+              "closed": true
+            },
+            {
+              "kind": "bulb"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "switch",
+              "closed": true
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "switch",
+              "closed": false
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Circuit A",
+        "Circuit B",
+        "Circuit C",
+        "Circuit D"
+      ],
+      "answer": 2,
+      "solution": "A lamp lights only in a complete loop. Check each circuit for gaps and open switches. Circuit A has an open switch, circuit B has a gap, and circuit D has an open switch as well as a closed one. Only circuit C is a complete loop, so only its lamp lights.",
+      "misconceptions": {
+        "0": "In circuit A the switch is open. An open switch leaves a gap, so the loop is not complete.",
+        "1": "Circuit B has a gap in the wire. Electricity cannot jump across the gap, so the lamp stays off.",
+        "3": "Circuit D has one closed switch, but its other switch is open. One gap anywhere in the loop is enough to stop the electricity."
+      },
+      "skill": "complete circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q038",
+      "subtopicId": "s09-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "You want a switch that turns lamp X off while lamp Y stays on. Look at circuits A to D. In which circuit will opening the switch do this?",
+      "optionDiagrams": [
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "switch",
+              "closed": true
+            },
+            {
+              "kind": "bulb",
+              "label": "X"
+            },
+            {
+              "kind": "bulb",
+              "label": "Y"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "parallel",
+          "main": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "switch",
+              "closed": true
+            }
+          ],
+          "branches": [
+            [
+              {
+                "kind": "bulb",
+                "label": "X"
+              }
+            ],
+            [
+              {
+                "kind": "bulb",
+                "label": "Y"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "parallel",
+          "main": [
+            {
+              "kind": "cell"
+            }
+          ],
+          "branches": [
+            [
+              {
+                "kind": "bulb",
+                "label": "X"
+              }
+            ],
+            [
+              {
+                "kind": "bulb",
+                "label": "Y"
+              },
+              {
+                "kind": "switch",
+                "closed": true
+              }
+            ]
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "parallel",
+          "main": [
+            {
+              "kind": "cell"
+            }
+          ],
+          "branches": [
+            [
+              {
+                "kind": "bulb",
+                "label": "X"
+              },
+              {
+                "kind": "switch",
+                "closed": true
+              }
+            ],
+            [
+              {
+                "kind": "bulb",
+                "label": "Y"
+              }
+            ]
+          ]
+        }
+      ],
+      "options": [
+        "Circuit A",
+        "Circuit B",
+        "Circuit C",
+        "Circuit D"
+      ],
+      "answer": 3,
+      "solution": "A switch controls the lamps on the same path as itself. To turn off only lamp X, the switch must be on X's own branch of a parallel circuit, with Y on a separate branch. That is circuit D: opening its switch breaks X's branch, while Y's branch is still a complete loop with the cell.",
+      "misconceptions": {
+        "0": "Circuit A is a series circuit with one loop. Opening the switch breaks the only path, so both lamps go off.",
+        "1": "In circuit B the switch is in the main wire before the circuit splits, so it turns off both lamps.",
+        "2": "In circuit C the switch is on lamp Y's branch, so opening it turns off Y, not X."
+      },
+      "skill": "switches in parallel circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q039",
+      "subtopicId": "s09-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the circuit diagram. All three lamps are lit. Which switch should you open to turn off lamp C but leave lamps A and B lit?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "parallel",
+        "main": [
+          {
+            "kind": "battery",
+            "cells": 2
+          },
+          {
+            "kind": "switch",
+            "label": "S1",
+            "closed": true
+          }
+        ],
+        "branches": [
+          [
+            {
+              "kind": "bulb",
+              "label": "A"
+            },
+            {
+              "kind": "switch",
+              "label": "S2",
+              "closed": true
+            }
+          ],
+          [
+            {
+              "kind": "bulb",
+              "label": "B"
+            }
+          ],
+          [
+            {
+              "kind": "bulb",
+              "label": "C"
+            },
+            {
+              "kind": "switch",
+              "label": "S3",
+              "closed": true
+            }
+          ]
+        ]
+      },
+      "options": [
+        "Switch S1",
+        "Switch S2",
+        "Switch S3",
+        "Any one of the three switches"
+      ],
+      "answer": 2,
+      "solution": "Find which path each switch is on. S1 is in the main wire before the circuit splits, so it controls all three lamps. S2 is on lamp A's branch. S3 is on lamp C's branch. Opening S3 makes a gap in C's branch only, so C goes off and A and B stay lit.",
+      "misconceptions": {
+        "0": "S1 is in the main wire before the circuit splits. Opening it turns off all three lamps.",
+        "1": "S2 is on lamp A's branch. Opening it turns off lamp A, not lamp C.",
+        "3": "Each switch controls a different part of the circuit, so only one of them does this job. Follow each switch to the lamps on the same path."
+      },
+      "skill": "switches in parallel circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q040",
+      "subtopicId": "s09-s3",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the circuit diagram. Select ALL the lamps that are lit.",
+      "diagram": {
+        "type": "circuit",
+        "layout": "parallel",
+        "main": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "switch",
+            "label": "S1",
+            "closed": true
+          }
+        ],
+        "branches": [
+          [
+            {
+              "kind": "bulb",
+              "label": "W"
+            },
+            {
+              "kind": "switch",
+              "label": "S2",
+              "closed": false
+            }
+          ],
+          [
+            {
+              "kind": "bulb",
+              "label": "X"
+            },
+            {
+              "kind": "bulb",
+              "label": "Y"
+            }
+          ],
+          [
+            {
+              "kind": "bulb",
+              "label": "Z"
+            },
+            {
+              "kind": "switch",
+              "label": "S3",
+              "closed": true
+            }
+          ]
+        ]
+      },
+      "options": [
+        "Lamp W",
+        "Lamp X",
+        "Lamp Y",
+        "Lamp Z"
+      ],
+      "answer": [
+        1,
+        2,
+        3
+      ],
+      "solution": "First check the main wire: switch S1 is closed, so electricity can reach the branches. Then check each branch. Lamp W's branch has an open switch (S2), so W is off. Lamps X and Y are in series on the same branch, and that branch is complete, so both light (they share the push, so they are dimmer). Lamp Z's branch has a closed switch (S3), so Z lights. The lit lamps are X, Y and Z.",
+      "misconceptions": {
+        "0": "Lamp W's branch has an open switch, so there is a gap and W stays off.",
+        "common": "Thinking one open switch turns off every lamp. A switch on a branch only breaks that branch. The main switch S1 is closed, so the other branches still work, including the branch with two lamps."
+      },
+      "skill": "parallel circuits: separate branches",
+      "source": "original"
+    },
+    {
+      "id": "s09-q041",
+      "subtopicId": "s09-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the series circuit. Kumar takes out one lamp and joins the wires so that the loop is complete again. What happens to the two lamps that are left?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "bulb"
+          }
+        ]
+      },
+      "options": [
+        "They become brighter",
+        "They become dimmer",
+        "They stay exactly as bright as before",
+        "They both go out"
+      ],
+      "answer": 0,
+      "solution": "Before, the push from one cell was shared by three lamps. After Kumar takes one out, the same push is shared by only two lamps, so each lamp gets more and both become brighter. The loop is complete again, so they still light.",
+      "misconceptions": {
+        "1": "Fewer lamps in series means each lamp gets a bigger share of the push from the cell, so they get brighter, not dimmer.",
+        "2": "Taking out a lamp changes the circuit. With fewer lamps sharing the cell, each lamp gets brighter.",
+        "3": "Kumar joined the wires again, so the loop is complete and the lamps still light. They would only go out if a gap were left."
+      },
+      "skill": "brightness of lamps in series",
+      "source": "original"
+    },
+    {
+      "id": "s09-q042",
+      "subtopicId": "s09-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the series circuit. True or false: If you add a third identical lamp in series, each lamp becomes brighter.",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "battery",
+            "cells": 2
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "bulb"
+          }
+        ]
+      },
+      "answer": false,
+      "solution": "False. In the diagram, two cells push electricity through two lamps. With a third lamp in the same loop, the same push is shared by three lamps, so each lamp becomes dimmer.",
+      "misconceptions": {
+        "common": "Thinking more lamps means more light from each one. In series the lamps share the push from the cells, so adding a lamp makes each lamp dimmer."
+      },
+      "skill": "brightness of lamps in series",
+      "source": "original"
+    },
+    {
+      "id": "s09-q043",
+      "subtopicId": "s09-s1",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the circuit diagram. How many cells are joined together in the battery? Give a whole number.",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "battery",
+            "cells": 3
+          },
+          {
+            "kind": "switch",
+            "closed": true
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "buzzer"
+          },
+          {
+            "kind": "bulb"
+          }
+        ],
+        "alt": "A circuit diagram with a battery, a closed switch, two lamps and a buzzer joined in one loop."
+      },
+      "answer": {
+        "value": 3,
+        "tolerance": 0,
+        "accept": [
+          "three"
+        ]
+      },
+      "solution": "Each cell is drawn as a long thin line next to a short thick line. Count these pairs of lines in the battery: there are 3, so the battery is made of 3 cells.",
+      "misconceptions": {
+        "common": "Counting all the components in the circuit, or the lines one by one. Count only the pairs of lines (one long, one short): each pair is one cell."
+      },
+      "skill": "circuit symbols",
+      "source": "original"
+    },
+    {
+      "id": "s09-q044",
+      "subtopicId": "s09-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the circuit diagram. Which component is the buzzer?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "battery",
+            "cells": 2
+          },
+          {
+            "kind": "motor",
+            "label": "P"
+          },
+          {
+            "kind": "buzzer",
+            "label": "Q"
+          },
+          {
+            "kind": "switch",
+            "label": "R",
+            "closed": true
+          }
+        ],
+        "alt": "A circuit diagram with a battery and three other components, labelled P, Q and R, joined in one loop."
+      },
+      "options": [
+        "Component P",
+        "Component Q",
+        "Component R",
+        "There is no buzzer in this circuit"
+      ],
+      "answer": 1,
+      "solution": "Name each labelled symbol. P is a circle with the letter M inside: a motor. R is a short line lying flat across a gap: a closed switch. Q is the buzzer symbol, so Q is the buzzer.",
+      "misconceptions": {
+        "0": "P is a circle with the letter M inside. That is the symbol for a motor.",
+        "2": "R is a short line lying flat across a gap. That is a closed switch.",
+        "3": "There is a buzzer: component Q. Its symbol is different from the lamp and motor circles."
+      },
+      "skill": "circuit symbols",
+      "source": "original"
+    },
+    {
+      "id": "s09-q045",
+      "subtopicId": "s09-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Ahmad builds the circuit shown, but neither lamp lights. He thinks lamp X is broken. Look at the diagram. What is the most likely reason the lamps are off?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "battery",
+            "cells": 2
+          },
+          {
+            "kind": "bulb",
+            "label": "X"
+          },
+          {
+            "kind": "bulb",
+            "label": "Y"
+          },
+          {
+            "kind": "switch",
+            "closed": false
+          }
+        ]
+      },
+      "options": [
+        "The switch is open, so there is a gap in the loop",
+        "The battery has too many cells for two lamps",
+        "Lamp Y is too far away from the battery",
+        "Lamp X uses up all the electricity before it reaches lamp Y"
+      ],
+      "answer": 0,
+      "solution": "Check the diagram for gaps before blaming a lamp. The switch symbol has its short line lifted, so the switch is open and the loop has a gap. No electricity can flow, so both lamps are off. Closing the switch should make both lamps light.",
+      "misconceptions": {
+        "1": "Two cells are fine for two lamps; they would light them quite brightly. Look for a gap in the loop instead.",
+        "2": "The length of the wire to a lamp does not stop it lighting. Look at the switch symbol: it is open.",
+        "3": "Electricity is not used up by the first lamp. Lamp X is off too, which tells you there is a gap somewhere in the loop."
+      },
+      "skill": "troubleshooting circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q046",
+      "subtopicId": "s09-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the circuit diagram. Lamps A and C light, but lamp B does not. All the wires are joined properly. What is the most likely fault?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "parallel",
+        "main": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "switch",
+            "closed": true
+          }
+        ],
+        "branches": [
+          [
+            {
+              "kind": "bulb",
+              "label": "A"
+            }
+          ],
+          [
+            {
+              "kind": "bulb",
+              "label": "B"
+            }
+          ],
+          [
+            {
+              "kind": "bulb",
+              "label": "C"
+            }
+          ]
+        ]
+      },
+      "options": [
+        "Lamp B is broken",
+        "The cell is flat",
+        "The switch is open",
+        "Lamps A and C take all the electricity, so none is left for lamp B"
+      ],
+      "answer": 0,
+      "solution": "Test each idea against what you see. If the cell were flat, no lamp would light. The switch is in the main wire, so if it were open, all three lamps would be off. But A and C are lit, so the cell and the switch are fine. Only lamp B's own branch is not working, so the most likely fault is that lamp B is broken.",
+      "misconceptions": {
+        "1": "If the cell were flat, none of the lamps would light. A and C are lit, so the cell is working.",
+        "2": "The switch is in the main wire before the circuit splits. If it were open, all three lamps would be off.",
+        "3": "In a parallel circuit each branch gets the full push of the cell. Lamps do not use up the electricity meant for the other branches."
+      },
+      "skill": "troubleshooting circuits",
+      "source": "original"
+    },
+    {
+      "id": "s09-q047",
+      "subtopicId": "s09-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the circuit diagram. Which object, clipped across gap X, will make the lamp light?",
+      "diagram": {
+        "type": "circuit",
+        "layout": "series",
+        "components": [
+          {
+            "kind": "cell"
+          },
+          {
+            "kind": "bulb"
+          },
+          {
+            "kind": "gap",
+            "label": "X"
+          }
+        ]
+      },
+      "options": [
+        "A rubber eraser",
+        "A plastic straw",
+        "A wooden lolly stick",
+        "A steel key"
+      ],
+      "answer": 3,
+      "solution": "The gap breaks the loop, so the lamp is off. To make the lamp light, the object across the gap must be an electrical conductor. Steel is a metal, so the steel key conducts and completes the loop.",
+      "misconceptions": {
+        "0": "Rubber is an electrical insulator, so the loop stays broken and the lamp stays off.",
+        "1": "Plastic is an electrical insulator, so the loop stays broken and the lamp stays off.",
+        "2": "Dry wood is an electrical insulator, so the loop stays broken and the lamp stays off."
+      },
+      "skill": "conductors and insulators",
+      "source": "original"
+    },
+    {
+      "id": "s09-q048",
+      "subtopicId": "s09-s3",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Look at circuits A to E. All the parts work. Select ALL the circuits in which the buzzer will sound.",
+      "optionDiagrams": [
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "battery",
+              "cells": 2
+            },
+            {
+              "kind": "switch",
+              "closed": true
+            },
+            {
+              "kind": "buzzer"
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "buzzer"
+            },
+            {
+              "kind": "switch",
+              "closed": false
+            }
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "parallel",
+          "main": [
+            {
+              "kind": "cell"
+            }
+          ],
+          "branches": [
+            [
+              {
+                "kind": "bulb"
+              }
+            ],
+            [
+              {
+                "kind": "buzzer"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "parallel",
+          "main": [
+            {
+              "kind": "cell"
+            }
+          ],
+          "branches": [
+            [
+              {
+                "kind": "bulb"
+              }
+            ],
+            [
+              {
+                "kind": "buzzer"
+              },
+              {
+                "kind": "switch",
+                "closed": false
+              }
+            ]
+          ]
+        },
+        {
+          "type": "circuit",
+          "layout": "parallel",
+          "main": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "switch",
+              "closed": false
+            }
+          ],
+          "branches": [
+            [
+              {
+                "kind": "buzzer"
+              }
+            ],
+            [
+              {
+                "kind": "bulb"
+              }
+            ]
+          ]
+        }
+      ],
+      "options": [
+        "Circuit A",
+        "Circuit B",
+        "Circuit C",
+        "Circuit D",
+        "Circuit E"
+      ],
+      "answer": [
+        0,
+        2
+      ],
+      "solution": "The buzzer sounds only if there is a complete path from the cell, through the buzzer and back. Circuit A is a complete loop with a closed switch. In circuit C the buzzer has its own complete branch. In B the single loop has an open switch; in D the open switch is on the buzzer's own branch; in E the open switch is in the main wire, so no branch works. So the buzzer sounds in A and C.",
+      "misconceptions": {
+        "1": "Circuit B is a single loop with an open switch, so there is a gap and the buzzer is silent.",
+        "3": "In circuit D the open switch is on the buzzer's own branch, so the buzzer's path is broken. (The lamp on the other branch still lights.)",
+        "4": "In circuit E the open switch is in the main wire before the circuit splits, so neither branch works."
+      },
+      "skill": "parallel circuits: separate branches",
+      "source": "original"
+    },
+    {
+      "id": "s09-q049",
+      "subtopicId": "s09-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the circuit diagram. How many lamps are lit (even if some glow dimly)? Give a whole number.",
+      "diagram": {
+        "type": "circuit",
+        "layout": "parallel",
+        "main": [
+          {
+            "kind": "battery",
+            "cells": 2
+          },
+          {
+            "kind": "switch",
+            "closed": true
+          }
+        ],
+        "branches": [
+          [
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "bulb"
+            }
+          ],
+          [
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "switch",
+              "closed": false
+            }
+          ],
+          [
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "buzzer"
+            }
+          ]
+        ]
+      },
+      "answer": {
+        "value": 3,
+        "tolerance": 0,
+        "accept": [
+          "three"
+        ]
+      },
+      "solution": "The switch in the main wire is closed, so check each branch. The branch with two lamps is complete, so both of its lamps light: 2. The branch with an open switch has a gap, so its lamp is off: 0. The branch with a lamp and a buzzer is complete, so its lamp lights: 1. Total: 2 + 0 + 1 = 3 lamps.",
+      "misconceptions": {
+        "common": "Answering 4 by missing the open switch, or 2 by thinking the buzzer stops the lamp next to it. A buzzer is a working component: electricity flows through it, so the lamp on that branch lights."
+      },
+      "skill": "parallel circuits: separate branches",
+      "source": "original"
+    },
+    {
+      "id": "s09-q050",
+      "subtopicId": "s09-s3",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 1,
+      "prompt": "Look at the circuit diagram. All the lamps are identical. True or false: Lamp A is brighter than lamp B.",
+      "diagram": {
+        "type": "circuit",
+        "layout": "parallel",
+        "main": [
+          {
+            "kind": "cell"
+          }
+        ],
+        "branches": [
+          [
+            {
+              "kind": "bulb",
+              "label": "A"
+            }
+          ],
+          [
+            {
+              "kind": "bulb",
+              "label": "B"
+            },
+            {
+              "kind": "bulb",
+              "label": "C"
+            }
+          ]
+        ]
+      },
+      "answer": true,
+      "solution": "True. Lamp A is alone on its branch, so it gets the full push of the cell. Lamps B and C are in series on the other branch, so they share the push and each is dimmer. So lamp A is brighter than lamp B.",
+      "misconceptions": {
+        "common": "Thinking every lamp in a parallel circuit is equally bright. That is only true when each branch has one lamp. Two lamps in series on one branch share the push, so they are dimmer."
+      },
+      "skill": "brightness of lamps in parallel",
+      "source": "original"
+    },
+    {
+      "id": "s09-q051",
+      "subtopicId": "s09-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at circuits A to D. Which one is a parallel circuit?",
+      "optionDiagrams": [
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "bulb"
+            }
+          ],
+          "alt": "Circuit A: a cell and two lamps, joined one after another in a single loop."
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "cell"
+            },
+            {
+              "kind": "switch",
+              "closed": true
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "bulb"
+            }
+          ],
+          "alt": "Circuit B: a cell, a closed switch and two lamps, joined one after another in a single loop."
+        },
+        {
+          "type": "circuit",
+          "layout": "parallel",
+          "main": [
+            {
+              "kind": "cell"
+            }
+          ],
+          "branches": [
+            [
+              {
+                "kind": "bulb"
+              }
+            ],
+            [
+              {
+                "kind": "bulb"
+              }
+            ]
+          ],
+          "alt": "Circuit C: a cell, with the wire splitting into two branches that each have one lamp."
+        },
+        {
+          "type": "circuit",
+          "layout": "series",
+          "components": [
+            {
+              "kind": "battery",
+              "cells": 2
+            },
+            {
+              "kind": "bulb"
+            },
+            {
+              "kind": "buzzer"
+            }
+          ],
+          "alt": "Circuit D: a battery, a lamp and a buzzer, joined one after another in a single loop."
+        }
+      ],
+      "options": [
+        "Circuit A",
+        "Circuit B",
+        "Circuit C",
+        "Circuit D"
+      ],
+      "answer": 2,
+      "solution": "In a parallel circuit the wire splits into branches, and each branch is a separate path back to the cell. Circuit C splits into two branches with one lamp each, so it is a parallel circuit. Circuits A, B and D each have everything in one single loop, so they are series circuits.",
+      "misconceptions": {
+        "0": "Circuit A has its two lamps one after another in a single loop. That is a series circuit.",
+        "1": "Circuit B has a switch, but everything is still in one single loop, so it is a series circuit.",
+        "3": "Circuit D has a lamp and a buzzer in one loop with no branches, so it is a series circuit."
+      },
+      "skill": "parallel circuits: separate branches",
       "source": "original"
     }
   ]

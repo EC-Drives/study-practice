@@ -12,7 +12,9 @@ Version 2 can run in two ways. Which one depends only on `config.js`:
 New in both modes:
 
 - **A working area under every question.** She writes with an Apple Pencil, any stylus, a finger or the mouse, like a workbook margin. Pen pressure is kept. Once a pen is used, a resting hand leaves no marks. Pen, eraser, undo and clear. Writing never scrolls the page. Her working is saved with her answer and shown in her review and in your reports.
-- **The visual report:** a big score, a pictogram per question, a mastery bar per part, skills to work on as coloured chips, time per question, her working on the questions she got wrong, a two- or three-line summary in plain English, and her score trend across sessions.
+- **The visual report:** a big score, a pictogram per question, a mastery bar per part, skills to work on as coloured chips, named mistakes counted, time per question, each question she got wrong with its picture and her working, a two- or three-line summary in plain English, and her score trend across sessions.
+- **Pictures in questions.** Questions can carry a diagram (angles, shapes, grids, charts, tables, clocks, scales, circuits, food webs and more, 32 kinds), drawn on the device from data, in light and dark. Picture-choice questions show a picture in each answer. Pictures appear in practice, in her review and in your reports.
+- **Fresh maths questions.** 125 maths question generators (all 15 maths chapters) make new questions with exact answers and worked solutions. About a third of every maths session is generated, and more when she has already seen most of a chapter's bank questions recently, so practice no longer repeats. Every wrong option of a generated question comes from a named mistake (for example "adds the tops and the bottoms"), and the reports count these ("named mistakes in the last 30 days").
 
 Set-up guides: [`docs/SETUP-SUPABASE.md`](docs/SETUP-SUPABASE.md) (accounts and database, about 30 minutes) and, for Step B only, [`docs/SETUP-ANTHROPIC.md`](docs/SETUP-ANTHROPIC.md). How it fits together, the integration hooks and the Step B seams: [`docs/v2-architecture.md`](docs/v2-architecture.md). Security rules: [`docs/rls-review-checklist.md`](docs/rls-review-checklist.md).
 
@@ -71,7 +73,7 @@ It checks every file with the CLO's `validate.py` (a file with errors is left ou
 
 ## Tests
 
-Run `python tools\run_tests.py`. It opens the test page in a hidden browser and prints the result (374 checks in v2). Or, with the laptop server running, open http://localhost:8766/test/ . The test page checks the marking of every question type and the edge cases for number and short answers, marks every question in the built banks with its own right answer and with a wrong one, and checks question sampling, the timer, reports and the email link, statistics, the PIN, and the export/import round trip (in a temporary database). Version 2 adds `test/tests-linked.js`: the data adapter and its Supabase requests, the access rules (Row Level Security intent) against a stand-in server, the SQL review checklist, the offline queue, the working area (format, pen, palm, eraser, undo), the visual reports, the one-time import and the integration hooks.
+Run `python tools\run_tests.py`. It opens the three test pages in a hidden browser and prints the results: the app suite (430 tests in v2), the diagram checks (913) and the generator checks (157,000 generated questions, each answer worked out again independently; `python tools\run_tests.py generators --seeds 50` for a quick run). `python tools\e2e.py` drives the whole app end to end (local mode, offline with the server stopped, and linked mode against the stand-in server) and saves screenshots to `screenshots\v2-integration\`. Or, with the laptop server running, open http://localhost:8766/test/ . The test page checks the marking of every question type and the edge cases for number and short answers, marks every question in the built banks with its own right answer and with a wrong one, and checks question sampling, the timer, reports and the email link, statistics, the PIN, and the export/import round trip (in a temporary database). Version 2 adds `test/tests-integration.js` (the diagram and generator engines inside the app: every bank picture drawn, every generator marked through the app, sessions mixing generated questions, rebuilding them on another device, named mistakes in reports, the offline list) and `test/tests-linked.js`: the data adapter and its Supabase requests, the access rules (Row Level Security intent) against a stand-in server, the SQL review checklist, the offline queue, the working area (format, pen, palm, eraser, undo), the visual reports, the one-time import and the integration hooks.
 
 ## Publishing (GitHub Pages)
 
@@ -93,11 +95,13 @@ Everything uses relative paths, so the site works at a project address such as `
 | `js/ai.js` | Step B seam for Claude (ask about progress, read handwriting, new questions), switched off |
 | `config.js` | Supabase project URL and public key (empty = local mode); Step B switches |
 | `js/data/` | v2 data layer: mode choice, Supabase client, offline queue, the parent's online view, one-time import, the laptop-only stand-in server |
-| `js/working.js`, `js/visual-report.js`, `js/hooks.js` | The working area; the visual report; hooks for diagrams and generated questions |
+| `js/working.js`, `js/visual-report.js`, `js/hooks.js` | The working area; the visual report; the one place the app calls the diagram and generator engines |
+| `js/diagrams/`, `docs/diagram-spec.md` | Diagram renderer (32 types, SVG from data) and its spec for the CLO |
+| `js/generators/` | Maths question generators (125) and their contract (`README.md`) |
 | `js/views/login.js`, `css/v2.css` | Sign-in page; v2 styles |
 | `supabase/` | Database set-up (migrations) and server functions (`manage-student` for Step A; three Step B stubs, not deployed) |
 | `docs/` | Set-up guides for EC, architecture, security checklist |
 | `content/` | Copies of the CLO's question banks (generated) |
 | `sw.js` | Offline support (generated from `tools/sw.template.js`) |
-| `tools/` | Build, local server, icon drawing, and a small sample chapter for testing (`--samples`) |
-| `test/` | The test page |
+| `tools/` | Build, local server, test runner, end-to-end run (`e2e.py`, `cdp.py`), icon drawing, and a small sample chapter for testing (`--samples`) |
+| `test/` | The test pages: app (`index.html`), diagram gallery and checks (`diagrams.html`), generator checks (`generators.html`) |

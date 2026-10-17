@@ -338,7 +338,8 @@ export async function run({ check, setGroup, fixtures }) {
     const rs = await src.getAll('sessions');
     const ra = await src.getAll('attempts');
     const rr = await src.get('reports', done.id);
-    check('parent sees her sessions, answers and reports', rs.length === 4 && ra.length === 14 && rr && rr.sessionId === done.id);
+    // the two hand-made session rows of the access tests (data: { id } only) are not well formed and are left out
+    check('parent sees her sessions, answers and reports; malformed rows are left out', rs.length === 2 && src.skipped.sessions === 2 && ra.length === 14 && rr && rr.sessionId === done.id, `${rs.length} sessions, ${JSON.stringify(src.skipped)}`);
     check('parent can open one session\'s answers', (await src.getAllByIndex('attempts', 'sessionId', done.id)).length === 7);
     const one = ra.find((a) => a.sessionId === done.id && a.questionId === 'm91-q001');
     const strokes = await workingFor(src, one);
@@ -557,7 +558,8 @@ export async function run({ check, setGroup, fixtures }) {
     check('time per question: a bar each, coloured by result, legend and table', bars.length === 7 && vr.querySelector('.vr-time .bar-wrong') && vr.querySelector('.vr-time .bar-right') && vr.querySelectorAll('.vr-legend li').length >= 3 && vr.querySelectorAll('.table-view').length >= 2);
     check('time chart: keyboard and hover reach every bar', vr.querySelectorAll('.vr-time .hit[tabindex="0"]').length === 7);
     await wait(30);
-    check('her working shown for wrong answers only', vr.querySelectorAll('.vr-working-card').length === 2 && vr.querySelectorAll('.vr-working-card .workview').length === 2);
+    const wrongN = rep.perQuestion.filter((x) => x.kind === 'wrong' || x.kind === 'part').length;
+    check('every wrong question listed; her working shown for wrong answers only', vr.querySelectorAll('.vr-working-card').length === wrongN && vr.querySelectorAll('.vr-working-card .workview').length === 2, `${vr.querySelectorAll('.vr-working-card').length} cards, ${wrongN} wrong`);
     const tr = vr.querySelector('.linechart');
     check('trend across sessions, this one marked', tr && tr.querySelectorAll('.tdot').length === 2 && tr.querySelectorAll('.tdot.is-this').length === 1 && tr.querySelectorAll('.tline').length === 1);
     const sci = { ...b.session, id: 'sci-1', subject: 'science', startedAt: t0 + 2 * 86400000 };
@@ -586,21 +588,24 @@ export async function run({ check, setGroup, fixtures }) {
     check('a failing diagram never breaks the question', diagramFor(q) === null);
     setExtensions({ diagram: { renderDiagram: () => '<b>html</b>' } });
     check('only DOM nodes are accepted (no HTML strings)', diagramFor(q) === null);
-    const tmpl = { ...sampleTopic.questions[5], id: 'm91-q099', generator: { kind: 'fraction' }, prompt: 'template', answer: { value: 0, tolerance: 0, accept: [] } };
+    const tmpl = { ...sampleTopic.questions[5], id: 'm91-q099', generator: { id: 'm91.add' }, prompt: 'template', answer: { value: 0, tolerance: 0, accept: [] } };
     const topic2 = { ...sampleTopic, questions: [...sampleTopic.questions, tmpl] };
     const plain = planSession({ subject: 'maths', topic: topic2, topics: [topic2], mode: 'topic', durationMin: 60, attempts: [], seed: 5 });
     check('without a generator, templates are left out of practice', !canGenerate() && !plain.questionIds.includes('m91-q099'));
-    setExtensions({ generator: { generate: (qq, rng) => { const n = 1 + Math.floor(rng() * 9); return { ...qq, prompt: `What is ${n} + ${n}?`, answer: { value: n * 2, tolerance: 0, accept: [] }, solution: `${n} + ${n} = ${n * 2}` }; } } });
+    // a stand-in with the engine's interface: generate(generatorId, seed, difficulty)
+    const standIn = (id, seed, d) => { const n = 1 + (seed % 9); return { id: `m91-g-x-d${d}-${seed}`, subtopicId: 'm91-s1', type: 'numeric', difficulty: d || 1, marks: 1, prompt: `What is ${n} + ${n}?`, answer: { value: n * 2, tolerance: 0, accept: [] }, solution: `${n} + ${n} = ${n * 2}`, misconceptions: { common: 'add' }, skill: 'x', source: 'generated', generatorId: id, seed }; };
+    setExtensions({ generator: { generate: standIn } });
     const gen = planSession({ subject: 'maths', topic: topic2, topics: [topic2], mode: 'topic', durationMin: 60, attempts: [], seed: 5 });
     const inst = gen.instances['m91-q099'];
-    check('with a generator, the concrete question is made once and kept in the session', canGenerate() && gen.questionIds.includes('m91-q099') && inst && /What is \d \+ \d\?/.test(inst.prompt) && !('generator' in inst) && inst.id === 'm91-q099');
+    check('with a generator, the concrete question is made once and kept in the session', canGenerate() && gen.questionIds.includes('m91-q099') && inst && /What is \d \+ \d\?/.test(inst.prompt) && !('generator' in inst) && inst.id === 'm91-q099' && inst.generatorId === 'm91.add' && inst.topicId === topic2.topicId, JSON.stringify(inst));
     const gen2 = planSession({ subject: 'maths', topic: topic2, topics: [topic2], mode: 'topic', durationMin: 60, attempts: [], seed: 5 });
     check('same seed, same numbers', gen2.instances['m91-q099'].prompt === inst.prompt);
     const map = questionsForSession(new Map(topic2.questions.map((x) => [x.id, x])), gen);
     check('the session\'s own version is used everywhere (overlay on the bank)', map.get('m91-q099').prompt === inst.prompt);
     gen.state.responses = { 'm91-q099': String(inst.answer.value) };
     const fin = finishSession(gen, new Map(topic2.questions.map((x) => [x.id, x])), {});
-    check('marking uses the generated answer', fin.attempts.find((x) => x.questionId === 'm91-q099').correct === true);
+    const fa = fin.attempts.find((x) => x.questionId === 'm91-q099');
+    check('marking uses the generated answer; the attempt keeps the recipe', fa.correct === true && fa.generated && fa.generated.generatorId === 'm91.add' && fa.generated.seed === inst.seed);
     setExtensions({ generator: { generate: () => null } });
     check('a generator that fails gives no question (never a broken one)', instantiate(tmpl, Math.random) === null);
     setExtensions({ diagram: null, generator: null });

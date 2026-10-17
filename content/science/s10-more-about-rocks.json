@@ -550,7 +550,38 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Siti tests how much water four rocks soak up. Each rock has a mass of 100 g when dry. Mass after soaking: chalk 112 g, sandstone 108 g, marble 100 g, granite 101 g. Which conclusion do her results support?",
+      "prompt": "Siti tests how much water four rocks soak up. The table shows her results. Which conclusion do her results support?",
+      "diagram": {
+        "type": "table",
+        "title": "Soaking rocks in water",
+        "columns": [
+          "Rock",
+          "Mass when dry (g)",
+          "Mass after soaking (g)"
+        ],
+        "rows": [
+          [
+            "Chalk",
+            100,
+            112
+          ],
+          [
+            "Sandstone",
+            100,
+            108
+          ],
+          [
+            "Marble",
+            100,
+            100
+          ],
+          [
+            "Granite",
+            100,
+            101
+          ]
+        ]
+      },
       "options": [
         "Sandstone soaked up the most water",
         "The two sedimentary rocks soaked up more water than the igneous and metamorphic rocks",
@@ -558,7 +589,7 @@
         "Granite soaked up more water than chalk"
       ],
       "answer": 1,
-      "solution": "Work out the water soaked up: chalk 112 - 100 = 12 g; sandstone 108 - 100 = 8 g; marble 0 g; granite 1 g. Chalk and sandstone are sedimentary and have spaces between their grains. Marble (metamorphic) and granite (igneous) have tightly locked crystals, so almost no water gets in.",
+      "solution": "Use the table to work out the water soaked up: chalk 112 - 100 = 12 g; sandstone 108 - 100 = 8 g; marble 100 - 100 = 0 g; granite 101 - 100 = 1 g. Chalk and sandstone are sedimentary and have spaces between their grains. Marble (metamorphic) and granite (igneous) have tightly locked crystals, so almost no water gets in.",
       "misconceptions": {
         "0": "Sandstone gained 8 g, but chalk gained 112 - 100 = 12 g, so chalk soaked up the most.",
         "2": "100 g is the mass of the marble after soaking. It started at 100 g, so it soaked up 100 - 100 = 0 g of water.",

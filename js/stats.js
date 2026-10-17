@@ -264,18 +264,49 @@ export function currentTopic(sessions) {
 
 /** Misconceptions shown by wrong answers, most frequent first. */
 export function misconceptionTally(attempts, sinceTs = 0) {
+  // A finding with a catalogue code (generated questions) is counted by its code, so the same
+  // mistake adds up across questions; near misses and unclassified slips are not misconceptions
+  // and are left out. A bank question's note (no code) is counted per question and option.
   const by = new Map();
   for (const a of attempts) {
-    if (a.correct || a.answeredAt < sinceTs || !a.misconceptions) continue;
+    if (a.correct || a.answeredAt < sinceTs || !Array.isArray(a.misconceptions)) continue;
+    const seen = new Set();
     for (const m of a.misconceptions) {
-      const k = `${a.questionId}|${m.key}`;
-      const cur = by.get(k) || { questionId: a.questionId, subtopicId: a.subtopicId, topicId: a.topicId, skill: a.skill, note: m.note, count: 0, lastAt: 0 };
+      if (!m) continue;
+      const code = typeof m.code === 'string' && m.code ? m.code : null;
+      if (code && (code === 'NEAR-MISS' || code === 'UNCLASSIFIED')) continue;
+      const k = code ? `code:${code}` : `${a.questionId}|${m.key}`;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      const cur = by.get(k) || { questionId: a.questionId, subtopicId: a.subtopicId, topicId: a.topicId, skill: a.skill, note: m.note, code, count: 0, lastAt: 0 };
       cur.count += 1;
       cur.lastAt = Math.max(cur.lastAt, a.answeredAt);
       by.set(k, cur);
     }
   }
   return [...by.values()].sort((x, y) => y.count - x.count || y.lastAt - x.lastAt);
+}
+
+/**
+ * Named misconceptions (catalogue codes, e.g. FR-ADD-TOPS-BOTTOMS) counted across answers since
+ * a time: [{ code, count, lastAt, subtopicIds, skills }], most frequent first. Generated questions
+ * carry these codes; bank questions without codes are counted by misconceptionTally() instead.
+ */
+export function misconceptionCodeTally(attempts, sinceTs = 0) {
+  const by = new Map();
+  for (const a of attempts) {
+    if (!a || a.correct || !(a.answeredAt >= sinceTs) || !Array.isArray(a.misconceptionCodes)) continue;
+    for (const code of new Set(a.misconceptionCodes)) {
+      if (typeof code !== 'string' || !code || code.length > 100 || code === 'NEAR-MISS' || code === 'UNCLASSIFIED') continue;
+      const cur = by.get(code) || { code, count: 0, lastAt: 0, subtopicIds: [], skills: [] };
+      cur.count += 1;
+      cur.lastAt = Math.max(cur.lastAt, a.answeredAt);
+      if (a.subtopicId && !cur.subtopicIds.includes(a.subtopicId)) cur.subtopicIds.push(a.subtopicId);
+      if (a.skill && !cur.skills.includes(a.skill)) cur.skills.push(a.skill);
+      by.set(code, cur);
+    }
+  }
+  return [...by.values()].sort((x, y) => y.count - x.count || y.lastAt - x.lastAt || (x.code < y.code ? -1 : 1));
 }
 
 /** Correct / total per skill. */

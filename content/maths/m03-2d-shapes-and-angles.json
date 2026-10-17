@@ -151,13 +151,110 @@
       "type": "match",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Match each quadrilateral to its number of lines of symmetry. (The rhombus is not a square, the kite is not a rhombus, and the parallelogram has no right angles and its sides are not all equal.)",
+      "prompt": "Shapes A, B, C and D are drawn on the squared grid. Match each shape to its number of lines of symmetry.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          14
+        ],
+        "y": [
+          0,
+          12
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                6,
+                4
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "label": "A"
+          },
+          {
+            "points": [
+              [
+                1,
+                7
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                5,
+                11
+              ],
+              [
+                1,
+                11
+              ]
+            ],
+            "label": "B"
+          },
+          {
+            "points": [
+              [
+                10,
+                6
+              ],
+              [
+                12,
+                9
+              ],
+              [
+                10,
+                11
+              ],
+              [
+                8,
+                9
+              ]
+            ],
+            "label": "C"
+          },
+          {
+            "points": [
+              [
+                7,
+                3
+              ],
+              [
+                10,
+                5
+              ],
+              [
+                13,
+                3
+              ],
+              [
+                10,
+                1
+              ]
+            ],
+            "label": "D"
+          }
+        ]
+      },
       "options": {
         "left": [
-          "square",
-          "rhombus",
-          "kite",
-          "parallelogram"
+          "Shape A",
+          "Shape B",
+          "Shape C",
+          "Shape D"
         ],
         "right": [
           "0",
@@ -170,11 +267,11 @@
       "answer": [
         [
           0,
-          4
+          0
         ],
         [
           1,
-          2
+          4
         ],
         [
           2,
@@ -182,12 +279,12 @@
         ],
         [
           3,
-          0
+          2
         ]
       ],
-      "solution": "Square: 4 lines (two through opposite corners, two through the middles of opposite sides). Rhombus: 2 lines, along both diagonals. Kite: 1 line, along the diagonal joining the corners where the equal sides meet. Parallelogram: 0 lines, because no fold makes the two halves sit exactly on top of each other.",
+      "solution": "First name each shape by counting squares. A is a parallelogram (opposite sides parallel, no right angles, a long pair and a short pair of sides). B is a square. C is a kite (two long sides meet at the bottom and two short sides meet at the top). D is a rhombus (every side goes 3 across and 2 up or down, so all four sides are equal, but it has no right angles). Now count the lines of symmetry. A, parallelogram: 0 lines, because no fold makes the two halves sit exactly on top of each other. B, square: 4 lines (two through opposite corners, two through the middles of opposite sides). C, kite: 1 line, the upright line through its top and bottom corners. D, rhombus: 2 lines, along both diagonals.",
       "misconceptions": {
-        "common": "Thinking a diagonal of a parallelogram is a line of symmetry. If you fold a paper parallelogram along a diagonal, the two halves do not match."
+        "common": "Thinking a diagonal of the parallelogram (shape A) is a line of symmetry. If you fold a paper parallelogram along a diagonal, the two halves do not match. Also check the kite (shape C): only the line through the corners where the equal sides meet works."
       },
       "skill": "line symmetry of quadrilaterals",
       "source": "original"
@@ -223,7 +320,52 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "In a parallelogram, opposite angles are equal, and the four angles of any quadrilateral add up to 360°. One angle of a parallelogram is 70°. What is the size of an angle next to it (one that shares a side with it)? Give your answer in degrees.",
+      "prompt": "The diagram shows a parallelogram with one angle of 70°. In a parallelogram, opposite angles are equal, and the four angles of any quadrilateral add up to 360°. What is the size of the angle marked ? (the angle next to the 70° angle)? Give your answer in degrees.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            7.3681,
+            3.7588
+          ],
+          [
+            1.3681,
+            3.7588
+          ]
+        ],
+        "sides": [
+          {
+            "arrows": 1
+          },
+          {
+            "arrows": 2
+          },
+          {
+            "arrows": 1
+          },
+          {
+            "arrows": 2
+          }
+        ],
+        "angles": [
+          {
+            "label": "70°"
+          },
+          {
+            "label": "?"
+          },
+          null,
+          null
+        ]
+      },
       "answer": {
         "value": 110,
         "tolerance": 0,
@@ -232,9 +374,9 @@
           "110 degrees"
         ]
       },
-      "solution": "The angle opposite the 70° angle is also 70°. 70 + 70 = 140. The other two angles share 360 - 140 = 220°, and they are equal, so each is 220 ÷ 2 = 110°. Check: 70 + 110 = 180. Angles next to each other in a parallelogram always add up to 180°.",
+      "solution": "The angle opposite the 70° angle is also 70°. 70 + 70 = 140. The other two angles share 360 - 140 = 220°, and they are equal, so each is 220 ÷ 2 = 110°. The angle marked ? is one of them: 110°. Check: 70 + 110 = 180. Angles next to each other in a parallelogram always add up to 180°.",
       "misconceptions": {
-        "common": "Answering 70° by thinking all the angles of a parallelogram are equal. Only OPPOSITE angles are equal; angles next to each other add up to 180°."
+        "common": "Answering 70° by thinking all the angles of a parallelogram are equal. Only OPPOSITE angles are equal; look at the drawing: the angle marked ? is wider than the 70° angle. Angles next to each other add up to 180°."
       },
       "skill": "angles in quadrilaterals",
       "source": "inspired-by: Cambridge Checkpoint style"
@@ -268,7 +410,15 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "What is the name of a straight line from the centre of a circle to its edge?",
+      "prompt": "Look at the circle. What is the name of the straight line marked ?, which goes from the centre of the circle to its edge?",
+      "diagram": {
+        "type": "circle",
+        "radius": {
+          "angle": 35,
+          "label": "?"
+        },
+        "alt": "A circle with its centre marked. A straight line marked ? goes from the centre to the edge of the circle."
+      },
       "options": [
         "diameter",
         "circumference",
@@ -276,7 +426,7 @@
         "centre"
       ],
       "answer": 2,
-      "solution": "A line from the centre to the edge is a radius. Two radii in a straight line make a diameter.",
+      "solution": "The line marked ? starts at the centre and ends on the edge, so it is a radius. Two radii in a straight line make a diameter.",
       "misconceptions": {
         "0": "A diameter goes from edge to edge THROUGH the centre, so it is twice as long as a radius.",
         "1": "The circumference is the distance all the way round the circle, not a line from the centre.",
@@ -291,7 +441,18 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A circle has a radius of 7 cm. How long is its diameter?",
+      "prompt": "Look at the circle. Its radius is 7 cm, as marked. How long is the diameter marked ? on the drawing?",
+      "diagram": {
+        "type": "circle",
+        "radius": {
+          "angle": 230,
+          "label": "7 cm"
+        },
+        "diameter": {
+          "angle": 0,
+          "label": "?"
+        }
+      },
       "options": [
         "3.5 cm",
         "7 cm",
@@ -299,7 +460,7 @@
         "21 cm"
       ],
       "answer": 2,
-      "solution": "Diameter = 2 x radius = 2 x 7 = 14 cm.",
+      "solution": "The diameter goes right across the circle through the centre, so it is two radii long. Diameter = 2 x radius = 2 x 7 = 14 cm.",
       "misconceptions": {
         "0": "You halved the radius. The diameter is twice the radius, so double it: 7 x 2 = 14 cm.",
         "1": "You thought the radius and diameter are the same. The diameter goes right across the circle through the centre, so it is two radii long.",
@@ -337,20 +498,45 @@
       "type": "match",
       "difficulty": 1,
       "marks": 2,
-      "prompt": "Match each part of a circle to its description.",
+      "prompt": "Look at the circle. O is its centre, and A, B and C are points on its edge. Match each part of the drawing to its name.",
+      "diagram": {
+        "type": "circle",
+        "centreLabel": "O",
+        "diameter": {
+          "angle": 20
+        },
+        "radius": {
+          "angle": 110
+        },
+        "points": [
+          {
+            "angle": 20,
+            "label": "A"
+          },
+          {
+            "angle": 200,
+            "label": "B"
+          },
+          {
+            "angle": 110,
+            "label": "C"
+          }
+        ],
+        "alt": "A circle with centre O. Points A, B and C are on the circle. A straight line joins A to B and passes through O. Another straight line joins O to C."
+      },
       "options": {
         "left": [
-          "centre",
-          "radius",
-          "diameter",
-          "circumference"
+          "point O",
+          "line OC",
+          "line AB",
+          "the curved line all the way round"
         ],
         "right": [
-          "the distance all the way around the circle",
-          "a straight line from the centre to the edge",
-          "the point in the middle, the same distance from every point on the edge",
-          "a straight line from edge to edge passing through the centre",
-          "a straight line joining two points on the edge that does not pass through the centre"
+          "diameter",
+          "circumference",
+          "centre",
+          "radius",
+          "chord"
         ]
       },
       "answer": [
@@ -360,20 +546,20 @@
         ],
         [
           1,
-          1
-        ],
-        [
-          2,
           3
         ],
         [
-          3,
+          2,
           0
+        ],
+        [
+          3,
+          1
         ]
       ],
-      "solution": "Centre: the middle point. Radius: centre to edge. Diameter: edge to edge through the centre (two radii). Circumference: the distance all the way round.",
+      "solution": "O is the point in the middle, the same distance from every point on the edge: the centre. OC goes from the centre to the edge: a radius. AB goes from edge to edge THROUGH the centre O: a diameter (two radii, OA and OB, in a straight line). The curved line all the way round is the circumference. (A chord is a line joining two points on the edge that does NOT pass through the centre; there is none here.)",
       "misconceptions": {
-        "common": "Mixing up radius and diameter. The diameter goes all the way across through the centre; the radius goes only halfway, from the centre to the edge."
+        "common": "Mixing up radius and diameter. The diameter (AB) goes all the way across through the centre; the radius (OC) goes only halfway, from the centre to the edge. Calling AB a chord: a line from edge to edge that passes through the centre is called a diameter."
       },
       "skill": "parts of a circle",
       "source": "original"
@@ -469,7 +655,21 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "An angle measures 135°. What type of angle is it?",
+      "prompt": "Look at the angle drawn below. It measures 135°. What type of angle is it?",
+      "diagram": {
+        "type": "angle",
+        "rays": [
+          20,
+          155
+        ],
+        "arcs": [
+          {
+            "from": 20,
+            "to": 155,
+            "label": "135°"
+          }
+        ]
+      },
       "options": [
         "acute",
         "obtuse",
@@ -477,7 +677,7 @@
         "straight"
       ],
       "answer": 1,
-      "solution": "135° is more than 90° but less than 180°, so it is an obtuse angle.",
+      "solution": "135° is more than 90° (a right angle) but less than 180° (a straight line), so it is an obtuse angle. In the drawing the arms open wider than a square corner but not into a straight line.",
       "misconceptions": {
         "0": "Acute angles are less than 90°. 135° is bigger than a right angle.",
         "2": "Reflex angles are more than 180°. 135° is less than a straight line.",
@@ -520,7 +720,28 @@
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Two angles sit next to each other on a straight line. One of them is 48°. What is the size of the other angle? Give your answer in degrees.",
+      "prompt": "The diagram shows two angles next to each other on a straight line. What is the size of the angle marked ? on the drawing? Give your answer in degrees.",
+      "diagram": {
+        "type": "angle",
+        "lines": [
+          0
+        ],
+        "rays": [
+          48
+        ],
+        "arcs": [
+          {
+            "from": 0,
+            "to": 48,
+            "label": "48°"
+          },
+          {
+            "from": 48,
+            "to": 180,
+            "label": "?"
+          }
+        ]
+      },
       "answer": {
         "value": 132,
         "tolerance": 0,
@@ -542,7 +763,15 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "You measure an angle with a protractor. The centre of the protractor is on the corner of the angle, and one arm lies along the protractor's zero line. The other arm passes through a mark labelled 40 on one scale and 140 on the other scale. The angle is clearly smaller than a right angle. What is its size?",
+      "prompt": "A protractor is placed on the angle as shown, with its centre on the corner of the angle and one arm along the zero line. What is the size of the angle?",
+      "diagram": {
+        "type": "angle",
+        "rays": [
+          0,
+          40
+        ],
+        "protractor": true
+      },
       "options": [
         "40°",
         "140°",
@@ -550,9 +779,9 @@
         "50°"
       ],
       "answer": 0,
-      "solution": "The angle is smaller than a right angle, so it is acute (less than 90°). Of the two readings, 40 and 140, only 40° fits. The angle is 40°.",
+      "solution": "Find the arm that lies along the zero line: it points to the RIGHT. Use the scale that starts at 0 on the right (the inner scale). Follow it round to the other arm: it reads 40. (The outer scale reads 140 there, but that scale starts at 0 on the left.) Check: the angle is smaller than a right angle, so it is acute and 40° fits. The angle is 40°.",
       "misconceptions": {
-        "1": "You read the wrong scale. Use the scale that starts at 0 on the arm you lined up. The angle is smaller than a right angle, so it must be less than 90°.",
+        "1": "You read the wrong scale. The arm on the zero line points to the right, so use the scale that starts at 0 on the right. The angle is smaller than a right angle, so it must be less than 90°.",
         "2": "You took 40 from 360. That gives the reflex angle on the outside of the arms, not the angle between them.",
         "3": "You worked out how far the arm is from a right angle (90 - 40). The protractor reading already gives the angle."
       },
@@ -565,7 +794,32 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Three angles meet at a point. Two of them are 110° and 95°. What is the size of the third angle?",
+      "prompt": "Three angles meet at a point, as shown in the diagram. What is the size of the angle marked ? on the drawing?",
+      "diagram": {
+        "type": "angle",
+        "rays": [
+          90,
+          200,
+          295
+        ],
+        "arcs": [
+          {
+            "from": 90,
+            "to": 200,
+            "label": "110°"
+          },
+          {
+            "from": 200,
+            "to": 295,
+            "label": "95°"
+          },
+          {
+            "from": 295,
+            "to": 90,
+            "label": "?"
+          }
+        ]
+      },
       "options": [
         "205°",
         "165°",
@@ -632,7 +886,15 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Arjun measured an angle that is clearly obtuse and wrote down 65°. He had read the wrong scale on his protractor. What is the real size of the angle?",
+      "prompt": "Arjun measured the angle shown with his protractor and wrote down 65°. He had read the wrong scale. What is the real size of the angle?",
+      "diagram": {
+        "type": "angle",
+        "rays": [
+          0,
+          115
+        ],
+        "protractor": true
+      },
       "options": [
         "25°",
         "115°",
@@ -640,7 +902,7 @@
         "65°"
       ],
       "answer": 1,
-      "solution": "The two scales on a protractor add up to 180° at every mark. The other scale reads 180 - 65 = 115°. 115° is obtuse, which fits.",
+      "solution": "The arm on the zero line points to the right, so the correct scale is the one that starts at 0 on the right (the inner scale). On that scale the other arm passes 115. Arjun read 65 from the outer scale, which starts at 0 on the left. The angle is clearly obtuse (wider than a right angle), so 65° cannot be right. Check: the two scales add up to 180° at every mark: 180 - 65 = 115°.",
       "misconceptions": {
         "0": "You took 65 from 90. The two scales on a protractor always add up to 180°, so the other reading is 180 - 65.",
         "2": "You took 65 from 360, which gives a reflex angle. The angle is obtuse, so it is between 90° and 180°.",
@@ -655,7 +917,38 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Four angles meet at a point. One of them is 120° and the other three are equal. What is the size of each of the three equal angles?",
+      "prompt": "Four angles meet at a point, as shown. The three angles marked x are equal. What is the size of each angle x?",
+      "diagram": {
+        "type": "angle",
+        "rays": [
+          90,
+          210,
+          290,
+          10
+        ],
+        "arcs": [
+          {
+            "from": 90,
+            "to": 210,
+            "label": "120°"
+          },
+          {
+            "from": 210,
+            "to": 290,
+            "label": "x"
+          },
+          {
+            "from": 290,
+            "to": 10,
+            "label": "x"
+          },
+          {
+            "from": 10,
+            "to": 90,
+            "label": "x"
+          }
+        ]
+      },
       "options": [
         "240°",
         "20°",
@@ -663,7 +956,7 @@
         "80°"
       ],
       "answer": 3,
-      "solution": "Angles around a point add up to 360°. 360 - 120 = 240. The three equal angles share 240°: 240 ÷ 3 = 80°. Check: 120 + 80 + 80 + 80 = 360.",
+      "solution": "Angles around a point add up to 360°. 360 - 120 = 240. The three equal angles x share 240°: 240 ÷ 3 = 80°. Check: 120 + 80 + 80 + 80 = 360.",
       "misconceptions": {
         "0": "You found 360 - 120 = 240 but forgot to share it equally among the three angles.",
         "1": "You used 180° instead of 360°: (180 - 120) ÷ 3 = 20. Angles around a point add up to 360°.",
@@ -678,7 +971,34 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Three angles, a, b and c, sit side by side on a straight line. Angle a is 35°. Angle b is twice the size of angle a. What is the size of angle c? Give your answer in degrees.",
+      "prompt": "The diagram shows three angles, a, b and c, on a straight line. Angle a is 35°. Angle b is twice the size of angle a. What is the size of angle c? Give your answer in degrees.",
+      "diagram": {
+        "type": "angle",
+        "lines": [
+          0
+        ],
+        "rays": [
+          35,
+          105
+        ],
+        "arcs": [
+          {
+            "from": 0,
+            "to": 35,
+            "label": "a"
+          },
+          {
+            "from": 35,
+            "to": 105,
+            "label": "b"
+          },
+          {
+            "from": 105,
+            "to": 180,
+            "label": "c"
+          }
+        ]
+      },
       "answer": {
         "value": 75,
         "tolerance": 0,
@@ -700,7 +1020,21 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Which is the best estimate for an angle that is a little smaller than a right angle?",
+      "prompt": "Look at the angle drawn below. Which is the best estimate of its size?",
+      "diagram": {
+        "type": "angle",
+        "rays": [
+          15,
+          95
+        ],
+        "arcs": [
+          {
+            "from": 15,
+            "to": 95
+          }
+        ],
+        "alt": "Two arms meet at a point. The angle between them is marked, and it is a little narrower than a square corner."
+      },
       "options": [
         "100°",
         "80°",
@@ -708,11 +1042,11 @@
         "170°"
       ],
       "answer": 1,
-      "solution": "A right angle is 90°. A little smaller than 90° is about 80°.",
+      "solution": "Compare the angle with a right angle (90°), the corner of a square. The arms are not quite as wide apart as a square corner, so the angle is a little smaller than 90°. About 80° is the best estimate.",
       "misconceptions": {
-        "0": "100° is a little BIGGER than a right angle (it is obtuse).",
-        "2": "10° is much smaller than a right angle: it is a very thin angle.",
-        "3": "170° is nearly a straight line, much bigger than a right angle."
+        "0": "100° is a little BIGGER than a right angle (it is obtuse). The angle drawn is a little narrower than a square corner.",
+        "2": "10° is a very thin angle, much smaller than the one drawn.",
+        "3": "170° is nearly a straight line, much wider than the angle drawn."
       },
       "skill": "estimating angles",
       "source": "original"
@@ -723,7 +1057,35 @@
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Two angles of a triangle are 50° and 60°. What is the size of the third angle? Give your answer in degrees.",
+      "prompt": "Look at the triangle. Two of its angles are marked. What is the size of the third angle, marked ? on the drawing? Give your answer in degrees.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            8.0,
+            0.0
+          ],
+          [
+            4.7392,
+            5.6479
+          ]
+        ],
+        "angles": [
+          {
+            "label": "50°"
+          },
+          {
+            "label": "60°"
+          },
+          {
+            "label": "?"
+          }
+        ]
+      },
       "answer": {
         "value": 70,
         "tolerance": 0,
@@ -783,7 +1145,35 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A right-angled triangle has one angle of 34°. What is the size of the third angle?",
+      "prompt": "The diagram shows a right-angled triangle. What is the size of the angle marked ? on the drawing?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            5.3961
+          ]
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          {
+            "label": "34°"
+          },
+          {
+            "label": "?"
+          }
+        ]
+      },
       "options": [
         "56°",
         "146°",
@@ -791,9 +1181,9 @@
         "45°"
       ],
       "answer": 0,
-      "solution": "The angles add up to 180°. 90 + 34 = 124. 180 - 124 = 56°.",
+      "solution": "The square mark shows a right angle, 90°. The angles add up to 180°. 90 + 34 = 124. 180 - 124 = 56°.",
       "misconceptions": {
-        "1": "You did 180 - 34 but forgot the right angle (90°) is also in the triangle.",
+        "1": "You did 180 - 34 but forgot the right angle (the square mark, 90°) is also in the triangle.",
         "2": "Slip in 90 - 34. In the ones column 0 - 4 needs an exchange: 90 - 34 = 56.",
         "3": "You assumed the two smaller angles are equal. That only happens when the other angle is 45°, not 34°."
       },
@@ -806,7 +1196,44 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "In an isosceles triangle, the angle between the two equal sides is 40°. What is the size of each of the other two angles?",
+      "prompt": "The diagram shows an isosceles triangle. The two sides with a mark are equal. What is the size of each angle marked x?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            -2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            5.495
+          ]
+        ],
+        "sides": [
+          null,
+          {
+            "ticks": 1
+          },
+          {
+            "ticks": 1
+          }
+        ],
+        "angles": [
+          {
+            "label": "x"
+          },
+          {
+            "label": "x"
+          },
+          {
+            "label": "40°"
+          }
+        ]
+      },
       "options": [
         "140°",
         "40°",
@@ -814,11 +1241,11 @@
         "100°"
       ],
       "answer": 2,
-      "solution": "The two angles opposite the equal sides are equal. 180 - 40 = 140. 140 ÷ 2 = 70°. Check: 40 + 70 + 70 = 180.",
+      "solution": "The 40° angle is between the two equal (marked) sides. The two angles x are equal. 180 - 40 = 140. 140 ÷ 2 = 70°. Check: 40 + 70 + 70 = 180.",
       "misconceptions": {
-        "0": "You found 180 - 40 = 140 but forgot that this is shared between the two equal angles.",
+        "0": "You found 180 - 40 = 140 but forgot that this is shared between the two equal angles x.",
         "1": "You thought all three angles are equal. That is an equilateral triangle, not this one.",
-        "3": "You treated 40° as one of the two equal angles: 180 - 40 - 40 = 100. Here 40° is the angle BETWEEN the equal sides, so the other two angles are the equal ones."
+        "3": "You treated 40° as one of the two equal angles: 180 - 40 - 40 = 100. Here 40° is the angle BETWEEN the equal sides, so the two angles x are the equal ones."
       },
       "skill": "angles in special triangles",
       "source": "original"
@@ -844,7 +1271,42 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "In an isosceles triangle, one of the two EQUAL angles is 65°. What is the size of the third angle?",
+      "prompt": "The diagram shows an isosceles triangle. The two sides with a mark are equal. What is the size of the angle marked ? on the drawing?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            -2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            4.289
+          ]
+        ],
+        "sides": [
+          null,
+          {
+            "ticks": 1
+          },
+          {
+            "ticks": 1
+          }
+        ],
+        "angles": [
+          {
+            "label": "65°"
+          },
+          null,
+          {
+            "label": "?"
+          }
+        ]
+      },
       "options": [
         "57.5°",
         "115°",
@@ -852,11 +1314,11 @@
         "65°"
       ],
       "answer": 2,
-      "solution": "There are two equal angles of 65°. 65 + 65 = 130. 180 - 130 = 50°.",
+      "solution": "The two marked sides are equal, so the two angles at the bottom (opposite those sides) are equal: both are 65°. 65 + 65 = 130. 180 - 130 = 50°.",
       "misconceptions": {
-        "0": "You treated 65° as the odd angle and shared the rest: (180 - 65) ÷ 2. But 65° is one of the two EQUAL angles, so there are two 65° angles.",
-        "1": "You took away only one 65°. There are two equal angles of 65°: 180 - 65 - 65 = 50.",
-        "3": "You thought all three angles are equal, but only two of them are."
+        "0": "You treated 65° as the odd angle and shared the rest: (180 - 65) ÷ 2. But the angle marked ? is between the two equal sides, so the OTHER bottom angle is also 65°.",
+        "1": "You took away only one 65°. The other bottom angle is also 65°: 180 - 65 - 65 = 50.",
+        "3": "You thought all three angles are equal, but only the two bottom angles are."
       },
       "skill": "angles in special triangles",
       "source": "original"
@@ -867,7 +1329,36 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "In triangle ABC, angle C is 72°. Angle A is twice the size of angle B. What is the size of angle B? Give your answer in degrees.",
+      "prompt": "Look at triangle ABC. Angle C is 72°. Angle A is twice the size of angle B. What is the size of angle B? Give your answer in degrees.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            8.0,
+            0.0
+          ],
+          [
+            1.5279,
+            4.7023
+          ]
+        ],
+        "vertexLabels": [
+          "A",
+          "B",
+          "C"
+        ],
+        "angles": [
+          null,
+          null,
+          {
+            "label": "72°"
+          }
+        ]
+      },
       "answer": {
         "value": 36,
         "tolerance": 0,
@@ -956,13 +1447,106 @@
       "type": "match",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Match each shape to its order of rotational symmetry. (The rectangle is not a square, and the kite is not a rhombus.)",
+      "prompt": "Shapes A, B, C and D are drawn on the squared grid. Shape B is an equilateral triangle. Match each shape to its order of rotational symmetry.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          14
+        ],
+        "y": [
+          0,
+          12
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                3,
+                6
+              ],
+              [
+                5,
+                9
+              ],
+              [
+                3,
+                11
+              ],
+              [
+                1,
+                9
+              ]
+            ],
+            "label": "A"
+          },
+          {
+            "points": [
+              [
+                8,
+                7
+              ],
+              [
+                13,
+                7
+              ],
+              [
+                10.5,
+                11.33
+              ]
+            ],
+            "label": "B"
+          },
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                5
+              ],
+              [
+                1,
+                5
+              ]
+            ],
+            "label": "C"
+          },
+          {
+            "points": [
+              [
+                7,
+                1
+              ],
+              [
+                13,
+                1
+              ],
+              [
+                13,
+                4
+              ],
+              [
+                7,
+                4
+              ]
+            ],
+            "label": "D"
+          }
+        ]
+      },
       "options": {
         "left": [
-          "equilateral triangle",
-          "rectangle",
-          "kite",
-          "square"
+          "Shape A",
+          "Shape B",
+          "Shape C",
+          "Shape D"
         ],
         "right": [
           "1",
@@ -975,24 +1559,24 @@
       "answer": [
         [
           0,
-          2
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          2,
           0
         ],
         [
-          3,
+          1,
+          2
+        ],
+        [
+          2,
           3
+        ],
+        [
+          3,
+          1
         ]
       ],
-      "solution": "Equilateral triangle: fits after 120°, 240°, 360°, so order 3. Rectangle: fits after 180° and 360°, order 2. Kite: fits only after a full turn, order 1. Square: fits after every quarter turn, order 4.",
+      "solution": "A is a kite (two pairs of equal sides next to each other): it fits onto itself only after a full turn, so order 1. B, equilateral triangle: fits after 120°, 240° and 360°, so order 3. C is a square (4 by 4): fits after every quarter turn, order 4. D is a rectangle (6 by 3, not a square): fits after 180° and 360°, order 2.",
       "misconceptions": {
-        "common": "Giving the kite order 2 because it has a line of symmetry. A kite only fits onto itself after a full turn, so its order is 1."
+        "common": "Giving the kite (shape A) order 2 because it has a line of symmetry. A kite only fits onto itself after a full turn, so its order is 1. And the rectangle (shape D) is not a square, so it does not fit after a quarter turn: order 2, not 4."
       },
       "skill": "order of rotational symmetry",
       "source": "original"
@@ -1077,7 +1661,63 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A ceiling fan has 3 identical blades, evenly spaced. Its order of rotational symmetry is 3. What is the smallest angle you must turn it through so that it looks the same again? Give your answer in degrees.",
+      "prompt": "The drawing shows a ceiling fan seen from below. It has 3 identical blades, evenly spaced, so its order of rotational symmetry is 3. What is the smallest angle you must turn it through so that it looks the same again? Give your answer in degrees.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0.3746,
+            0.9272
+          ],
+          [
+            1.2096,
+            4.8515
+          ],
+          [
+            -1.3064,
+            5.2396
+          ],
+          [
+            -0.3746,
+            0.9272
+          ],
+          [
+            -0.9903,
+            -0.1392
+          ],
+          [
+            -4.8063,
+            -1.3782
+          ],
+          [
+            -3.8844,
+            -3.7512
+          ],
+          [
+            -0.6157,
+            -0.788
+          ],
+          [
+            0.6157,
+            -0.788
+          ],
+          [
+            3.5967,
+            -3.4733
+          ],
+          [
+            5.1908,
+            -1.4884
+          ],
+          [
+            0.9903,
+            -0.1392
+          ]
+        ],
+        "shaded": true,
+        "size": "small",
+        "alt": "A ceiling fan seen from below: three identical blades spaced evenly round the centre."
+      },
       "answer": {
         "value": 120,
         "tolerance": 0,
@@ -1086,7 +1726,7 @@
           "120 degrees"
         ]
       },
-      "solution": "A full turn is 360°. The fan fits 3 times in a full turn, so each turn is 360 ÷ 3 = 120°.",
+      "solution": "A full turn is 360°. The fan fits onto itself 3 times in a full turn (once for each blade), so each turn is 360 ÷ 3 = 120°.",
       "misconceptions": {
         "common": "Using 90° (a quarter turn) for every shape. The angle depends on the order: 360 ÷ order = 360 ÷ 3 = 120°."
       },
@@ -1099,7 +1739,42 @@
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A right-angled triangle has two shorter sides of 6 cm and 8 cm, which meet at the right angle. Its longest side is 10 cm. What is its area? Give your answer in cm².",
+      "prompt": "The diagram shows a right-angled triangle. What is its area? Give your answer in cm².",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "sides": [
+          {
+            "label": "8 cm"
+          },
+          {
+            "label": "10 cm"
+          },
+          {
+            "label": "6 cm"
+          }
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          null,
+          null
+        ]
+      },
       "answer": {
         "value": 24,
         "tolerance": 0,
@@ -1108,9 +1783,9 @@
           "24 cm^2"
         ]
       },
-      "solution": "The triangle is half of a 6 cm by 8 cm rectangle. Rectangle: 6 x 8 = 48 cm². Triangle: 48 ÷ 2 = 24 cm².",
+      "solution": "Use the two sides that meet at the right angle (the square mark): 6 cm and 8 cm. The triangle is half of a 6 cm by 8 cm rectangle. Rectangle: 6 x 8 = 48 cm². Triangle: 48 ÷ 2 = 24 cm².",
       "misconceptions": {
-        "common": "Forgetting to halve gives 48 cm², the area of the whole rectangle. Using the 10 cm side is also wrong: use the two sides that meet at the right angle."
+        "common": "Forgetting to halve gives 48 cm², the area of the whole rectangle. Using the 10 cm side is also wrong: it is opposite the right angle. Use the two sides that meet at the square mark."
       },
       "skill": "area of right-angled triangles",
       "source": "original"
@@ -1121,7 +1796,65 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A rectangle measures 10 cm by 4 cm. It is cut along a diagonal into two identical right-angled triangles. What is the area of one triangle?",
+      "prompt": "The rectangle shown is cut along the dashed diagonal into two identical right-angled triangles. What is the area of one triangle?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "sides": [
+          {
+            "label": "10 cm"
+          },
+          {
+            "label": "4 cm"
+          },
+          null,
+          null
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          {
+            "right": true
+          }
+        ],
+        "extraLines": [
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              10,
+              4
+            ],
+            "dashed": true
+          }
+        ]
+      },
       "options": [
         "40 cm²",
         "20 cm²",
@@ -1144,7 +1877,40 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A right-angled triangle has an area of 30 cm². One of the two sides that meet at the right angle is 5 cm long. How long is the other side that meets at the right angle?",
+      "prompt": "The right-angled triangle shown has an area of 30 cm². What is the length of the side marked ? on the drawing?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "sides": [
+          {
+            "label": "?"
+          },
+          null,
+          {
+            "label": "5 cm"
+          }
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          null,
+          null
+        ]
+      },
       "options": [
         "12 cm",
         "6 cm",
@@ -1152,7 +1918,7 @@
         "150 cm"
       ],
       "answer": 0,
-      "solution": "The triangle is half of a rectangle, so the rectangle's area is 30 x 2 = 60 cm². 60 ÷ 5 = 12 cm. Check: 5 x 12 ÷ 2 = 30.",
+      "solution": "The side marked ? and the 5 cm side meet at the right angle. The triangle is half of a rectangle, so the rectangle's area is 30 x 2 = 60 cm². 60 ÷ 5 = 12 cm. Check: 5 x 12 ÷ 2 = 30.",
       "misconceptions": {
         "1": "You did 30 ÷ 5 but forgot the triangle is only half a rectangle. The rectangle would be 60 cm², and 60 ÷ 5 = 12 cm.",
         "2": "You subtracted 5 from 30. Area comes from multiplying, so work backwards by dividing.",
@@ -1167,7 +1933,42 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A right-angled triangle has two shorter sides of 9 cm and 7 cm that meet at the right angle. Its longest side is about 11.4 cm. What is its area?",
+      "prompt": "Look at the right-angled triangle. What is its area?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "sides": [
+          {
+            "label": "9 cm"
+          },
+          {
+            "label": "11.4 cm"
+          },
+          {
+            "label": "7 cm"
+          }
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          null,
+          null
+        ]
+      },
       "options": [
         "63 cm²",
         "51.3 cm²",
@@ -1175,7 +1976,7 @@
         "39.9 cm²"
       ],
       "answer": 2,
-      "solution": "Use the two sides that meet at the right angle. 9 x 7 = 63. 63 ÷ 2 = 31.5 cm².",
+      "solution": "Use the two sides that meet at the right angle (the square mark): 9 cm and 7 cm. 9 x 7 = 63. 63 ÷ 2 = 31.5 cm². The 11.4 cm side is not needed.",
       "misconceptions": {
         "0": "You multiplied 9 x 7 but forgot to halve. 63 cm² is the area of the rectangle.",
         "1": "You used the longest side (11.4 cm) with 9 cm. Use the two sides that meet at the right angle.",
@@ -1190,7 +1991,69 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A shape is made of a rectangle and a right-angled triangle. The rectangle is 8 cm long and 5 cm tall. The triangle is joined to the right-hand side of the rectangle: one of its sides next to the right angle is the rectangle's 5 cm side, and its other side next to the right angle is 6 cm long, running along the bottom in a straight line with the bottom of the rectangle. What is the total area of the shape? Give your answer in cm².",
+      "prompt": "The shape shown is made of a rectangle and a right-angled triangle, split by the dashed line. What is the total area of the shape? Give your answer in cm².",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            14,
+            0
+          ],
+          [
+            8,
+            5
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "sides": [
+          {
+            "label": "8 cm"
+          },
+          {
+            "label": "6 cm"
+          },
+          null,
+          null,
+          {
+            "label": "5 cm"
+          }
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          null,
+          null,
+          null,
+          {
+            "right": true
+          }
+        ],
+        "extraLines": [
+          {
+            "from": [
+              8,
+              0
+            ],
+            "to": [
+              8,
+              5
+            ],
+            "dashed": true
+          }
+        ]
+      },
       "answer": {
         "value": 55,
         "tolerance": 0,
@@ -1199,9 +2062,9 @@
           "55 cm^2"
         ]
       },
-      "solution": "Rectangle: 8 x 5 = 40 cm². Triangle: 5 x 6 ÷ 2 = 15 cm². Total: 40 + 15 = 55 cm².",
+      "solution": "Rectangle: 8 x 5 = 40 cm². The dashed line is the rectangle's right-hand side, so it is also 5 cm, and it meets the 6 cm side at a right angle. Triangle: 5 x 6 ÷ 2 = 15 cm². Total: 40 + 15 = 55 cm².",
       "misconceptions": {
-        "common": "Forgetting to halve the triangle gives 40 + 30 = 70 cm²."
+        "common": "Forgetting to halve the triangle gives 40 + 30 = 70 cm². Or using the whole bottom (8 + 6 = 14 cm) as a rectangle: 14 x 5 = 70 cm² counts a triangle that is not there."
       },
       "skill": "area of compound shapes",
       "source": "original"
@@ -1212,7 +2075,82 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A square garden has sides of 10 m. In one corner there is a flower bed shaped like a right-angled triangle. Its two shorter sides run along two sides of the garden and are 4 m and 6 m long. The rest of the garden is grass. What is the area of the grass?",
+      "prompt": "The diagram shows a square garden. The triangle in the bottom left corner is a flower bed, and the rest of the garden is grass. What is the area of the grass?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            0,
+            10
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "sides": [
+          {
+            "label": "6 m"
+          },
+          null,
+          {
+            "label": "10 m"
+          },
+          {
+            "label": "10 m"
+          },
+          null,
+          {
+            "label": "4 m"
+          }
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          null,
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          null
+        ],
+        "extraLines": [
+          {
+            "from": [
+              6,
+              0
+            ],
+            "to": [
+              0,
+              4
+            ],
+            "dashed": false
+          }
+        ],
+        "caption": "The flower bed is the right-angled triangle in the bottom left corner."
+      },
       "options": [
         "76 m²",
         "88 m²",
@@ -1220,7 +2158,7 @@
         "90 m²"
       ],
       "answer": 1,
-      "solution": "Garden: 10 x 10 = 100 m². Flower bed: 4 x 6 ÷ 2 = 12 m². Grass: 100 - 12 = 88 m².",
+      "solution": "Garden: 10 x 10 = 100 m². Flower bed: a right-angled triangle with sides 6 m and 4 m meeting at the corner of the garden: 6 x 4 ÷ 2 = 12 m². Grass: 100 - 12 = 88 m².",
       "misconceptions": {
         "0": "You took away 4 x 6 = 24 without halving. The flower bed is a triangle: 24 ÷ 2 = 12 m².",
         "2": "You added the flower bed instead of taking it away. The grass is what is left.",
@@ -1235,7 +2173,81 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rectangle of card measures 12 cm by 8 cm. A right-angled triangle is cut off one corner. The triangle's two shorter sides are 3 cm (along the 12 cm side) and 4 cm (along the 8 cm side). What is the area of the card that is left? Give your answer in cm².",
+      "prompt": "The diagram shows a rectangle of card. A right-angled triangle is cut off the top right corner along the dashed line. What is the area of the card that is left? Give your answer in cm².",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            12,
+            8
+          ],
+          [
+            9,
+            8
+          ],
+          [
+            0,
+            8
+          ]
+        ],
+        "sides": [
+          {
+            "label": "12 cm"
+          },
+          null,
+          {
+            "label": "4 cm"
+          },
+          {
+            "label": "3 cm"
+          },
+          null,
+          {
+            "label": "8 cm"
+          }
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          null,
+          {
+            "right": true
+          },
+          null,
+          {
+            "right": true
+          }
+        ],
+        "extraLines": [
+          {
+            "from": [
+              9,
+              8
+            ],
+            "to": [
+              12,
+              4
+            ],
+            "dashed": true
+          }
+        ]
+      },
       "answer": {
         "value": 90,
         "tolerance": 0,
@@ -1244,7 +2256,7 @@
           "90 cm^2"
         ]
       },
-      "solution": "Rectangle: 12 x 8 = 96 cm². Triangle cut off: 3 x 4 ÷ 2 = 6 cm². Card left: 96 - 6 = 90 cm².",
+      "solution": "Rectangle: 12 x 8 = 96 cm². The triangle cut off has sides 3 cm and 4 cm meeting at the corner: 3 x 4 ÷ 2 = 6 cm². Card left: 96 - 6 = 90 cm².",
       "misconceptions": {
         "common": "Forgetting to halve the triangle gives 96 - 12 = 84 cm²."
       },
@@ -1265,6 +2277,1169 @@
       },
       "skill": "area of right-angled triangles",
       "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m03-q052",
+      "subtopicId": "m03-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The protractor is placed on the angle as shown. What is the size of the angle?",
+      "diagram": {
+        "type": "angle",
+        "rays": [
+          180,
+          110
+        ],
+        "protractor": true
+      },
+      "options": [
+        "110°",
+        "20°",
+        "250°",
+        "70°"
+      ],
+      "answer": 3,
+      "solution": "One arm lies along the zero line pointing to the LEFT. Use the scale that starts at 0 on the left (the outer scale). Follow it round to the other arm: it reads 70. The angle is smaller than a right angle, so 70° makes sense.",
+      "misconceptions": {
+        "0": "It looks like you read the inner scale. That scale starts at 0 on the right, but the arm on the zero line points to the left. Always start from 0 on the arm you lined up. Also, the angle is smaller than a right angle, so it cannot be 110°.",
+        "1": "You worked out how far the arm is from the 90 mark (90 - 70). The protractor reading already gives the angle: 70°.",
+        "2": "You took 110 from 360. That is the reflex angle the long way round, not the angle between the arms."
+      },
+      "skill": "measuring angles with a protractor",
+      "source": "original"
+    },
+    {
+      "id": "m03-q053",
+      "subtopicId": "m03-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the protractor placed on the angle shown. What is the size of the angle? Give your answer in degrees.",
+      "diagram": {
+        "type": "angle",
+        "rays": [
+          180,
+          25
+        ],
+        "protractor": true,
+        "alt": "A protractor is placed with its centre on the corner of the angle and its baseline along the horizontal. One arm runs along the baseline to the left. The other arm goes up and to the right, crossing the scales halfway between two labelled marks."
+      },
+      "answer": {
+        "value": 155,
+        "tolerance": 0,
+        "accept": [
+          "155°",
+          "155 degrees"
+        ]
+      },
+      "solution": "The arm on the zero line points to the LEFT, so use the outer scale, which starts at 0 on the left. The other arm is halfway between the marks labelled 150 and 160 on that scale, so it reads 155. Check: the angle is wider than a right angle (obtuse), so an answer between 90° and 180° makes sense. The angle is 155°.",
+      "misconceptions": {
+        "common": "Reading 25 from the inner scale. The inner scale starts at 0 on the right, but this angle's arm on the zero line points to the left. The angle is obtuse, so it must be more than 90°. Another slip is reading 165 or 145: the arm is exactly halfway between 150 and 160."
+      },
+      "skill": "measuring angles with a protractor",
+      "source": "original"
+    },
+    {
+      "id": "m03-q054",
+      "subtopicId": "m03-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The diagram shows three angles on a straight line. The small square marks a right angle. What is the size of the angle marked ? on the drawing? Give your answer in degrees.",
+      "diagram": {
+        "type": "angle",
+        "lines": [
+          0
+        ],
+        "rays": [
+          38,
+          128
+        ],
+        "arcs": [
+          {
+            "from": 0,
+            "to": 38,
+            "label": "38°"
+          },
+          {
+            "from": 38,
+            "to": 128,
+            "right": true
+          },
+          {
+            "from": 128,
+            "to": 180,
+            "label": "?"
+          }
+        ]
+      },
+      "answer": {
+        "value": 52,
+        "tolerance": 0,
+        "accept": [
+          "52°",
+          "52 degrees"
+        ]
+      },
+      "solution": "Angles on a straight line add up to 180°. The square shows a right angle, 90°. 38 + 90 = 128. 180 - 128 = 52°.",
+      "misconceptions": {
+        "common": "Forgetting the right angle: 180 - 38 = 142°. The small square means 90°, and it must be taken away too: 180 - 38 - 90 = 52°."
+      },
+      "skill": "angles on a straight line",
+      "source": "original"
+    },
+    {
+      "id": "m03-q055",
+      "subtopicId": "m03-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Four angles meet at a point, as shown. The small square marks a right angle, and the two angles marked x are equal. What is the size of x?",
+      "diagram": {
+        "type": "angle",
+        "rays": [
+          0,
+          90,
+          230,
+          295
+        ],
+        "arcs": [
+          {
+            "from": 0,
+            "to": 90,
+            "right": true
+          },
+          {
+            "from": 90,
+            "to": 230,
+            "label": "140°"
+          },
+          {
+            "from": 230,
+            "to": 295,
+            "label": "x"
+          },
+          {
+            "from": 295,
+            "to": 0,
+            "label": "x"
+          }
+        ]
+      },
+      "options": [
+        "130°",
+        "65°",
+        "110°",
+        "20°"
+      ],
+      "answer": 1,
+      "solution": "Angles around a point add up to 360°. The right angle is 90°. 90 + 140 = 230. 360 - 230 = 130. The two equal angles x share 130°: 130 ÷ 2 = 65°. Check: 90 + 140 + 65 + 65 = 360.",
+      "misconceptions": {
+        "0": "You found what is left (130°) but forgot to share it between the TWO angles marked x: 130 ÷ 2 = 65°.",
+        "2": "You left out the right angle. The small square is 90°, so take it away as well: 360 - 90 - 140 = 130, then 130 ÷ 2 = 65°.",
+        "3": "You used 180° (a straight line) instead of 360°, and missed the right angle. Angles around a point make a full turn, 360°."
+      },
+      "skill": "angles around a point",
+      "source": "original"
+    },
+    {
+      "id": "m03-q056",
+      "subtopicId": "m03-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Work out the missing angle, marked ?, in the triangle shown. Give your answer in degrees.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            7.8252,
+            1.6633
+          ],
+          [
+            5.1644,
+            8.595
+          ]
+        ],
+        "angles": [
+          {
+            "label": "47°"
+          },
+          {
+            "label": "81°"
+          },
+          {
+            "label": "?"
+          }
+        ]
+      },
+      "answer": {
+        "value": 52,
+        "tolerance": 0,
+        "accept": [
+          "52°",
+          "52 degrees"
+        ]
+      },
+      "solution": "The angles in a triangle add up to 180°. 47 + 81 = 128. 180 - 128 = 52°. Check: 47 + 81 + 52 = 180.",
+      "misconceptions": {
+        "common": "Slips when adding or taking away: 47 + 81 = 128 (7 + 1 = 8, 40 + 80 = 120), then 180 - 128 = 52. Using 360° instead of 180° gives 232°, which is far too big for a corner of a triangle."
+      },
+      "skill": "missing angles in triangles",
+      "source": "original"
+    },
+    {
+      "id": "m03-q057",
+      "subtopicId": "m03-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The triangle shown is isosceles: the two sides with a mark are equal. What is the size of the angle marked ? on the drawing?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            3,
+            3.8398
+          ]
+        ],
+        "sides": [
+          null,
+          {
+            "ticks": 1
+          },
+          {
+            "ticks": 1
+          }
+        ],
+        "angles": [
+          {
+            "label": "52°"
+          },
+          {
+            "label": "?"
+          },
+          null
+        ]
+      },
+      "options": [
+        "52°",
+        "76°",
+        "64°",
+        "128°"
+      ],
+      "answer": 0,
+      "solution": "The two marked sides meet at the top corner. The angles opposite the equal sides are the two bottom angles, so they are equal. The angle marked ? is the same as the other bottom angle: 52°. (The top angle is 180 - 52 - 52 = 76°.)",
+      "misconceptions": {
+        "1": "76° is the TOP angle (180 - 52 - 52). The angle marked ? is a bottom angle, and the two bottom angles are equal because they sit opposite the two equal sides.",
+        "2": "You treated 52° as the top angle and shared the rest: (180 - 52) ÷ 2 = 64. But 52° is at the bottom, next to the unmarked side, so the other bottom angle is equal to it.",
+        "3": "You did 180 - 52, as if the two angles were on a straight line. They are two corners of a triangle; here they are equal because the marked sides are equal."
+      },
+      "skill": "angles in special triangles",
+      "source": "original"
+    },
+    {
+      "id": "m03-q058",
+      "subtopicId": "m03-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle PQR is drawn below, with a right angle at Q. Angle P is 28° bigger than angle R. What is the size of angle R? Give your answer in degrees.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            4.8069
+          ]
+        ],
+        "vertexLabels": [
+          "Q",
+          "R",
+          "P"
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          null,
+          null
+        ]
+      },
+      "answer": {
+        "value": 31,
+        "tolerance": 0,
+        "accept": [
+          "31°",
+          "31 degrees"
+        ]
+      },
+      "solution": "Angle Q is 90°, so P + R = 180 - 90 = 90°. P is 28° more than R. Take the extra 28° away: 90 - 28 = 62. Now P and R would be equal, so share it: 62 ÷ 2 = 31. So R = 31° and P = 31 + 28 = 59°. Check: 90 + 59 + 31 = 180.",
+      "misconceptions": {
+        "common": "Answering 59°, which is angle P, the bigger one; R is the smaller angle. Another slip is forgetting the right angle: (180 - 28) ÷ 2 = 76°, which is too big, because P and R must share only 90°."
+      },
+      "skill": "missing angles in triangles",
+      "source": "original"
+    },
+    {
+      "id": "m03-q059",
+      "subtopicId": "m03-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the four shapes. Arrows on two sides show that those sides are parallel. Which shape is a trapezium?",
+      "optionDiagrams": [
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6.5,
+              3
+            ],
+            [
+              1.5,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "arrows": 1
+            },
+            {
+              "arrows": 2
+            },
+            {
+              "arrows": 1
+            },
+            {
+              "arrows": 2
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              2,
+              0
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "ticks": 2
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 2
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              4.5,
+              3
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "arrows": 1
+            },
+            null,
+            {
+              "arrows": 1
+            },
+            null
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              1,
+              2.5
+            ]
+          ]
+        }
+      ],
+      "options": [
+        "Shape A",
+        "Shape B",
+        "Shape C",
+        "Shape D"
+      ],
+      "answer": 2,
+      "solution": "A trapezium is a quadrilateral with exactly ONE pair of parallel sides. Shape C has one pair (the top and bottom, marked with arrows) and its slanting sides are not parallel. Shape A has two pairs of parallel sides (a parallelogram), shape B is a kite (no parallel sides) and shape D has no parallel sides.",
+      "misconceptions": {
+        "0": "Shape A has TWO pairs of parallel sides (single arrows and double arrows), so it is a parallelogram. A trapezium has exactly one pair.",
+        "1": "Shape B is a kite: its equal sides (the marks) are next to each other, and it has no parallel sides.",
+        "3": "Shape D has no parallel sides at all: the top and bottom slope differently. A trapezium needs one pair of parallel sides."
+      },
+      "skill": "properties of quadrilaterals",
+      "source": "original"
+    },
+    {
+      "id": "m03-q060",
+      "subtopicId": "m03-s1",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the five shapes. Matching dashes show equal sides, matching arrows show parallel sides, and small squares show right angles. Select ALL the shapes that are parallelograms.",
+      "optionDiagrams": [
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "angles": [
+            {
+              "right": true
+            },
+            {
+              "right": true
+            },
+            {
+              "right": true
+            },
+            {
+              "right": true
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              2,
+              0
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "ticks": 2
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 2
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              6.4,
+              3.2
+            ],
+            [
+              2.4,
+              3.2
+            ]
+          ],
+          "sides": [
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "arrows": 1
+            },
+            null,
+            {
+              "arrows": 1
+            },
+            null
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "arrows": 1
+            },
+            {
+              "arrows": 2
+            },
+            {
+              "arrows": 1
+            },
+            {
+              "arrows": 2
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Shape A",
+        "Shape B",
+        "Shape C",
+        "Shape D",
+        "Shape E"
+      ],
+      "answer": [
+        0,
+        2,
+        4
+      ],
+      "solution": "A parallelogram is a quadrilateral with two pairs of parallel sides. Shape A has four right angles, so it is a rectangle, and every rectangle is a parallelogram. Shape C has four equal sides, so it is a rhombus, and every rhombus is a parallelogram. Shape E has two pairs of parallel sides (single and double arrows): an ordinary parallelogram. Shape B is a kite (no parallel sides) and shape D is a trapezium (only one pair). Answer: A, C and E.",
+      "misconceptions": {
+        "1": "Shape B is a kite: its equal sides are next to each other, not opposite, and none of its sides are parallel.",
+        "3": "Shape D is a trapezium: it has only ONE pair of parallel sides. A parallelogram needs two pairs.",
+        "common": "Leaving out shape A or shape C. Rectangles and rhombuses have two pairs of parallel sides, so they are special parallelograms, just as a square is a special rectangle."
+      },
+      "skill": "classifying quadrilaterals",
+      "source": "original"
+    },
+    {
+      "id": "m03-q061",
+      "subtopicId": "m03-s6",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Find the area of the right-angled triangle shown. Give your answer in cm².",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            13,
+            0
+          ],
+          [
+            1.9231,
+            4.6154
+          ]
+        ],
+        "sides": [
+          {
+            "label": "13 cm"
+          },
+          {
+            "label": "12 cm"
+          },
+          {
+            "label": "5 cm"
+          }
+        ],
+        "angles": [
+          null,
+          null,
+          {
+            "right": true
+          }
+        ]
+      },
+      "answer": {
+        "value": 30,
+        "tolerance": 0,
+        "accept": [
+          "30 cm²",
+          "30 cm^2"
+        ]
+      },
+      "solution": "Find the right angle first: the square mark is at the top corner. The two sides that meet there are 5 cm and 12 cm. The triangle is half of a 5 cm by 12 cm rectangle: 5 x 12 = 60, and 60 ÷ 2 = 30 cm². The 13 cm side along the bottom is opposite the right angle, so it is not used.",
+      "misconceptions": {
+        "common": "Using the 13 cm side because it is at the bottom: 13 x 5 ÷ 2 = 32.5 or 13 x 12 ÷ 2 = 78. The two sides you multiply must meet at the right angle (the square mark), here 5 cm and 12 cm. Forgetting to halve gives 60 cm²."
+      },
+      "skill": "area of right-angled triangles",
+      "source": "original"
+    },
+    {
+      "id": "m03-q062",
+      "subtopicId": "m03-s6",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "The shape shown is made of a rectangle and a right-angled triangle, split by the dashed line. Work out the area of the whole shape. Give your answer in cm².",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            0,
+            9
+          ]
+        ],
+        "sides": [
+          {
+            "label": "12 cm"
+          },
+          null,
+          {
+            "label": "7 cm"
+          },
+          {
+            "label": "9 cm"
+          }
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          null,
+          null,
+          {
+            "right": true
+          }
+        ],
+        "extraLines": [
+          {
+            "from": [
+              7,
+              9
+            ],
+            "to": [
+              7,
+              0
+            ],
+            "dashed": true
+          }
+        ]
+      },
+      "answer": {
+        "value": 85.5,
+        "tolerance": 0,
+        "accept": [
+          "85 1/2",
+          "85.5 cm²",
+          "85.5 cm^2"
+        ]
+      },
+      "solution": "Rectangle (left of the dashed line): 7 cm wide and 9 cm tall, so 7 x 9 = 63 cm². Triangle (right of the dashed line): its height is the dashed line, 9 cm, and its bottom side is 12 - 7 = 5 cm. Area = 5 x 9 ÷ 2 = 22.5 cm². Total: 63 + 22.5 = 85.5 cm².",
+      "misconceptions": {
+        "common": "Using 12 cm as the triangle's bottom side. The 12 cm is the WHOLE bottom; the rectangle takes 7 cm of it, so the triangle's part is 12 - 7 = 5 cm. Forgetting to halve the triangle gives 63 + 45 = 108 cm²."
+      },
+      "skill": "area of compound shapes",
+      "source": "original"
+    },
+    {
+      "id": "m03-q063",
+      "subtopicId": "m03-s6",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The right-angled triangle is drawn on squared paper. Each square is 1 cm by 1 cm. What is the area of the triangle?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "grid": true,
+        "angles": [
+          {
+            "right": true
+          },
+          null,
+          null
+        ]
+      },
+      "options": [
+        "24 cm²",
+        "10 cm²",
+        "20 cm²",
+        "12 cm²"
+      ],
+      "answer": 3,
+      "solution": "Count the squares along the two sides that meet at the right angle: 6 along the bottom and 4 up the side. The triangle is half of a 6 by 4 rectangle. 6 x 4 = 24. 24 ÷ 2 = 12 cm².",
+      "misconceptions": {
+        "0": "24 cm² is the whole 6 by 4 rectangle. The triangle is only half of it: 24 ÷ 2 = 12 cm².",
+        "1": "You added 6 + 4. Area needs multiplying: 6 x 4 = 24, then halve to get 12 cm².",
+        "2": "20 is the perimeter of the 6 by 4 rectangle (6 + 4 + 6 + 4). Area is the space inside: 6 x 4 ÷ 2 = 12 cm²."
+      },
+      "skill": "area of right-angled triangles",
+      "source": "original"
+    },
+    {
+      "id": "m03-q064",
+      "subtopicId": "m03-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the circle. Its diameter is 18 cm, as marked. What is the length of the radius marked ? on the drawing? Give your answer in cm.",
+      "diagram": {
+        "type": "circle",
+        "diameter": {
+          "angle": 0,
+          "label": "18 cm"
+        },
+        "radius": {
+          "angle": 240,
+          "label": "?"
+        }
+      },
+      "answer": {
+        "value": 9,
+        "tolerance": 0,
+        "accept": [
+          "9 cm"
+        ]
+      },
+      "solution": "The radius goes from the centre to the edge: half of the diameter. Radius = 18 ÷ 2 = 9 cm.",
+      "misconceptions": {
+        "common": "Doubling instead of halving gives 36 cm. The radius is the SHORTER line, from the centre to the edge, so it is half the diameter: 18 ÷ 2 = 9 cm."
+      },
+      "skill": "radius and diameter",
+      "source": "original"
+    },
+    {
+      "id": "m03-q065",
+      "subtopicId": "m03-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "O is the centre of the circle shown. Wei Ming says the straight line AB is a diameter because it joins two points on the edge of the circle. True or false: Wei Ming is right.",
+      "diagram": {
+        "type": "circle",
+        "centreLabel": "O",
+        "chords": [
+          [
+            150,
+            20
+          ]
+        ],
+        "points": [
+          {
+            "angle": 150,
+            "label": "A"
+          },
+          {
+            "angle": 20,
+            "label": "B"
+          }
+        ],
+        "alt": "A circle with centre O. Points A and B are on the circle, joined by a straight line."
+      },
+      "answer": false,
+      "solution": "A diameter must go from edge to edge THROUGH the centre. In the drawing, AB passes above the centre O, not through it. So AB is not a diameter (it is a chord, and it is shorter than a diameter). The statement is false.",
+      "misconceptions": {
+        "common": "Thinking any line from edge to edge is a diameter. Check whether it goes through the centre O: AB misses O, so it is a chord, not a diameter."
+      },
+      "skill": "parts of a circle",
+      "source": "original"
+    },
+    {
+      "id": "m03-q066",
+      "subtopicId": "m03-s5",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The shape drawn is a regular hexagon. What is its order of rotational symmetry?",
+      "diagram": {
+        "type": "polygon",
+        "regular": 6,
+        "size": "small"
+      },
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": [
+          "order 6",
+          "six"
+        ]
+      },
+      "solution": "A regular hexagon has 6 equal sides and 6 equal angles. Turn it about its centre: it fits onto itself after every sixth of a turn (60°, 120°, 180°, 240°, 300° and 360°). That is 6 times, so the order is 6.",
+      "misconceptions": {
+        "common": "Answering 2 or 3 by counting only the half turn or the third turns. A regular shape with 6 sides fits onto itself 6 times in a full turn: its order is the same as its number of sides."
+      },
+      "skill": "order of rotational symmetry",
+      "source": "original"
+    },
+    {
+      "id": "m03-q067",
+      "subtopicId": "m03-s5",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the four shapes. Shape C is an equilateral triangle and shape D is a square. Which shape has rotational symmetry of order 2?",
+      "optionDiagrams": [
+        {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6.5,
+              3
+            ],
+            [
+              1.5,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "arrows": 1
+            },
+            {
+              "arrows": 2
+            },
+            {
+              "arrows": 1
+            },
+            {
+              "arrows": 2
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "points": [
+            [
+              2,
+              0
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "sides": [
+            {
+              "ticks": 2
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 1
+            },
+            {
+              "ticks": 2
+            }
+          ]
+        },
+        {
+          "type": "polygon",
+          "regular": 3
+        },
+        {
+          "type": "polygon",
+          "regular": 4
+        }
+      ],
+      "options": [
+        "Shape A",
+        "Shape B",
+        "Shape C",
+        "Shape D"
+      ],
+      "answer": 0,
+      "solution": "Shape A is a parallelogram. Turn it halfway round (180°) about its centre and it fits onto itself; it fits again after a full turn. That is 2 times, so its order is 2. Shape B (a kite) has order 1, the equilateral triangle C has order 3 and the square D has order 4.",
+      "misconceptions": {
+        "1": "Shape B is a kite. It has one line of symmetry, but it only fits onto itself after a full turn, so its order is 1.",
+        "2": "The equilateral triangle fits onto itself 3 times in a full turn (every 120°), so its order is 3, not 2.",
+        "3": "The square fits onto itself after every quarter turn, 4 times in all, so its order is 4, not 2."
+      },
+      "skill": "order of rotational symmetry",
+      "source": "original"
+    },
+    {
+      "id": "m03-q068",
+      "subtopicId": "m03-s5",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The shape drawn is a regular pentagon. What is the smallest angle you must turn it through, about its centre, so that it looks exactly the same again? Give your answer in degrees.",
+      "diagram": {
+        "type": "polygon",
+        "regular": 5,
+        "size": "small"
+      },
+      "answer": {
+        "value": 72,
+        "tolerance": 0,
+        "accept": [
+          "72°",
+          "72 degrees"
+        ]
+      },
+      "solution": "A regular pentagon has 5 equal sides, so it fits onto itself 5 times in a full turn: its order of rotational symmetry is 5. A full turn is 360°, so each turn is 360 ÷ 5 = 72°.",
+      "misconceptions": {
+        "common": "Using 90° (a quarter turn) for every shape, or dividing 360 by the wrong number. Find the order first (5 for a regular pentagon), then work out 360 ÷ 5 = 72°."
+      },
+      "skill": "rotational symmetry of letters and patterns",
+      "source": "original"
+    },
+    {
+      "id": "m03-q069",
+      "subtopicId": "m03-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the four drawings. In each one, look at the angle that is marked. Which marked angle is a reflex angle?",
+      "optionDiagrams": [
+        {
+          "type": "angle",
+          "rays": [
+            0,
+            120
+          ],
+          "arcs": [
+            {
+              "from": 0,
+              "to": 120
+            }
+          ],
+          "alt": "Two arms, one pointing right and one pointing up and to the left. The angle between them is marked on the inside."
+        },
+        {
+          "type": "angle",
+          "rays": [
+            0,
+            110
+          ],
+          "arcs": [
+            {
+              "from": 110,
+              "to": 0
+            }
+          ],
+          "alt": "Two arms, one pointing right and one pointing up and to the left. The angle is marked on the outside, going round from the arm pointing up and to the left, past the bottom, to the arm pointing right."
+        },
+        {
+          "type": "angle",
+          "rays": [
+            0,
+            90
+          ],
+          "arcs": [
+            {
+              "from": 0,
+              "to": 90,
+              "right": true
+            }
+          ],
+          "alt": "Two arms, one pointing right and one pointing straight up, with a small square marked between them."
+        },
+        {
+          "type": "angle",
+          "rays": [
+            0,
+            170
+          ],
+          "arcs": [
+            {
+              "from": 0,
+              "to": 170
+            }
+          ],
+          "alt": "Two arms, one pointing right and one pointing left and a little up. The angle between them is marked on the inside."
+        }
+      ],
+      "options": [
+        "Angle A",
+        "Angle B",
+        "Angle C",
+        "Angle D"
+      ],
+      "answer": 1,
+      "solution": "A reflex angle is more than 180° (more than a straight line) and less than 360°. In B the arc goes the long way round, from one arm, under the corner, to the other arm: that is 360 - 110 = 250°, a reflex angle. A (120°) and D (170°) are obtuse, and C is a right angle (the square mark).",
+      "misconceptions": {
+        "0": "Angle A is wider than a right angle but less than a straight line, so it is obtuse. A reflex angle goes past a straight line.",
+        "2": "The small square means a right angle, exactly 90°. A reflex angle is more than 180°.",
+        "3": "Angle D is nearly a straight line, but it is still less than 180°, so it is obtuse. Look for the arc that goes the long way round."
+      },
+      "skill": "types of angles",
+      "source": "original"
     }
   ]
 }

@@ -8,6 +8,7 @@
 // Import merges: records already on this device (same id) are kept, new ones are added. So
 // progress from a laptop and a tablet can be combined in either direction.
 
+import { validQuestion } from './hooks.js';
 export const EXPORT_FORMAT = 'study-practice-progress';
 export const EXPORT_VERSION = 1;
 
@@ -27,8 +28,8 @@ export async function buildExport(db, meta = {}) {
     contentVersion: meta.contentVersion || '',
     device: { id: deviceId || '', label: (await db.getSetting('deviceLabel')) || '' },
     guide: {
-      sessions: 'One record per finished practice session: subject, topicId, mode (topic/subtopic/weak/mixed), durationMin, limitSec, timeUsedSec, startedAt/endedAt (ms since 1970), questionIds in the order shown, score.',
-      attempts: 'One record per question in a finished session: questionId, topicId, subtopicId, skill, type, difficulty, marks, response (raw), responseText, answered, correct, earned, fraction, misconceptions shown, timeSec on the question, flagged.',
+      sessions: 'One record per finished practice session: subject, topicId, mode (topic/subtopic/weak/mixed), durationMin, limitSec, timeUsedSec, startedAt/endedAt (ms since 1970), questionIds in the order shown, score; instances: the generated questions of that session in full (id -> question, with generatorId and seed).',
+      attempts: 'One record per question in a finished session: questionId, topicId, subtopicId, skill, type, difficulty, marks, response (raw), responseText, answered, correct, earned, fraction, misconceptions shown, misconceptionCodes (catalogue codes of those misconceptions), generated (generatorId, seed, difficulty for a generated question), timeSec on the question, flagged.',
       reports: 'The parent report made after each session.',
     },
     summary: {
@@ -59,35 +60,39 @@ const isBool = (x) => typeof x === 'boolean';
 const optBool = (x) => x == null || isBool(x);
 const listOf = (x, check, max = 5000) => Array.isArray(x) && x.length <= max && x.every(check);
 const SUBJECTS = ['maths', 'science'];
+// a session's generated questions: each one complete and well formed (js/hooks.js)
+const checkInstances = (x) => x == null || (isObj(x) && Object.keys(x).length <= 1000 && Object.entries(x).every(([k, q]) => isStr(k) && validQuestion(q)));
+const checkRef = (g) => g == null || (isObj(g) && isStr(g.generatorId) && isNum(g.seed) && optNum(g.difficulty) && optText(g.v, 50));
 const MODES = ['topic', 'subtopic', 'weak', 'mixed'];
 
 function checkScore(s) {
   return isObj(s) && ['earned', 'max', 'pct', 'correct', 'total', 'answered'].every((k) => isNum(s[k])) && optNum(s.unanswered);
 }
 
-function checkSession(s) {
+export function checkSession(s) {
   return isObj(s) && isStr(s.id) && SUBJECTS.includes(s.subject) && MODES.includes(s.mode) && s.status === 'complete'
     && isNum(s.startedAt) && optNum(s.endedAt) && isNum(s.durationMin) && optNum(s.limitSec) && optNum(s.timeUsedSec)
     && optText(s.topicId, 300) && optText(s.topicTitle, 500) && optText(s.subtopicId, 300) && optText(s.subtopicTitle, 500)
     && optBool(s.submittedEarly) && optBool(s.timedOut)
-    && listOf(s.questionIds, isStr, 1000) && checkScore(s.score);
+    && listOf(s.questionIds, isStr, 1000) && checkScore(s.score) && checkInstances(s.instances);
 }
 
 const isResponse = (r) => r == null || isBool(r) || isNum(r) || isText(r, 1000) || listOf(r, (x) => x == null || isNum(x), 50);
 
-function checkAttempt(a) {
+export function checkAttempt(a) {
   return isObj(a) && isStr(a.id) && isStr(a.sessionId) && isStr(a.questionId) && isNum(a.answeredAt)
     && isBool(a.correct) && optBool(a.answered) && optBool(a.flagged)
     && optText(a.topicId, 300) && optText(a.subtopicId, 300) && optText(a.subject, 50) && optText(a.skill, 500) && optText(a.type, 50)
     && optNum(a.difficulty) && optNum(a.marks) && optNum(a.position) && optNum(a.earned) && optNum(a.fraction) && optNum(a.timeSec)
     && isResponse(a.response) && optText(a.responseText)
-    && (a.misconceptions == null || listOf(a.misconceptions, (m) => isObj(m) && isText(m.note) && optText(m.key, 300), 50));
+    && (a.misconceptions == null || listOf(a.misconceptions, (m) => isObj(m) && isText(m.note) && optText(m.key, 300), 50))
+    && (a.misconceptionCodes == null || listOf(a.misconceptionCodes, (c) => isStr(c) && c.length <= 100, 20)) && checkRef(a.generated);
 }
 
 const isGroup = (g) => isObj(g) && isText(g.title, 500) && ['total', 'correct', 'pct'].every((k) => isNum(g[k])) && optText(g.topicTitle, 500);
 const isStrList = (x) => listOf(x, (s) => isText(s), 200);
 
-function checkReport(r) {
+export function checkReport(r) {
   if (!(isObj(r) && isStr(r.sessionId) && isNum(r.startedAt) && isText(r.title, 500) && isText(r.focus, 500))) return false;
   if (!(checkScore(r.score) && isNum(r.score.unanswered))) return false;
   if (!(isNum(r.durationMin) && isNum(r.limitSec) && isNum(r.timeUsedSec) && isNum(r.avgSecPerAnswer) && isNum(r.quickWrong))) return false;
@@ -96,6 +101,7 @@ function checkReport(r) {
   if (!(isStrList(r.understands) && isStrList(r.needsWork) && isStrList(r.recommendations))) return false;
   if (!(r.strongSkills == null || isStrList(r.strongSkills)) || !(r.weakSkills == null || isStrList(r.weakSkills))) return false;
   if (!listOf(r.misconceptions, (m) => isObj(m) && isText(m.note) && optText(m.subtopic, 500), 200)) return false;
+  if (!(r.misconceptionCodes == null || listOf(r.misconceptionCodes, (c) => isObj(c) && isStr(c.code) && isNum(c.count) && optText(c.label, 500), 200))) return false;
   if (!listOf(r.mistakes, (m) => isObj(m) && isNum(m.position) && isNum(m.earned) && isNum(m.marks)
     && ['prompt', 'subtopic', 'yourAnswer', 'correctAnswer'].every((k) => isText(m[k])) && optText(m.skill, 500), 1000)) return false;
   if (!listOf(r.masteryAfter, (m) => isObj(m) && isText(m.title, 500) && isNum(m.score) && optText(m.level, 100), 200)) return false;

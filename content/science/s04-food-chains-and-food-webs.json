@@ -56,7 +56,15 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Look at this food chain: grass -> deer -> tiger. Which living thing is the producer?",
+      "prompt": "Look at the food chain. Which living thing is the producer?",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Grass",
+          "Deer",
+          "Tiger"
+        ]
+      },
       "options": [
         "Grass",
         "Deer",
@@ -64,7 +72,7 @@
         "The Sun"
       ],
       "answer": 0,
-      "solution": "A producer makes its own food using light energy from the Sun. Grass is a plant, so it is the producer. The deer and the tiger are consumers because they get their food by eating other living things.",
+      "solution": "A producer makes its own food using light energy from the Sun. In the food chain shown, grass is a plant, so it is the producer. The deer and the tiger are consumers because they get their food by eating other living things.",
       "misconceptions": {
         "1": "The deer is the first animal, but it cannot make its own food. It is a consumer (a primary consumer).",
         "2": "The tiger is at the end of the chain. It is a consumer, because it gets its food by eating the deer.",
@@ -149,9 +157,17 @@
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "True or false: In a food chain, each arrow points from the animal that eats to the thing that it eats.",
+      "prompt": "Look at the food chain. True or false: Each arrow points from the animal that eats to the thing that it eats.",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Leaf",
+          "Caterpillar",
+          "Bird"
+        ]
+      },
       "answer": false,
-      "solution": "This is false. The arrow means 'is eaten by'. In grass -> deer, the arrow points from the grass to the deer, because the grass is eaten by the deer and its energy passes to the deer.",
+      "solution": "This is false. The arrow means 'is eaten by'. In the diagram the first arrow goes from the leaf to the caterpillar, because the leaf is eaten by the caterpillar and its energy passes to the caterpillar. The next arrow goes from the caterpillar to the bird, which eats it.",
       "misconceptions": {
         "common": "Drawing the arrow from the eater to its food. The arrow shows where the food and energy go, so it points to the eater."
       },
@@ -187,7 +203,17 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Look at this sea food chain: seaweed -> sea snail -> crab -> octopus -> shark. Which animal is the secondary consumer?",
+      "prompt": "Look at this sea food chain. Which animal is the secondary consumer?",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Seaweed",
+          "Sea snail",
+          "Crab",
+          "Octopus",
+          "Shark"
+        ]
+      },
       "options": [
         "Sea snail",
         "Octopus",
@@ -278,7 +304,16 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Ahmad eats ikan bilis (anchovies). Anchovies eat tiny sea animals, and the tiny animals eat algae. In the food chain algae -> tiny sea animals -> anchovies -> Ahmad, what is Ahmad?",
+      "prompt": "Ahmad eats ikan bilis (anchovies). Look at the food chain. What is Ahmad in this food chain?",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Algae",
+          "Tiny sea animals",
+          "Anchovies",
+          "Ahmad"
+        ]
+      },
       "options": [
         "A tertiary consumer",
         "A primary consumer",
@@ -324,7 +359,89 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. What do the rats eat in this food web?",
+      "prompt": "Look at the rice-field food web. What do the rats eat in this food web?",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "rice",
+            "name": "Rice plants"
+          },
+          {
+            "id": "grasshoppers",
+            "name": "Grasshoppers"
+          },
+          {
+            "id": "rats",
+            "name": "Rats"
+          },
+          {
+            "id": "sparrows",
+            "name": "Sparrows"
+          },
+          {
+            "id": "frogs",
+            "name": "Frogs"
+          },
+          {
+            "id": "snakes",
+            "name": "Snakes"
+          },
+          {
+            "id": "owls",
+            "name": "Owls"
+          },
+          {
+            "id": "hawks",
+            "name": "Hawks"
+          }
+        ],
+        "links": [
+          [
+            "rice",
+            "grasshoppers"
+          ],
+          [
+            "rice",
+            "rats"
+          ],
+          [
+            "rice",
+            "sparrows"
+          ],
+          [
+            "grasshoppers",
+            "frogs"
+          ],
+          [
+            "grasshoppers",
+            "sparrows"
+          ],
+          [
+            "frogs",
+            "snakes"
+          ],
+          [
+            "rats",
+            "snakes"
+          ],
+          [
+            "rats",
+            "owls"
+          ],
+          [
+            "snakes",
+            "hawks"
+          ],
+          [
+            "sparrows",
+            "hawks"
+          ]
+        ],
+        "highlight": [
+          "rats"
+        ]
+      },
       "options": [
         "Rice plants",
         "Snakes and owls",
@@ -332,11 +449,11 @@
         "Frogs"
       ],
       "answer": 0,
-      "solution": "Look for the link that ends with rats. 'Rice plants are eaten by ... rats', so rats eat rice plants. Snakes and owls eat the rats.",
+      "solution": "Find the rats in the web and look for the arrow that points TO the rats. It comes from the rice plants, so rats eat rice plants. The arrows that leave the rats go to the snakes and the owls, which eat the rats.",
       "misconceptions": {
-        "1": "This reads the link backwards. Rats are EATEN BY snakes and owls; they do not eat them.",
-        "2": "Grasshoppers are eaten by frogs and sparrows, not by rats, in this web.",
-        "3": "Frogs are eaten by snakes in this web, not by rats."
+        "1": "This reads the arrows backwards. The arrows from the rats point to the snakes and owls, so rats are EATEN BY them.",
+        "2": "No arrow goes from the grasshoppers to the rats. Grasshoppers are eaten by frogs and sparrows.",
+        "3": "No arrow goes from the frogs to the rats. Frogs are eaten by snakes."
       },
       "skill": "reading a food web",
       "source": "original"
@@ -347,7 +464,89 @@
       "type": "multi",
       "difficulty": 1,
       "marks": 2,
-      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. Select ALL the animals that eat grasshoppers.",
+      "prompt": "Look at the rice-field food web. Select ALL the animals that eat grasshoppers.",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "rice",
+            "name": "Rice plants"
+          },
+          {
+            "id": "grasshoppers",
+            "name": "Grasshoppers"
+          },
+          {
+            "id": "rats",
+            "name": "Rats"
+          },
+          {
+            "id": "sparrows",
+            "name": "Sparrows"
+          },
+          {
+            "id": "frogs",
+            "name": "Frogs"
+          },
+          {
+            "id": "snakes",
+            "name": "Snakes"
+          },
+          {
+            "id": "owls",
+            "name": "Owls"
+          },
+          {
+            "id": "hawks",
+            "name": "Hawks"
+          }
+        ],
+        "links": [
+          [
+            "rice",
+            "grasshoppers"
+          ],
+          [
+            "rice",
+            "rats"
+          ],
+          [
+            "rice",
+            "sparrows"
+          ],
+          [
+            "grasshoppers",
+            "frogs"
+          ],
+          [
+            "grasshoppers",
+            "sparrows"
+          ],
+          [
+            "frogs",
+            "snakes"
+          ],
+          [
+            "rats",
+            "snakes"
+          ],
+          [
+            "rats",
+            "owls"
+          ],
+          [
+            "snakes",
+            "hawks"
+          ],
+          [
+            "sparrows",
+            "hawks"
+          ]
+        ],
+        "highlight": [
+          "grasshoppers"
+        ]
+      },
       "options": [
         "Frogs",
         "Snakes",
@@ -359,11 +558,11 @@
         0,
         2
       ],
-      "solution": "The link says 'grasshoppers are eaten by frogs and sparrows'. So frogs and sparrows are the only animals that eat grasshoppers directly.",
+      "solution": "Follow the arrows that start at the grasshoppers. They point to the frogs and the sparrows. So frogs and sparrows are the only animals that eat grasshoppers directly.",
       "misconceptions": {
-        "1": "Snakes eat frogs, which eat grasshoppers. That is not the same as eating grasshoppers directly.",
-        "3": "Rats eat rice plants in this web, not grasshoppers.",
-        "4": "Hawks eat snakes and sparrows. They do not eat grasshoppers in this web."
+        "1": "Snakes eat frogs, which eat grasshoppers. No arrow goes straight from the grasshoppers to the snakes.",
+        "3": "The only arrow into the rats comes from the rice plants, not the grasshoppers.",
+        "4": "The arrows into the hawks come from the snakes and the sparrows, not the grasshoppers."
       },
       "skill": "reading a food web",
       "source": "original"
@@ -374,7 +573,86 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. According to this food web, which animal is an omnivore?",
+      "prompt": "Look at the rice-field food web. According to this food web, which animal is an omnivore?",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "rice",
+            "name": "Rice plants"
+          },
+          {
+            "id": "grasshoppers",
+            "name": "Grasshoppers"
+          },
+          {
+            "id": "rats",
+            "name": "Rats"
+          },
+          {
+            "id": "sparrows",
+            "name": "Sparrows"
+          },
+          {
+            "id": "frogs",
+            "name": "Frogs"
+          },
+          {
+            "id": "snakes",
+            "name": "Snakes"
+          },
+          {
+            "id": "owls",
+            "name": "Owls"
+          },
+          {
+            "id": "hawks",
+            "name": "Hawks"
+          }
+        ],
+        "links": [
+          [
+            "rice",
+            "grasshoppers"
+          ],
+          [
+            "rice",
+            "rats"
+          ],
+          [
+            "rice",
+            "sparrows"
+          ],
+          [
+            "grasshoppers",
+            "frogs"
+          ],
+          [
+            "grasshoppers",
+            "sparrows"
+          ],
+          [
+            "frogs",
+            "snakes"
+          ],
+          [
+            "rats",
+            "snakes"
+          ],
+          [
+            "rats",
+            "owls"
+          ],
+          [
+            "snakes",
+            "hawks"
+          ],
+          [
+            "sparrows",
+            "hawks"
+          ]
+        ]
+      },
       "options": [
         "Grasshopper",
         "Sparrow",
@@ -382,11 +660,11 @@
         "Hawk"
       ],
       "answer": 1,
-      "solution": "An omnivore eats both plants and animals. Sparrows eat rice plants (a plant) and grasshoppers (an animal), so sparrows are omnivores in this web.",
+      "solution": "An omnivore eats both plants and animals. Two arrows point to the sparrows: one from the rice plants (a plant) and one from the grasshoppers (an animal). So sparrows are omnivores in this web.",
       "misconceptions": {
-        "0": "Grasshoppers eat only rice plants, so they are herbivores.",
-        "2": "Snakes eat two kinds of animal (frogs and rats), but no plants, so they are carnivores. Eating many foods does not make an animal an omnivore.",
-        "3": "Hawks eat snakes and sparrows, which are both animals, so they are carnivores."
+        "0": "The only arrow into the grasshoppers comes from the rice plants, so they eat only plants. They are herbivores.",
+        "2": "The arrows into the snakes come from frogs and rats, two kinds of animal, but no plants, so snakes are carnivores. Eating many foods does not make an animal an omnivore.",
+        "3": "The arrows into the hawks come from snakes and sparrows, which are both animals, so hawks are carnivores."
       },
       "skill": "feeding vocabulary",
       "source": "original"
@@ -397,7 +675,90 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. A disease kills all the rats. What is MOST likely to happen to the number of owls?",
+      "prompt": "Look at the rice-field food web. A disease kills all the rats. What is MOST likely to happen to the number of owls?",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "rice",
+            "name": "Rice plants"
+          },
+          {
+            "id": "grasshoppers",
+            "name": "Grasshoppers"
+          },
+          {
+            "id": "rats",
+            "name": "Rats"
+          },
+          {
+            "id": "sparrows",
+            "name": "Sparrows"
+          },
+          {
+            "id": "frogs",
+            "name": "Frogs"
+          },
+          {
+            "id": "snakes",
+            "name": "Snakes"
+          },
+          {
+            "id": "owls",
+            "name": "Owls"
+          },
+          {
+            "id": "hawks",
+            "name": "Hawks"
+          }
+        ],
+        "links": [
+          [
+            "rice",
+            "grasshoppers"
+          ],
+          [
+            "rice",
+            "rats"
+          ],
+          [
+            "rice",
+            "sparrows"
+          ],
+          [
+            "grasshoppers",
+            "frogs"
+          ],
+          [
+            "grasshoppers",
+            "sparrows"
+          ],
+          [
+            "frogs",
+            "snakes"
+          ],
+          [
+            "rats",
+            "snakes"
+          ],
+          [
+            "rats",
+            "owls"
+          ],
+          [
+            "snakes",
+            "hawks"
+          ],
+          [
+            "sparrows",
+            "hawks"
+          ]
+        ],
+        "highlight": [
+          "rats",
+          "owls"
+        ]
+      },
       "options": [
         "It will go up, because owls will have no competition from rats.",
         "It will stay the same, because owls can eat snakes instead.",
@@ -405,11 +766,11 @@
         "It will stay the same, because owls will start eating rice plants."
       ],
       "answer": 2,
-      "solution": "Find all the links that end in owls: only 'rats are eaten by ... owls'. With no rats, the owls lose their only food. Many will starve or move away, so the number of owls goes down.",
+      "solution": "Find all the arrows that point to the owls: there is only one, from the rats. With no rats, the owls lose their only food. Many will starve or move away, so the number of owls goes down.",
       "misconceptions": {
-        "0": "Rats are not competing with owls; they are the owls' food. Losing their food makes owls go down.",
-        "1": "In this web owls only eat rats. Nothing says they eat snakes.",
-        "3": "Owls are carnivores. They cannot switch to eating rice plants."
+        "0": "Rats are not competing with owls; the arrow shows rats are the owls' food. Losing their food makes the owls go down.",
+        "1": "In this web the only arrow into the owls comes from the rats. No arrow goes from the snakes to the owls.",
+        "3": "Owls are carnivores. No arrow goes from the rice plants to the owls, and they cannot switch to eating rice."
       },
       "skill": "predicting changes in a food web",
       "source": "inspired-by: Singapore P6"
@@ -420,7 +781,89 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. Farmers catch and remove all the frogs. What is MOST likely to happen to the number of grasshoppers at first?",
+      "prompt": "Look at the rice-field food web. Farmers catch and remove all the frogs. What is MOST likely to happen to the number of grasshoppers at first?",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "rice",
+            "name": "Rice plants"
+          },
+          {
+            "id": "grasshoppers",
+            "name": "Grasshoppers"
+          },
+          {
+            "id": "rats",
+            "name": "Rats"
+          },
+          {
+            "id": "sparrows",
+            "name": "Sparrows"
+          },
+          {
+            "id": "frogs",
+            "name": "Frogs"
+          },
+          {
+            "id": "snakes",
+            "name": "Snakes"
+          },
+          {
+            "id": "owls",
+            "name": "Owls"
+          },
+          {
+            "id": "hawks",
+            "name": "Hawks"
+          }
+        ],
+        "links": [
+          [
+            "rice",
+            "grasshoppers"
+          ],
+          [
+            "rice",
+            "rats"
+          ],
+          [
+            "rice",
+            "sparrows"
+          ],
+          [
+            "grasshoppers",
+            "frogs"
+          ],
+          [
+            "grasshoppers",
+            "sparrows"
+          ],
+          [
+            "frogs",
+            "snakes"
+          ],
+          [
+            "rats",
+            "snakes"
+          ],
+          [
+            "rats",
+            "owls"
+          ],
+          [
+            "snakes",
+            "hawks"
+          ],
+          [
+            "sparrows",
+            "hawks"
+          ]
+        ],
+        "highlight": [
+          "frogs"
+        ]
+      },
       "options": [
         "It will go down, because frogs give grasshoppers food.",
         "It will go down, because snakes will start eating grasshoppers instead.",
@@ -428,11 +871,11 @@
         "It will go up, because fewer grasshoppers are being eaten."
       ],
       "answer": 3,
-      "solution": "Frogs are predators of grasshoppers. With no frogs, fewer grasshoppers are eaten, so more survive and breed. At first the number of grasshoppers goes up (sparrows still eat some).",
+      "solution": "The arrow from the grasshoppers to the frogs shows that frogs eat grasshoppers. With no frogs, fewer grasshoppers are eaten, so more survive and breed. At first the number of grasshoppers goes up (sparrows still eat some).",
       "misconceptions": {
-        "0": "Frogs do not feed grasshoppers; frogs eat them. Removing a predator lets the prey increase.",
-        "1": "In this web snakes eat frogs and rats, not grasshoppers.",
-        "2": "There is a link: grasshoppers are eaten by frogs. So removing frogs does affect grasshoppers."
+        "0": "Frogs do not feed grasshoppers; the arrow shows frogs eat them. Removing a predator lets the prey increase.",
+        "1": "In this web the arrows into the snakes come from frogs and rats, not from grasshoppers.",
+        "2": "There is a link: the arrow from the grasshoppers to the frogs. So removing the frogs does affect the grasshoppers."
       },
       "skill": "predicting changes in a food web",
       "source": "original"
@@ -443,7 +886,86 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. How many different food chains are there in this food web? Each chain starts with the rice plants and ends with an animal that nothing else eats. Give your answer as a number.",
+      "prompt": "Look at the rice-field food web. How many different food chains are there in this web? Each chain starts with the rice plants and ends with an animal that nothing else eats. Give your answer as a number.",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "rice",
+            "name": "Rice plants"
+          },
+          {
+            "id": "grasshoppers",
+            "name": "Grasshoppers"
+          },
+          {
+            "id": "rats",
+            "name": "Rats"
+          },
+          {
+            "id": "sparrows",
+            "name": "Sparrows"
+          },
+          {
+            "id": "frogs",
+            "name": "Frogs"
+          },
+          {
+            "id": "snakes",
+            "name": "Snakes"
+          },
+          {
+            "id": "owls",
+            "name": "Owls"
+          },
+          {
+            "id": "hawks",
+            "name": "Hawks"
+          }
+        ],
+        "links": [
+          [
+            "rice",
+            "grasshoppers"
+          ],
+          [
+            "rice",
+            "rats"
+          ],
+          [
+            "rice",
+            "sparrows"
+          ],
+          [
+            "grasshoppers",
+            "frogs"
+          ],
+          [
+            "grasshoppers",
+            "sparrows"
+          ],
+          [
+            "frogs",
+            "snakes"
+          ],
+          [
+            "rats",
+            "snakes"
+          ],
+          [
+            "rats",
+            "owls"
+          ],
+          [
+            "snakes",
+            "hawks"
+          ],
+          [
+            "sparrows",
+            "hawks"
+          ]
+        ]
+      },
       "answer": {
         "value": 5,
         "tolerance": 0,
@@ -451,7 +973,7 @@
           "five"
         ]
       },
-      "solution": "Follow every path from rice plants to an animal that is not eaten. 1) rice plants -> grasshoppers -> frogs -> snakes -> hawks. 2) rice plants -> grasshoppers -> sparrows -> hawks. 3) rice plants -> rats -> snakes -> hawks. 4) rice plants -> rats -> owls. 5) rice plants -> sparrows -> hawks. That makes 5 food chains.",
+      "solution": "Follow every path of arrows from the rice plants to an animal with no arrow leaving it (hawks or owls). 1) rice plants -> grasshoppers -> frogs -> snakes -> hawks. 2) rice plants -> grasshoppers -> sparrows -> hawks. 3) rice plants -> rats -> snakes -> hawks. 4) rice plants -> rats -> owls. 5) rice plants -> sparrows -> hawks. That makes 5 food chains.",
       "misconceptions": {
         "common": "Missing a chain, often rice plants -> sparrows -> hawks (sparrows eat rice plants as well as grasshoppers) or rice plants -> rats -> owls."
       },
@@ -464,7 +986,89 @@
       "type": "truefalse",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "True or false: A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. In this web, the snake is a secondary consumer in one food chain and a tertiary consumer in another.",
+      "prompt": "Look at the rice-field food web. True or false: In this web, the snake is a secondary consumer in one food chain and a tertiary consumer in another.",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "rice",
+            "name": "Rice plants"
+          },
+          {
+            "id": "grasshoppers",
+            "name": "Grasshoppers"
+          },
+          {
+            "id": "rats",
+            "name": "Rats"
+          },
+          {
+            "id": "sparrows",
+            "name": "Sparrows"
+          },
+          {
+            "id": "frogs",
+            "name": "Frogs"
+          },
+          {
+            "id": "snakes",
+            "name": "Snakes"
+          },
+          {
+            "id": "owls",
+            "name": "Owls"
+          },
+          {
+            "id": "hawks",
+            "name": "Hawks"
+          }
+        ],
+        "links": [
+          [
+            "rice",
+            "grasshoppers"
+          ],
+          [
+            "rice",
+            "rats"
+          ],
+          [
+            "rice",
+            "sparrows"
+          ],
+          [
+            "grasshoppers",
+            "frogs"
+          ],
+          [
+            "grasshoppers",
+            "sparrows"
+          ],
+          [
+            "frogs",
+            "snakes"
+          ],
+          [
+            "rats",
+            "snakes"
+          ],
+          [
+            "rats",
+            "owls"
+          ],
+          [
+            "snakes",
+            "hawks"
+          ],
+          [
+            "sparrows",
+            "hawks"
+          ]
+        ],
+        "highlight": [
+          "snakes"
+        ]
+      },
       "answer": true,
       "solution": "This is true. In rice plants -> rats -> snakes -> hawks, the snake is the secondary consumer. In rice plants -> grasshoppers -> frogs -> snakes -> hawks, the snake is the tertiary consumer.",
       "misconceptions": {
@@ -479,7 +1083,86 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. Which food chain is NOT part of this food web?",
+      "prompt": "Look at the rice-field food web. Which food chain is NOT part of this food web?",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "rice",
+            "name": "Rice plants"
+          },
+          {
+            "id": "grasshoppers",
+            "name": "Grasshoppers"
+          },
+          {
+            "id": "rats",
+            "name": "Rats"
+          },
+          {
+            "id": "sparrows",
+            "name": "Sparrows"
+          },
+          {
+            "id": "frogs",
+            "name": "Frogs"
+          },
+          {
+            "id": "snakes",
+            "name": "Snakes"
+          },
+          {
+            "id": "owls",
+            "name": "Owls"
+          },
+          {
+            "id": "hawks",
+            "name": "Hawks"
+          }
+        ],
+        "links": [
+          [
+            "rice",
+            "grasshoppers"
+          ],
+          [
+            "rice",
+            "rats"
+          ],
+          [
+            "rice",
+            "sparrows"
+          ],
+          [
+            "grasshoppers",
+            "frogs"
+          ],
+          [
+            "grasshoppers",
+            "sparrows"
+          ],
+          [
+            "frogs",
+            "snakes"
+          ],
+          [
+            "rats",
+            "snakes"
+          ],
+          [
+            "rats",
+            "owls"
+          ],
+          [
+            "snakes",
+            "hawks"
+          ],
+          [
+            "sparrows",
+            "hawks"
+          ]
+        ]
+      },
       "options": [
         "Rice plants -> rats -> owls",
         "Rice plants -> sparrows -> hawks",
@@ -487,7 +1170,7 @@
         "Rice plants -> grasshoppers -> frogs -> owls"
       ],
       "answer": 3,
-      "solution": "Check every arrow against the links. Rats eat rice plants and owls eat rats, so the first chain is in the web. Sparrows eat rice plants and grasshoppers, and hawks eat sparrows, so the second and third chains are in the web. But owls only eat rats, and frogs are eaten only by snakes, so 'frogs -> owls' is not a real link. The chain rice plants -> grasshoppers -> frogs -> owls is not part of the web.",
+      "solution": "Check every arrow in each chain against the web. Rats eat rice plants and owls eat rats, so the first chain is in the web. Sparrows eat rice plants and grasshoppers, and hawks eat sparrows, so the second and third chains are in the web. But the only arrow into the owls comes from the rats, and the only arrow out of the frogs goes to the snakes, so there is no frogs -> owls arrow. The chain rice plants -> grasshoppers -> frogs -> owls is not part of the web.",
       "misconceptions": {
         "0": "This chain is in the web: rats eat rice plants and owls eat rats.",
         "1": "This chain is in the web: sparrows eat rice plants and hawks eat sparrows.",
@@ -502,7 +1185,43 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "In a garden, chilli plants are eaten by aphids, and aphids are eaten by ladybirds. Siti counts the aphids and ladybirds on the plants once a week. Week 1: 200 aphids, 5 ladybirds. Week 2: 150 aphids, 9 ladybirds. Week 3: 90 aphids, 14 ladybirds. Week 4: 60 aphids, 15 ladybirds. Which statement BEST describes her results?",
+      "prompt": "In a garden, chilli plants are eaten by aphids, and aphids are eaten by ladybirds. Siti counts the aphids and ladybirds on the plants once a week. The line graph shows her results. Which statement BEST describes her results?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Insects on Siti's chilli plants",
+        "categories": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "series": [
+          {
+            "name": "Aphids",
+            "values": [
+              200,
+              150,
+              90,
+              60
+            ]
+          },
+          {
+            "name": "Ladybirds",
+            "values": [
+              10,
+              20,
+              40,
+              50
+            ]
+          }
+        ],
+        "yMin": 0,
+        "yMax": 200,
+        "yStep": 20,
+        "minorStep": 10,
+        "xLabel": "Week",
+        "yLabel": "Number of insects"
+      },
       "options": [
         "As the number of ladybirds went up, the number of aphids went down, which fits with ladybirds eating aphids.",
         "As the number of ladybirds went up, the number of aphids went up too.",
@@ -510,11 +1229,11 @@
         "There is no pattern, because the numbers change every week."
       ],
       "answer": 0,
-      "solution": "Aphids: 200, 150, 90, 60 (going down). Ladybirds: 5, 9, 14, 15 (going up). More ladybirds eat more aphids, so the aphid numbers fall. This is a predator-prey pattern.",
+      "solution": "Read the two lines. Aphids: 200, 150, 90, 60 (going down every week). Ladybirds: 10, 20, 40, 50 (going up every week). More ladybirds eat more aphids, so the aphid numbers fall. This is a predator-prey pattern.",
       "misconceptions": {
-        "1": "Look again: aphids fell from 200 to 60 while ladybirds rose from 5 to 15. They moved in opposite directions.",
+        "1": "Look again: the aphid line falls from 200 to 60 while the ladybird line rises from 10 to 50. They move in opposite directions.",
         "2": "This reverses the feeding link. Ladybirds are the predators; aphids are the prey.",
-        "3": "The numbers change in a steady way: aphids down every week, ladybirds up every week. That is a pattern."
+        "3": "Both lines change steadily: aphids down every week, ladybirds up every week. That is a pattern."
       },
       "skill": "describing patterns in results",
       "source": "inspired-by: Cambridge Checkpoint style"
@@ -703,7 +1422,22 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "In a food chain, suppose only 1/10 of the energy at one level passes on to the next level. The grass in a field holds 10 000 units of energy. In the food chain grass -> grasshopper -> frog -> snake, how many units of energy reach the snake? Give your answer as a number.",
+      "prompt": "Suppose only 1/10 of the energy at one level passes on to the next level. In the food chain shown, the grass holds 10 000 units of energy. How many units of energy reach the snake? Give your answer as a number.",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Grass",
+          "Grasshopper",
+          "Frog",
+          "Snake"
+        ],
+        "roles": [
+          "10 000 units",
+          "",
+          "",
+          "?"
+        ]
+      },
       "answer": {
         "value": 10,
         "tolerance": 0,
@@ -711,7 +1445,7 @@
           "10 units"
         ]
       },
-      "solution": "There are three arrows. Grass to grasshopper: 10 000 ÷ 10 = 1000. Grasshopper to frog: 1000 ÷ 10 = 100. Frog to snake: 100 ÷ 10 = 10. So only 10 units reach the snake.",
+      "solution": "Count the arrows from the grass to the snake: there are three. Grass to grasshopper: 10 000 ÷ 10 = 1000. Grasshopper to frog: 1000 ÷ 10 = 100. Frog to snake: 100 ÷ 10 = 10. So only 10 units reach the snake.",
       "misconceptions": {
         "common": "Taking 1/10 only once (1000) or twice (100). Energy is lost at every arrow, and there are three arrows from the grass to the snake."
       },
@@ -792,7 +1526,17 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A pesticide that does not break down is sprayed on a rice field. It stays in the body of any animal that eats it. In the food chain rice plants -> grasshoppers -> frogs -> snakes -> hawks, which living thing is likely to have the MOST pesticide in its body?",
+      "prompt": "A pesticide that does not break down is sprayed on a rice field. It stays in the body of any animal that eats it. Look at the food chain. Which living thing is likely to have the MOST pesticide in its body?",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Rice plants",
+          "Grasshoppers",
+          "Frogs",
+          "Snakes",
+          "Hawks"
+        ]
+      },
       "options": [
         "Rice plant",
         "Grasshopper",
@@ -851,7 +1595,16 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Mercury from factory waste can get into the sea. In the food chain algae -> small fish -> tuna -> humans, why are people advised not to eat large fish like tuna too often?",
+      "prompt": "Mercury from factory waste can get into the sea. Look at the food chain. Why are people advised not to eat large fish like tuna too often?",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Algae",
+          "Small fish",
+          "Tuna",
+          "Humans"
+        ]
+      },
       "options": [
         "Mercury builds up as it passes along the chain, so large predatory fish contain more of it.",
         "Large fish have more bones, which contain the mercury.",
@@ -941,15 +1694,94 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rice-field food web is described by these feeding links: rice plants are eaten by grasshoppers, rats and sparrows; grasshoppers are eaten by frogs and sparrows; frogs are eaten by snakes; rats are eaten by snakes and owls; snakes are eaten by hawks; sparrows are eaten by hawks. Grasshoppers are damaging the rice. Which plan is MOST likely to protect the rice without harming the owls and hawks?",
+      "prompt": "Look at the rice-field food web. Grasshoppers are damaging the rice. Which plan is MOST likely to protect the rice without harming the owls and hawks?",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "rice",
+            "name": "Rice plants"
+          },
+          {
+            "id": "grasshoppers",
+            "name": "Grasshoppers"
+          },
+          {
+            "id": "rats",
+            "name": "Rats"
+          },
+          {
+            "id": "sparrows",
+            "name": "Sparrows"
+          },
+          {
+            "id": "frogs",
+            "name": "Frogs"
+          },
+          {
+            "id": "snakes",
+            "name": "Snakes"
+          },
+          {
+            "id": "owls",
+            "name": "Owls"
+          },
+          {
+            "id": "hawks",
+            "name": "Hawks"
+          }
+        ],
+        "links": [
+          [
+            "rice",
+            "grasshoppers"
+          ],
+          [
+            "rice",
+            "rats"
+          ],
+          [
+            "rice",
+            "sparrows"
+          ],
+          [
+            "grasshoppers",
+            "frogs"
+          ],
+          [
+            "grasshoppers",
+            "sparrows"
+          ],
+          [
+            "frogs",
+            "snakes"
+          ],
+          [
+            "rats",
+            "snakes"
+          ],
+          [
+            "rats",
+            "owls"
+          ],
+          [
+            "snakes",
+            "hawks"
+          ],
+          [
+            "sparrows",
+            "hawks"
+          ]
+        ]
+      },
       "options": [
         "Spray a long-lasting pesticide every week so that the grasshoppers die faster.",
         "Kill all the snakes so they cannot eat the frogs.",
-        "Encourage natural predators, such as frogs and sparrows, to eat the grasshoppers instead of spraying a long-lasting pesticide.",
+        "Encourage natural predators, such as frogs, to eat the grasshoppers instead of spraying a long-lasting pesticide.",
         "Remove the sparrows so they cannot eat the rice plants."
       ],
       "answer": 2,
-      "solution": "Frogs and sparrows already eat grasshoppers. Helping them keeps grasshopper numbers down without any toxic chemical. A long-lasting pesticide would build up in the hawks and owls at the top of the web. Removing snakes or sparrows would cut the hawks' food.",
+      "solution": "Frogs eat grasshoppers. Helping them keeps grasshopper numbers down without any toxic chemical. A long-lasting pesticide would build up in the hawks and owls at the top of the web. Removing snakes or sparrows would cut the hawks' food.",
       "misconceptions": {
         "0": "A pesticide that does not break down passes up the food chain and builds up in hawks and owls.",
         "1": "Removing snakes takes away food from the hawks, and more rats would survive to eat the rice.",
@@ -957,6 +1789,1168 @@
       },
       "skill": "toxic substances in food chains",
       "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "s04-q040",
+      "subtopicId": "s04-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "In a padi field, rats eat rice plants and barn owls eat rats. Which food chain is drawn correctly?",
+      "optionDiagrams": [
+        {
+          "type": "foodChain",
+          "organisms": [
+            "Barn owl",
+            "Rat",
+            "Rice plants"
+          ]
+        },
+        {
+          "type": "foodChain",
+          "organisms": [
+            "Rat",
+            "Rice plants",
+            "Barn owl"
+          ]
+        },
+        {
+          "type": "foodChain",
+          "organisms": [
+            "Rice plants",
+            "Barn owl",
+            "Rat"
+          ]
+        },
+        {
+          "type": "foodChain",
+          "organisms": [
+            "Rice plants",
+            "Rat",
+            "Barn owl"
+          ]
+        }
+      ],
+      "options": [
+        "Food chain A",
+        "Food chain B",
+        "Food chain C",
+        "Food chain D"
+      ],
+      "answer": 3,
+      "solution": "A food chain starts with the producer, and each arrow points from the food to the animal that eats it (the way the energy goes). Rice plants -> rat -> barn owl: the rat eats the rice plants and the barn owl eats the rat. That is food chain D.",
+      "misconceptions": {
+        "0": "Food chain A has the arrows the wrong way round: they point from each eater to its food. Arrows should point from the food to the eater.",
+        "1": "Food chain B does not start with the producer, and its arrow shows the rice plants eating the rat. A food chain starts with the plant.",
+        "2": "In food chain C the barn owl eats the rice plants and the rat eats the owl. It is the other way round: rats eat rice plants and owls eat rats."
+      },
+      "skill": "reading food chain arrows",
+      "source": "original"
+    },
+    {
+      "id": "s04-q041",
+      "subtopicId": "s04-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "On a coral reef, parrotfish eat algae, groupers eat parrotfish and reef sharks eat groupers. Which food chain is drawn correctly?",
+      "optionDiagrams": [
+        {
+          "type": "foodChain",
+          "organisms": [
+            "Reef shark",
+            "Grouper",
+            "Parrotfish",
+            "Algae"
+          ]
+        },
+        {
+          "type": "foodChain",
+          "organisms": [
+            "Algae",
+            "Grouper",
+            "Parrotfish",
+            "Reef shark"
+          ]
+        },
+        {
+          "type": "foodChain",
+          "organisms": [
+            "Algae",
+            "Parrotfish",
+            "Grouper",
+            "Reef shark"
+          ]
+        },
+        {
+          "type": "foodChain",
+          "organisms": [
+            "Parrotfish",
+            "Algae",
+            "Grouper",
+            "Reef shark"
+          ]
+        }
+      ],
+      "options": [
+        "Food chain A",
+        "Food chain B",
+        "Food chain C",
+        "Food chain D"
+      ],
+      "answer": 2,
+      "solution": "Start with the producer, the algae. Each arrow must point from the food to the eater: algae -> parrotfish (parrotfish eat algae) -> grouper (groupers eat parrotfish) -> reef shark (reef sharks eat groupers). That is food chain C.",
+      "misconceptions": {
+        "0": "Food chain A has every arrow pointing from the eater to its food. The arrows should point the way the energy goes: from the food to the eater.",
+        "1": "In food chain B the grouper eats the algae and the parrotfish eats the grouper. It is the other way round: parrotfish eat algae, and groupers eat parrotfish.",
+        "3": "Food chain D starts with the parrotfish, but a food chain must start with the producer, the algae."
+      },
+      "skill": "building a food chain",
+      "source": "original"
+    },
+    {
+      "id": "s04-q042",
+      "subtopicId": "s04-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at this padi field food chain. Which of these is both a predator and prey?",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Rice plants",
+          "Planthoppers",
+          "Spiders",
+          "Frogs",
+          "Snakes"
+        ]
+      },
+      "options": [
+        "Rice plants",
+        "Planthoppers",
+        "Spiders",
+        "Snakes"
+      ],
+      "answer": 2,
+      "solution": "A predator hunts and eats other animals. Prey is an animal that is eaten. Spiders eat planthoppers, so they are predators, and frogs eat spiders, so they are also prey. (Frogs are both too, but they are not one of the choices.)",
+      "misconceptions": {
+        "0": "Rice plants are the producer. They are eaten, but they are plants that make their own food, so they are not predators or prey.",
+        "1": "Planthoppers are prey for spiders, but they eat rice plants, not animals, so they are not predators.",
+        "3": "Snakes hunt frogs, so they are predators, but nothing in this chain eats snakes, so they are not prey here."
+      },
+      "skill": "predators and prey",
+      "source": "original"
+    },
+    {
+      "id": "s04-q043",
+      "subtopicId": "s04-s2",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Look at the mangrove food web. Select ALL the animals that eat crabs.",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "mangrove",
+            "name": "Mangrove leaves"
+          },
+          {
+            "id": "algae",
+            "name": "Algae"
+          },
+          {
+            "id": "snails",
+            "name": "Snails"
+          },
+          {
+            "id": "crabs",
+            "name": "Crabs"
+          },
+          {
+            "id": "mudskippers",
+            "name": "Mudskippers"
+          },
+          {
+            "id": "kingfishers",
+            "name": "Kingfishers"
+          },
+          {
+            "id": "monitors",
+            "name": "Monitor lizards"
+          }
+        ],
+        "links": [
+          [
+            "mangrove",
+            "crabs"
+          ],
+          [
+            "algae",
+            "snails"
+          ],
+          [
+            "algae",
+            "mudskippers"
+          ],
+          [
+            "snails",
+            "crabs"
+          ],
+          [
+            "crabs",
+            "kingfishers"
+          ],
+          [
+            "crabs",
+            "monitors"
+          ],
+          [
+            "mudskippers",
+            "kingfishers"
+          ],
+          [
+            "mudskippers",
+            "monitors"
+          ]
+        ],
+        "highlight": [
+          "crabs"
+        ]
+      },
+      "options": [
+        "Snails",
+        "Kingfishers",
+        "Mudskippers",
+        "Monitor lizards"
+      ],
+      "answer": [
+        1,
+        3
+      ],
+      "solution": "Follow the arrows that start at the crabs. One goes to the kingfishers and one goes to the monitor lizards. So kingfishers and monitor lizards eat crabs.",
+      "misconceptions": {
+        "0": "The arrow between the snails and the crabs points to the crabs: crabs eat snails, not the other way round.",
+        "2": "The only arrow into the mudskippers comes from the algae. Mudskippers do not eat crabs in this web."
+      },
+      "skill": "reading a food web",
+      "source": "original"
+    },
+    {
+      "id": "s04-q044",
+      "subtopicId": "s04-s2",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the mangrove food web. How many different food chains are in it? Each chain starts with a producer and ends with an animal that nothing else eats. Give your answer as a number.",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "mangrove",
+            "name": "Mangrove leaves"
+          },
+          {
+            "id": "algae",
+            "name": "Algae"
+          },
+          {
+            "id": "snails",
+            "name": "Snails"
+          },
+          {
+            "id": "crabs",
+            "name": "Crabs"
+          },
+          {
+            "id": "mudskippers",
+            "name": "Mudskippers"
+          },
+          {
+            "id": "kingfishers",
+            "name": "Kingfishers"
+          },
+          {
+            "id": "monitors",
+            "name": "Monitor lizards"
+          }
+        ],
+        "links": [
+          [
+            "mangrove",
+            "crabs"
+          ],
+          [
+            "algae",
+            "snails"
+          ],
+          [
+            "algae",
+            "mudskippers"
+          ],
+          [
+            "snails",
+            "crabs"
+          ],
+          [
+            "crabs",
+            "kingfishers"
+          ],
+          [
+            "crabs",
+            "monitors"
+          ],
+          [
+            "mudskippers",
+            "kingfishers"
+          ],
+          [
+            "mudskippers",
+            "monitors"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": [
+          "six"
+        ]
+      },
+      "solution": "This web has two producers, mangrove leaves and algae. Follow every path of arrows to an animal with no arrow leaving it (kingfishers or monitor lizards). From mangrove leaves: 1) mangrove leaves -> crabs -> kingfishers. 2) mangrove leaves -> crabs -> monitor lizards. From algae: 3) algae -> snails -> crabs -> kingfishers. 4) algae -> snails -> crabs -> monitor lizards. 5) algae -> mudskippers -> kingfishers. 6) algae -> mudskippers -> monitor lizards. That makes 6 food chains.",
+      "misconceptions": {
+        "common": "Starting only from one producer. This web has two producers, mangrove leaves and algae, so count the chains from both. Also remember that every split in the arrows makes a new chain."
+      },
+      "skill": "finding food chains in a food web",
+      "source": "original"
+    },
+    {
+      "id": "s04-q045",
+      "subtopicId": "s04-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the rainforest food web. A disease kills most of the bulbuls. What is MOST likely to happen to the number of caterpillars at first?",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "fig",
+            "name": "Fig tree"
+          },
+          {
+            "id": "caterpillars",
+            "name": "Caterpillars"
+          },
+          {
+            "id": "squirrels",
+            "name": "Squirrels"
+          },
+          {
+            "id": "bulbuls",
+            "name": "Bulbuls"
+          },
+          {
+            "id": "pythons",
+            "name": "Pythons"
+          },
+          {
+            "id": "eagles",
+            "name": "Eagles"
+          }
+        ],
+        "links": [
+          [
+            "fig",
+            "caterpillars"
+          ],
+          [
+            "fig",
+            "squirrels"
+          ],
+          [
+            "fig",
+            "bulbuls"
+          ],
+          [
+            "caterpillars",
+            "bulbuls"
+          ],
+          [
+            "squirrels",
+            "pythons"
+          ],
+          [
+            "bulbuls",
+            "pythons"
+          ],
+          [
+            "squirrels",
+            "eagles"
+          ],
+          [
+            "bulbuls",
+            "eagles"
+          ]
+        ],
+        "highlight": [
+          "bulbuls"
+        ]
+      },
+      "options": [
+        "It will go down, because bulbuls give caterpillars food",
+        "It will go up, because fewer caterpillars are eaten",
+        "It will stay the same, because caterpillars eat the fig tree, not bulbuls",
+        "It will go down, because the pythons will eat caterpillars instead"
+      ],
+      "answer": 1,
+      "solution": "Follow the arrows that leave the caterpillars: the only one goes to the bulbuls, so bulbuls are the caterpillars' only predator in this web. With most bulbuls gone, fewer caterpillars are eaten, so more survive and the number of caterpillars goes up at first.",
+      "misconceptions": {
+        "0": "Bulbuls do not feed caterpillars; the arrow shows that bulbuls EAT caterpillars. Fewer predators means more caterpillars survive.",
+        "2": "Caterpillars do eat the fig tree, but they are also eaten by bulbuls. Losing a predator affects them.",
+        "3": "No arrow goes from the caterpillars to the pythons. Pythons eat squirrels and bulbuls in this web."
+      },
+      "skill": "predicting changes in a food web",
+      "source": "original"
+    },
+    {
+      "id": "s04-q046",
+      "subtopicId": "s04-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the rainforest food web. Hunters remove all the eagles. What is MOST likely to happen to the fig tree?",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "fig",
+            "name": "Fig tree"
+          },
+          {
+            "id": "caterpillars",
+            "name": "Caterpillars"
+          },
+          {
+            "id": "squirrels",
+            "name": "Squirrels"
+          },
+          {
+            "id": "bulbuls",
+            "name": "Bulbuls"
+          },
+          {
+            "id": "pythons",
+            "name": "Pythons"
+          },
+          {
+            "id": "eagles",
+            "name": "Eagles"
+          }
+        ],
+        "links": [
+          [
+            "fig",
+            "caterpillars"
+          ],
+          [
+            "fig",
+            "squirrels"
+          ],
+          [
+            "fig",
+            "bulbuls"
+          ],
+          [
+            "caterpillars",
+            "bulbuls"
+          ],
+          [
+            "squirrels",
+            "pythons"
+          ],
+          [
+            "bulbuls",
+            "pythons"
+          ],
+          [
+            "squirrels",
+            "eagles"
+          ],
+          [
+            "bulbuls",
+            "eagles"
+          ]
+        ],
+        "highlight": [
+          "eagles"
+        ]
+      },
+      "options": [
+        "It will grow better, because eagles eat the fig tree's fruit",
+        "Nothing will change, because the eagles do not eat the fig tree",
+        "It will be eaten less, because the pythons will start eating the fig tree",
+        "It will be eaten more, because more squirrels and bulbuls survive to feed on it"
+      ],
+      "answer": 3,
+      "solution": "Work along the arrows in two steps. Step 1: eagles eat squirrels and bulbuls, so without eagles, more squirrels and bulbuls survive. Step 2: squirrels and bulbuls both eat the fig tree, so with more of them, the fig tree is eaten more.",
+      "misconceptions": {
+        "0": "No arrow goes from the fig tree to the eagles, so eagles do not eat it.",
+        "1": "The eagles are linked to the fig tree through the squirrels and bulbuls. A change to one animal can pass along the food web.",
+        "2": "Pythons are carnivores here: the only arrows into them come from the squirrels and the bulbuls."
+      },
+      "skill": "predicting changes in a food web",
+      "source": "original"
+    },
+    {
+      "id": "s04-q047",
+      "subtopicId": "s04-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the pond food web. True or false: Water snails eat both algae and water plants.",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "plants",
+            "name": "Water plants"
+          },
+          {
+            "id": "algae",
+            "name": "Algae"
+          },
+          {
+            "id": "tadpoles",
+            "name": "Tadpoles"
+          },
+          {
+            "id": "snails",
+            "name": "Water snails"
+          },
+          {
+            "id": "beetles",
+            "name": "Water beetles"
+          },
+          {
+            "id": "fish",
+            "name": "Small fish"
+          },
+          {
+            "id": "herons",
+            "name": "Herons"
+          }
+        ],
+        "links": [
+          [
+            "algae",
+            "tadpoles"
+          ],
+          [
+            "algae",
+            "snails"
+          ],
+          [
+            "plants",
+            "snails"
+          ],
+          [
+            "tadpoles",
+            "beetles"
+          ],
+          [
+            "tadpoles",
+            "fish"
+          ],
+          [
+            "snails",
+            "fish"
+          ],
+          [
+            "beetles",
+            "fish"
+          ],
+          [
+            "fish",
+            "herons"
+          ]
+        ]
+      },
+      "answer": true,
+      "solution": "True. Two arrows point to the water snails: one from the algae and one from the water plants. Arrows point from the food to the eater, so water snails eat both.",
+      "misconceptions": {
+        "common": "Reading the arrows the wrong way. An arrow pointing TO the water snails comes from something they eat."
+      },
+      "skill": "reading a food web",
+      "source": "original"
+    },
+    {
+      "id": "s04-q048",
+      "subtopicId": "s04-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the pond food chain. Which sentence describes how energy flows along it?",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Algae",
+          "Tadpoles",
+          "Small fish",
+          "Herons"
+        ]
+      },
+      "options": [
+        "Energy flows from the herons to the small fish, then to the tadpoles and the algae",
+        "Energy flows from the algae to the tadpoles, then to the small fish and the herons",
+        "Energy flows from the tadpoles to both the algae and the small fish",
+        "Energy does not move along a food chain"
+      ],
+      "answer": 1,
+      "solution": "The arrows in a food chain show the way the energy goes, from the food to the eater. The algae capture light energy from the Sun. Tadpoles get energy by eating algae, small fish by eating tadpoles, and herons by eating small fish.",
+      "misconceptions": {
+        "0": "This is the wrong way round. The arrows point the way the energy goes: from the food to the eater.",
+        "2": "Tadpoles do not give energy to algae. Algae get their energy from the Sun, and the tadpoles get energy by eating them.",
+        "3": "Each time an animal eats, it takes in energy from its food, so energy does move along the chain."
+      },
+      "skill": "energy transfer along a food chain",
+      "source": "original"
+    },
+    {
+      "id": "s04-q049",
+      "subtopicId": "s04-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Suppose only 1/10 of the energy at one level passes on to the next level. In the rainforest food chain shown, the fig tree holds 20 000 units of energy. How many units of energy reach the bulbuls? Give your answer as a number.",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Fig tree",
+          "Caterpillars",
+          "Bulbuls",
+          "Eagles"
+        ],
+        "roles": [
+          "20 000 units",
+          "",
+          "?",
+          ""
+        ]
+      },
+      "answer": {
+        "value": 200,
+        "tolerance": 0,
+        "accept": [
+          "200 units"
+        ]
+      },
+      "solution": "Count the arrows from the fig tree to the bulbuls: there are two. Fig tree to caterpillars: 20 000 ÷ 10 = 2000. Caterpillars to bulbuls: 2000 ÷ 10 = 200. So 200 units reach the bulbuls.",
+      "misconceptions": {
+        "common": "Dividing by 10 only once (2000) or three times (20), going on to the eagles. Count only the arrows between the fig tree and the bulbuls: there are two."
+      },
+      "skill": "energy transfer along a food chain",
+      "source": "original"
+    },
+    {
+      "id": "s04-q050",
+      "subtopicId": "s04-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the pond food web. Which animal is the top predator (nothing else in this web eats it)? Answer in one or two words.",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "plants",
+            "name": "Water plants"
+          },
+          {
+            "id": "algae",
+            "name": "Algae"
+          },
+          {
+            "id": "tadpoles",
+            "name": "Tadpoles"
+          },
+          {
+            "id": "snails",
+            "name": "Water snails"
+          },
+          {
+            "id": "beetles",
+            "name": "Water beetles"
+          },
+          {
+            "id": "fish",
+            "name": "Small fish"
+          },
+          {
+            "id": "herons",
+            "name": "Herons"
+          }
+        ],
+        "links": [
+          [
+            "algae",
+            "tadpoles"
+          ],
+          [
+            "algae",
+            "snails"
+          ],
+          [
+            "plants",
+            "snails"
+          ],
+          [
+            "tadpoles",
+            "beetles"
+          ],
+          [
+            "tadpoles",
+            "fish"
+          ],
+          [
+            "snails",
+            "fish"
+          ],
+          [
+            "beetles",
+            "fish"
+          ],
+          [
+            "fish",
+            "herons"
+          ]
+        ]
+      },
+      "answer": {
+        "accept": [
+          "heron",
+          "herons",
+          "the heron",
+          "the herons",
+          "grey heron",
+          "grey herons"
+        ],
+        "keywords": []
+      },
+      "solution": "Look for the animal with arrows coming in but no arrow going out. Herons eat small fish, and no arrow leaves the herons, so nothing in this web eats them. The heron is the top predator.",
+      "misconceptions": {
+        "common": "Answering 'small fish'. Small fish eat many animals, but the arrow from the small fish goes to the herons, so herons eat them."
+      },
+      "skill": "predators and prey",
+      "source": "original"
+    },
+    {
+      "id": "s04-q051",
+      "subtopicId": "s04-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the pond food web. Which of these is a carnivore?",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "plants",
+            "name": "Water plants"
+          },
+          {
+            "id": "algae",
+            "name": "Algae"
+          },
+          {
+            "id": "tadpoles",
+            "name": "Tadpoles"
+          },
+          {
+            "id": "snails",
+            "name": "Water snails"
+          },
+          {
+            "id": "beetles",
+            "name": "Water beetles"
+          },
+          {
+            "id": "fish",
+            "name": "Small fish"
+          },
+          {
+            "id": "herons",
+            "name": "Herons"
+          }
+        ],
+        "links": [
+          [
+            "algae",
+            "tadpoles"
+          ],
+          [
+            "algae",
+            "snails"
+          ],
+          [
+            "plants",
+            "snails"
+          ],
+          [
+            "tadpoles",
+            "beetles"
+          ],
+          [
+            "tadpoles",
+            "fish"
+          ],
+          [
+            "snails",
+            "fish"
+          ],
+          [
+            "beetles",
+            "fish"
+          ],
+          [
+            "fish",
+            "herons"
+          ]
+        ]
+      },
+      "options": [
+        "Tadpoles",
+        "Water snails",
+        "Water beetles",
+        "Algae"
+      ],
+      "answer": 2,
+      "solution": "A carnivore eats only animals. Check the arrows that point to each choice. The only arrow into the water beetles comes from the tadpoles, which are animals, so water beetles are carnivores. Tadpoles and water snails eat only algae or plants, so they are herbivores.",
+      "misconceptions": {
+        "0": "The only arrow into the tadpoles comes from the algae, a producer. Tadpoles eat only algae here, so they are herbivores.",
+        "1": "The arrows into the water snails come from the algae and the water plants, so snails are herbivores.",
+        "3": "No arrow points to the algae: they make their own food. Algae are producers, not carnivores."
+      },
+      "skill": "feeding vocabulary",
+      "source": "original"
+    },
+    {
+      "id": "s04-q052",
+      "subtopicId": "s04-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Use the mangrove food web. Put these living things in order to make one food chain, starting with the producer.",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "mangrove",
+            "name": "Mangrove leaves"
+          },
+          {
+            "id": "algae",
+            "name": "Algae"
+          },
+          {
+            "id": "snails",
+            "name": "Snails"
+          },
+          {
+            "id": "crabs",
+            "name": "Crabs"
+          },
+          {
+            "id": "mudskippers",
+            "name": "Mudskippers"
+          },
+          {
+            "id": "kingfishers",
+            "name": "Kingfishers"
+          },
+          {
+            "id": "monitors",
+            "name": "Monitor lizards"
+          }
+        ],
+        "links": [
+          [
+            "mangrove",
+            "crabs"
+          ],
+          [
+            "algae",
+            "snails"
+          ],
+          [
+            "algae",
+            "mudskippers"
+          ],
+          [
+            "snails",
+            "crabs"
+          ],
+          [
+            "crabs",
+            "kingfishers"
+          ],
+          [
+            "crabs",
+            "monitors"
+          ],
+          [
+            "mudskippers",
+            "kingfishers"
+          ],
+          [
+            "mudskippers",
+            "monitors"
+          ]
+        ]
+      },
+      "options": [
+        "Crabs",
+        "Algae",
+        "Kingfishers",
+        "Snails"
+      ],
+      "answer": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "solution": "Start with the producer: algae. Follow the arrows: algae -> snails (snails eat algae) -> crabs (crabs eat snails) -> kingfishers (kingfishers eat crabs).",
+      "misconceptions": {
+        "common": "Putting the crabs before the snails. The arrow between them points from the snails to the crabs, so crabs eat snails."
+      },
+      "skill": "building a food chain",
+      "source": "original"
+    },
+    {
+      "id": "s04-q053",
+      "subtopicId": "s04-s2",
+      "type": "match",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the rainforest food web. Match each living thing to the word that describes how it feeds in this web.",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "fig",
+            "name": "Fig tree"
+          },
+          {
+            "id": "caterpillars",
+            "name": "Caterpillars"
+          },
+          {
+            "id": "squirrels",
+            "name": "Squirrels"
+          },
+          {
+            "id": "bulbuls",
+            "name": "Bulbuls"
+          },
+          {
+            "id": "pythons",
+            "name": "Pythons"
+          },
+          {
+            "id": "eagles",
+            "name": "Eagles"
+          }
+        ],
+        "links": [
+          [
+            "fig",
+            "caterpillars"
+          ],
+          [
+            "fig",
+            "squirrels"
+          ],
+          [
+            "fig",
+            "bulbuls"
+          ],
+          [
+            "caterpillars",
+            "bulbuls"
+          ],
+          [
+            "squirrels",
+            "pythons"
+          ],
+          [
+            "bulbuls",
+            "pythons"
+          ],
+          [
+            "squirrels",
+            "eagles"
+          ],
+          [
+            "bulbuls",
+            "eagles"
+          ]
+        ]
+      },
+      "options": {
+        "left": [
+          "Fig tree",
+          "Caterpillars",
+          "Bulbuls",
+          "Pythons"
+        ],
+        "right": [
+          "Carnivore",
+          "Producer",
+          "Decomposer",
+          "Omnivore",
+          "Herbivore"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "solution": "Fig tree: no arrows point to it, because it makes its own food, so it is the producer. Caterpillars: the only arrow into them comes from the fig tree, so they eat only plants: herbivore. Bulbuls: arrows come in from the fig tree and from the caterpillars, so they eat plants and animals: omnivore. Pythons: arrows come in from the squirrels and the bulbuls, both animals: carnivore. No decomposer is shown in this web.",
+      "misconceptions": {
+        "common": "Calling the bulbuls carnivores because they eat caterpillars. Check every arrow into an animal: bulbuls also eat the fig tree, so they are omnivores."
+      },
+      "skill": "feeding vocabulary",
+      "source": "original"
+    },
+    {
+      "id": "s04-q054",
+      "subtopicId": "s04-s2",
+      "type": "truefalse",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the mangrove food web. True or false: The crabs are a primary consumer in one food chain and a secondary consumer in another.",
+      "diagram": {
+        "type": "foodWeb",
+        "organisms": [
+          {
+            "id": "mangrove",
+            "name": "Mangrove leaves"
+          },
+          {
+            "id": "algae",
+            "name": "Algae"
+          },
+          {
+            "id": "snails",
+            "name": "Snails"
+          },
+          {
+            "id": "crabs",
+            "name": "Crabs"
+          },
+          {
+            "id": "mudskippers",
+            "name": "Mudskippers"
+          },
+          {
+            "id": "kingfishers",
+            "name": "Kingfishers"
+          },
+          {
+            "id": "monitors",
+            "name": "Monitor lizards"
+          }
+        ],
+        "links": [
+          [
+            "mangrove",
+            "crabs"
+          ],
+          [
+            "algae",
+            "snails"
+          ],
+          [
+            "algae",
+            "mudskippers"
+          ],
+          [
+            "snails",
+            "crabs"
+          ],
+          [
+            "crabs",
+            "kingfishers"
+          ],
+          [
+            "crabs",
+            "monitors"
+          ],
+          [
+            "mudskippers",
+            "kingfishers"
+          ],
+          [
+            "mudskippers",
+            "monitors"
+          ]
+        ],
+        "highlight": [
+          "crabs"
+        ]
+      },
+      "answer": true,
+      "solution": "True. In mangrove leaves -> crabs -> kingfishers, the crabs eat the producer, so they are the primary consumer. In algae -> snails -> crabs -> kingfishers, the crabs eat the snails, so they are the secondary consumer.",
+      "misconceptions": {
+        "common": "Thinking each animal has only one level. An animal's level depends on which food chain you follow, and the crabs eat both a producer and an animal."
+      },
+      "skill": "consumer levels in a food chain",
+      "source": "original"
+    },
+    {
+      "id": "s04-q055",
+      "subtopicId": "s04-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A pesticide that does not break down gets into a pond. Look at the food chain. Each water snail holds 2 units of pesticide. A small fish eats 15 water snails, and a heron eats 6 of these small fish. All the pesticide stays in each animal's body. How many units of pesticide are in the heron? Give your answer as a number.",
+      "diagram": {
+        "type": "foodChain",
+        "organisms": [
+          "Algae",
+          "Water snails",
+          "Small fish",
+          "Herons"
+        ]
+      },
+      "answer": {
+        "value": 180,
+        "tolerance": 0,
+        "accept": [
+          "180 units"
+        ]
+      },
+      "solution": "One small fish eats 15 snails: 15 x 2 = 30 units. The heron eats 6 small fish: 6 x 30 = 180 units. The pesticide builds up at each step, so the heron, at the top of the chain, holds the most.",
+      "misconceptions": {
+        "common": "Adding instead of multiplying (2 + 15 + 6 = 23), or stopping at the small fish (30 units)."
+      },
+      "skill": "toxic substances in food chains",
+      "source": "original"
     }
   ]
 }

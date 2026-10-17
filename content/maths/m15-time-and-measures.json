@@ -385,7 +385,11 @@
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A lesson starts at 09:20 and ends at 10:05. How long is the lesson? Give your answer in minutes.",
+      "prompt": "The clock shows the time a morning lesson starts. The lesson ends at 10:05. How long is the lesson? Give your answer in minutes.",
+      "diagram": {
+        "type": "clock",
+        "time": "09:20"
+      },
       "answer": {
         "value": 45,
         "tolerance": 0,
@@ -395,9 +399,9 @@
           "45 mins"
         ]
       },
-      "solution": "Count on. From 09:20 to 10:00 is 40 minutes. From 10:00 to 10:05 is 5 minutes. 40 + 5 = 45 minutes.",
+      "solution": "The minute hand points at the 4 (4 x 5 = 20 minutes) and the hour hand is just past the 9, so the lesson starts at 09:20. Count on. From 09:20 to 10:00 is 40 minutes. From 10:00 to 10:05 is 5 minutes. 40 + 5 = 45 minutes.",
       "misconceptions": {
-        "common": "Taking away the times like ordinary numbers: 1005 - 920 = 85. Times do not work like that because an hour has 60 minutes, not 100. Count on to the next hour instead."
+        "common": "Taking away the times like ordinary numbers: 1005 - 920 = 85. Times do not work like that because an hour has 60 minutes, not 100. Count on to the next hour instead. Also check the clock: the minute hand on the 4 means 20 minutes past, not 4 minutes past."
       },
       "skill": "finding a duration",
       "source": "original"
@@ -861,7 +865,17 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A jug holds 1.75 L of juice. Siti pours 4 cups of juice from the jug. Each cup holds 280 ml. How much juice is left in the jug?",
+      "prompt": "The jug shows how much juice it holds. Siti pours 4 cups of juice from the jug. Each cup holds 280 ml. How much juice is left in the jug?",
+      "diagram": {
+        "type": "scale",
+        "kind": "jug",
+        "min": 0,
+        "max": 2,
+        "major": 0.5,
+        "minor": 0.25,
+        "unit": "L",
+        "value": 1.75
+      },
       "options": [
         "630 ml",
         "1120 ml",
@@ -869,7 +883,7 @@
         "0.63 ml"
       ],
       "answer": 0,
-      "solution": "Change litres to millilitres: 1.75 L = 1750 ml. Juice poured: 4 x 280 ml = 1120 ml. Juice left: 1750 - 1120 = 630 ml.",
+      "solution": "Read the jug: each small mark is 0.25 L, and the juice is 1 small mark above 1.5 L, so the jug holds 1.75 L. Change litres to millilitres: 1.75 L = 1750 ml. Juice poured: 4 x 280 ml = 1120 ml. Juice left: 1750 - 1120 = 630 ml.",
       "misconceptions": {
         "1": "That is the juice Siti POURED OUT (4 x 280 ml). The question asks how much is LEFT, so subtract it from 1750 ml.",
         "2": "You took away only one cup (1.75 - 0.28 = 1.47). She pours 4 cups, so take away 4 x 280 ml = 1120 ml.",
@@ -934,7 +948,38 @@
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A rectangle is 8 cm long and 5 cm wide. What is its area? Give your answer in cm^2.",
+      "prompt": "The diagram shows a rectangle. What is its area? Give your answer in cm^2.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            5
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "sides": [
+          {
+            "label": "8 cm"
+          },
+          {
+            "label": "5 cm"
+          },
+          null,
+          null
+        ]
+      },
       "answer": {
         "value": 40,
         "tolerance": 0,
@@ -944,7 +989,7 @@
           "40 square cm"
         ]
       },
-      "solution": "Area of a rectangle = length x width = 8 x 5 = 40 cm^2.",
+      "solution": "The rectangle is 8 cm long and 5 cm wide. Area of a rectangle = length x width = 8 x 5 = 40 cm^2.",
       "misconceptions": {
         "common": "Adding the sides (8 + 5 + 8 + 5 = 26) gives the perimeter, not the area. Area means how many 1 cm squares cover the shape, so multiply."
       },
@@ -957,7 +1002,38 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A rectangular garden is 12 m long and 7 m wide. What is its perimeter?",
+      "prompt": "The diagram shows a rectangular garden. What is its perimeter?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            12,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "sides": [
+          {
+            "label": "12 m"
+          },
+          {
+            "label": "7 m"
+          },
+          null,
+          null
+        ]
+      },
       "options": [
         "19 m",
         "84 m",
@@ -965,7 +1041,7 @@
         "31 m"
       ],
       "answer": 2,
-      "solution": "Perimeter is the distance all the way round. 12 + 7 + 12 + 7 = 38 m. Or 2 x (12 + 7) = 2 x 19 = 38 m.",
+      "solution": "Perimeter is the distance all the way round. The garden has two sides of 12 m and two sides of 7 m: 12 + 7 + 12 + 7 = 38 m. Or 2 x (12 + 7) = 2 x 19 = 38 m.",
       "misconceptions": {
         "0": "You added only one length and one width. A rectangle has 4 sides, so double it: 2 x 19 = 38 m.",
         "1": "12 x 7 = 84 is the AREA (in m^2). Perimeter is the distance around the edge, so add the four sides.",
@@ -980,7 +1056,38 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A rectangle is 1.2 m long and 40 cm wide. What is its perimeter in centimetres?",
+      "prompt": "The diagram shows a rectangle. What is its perimeter in centimetres?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            120,
+            0
+          ],
+          [
+            120,
+            40
+          ],
+          [
+            0,
+            40
+          ]
+        ],
+        "sides": [
+          {
+            "label": "1.2 m"
+          },
+          {
+            "label": "40 cm"
+          },
+          null,
+          null
+        ]
+      },
       "options": [
         "82.4 cm",
         "160 cm",
@@ -988,7 +1095,7 @@
         "320 cm"
       ],
       "answer": 3,
-      "solution": "First make the units the same: 1.2 m = 120 cm. Perimeter = 120 + 40 + 120 + 40 = 320 cm.",
+      "solution": "The sides are in different units, so make them the same first: 1.2 m = 120 cm. Perimeter = 120 + 40 + 120 + 40 = 320 cm.",
       "misconceptions": {
         "0": "You added 1.2 and 40 without changing the units. 1.2 m is 120 cm, so change it first.",
         "1": "120 + 40 = 160 is only one length and one width. Double it for all four sides: 320 cm.",
@@ -1003,7 +1110,38 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A rug is 2.5 m long and 1.6 m wide. What is its area?",
+      "prompt": "The diagram shows a rectangular rug. What is its area?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            2.5,
+            0
+          ],
+          [
+            2.5,
+            1.6
+          ],
+          [
+            0,
+            1.6
+          ]
+        ],
+        "sides": [
+          {
+            "label": "2.5 m"
+          },
+          {
+            "label": "1.6 m"
+          },
+          null,
+          null
+        ]
+      },
       "options": [
         "4 m^2",
         "8.2 m^2",
@@ -1011,7 +1149,7 @@
         "40 m^2"
       ],
       "answer": 0,
-      "solution": "Area = length x width = 2.5 x 1.6. Work out 25 x 16 = 400. There are 2 decimal places in the question (one in each number), so the answer is 4.00 = 4 m^2.",
+      "solution": "The rug is 2.5 m long and 1.6 m wide. Area = length x width = 2.5 x 1.6. Work out 25 x 16 = 400. There are 2 decimal places in the question (one in each number), so the answer is 4.00 = 4 m^2.",
       "misconceptions": {
         "1": "8.2 is the PERIMETER (2.5 + 1.6 + 2.5 + 1.6 = 8.2 m). Area needs length x width.",
         "2": "You added 2.5 + 1.6 = 4.1. For area you multiply length by width.",
@@ -1041,7 +1179,62 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rectangular floor is 4.8 m long and 3.6 m wide. It is covered with square tiles, each 60 cm by 60 cm, with no gaps. How many tiles are needed?",
+      "prompt": "The plan shows a rectangular floor. It is covered with square tiles, each 60 cm by 60 cm, with no gaps. One tile is drawn in the corner. How many tiles are needed?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            4.8,
+            0
+          ],
+          [
+            4.8,
+            3.6
+          ],
+          [
+            0,
+            3.6
+          ]
+        ],
+        "sides": [
+          {
+            "label": "4.8 m"
+          },
+          {
+            "label": "3.6 m"
+          },
+          null,
+          null
+        ],
+        "extraLines": [
+          {
+            "from": [
+              0,
+              0.6
+            ],
+            "to": [
+              0.6,
+              0.6
+            ],
+            "dashed": false
+          },
+          {
+            "from": [
+              0.6,
+              0
+            ],
+            "to": [
+              0.6,
+              0.6
+            ],
+            "dashed": false
+          }
+        ]
+      },
       "options": [
         "14 tiles",
         "28 tiles",
@@ -1049,7 +1242,7 @@
         "17 tiles"
       ],
       "answer": 2,
-      "solution": "Change to centimetres: 4.8 m = 480 cm and 3.6 m = 360 cm. Tiles along the length: 480 / 60 = 8. Tiles along the width: 360 / 60 = 6. Number of tiles = 8 x 6 = 48.",
+      "solution": "Change to centimetres: 4.8 m = 480 cm and 3.6 m = 360 cm. Tiles along the length: 480 ÷ 60 = 8. Tiles along the width: 360 ÷ 60 = 6. Number of tiles = 8 x 6 = 48.",
       "misconceptions": {
         "0": "You found 8 tiles along the length and 6 along the width, but then added them. The tiles fill rows and columns, so multiply: 8 x 6 = 48.",
         "1": "You used the perimeter (16.8 m) and divided by 0.6 m. That counts tiles around the edge only. The floor is covered, so you need the area.",
@@ -1064,7 +1257,38 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A rectangle has an area of 54 cm^2. Its length is 9 cm. What is its perimeter?",
+      "prompt": "The diagram shows a rectangle with an area of 54 cm^2. What is its perimeter?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            9,
+            6
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "sides": [
+          {
+            "label": "9 cm"
+          },
+          {
+            "label": "?"
+          },
+          null,
+          null
+        ]
+      },
       "options": [
         "15 cm",
         "24 cm",
@@ -1072,7 +1296,7 @@
         "30 cm"
       ],
       "answer": 3,
-      "solution": "Area = length x width, so width = 54 / 9 = 6 cm. Perimeter = 9 + 6 + 9 + 6 = 30 cm.",
+      "solution": "Area = length x width, so the missing width is 54 ÷ 9 = 6 cm. Perimeter = 9 + 6 + 9 + 6 = 30 cm.",
       "misconceptions": {
         "0": "9 + 6 = 15 is only one length and one width. A rectangle has two of each: 2 x 15 = 30 cm.",
         "1": "You found the width (6 cm) but then did 4 x 6, as if it were a square. The length is 9 cm, not 6 cm.",
@@ -1111,7 +1335,38 @@
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rectangular playground is 25 m long and 18 m wide. Select ALL the statements that are true.",
+      "prompt": "The diagram shows a rectangular playground. Select ALL the statements that are true.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            25,
+            0
+          ],
+          [
+            25,
+            18
+          ],
+          [
+            0,
+            18
+          ]
+        ],
+        "sides": [
+          {
+            "label": "25 m"
+          },
+          {
+            "label": "18 m"
+          },
+          null,
+          null
+        ]
+      },
       "options": [
         "The perimeter is 86 m",
         "The area is 450 m^2",
@@ -1124,7 +1379,7 @@
         1,
         3
       ],
-      "solution": "Perimeter = 25 + 18 + 25 + 18 = 86 m. In centimetres: 86 x 100 = 8600 cm, so that statement is also true. Area = 25 x 18 = 450 m^2. 43 is just 25 + 18, half the perimeter.",
+      "solution": "The playground is 25 m long and 18 m wide. Perimeter = 25 + 18 + 25 + 18 = 86 m. In centimetres: 86 x 100 = 8600 cm, so that statement is also true. Area = 25 x 18 = 450 m^2. 43 is just 25 + 18, half the perimeter.",
       "misconceptions": {
         "2": "43 = 25 + 18. Adding gives part of the perimeter, not the area. Area = 25 x 18 = 450 m^2.",
         "4": "25 + 18 = 43 m is only one length and one width. The full perimeter is 2 x 43 = 86 m.",
@@ -1161,7 +1416,38 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Daniel wants to put a fence all the way around a rectangular field that is 15 m long and 9.5 m wide. Fencing costs RM 12 per metre. How much will the fencing cost?",
+      "prompt": "Daniel wants to put a fence all the way around the rectangular field shown in the diagram. Fencing costs RM 12 per metre. How much will the fencing cost?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            15,
+            0
+          ],
+          [
+            15,
+            9.5
+          ],
+          [
+            0,
+            9.5
+          ]
+        ],
+        "sides": [
+          {
+            "label": "15 m"
+          },
+          {
+            "label": "9.5 m"
+          },
+          null,
+          null
+        ]
+      },
       "options": [
         "RM 294",
         "RM 588",
@@ -1199,6 +1485,731 @@
         "3": "2.05 is the answer in KILOMETRES. The question asks for metres: 2.05 km = 2050 m."
       },
       "skill": "measurement word problems",
+      "source": "original"
+    },
+    {
+      "id": "m15-q048",
+      "subtopicId": "m15-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which clock shows 14:35?",
+      "optionDiagrams": [
+        {
+          "type": "clock",
+          "time": "04:35",
+          "alt": "Clock A"
+        },
+        {
+          "type": "clock",
+          "time": "14:35",
+          "alt": "Clock B"
+        },
+        {
+          "type": "clock",
+          "time": "07:10",
+          "alt": "Clock C"
+        },
+        {
+          "type": "clock",
+          "time": "15:35",
+          "alt": "Clock D"
+        }
+      ],
+      "options": [
+        "Clock A",
+        "Clock B",
+        "Clock C",
+        "Clock D"
+      ],
+      "answer": 1,
+      "solution": "14:35 is 35 minutes past 2 in the afternoon (14 - 12 = 2). At 2:35 the long minute hand points at the 7 (7 x 5 = 35 minutes) and the short hour hand is just over halfway from the 2 to the 3. That is Clock B.",
+      "misconceptions": {
+        "0": "Clock A shows 4:35. 14:35 is not 4:35: take 12 away from the hour, 14 - 12 = 2, so look for 2:35.",
+        "2": "Clock C has the hands the other way round: its short hour hand is just past the 7 and its long minute hand points at the 2, so it shows 7:10. At 2:35 the LONG hand points at the 7.",
+        "3": "Clock D shows 3:35: its hour hand is past the 3. At 2:35 the hour hand has not reached the 3 yet; it is between the 2 and the 3."
+      },
+      "skill": "converting between 12-hour and 24-hour clock",
+      "source": "original"
+    },
+    {
+      "id": "m15-q049",
+      "subtopicId": "m15-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The clock shows the time Mei Lin's swimming lesson starts in the afternoon. Write this time using the 24-hour clock.",
+      "diagram": {
+        "type": "clock",
+        "time": "16:40",
+        "alt": "An analogue clock showing the time the swimming lesson starts."
+      },
+      "answer": {
+        "accept": [
+          "16:40",
+          "1640",
+          "16 40",
+          "16.40"
+        ],
+        "keywords": []
+      },
+      "solution": "The long minute hand points at the 8, so it is 8 x 5 = 40 minutes past the hour. The short hour hand is between the 4 and the 5, so the hour is 4. The time is 4:40 pm. In the afternoon, add 12 to the hour: 4 + 12 = 16. The time is 16:40.",
+      "misconceptions": {
+        "common": "Writing 04:40, which is 4:40 in the morning: afternoon times need 12 added to the hour. Another slip is reading the hour as 5 because the hour hand is close to the 5. It has not reached the 5 yet, so the hour is still 4."
+      },
+      "skill": "converting between 12-hour and 24-hour clock",
+      "source": "original"
+    },
+    {
+      "id": "m15-q050",
+      "subtopicId": "m15-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The clock shows the time Ahmad's family eats dinner in the evening. What time is it?",
+      "diagram": {
+        "type": "clock",
+        "time": "19:50",
+        "alt": "An analogue clock showing the time Ahmad's family eats dinner."
+      },
+      "options": [
+        "8:50 pm",
+        "10:40 pm",
+        "7:50 am",
+        "7:50 pm"
+      ],
+      "answer": 3,
+      "solution": "The long minute hand points at the 10: 10 x 5 = 50 minutes past. The short hour hand is between the 7 and the 8 (nearly at the 8), so the hour is still 7. The time is 7:50, and evening means pm: 7:50 pm (19:50).",
+      "misconceptions": {
+        "0": "The hour hand is very close to the 8, but it has not reached it. Until the hour hand passes the 8, the hour is still 7, so it is 7:50 pm.",
+        "1": "You swapped the hands. The LONG hand is the minute hand: pointing at the 10 means 10 x 5 = 50 minutes. The short hand, just before the 8, gives the hour 7.",
+        "2": "Dinner in the evening is after noon, so the time is pm, not am."
+      },
+      "skill": "converting between 12-hour and 24-hour clock",
+      "source": "original"
+    },
+    {
+      "id": "m15-q051",
+      "subtopicId": "m15-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The clock shows the time a cooking class starts in the morning. The class ends at 12:15. How long is the class? Give your answer in minutes.",
+      "diagram": {
+        "type": "clock",
+        "time": "10:50"
+      },
+      "answer": {
+        "value": 85,
+        "tolerance": 0,
+        "accept": [
+          "85 minutes",
+          "85 min",
+          "85 mins",
+          "1 h 25 min",
+          "1 hour 25 minutes"
+        ]
+      },
+      "solution": "The long minute hand points at the 10, so it is 50 minutes past. The short hour hand is between the 10 and the 11, so the class starts at 10:50. Count on: 10:50 to 11:00 is 10 minutes, 11:00 to 12:00 is 60 minutes, and 12:00 to 12:15 is 15 minutes. 10 + 60 + 15 = 85 minutes (1 h 25 min).",
+      "misconceptions": {
+        "common": "Taking away the times like ordinary numbers (1215 - 1050 = 165). An hour has 60 minutes, not 100, so count on to the next hour instead. Also check the hour hand: it is between the 10 and the 11, so the class starts at 10:50, not 11:50."
+      },
+      "skill": "finding a duration",
+      "source": "original"
+    },
+    {
+      "id": "m15-q052",
+      "subtopicId": "m15-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "A film starts at 13:50 and lasts 1 h 40 min. Which clock shows the time the film ends?",
+      "optionDiagrams": [
+        {
+          "type": "clock",
+          "time": "14:30",
+          "alt": "Clock A"
+        },
+        {
+          "type": "clock",
+          "time": "06:15",
+          "alt": "Clock B"
+        },
+        {
+          "type": "clock",
+          "time": "15:30",
+          "alt": "Clock C"
+        },
+        {
+          "type": "clock",
+          "time": "15:40",
+          "alt": "Clock D"
+        }
+      ],
+      "options": [
+        "Clock A",
+        "Clock B",
+        "Clock C",
+        "Clock D"
+      ],
+      "answer": 2,
+      "solution": "Add the hour first: 13:50 + 1 h = 14:50. Then add the 40 minutes: 14:50 + 10 min = 15:00, and 30 more minutes makes 15:30. 15:30 is 3:30 pm: the long minute hand points at the 6 and the short hour hand is halfway between the 3 and the 4. That is Clock C.",
+      "misconceptions": {
+        "0": "Clock A shows 2:30 (14:30). 50 + 40 = 90 minutes, which is 1 hour 30 minutes, so you need to carry the extra hour: the film ends at 15:30.",
+        "1": "Clock B has the hands the other way round: the short hour hand is just past the 6 and the long minute hand points at the 3, so it shows 6:15. At 3:30 the LONG hand points at the 6.",
+        "3": "Clock D shows 3:40. It looks like you started counting from 14:00 instead of 13:50. Start at 13:50: 13:50 + 1 h 40 min = 15:30."
+      },
+      "skill": "multi-step time problems",
+      "source": "original"
+    },
+    {
+      "id": "m15-q053",
+      "subtopicId": "m15-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which jug holds 750 ml of water?",
+      "optionDiagrams": [
+        {
+          "type": "scale",
+          "kind": "jug",
+          "min": 0,
+          "max": 1000,
+          "major": 200,
+          "minor": 50,
+          "unit": "ml",
+          "value": 650,
+          "alt": "Jug A"
+        },
+        {
+          "type": "scale",
+          "kind": "jug",
+          "min": 0,
+          "max": 1000,
+          "major": 200,
+          "minor": 50,
+          "unit": "ml",
+          "value": 850,
+          "alt": "Jug B"
+        },
+        {
+          "type": "scale",
+          "kind": "jug",
+          "min": 0,
+          "max": 1000,
+          "major": 200,
+          "minor": 50,
+          "unit": "ml",
+          "value": 750,
+          "alt": "Jug C"
+        },
+        {
+          "type": "scale",
+          "kind": "jug",
+          "min": 0,
+          "max": 1000,
+          "major": 200,
+          "minor": 50,
+          "unit": "ml",
+          "value": 700,
+          "alt": "Jug D"
+        }
+      ],
+      "options": [
+        "Jug A",
+        "Jug B",
+        "Jug C",
+        "Jug D"
+      ],
+      "answer": 2,
+      "solution": "On each jug the labelled marks go up in 200 ml, and there are 4 small spaces between them, so each small mark is 200 ÷ 4 = 50 ml. 750 ml is 3 small marks above 600 ml, which is the same as 1 small mark below 800 ml. Jug C shows this.",
+      "misconceptions": {
+        "0": "Jug A holds 650 ml: only 1 small mark above 600. Each small mark is 50 ml, so 750 ml is 3 small marks above 600.",
+        "1": "Jug B holds 850 ml: 1 small mark ABOVE 800. 750 ml is 1 small mark BELOW 800.",
+        "3": "Jug D holds 700 ml: 2 small marks above 600. Each small mark is 50 ml (not 100 ml), so 750 ml is 3 small marks above 600."
+      },
+      "skill": "measurement word problems",
+      "source": "original"
+    },
+    {
+      "id": "m15-q054",
+      "subtopicId": "m15-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The jug shows the water Priya has measured. How many millilitres of water are in the jug?",
+      "diagram": {
+        "type": "scale",
+        "kind": "jug",
+        "min": 0,
+        "max": 2,
+        "major": 0.5,
+        "minor": 0.1,
+        "unit": "L",
+        "value": 1.3,
+        "alt": "A measuring jug marked from 0 to 2 L, with water in it."
+      },
+      "answer": {
+        "value": 1300,
+        "tolerance": 0,
+        "accept": [
+          "1300 ml",
+          "1 300",
+          "1 300 ml"
+        ]
+      },
+      "solution": "The labelled marks go up in 0.5 L, with 5 small spaces between them, so each small mark is 0.5 ÷ 5 = 0.1 L. The water is 3 small marks above 1 L: 1 + 0.3 = 1.3 L. 1 L = 1000 ml, so 1.3 L = 1.3 x 1000 = 1300 ml.",
+      "misconceptions": {
+        "common": "Reading each small mark as 0.05 L or 0.25 L instead of 0.1 L, or forgetting to change litres into millilitres (writing 1.3 or 130). 1.3 L x 1000 = 1300 ml."
+      },
+      "skill": "converting units of capacity",
+      "source": "original"
+    },
+    {
+      "id": "m15-q055",
+      "subtopicId": "m15-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The thermometer shows the temperature inside a cold room at a fish market. What is the temperature?",
+      "diagram": {
+        "type": "scale",
+        "kind": "thermometer",
+        "min": -10,
+        "max": 20,
+        "major": 5,
+        "minor": 1,
+        "unit": "°C",
+        "value": -3,
+        "alt": "A thermometer marked from -10 °C to 20 °C, showing the temperature in the cold room."
+      },
+      "options": [
+        "-3 °C",
+        "3 °C",
+        "-7 °C",
+        "-2 °C"
+      ],
+      "answer": 0,
+      "solution": "There are 5 small spaces between 0 and 5, so each small mark is 1 °C. The liquid stops 3 small marks below 0, so the temperature is -3 °C.",
+      "misconceptions": {
+        "1": "The liquid stops BELOW 0, so the temperature is negative: -3 °C, not 3 °C.",
+        "2": "It looks like you counted 3 marks up from -10. Below zero, count down from 0: the level is 3 small marks below 0, so it is -3 °C.",
+        "3": "Count the spaces, not the lines: from 0 down to the level there are 3 small spaces, so it is -3 °C."
+      },
+      "skill": "measurement word problems",
+      "source": "original"
+    },
+    {
+      "id": "m15-q056",
+      "subtopicId": "m15-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The pencil is drawn against a ruler. It does not start at 0. How long is the pencil in millimetres?",
+      "diagram": {
+        "type": "scale",
+        "kind": "ruler",
+        "min": 0,
+        "max": 10,
+        "major": 1,
+        "minor": 0.1,
+        "unit": "cm",
+        "from": 2,
+        "value": 9.4,
+        "object": "pencil",
+        "alt": "A pencil lying along a centimetre ruler. The pencil does not start at 0."
+      },
+      "answer": {
+        "value": 74,
+        "tolerance": 0,
+        "accept": [
+          "74 mm",
+          "74mm"
+        ]
+      },
+      "solution": "The pencil starts at 2 cm. It ends 4 small marks after 9 cm, at 9.4 cm (each small mark is 1 mm = 0.1 cm). Length = 9.4 - 2 = 7.4 cm. 1 cm = 10 mm, so 7.4 cm = 74 mm.",
+      "misconceptions": {
+        "common": "Reading only where the pencil ends (9.4 cm = 94 mm). The pencil starts at 2 cm, not at 0, so take 2 cm away first: 9.4 - 2 = 7.4 cm = 74 mm."
+      },
+      "skill": "converting units of length",
+      "source": "original"
+    },
+    {
+      "id": "m15-q057",
+      "subtopicId": "m15-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The shape is drawn on squared paper. Each square is 1 cm by 1 cm. What is the area of the shape?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "grid": true
+      },
+      "options": [
+        "18 cm^2",
+        "14 cm^2",
+        "20 cm^2",
+        "12 cm^2"
+      ],
+      "answer": 1,
+      "solution": "Count the squares row by row. The bottom two rows have 5 squares each: 10. The top two rows have 2 squares each: 4. Area = 10 + 4 = 14 squares = 14 cm^2.",
+      "misconceptions": {
+        "0": "18 cm is the PERIMETER, the distance round the edge. Area is the number of squares inside the shape: 14 cm^2.",
+        "2": "20 squares would fill the whole 5 by 4 rectangle around the shape. The empty top right corner (3 by 2 = 6 squares) is not part of the shape: 20 - 6 = 14.",
+        "3": "It looks like some squares were missed. Count row by row: the bottom two rows have 5 squares each and the top two rows have 2 each: 5 + 5 + 2 + 2 = 14."
+      },
+      "skill": "perimeter and area vocabulary",
+      "source": "original"
+    },
+    {
+      "id": "m15-q058",
+      "subtopicId": "m15-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The shape is drawn on 1 cm squared paper. What is the perimeter of the shape? Give your answer in cm.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "grid": true
+      },
+      "answer": {
+        "value": 28,
+        "tolerance": 0,
+        "accept": [
+          "28 cm",
+          "28cm"
+        ]
+      },
+      "solution": "Go all the way round the edge and add each side: bottom 6, right side 5, top of the right part 2, down into the gap 3, across the gap 2, up out of the gap 3, top of the left part 2, left side 5. 6 + 5 + 2 + 3 + 2 + 3 + 2 + 5 = 28 cm.",
+      "misconceptions": {
+        "common": "Counting the squares inside (24) gives the area, not the perimeter. Another slip is going round the outside rectangle only (6 + 5 + 6 + 5 = 22) and missing the sides of the gap at the top."
+      },
+      "skill": "perimeter and area vocabulary",
+      "source": "original"
+    },
+    {
+      "id": "m15-q059",
+      "subtopicId": "m15-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "The diagram shows a shape made from rectangles. All the corners are right angles. What is the area of the shape? Give your answer in cm^2.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            0,
+            9
+          ]
+        ],
+        "sides": [
+          {
+            "label": "10 cm"
+          },
+          {
+            "label": "4 cm"
+          },
+          null,
+          null,
+          {
+            "label": "4 cm"
+          },
+          {
+            "label": "9 cm"
+          }
+        ]
+      },
+      "answer": {
+        "value": 60,
+        "tolerance": 0,
+        "accept": [
+          "60 cm^2",
+          "60 cm2",
+          "60cm^2"
+        ]
+      },
+      "solution": "Split the shape into two rectangles with a line across. Bottom rectangle: 10 cm by 4 cm = 40 cm^2. The top part is 4 cm wide, and its height is 9 - 4 = 5 cm, so it is 4 x 5 = 20 cm^2. Total area = 40 + 20 = 60 cm^2.",
+      "misconceptions": {
+        "common": "Multiplying the two longest sides (10 x 9 = 90) counts the empty corner as well. Another slip is using 9 cm as the height of the top part: it is 9 - 4 = 5 cm, because the bottom rectangle already uses 4 cm."
+      },
+      "skill": "area of a rectangle",
+      "source": "original"
+    },
+    {
+      "id": "m15-q060",
+      "subtopicId": "m15-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The diagram shows a plan of Kumar's garden. All the corners are right angles. Kumar puts a fence all the way round the garden. How many metres of fencing does he need?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            12,
+            5
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            0,
+            9
+          ]
+        ],
+        "sides": [
+          {
+            "label": "12 m"
+          },
+          {
+            "label": "5 m"
+          },
+          null,
+          null,
+          {
+            "label": "7 m"
+          },
+          {
+            "label": "9 m"
+          }
+        ]
+      },
+      "options": [
+        "33 m",
+        "38 m",
+        "88 m",
+        "42 m"
+      ],
+      "answer": 3,
+      "solution": "Two sides have no label, so work them out first. Across: 12 - 7 = 5 m. Up: 9 - 5 = 4 m. Now add all six sides: 12 + 5 + 5 + 4 + 7 + 9 = 42 m.",
+      "misconceptions": {
+        "0": "33 m is the four labelled sides only. Two sides have no label: 12 - 7 = 5 m and 9 - 5 = 4 m. Add them too.",
+        "1": "You found the 5 m side (12 - 7) but missed the 4 m side (9 - 5). The garden has 6 sides.",
+        "2": "88 is the AREA in m^2 (12 x 5 + 7 x 4). A fence goes round the edge, so add the lengths of the sides."
+      },
+      "skill": "perimeter word problems",
+      "source": "original"
+    },
+    {
+      "id": "m15-q061",
+      "subtopicId": "m15-s2",
+      "type": "multi",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Daniel's bus leaves at 15:40. Select ALL the clocks that show this time.",
+      "optionDiagrams": [
+        {
+          "type": "clock",
+          "time": "15:40",
+          "label": "pm",
+          "alt": "Clock A"
+        },
+        {
+          "type": "clock",
+          "time": "15:40",
+          "style": "digital",
+          "alt": "Clock B"
+        },
+        {
+          "type": "clock",
+          "time": "03:40",
+          "label": "am",
+          "alt": "Clock C"
+        },
+        {
+          "type": "clock",
+          "time": "05:40",
+          "style": "digital",
+          "alt": "Clock D"
+        },
+        {
+          "type": "clock",
+          "time": "20:20",
+          "label": "pm",
+          "alt": "Clock E"
+        }
+      ],
+      "options": [
+        "Clock A",
+        "Clock B",
+        "Clock C",
+        "Clock D",
+        "Clock E"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "solution": "15:40 is 3:40 pm (15 - 12 = 3). Clock A shows 3:40 pm: the long minute hand on the 8 (40 minutes) and the short hour hand between the 3 and the 4. Clock B shows 15:40 on a 24-hour digital clock. Clock C is 3:40 am (in the morning), Clock D shows 05:40, and Clock E shows 8:20 pm.",
+      "misconceptions": {
+        "2": "Clock C shows 3:40 am, which is in the morning. 15:40 is in the afternoon, so it is 3:40 pm.",
+        "3": "15:40 is not 5:40. Take 12 away from the hour: 15 - 12 = 3, so it is 3:40 pm.",
+        "4": "Clock E has its short hour hand past the 8 and its long minute hand on the 4, so it shows 8:20 pm. At 3:40 the LONG hand points at the 8.",
+        "common": "Missing Clock B: a 24-hour digital clock shows 15:40 exactly as it is written."
+      },
+      "skill": "converting between 12-hour and 24-hour clock",
+      "source": "original"
+    },
+    {
+      "id": "m15-q062",
+      "subtopicId": "m15-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The jug shows how much lemonade Arjun has made. He pours it into glasses that each hold 250 ml. How many glasses can he fill completely?",
+      "diagram": {
+        "type": "scale",
+        "kind": "jug",
+        "min": 0,
+        "max": 2,
+        "major": 0.5,
+        "minor": 0.1,
+        "unit": "L",
+        "value": 1.6,
+        "alt": "A measuring jug marked from 0 to 2 L, with lemonade in it."
+      },
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": [
+          "6 glasses"
+        ]
+      },
+      "solution": "Each small mark on the jug is 0.5 ÷ 5 = 0.1 L. The lemonade is 1 small mark above 1.5 L, so there is 1.6 L = 1600 ml. 1600 ÷ 250 = 6 remainder 100 (6 x 250 = 1500). So 6 glasses can be filled completely, with 100 ml left over.",
+      "misconceptions": {
+        "common": "Rounding 6.4 up to 7: the 7th glass would only get 100 ml, so it is not full. Also check the reading: each small mark is 0.1 L, so the jug holds 1.6 L (1600 ml)."
+      },
+      "skill": "measurement word problems",
+      "source": "original"
+    },
+    {
+      "id": "m15-q063",
+      "subtopicId": "m15-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The rectangle is drawn on 1 cm squared paper. True or false: the number of square centimetres in its area is the same as the number of centimetres in its perimeter.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "grid": true
+      },
+      "answer": true,
+      "solution": "Area: the rectangle is 6 squares long and 3 squares wide, so 6 x 3 = 18 cm^2. Perimeter: 6 + 3 + 6 + 3 = 18 cm. Both numbers are 18, so the statement is true (the units are different: cm^2 for area and cm for perimeter).",
+      "misconceptions": {
+        "common": "Counting the squares along the edge instead of the edges of the squares. The perimeter counts the sides: 6 + 3 + 6 + 3 = 18 cm, and the area counts the squares inside: 6 x 3 = 18 cm^2."
+      },
+      "skill": "perimeter and area of rectangles",
       "source": "original"
     }
   ]

@@ -73,7 +73,33 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "On the probability scale, what number is given to an event that is certain to happen?",
+      "prompt": "Look at the probability scale. What number goes in the box, at the end for events that are certain to happen?",
+      "diagram": {
+        "type": "numberLine",
+        "min": 0,
+        "max": 1,
+        "step": "1/2",
+        "minorStep": "1/10",
+        "labels": [
+          0,
+          "1/2"
+        ],
+        "format": "fraction",
+        "points": [
+          {
+            "at": 0,
+            "label": "impossible"
+          },
+          {
+            "at": "1/2",
+            "label": "even chance"
+          },
+          {
+            "at": 1,
+            "label": "?"
+          }
+        ]
+      },
       "options": [
         "0",
         "1/2",
@@ -81,7 +107,7 @@
         "10"
       ],
       "answer": 2,
-      "solution": "The probability scale runs from 0 (impossible) to 1 (certain). Even chance is 1/2 in the middle. So a certain event has probability 1.",
+      "solution": "The probability scale runs from 0 (impossible) to 1 (certain). Even chance is 1/2, in the middle. The box is at the certain end, so a certain event has probability 1.",
       "misconceptions": {
         "0": "0 is for impossible events. Certain is at the other end of the scale: 1.",
         "1": "1/2 is in the middle of the scale. It means even chance, not certain.",
@@ -186,7 +212,17 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A spinner has 4 equal sections: 3 are green and 1 is yellow. Where on the probability scale does 'the spinner lands on green' belong?",
+      "prompt": "Look at the spinner. Its 4 sections are equal. Where on the probability scale does 'the spinner lands on green' belong?",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "green",
+          "green",
+          "yellow",
+          "green"
+        ],
+        "pointer": null
+      },
       "options": [
         "between impossible and even chance",
         "exactly at even chance",
@@ -365,9 +401,19 @@
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "True or false: A spinner has 5 equal sections numbered 1 to 5. The probability of landing on 2 is 1/5.",
+      "prompt": "Look at the spinner. It has 5 equal sections numbered 1 to 5. True or false: the probability of landing on 2 is 1/5.",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
       "answer": true,
-      "solution": "There are 5 equal sections, so 5 equally likely outcomes. One of them is 2. So the probability is 1/5. True!",
+      "solution": "There are 5 equal sections, so 5 equally likely outcomes. Only one of them is 2. So the probability is 1/5. True!",
       "misconceptions": {
         "common": "Writing 2/5 because the number is 2. The number on the section does not matter; there is only one section with a 2."
       },
@@ -380,7 +426,20 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A spinner has 8 equal sections. 2 of them are blue. What is the probability of landing on blue, in its simplest form?",
+      "prompt": "The spinner has 8 equal sections. What is the probability of landing on blue, in its simplest form?",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "blue",
+          "red",
+          "yellow",
+          "red",
+          "green",
+          "blue",
+          "red",
+          "yellow"
+        ]
+      },
       "options": [
         "2/6",
         "1/4",
@@ -388,7 +447,7 @@
         "1/8"
       ],
       "answer": 1,
-      "solution": "2 out of 8 equal sections are blue, so the probability is 2/8. Divide the top and bottom by 2: 2/8 = 1/4.",
+      "solution": "Count the blue sections: 2 out of 8 equal sections are blue, so the probability is 2/8. Divide the top and bottom by 2: 2/8 = 1/4.",
       "misconceptions": {
         "0": "You compared blue with not-blue (2 and 6). Compare with all 8 sections: 2/8 = 1/4.",
         "2": "'Blue' and 'not blue' are two results, but they are not equally likely. Only 2 of the 8 sections are blue.",
@@ -403,7 +462,22 @@
       "type": "short",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A spinner has 10 equal sections: 3 red, 5 green and 2 yellow. Which colour is the spinner LEAST likely to land on?",
+      "prompt": "The spinner has 10 equal sections. Which colour is the spinner LEAST likely to land on?",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "green",
+          "red",
+          "green",
+          "yellow",
+          "green",
+          "red",
+          "green",
+          "yellow",
+          "green",
+          "red"
+        ]
+      },
       "answer": {
         "accept": [
           "yellow",
@@ -411,7 +485,7 @@
         ],
         "keywords": []
       },
-      "solution": "The colour with the fewest sections is least likely. Yellow has only 2 of the 10 sections (2/10), so yellow is least likely.",
+      "solution": "Count the sections of each colour: red 3, green 5, yellow 2. The colour with the fewest sections is least likely. Yellow has only 2 of the 10 sections (2/10), so yellow is least likely.",
       "misconceptions": {
         "common": "Choosing green, which is the MOST likely colour. Least likely means the fewest sections."
       },
@@ -582,11 +656,24 @@
       "id": "m08-q023",
       "subtopicId": "m08-s2",
       "type": "truefalse",
-      "difficulty": 3,
+      "difficulty": 2,
       "marks": 1,
-      "prompt": "True or false: A spinner has 3 sections coloured red, blue and green, so the probability of landing on red must be 1/3.",
+      "prompt": "Look at the spinner. True or false: it has 3 sections, red, blue and green, so the probability of landing on red is 1/3.",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "red",
+          "blue",
+          "green"
+        ],
+        "sizes": [
+          2,
+          1,
+          1
+        ]
+      },
       "answer": false,
-      "solution": "That is only true if the 3 sections are the same size. If the red section is bigger, red is more likely. You can only say '1 out of 3' when the outcomes are equally likely. False.",
+      "solution": "The 3 sections are not the same size. Red covers half of the spinner, so the probability of landing on red is 1/2, not 1/3. You can only say '1 out of 3' when the 3 outcomes are equally likely. False.",
       "misconceptions": {
         "common": "Counting the outcomes without checking they are equally likely. Different-sized sections give different chances."
       },
@@ -682,7 +769,20 @@
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A spinner has 8 equal sections numbered 1 to 8. Event A is 'landing on a multiple of 3' (that is 3 or 6). Select ALL the events that are mutually exclusive with event A.",
+      "prompt": "Look at the spinner. Its 8 equal sections are numbered 1 to 8. Event A is 'landing on a multiple of 3' (that is 3 or 6). Select ALL the events that are mutually exclusive with event A.",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      },
       "options": [
         "landing on 5",
         "landing on an even number",
@@ -803,7 +903,22 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A spinner has 10 equal sections numbered 1 to 10. What is the probability that it lands on a number less than 3 OR a number greater than 8? Give your answer as a decimal.",
+      "prompt": "Look at the spinner. Its 10 equal sections are numbered 1 to 10. What is the probability that it lands on a number less than 3 OR a number greater than 8? Give your answer as a decimal.",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
       "answer": {
         "value": 0.4,
         "tolerance": 0,
@@ -1018,7 +1133,37 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Daniel rolls a dice 300 times. His results: 1 came up 22 times, 2 came up 24 times, 3 came up 25 times, 4 came up 23 times, 5 came up 26 times and 6 came up 180 times. What is the best conclusion?",
+      "prompt": "Daniel rolls a dice 300 times. The bar chart shows his results. What is the best conclusion?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Results of 300 rolls",
+        "categories": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "series": [
+          {
+            "name": "Number of times",
+            "values": [
+              22,
+              24,
+              25,
+              23,
+              26,
+              180
+            ]
+          }
+        ],
+        "xLabel": "Number on the dice",
+        "yLabel": "Number of times",
+        "yMax": 200,
+        "yStep": 20,
+        "valueLabels": true
+      },
       "options": [
         "The dice is fair, because every number came up at least once",
         "The dice is fair, because dice results are always random",
@@ -1026,7 +1171,7 @@
         "6 will come up on every roll from now on"
       ],
       "answer": 2,
-      "solution": "For a fair dice, each number would come up about 300 ÷ 6 = 50 times. 1 to 5 each came up about 25 times, but 6 came up 180 times. With so many trials, this is strong evidence that the dice is biased towards 6.",
+      "solution": "For a fair dice, each number would come up about 300 ÷ 6 = 50 times. The bars for 1 to 5 each show about 25 (22 to 26), but the bar for 6 shows 180. With so many trials, this is strong evidence that the dice is biased towards 6.",
       "misconceptions": {
         "0": "A biased dice can still show every number. For a fair dice you would expect each number about 300 ÷ 6 = 50 times, but 6 came up 180 times.",
         "1": "Results are random, but 180 sixes out of 300 rolls is far too many for a fair dice (expect about 50).",
@@ -1064,7 +1209,32 @@
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A spinner has three sections, A, B and C, which may be different sizes. It is spun 80 times: A comes up 41 times, B 19 times and C 20 times. Select ALL the statements that are sensible conclusions.",
+      "prompt": "A spinner has three sections, A, B and C, which may be different sizes. It is spun 80 times. The bar chart shows the results. Select ALL the statements that are sensible conclusions.",
+      "diagram": {
+        "type": "barChart",
+        "title": "Results of 80 spins",
+        "categories": [
+          "A",
+          "B",
+          "C"
+        ],
+        "series": [
+          {
+            "name": "Number of times",
+            "values": [
+              41,
+              19,
+              20
+            ]
+          }
+        ],
+        "xLabel": "Section",
+        "yLabel": "Number of times",
+        "yMax": 50,
+        "yStep": 10,
+        "minorStep": 5,
+        "valueLabels": true
+      },
       "options": [
         "Section A is probably bigger than section B",
         "The relative frequency of A is about 0.5",
@@ -1078,13 +1248,258 @@
         1,
         2
       ],
-      "solution": "A came up 41 out of 80 times, about half (41/80 is about 0.51), much more than B, so A is probably the biggest section. B (19) and C (20) came up about equally often, so they are probably about the same size. The other statements are not sensible.",
+      "solution": "The bars show A 41, B 19 and C 20 (total 80). A came up 41 out of 80 times, about half (41/80 is about 0.51), much more than B, so A is probably the biggest section. B (19) and C (20) came up about equally often, so they are probably about the same size. The other statements are not sensible.",
       "misconceptions": {
         "3": "Results change from one experiment to the next. C will come up about 20 times, but probably not exactly 20.",
         "4": "B came up 19 times, so it is certainly possible.",
         "5": "Relative frequency is out of ALL 80 spins: 19/80, not 19 out of the other results."
       },
       "skill": "interpreting experimental results",
+      "source": "original"
+    },
+    {
+      "id": "m08-q046",
+      "subtopicId": "m08-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the four spinners. Which spinner gives a probability of 1/4 of landing on red?",
+      "optionDiagrams": [
+        {
+          "type": "spinner",
+          "sectors": [
+            "red",
+            "blue",
+            "red",
+            "green"
+          ]
+        },
+        {
+          "type": "spinner",
+          "sectors": [
+            "red",
+            "blue",
+            "green",
+            "yellow",
+            "red",
+            "green",
+            "blue",
+            "yellow"
+          ]
+        },
+        {
+          "type": "spinner",
+          "sectors": [
+            "red",
+            "blue",
+            "green",
+            "yellow"
+          ],
+          "sizes": [
+            2,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "type": "spinner",
+          "sectors": [
+            "red",
+            "blue",
+            "green",
+            "yellow",
+            "blue"
+          ]
+        }
+      ],
+      "options": [
+        "Spinner A",
+        "Spinner B",
+        "Spinner C",
+        "Spinner D"
+      ],
+      "answer": 1,
+      "solution": "Find the fraction of each spinner that is red. A: 2 of 4 equal sections = 2/4 = 1/2. B: 2 of 8 equal sections = 2/8 = 1/4. C: red is 1 of 4 sections, but it is twice as big as each of the others, so red is 2/5 of the spinner, not 1/4. D: 1 of 5 equal sections = 1/5. Spinner B gives 1/4.",
+      "misconceptions": {
+        "0": "Spinner A has 2 red sections out of 4 equal sections, so red is 2/4 = 1/2.",
+        "2": "Spinner C has 4 sections and 1 is red, but the red section is bigger than the others. The sections are not equally likely, so the probability is not 1/4.",
+        "3": "Spinner D has 5 equal sections and 1 is red, so red is 1/5, a little less than 1/4."
+      },
+      "skill": "probability of equally likely outcomes",
+      "source": "original"
+    },
+    {
+      "id": "m08-q047",
+      "subtopicId": "m08-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the spinner. Its 6 sections are equal. Which word best describes how likely it is to land on green?",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "green",
+          "green",
+          "orange",
+          "green",
+          "green",
+          "green"
+        ]
+      },
+      "options": [
+        "impossible",
+        "unlikely",
+        "even chance",
+        "likely",
+        "certain"
+      ],
+      "answer": 3,
+      "solution": "5 of the 6 equal sections are green, so the probability is 5/6. That is more than 1/2 (even chance) but less than 1 (certain), because the spinner could still land on orange. So landing on green is likely.",
+      "misconceptions": {
+        "0": "Impossible means it can never happen. 5 of the 6 sections are green, so green happens most of the time.",
+        "1": "Unlikely means less than an even chance. Green covers 5 of the 6 sections, which is more than half.",
+        "2": "Even chance means half the sections. Green has 5 out of 6, which is more than half.",
+        "4": "Certain would mean every section is green. One section is orange, so green is likely but not certain."
+      },
+      "skill": "probability language",
+      "source": "original"
+    },
+    {
+      "id": "m08-q048",
+      "subtopicId": "m08-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The spinner has 10 equal sections. What is the probability that it does NOT land on blue? Give your answer as a decimal.",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "blue",
+          "red",
+          "yellow",
+          "blue",
+          "green",
+          "red",
+          "blue",
+          "yellow",
+          "red",
+          "blue"
+        ]
+      },
+      "answer": {
+        "value": 0.6,
+        "tolerance": 0,
+        "accept": [
+          "6/10",
+          "3/5",
+          "60%"
+        ]
+      },
+      "solution": "Count the blue sections: 4 out of 10. P(blue) = 4/10 = 0.4. P(not blue) = 1 - 0.4 = 0.6. (Or count the sections that are not blue: 3 red + 2 yellow + 1 green = 6, so 6/10 = 0.6.)",
+      "misconceptions": {
+        "common": "Giving the probability of landing ON blue (0.4). 'Not blue' means all the other sections: 1 - 0.4 = 0.6."
+      },
+      "skill": "probabilities adding to 1",
+      "source": "original"
+    },
+    {
+      "id": "m08-q049",
+      "subtopicId": "m08-s3",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the spinner. Its 12 equal sections are numbered 1 to 12. What is the probability that it lands on a prime number OR a multiple of 4? Give your answer as a fraction.",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ]
+      },
+      "answer": {
+        "value": 0.6667,
+        "tolerance": 0.001,
+        "accept": [
+          "2/3",
+          "8/12"
+        ]
+      },
+      "solution": "Prime numbers from 1 to 12: 2, 3, 5, 7, 11, so P(prime) = 5/12. Multiples of 4: 4, 8, 12, so P(multiple of 4) = 3/12. No number is both, because every multiple of 4 can be divided by 2 and is bigger than 2, so it is not prime. The events are mutually exclusive, so add: 5/12 + 3/12 = 8/12 = 2/3.",
+      "misconceptions": {
+        "common": "Counting 1 as a prime number (1 is not prime: it has only one factor), which gives 9/12, or forgetting that 12 is a multiple of 4."
+      },
+      "skill": "adding probabilities of mutually exclusive events",
+      "source": "original"
+    },
+    {
+      "id": "m08-q050",
+      "subtopicId": "m08-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Aisha spins this spinner 200 times. Its 5 sections are equal. About how many times should she expect it to land on red?",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "red",
+          "blue",
+          "red",
+          "yellow",
+          "red"
+        ]
+      },
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "accept": [
+          "about 120",
+          "120 times"
+        ]
+      },
+      "solution": "3 of the 5 equal sections are red, so P(red) = 3/5. Expected number of reds = 3/5 of 200 = 200 ÷ 5 x 3 = 40 x 3 = 120 times.",
+      "misconceptions": {
+        "common": "Using 1/3 because there are 3 colours, or 1/5 for one section. Count the red sections: 3 out of 5 equal sections, so 3/5 of 200."
+      },
+      "skill": "expected frequency",
+      "source": "original"
+    },
+    {
+      "id": "m08-q051",
+      "subtopicId": "m08-s2",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the spinner. True or false: landing on red is exactly as likely as landing on blue or green.",
+      "diagram": {
+        "type": "spinner",
+        "sectors": [
+          "red",
+          "blue",
+          "green"
+        ],
+        "sizes": [
+          3,
+          1,
+          2
+        ]
+      },
+      "answer": true,
+      "solution": "Red covers half of the spinner. Blue and green together cover the other half. So P(red) = 1/2 and P(blue or green) = 1/2: the two events are equally likely. True.",
+      "misconceptions": {
+        "common": "Thinking red is less likely because there are two other colours. Compare how much of the spinner each part covers, not how many colours there are."
+      },
+      "skill": "comparing probabilities",
       "source": "original"
     }
   ]

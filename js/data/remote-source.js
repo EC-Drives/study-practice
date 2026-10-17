@@ -5,7 +5,12 @@
 // the parent pages work unchanged on either. It is read-only: a parent never writes her data.
 // Results are kept for a short while so moving between tabs does not refetch everything.
 
+import { checkSession, checkAttempt, checkReport } from '../exportimport.js';
+
 const TTL = 60000;
+// her rows are checked field by field, like an imported file, before any page uses them; a
+// damaged or hand-made row is left out (and counted in `skipped`)
+const CHECK = { sessions: checkSession, attempts: checkAttempt, reports: checkReport };
 const STORES = { sessions: 'sessions', attempts: 'attempts', reports: 'reports' };
 
 export class RemoteSource {
@@ -38,6 +43,9 @@ export class RemoteSource {
     } else {
       rows = [];
     }
+    const ok = rows.filter((r) => { try { return CHECK[store](r); } catch { return false; } });
+    this.skipped = { ...(this.skipped || {}), [store]: rows.length - ok.length };
+    rows = ok;
     this.cache.set(store, { at: this.now(), rows });
     return rows;
   }

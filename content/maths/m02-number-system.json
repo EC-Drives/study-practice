@@ -51,7 +51,17 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "The temperature at night is 3 °C. By the morning it has fallen by 5 degrees. What is the temperature in the morning?",
+      "prompt": "The thermometer shows the temperature at night. By the morning it has fallen by 5 degrees. What is the temperature in the morning?",
+      "diagram": {
+        "type": "scale",
+        "kind": "thermometer",
+        "min": -10,
+        "max": 10,
+        "major": 5,
+        "minor": 1,
+        "unit": "°C",
+        "value": 3
+      },
       "options": [
         "2 °C",
         "-8 °C",
@@ -59,10 +69,10 @@
         "8 °C"
       ],
       "answer": 2,
-      "solution": "Start at 3 on a number line and count back 5 steps: 2, 1, 0, -1, -2. It takes 3 steps to reach 0, then 2 more steps below zero. The morning temperature is -2 °C.",
+      "solution": "The thermometer reads 3 °C. Count down 5 degrees: 2, 1, 0, -1, -2. It takes 3 steps to reach 0, then 2 more steps below zero. The morning temperature is -2 °C.",
       "misconceptions": {
         "0": "The answer is below zero, so it needs a minus sign. Counting back 5 from 3: 2, 1, 0, -1, -2.",
-        "1": "This adds 3 and 5 and then puts a minus sign in front. Count back from 3 on a number line instead: you pass 0 after 3 steps and go 2 more below zero.",
+        "1": "This adds 3 and 5 and then puts a minus sign in front. Count down from 3 on the thermometer instead: you pass 0 after 3 steps and go 2 more below zero.",
         "3": "This adds 5 degrees. 'Fallen' means the temperature went DOWN, so count back."
       },
       "skill": "counting back past zero",
@@ -138,7 +148,24 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "At 6 am in Beijing the temperature was -4 °C. By 2 pm it was 7 °C. By how many degrees did the temperature rise? Give your answer as a number of degrees.",
+      "prompt": "The number line shows the temperature in Beijing, in °C, at 6 am and at 2 pm one day. By how many degrees did the temperature rise? Give your answer as a number of degrees.",
+      "diagram": {
+        "type": "numberLine",
+        "min": -10,
+        "max": 10,
+        "step": 2,
+        "minorStep": 1,
+        "points": [
+          {
+            "at": -4,
+            "label": "6 am"
+          },
+          {
+            "at": 7,
+            "label": "2 pm"
+          }
+        ]
+      },
       "answer": {
         "value": 11,
         "tolerance": 0,
@@ -147,7 +174,7 @@
           "11 degrees"
         ]
       },
-      "solution": "Use a number line. From -4 up to 0 is 4 degrees. From 0 up to 7 is 7 degrees. Total rise: 4 + 7 = 11 degrees.",
+      "solution": "Read the number line: 6 am is at -4 and 2 pm is at 7. From -4 up to 0 is 4 degrees. From 0 up to 7 is 7 degrees. Total rise: 4 + 7 = 11 degrees.",
       "misconceptions": {
         "common": "Answering 3 by working out 7 - 4. On a number line, the distance from -4 to 0 is 4 and from 0 to 7 is 7, so the rise is 4 + 7 = 11."
       },
@@ -160,7 +187,19 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "In a shopping mall in KL, the ground floor is floor 0. The car park floors below it are numbered -1, -2, -3 and so on. A lift starts on floor 2 and goes down 5 floors. Which floor does it stop at?",
+      "prompt": "In a shopping mall in KL, the ground floor is floor 0 and the car park floors below it are -1, -2, -3 and so on. The number line shows the floor numbers. A lift starts on floor 2, marked on the line, and goes down 5 floors. Which floor does it stop at?",
+      "diagram": {
+        "type": "numberLine",
+        "min": -5,
+        "max": 3,
+        "step": 1,
+        "points": [
+          {
+            "at": 2,
+            "label": "Lift"
+          }
+        ]
+      },
       "options": [
         "-2",
         "3",
@@ -168,7 +207,7 @@
         "-3"
       ],
       "answer": 3,
-      "solution": "Count down 5 floors from floor 2: 1, 0, -1, -2, -3. The lift stops on floor -3, the third car park floor below the ground.",
+      "solution": "Start at 2 on the number line and count 5 floors down: 1, 0, -1, -2, -3. The lift stops on floor -3, the third car park floor below the ground.",
       "misconceptions": {
         "0": "This counts floor 2 itself as one of the 5 steps. Count the moves: 1, 0, -1, -2, -3. That is 5 floors down.",
         "1": "The lift goes below the ground floor, so the floor number must be negative.",
@@ -225,7 +264,37 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "One morning the temperatures in five cities were: Oslo -7 °C, Seoul -2 °C, Tokyo 4 °C, Moscow -12 °C, Penang 31 °C. What is the difference between the highest and the lowest temperature? Give your answer as a number of degrees.",
+      "prompt": "The table shows the temperatures in five cities one morning. What is the difference between the highest and the lowest temperature? Give your answer as a number of degrees.",
+      "diagram": {
+        "type": "table",
+        "title": "Temperatures one morning",
+        "columns": [
+          "City",
+          "Temperature (°C)"
+        ],
+        "rows": [
+          [
+            "Oslo",
+            -7
+          ],
+          [
+            "Seoul",
+            -2
+          ],
+          [
+            "Tokyo",
+            4
+          ],
+          [
+            "Moscow",
+            -12
+          ],
+          [
+            "Penang",
+            31
+          ]
+        ]
+      },
       "answer": {
         "value": 43,
         "tolerance": 0,
@@ -234,7 +303,7 @@
           "43 degrees"
         ]
       },
-      "solution": "The highest is Penang, 31 °C. The lowest is Moscow, -12 °C (the biggest number after a minus sign). On a number line: from -12 to 0 is 12 degrees, from 0 to 31 is 31 degrees. 12 + 31 = 43 degrees.",
+      "solution": "From the table, the highest is Penang, 31 °C. The lowest is Moscow, -12 °C (the biggest number after a minus sign). On a number line: from -12 to 0 is 12 degrees, from 0 to 31 is 31 degrees. 12 + 31 = 43 degrees.",
       "misconceptions": {
         "common": "Answering 19 by working out 31 - 12. Moscow is 12 degrees BELOW zero, so the gap is 12 degrees up to zero and then 31 more."
       },
@@ -247,7 +316,23 @@
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Select ALL the numbers that are between -4 and 1 on a number line.",
+      "prompt": "-4 and 1 are marked with dots on the number line. Select ALL the numbers that are between -4 and 1.",
+      "diagram": {
+        "type": "numberLine",
+        "min": -6,
+        "max": 3,
+        "step": 1,
+        "minorStep": 0.5,
+        "points": [
+          {
+            "at": -4
+          },
+          {
+            "at": 1
+          }
+        ],
+        "alt": "A number line from -6 to 3 with large marks every 1 and small marks every 0.5. Dots are drawn at -4 and at 1."
+      },
       "options": [
         "-3",
         "-5",
@@ -261,7 +346,7 @@
         2,
         3
       ],
-      "solution": "Picture a number line from -4 to 1. -3 is inside. 0 is inside. -0.5 is between -1 and 0, so it is inside. -5 and -4.5 are to the left of -4. 2 is to the right of 1.",
+      "solution": "Look between the two dots on the number line. -3 is inside. 0 is inside. -0.5 is halfway between -1 and 0, so it is inside. -5 and -4.5 are to the left of -4. 2 is to the right of 1.",
       "misconceptions": {
         "1": "-5 is further left than -4, so it is smaller than -4 and not between -4 and 1.",
         "4": "2 is bigger than 1, so it is to the right of 1.",
@@ -276,7 +361,20 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Which number is exactly halfway between -6 and 10 on a number line?",
+      "prompt": "Look at the number line. Which number is exactly halfway between -6 and 10?",
+      "diagram": {
+        "type": "numberLine",
+        "min": -6,
+        "max": 10,
+        "step": 16,
+        "points": [
+          {
+            "at": 2,
+            "label": "?"
+          }
+        ],
+        "alt": "A number line with -6 at the left end and 10 at the right end, and no marks in between. A box with a question mark points to the place exactly halfway between the ends."
+      },
       "options": [
         "8",
         "2",
@@ -284,7 +382,7 @@
         "16"
       ],
       "answer": 1,
-      "solution": "The distance from -6 to 10 is 6 + 10 = 16. Half of 16 is 8. Count on 8 from -6: -6 -> 0 is 6 steps, then 2 more steps reaches 2. Check: from 2 to 10 is also 8. The halfway number is 2.",
+      "solution": "The distance from -6 to 10 is 6 + 10 = 16. Half of 16 is 8. Count on 8 from -6: -6 to 0 is 6 steps, then 2 more steps reaches 2. Check: from 2 to 10 is also 8. The halfway number is 2.",
       "misconceptions": {
         "0": "8 is half of the distance (16 ÷ 2 = 8), but you then need to count 8 on from -6, which lands on 2.",
         "2": "This works out -6 + 10 = 4 but forgets to halve it. The halfway point is 2.",
@@ -1047,7 +1145,15 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Daniel builds a large cube from small 1 cm cubes. The large cube is 5 small cubes long, 5 wide and 5 high. He then takes away a block of small cubes that is 3 long, 3 wide and 3 high from one corner. How many small cubes are left?",
+      "prompt": "Daniel builds the large cube in the diagram from small 1 cm cubes. It is 5 small cubes long, 5 wide and 5 high. He then takes away a block of small cubes that is 3 long, 3 wide and 3 high from one corner. How many small cubes are left?",
+      "diagram": {
+        "type": "cuboid",
+        "l": 5,
+        "w": 5,
+        "h": 5,
+        "unitCubes": true,
+        "hiddenEdges": false
+      },
       "answer": {
         "value": 98,
         "tolerance": 0,

@@ -457,19 +457,46 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Using the spray-bottle model, Daniel measures how far the furthest drop travels. He sprays 5 times. His results are: 152 cm, 148 cm, 155 cm, 62 cm and 150 cm. Which result is anomalous?",
+      "prompt": "Daniel models a sneeze by squirting coloured water from a spray bottle. He measures how far the furthest drop travels, and he sprays 5 times. The bar chart shows his results. Which result is anomalous?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Distance travelled by the furthest drop",
+        "categories": [
+          "Spray 1",
+          "Spray 2",
+          "Spray 3",
+          "Spray 4",
+          "Spray 5"
+        ],
+        "series": [
+          {
+            "name": "Distance",
+            "values": [
+              152,
+              148,
+              155,
+              62,
+              150
+            ]
+          }
+        ],
+        "yLabel": "Distance (cm)",
+        "yMax": 160,
+        "yStep": 20,
+        "minorStep": 5
+      },
       "options": [
-        "155 cm",
-        "148 cm",
+        "Spray 3",
+        "Spray 2",
         "None of them, because every measurement must be kept as it is",
-        "62 cm"
+        "Spray 4"
       ],
       "answer": 3,
-      "solution": "Four results are close together, between 148 cm and 155 cm. 62 cm is far away from all of them, so it is anomalous. Perhaps the nozzle was blocked or Daniel did not squeeze hard. He should repeat that spray and leave 62 cm out of any average.",
+      "solution": "Four bars are about the same height, between 148 cm and 155 cm. The bar for spray 4 (about 62 cm) is far shorter than all of them, so it is anomalous. Perhaps the nozzle was blocked or Daniel did not squeeze hard. He should repeat that spray and leave it out of any average.",
       "misconceptions": {
-        "0": "155 cm is the largest, but it is close to the others. An anomalous result is one that does not fit the pattern at all.",
-        "1": "148 cm is only a few centimetres from the others, so it fits the pattern.",
-        "2": "We do record every result, but we should spot one that does not fit and check it. 62 cm is far away from all the others."
+        "0": "Spray 3 has the tallest bar (155 cm), but it is close to the others. An anomalous result is one that does not fit the pattern at all.",
+        "1": "Spray 2 (148 cm) is only a few centimetres shorter than the others, so it fits the pattern.",
+        "2": "We do record every result, but we should spot one that does not fit and check it. The bar for spray 4 is far shorter than all the others."
       },
       "skill": "identifying anomalous results",
       "source": "original"
@@ -684,7 +711,30 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Arjun's results after 6 days show how much of each slice is covered in mould. Fridge (5 °C): 0%. Cupboard (25 °C): 40%. Warm place (35 °C): 75%. Which conclusion do the results support?",
+      "prompt": "Arjun leaves slices of bread in three places for 6 days. The bar chart shows how much of each slice is covered in mould. Which conclusion do the results support?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Mould after 6 days",
+        "categories": [
+          "Fridge (5 °C)",
+          "Cupboard (25 °C)",
+          "Warm place (35 °C)"
+        ],
+        "series": [
+          {
+            "name": "Mould cover",
+            "values": [
+              0,
+              40,
+              75
+            ]
+          }
+        ],
+        "yLabel": "Slice covered in mould (%)",
+        "yMax": 100,
+        "yStep": 20,
+        "minorStep": 5
+      },
       "options": [
         "Mould grows fastest in cold places.",
         "The warmer the place, the faster the mould grew.",
@@ -692,7 +742,7 @@
         "Temperature had no effect on mould growth."
       ],
       "answer": 1,
-      "solution": "As the temperature went up from 5 °C to 25 °C to 35 °C, the mould cover went up from 0% to 40% to 75%. So mould grew faster in warmer places. This is why we keep food cool: microorganisms grow slowly in the cold.",
+      "solution": "Read the bars: as the temperature went up from 5 °C to 25 °C to 35 °C, the mould cover went up from 0% to 40% to 75%. So mould grew faster in warmer places. This is why we keep food cool: microorganisms grow slowly in the cold.",
       "misconceptions": {
         "0": "This reads the results the wrong way round. The coldest bread had no mould at all.",
         "2": "The results only show that no mould grew in 6 days. Cold slows mould down; it does not kill it, so food in a fridge still goes bad eventually.",

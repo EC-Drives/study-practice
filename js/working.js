@@ -488,5 +488,11 @@ export function workingView(working, opts = {}) {
   }
   requestAnimationFrame(draw);
   setTimeout(() => { if (wrap.isConnected) draw(); }, 0);
+  // the ink follows the theme: redraw when light or dark mode changes while it is on screen
+  if (globalThis.matchMedia) {
+    const mq = globalThis.matchMedia('(prefers-color-scheme: dark)');
+    const onTheme = () => { if (wrap.isConnected) draw(); else mq.removeEventListener('change', onTheme); };
+    if (mq.addEventListener) mq.addEventListener('change', onTheme);
+  }
   return wrap;
 }

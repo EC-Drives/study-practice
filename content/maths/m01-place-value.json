@@ -776,7 +776,21 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A durian has a mass of 2.68 kg. Round its mass to the nearest tenth of a kilogram. Give your answer in kg.",
+      "prompt": "A durian has a mass of 2.68 kg, marked on the number line. Round its mass to the nearest tenth of a kilogram. Give your answer in kg.",
+      "diagram": {
+        "type": "numberLine",
+        "min": 2.6,
+        "max": 2.7,
+        "step": 0.1,
+        "minorStep": 0.01,
+        "format": "decimal",
+        "points": [
+          {
+            "at": 2.68,
+            "label": "Durian"
+          }
+        ]
+      },
       "answer": {
         "value": 2.7,
         "tolerance": 0,
@@ -785,7 +799,7 @@
           "2.70"
         ]
       },
-      "solution": "2.68 is between 2.6 and 2.7. The hundredths digit is 8, which is 5 or more, so round up. The mass is about 2.7 kg.",
+      "solution": "On the number line, 2.68 is between 2.6 and 2.7, and it is closer to 2.7. The hundredths digit is 8, which is 5 or more, so round up. The mass is about 2.7 kg.",
       "misconceptions": {
         "common": "Answering 2.6 kg by chopping off the 8, or 3 kg by rounding to the nearest whole kilogram."
       },
@@ -1023,7 +1037,15 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "How many numbers with exactly two decimal places are greater than 3.4 but less than 3.5?",
+      "prompt": "The number line from 3.4 to 3.5 is marked in hundredths. How many numbers with exactly two decimal places are greater than 3.4 but less than 3.5?",
+      "diagram": {
+        "type": "numberLine",
+        "min": 3.4,
+        "max": 3.5,
+        "step": 0.1,
+        "minorStep": 0.01,
+        "format": "decimal"
+      },
       "answer": {
         "value": 9,
         "tolerance": 0,
@@ -1031,7 +1053,7 @@
           "nine"
         ]
       },
-      "solution": "The numbers are 3.41, 3.42, 3.43, 3.44, 3.45, 3.46, 3.47, 3.48, 3.49. That is 9 numbers. 3.40 (= 3.4) and 3.50 (= 3.5) do not count because they are not greater than 3.4 or less than 3.5.",
+      "solution": "The small marks between 3.4 and 3.5 are 3.41, 3.42, 3.43, 3.44, 3.45, 3.46, 3.47, 3.48, 3.49. That is 9 numbers. 3.40 (= 3.4) and 3.50 (= 3.5) do not count because they are not greater than 3.4 or less than 3.5.",
       "misconceptions": {
         "common": "Answering 10 by counting 3.40 or 3.50. 3.40 is equal to 3.4, not greater than it, and 3.50 is equal to 3.5."
       },
@@ -1042,9 +1064,23 @@
       "id": "m01-q045",
       "subtopicId": "m01-s5",
       "type": "mcq",
-      "difficulty": 3,
+      "difficulty": 2,
       "marks": 2,
-      "prompt": "Which number is exactly halfway between 6.3 and 6.4?",
+      "prompt": "Look at the number line. Which number is exactly halfway between 6.3 and 6.4?",
+      "diagram": {
+        "type": "numberLine",
+        "min": 6.3,
+        "max": 6.4,
+        "step": 0.1,
+        "minorStep": 0.01,
+        "format": "decimal",
+        "points": [
+          {
+            "at": 6.35,
+            "label": "?"
+          }
+        ]
+      },
       "options": [
         "6.35",
         "6.305",
@@ -1052,7 +1088,7 @@
         "6.7"
       ],
       "answer": 0,
-      "solution": "Write the numbers as hundredths: 6.30 and 6.40. Halfway between 30 and 40 hundredths is 35 hundredths. So the answer is 6.35.",
+      "solution": "Write the numbers as hundredths: 6.30 and 6.40. The number line is split into 10 hundredths. Halfway between 30 and 40 hundredths is 35 hundredths. So the answer is 6.35.",
       "misconceptions": {
         "1": "This puts the 5 in the thousandths place. Halfway between 3 tenths and 4 tenths is 3 tenths and 5 hundredths: 6.35.",
         "2": "6.5 is not between 6.3 and 6.4 at all. It is bigger than 6.4.",

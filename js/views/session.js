@@ -186,11 +186,12 @@ export async function sessionView(el, app, sessionId) {
   }
 
   function widget(q, r, promptId) {
+    const pics = Array.isArray(q.optionDiagrams) && q.optionDiagrams.some((d) => d != null); // picture choices
     switch (q.type) {
       case 'mcq':
       case 'truefalse': {
         const opts = q.type === 'truefalse' ? [['True', true], ['False', false]] : q.options.map((o, i) => [o, i]);
-        const group = h('div', { class: `options${q.type === 'truefalse' ? ' tf' : ''}`, role: 'radiogroup', 'aria-labelledby': promptId });
+        const group = h('div', { class: `options${q.type === 'truefalse' ? ' tf' : ''}${pics ? ' pics' : ''}`, role: 'radiogroup', 'aria-labelledby': promptId });
         opts.forEach(([text, val], i) => {
           const b = h('button', { type: 'button', role: 'radio', class: 'opt', 'aria-checked': String(r === val), onClick: () => {
             setResponse(q.id, val);
@@ -206,7 +207,7 @@ export async function sessionView(el, app, sessionId) {
       }
       case 'multi': {
         const picked = new Set(Array.isArray(r) ? r : []);
-        const group = h('div', { class: 'options', role: 'group', 'aria-labelledby': promptId });
+        const group = h('div', { class: `options${pics ? ' pics' : ''}`, role: 'group', 'aria-labelledby': promptId });
         q.options.forEach((text, i) => {
           const b = h('button', { type: 'button', role: 'checkbox', class: 'opt opt-multi', 'aria-checked': String(picked.has(i)), onClick: () => {
             if (picked.has(i)) picked.delete(i);

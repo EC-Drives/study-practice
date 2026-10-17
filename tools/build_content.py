@@ -153,7 +153,9 @@ def main(argv):
     shell = [os.path.join(ROOT, p) for p in SHELL_FILES]
     for d in SHELL_DIRS:
         for base, _dirs, names in os.walk(os.path.join(ROOT, d)):
-            shell += [os.path.join(base, n) for n in names if not n.startswith('.')]
+            # every runtime file, including js/generators/*.js and js/diagrams/*.js (loaded with
+            # import() at start-up, so they must be cached for offline use); notes are left out
+            shell += [os.path.join(base, n) for n in names if not n.startswith('.') and not n.endswith('.md')]
     listed = sorted(shell) + [os.path.join(OUT, 'manifest.json')] + content_paths
     rel = ['./'] + [os.path.relpath(p, ROOT).replace('\\', '/') for p in listed]
     template_path = os.path.join(ROOT, 'tools', 'sw.template.js')

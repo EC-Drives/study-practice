@@ -3,7 +3,8 @@
 // used, and what to practise next. Also the email (mailto:) text and a standalone HTML file.
 
 import { responseText, correctAnswerText } from './marking.js';
-import { subtopicMastery, formatDate, formatTime, celebrate, streak } from './stats.js';
+import { subtopicMastery, formatDate, formatTime, celebrate, streak, misconceptionCodeTally } from './stats.js';
+import { misconceptionLabel } from './hooks.js';
 import { formatDuration } from './timer.js';
 
 export const SUBJECT_TITLES = { maths: 'Mathematics', science: 'Science' };
@@ -102,11 +103,19 @@ export function buildReport(session, sessionAttempts, ctx) {
   const seenNotes = new Set();
   for (const a of wrong) {
     for (const m of a.misconceptions || []) {
+      if (m && (m.code === 'NEAR-MISS' || m.code === 'UNCLASSIFIED')) continue; // not a misconception
       if (seenNotes.has(m.note)) continue;
       seenNotes.add(m.note);
       misconceptions.push({ questionId: a.questionId, subtopic: subTitle.get(a.subtopicId) || '', skill: a.skill, note: m.note });
     }
   }
+  // named misconceptions (catalogue codes from generated questions), counted in this session
+  const misconceptionCodes = misconceptionCodeTally(wrong).map((c) => ({
+    code: c.code,
+    count: c.count,
+    label: misconceptionLabel(c.code) || c.code,
+    subtopics: c.subtopicIds.map((id) => subTitle.get(id) || id),
+  }));
   const mistakes = atts.filter((a) => !a.correct).map((a) => {
     const q = qmap.get(a.questionId);
     return {
@@ -119,6 +128,7 @@ export function buildReport(session, sessionAttempts, ctx) {
       correctAnswer: q ? correctAnswerText(q) : '',
       earned: a.earned,
       marks: a.marks,
+      codes: Array.isArray(a.misconceptionCodes) ? a.misconceptionCodes : [],
     };
   });
   const quickWrong = wrong.filter((a) => a.timeSec < 15).length;
@@ -171,6 +181,7 @@ export function buildReport(session, sessionAttempts, ctx) {
     earned: a.earned,
     marks: a.marks,
     hasWorking: !!(a.working && a.working.strokes),
+    generated: !!a.generated,
   }));
 
   const report = {
@@ -200,6 +211,7 @@ export function buildReport(session, sessionAttempts, ctx) {
     strongSkills,
     weakSkills,
     misconceptions,
+    misconceptionCodes,
     mistakes,
     quickWrong,
     flagged: atts.filter((a) => a.flagged).length,
@@ -289,6 +301,11 @@ function emailLines(r, notice = '') {
   if (r.needsWork.length) L.push([0, `Needs more work: ${r.needsWork.join('; ')}`]);
   if (r.strongSkills.length) L.push([3, `Strong skills: ${r.strongSkills.join('; ')}`]);
   if (r.weakSkills.length) L.push([2, `Weaker skills: ${r.weakSkills.join('; ')}`]);
+  const codes = namedMistakes(r);
+  if (codes.length) {
+    L.push([2, '']);
+    L.push([1, `Named mistakes this session: ${codes.slice(0, 4).map((c) => `${shorten(c.label, 90)}${c.count > 1 ? ` (${c.count} times)` : ''}`).join('; ')}`]);
+  }
   if (r.misconceptions.length) {
     L.push([2, '']);
     L.push([1, 'Misconceptions her wrong answers showed:']);
@@ -361,6 +378,13 @@ export function pinResetNotice(at) {
   return at ? `NOTE FOR DAD: the parent PIN on this device was reset on ${formatDate(at, true)} at ${formatTime(at)}, which also cleared the saved email address. If you did not do this, open the parent area and check Settings.` : '';
 }
 
+/** The report's named misconceptions, checked (a report can come from another device or a file). */
+export function namedMistakes(r) {
+  return (Array.isArray(r && r.misconceptionCodes) ? r.misconceptionCodes : [])
+    .filter((c) => c && typeof c.code === 'string' && Number.isFinite(Number(c.count)))
+    .map((c) => ({ code: c.code, count: Math.max(1, Math.round(Number(c.count))), label: typeof c.label === 'string' && c.label ? c.label : c.code, subtopics: Array.isArray(c.subtopics) ? c.subtopics.filter((x) => typeof x === 'string') : [] }));
+}
+
 // ---------------------------------------------------------------- HTML
 
 function bar(p) {
@@ -390,6 +414,10 @@ export function reportBodyHtml(r) {
   out.push(`<h3>By skill</h3><table class="rtable"><thead><tr><th>Skill</th><th class="num">Right</th><th class="num">Marks</th><th><span class="sr">Bar</span></th></tr></thead><tbody>${rows(r.bySkill)}</tbody></table>`);
   const d = r.byDifficulty;
   out.push(`<p class="rmeta">By difficulty: easier ${num(d[1].correct)}/${num(d[1].total)}, medium ${num(d[2].correct)}/${num(d[2].total)}, harder ${num(d[3].correct)}/${num(d[3].total)}. Average ${num(Math.round(r.avgSecPerAnswer))} s per answered question.${r.quickWrong ? ` ${num(r.quickWrong)} wrong answer(s) in under 15 s.` : ''}</p>`);
+  const codes = namedMistakes(r);
+  if (codes.length) {
+    out.push(`<h3>Named mistakes in this session</h3><ul>${codes.map((c) => `<li>${esc(c.label)}: <strong>${num(c.count)} time${c.count === 1 ? '' : 's'}</strong>${c.subtopics.length ? ` <small>(${esc(c.subtopics.join('; '))})</small>` : ''}</li>`).join('')}</ul>`);
+  }
   if (r.misconceptions.length) {
     out.push(`<h3>Misconceptions her wrong answers showed</h3><ul>${r.misconceptions.map((m) => `<li>${esc(m.note)}${m.subtopic ? ` <small>(${esc(m.subtopic)})</small>` : ''}</li>`).join('')}</ul>`);
   }

@@ -196,7 +196,33 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Arjun predicts: 'The further a planet is from the Sun, the colder its surface.' He finds this table of average surface temperatures (planets listed in order from the Sun): Mercury 167 °C, Venus 464 °C, Earth 15 °C, Mars -65 °C. Which planet does NOT fit his prediction?",
+      "prompt": "Arjun predicts: 'The further a planet is from the Sun, the colder its surface.' He finds the table of average surface temperatures. Which planet is hotter than a planet closer to the Sun, so does NOT fit his prediction?",
+      "diagram": {
+        "type": "table",
+        "title": "Average surface temperatures",
+        "columns": [
+          "Planet (in order from the Sun)",
+          "Average surface temperature (°C)"
+        ],
+        "rows": [
+          [
+            "Mercury",
+            167
+          ],
+          [
+            "Venus",
+            464
+          ],
+          [
+            "Earth",
+            15
+          ],
+          [
+            "Mars",
+            -65
+          ]
+        ]
+      },
       "options": [
         "Mercury",
         "Venus",
@@ -204,7 +230,7 @@
         "Mars"
       ],
       "answer": 1,
-      "solution": "If the prediction were right, the temperatures should go down as you move away from the Sun. Mercury should be hottest. But Venus, which is further away, is hotter (464 °C) than Mercury (167 °C). So Venus does not fit the prediction. Earth and Mars do fit.",
+      "solution": "If the prediction were right, the temperatures in the table should go down as you move down the list, away from the Sun. Mercury should be hottest. But Venus, which is further away, is hotter (464 °C) than Mercury (167 °C). So Venus does not fit the prediction. Earth and Mars do fit.",
       "misconceptions": {
         "0": "Mercury is closest to the Sun, so the prediction says it should be the hottest of these four. But Venus is even hotter, so Venus is the one that breaks the pattern.",
         "2": "Earth (15 °C) is colder than Venus and warmer than Mars, so it fits the pattern.",
@@ -263,7 +289,11 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "What causes day and night on Earth?",
+      "prompt": "The diagram shows the Sun lighting the Earth. What causes day and night on Earth?",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "dayNight"
+      },
       "options": [
         "The Sun moves around the Earth once a day",
         "The Earth spins on its axis, once about every 24 hours",
@@ -271,7 +301,7 @@
         "The Moon blocks the Sun's light every night"
       ],
       "answer": 1,
-      "solution": "The Earth spins (rotates) on its axis once about every 24 hours. The side facing the Sun has day; the side facing away has night. As the Earth turns, places move from day into night and back again.",
+      "solution": "The Earth spins (rotates) on its axis once about every 24 hours. In the diagram, the half of the Earth facing the Sun is lit: it has day. The half facing away is dark: it has night. As the Earth turns, places move from day into night and back again.",
       "misconceptions": {
         "0": "The Sun only seems to move across the sky. It is really the Earth turning that makes the Sun appear to rise and set.",
         "2": "One orbit of the Sun takes a whole year (about 365 1/4 days). Day and night come from the Earth spinning, not orbiting.",
@@ -446,7 +476,37 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A table shows each planet's distance from the Sun and the time it takes to orbit the Sun once: Mercury 58 million km, 88 days; Venus 108 million km, 225 days; Earth 150 million km, 365 days; Mars 228 million km, 687 days. Which conclusion do these data support?",
+      "prompt": "The table shows each planet's distance from the Sun and the time it takes to orbit the Sun once. Which conclusion do these data support?",
+      "diagram": {
+        "type": "table",
+        "columns": [
+          "Planet",
+          "Distance from the Sun (million km)",
+          "Time to orbit the Sun once (days)"
+        ],
+        "rows": [
+          [
+            "Mercury",
+            58,
+            88
+          ],
+          [
+            "Venus",
+            108,
+            225
+          ],
+          [
+            "Earth",
+            150,
+            365
+          ],
+          [
+            "Mars",
+            228,
+            687
+          ]
+        ]
+      },
       "options": [
         "The closer a planet is to the Sun, the longer it takes to orbit the Sun once",
         "All the planets take about the same time to orbit the Sun",
@@ -454,7 +514,7 @@
         "The further a planet is from the Sun, the longer it takes to orbit the Sun once"
       ],
       "answer": 3,
-      "solution": "Look at both columns together. As the distance goes up (58, 108, 150, 228 million km), the orbit time also goes up (88, 225, 365, 687 days). So the further a planet is from the Sun, the longer its year. A further planet has a longer path to travel and also moves more slowly.",
+      "solution": "Look at both columns of the table together. As the distance goes up (58, 108, 150, 228 million km), the orbit time also goes up (88, 225, 365, 687 days). So the further a planet is from the Sun, the longer its year. A further planet has a longer path to travel and also moves more slowly.",
       "misconceptions": {
         "0": "This is the pattern back to front. Mercury is closest and takes only 88 days, the shortest time.",
         "1": "The times are very different, from 88 days to 687 days. Always check the numbers before choosing a conclusion.",
@@ -492,7 +552,16 @@
       "type": "short",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "What is the name of the phase when the whole side of the Moon facing the Earth is lit, so we see a complete bright circle?",
+      "prompt": "The picture shows the Moon as we see it on one night. What is the name of this phase?",
+      "diagram": {
+        "type": "moonPhases",
+        "phases": [
+          "full"
+        ],
+        "labels": false,
+        "size": "small",
+        "alt": "The Moon drawn as a complete bright circle."
+      },
       "answer": {
         "accept": [
           "full moon",
@@ -502,7 +571,7 @@
         ],
         "keywords": []
       },
-      "solution": "This is a full moon. It happens when the Moon is on the opposite side of the Earth from the Sun, so we see all of the Moon's lit half.",
+      "solution": "The whole face of the Moon is lit, a complete bright circle: this is a full moon. It happens when the Moon is on the opposite side of the Earth from the Sun, so we see all of the Moon's lit half.",
       "misconceptions": {
         "common": "Answering 'new moon'. At new moon we see almost nothing, because the lit side faces away from us."
       },
@@ -558,14 +627,28 @@
       "type": "short",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "What word describes the Moon when the lit part we can see is getting bigger each night? Answer in one word.",
+      "prompt": "The pictures show the Moon on three nights, a few nights apart, as seen from the northern half of the Earth. What one word describes how the Moon is changing over these nights?",
+      "diagram": {
+        "type": "moonPhases",
+        "phases": [
+          "waxingCrescent",
+          "firstQuarter",
+          "waxingGibbous"
+        ],
+        "labels": [
+          "Night 1",
+          "Night 5",
+          "Night 9"
+        ],
+        "alt": "Three drawings of the Moon, on night 1, night 5 and night 9. The bright part is on the right-hand side and is bigger in each drawing."
+      },
       "answer": {
         "accept": [
           "waxing"
         ],
         "keywords": []
       },
-      "solution": "When the lit part is growing, the Moon is waxing. When it is shrinking after full moon, the Moon is waning.",
+      "solution": "In the pictures the lit part grows from a thin crescent to half to most of the circle. When the lit part is growing, the Moon is waxing. When it is shrinking after full moon, the Moon is waning.",
       "misconceptions": {
         "common": "Mixing up waxing (growing, from new moon to full moon) and waning (shrinking, from full moon to new moon)."
       },
@@ -601,19 +684,36 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "At new moon we can hardly see the Moon at all. Where is the Moon at new moon?",
+      "prompt": "At new moon we can hardly see the Moon at all. The diagram shows the Moon at four places, A to D, on its orbit around the Earth. At which place is the Moon at new moon?",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "moonOrbit",
+        "moons": [
+          180,
+          270,
+          0,
+          90
+        ],
+        "moonLabels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "alt": "The Sun is on the left. The Earth is in the middle with the Moon's orbit around it. The Moon is drawn at four places: A on the left, B at the bottom, C on the right and D at the top."
+      },
       "options": [
-        "Between the Earth and the Sun, so its lit side faces away from us",
-        "On the far side of the Earth from the Sun",
-        "Inside the Earth's shadow",
-        "Behind the Sun, where the Sun hides it"
+        "Place A",
+        "Place B",
+        "Place C",
+        "Place D"
       ],
       "answer": 0,
-      "solution": "At new moon the Moon is roughly between the Earth and the Sun. The Sun lights the side of the Moon facing away from us, and the side facing us is dark, so we can hardly see it. It is also in the sky during the day, close to the bright Sun.",
+      "solution": "At new moon the Moon is between the Earth and the Sun: place A. The Sun lights the side of the Moon facing away from us, and the side facing us is dark, so we can hardly see it. It is also in the sky during the day, close to the bright Sun. (The Moon is not in the Earth's shadow at new moon; that only happens in a lunar eclipse.)",
       "misconceptions": {
-        "1": "That is where the Moon is at full moon. Then the lit side faces us and we see a full circle.",
-        "2": "The Moon is in the Earth's shadow only during a lunar eclipse. At new moon it is on the Sun's side of the Earth, not in our shadow.",
-        "3": "The Moon orbits the Earth, so it never goes behind the Sun. At new moon it is between us and the Sun."
+        "1": "At place B the Moon is at right angles to the Sun, so we see half of its face lit (a quarter moon), not a new moon.",
+        "2": "Place C is on the far side of the Earth from the Sun. The lit side faces us there, so that is full moon, the opposite of new moon.",
+        "3": "At place D the Moon is at right angles to the Sun, so we see half of its face lit (a quarter moon), not a new moon."
       },
       "skill": "why the Moon has phases",
       "source": "original"
@@ -647,7 +747,17 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Tonight the Moon is at first quarter. About how long will it be until the next full moon?",
+      "prompt": "Tonight the Moon is at first quarter. The diagram shows where it is on its orbit. About how long will it be until the next full moon?",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "moonOrbit",
+        "moons": [
+          270
+        ],
+        "moonLabels": [
+          "Tonight"
+        ]
+      },
       "options": [
         "About 1 week",
         "About 2 weeks",
@@ -655,7 +765,7 @@
         "About 4 weeks"
       ],
       "answer": 0,
-      "solution": "The whole cycle takes about 29 1/2 days, roughly 4 weeks. The four main phases come about 1 week apart: new moon, first quarter, full moon, last quarter. So from first quarter to full moon is about 1 week.",
+      "solution": "Full moon happens when the Moon is on the far side of the Earth from the Sun. In the diagram the Moon has another quarter of its orbit to travel (anticlockwise) to get there. The whole cycle takes about 29 1/2 days, roughly 4 weeks, so a quarter of it is about 1 week. The four main phases come about 1 week apart: new moon, first quarter, full moon, last quarter.",
       "misconceptions": {
         "1": "About 2 weeks is the time from new moon to full moon. First quarter is already halfway there.",
         "2": "This counts the wrong way round the cycle. After first quarter the Moon goes to waxing gibbous and then full moon, which is about 1 week.",
@@ -864,6 +974,703 @@
         "3": "The Sun is much bigger than any planet. Its diameter is about 109 times the Earth's."
       },
       "skill": "using models",
+      "source": "original"
+    },
+    {
+      "id": "s12-q037",
+      "subtopicId": "s12-s3",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The picture shows the Moon just before sunrise one morning, as seen from the northern half of the Earth. What is the name of this phase?",
+      "diagram": {
+        "type": "moonPhases",
+        "phases": [
+          "waningCrescent"
+        ],
+        "labels": false,
+        "size": "small",
+        "alt": "A thin bright curve on the left-hand side of the Moon; the rest is dark."
+      },
+      "options": [
+        "Waxing crescent",
+        "First quarter",
+        "New moon",
+        "Waning crescent"
+      ],
+      "answer": 3,
+      "solution": "Only a thin curved sliver is lit, so it is a crescent. The lit part is on the LEFT. Seen from the northern half of the Earth (as in your textbook pictures), a waxing Moon is lit on the right and a waning Moon is lit on the left. So this is a waning crescent. It comes after last quarter, a few days before new moon.",
+      "misconceptions": {
+        "0": "It is a crescent, but a waxing crescent is lit on the right. This one is lit on the left, so it is waning (shrinking).",
+        "1": "At first quarter, exactly half of the circle we see is lit. Here only a thin curve is lit.",
+        "2": "At new moon we can hardly see the Moon at all. Here a thin curve is clearly lit."
+      },
+      "skill": "naming the phases of the Moon",
+      "source": "original"
+    },
+    {
+      "id": "s12-q038",
+      "subtopicId": "s12-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which picture shows a waxing crescent Moon? (The pictures show the Moon as seen from the northern half of the Earth.)",
+      "optionDiagrams": [
+        {
+          "type": "moonPhases",
+          "phases": [
+            "waningCrescent"
+          ],
+          "labels": false,
+          "size": "small",
+          "alt": "A thin bright curve on the left-hand side of the Moon; the rest is dark."
+        },
+        {
+          "type": "moonPhases",
+          "phases": [
+            "waxingCrescent"
+          ],
+          "labels": false,
+          "size": "small",
+          "alt": "A thin bright curve on the right-hand side of the Moon; the rest is dark."
+        },
+        {
+          "type": "moonPhases",
+          "phases": [
+            "firstQuarter"
+          ],
+          "labels": false,
+          "size": "small",
+          "alt": "The right half of the Moon is bright and the left half is dark."
+        },
+        {
+          "type": "moonPhases",
+          "phases": [
+            "waxingGibbous"
+          ],
+          "labels": false,
+          "size": "small",
+          "alt": "Most of the Moon is bright; a dark curve is left on the left-hand side."
+        }
+      ],
+      "options": [
+        "Picture A",
+        "Picture B",
+        "Picture C",
+        "Picture D"
+      ],
+      "answer": 1,
+      "solution": "A crescent is a thin curved sliver of light. A waxing (growing) Moon is lit on the right, as seen from the northern half of the Earth. Picture B is a thin sliver lit on the right, so it is a waxing crescent.",
+      "misconceptions": {
+        "0": "Picture A is a crescent, but it is lit on the left, so it is a waning crescent. A waxing crescent is lit on the right.",
+        "2": "Picture C is half lit: that is first quarter. A crescent is only a thin curve.",
+        "3": "Picture D is more than half lit: it is a waxing gibbous Moon, which comes after first quarter. A crescent is only a thin curve."
+      },
+      "skill": "naming the phases of the Moon",
+      "source": "original"
+    },
+    {
+      "id": "s12-q039",
+      "subtopicId": "s12-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Tonight there is a full moon. Which picture shows how the Moon will look about one week from now? (The pictures show the Moon as seen from the northern half of the Earth.)",
+      "optionDiagrams": [
+        {
+          "type": "moonPhases",
+          "phases": [
+            "firstQuarter"
+          ],
+          "labels": false,
+          "size": "small",
+          "alt": "The right half of the Moon is bright and the left half is dark."
+        },
+        {
+          "type": "moonPhases",
+          "phases": [
+            "new"
+          ],
+          "labels": false,
+          "size": "small",
+          "alt": "The Moon is dark all over and can hardly be seen."
+        },
+        {
+          "type": "moonPhases",
+          "phases": [
+            "lastQuarter"
+          ],
+          "labels": false,
+          "size": "small",
+          "alt": "The left half of the Moon is bright and the right half is dark."
+        },
+        {
+          "type": "moonPhases",
+          "phases": [
+            "waningGibbous"
+          ],
+          "labels": false,
+          "size": "small",
+          "alt": "Most of the Moon is bright; a dark curve is left on the right-hand side."
+        }
+      ],
+      "options": [
+        "Picture A",
+        "Picture B",
+        "Picture C",
+        "Picture D"
+      ],
+      "answer": 2,
+      "solution": "The main phases come about one week apart: new moon, first quarter, full moon, last quarter. So one week after full moon comes last quarter. After full moon the Moon is waning (shrinking), so the lit half is on the LEFT. Picture C shows the left half lit.",
+      "misconceptions": {
+        "0": "Picture A is lit on the right: that is first quarter, about one week BEFORE full moon. After full moon the Moon is waning, so the lit part is on the left.",
+        "1": "Picture B is a new moon. That comes about two weeks after full moon, not one.",
+        "3": "Picture D is a waning gibbous Moon. That is only a few days after full moon. After about one week the Moon has shrunk to last quarter: half lit."
+      },
+      "skill": "the Moon's monthly cycle",
+      "source": "original"
+    },
+    {
+      "id": "s12-q040",
+      "subtopicId": "s12-s3",
+      "type": "order",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The pictures show the Moon on five different nights in one month, as seen from the northern half of the Earth. Starting with the first one after new moon, put the pictures in the order the Moon shows them.",
+      "diagram": {
+        "type": "moonPhases",
+        "phases": [
+          "waxingGibbous",
+          "waxingCrescent",
+          "lastQuarter",
+          "full",
+          "firstQuarter"
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "alt": "Five drawings of the Moon labelled A to E. A: mostly bright, with a dark curve on the left. B: a thin bright curve on the right. C: the left half is bright. D: a complete bright circle. E: the right half is bright."
+      },
+      "options": [
+        "Picture A",
+        "Picture B",
+        "Picture C",
+        "Picture D",
+        "Picture E"
+      ],
+      "answer": [
+        1,
+        4,
+        0,
+        3,
+        2
+      ],
+      "solution": "After new moon the lit part grows on the right: first a thin crescent (B), then the right half (E, first quarter), then most of the circle (A, waxing gibbous), then the whole circle (D, full moon). After full moon the Moon shrinks and the lit part is on the left: C is last quarter. So the order is B, E, A, D, C.",
+      "misconceptions": {
+        "common": "Mixing up first quarter and last quarter. While the Moon is waxing (growing) it is lit on the right; while it is waning (shrinking) it is lit on the left, so C (left half lit) comes after full moon."
+      },
+      "skill": "naming the phases of the Moon",
+      "source": "original"
+    },
+    {
+      "id": "s12-q041",
+      "subtopicId": "s12-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The diagram shows the Moon at eight places, A to H, on its orbit around the Earth. The Sun is far away on the left. At which place is the Moon when we see a full moon?",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "moonOrbit",
+        "moons": [
+          90,
+          135,
+          180,
+          225,
+          270,
+          315,
+          0,
+          45
+        ],
+        "moonLabels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "alt": "The Sun is on the left. The Earth is in the middle with the Moon's orbit around it. The Moon is drawn at eight places, A to H: A is at the top and the letters go anticlockwise round the orbit, so C is on the left, E at the bottom and G on the right."
+      },
+      "options": [
+        "Place A",
+        "Place C",
+        "Place E",
+        "Place G"
+      ],
+      "answer": 3,
+      "solution": "We see a full moon when the whole lit half of the Moon faces the Earth. That happens when the Moon is on the far side of the Earth from the Sun. The Sun is on the left, so the far side is on the right: place G.",
+      "misconceptions": {
+        "0": "At place A the Moon is at right angles to the Sun, so we see only half of its face lit (a quarter moon).",
+        "1": "At place C the Moon is between the Earth and the Sun. Its lit side faces away from us, so this is new moon, the opposite of full moon.",
+        "2": "At place E the Moon is at right angles to the Sun, so we see only half of its face lit (a quarter moon)."
+      },
+      "skill": "why the Moon has phases",
+      "source": "original"
+    },
+    {
+      "id": "s12-q042",
+      "subtopicId": "s12-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The diagram shows the Moon at eight places, A to H, on its orbit around the Earth, with the Sun far away on the left. The Moon travels anticlockwise: from A to B to C, and so on. At which place do we see a first quarter Moon (half lit, about one week after new moon)?",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "moonOrbit",
+        "moons": [
+          90,
+          135,
+          180,
+          225,
+          270,
+          315,
+          0,
+          45
+        ],
+        "moonLabels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "alt": "The Sun is on the left. The Earth is in the middle with the Moon's orbit around it. The Moon is drawn at eight places, A to H: A is at the top and the letters go anticlockwise round the orbit, so C is on the left, E at the bottom and G on the right."
+      },
+      "options": [
+        "Place A",
+        "Place C",
+        "Place E",
+        "Place G"
+      ],
+      "answer": 2,
+      "solution": "New moon is at C, between the Earth and the Sun. The Moon moves anticlockwise, so about one week (a quarter of an orbit) later it is at E. There it is at right angles to the Sun, so we see half of its face lit: first quarter. (A is also half lit, but the Moon reaches A a week BEFORE new moon, so A is last quarter.)",
+      "misconceptions": {
+        "0": "At place A the Moon is half lit too, but it reaches A about one week BEFORE new moon (A comes just before C). So A is last quarter, not first quarter.",
+        "1": "Place C is between the Earth and the Sun: that is new moon. First quarter comes about one week after that.",
+        "3": "Place G is on the far side of the Earth from the Sun: that is full moon, about two weeks after new moon."
+      },
+      "skill": "why the Moon has phases",
+      "source": "original"
+    },
+    {
+      "id": "s12-q043",
+      "subtopicId": "s12-s2",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The diagram shows sunlight falling on the Earth. True or false: It is daytime at the place marked with a dot.",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "dayNight",
+        "place": 0,
+        "alt": "Sunlight comes from the left. The Earth is half lit and half dark, with an arrow showing its spin. A dot marks a place on the right-hand edge of the Earth, facing away from the Sun."
+      },
+      "answer": false,
+      "solution": "False. The Sun lights only the half of the Earth that faces it. The dot is on the side facing away from the Sun, in the dark half, so it is night there (about midnight).",
+      "misconceptions": {
+        "common": "Thinking it is day everywhere at once. Only the half of the Earth facing the Sun has day; the other half has night."
+      },
+      "skill": "day, night and years",
+      "source": "original"
+    },
+    {
+      "id": "s12-q044",
+      "subtopicId": "s12-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The diagram shows the spinning Earth lit by the Sun. A dot marks a place on the Earth. About what time of day is it at that place?",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "dayNight",
+        "place": 180,
+        "alt": "Sunlight comes from the left. The Earth is half lit and half dark, with an arrow showing its spin. A dot marks a place on the left-hand edge of the Earth, facing straight towards the Sun."
+      },
+      "options": [
+        "About midnight",
+        "About midday (12 noon)",
+        "About sunset",
+        "About sunrise"
+      ],
+      "answer": 1,
+      "solution": "The dot is on the part of the Earth that faces straight towards the Sun. There the Sun is at its highest in the sky, so it is about midday.",
+      "misconceptions": {
+        "0": "Midnight is on the opposite side of the Earth, facing straight away from the Sun. The dot faces towards the Sun.",
+        "2": "Sunset happens at the edge between the lit half and the dark half. The dot is in the middle of the lit half, facing the Sun.",
+        "3": "Sunrise happens at the edge between the dark half and the lit half. The dot is in the middle of the lit half, facing the Sun."
+      },
+      "skill": "day, night and years",
+      "source": "original"
+    },
+    {
+      "id": "s12-q045",
+      "subtopicId": "s12-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The dot on the diagram marks a place on the Earth. The Earth spins once about every 24 hours. About how many hours will it be until it is midday at that place?",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "dayNight",
+        "place": 0,
+        "alt": "Sunlight comes from the left. The Earth is half lit and half dark, with an arrow showing its spin. A dot marks a place on the right-hand edge of the Earth, facing away from the Sun."
+      },
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "accept": [
+          "12 hours",
+          "12 h"
+        ]
+      },
+      "solution": "The dot faces straight away from the Sun, so it is about midnight there. Midday is when the place faces straight towards the Sun, which is half a turn later. Half of 24 hours is 12 hours.",
+      "misconceptions": {
+        "common": "Answering 24 hours. The place only needs to turn half way round to face the Sun, which takes half a day: 12 hours."
+      },
+      "skill": "day, night and years",
+      "source": "original"
+    },
+    {
+      "id": "s12-q046",
+      "subtopicId": "s12-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The diagram shows the Earth spinning, with sunlight coming from one side. From the ground, the Sun seems to rise in the east and set in the west. In which direction does the Earth really spin?",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "dayNight"
+      },
+      "options": [
+        "From west to east",
+        "From east to west",
+        "From north to south",
+        "It does not spin: the Sun travels around the Earth"
+      ],
+      "answer": 0,
+      "solution": "The Sun seems to move from east to west across the sky because the Earth is turning the other way, from west to east. As your part of the Earth turns towards the Sun in the morning, the Sun appears in the east. (Seen from above the North Pole, this spin is anticlockwise.)",
+      "misconceptions": {
+        "1": "East to west is the way the Sun SEEMS to move. The Earth turns the opposite way, west to east, and that makes the Sun appear to move east to west.",
+        "2": "The Earth spins around its axis, which runs from the North Pole to the South Pole. It turns from west to east, not north to south.",
+        "3": "This was the old Earth-centred idea. The Sun only seems to move across the sky; really the Earth is spinning."
+      },
+      "skill": "day, night and years",
+      "source": "original"
+    },
+    {
+      "id": "s12-q047",
+      "subtopicId": "s12-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The diagram shows the Earth's orbit around the Sun. About how long does the Earth take to travel once all the way round this orbit?",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "earthOrbit",
+        "labels": false,
+        "alt": "The Sun in the middle, with the Earth on its path (orbit) around the Sun."
+      },
+      "options": [
+        "About 365 1/4 days",
+        "About 24 hours",
+        "About 29 1/2 days",
+        "About 88 days"
+      ],
+      "answer": 0,
+      "solution": "One trip of the Earth round the Sun is one year: about 365 1/4 days. That is why we add a leap day every 4 years.",
+      "misconceptions": {
+        "1": "24 hours is the time the Earth takes to SPIN once (one day and night), not to orbit the Sun.",
+        "2": "About 29 1/2 days is the Moon's cycle of phases, about a month.",
+        "3": "88 days is Mercury's year. Mercury is closer to the Sun and has a much shorter orbit than the Earth."
+      },
+      "skill": "orbits in the Solar System",
+      "source": "original"
+    },
+    {
+      "id": "s12-q048",
+      "subtopicId": "s12-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the Earth's orbit in the diagram. About how many days does the Earth take to travel from one point on its orbit to the point exactly opposite, on the other side of the Sun? Give your answer to the nearest whole day.",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "earthOrbit"
+      },
+      "answer": {
+        "value": 183,
+        "tolerance": 1,
+        "accept": [
+          "183 days"
+        ]
+      },
+      "solution": "The opposite side of the Sun is half way round the orbit. One whole orbit takes about 365 1/4 days, so half an orbit takes about 365 1/4 ÷ 2 = 182 5/8 days, which is about 183 days (about 6 months).",
+      "misconceptions": {
+        "common": "Giving a whole year (365 days) or a quarter of a year (about 91 days). The opposite side of the Sun is half way round, so it takes half a year: about 183 days."
+      },
+      "skill": "orbits in the Solar System",
+      "source": "original"
+    },
+    {
+      "id": "s12-q049",
+      "subtopicId": "s12-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The bar chart shows the diameters of the eight planets, in order from the Sun. Which statement does the bar chart support?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Diameters of the planets",
+        "categories": [
+          "Mercury",
+          "Venus",
+          "Earth",
+          "Mars",
+          "Jupiter",
+          "Saturn",
+          "Uranus",
+          "Neptune"
+        ],
+        "series": [
+          {
+            "name": "Diameter",
+            "values": [
+              5,
+              12,
+              13,
+              7,
+              143,
+              121,
+              51,
+              50
+            ]
+          }
+        ],
+        "xLabel": "Planets in order from the Sun",
+        "yLabel": "Diameter (thousand km)",
+        "yMax": 160,
+        "yStep": 20,
+        "minorStep": 10,
+        "valueLabels": true
+      },
+      "options": [
+        "The further a planet is from the Sun, the larger it is",
+        "Jupiter is about twice as wide as Saturn",
+        "The four planets nearest the Sun are all much smaller than the four planets furthest from the Sun",
+        "Neptune is the smallest planet"
+      ],
+      "answer": 2,
+      "solution": "The four inner planets (Mercury, Venus, Earth and Mars) have diameters of 5 to 13 thousand km. The four outer planets (Jupiter, Saturn, Uranus and Neptune) are 50 to 143 thousand km wide. So the inner, rocky planets are all much smaller than the outer, giant planets.",
+      "misconceptions": {
+        "0": "Check the bars from left to right: they do not keep getting taller. Mars (7) is smaller than Earth (13), and Saturn, Uranus and Neptune are all smaller than Jupiter.",
+        "1": "Twice Saturn's width (121 thousand km) would be about 242 thousand km. Jupiter is 143 thousand km, only a little wider than Saturn.",
+        "3": "Neptune is the smallest of the four giant planets, but Mercury (5 thousand km) is the smallest planet of all."
+      },
+      "skill": "rocky and giant planets",
+      "source": "original"
+    },
+    {
+      "id": "s12-q050",
+      "subtopicId": "s12-s1",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Use the bar chart of the planets' diameters. About how many times wider is Jupiter than the Earth? Give your answer as a whole number.",
+      "diagram": {
+        "type": "barChart",
+        "title": "Diameters of the planets",
+        "categories": [
+          "Mercury",
+          "Venus",
+          "Earth",
+          "Mars",
+          "Jupiter",
+          "Saturn",
+          "Uranus",
+          "Neptune"
+        ],
+        "series": [
+          {
+            "name": "Diameter",
+            "values": [
+              5,
+              12,
+              13,
+              7,
+              143,
+              121,
+              51,
+              50
+            ]
+          }
+        ],
+        "xLabel": "Planets in order from the Sun",
+        "yLabel": "Diameter (thousand km)",
+        "yMax": 160,
+        "yStep": 20,
+        "minorStep": 10,
+        "valueLabels": true
+      },
+      "answer": {
+        "value": 11,
+        "tolerance": 0,
+        "accept": [
+          "11 times"
+        ]
+      },
+      "solution": "Read the bars: Jupiter is 143 thousand km wide and the Earth is 13 thousand km wide. 'How many times' means divide: 143 ÷ 13 = 11. So about 11 Earths would fit side by side across Jupiter.",
+      "misconceptions": {
+        "common": "Subtracting (143 - 13 = 130) instead of dividing, or reading Saturn's bar (121) instead of Jupiter's (143)."
+      },
+      "skill": "the Sun and the planets",
+      "source": "original"
+    },
+    {
+      "id": "s12-q051",
+      "subtopicId": "s12-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The table shows data for the four giant planets. Pluto is a dwarf planet. Its average distance from the Sun is about 5900 million km. Use the pattern in the table to choose the best estimate of the time Pluto takes to orbit the Sun once.",
+      "diagram": {
+        "type": "table",
+        "title": "The giant planets",
+        "columns": [
+          "Planet",
+          "Average distance from the Sun (million km)",
+          "Time to orbit the Sun once (years)"
+        ],
+        "rows": [
+          [
+            "Jupiter",
+            778,
+            12
+          ],
+          [
+            "Saturn",
+            1434,
+            29
+          ],
+          [
+            "Uranus",
+            2871,
+            84
+          ],
+          [
+            "Neptune",
+            4495,
+            165
+          ]
+        ]
+      },
+      "options": [
+        "About 248 years",
+        "About 12 years",
+        "About 100 years",
+        "About 165 years"
+      ],
+      "answer": 0,
+      "solution": "The pattern in the table: the further a planet is from the Sun, the longer it takes to orbit. Pluto (about 5900 million km) is further away than Neptune (4495 million km), so it must take longer than Neptune's 165 years. The only choice longer than 165 years is about 248 years.",
+      "misconceptions": {
+        "1": "12 years is Jupiter's time, and Jupiter is the closest of the giant planets. Pluto is much further away, so its orbit takes much longer.",
+        "2": "100 years is less than Neptune's 165 years, but Pluto is further away than Neptune, so it must take longer.",
+        "3": "165 years is Neptune's time. Pluto is further from the Sun than Neptune, so it takes even longer."
+      },
+      "skill": "describing patterns in data",
+      "source": "original"
+    },
+    {
+      "id": "s12-q052",
+      "subtopicId": "s12-s3",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The diagram shows the Moon at eight places, A to H, around the Earth, with the Sun far away on the left. Select ALL the places where we see MORE than half of the Moon's face lit.",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "moonOrbit",
+        "moons": [
+          90,
+          135,
+          180,
+          225,
+          270,
+          315,
+          0,
+          45
+        ],
+        "moonLabels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "alt": "The Sun is on the left. The Earth is in the middle with the Moon's orbit around it. The Moon is drawn at eight places, A to H: A is at the top and the letters go anticlockwise round the orbit, so C is on the left, E at the bottom and G on the right."
+      },
+      "options": [
+        "Place B",
+        "Place D",
+        "Place E",
+        "Place F",
+        "Place G",
+        "Place H"
+      ],
+      "answer": [
+        3,
+        4,
+        5
+      ],
+      "solution": "The half of the Moon facing the Sun is always lit. When the Moon is on the far side of the Earth from the Sun (the right-hand side of the orbit), we see more than half of its face lit. F and H are gibbous Moons and G is full moon. E is exactly half lit (first quarter). B and D are close to the Sun's side, so we see only crescents.",
+      "misconceptions": {
+        "0": "Place B is on the Sun's side of the Earth, so we see only a thin crescent.",
+        "1": "Place D is on the Sun's side of the Earth, so we see only a thin crescent.",
+        "2": "At place E the Moon is at right angles to the Sun, so exactly half of its face is lit (first quarter), not more than half.",
+        "common": "Remember: the side of the Moon facing the Sun is lit. The further round the Moon is from the Sun's side of its orbit, the more of the lit half we see."
+      },
+      "skill": "why the Moon has phases",
+      "source": "original"
+    },
+    {
+      "id": "s12-q053",
+      "subtopicId": "s12-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The diagram is a model of the Earth's orbit. True or false: This diagram shows the geocentric model, with the Earth at the centre.",
+      "diagram": {
+        "type": "sunEarthMoon",
+        "view": "earthOrbit"
+      },
+      "answer": false,
+      "solution": "False. In the diagram the Sun is at the centre and the Earth orbits it, so it is a heliocentric (Sun-centred) model. In the old geocentric model, the Earth was at the centre and the Sun moved round it.",
+      "misconceptions": {
+        "common": "Mixing up the two words. 'Geo' means Earth and 'helio' means Sun: a geocentric model has the Earth at the centre."
+      },
+      "skill": "geocentric and heliocentric models",
       "source": "original"
     }
   ]

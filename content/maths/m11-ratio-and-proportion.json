@@ -475,7 +475,24 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 2,
-      "prompt": "Share RM 60 in the ratio 2 : 3. How much is the smaller share?",
+      "prompt": "RM 60 is shared in the ratio 2 : 3, as the bar model shows. How much is the smaller share?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Share 1",
+            "units": 2,
+            "right": "?"
+          },
+          {
+            "label": "Share 2",
+            "units": 3
+          }
+        ],
+        "totalBrace": {
+          "label": "RM 60"
+        }
+      },
       "options": [
         "RM 36",
         "RM 24",
@@ -483,11 +500,11 @@
         "RM 40"
       ],
       "answer": 1,
-      "solution": "Total parts = 2 + 3 = 5. One part = RM 60 ÷ 5 = RM 12. Smaller share = 2 x RM 12 = RM 24. Check: the larger share is 3 x RM 12 = RM 36, and RM 24 + RM 36 = RM 60.",
+      "solution": "The bar model has 2 + 3 = 5 equal units, and all 5 units are RM 60. One unit = RM 60 ÷ 5 = RM 12. Smaller share = 2 units = 2 x RM 12 = RM 24. Check: the larger share is 3 x RM 12 = RM 36, and RM 24 + RM 36 = RM 60.",
       "misconceptions": {
-        "0": "RM 36 is the larger share (3 parts). The question asks for the smaller share, which is 2 parts.",
-        "2": "You split the money equally between 2 people. A ratio of 2 : 3 means the shares are not equal.",
-        "3": "You found 2/3 of RM 60. The ratio 2 : 3 has 5 parts altogether, so the smaller share is 2/5 of RM 60."
+        "0": "RM 36 is the larger share (3 units). The question asks for the smaller share, which is 2 units.",
+        "2": "You split the money equally between 2 people. The bars show that the shares are not equal: 2 units and 3 units.",
+        "3": "You found 2/3 of RM 60. The ratio 2 : 3 has 5 units altogether, so the smaller share is 2/5 of RM 60."
       },
       "skill": "sharing in a ratio",
       "source": "original"
@@ -513,13 +530,30 @@
       "type": "numeric",
       "difficulty": 1,
       "marks": 2,
-      "prompt": "Siti and Omar share 35 stickers in the ratio 3 : 4. How many stickers does Siti get?",
+      "prompt": "Siti and Omar share 35 stickers in the ratio 3 : 4. Look at the bar model. How many stickers does Siti get?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Siti",
+            "units": 3,
+            "right": "?"
+          },
+          {
+            "label": "Omar",
+            "units": 4
+          }
+        ],
+        "totalBrace": {
+          "label": "35 stickers"
+        }
+      },
       "answer": {
         "value": 15,
         "tolerance": 0,
         "accept": []
       },
-      "solution": "Total parts = 3 + 4 = 7. One part = 35 ÷ 7 = 5. Siti gets 3 parts = 3 x 5 = 15 stickers.",
+      "solution": "The bar model has 3 + 4 = 7 equal units, and 7 units = 35 stickers. One unit = 35 ÷ 7 = 5. Siti gets 3 units = 3 x 5 = 15 stickers.",
       "misconceptions": {
         "common": "Dividing 35 by 3 or by 4 instead of by the total number of parts. Add the parts first: 3 + 4 = 7."
       },
@@ -629,7 +663,32 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Arjun and Mei Lin share some money in the ratio 4 : 5. Mei Lin gets RM 12 more than Arjun. How much money do they share altogether? Give your answer in RM.",
+      "prompt": "Arjun and Mei Lin share some money in the ratio 4 : 5. Mei Lin gets RM 12 more than Arjun, as the bar model shows. How much money do they share altogether? Give your answer in RM.",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Arjun",
+            "units": 4
+          },
+          {
+            "label": "Mei Lin",
+            "units": 5
+          }
+        ],
+        "braces": [
+          {
+            "bar": 1,
+            "from": 4,
+            "to": 5,
+            "label": "RM 12",
+            "side": "below"
+          }
+        ],
+        "totalBrace": {
+          "label": "?"
+        }
+      },
       "answer": {
         "value": 108,
         "tolerance": 0,
@@ -638,9 +697,9 @@
           "RM108"
         ]
       },
-      "solution": "Mei Lin has 5 parts and Arjun has 4 parts, so the difference is 5 - 4 = 1 part. So 1 part = RM 12. Total parts = 4 + 5 = 9. Total = 9 x RM 12 = RM 108. Check: Arjun gets RM 48 and Mei Lin gets RM 60, a difference of RM 12.",
+      "solution": "In the bar model Mei Lin has 5 units and Arjun has 4 units, so Mei Lin's extra is 5 - 4 = 1 unit. So 1 unit = RM 12. Altogether there are 4 + 5 = 9 units. Total = 9 x RM 12 = RM 108. Check: Arjun gets RM 48 and Mei Lin gets RM 60, a difference of RM 12.",
       "misconceptions": {
-        "common": "Treating RM 12 as the total, or sharing the RM 12 in the ratio 4 : 5. The difference between the shares is exactly 1 part, so 1 part = RM 12."
+        "common": "Treating RM 12 as the total, or sharing the RM 12 in the ratio 4 : 5. The extra part of Mei Lin's bar is exactly 1 unit, so 1 unit = RM 12."
       },
       "skill": "ratio problems using the difference",
       "source": "inspired-by: Singapore P6"
@@ -651,7 +710,22 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Some money is shared between Aisha and Wei Ming in the ratio 3 : 5. Wei Ming receives RM 45. How much does Aisha receive?",
+      "prompt": "Some money is shared between Aisha and Wei Ming in the ratio 3 : 5. Wei Ming receives RM 45. Look at the bar model. How much does Aisha receive?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Aisha",
+            "units": 3,
+            "right": "?"
+          },
+          {
+            "label": "Wei Ming",
+            "units": 5,
+            "right": "RM 45"
+          }
+        ]
+      },
       "options": [
         "RM 75",
         "RM 27",
@@ -659,11 +733,11 @@
         "RM 72"
       ],
       "answer": 1,
-      "solution": "Wei Ming has 5 parts = RM 45, so 1 part = RM 45 ÷ 5 = RM 9. Aisha has 3 parts = 3 x RM 9 = RM 27.",
+      "solution": "Wei Ming's bar has 5 units = RM 45, so 1 unit = RM 45 ÷ 5 = RM 9. Aisha's bar has 3 units = 3 x RM 9 = RM 27.",
       "misconceptions": {
-        "0": "You treated RM 45 as Aisha's 3 parts. RM 45 is Wei Ming's money, and he has 5 parts, so 1 part = RM 45 ÷ 5 = RM 9.",
+        "0": "You treated RM 45 as Aisha's 3 units. RM 45 is Wei Ming's money, and his bar has 5 units, so 1 unit = RM 45 ÷ 5 = RM 9.",
         "2": "You took away 2 because 5 - 3 = 2. Ratio problems are solved by multiplying and dividing, not by subtracting the ratio numbers.",
-        "3": "RM 72 is the total amount shared (8 parts x RM 9). The question asks for Aisha's share only."
+        "3": "RM 72 is the total amount shared (8 units x RM 9). The question asks for Aisha's share only."
       },
       "skill": "sharing in a ratio",
       "source": "original"
@@ -964,7 +1038,22 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 3,
-      "prompt": "At first, the ratio of Wei Ming's money to Siti's money is 5 : 3. Wei Ming spends RM 30 and Siti spends nothing. Now they both have the same amount of money. How much money did Wei Ming have at first?",
+      "prompt": "The bar model shows that at first, the ratio of Wei Ming's money to Siti's money is 5 : 3. Wei Ming spends RM 30 and Siti spends nothing. Now they both have the same amount of money. How much money did Wei Ming have at first?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Wei Ming",
+            "units": 5,
+            "right": "?"
+          },
+          {
+            "label": "Siti",
+            "units": 3
+          }
+        ],
+        "caption": "At first"
+      },
       "options": [
         "RM 75",
         "RM 45",
@@ -972,11 +1061,11 @@
         "RM 150"
       ],
       "answer": 0,
-      "solution": "Siti's money does not change, so she still has 3 parts. To have the same as Siti, Wei Ming goes from 5 parts down to 3 parts, so he spent 2 parts. 2 parts = RM 30, so 1 part = RM 15. At first Wei Ming had 5 x RM 15 = RM 75. Check: RM 75 - RM 30 = RM 45, and Siti has 3 x RM 15 = RM 45.",
+      "solution": "Siti's money does not change, so she still has 3 units. To have the same as Siti, Wei Ming's bar must shrink from 5 units to 3 units, so he spent 2 units. 2 units = RM 30, so 1 unit = RM 15. At first Wei Ming had 5 x RM 15 = RM 75. Check: RM 75 - RM 30 = RM 45, and Siti has 3 x RM 15 = RM 45.",
       "misconceptions": {
         "1": "RM 45 is how much each of them has at the END. The question asks how much Wei Ming had at first, before he spent RM 30.",
-        "2": "RM 15 is the value of one part. Wei Ming had 5 parts at first: 5 x RM 15.",
-        "3": "You treated RM 30 as 1 part. Wei Ming had to drop from 5 parts to 3 parts to match Siti, so RM 30 = 2 parts and 1 part = RM 15."
+        "2": "RM 15 is the value of one unit. Wei Ming's bar had 5 units at first: 5 x RM 15.",
+        "3": "You treated RM 30 as 1 unit. Wei Ming had to drop from 5 units to 3 units to match Siti, so RM 30 = 2 units and 1 unit = RM 15."
       },
       "skill": "before-and-after ratio problems",
       "source": "inspired-by: Singapore P6"
@@ -987,7 +1076,22 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 3,
-      "prompt": "A box has red apples and green apples in the ratio 4 : 3. After 8 red apples are eaten, the ratio of red apples to green apples becomes 2 : 3. How many green apples are in the box?",
+      "prompt": "A box has red apples and green apples in the ratio 4 : 3, as the bar model shows. After 8 red apples are eaten, the ratio of red apples to green apples becomes 2 : 3. How many green apples are in the box?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Red",
+            "units": 4
+          },
+          {
+            "label": "Green",
+            "units": 3,
+            "right": "?"
+          }
+        ],
+        "caption": "At first"
+      },
       "options": [
         "16",
         "12",
@@ -995,11 +1099,11 @@
         "24"
       ],
       "answer": 1,
-      "solution": "The green apples do not change, and they are 3 parts in both ratios, so the parts stay the same size. Red goes from 4 parts to 2 parts, so 2 parts were eaten. 2 parts = 8 apples, so 1 part = 4 apples. Green = 3 x 4 = 12. Check: at first red 16, green 12 (16 : 12 = 4 : 3). After 8 are eaten: red 8, green 12, and 8 : 12 = 2 : 3.",
+      "solution": "The green apples do not change, and they are 3 units in both ratios, so the units stay the same size. The red bar goes from 4 units to 2 units, so 2 units were eaten. 2 units = 8 apples, so 1 unit = 4 apples. Green = 3 x 4 = 12. Check: at first red 16, green 12 (16 : 12 = 4 : 3). After 8 are eaten: red 8, green 12, and 8 : 12 = 2 : 3.",
       "misconceptions": {
         "0": "16 is the number of red apples at first (4 x 4). The question asks for the green apples.",
-        "2": "4 is the value of one part. Green apples are 3 parts: 3 x 4 = 12.",
-        "3": "You treated the 8 apples as 1 part. The red apples went from 4 parts to 2 parts, so 8 apples = 2 parts and 1 part = 4."
+        "2": "4 is the value of one unit. The green bar has 3 units: 3 x 4 = 12.",
+        "3": "You treated the 8 apples as 1 unit. The red bar went from 4 units to 2 units, so 8 apples = 2 units and 1 unit = 4."
       },
       "skill": "before-and-after ratio problems",
       "source": "inspired-by: Singapore P6"
@@ -1010,7 +1114,38 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 3,
-      "prompt": "The ratio of the length to the width of a rectangle is 5 : 2. The perimeter of the rectangle is 56 cm. What is its area? Give your answer in cm^2.",
+      "prompt": "The rectangle is drawn with its length and width in the ratio 5 : 2. The perimeter of the rectangle is 56 cm. What is its area? Give your answer in cm^2.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "sides": [
+          {
+            "label": "5 parts"
+          },
+          {
+            "label": "2 parts"
+          },
+          null,
+          null
+        ]
+      },
       "answer": {
         "value": 160,
         "tolerance": 0,
@@ -1020,7 +1155,7 @@
           "160cm^2"
         ]
       },
-      "solution": "The perimeter goes all the way round: length + width + length + width, which is 5 + 2 + 5 + 2 = 14 parts. 1 part = 56 ÷ 14 = 4 cm. Length = 5 x 4 = 20 cm and width = 2 x 4 = 8 cm. Area = 20 x 8 = 160 cm^2.",
+      "solution": "The perimeter goes all the way round the rectangle: length + width + length + width, which is 5 + 2 + 5 + 2 = 14 parts. 1 part = 56 ÷ 14 = 4 cm. Length = 5 x 4 = 20 cm and width = 2 x 4 = 8 cm. Area = 20 x 8 = 160 cm^2.",
       "misconceptions": {
         "common": "Sharing 56 cm in the ratio 5 : 2 (7 parts) as if the perimeter were one length plus one width. That gives 40 cm by 16 cm and an area of 640 cm^2. The perimeter is 2 lengths + 2 widths = 14 parts."
       },
@@ -1041,6 +1176,124 @@
       },
       "skill": "before-and-after ratio problems",
       "source": "inspired-by: KS2"
+    },
+    {
+      "id": "m11-q045",
+      "subtopicId": "m11-s3",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Ahmad and Priya share some marbles in the ratio 5 : 3. Ahmad gets 24 more marbles than Priya, as the bar model shows. How many marbles does Priya get?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Ahmad",
+            "units": 5
+          },
+          {
+            "label": "Priya",
+            "units": 3,
+            "right": "?"
+          }
+        ],
+        "braces": [
+          {
+            "bar": 0,
+            "from": 3,
+            "to": 5,
+            "label": "24",
+            "side": "above"
+          }
+        ]
+      },
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "accept": [
+          "36 marbles"
+        ]
+      },
+      "solution": "In the bar model Ahmad has 5 units and Priya has 3 units, so Ahmad's extra is 5 - 3 = 2 units. 2 units = 24, so 1 unit = 24 ÷ 2 = 12. Priya gets 3 units = 3 x 12 = 36 marbles. Check: Ahmad gets 5 x 12 = 60, and 60 - 36 = 24.",
+      "misconceptions": {
+        "common": "Treating the 24 as one unit (which gives 3 x 24 = 72). The extra part of Ahmad's bar is 2 units, so halve 24 first: 1 unit = 12."
+      },
+      "skill": "ratio problems using the difference",
+      "source": "original"
+    },
+    {
+      "id": "m11-q046",
+      "subtopicId": "m11-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "In a choir, the ratio of boys to girls is 3 : 4, as the bar model shows. After 6 more boys join, the ratio of boys to girls becomes 1 : 1. How many girls are in the choir?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Boys",
+            "units": 3
+          },
+          {
+            "label": "Girls",
+            "units": 4,
+            "right": "?"
+          }
+        ],
+        "caption": "At first"
+      },
+      "options": [
+        "18",
+        "42",
+        "6",
+        "24"
+      ],
+      "answer": 3,
+      "solution": "The girls do not change: their bar stays at 4 units. After 6 boys join, there are as many boys as girls, so the boys' bar grows from 3 units to 4 units. The 6 new boys are 1 unit. Girls = 4 units = 4 x 6 = 24. Check: at first there are 3 x 6 = 18 boys, and 18 : 24 = 3 : 4. After 6 join, 24 boys and 24 girls, which is 1 : 1.",
+      "misconceptions": {
+        "0": "18 is the number of BOYS at first (3 units x 6). The question asks for the girls: 4 units.",
+        "1": "42 is the whole choir at first (7 units x 6). The girls are only 4 units: 4 x 6 = 24.",
+        "2": "6 is the value of one unit. The girls' bar has 4 units: 4 x 6 = 24."
+      },
+      "skill": "before-and-after ratio problems",
+      "source": "original"
+    },
+    {
+      "id": "m11-q047",
+      "subtopicId": "m11-s3",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The bar model shows the ratio of red beads to blue beads on a bracelet. What fraction of the beads are red?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Red",
+            "units": 2
+          },
+          {
+            "label": "Blue",
+            "units": 5
+          }
+        ]
+      },
+      "options": [
+        "2/5",
+        "5/7",
+        "2/7",
+        "3/7"
+      ],
+      "answer": 2,
+      "solution": "Red has 2 units and blue has 5 units, so there are 2 + 5 = 7 units altogether. Red is 2 of the 7 units, so 2/7 of the beads are red.",
+      "misconceptions": {
+        "0": "2/5 compares red with BLUE (that is the ratio 2 : 5). A fraction of all the beads must be out of the total: 2 + 5 = 7 units.",
+        "1": "5/7 is the fraction that are blue. Red is 2 of the 7 units.",
+        "3": "3/7 uses the difference 5 - 2 = 3. Red is 2 units out of 2 + 5 = 7, so the fraction is 2/7."
+      },
+      "skill": "ratio and fractions",
+      "source": "original"
     }
   ]
 }

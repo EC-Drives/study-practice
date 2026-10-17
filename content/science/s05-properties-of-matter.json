@@ -325,7 +325,38 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A table shows the melting points and boiling points of four substances. Substance P: melts at -95 °C, boils at 56 °C. Substance Q: melts at 44 °C, boils at 280 °C. Substance R: melts at -190 °C, boils at -150 °C. Substance S: melts at 5 °C, boils at 250 °C. Which substance is a GAS at room temperature (25 °C)?",
+      "prompt": "The table shows the melting points and boiling points of four substances. Which substance is a GAS at room temperature (25 °C)?",
+      "diagram": {
+        "type": "table",
+        "title": "Melting and boiling points",
+        "columns": [
+          "Substance",
+          "Melting point (°C)",
+          "Boiling point (°C)"
+        ],
+        "rows": [
+          [
+            "P",
+            -95,
+            56
+          ],
+          [
+            "Q",
+            44,
+            280
+          ],
+          [
+            "R",
+            -190,
+            -150
+          ],
+          [
+            "S",
+            5,
+            250
+          ]
+        ]
+      },
       "options": [
         "Substance P",
         "Substance Q",
@@ -333,7 +364,7 @@
         "Substance S"
       ],
       "answer": 2,
-      "solution": "A substance is a gas when the temperature is above its boiling point. Only R boils below 25 °C (at -150 °C). So at 25 °C, R is a gas. P and S are liquids, and Q is a solid.",
+      "solution": "A substance is a gas when the temperature is above its boiling point. In the table, only R boils below 25 °C (at -150 °C). So at 25 °C, R is a gas. P and S are liquids, and Q is a solid.",
       "misconceptions": {
         "0": "25 °C is above P's melting point (-95 °C) but below its boiling point (56 °C), so P is a liquid. A substance is a gas only when it is above its boiling point.",
         "1": "25 °C is below Q's melting point (44 °C), so Q has not melted yet. It is a solid.",
@@ -386,7 +417,38 @@
       "type": "multi",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A table shows the melting points and boiling points of four substances. Substance P: melts at -95 °C, boils at 56 °C. Substance Q: melts at 44 °C, boils at 280 °C. Substance R: melts at -190 °C, boils at -150 °C. Substance S: melts at 5 °C, boils at 250 °C. Select ALL the substances that are LIQUIDS at 50 °C.",
+      "prompt": "The table shows the melting points and boiling points of four substances. Select ALL the substances that are LIQUIDS at 50 °C.",
+      "diagram": {
+        "type": "table",
+        "title": "Melting and boiling points",
+        "columns": [
+          "Substance",
+          "Melting point (°C)",
+          "Boiling point (°C)"
+        ],
+        "rows": [
+          [
+            "P",
+            -95,
+            56
+          ],
+          [
+            "Q",
+            44,
+            280
+          ],
+          [
+            "R",
+            -190,
+            -150
+          ],
+          [
+            "S",
+            5,
+            250
+          ]
+        ]
+      },
       "options": [
         "Substance P",
         "Substance Q",
@@ -412,7 +474,28 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Oxygen melts at -218 °C and boils at -183 °C. Scientists can cool oxygen down to -200 °C. In what state is oxygen at -200 °C?",
+      "prompt": "Oxygen melts at -218 °C and boils at -183 °C. The number line shows these two temperatures and -200 °C. Scientists can cool oxygen down to -200 °C. In what state is oxygen at -200 °C?",
+      "diagram": {
+        "type": "numberLine",
+        "min": -230,
+        "max": -170,
+        "step": 10,
+        "minorStep": 2,
+        "points": [
+          {
+            "at": -218,
+            "label": "melts"
+          },
+          {
+            "at": -200,
+            "label": "-200 °C"
+          },
+          {
+            "at": -183,
+            "label": "boils"
+          }
+        ]
+      },
       "options": [
         "Solid",
         "Liquid",
@@ -420,7 +503,7 @@
         "You cannot tell from this information"
       ],
       "answer": 1,
-      "solution": "On a number line, -218 is lowest, then -200, then -183. So -200 °C is above oxygen's melting point (-218 °C) and below its boiling point (-183 °C). Between the melting and boiling points, a substance is a liquid. Liquid oxygen is real: hospitals and rockets use it.",
+      "solution": "On the number line, -218 is furthest left (lowest), then -200, then -183. So -200 °C is above oxygen's melting point (-218 °C) and below its boiling point (-183 °C). Between the melting and boiling points, a substance is a liquid. Liquid oxygen is real: hospitals and rockets use it.",
       "misconceptions": {
         "0": "-200 °C is extremely cold, but it is still warmer than oxygen's melting point. -200 is higher than -218, so the oxygen has not frozen.",
         "2": "Oxygen is a gas at everyday temperatures, but -200 °C is below its boiling point (-183 °C), so it has turned into a liquid.",
@@ -435,7 +518,59 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Wei Ming heats a beaker of crushed ice steadily and records its temperature every minute. His readings are: 0 min: -10 °C, 1 min: -4 °C, 2 min: 0 °C, 3 min: 0 °C, 4 min: 0 °C, 5 min: 0 °C, 6 min: 5 °C, 7 min: 11 °C. Which is the best conclusion?",
+      "prompt": "Wei Ming heats a beaker of crushed ice steadily and records its temperature every minute. The line graph shows his results. Which is the best conclusion?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Heating crushed ice",
+        "series": [
+          {
+            "name": "Temperature",
+            "points": [
+              [
+                0,
+                -10
+              ],
+              [
+                1,
+                -4
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                5,
+                0
+              ],
+              [
+                6,
+                5
+              ],
+              [
+                7,
+                11
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 7,
+        "xStep": 1,
+        "yMin": -10,
+        "yMax": 15,
+        "yStep": 5,
+        "minorStep": 1,
+        "xLabel": "Time (minutes)",
+        "yLabel": "Temperature (°C)"
+      },
       "options": [
         "The thermometer stopped working between 2 and 5 minutes",
         "Ice can never be warmer than 0 °C, so the readings got stuck",
@@ -443,7 +578,7 @@
         "The temperature stayed at 0 °C while the ice was melting, because 0 °C is the melting point of ice"
       ],
       "answer": 3,
-      "solution": "The temperature rose until it reached 0 °C, then stayed level from 2 to 5 minutes. During that time the heat was used to melt the ice, not to warm it. Once all the ice had melted, the water warmed up again. The level part shows the melting point of ice: 0 °C.",
+      "solution": "The line rises until it reaches 0 °C, then stays level (flat) from 2 to 5 minutes. During that time the heat was used to melt the ice, not to warm it. Once all the ice had melted, the water warmed up again and the line rises. The level part shows the melting point of ice: 0 °C.",
       "misconceptions": {
         "0": "If the thermometer had broken, the readings would not start rising again at 6 minutes. Staying at 0 °C is a real result: the heat was being used to melt the ice.",
         "1": "After the ice had all melted, the liquid water warmed up past 0 °C (5 °C, then 11 °C). The level part only lasts while ice is melting.",
@@ -519,7 +654,17 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Daniel weighs a flat football on a kitchen scale: 430 g. He pumps it up with air and weighs it again: 436 g. What is the mass of the air he pumped in? Give your answer in grams.",
+      "prompt": "Daniel weighs a flat football on a kitchen scale. The picture shows the reading. He pumps the ball up with air and weighs it again: now the scale reads 436 g. What is the mass of the air he pumped in? Give your answer in grams.",
+      "diagram": {
+        "type": "scale",
+        "kind": "weighing",
+        "min": 0,
+        "max": 500,
+        "major": 100,
+        "minor": 10,
+        "unit": "g",
+        "value": 430
+      },
       "answer": {
         "value": 6,
         "tolerance": 0,
@@ -529,9 +674,9 @@
           "6 grams"
         ]
       },
-      "solution": "Find the difference: 436 - 430 = 6 g. The ball became 6 g heavier because the air pumped in has mass.",
+      "solution": "Read the scale for the flat ball: the pointer is 3 small marks past 400 g, and each small mark is 10 g, so it reads 430 g. Find the difference: 436 - 430 = 6 g. The ball became 6 g heavier because the air pumped in has mass.",
       "misconceptions": {
-        "common": "Adding the two masses (866 g) instead of finding the difference, or deciding the scale is wrong because air 'weighs nothing'."
+        "common": "Misreading the scale (each small mark is 10 g, so the pointer shows 430 g), adding the two masses (866 g) instead of finding the difference, or deciding the scale is wrong because air 'weighs nothing'."
       },
       "skill": "properties of gases",
       "source": "inspired-by: Singapore P6"

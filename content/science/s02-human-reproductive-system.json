@@ -119,7 +119,12 @@
       "type": "match",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Match each part of the female reproductive system to its job or description.",
+      "prompt": "The diagram shows the female reproductive system. Match each part to its job or description.",
+      "diagram": {
+        "type": "organ",
+        "organ": "femaleReproductive",
+        "labels": "names"
+      },
       "options": {
         "left": [
           "Ovary",
@@ -172,7 +177,12 @@
       "type": "order",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Put these parts of the female reproductive system in order, starting with the ovary and ending with the part that opens to the outside of the body.",
+      "prompt": "The diagram shows the female reproductive system without its labels. Put these parts in order, starting with the ovary and ending with the part that opens to the outside of the body.",
+      "diagram": {
+        "type": "organ",
+        "organ": "femaleReproductive",
+        "labels": "none"
+      },
       "options": [
         "Uterus",
         "Vagina",
@@ -223,11 +233,23 @@
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "True or false: The cervix is found between the ovary and the oviduct.",
+      "prompt": "The diagram shows the female reproductive system with five parts labelled A to E. Part A is an ovary and part C is the uterus. True or false: part B is the cervix.",
+      "diagram": {
+        "type": "organ",
+        "organ": "femaleReproductive",
+        "labels": "letters",
+        "parts": [
+          "ovary",
+          "oviduct",
+          "uterus",
+          "cervix",
+          "vagina"
+        ]
+      },
       "answer": false,
-      "solution": "False. The cervix is the narrow lower end of the uterus. It sits between the uterus and the vagina. The ovary is joined to the uterus by the oviduct.",
+      "solution": "False. Part B is the oviduct, the tube that carries an egg from the ovary (A) to the uterus (C). The cervix is part D: the narrow lower end of the uterus, between the uterus and the vagina (E).",
       "misconceptions": {
-        "common": "Mixing up the order of the parts. Starting from an ovary, the order is: oviduct, uterus, cervix, vagina."
+        "common": "Mixing up the cervix and the oviduct. Starting from an ovary, the order is: oviduct, uterus, cervix, vagina. The cervix is below the uterus, not above it."
       },
       "skill": "female reproductive parts and functions",
       "source": "original"
@@ -355,7 +377,18 @@
       "type": "match",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Match each part of the male reproductive system to its job or description.",
+      "prompt": "The diagram shows the male reproductive system. Match each part to its job or description.",
+      "diagram": {
+        "type": "organ",
+        "organ": "maleReproductive",
+        "labels": "names",
+        "parts": [
+          "testis",
+          "scrotum",
+          "spermDuct",
+          "penis"
+        ]
+      },
       "options": {
         "left": [
           "Testis",
@@ -782,7 +815,47 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Aisha's height was measured on each birthday. Age 9: 132 cm. Age 10: 137 cm. Age 11: 143 cm. Age 12: 151 cm. Age 13: 157 cm. Between which two birthdays did she grow the most?",
+      "prompt": "Aisha's height was measured on each birthday. The line graph shows her results. Between which two birthdays did she grow the most?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Aisha's height",
+        "series": [
+          {
+            "name": "Height",
+            "points": [
+              [
+                9,
+                132
+              ],
+              [
+                10,
+                137
+              ],
+              [
+                11,
+                143
+              ],
+              [
+                12,
+                151
+              ],
+              [
+                13,
+                157
+              ]
+            ]
+          }
+        ],
+        "xMin": 9,
+        "xMax": 13,
+        "xStep": 1,
+        "yMin": 130,
+        "yMax": 160,
+        "yStep": 5,
+        "minorStep": 1,
+        "xLabel": "Age (years)",
+        "yLabel": "Height (cm)"
+      },
       "options": [
         "Between age 9 and age 10",
         "Between age 10 and age 11",
@@ -790,7 +863,7 @@
         "Between age 12 and age 13"
       ],
       "answer": 2,
-      "solution": "Find the growth for each year: 9 to 10: 137 - 132 = 5 cm. 10 to 11: 143 - 137 = 6 cm. 11 to 12: 151 - 143 = 8 cm. 12 to 13: 157 - 151 = 6 cm. The biggest growth, 8 cm, was between 11 and 12, which shows her growth spurt.",
+      "solution": "Read the heights from the graph: 132, 137, 143, 151 and 157 cm. Find the growth for each year: 9 to 10: 137 - 132 = 5 cm. 10 to 11: 143 - 137 = 6 cm. 11 to 12: 151 - 143 = 8 cm. 12 to 13: 157 - 151 = 6 cm. The biggest growth, 8 cm, was between 11 and 12, which shows her growth spurt. On the graph this is the steepest part of the line.",
       "misconceptions": {
         "0": "Work out each change. From 9 to 10 she grew 137 - 132 = 5 cm, which is the smallest growth, not the largest.",
         "1": "From 10 to 11 she grew 143 - 137 = 6 cm. From 11 to 12 she grew more: 8 cm.",

@@ -2,7 +2,7 @@
 // went wrong" grouped by skill. Also the buttons that send or share the parent report.
 
 import { h, clear, icon, button, link, dialog, toast, shareOrDownload, pct } from '../ui.js';
-import { loadSubject, indexQuestions, subjectTitle } from '../content.js';
+import { loadSubject, indexQuestions, indexTopics, subjectTitle } from '../content.js';
 import { responseText, correctAnswerText } from '../marking.js';
 import { scoreRing, pictograms, attemptKind, meter } from '../charts.js';
 import { formatDuration } from '../timer.js';
@@ -11,6 +11,7 @@ import { streak } from '../stats.js';
 import { aiAvailable } from '../ai.js';
 import { workingView } from '../working.js';
 import { diagramFor, questionsForSession } from '../hooks.js';
+import { choicePictures } from '../visual-report.js';
 
 function cheer(p) {
   if (p >= 0.9) return ['Brilliant work!', 'You really know this chapter.'];
@@ -69,7 +70,7 @@ export async function resultsView(el, app, sessionId) {
     app.db.getAll('sessions'),
   ]);
   attempts.sort((a, b) => a.position - b.position);
-  const qmap = questionsForSession(indexQuestions(topics), session);
+  const qmap = questionsForSession(indexQuestions(topics), session, attempts, indexTopics(topics));
   const subTitle = new Map();
   for (const t of topics) for (const s of t.preamble.subtopics) subTitle.set(s.id, s.title);
   const sc = session.score;
@@ -180,6 +181,8 @@ export async function resultsView(el, app, sessionId) {
       }
       const pic = diagramFor(q, 'review'); // INTEGRATION POINT: question.diagram (js/hooks.js)
       if (pic) item.insertBefore(pic, item.querySelector('.rv-answers'));
+      const choices = choicePictures(q, a.response, 'review', { mine: 'Your answer', picked: 'You picked this' }); // picture choices: hers and the right one marked
+      if (choices) item.insertBefore(choices, item.querySelector('.rv-answers'));
       item.append(h('details', { class: 'rv-solution', open: kind !== 'right' ? true : null }, h('summary', { text: 'How to solve it' }), h('p', { text: q.solution })));
       item.append(h('p', { class: 'small muted', text: `${subTitle.get(q.subtopicId) || ''} · ${q.skill}` }));
       if (aiAvailable() && kind !== 'right') item.append(h('p', { class: 'small muted', text: 'More help is available from the AI helper.' }));

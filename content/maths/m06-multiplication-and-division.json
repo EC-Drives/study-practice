@@ -1039,7 +1039,40 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A rope 12.6 m long is cut into 7 equal pieces. Kumar uses 2 of the pieces. What is the total length of rope that is left?",
+      "prompt": "A rope 12.6 m long is cut into 7 equal pieces, as the bar model shows. Kumar uses the 2 shaded pieces. What is the total length of rope that is left?",
+      "diagram": {
+        "type": "barModel",
+        "bars": [
+          {
+            "label": "Rope",
+            "units": 7,
+            "shadedUnits": 2
+          }
+        ],
+        "braces": [
+          {
+            "bar": 0,
+            "from": 0,
+            "to": 7,
+            "label": "12.6 m",
+            "side": "above"
+          },
+          {
+            "bar": 0,
+            "from": 0,
+            "to": 2,
+            "label": "used",
+            "side": "below"
+          },
+          {
+            "bar": 0,
+            "from": 2,
+            "to": 7,
+            "label": "?",
+            "side": "below"
+          }
+        ]
+      },
       "options": [
         "1.8 m",
         "3.6 m",
@@ -1047,7 +1080,7 @@
         "10.8 m"
       ],
       "answer": 2,
-      "solution": "One piece: 12.6 ÷ 7 = 1.8 m. Pieces left: 7 - 2 = 5. Length left: 5 x 1.8 = 9 m. (Or: 12.6 - 2 x 1.8 = 12.6 - 3.6 = 9 m.)",
+      "solution": "One piece: 12.6 ÷ 7 = 1.8 m. The pieces left are the ones that are not shaded: 7 - 2 = 5. Length left: 5 x 1.8 = 9 m. (Or: 12.6 - 2 x 1.8 = 12.6 - 3.6 = 9 m.)",
       "misconceptions": {
         "0": "This is the length of one piece. 5 pieces are left, so multiply by 5.",
         "1": "This is the length Kumar used (2 x 1.8 m). The question asks for the length left.",

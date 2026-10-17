@@ -214,7 +214,37 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A 250 g sample of soil is tested. It contains 120 g of sand, 60 g of silt and 45 g of clay. The rest is humus. What percentage of the sample is humus? Give your answer as a percentage.",
+      "prompt": "A 250 g sample of soil is tested. The table shows what it contains. What percentage of the sample is humus? Give your answer as a percentage.",
+      "diagram": {
+        "type": "table",
+        "title": "A 250 g soil sample",
+        "columns": [
+          "Part of the soil",
+          "Mass (g)"
+        ],
+        "rows": [
+          [
+            "Sand",
+            120
+          ],
+          [
+            "Silt",
+            60
+          ],
+          [
+            "Clay",
+            45
+          ],
+          [
+            "Humus",
+            "?"
+          ],
+          [
+            "Total",
+            250
+          ]
+        ]
+      },
       "answer": {
         "value": 10,
         "tolerance": 0,
@@ -223,7 +253,7 @@
           "10 %"
         ]
       },
-      "solution": "First find the mass of humus: 120 + 60 + 45 = 225 g of rock particles. 250 - 225 = 25 g of humus. Then find the percentage: 25/250 = 1/10 = 10%.",
+      "solution": "First find the mass of humus from the table: 120 + 60 + 45 = 225 g of rock particles. 250 - 225 = 25 g of humus. Then find the percentage: 25/250 = 1/10 = 10%.",
       "misconceptions": {
         "common": "Giving 25 (the mass in grams) instead of the percentage. 25 g out of 250 g is 1/10, which is 10%."
       },
@@ -403,7 +433,26 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Soils can be classified by how much clay, sand and organic matter (humus) they contain. A soil sample is tested and found to be 75% organic matter, 15% clay and 10% sand. Which type of soil is it most likely to be?",
+      "prompt": "Soils can be classified by how much clay, sand and organic matter (humus) they contain. The pie chart shows what one soil sample is made of. Which type of soil is it most likely to be?",
+      "diagram": {
+        "type": "pieChart",
+        "title": "What the soil sample is made of",
+        "slices": [
+          {
+            "label": "Organic matter (humus)",
+            "value": 75
+          },
+          {
+            "label": "Clay",
+            "value": 15
+          },
+          {
+            "label": "Sand",
+            "value": 10
+          }
+        ],
+        "show": "percent"
+      },
       "options": [
         "Clay soil",
         "Sandy soil",
@@ -411,7 +460,7 @@
         "Loam"
       ],
       "answer": 2,
-      "solution": "Look for the biggest part: 75% is organic matter, which is three-quarters of the sample. A soil made mostly of partly rotted plant material is peat soil. Peat is dark, holds a lot of water and is found in wet, boggy places.",
+      "solution": "Look for the biggest slice: 75% is organic matter, which is three-quarters of the pie chart. A soil made mostly of partly rotted plant material is peat soil. Peat is dark, holds a lot of water and is found in wet, boggy places.",
       "misconceptions": {
         "0": "Clay is the biggest rock part of this sample, but only 15%. Clay soil would be mostly clay particles. This sample is mostly organic matter.",
         "1": "Sandy soil is mostly sand. Here sand is only 10%, the smallest part.",
@@ -775,7 +824,30 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "Siti pours 100 ml of water onto three soils and measures the water collected after 5 minutes. Results: Soil A 82 ml, Soil B 20 ml, Soil C 55 ml. Which soil is most likely to be clay soil?",
+      "prompt": "Siti pours 100 ml of water onto three soils and measures the water collected after 5 minutes. The bar chart shows her results. Which soil is most likely to be clay soil?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Water collected after 5 minutes",
+        "categories": [
+          "Soil A",
+          "Soil B",
+          "Soil C"
+        ],
+        "series": [
+          {
+            "name": "Water collected",
+            "values": [
+              82,
+              20,
+              55
+            ]
+          }
+        ],
+        "yLabel": "Water collected (ml)",
+        "yMax": 100,
+        "yStep": 10,
+        "minorStep": 2
+      },
       "options": [
         "Soil A",
         "Soil B",
@@ -783,7 +855,7 @@
         "All three are the same type, because the differences are just chance"
       ],
       "answer": 1,
-      "solution": "Clay soil has tiny particles and small spaces, so it holds water and lets the least water through. Soil B let only 20 ml through out of 100 ml, the smallest amount, so it is most likely clay soil.",
+      "solution": "Clay soil has tiny particles and small spaces, so it holds water and lets the least water through. Soil B has the shortest bar: only 20 ml came through out of 100 ml, so it is most likely clay soil.",
       "misconceptions": {
         "0": "Soil A let the MOST water through, so it drains fastest. That is most like sandy soil, not clay.",
         "2": "Soil C is in the middle. It drains moderately, which fits loam better than clay.",

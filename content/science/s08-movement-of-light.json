@@ -143,7 +143,14 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "You are reading a book in a room lit by a lamp. How are you able to see the book?",
+      "prompt": "The picture shows you reading a book in a room lit by a lamp. How are you able to see the book?",
+      "diagram": {
+        "type": "light",
+        "scene": "seeing",
+        "source": "lamp",
+        "object": "book",
+        "arrows": "none"
+      },
       "options": [
         "Light travels out of your eyes to the book.",
         "Light from the lamp reflects off the book and travels into your eyes.",
@@ -151,7 +158,7 @@
         "Light from the lamp goes into your eyes first and then on to the book."
       ],
       "answer": 1,
-      "solution": "Light travels in straight lines from the lamp to the book. Some of it is reflected off the book and travels in straight lines into your eyes. Your brain uses this light to see the book.",
+      "solution": "Light travels in straight lines from the lamp to the book. Some of it is reflected off the book and travels in straight lines into your eyes. So in the picture the light should go lamp, then book, then eye. Your brain uses this light to see the book.",
       "misconceptions": {
         "0": "Eyes do not send out light. They receive light. If eyes made light, we could see in a completely dark room.",
         "2": "A book is not a light source. In a dark room you cannot see it at all, so its light must come from the lamp.",
@@ -277,19 +284,30 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "When drawing how a ray of light reflects from a mirror, scientists draw a line called the normal. What is the normal?",
+      "prompt": "Look at the ray diagram. It shows a ray of light reflecting from a plane mirror. Which label shows the normal?",
+      "diagram": {
+        "type": "light",
+        "scene": "mirror",
+        "angle": 40,
+        "labels": {
+          "mirror": "A",
+          "reflected": "B",
+          "normal": "C",
+          "incident": "D"
+        }
+      },
       "options": [
-        "The surface of the mirror itself",
-        "The ray of light that bounces off the mirror",
-        "An imaginary line at 90° to the mirror, at the point where the ray hits it",
-        "A line drawn parallel to the mirror"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "answer": 2,
-      "solution": "The normal is a dashed line drawn at 90° (a right angle) to the mirror where the ray hits. The angle of incidence and the angle of reflection are both measured from the normal.",
+      "solution": "The normal is the dashed line drawn at 90° (a right angle) to the mirror, at the point where the ray hits it. In the diagram that is line C. A is the mirror, D is the incident (incoming) ray and B is the reflected ray. The angle of incidence and the angle of reflection are both measured from the normal.",
       "misconceptions": {
-        "0": "The mirror surface is the line the ray hits. The normal is drawn at right angles (90°) to it.",
-        "1": "That is the reflected ray. The normal is a construction line we use to measure angles from.",
-        "3": "A line parallel to the mirror would never meet it. The normal is at 90° to the mirror."
+        "0": "A is the mirror itself: the surface the ray hits. The normal is the dashed line drawn at right angles (90°) to the mirror.",
+        "1": "B is the reflected ray, the light bouncing off the mirror. The normal is a construction line we use to measure angles from.",
+        "3": "D is the incident ray, the light travelling towards the mirror. The normal is the dashed line at 90° to the mirror where the ray hits."
       },
       "skill": "angles of incidence and reflection",
       "source": "original"
@@ -300,7 +318,16 @@
       "type": "numeric",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A ray of light hits a plane mirror. The angle of incidence, measured from the normal, is 35°. What is the angle of reflection, measured from the normal? Give your answer in degrees.",
+      "prompt": "The ray diagram shows a ray of light hitting a plane mirror. The angle of incidence, measured from the normal, is 35°. What is the angle of reflection, r, measured from the normal? Give your answer in degrees.",
+      "diagram": {
+        "type": "light",
+        "scene": "mirror",
+        "angle": 35,
+        "labels": {
+          "i": "35°",
+          "r": "?"
+        }
+      },
       "answer": {
         "value": 35,
         "tolerance": 0,
@@ -310,7 +337,7 @@
           "35 °"
         ]
       },
-      "solution": "For a plane mirror, the angle of reflection always equals the angle of incidence. So the angle of reflection is 35°.",
+      "solution": "For a plane mirror, the angle of reflection always equals the angle of incidence. In the diagram the angle of incidence is 35°, so the angle marked r is also 35°.",
       "misconceptions": {
         "common": "Giving 55° by subtracting from 90°. That is the angle between the ray and the mirror surface, but both angles in the rule are measured from the normal."
       },
@@ -338,7 +365,15 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "A ray of light reflects from a plane mirror. The angle between the incoming ray and the reflected ray is 80°. What is the angle of incidence, measured from the normal? Give your answer in degrees.",
+      "prompt": "The ray diagram shows a ray of light reflecting from a plane mirror. The angle between the incoming ray and the reflected ray is 80°. What is the angle of incidence, marked ?, measured from the normal? Give your answer in degrees.",
+      "diagram": {
+        "type": "light",
+        "scene": "mirror",
+        "angle": 40,
+        "labels": {
+          "i": "?"
+        }
+      },
       "answer": {
         "value": 40,
         "tolerance": 0,
@@ -361,7 +396,15 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A ray of light hits a plane mirror. The angle of incidence, measured from the normal, is 50°. What is the angle between the reflected ray and the surface of the mirror?",
+      "prompt": "The ray diagram shows a ray of light hitting a plane mirror. The angle of incidence, measured from the normal, is 50°. What is the angle between the reflected ray and the surface of the mirror?",
+      "diagram": {
+        "type": "light",
+        "scene": "mirror",
+        "angle": 50,
+        "labels": {
+          "i": "50°"
+        }
+      },
       "options": [
         "40°",
         "50°",
@@ -369,7 +412,7 @@
         "100°"
       ],
       "answer": 0,
-      "solution": "The angle of reflection equals the angle of incidence: 50° from the normal. The normal is at 90° to the mirror, so the angle between the reflected ray and the mirror surface is 90° - 50° = 40°.",
+      "solution": "The angle of reflection equals the angle of incidence: 50° from the normal. In the diagram the normal is the dashed line at 90° to the mirror, so the angle between the reflected ray and the mirror surface is 90° - 50° = 40°.",
       "misconceptions": {
         "1": "50° is the angle of reflection measured from the normal. The question asks for the angle to the mirror surface, which is 90° - 50°.",
         "2": "This subtracts 50° from 180°. The normal is at 90° to the mirror, so the angle to the surface is 90° - 50°.",
@@ -384,7 +427,13 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A ray of light hits a plane mirror straight on, travelling along the normal (the angle of incidence is 0°). What happens to the ray?",
+      "prompt": "The diagram shows a ray of light hitting a plane mirror straight on, travelling along the normal (the angle of incidence is 0°). What happens to the ray?",
+      "diagram": {
+        "type": "light",
+        "scene": "mirror",
+        "angle": 0,
+        "showReflected": false
+      },
       "options": [
         "It passes straight through the mirror.",
         "It reflects along the surface of the mirror, at 90° to the normal.",
@@ -548,7 +597,16 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Which of these is caused by refraction?",
+      "prompt": "The diagram shows refraction: a ray of light changes direction as it passes from air into water. Which of these is also caused by refraction?",
+      "diagram": {
+        "type": "light",
+        "scene": "refraction",
+        "medium": "water",
+        "angle": 45,
+        "labels": {
+          "normal": "normal"
+        }
+      },
       "options": [
         "You see your face in a bathroom mirror.",
         "A straw in a glass of water looks bent at the water surface.",
@@ -571,7 +629,18 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A ray of light travels through air and hits a glass block at an angle (not straight on). What happens to the ray as it enters the glass?",
+      "prompt": "The diagram shows a ray of light travelling through air towards a glass block. It hits the block at an angle (not straight on). What happens to the ray as it enters the glass?",
+      "diagram": {
+        "type": "light",
+        "scene": "refraction",
+        "medium": "glass",
+        "angle": 40,
+        "showRefracted": false,
+        "labels": {
+          "normal": "normal",
+          "medium": "glass block"
+        }
+      },
       "options": [
         "It changes direction.",
         "It bounces straight back.",
@@ -594,7 +663,18 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A ray of light hits the flat side of a glass block straight on, at 90° to the surface (along the normal). What happens to the ray as it enters the glass?",
+      "prompt": "The diagram shows a ray of light hitting the flat side of a glass block straight on, at 90° to the surface (along the normal). What happens to the ray as it enters the glass?",
+      "diagram": {
+        "type": "light",
+        "scene": "refraction",
+        "medium": "glass",
+        "angle": 0,
+        "showRefracted": false,
+        "labels": {
+          "normal": "normal",
+          "medium": "glass block"
+        }
+      },
       "options": [
         "It bends towards the edge of the block.",
         "It reflects straight back and none enters the glass.",
@@ -784,7 +864,21 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Why does a shadow form behind an opaque object when a torch shines on it?",
+      "prompt": "The diagram shows a torch shining on an opaque box in front of a wall. Why does a shadow form on the wall behind the box?",
+      "diagram": {
+        "type": "light",
+        "scene": "shadow",
+        "source": "torch",
+        "object": "box",
+        "sourceDistance": 2,
+        "screenDistance": 6,
+        "objectHeight": 1,
+        "labels": {
+          "object": "box",
+          "screen": "wall",
+          "shadow": "shadow"
+        }
+      },
       "options": [
         "The object gives out darkness, which falls behind it.",
         "Light bends round the object and leaves a dark gap.",
@@ -807,7 +901,20 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A torch shines on a toy, making a shadow on a wall. The torch and the wall stay still. You move the toy closer to the torch. What happens to the shadow?",
+      "prompt": "The diagram shows a torch shining on a toy, making a shadow on a wall. The torch and the wall stay still. You move the toy closer to the torch. What happens to the shadow?",
+      "diagram": {
+        "type": "light",
+        "scene": "shadow",
+        "source": "torch",
+        "object": "ball",
+        "sourceDistance": 3,
+        "screenDistance": 6,
+        "objectHeight": 1,
+        "labels": {
+          "object": "toy",
+          "screen": "wall"
+        }
+      },
       "options": [
         "It gets bigger.",
         "It gets smaller.",
@@ -845,7 +952,42 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Priya investigates shadows. The torch and the screen stay 60 cm apart. She moves a card between them and records the shadow height. Results: card 10 cm from the torch, shadow 30 cm; 15 cm from the torch, 20 cm; 20 cm from the torch, 15 cm; 30 cm from the torch, 10 cm. Which statement describes the pattern in her results?",
+      "prompt": "Priya investigates shadows. The torch and the screen stay 60 cm apart. She moves a card between them and records the shadow height. The line graph shows her results. Which statement describes the pattern in her results?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Shadow height and distance from the torch",
+        "series": [
+          {
+            "name": "Shadow height",
+            "points": [
+              [
+                10,
+                30
+              ],
+              [
+                15,
+                20
+              ],
+              [
+                20,
+                15
+              ],
+              [
+                30,
+                10
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 35,
+        "xStep": 5,
+        "yMin": 0,
+        "yMax": 35,
+        "yStep": 5,
+        "xLabel": "Distance of card from torch (cm)",
+        "yLabel": "Height of shadow (cm)"
+      },
       "options": [
         "The further the card is from the torch, the bigger the shadow.",
         "The distance from the torch does not affect the shadow height.",
@@ -853,14 +995,509 @@
         "The shadow height changes, but there is no pattern."
       ],
       "answer": 2,
-      "solution": "As the card moves further from the torch (10, 15, 20, 30 cm), the shadow height falls (30, 20, 15, 10 cm). So the further the card is from the torch, the smaller the shadow. This matches the idea that an object near the light source blocks more of the spreading light.",
+      "solution": "Follow the graph from left to right. As the card moves further from the torch (10, 15, 20, 30 cm), the shadow height falls (30, 20, 15, 10 cm). So the further the card is from the torch, the smaller the shadow. This matches the idea that an object near the light source blocks more of the spreading light.",
       "misconceptions": {
-        "0": "This reverses the pattern. Read the table again: as the distance goes up (10, 15, 20, 30 cm), the shadow goes down (30, 20, 15, 10 cm).",
+        "0": "This reverses the pattern. Read the graph again: as the distance goes up (10, 15, 20, 30 cm), the line goes down (30, 20, 15, 10 cm).",
         "1": "The shadow height changes from 30 cm to 10 cm as the card moves, so the distance clearly does affect it.",
-        "3": "Every time the distance increases, the shadow gets smaller. That is a clear pattern."
+        "3": "Every time the distance increases, the line on the graph goes down. That is a clear pattern."
       },
       "skill": "describing patterns in results",
       "source": "inspired-by: Cambridge Checkpoint style"
+    },
+    {
+      "id": "s08-q037",
+      "subtopicId": "s08-s2",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The ray diagram shows a ray of light reflecting from a plane mirror. What is the size of the angle of reflection, marked r? Give your answer in degrees.",
+      "diagram": {
+        "type": "light",
+        "scene": "mirror",
+        "angle": 55,
+        "labels": {
+          "i": "55°",
+          "r": "?"
+        }
+      },
+      "answer": {
+        "value": 55,
+        "tolerance": 0,
+        "accept": [
+          "55°",
+          "55 degrees",
+          "55 °"
+        ]
+      },
+      "solution": "The angle of incidence (i) in the diagram is 55°. For a plane mirror the angle of reflection always equals the angle of incidence. So r = 55°.",
+      "misconceptions": {
+        "common": "Giving 35° by working out 90° - 55°. Both i and r are measured from the dashed normal line, not from the mirror, so r is the same as i: 55°."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "original"
+    },
+    {
+      "id": "s08-q038",
+      "subtopicId": "s08-s2",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Look at the ray diagram. The angle of incidence is 30°. What is the angle between the incident ray and the surface of the mirror? Give your answer in degrees.",
+      "diagram": {
+        "type": "light",
+        "scene": "mirror",
+        "angle": 30,
+        "labels": {
+          "i": "30°"
+        }
+      },
+      "answer": {
+        "value": 60,
+        "tolerance": 0,
+        "accept": [
+          "60°",
+          "60 degrees",
+          "60 °"
+        ]
+      },
+      "solution": "The normal is at 90° to the mirror. The incident ray is 30° from the normal. So the angle between the incident ray and the mirror is 90° - 30° = 60°.",
+      "misconceptions": {
+        "common": "Giving 30°. That is the angle between the ray and the normal (the dashed line), not the mirror. The normal and the mirror make 90°, so subtract: 90° - 30° = 60°."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "original"
+    },
+    {
+      "id": "s08-q039",
+      "subtopicId": "s08-s2",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The ray diagram shows light reflecting from a plane mirror. Which letter labels the reflected ray?",
+      "diagram": {
+        "type": "light",
+        "scene": "mirror",
+        "angle": 45,
+        "labels": {
+          "incident": "P",
+          "normal": "Q",
+          "reflected": "R",
+          "mirror": "S"
+        }
+      },
+      "answer": {
+        "accept": [
+          "r",
+          "ray r",
+          "line r",
+          "label r"
+        ],
+        "keywords": []
+      },
+      "solution": "The incident ray (P) travels towards the mirror. It hits the mirror (S) and bounces off. The ray leaving the mirror is the reflected ray, R. Q is the dashed normal, at 90° to the mirror.",
+      "misconceptions": {
+        "common": "Choosing P, the incident ray. The incident ray arrives at the mirror; the reflected ray is the one that leaves the mirror after bouncing off. Another slip is choosing Q, the dashed normal, which is not a ray of light at all."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "original"
+    },
+    {
+      "id": "s08-q040",
+      "subtopicId": "s08-s2",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Each diagram shows a ray of light travelling towards a plane mirror. Which ray will be reflected straight back along its own path?",
+      "options": [
+        "Diagram A",
+        "Diagram B",
+        "Diagram C",
+        "Diagram D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "light",
+          "scene": "mirror",
+          "angle": 30,
+          "showReflected": false
+        },
+        {
+          "type": "light",
+          "scene": "mirror",
+          "angle": 55,
+          "showReflected": false
+        },
+        {
+          "type": "light",
+          "scene": "mirror",
+          "angle": 70,
+          "showReflected": false
+        },
+        {
+          "type": "light",
+          "scene": "mirror",
+          "angle": 0,
+          "showReflected": false
+        }
+      ],
+      "answer": 3,
+      "solution": "The angle of reflection equals the angle of incidence. Only in Diagram D does the ray travel along the normal, so its angle of incidence is 0°. Then the angle of reflection is 0° too, and the ray goes straight back the way it came.",
+      "misconceptions": {
+        "0": "In Diagram A the ray arrives at an angle to the normal, so it leaves at the same angle on the other side of the normal. It does not come straight back.",
+        "1": "In Diagram B the ray is at an angle to the normal. It reflects at the same angle on the other side, not back along its own path.",
+        "2": "In Diagram C the ray hits the mirror at a slant, so it bounces off at a slant on the other side of the normal. Only a ray along the normal comes straight back."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "original"
+    },
+    {
+      "id": "s08-q041",
+      "subtopicId": "s08-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Aisha is reading a book by the light of a lamp. Which diagram shows how she sees the book?",
+      "options": [
+        "Diagram A",
+        "Diagram B",
+        "Diagram C"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "light",
+          "scene": "seeing",
+          "source": "lamp",
+          "object": "book",
+          "arrows": "fromEye"
+        },
+        {
+          "type": "light",
+          "scene": "seeing",
+          "source": "lamp",
+          "object": "book",
+          "arrows": "correct"
+        },
+        {
+          "type": "light",
+          "scene": "seeing",
+          "source": "lamp",
+          "object": "book",
+          "arrows": "none"
+        }
+      ],
+      "answer": 1,
+      "solution": "Light starts at a light source. In Diagram B, light travels in straight lines from the lamp to the book, reflects off the book and then travels into Aisha's eye. That is how we see things that do not give out their own light.",
+      "misconceptions": {
+        "0": "Diagram A has the arrows coming out of the eye. Eyes do not send out light; they receive it. If eyes gave out light, we could see in a completely dark room.",
+        "2": "Diagram C does not show which way the light travels. To see the book, light must travel from the lamp to the book and then into the eye."
+      },
+      "skill": "how we see",
+      "source": "original"
+    },
+    {
+      "id": "s08-q042",
+      "subtopicId": "s08-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Wei Ming looks at a tree in the school field on a sunny day. Which diagram shows the path of the light that lets him see the tree?",
+      "options": [
+        "Diagram A",
+        "Diagram B",
+        "Diagram C"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "light",
+          "scene": "seeing",
+          "source": "sun",
+          "object": "tree",
+          "arrows": "correct"
+        },
+        {
+          "type": "light",
+          "scene": "seeing",
+          "source": "sun",
+          "object": "tree",
+          "arrows": "none"
+        },
+        {
+          "type": "light",
+          "scene": "seeing",
+          "source": "sun",
+          "object": "tree",
+          "arrows": "fromEye"
+        }
+      ],
+      "answer": 0,
+      "solution": "The Sun is the light source. In Diagram A, light travels in a straight line from the Sun to the tree, reflects off the tree and travels into Wei Ming's eye. The tree gives out no light of its own, so the light must start at the Sun.",
+      "misconceptions": {
+        "1": "Diagram B does not show which way the light travels. Light must go from the Sun to the tree and then into the eye.",
+        "2": "Diagram C has the light going out of the eye. Eyes only receive light. The light starts at the Sun, bounces off the tree and then enters the eye."
+      },
+      "skill": "how we see",
+      "source": "original"
+    },
+    {
+      "id": "s08-q043",
+      "subtopicId": "s08-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Kumar sets up a torch, a box and a wall as shown in the diagram. The box is 20 cm from the torch and its shadow on the wall is 16 cm tall. He moves the box so that it is 40 cm from the torch. The torch and the wall do not move. Which could be the new height of the shadow?",
+      "diagram": {
+        "type": "light",
+        "scene": "shadow",
+        "source": "torch",
+        "object": "box",
+        "sourceDistance": 20,
+        "screenDistance": 80,
+        "objectHeight": 4,
+        "labels": {
+          "object": "box",
+          "screen": "wall"
+        }
+      },
+      "options": [
+        "32 cm",
+        "16 cm",
+        "8 cm",
+        "0 cm (no shadow)"
+      ],
+      "answer": 2,
+      "solution": "Light spreads out from the torch in straight lines. When the box moves further from the torch (and nearer the wall), it blocks a narrower part of the spreading light, so the shadow gets smaller. The only smaller height that still makes a shadow is 8 cm. (Moving it from 20 cm to 40 cm from the torch halves the shadow here: 16 cm to 8 cm.)",
+      "misconceptions": {
+        "0": "The shadow gets bigger when the box moves closer to the torch, not further away. Here it moved further away, so the shadow shrinks.",
+        "1": "The shadow size depends on how far the box is from the torch. The distance changed, so the shadow height changes too.",
+        "3": "The box is still opaque and still in the light, so it still makes a shadow. It just becomes smaller."
+      },
+      "skill": "how shadows form",
+      "source": "original"
+    },
+    {
+      "id": "s08-q044",
+      "subtopicId": "s08-s4",
+      "type": "numeric",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Omar makes shadows of a puppet on a screen. He moves the puppet further from the torch and measures the shadow each time. The line graph shows his results. How much shorter is the shadow when the puppet is 30 cm from the torch than when it is 15 cm from the torch? Give your answer in cm.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Height of the puppet's shadow",
+        "series": [
+          {
+            "name": "Shadow height",
+            "points": [
+              [
+                10,
+                54
+              ],
+              [
+                15,
+                36
+              ],
+              [
+                20,
+                27
+              ],
+              [
+                30,
+                18
+              ],
+              [
+                45,
+                12
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 50,
+        "xStep": 5,
+        "yMin": 0,
+        "yMax": 60,
+        "yStep": 10,
+        "minorStep": 2,
+        "xLabel": "Distance of puppet from torch (cm)",
+        "yLabel": "Height of shadow (cm)"
+      },
+      "answer": {
+        "value": 18,
+        "tolerance": 0,
+        "accept": [
+          "18 cm",
+          "18cm"
+        ]
+      },
+      "solution": "Read the graph. At 15 cm from the torch the shadow is 36 cm tall. At 30 cm from the torch it is 18 cm tall. Difference: 36 - 18 = 18 cm. The shadow got shorter as the puppet moved away from the torch.",
+      "misconceptions": {
+        "common": "Reading the wrong point or the wrong axis. Find 15 cm and 30 cm along the bottom (distance) axis, go up to the line, then read across to the shadow height: 36 cm and 18 cm. Then subtract."
+      },
+      "skill": "describing patterns in results",
+      "source": "original"
+    },
+    {
+      "id": "s08-q045",
+      "subtopicId": "s08-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Ahmad measures the length of the shadow of a 1 m stick in the school field at different times of the day. The bar chart shows his results. At which of these times was the Sun highest in the sky?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Length of the stick's shadow",
+        "categories": [
+          "9 am",
+          "11 am",
+          "1 pm",
+          "3 pm",
+          "5 pm"
+        ],
+        "series": [
+          {
+            "name": "Shadow length",
+            "values": [
+              180,
+              60,
+              20,
+              65,
+              185
+            ]
+          }
+        ],
+        "yMax": 200,
+        "yStep": 50,
+        "minorStep": 10,
+        "xLabel": "Time of day",
+        "yLabel": "Length of shadow (cm)"
+      },
+      "options": [
+        "9 am",
+        "11 am",
+        "1 pm",
+        "5 pm"
+      ],
+      "answer": 2,
+      "solution": "The higher the Sun is in the sky, the shorter the shadow, because the light comes from more nearly overhead. The shortest bar is at 1 pm (20 cm), so the Sun was highest at 1 pm. Early morning and late afternoon have the longest shadows, when the Sun is low.",
+      "misconceptions": {
+        "0": "9 am has one of the longest shadows. A long shadow means the Sun is low in the sky, not high.",
+        "1": "At 11 am the shadow (60 cm) is longer than at 1 pm (20 cm), so the Sun was higher at 1 pm. Use the chart rather than guessing that the Sun is highest before noon.",
+        "3": "5 pm has the longest shadow (185 cm). The Sun is low in the late afternoon, so shadows are long."
+      },
+      "skill": "describing patterns in results",
+      "source": "original"
+    },
+    {
+      "id": "s08-q046",
+      "subtopicId": "s08-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Each diagram shows the Sun shining on the same tree at a different time of day. Which diagram shows the tree at about midday, when the Sun is highest in the sky?",
+      "options": [
+        "Diagram A",
+        "Diagram B",
+        "Diagram C",
+        "Diagram D"
+      ],
+      "optionDiagrams": [
+        {
+          "type": "light",
+          "scene": "shadow",
+          "source": "sun",
+          "object": "tree",
+          "angle": 30
+        },
+        {
+          "type": "light",
+          "scene": "shadow",
+          "source": "sun",
+          "object": "tree",
+          "angle": 80
+        },
+        {
+          "type": "light",
+          "scene": "shadow",
+          "source": "sun",
+          "object": "tree",
+          "angle": 50
+        },
+        {
+          "type": "light",
+          "scene": "shadow",
+          "source": "sun",
+          "object": "tree",
+          "angle": 15
+        }
+      ],
+      "answer": 1,
+      "solution": "Around midday the Sun is highest in the sky, so its light comes from nearly overhead and the tree's shadow is shortest. Diagram B has the highest Sun and the shortest shadow.",
+      "misconceptions": {
+        "0": "In Diagram A the Sun is quite low, so the shadow is long. At midday the Sun is high and the shadow is short.",
+        "2": "In Diagram C the Sun is higher than in A, but not as high as in B. Look for the highest Sun and the shortest shadow.",
+        "3": "In Diagram D the Sun is very low, like early morning or evening, so the shadow is very long."
+      },
+      "skill": "how shadows form",
+      "source": "original"
+    },
+    {
+      "id": "s08-q047",
+      "subtopicId": "s08-s4",
+      "type": "truefalse",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The diagram shows the shadow of a tree in the morning. Later in the morning the Sun rises higher in the sky. True or false: the tree's shadow will become longer.",
+      "diagram": {
+        "type": "light",
+        "scene": "shadow",
+        "source": "sun",
+        "object": "tree",
+        "angle": 35
+      },
+      "answer": false,
+      "solution": "False. As the Sun rises higher, its light comes from more nearly overhead, so the tree blocks a smaller patch of light on the ground. The shadow becomes shorter, until about midday.",
+      "misconceptions": {
+        "common": "Thinking a higher Sun makes a longer shadow. It is the other way round: a low Sun (early morning, late afternoon) makes long shadows; a high Sun makes short shadows."
+      },
+      "skill": "how shadows form",
+      "source": "original"
+    },
+    {
+      "id": "s08-q048",
+      "subtopicId": "s08-s2",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Look at the ray diagram. Select ALL the statements that are true.",
+      "diagram": {
+        "type": "light",
+        "scene": "mirror",
+        "angle": 40,
+        "labels": {
+          "i": "40°",
+          "r": "?"
+        }
+      },
+      "options": [
+        "The angle of reflection is 40°.",
+        "The angle between the reflected ray and the mirror is 50°.",
+        "The angle between the incident ray and the reflected ray is 80°.",
+        "The angle of reflection is 50°.",
+        "The normal is parallel to the mirror."
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "solution": "The angle of reflection equals the angle of incidence, so r = 40°. The normal is at 90° to the mirror, so the reflected ray makes 90° - 40° = 50° with the mirror. The angle between the two rays is 40° + 40° = 80°. The normal is at right angles to the mirror, not parallel to it.",
+      "misconceptions": {
+        "3": "50° is the angle between the reflected ray and the mirror. The angle of reflection is measured from the normal, so it is 40°.",
+        "4": "The normal is drawn at right angles (90°) to the mirror. Parallel lines never meet, but the normal meets the mirror where the ray hits.",
+        "common": "Measuring angles from the mirror instead of from the normal. In ray diagrams, i and r are both measured from the normal."
+      },
+      "skill": "angles of incidence and reflection",
+      "source": "original"
     }
   ]
 }

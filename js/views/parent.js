@@ -5,7 +5,8 @@
 // (local: email, PIN, export/import; linked: her account, export).
 
 import { h, clear, icon, button, dialog, toast, shareOrDownload, downloadFile, pct } from '../ui.js';
-import { SUBJECTS, loadAll, subjectTitle } from '../content.js';
+import { SUBJECTS, loadAll, subjectTitle, indexQuestions, indexTopics } from '../content.js';
+import { questionsForSession } from '../hooks.js';
 import { hashPin, verifyPin, validPin, lockoutSeconds } from '../pin.js';
 import { activity, totals, streak, longestStreak, subtopicMastery, topicSummary, currentTopic, formatDate, formatTime, levelFor } from '../stats.js';
 import { progressAnalysis } from '../analysis.js';
@@ -221,12 +222,21 @@ async function latestSession(body, app, data) {
     return;
   }
   const atts = data.attempts.filter((a) => a.sessionId === r.sessionId);
+  const questions = sessionQuestions(data, r.sessionId, atts);
   const sec = h('section', { class: 'card latest' },
     h('div', { class: 'row space' },
       h('h2', {}, icon('star'), h('span', { text: 'Her latest session' })),
       h('a', { href: `#/parent/report/${encodeURIComponent(r.sessionId)}`, class: 'btn btn-ghost btn-small' }, h('span', { text: 'Open the full report' }), icon('right', { size: 20 }))));
   body.append(sec);
-  sec.append(visualReport(r, { attempts: atts, sessions: data.sessions, source: app.source, host: sec }));
+  sec.append(visualReport(r, { attempts: atts, sessions: data.sessions, source: app.source, host: sec, questions }));
+}
+
+/** The questions of one session as she saw them: the bank, with that session's generated ones. */
+function sessionQuestions(data, sessionId, attempts) {
+  const session = data.sessions.find((x) => x.id === sessionId) || null;
+  data.qmap ||= indexQuestions(data.topics);
+  data.tmap ||= indexTopics(data.topics);
+  return questionsForSession(data.qmap, session, attempts, data.tmap);
 }
 
 async function overviewPage(body, app, data) {
@@ -280,6 +290,13 @@ async function overviewPage(body, app, data) {
       sec.append(h('h3', { text: 'Skills (last 60 days)' }), h('ul', {},
         ...an.skills.strong.map((s) => h('li', { text: `Strong: ${s.skill} (${s.correct}/${s.total} right)` })),
         ...an.skills.weak.map((s) => h('li', { text: `Weaker: ${s.skill} (${s.correct}/${s.total} right)` }))));
+    }
+    if (an.namedMistakes.length) {
+      sec.append(h('h3', { text: 'Named mistakes in the last 30 days' }),
+        h('ul', { class: 'named-mistakes' }, ...an.namedMistakes.map((m) => h('li', {},
+          h('span', { text: m.label }),
+          h('strong', { text: ` ${m.count} time${m.count === 1 ? '' : 's'}` }),
+          h('span', { class: 'muted small', text: `${m.week ? ` (${m.week} this week)` : ''}${m.subtopics.length ? ` · ${m.subtopics.slice(0, 3).join('; ')}` : ''}` })))));
     }
     if (an.misconceptions.length) sec.append(h('h3', { text: 'Misconceptions seen in the last 30 days' }), h('ul', {}, ...an.misconceptions.map((m) => h('li', { text: `${m.note}${m.count > 1 ? ` (seen ${m.count} times)` : ''}` }))));
   }
@@ -377,7 +394,7 @@ async function reportPage(body, app, id, data) {
   const card = h('section', { class: 'card' },
     h('p', {}, h('a', { href: '#/parent/reports' }, icon('left', { size: 18 }), h('span', { text: 'All reports' }))));
   body.append(card);
-  card.append(visualReport(r, { attempts, sessions: data.sessions, source: app.source, host: card }));
+  card.append(visualReport(r, { attempts, sessions: data.sessions, source: app.source, host: card, questions: sessionQuestions(data, r.sessionId, attempts) }));
   card.append(
     h('div', { class: 'row wrap report-actions' },
       linked ? null : button('Send to Dad by email', { icon: 'mail', cls: 'btn-primary', onClick: () => sendReport(app, r) }),

@@ -120,7 +120,17 @@
       "type": "order",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Put these parts in the order that air passes through them when you breathe in, from first to last.",
+      "prompt": "Look at the diagram of the lungs. Put these parts in the order that air passes through them when you breathe in, from first to last.",
+      "diagram": {
+        "type": "organ",
+        "organ": "lungs",
+        "labels": "names",
+        "parts": [
+          "trachea",
+          "bronchus",
+          "alveoli"
+        ]
+      },
       "options": [
         "Bronchi",
         "Nose or mouth",
@@ -133,7 +143,7 @@
         0,
         2
       ],
-      "solution": "Air enters through your nose or mouth and goes down the trachea. The trachea splits into two bronchi, one going into each lung. The bronchi branch into smaller and smaller tubes that end in millions of tiny air sacs.",
+      "solution": "Air enters through your nose or mouth and goes down the trachea, the tube at the top of the diagram. The trachea splits into two bronchi, one going into each lung. The bronchi branch into smaller and smaller tubes that end in millions of tiny air sacs.",
       "misconceptions": {
         "common": "Putting the bronchi before the trachea. The trachea is the one main tube; lower down it splits into the two bronchi."
       },
@@ -169,7 +179,19 @@
       "type": "match",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Match each part of the respiratory system to its job.",
+      "prompt": "The diagram shows the parts of the respiratory system. Match each part to its job.",
+      "diagram": {
+        "type": "organ",
+        "organ": "lungs",
+        "labels": "names",
+        "parts": [
+          "trachea",
+          "bronchus",
+          "alveoli",
+          "diaphragm",
+          "ribs"
+        ]
+      },
       "options": {
         "left": [
           "Trachea",
@@ -358,7 +380,28 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A table shows the gases in air. Air breathed in: oxygen 21%, carbon dioxide 0.04%. Air breathed out: oxygen 16%, carbon dioxide 4%. How many times more carbon dioxide is there in air breathed out than in air breathed in? Give your answer as a whole number.",
+      "prompt": "The table shows the amounts of two gases in the air you breathe in and the air you breathe out. How many times more carbon dioxide is there in air breathed out than in air breathed in? Give your answer as a whole number.",
+      "diagram": {
+        "type": "table",
+        "title": "Gases in air",
+        "columns": [
+          "Gas",
+          "Air breathed in (%)",
+          "Air breathed out (%)"
+        ],
+        "rows": [
+          [
+            "Oxygen",
+            21,
+            16
+          ],
+          [
+            "Carbon dioxide",
+            0.04,
+            4
+          ]
+        ]
+      },
       "answer": {
         "value": 100,
         "tolerance": 0,
@@ -366,7 +409,7 @@
           "100 times"
         ]
       },
-      "solution": "'How many times more' means divide. 4 ÷ 0.04: multiply both numbers by 100 to get 400 ÷ 4 = 100. So breathed-out air has 100 times as much carbon dioxide. The extra carbon dioxide came out of your blood in the lungs.",
+      "solution": "Read the carbon dioxide row of the table: 0.04% in, 4% out. 'How many times more' means divide. 4 ÷ 0.04: multiply both numbers by 100 to get 400 ÷ 4 = 100. So breathed-out air has 100 times as much carbon dioxide. The extra carbon dioxide came out of your blood in the lungs.",
       "misconceptions": {
         "common": "Subtracting instead of dividing (4 - 0.04 = 3.96), or slipping with the decimal and getting 10. 'How many times more' means divide, and 4 ÷ 0.04 = 400 ÷ 4 = 100."
       },
@@ -510,7 +553,17 @@
       "type": "order",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Blood leaves your heart, travels to a muscle in your leg and comes back again. Put these steps in order, from first to last.",
+      "prompt": "The diagram shows how blood travels between the heart, the lungs and the rest of the body. Blood leaves your heart, travels to a muscle in your leg and comes back again. Put these steps in order, from first to last.",
+      "diagram": {
+        "type": "organ",
+        "organ": "circulation",
+        "labels": "names",
+        "parts": [
+          "heart",
+          "lungs",
+          "body"
+        ]
+      },
       "options": [
         "Travels along a vein",
         "Leaves the heart",
@@ -755,7 +808,47 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Daniel jogs and measures his pulse rate after each minute. His results: 0 minutes (resting): 72 beats per minute; 1 minute: 98; 2 minutes: 112; 3 minutes: 121; 4 minutes: 126. Which conclusion best matches his results?",
+      "prompt": "Daniel jogs and measures his pulse rate after each minute. The line graph shows his results (0 minutes is his resting pulse rate). Which conclusion best matches his results?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Daniel's pulse rate while jogging",
+        "series": [
+          {
+            "name": "Pulse rate",
+            "points": [
+              [
+                0,
+                72
+              ],
+              [
+                1,
+                98
+              ],
+              [
+                2,
+                112
+              ],
+              [
+                3,
+                120
+              ],
+              [
+                4,
+                126
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 4,
+        "xStep": 1,
+        "yMin": 70,
+        "yMax": 130,
+        "yStep": 10,
+        "minorStep": 2,
+        "xLabel": "Time jogging (minutes)",
+        "yLabel": "Pulse rate (beats per minute)"
+      },
       "options": [
         "His pulse rate went up by the same amount every minute.",
         "The longer he jogged, the higher his pulse rate, but it went up by less each minute.",
@@ -763,11 +856,11 @@
         "Jogging made his pulse rate go down."
       ],
       "answer": 1,
-      "solution": "Every reading is higher than the one before, so the pulse rate rose the longer he jogged. The rises were 26, 14, 9 and then 5 beats per minute, so it went up by less each minute.",
+      "solution": "Read the graph: 72, 98, 112, 120 and 126 beats per minute. Every reading is higher than the one before, so the pulse rate rose the longer he jogged. The rises were 26, 14, 8 and then 6 beats per minute, so it went up by less each minute. You can see this on the graph: the line is steep at first and then gets flatter.",
       "misconceptions": {
-        "0": "Work out each rise: 98 - 72 = 26, 112 - 98 = 14, 121 - 112 = 9, 126 - 121 = 5. The rises get smaller, so they are not the same.",
-        "2": "Doubling 72 would give 144 after one minute, but it was 98. His pulse rose, but it did not double.",
-        "3": "Every reading after jogging is higher than his resting value of 72, so jogging made his pulse rate go up."
+        "0": "Work out each rise: 98 - 72 = 26, 112 - 98 = 14, 120 - 112 = 8, 126 - 120 = 6. The rises get smaller, so they are not the same. The line gets flatter, it is not straight.",
+        "2": "Doubling 72 would give 144 after one minute, but the graph shows 98. His pulse rose, but it did not double.",
+        "3": "Every point after 0 minutes is higher than his resting value of 72, so jogging made his pulse rate go up."
       },
       "skill": "drawing conclusions from results",
       "source": "inspired-by: Singapore P6"
@@ -898,6 +991,864 @@
         "common": "Thinking gills replace the whole system. Only the place where oxygen enters the blood is different; the blood still carries oxygen around the body."
       },
       "skill": "comparing vertebrates",
+      "source": "original"
+    },
+    {
+      "id": "s01-q037",
+      "subtopicId": "s01-s1",
+      "type": "match",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "The diagram shows the lungs and the parts around them. Match each lettered part to its name.",
+      "diagram": {
+        "type": "organ",
+        "organ": "lungs",
+        "labels": "letters",
+        "parts": [
+          "diaphragm",
+          "trachea",
+          "ribs",
+          "bronchus"
+        ]
+      },
+      "options": {
+        "left": [
+          "Part A",
+          "Part B",
+          "Part C",
+          "Part D"
+        ],
+        "right": [
+          "Trachea",
+          "Bronchus",
+          "Diaphragm",
+          "Rib",
+          "Heart"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "solution": "A is the diaphragm, the sheet of muscle under the lungs. B is the trachea (windpipe), the main air tube coming down from the throat. C is a rib, one of the bones around the lungs. D is a bronchus, one of the two tubes that branch off the trachea, one into each lung. 'Heart' is not one of the lettered parts.",
+      "misconceptions": {
+        "common": "Mixing up the trachea and a bronchus. The trachea is the single tube at the top; lower down it splits into two bronchi, one going into each lung."
+      },
+      "skill": "parts of the respiratory system",
+      "source": "original"
+    },
+    {
+      "id": "s01-q038",
+      "subtopicId": "s01-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the diagram. Which lettered part is the sheet of muscle that tightens and moves down when you breathe in?",
+      "diagram": {
+        "type": "organ",
+        "organ": "lungs",
+        "labels": "letters",
+        "parts": [
+          "trachea",
+          "lung",
+          "bronchioles",
+          "diaphragm"
+        ]
+      },
+      "options": [
+        "Part A",
+        "Part B",
+        "Part C",
+        "Part D"
+      ],
+      "answer": 3,
+      "solution": "The diaphragm is the dome-shaped sheet of muscle under the lungs: part D. When you breathe in, it tightens and moves down. This makes more space in your chest, so air rushes into your lungs.",
+      "misconceptions": {
+        "0": "Part A is the trachea, the tube that carries air down towards the lungs. It does not move to make you breathe.",
+        "1": "Part B is a lung. The lungs fill with air, but they cannot pull air in by themselves; the diaphragm and the muscles between the ribs do that.",
+        "2": "Part C points to the bronchioles, the small air tubes inside a lung. The muscle you need is the sheet underneath the lungs."
+      },
+      "skill": "breathing in and out",
+      "source": "original"
+    },
+    {
+      "id": "s01-q039",
+      "subtopicId": "s01-s1",
+      "type": "order",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Look at the lettered parts in the diagram of the lungs. Put them in the order that air passes through them when you breathe in, from first to last.",
+      "diagram": {
+        "type": "organ",
+        "organ": "lungs",
+        "labels": "letters",
+        "parts": [
+          "alveoli",
+          "trachea",
+          "bronchioles",
+          "bronchus"
+        ]
+      },
+      "options": [
+        "Part A",
+        "Part B",
+        "Part C",
+        "Part D"
+      ],
+      "answer": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "solution": "Air goes down the trachea (B), into a bronchus (D), along the smaller and smaller bronchioles (C) and finally into the tiny air sacs, the alveoli (A), where oxygen passes into the blood. So the order is B, D, C, A.",
+      "misconceptions": {
+        "common": "Putting the bronchioles before the bronchus. The bronchus is the large tube into each lung; it branches into the smaller bronchioles, which end in the air sacs."
+      },
+      "skill": "path of air into the lungs",
+      "source": "original"
+    },
+    {
+      "id": "s01-q040",
+      "subtopicId": "s01-s3",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The diagram shows the heart and the large blood vessels joined to it. The arrows show which way the blood flows. Select ALL the lettered blood vessels that are arteries.",
+      "diagram": {
+        "type": "organ",
+        "organ": "heart",
+        "labels": "letters",
+        "parts": [
+          "venaCava",
+          "aorta",
+          "pulmonaryVein",
+          "pulmonaryArtery"
+        ],
+        "flow": true
+      },
+      "options": [
+        "Vessel A",
+        "Vessel B",
+        "Vessel C",
+        "Vessel D"
+      ],
+      "answer": [
+        1,
+        3
+      ],
+      "solution": "Arteries carry blood away from the heart; veins carry blood back to it. Follow the arrows: in B and D the blood flows out of the heart, so they are arteries. B is the aorta, the largest artery, which takes blood to the body. D takes blood to the lungs. In A and C the blood flows into the heart, so they are veins: A brings blood back from the body and C brings it back from the lungs.",
+      "misconceptions": {
+        "0": "Follow the arrow on vessel A: the blood flows INTO the heart, so A is a vein. It brings blood back from the body.",
+        "2": "Follow the arrow on vessel C: the blood flows INTO the heart, so C is a vein, bringing blood back from the lungs. It is rich in oxygen, but that does not make it an artery.",
+        "common": "Deciding by the amount of oxygen instead of the direction. An artery is any vessel that carries blood AWAY from the heart."
+      },
+      "skill": "arteries, veins and capillaries",
+      "source": "original"
+    },
+    {
+      "id": "s01-q041",
+      "subtopicId": "s01-s2",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The diagram shows how blood travels around the body. In which lettered part does the blood pick up oxygen?",
+      "diagram": {
+        "type": "organ",
+        "organ": "circulation",
+        "labels": "letters",
+        "parts": [
+          "body",
+          "lungs",
+          "heart",
+          "veins"
+        ],
+        "flow": true
+      },
+      "options": [
+        "Part A",
+        "Part B",
+        "Part C",
+        "Part D"
+      ],
+      "answer": 1,
+      "solution": "Blood picks up oxygen in the lungs: part B. In the tiny air sacs, oxygen passes from the air into the blood. The heart then pumps this oxygen-rich blood out to the rest of the body.",
+      "misconceptions": {
+        "0": "Part A is the rest of the body. There the blood GIVES oxygen to the cells; it does not pick it up.",
+        "2": "Part C is the heart. The heart pumps the blood, but it does not add oxygen to it.",
+        "3": "Part D labels veins, which carry blood back to the heart. The blood does not pick up oxygen there."
+      },
+      "skill": "gas exchange in the lungs",
+      "source": "original"
+    },
+    {
+      "id": "s01-q042",
+      "subtopicId": "s01-s3",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Look at the colours in the circulation diagram: red shows blood rich in oxygen and blue shows blood poor in oxygen. True or false: Blood travelling from the lungs back to the heart is rich in oxygen.",
+      "diagram": {
+        "type": "organ",
+        "organ": "circulation",
+        "labels": "names",
+        "flow": true
+      },
+      "answer": true,
+      "solution": "True. Blood picks up oxygen in the lungs, so the blood flowing from the lungs back to the heart is rich in oxygen (red). The heart then pumps it out to the body.",
+      "misconceptions": {
+        "common": "Thinking that all blood going back TO the heart is poor in oxygen. Blood coming back from the body is poor in oxygen, but blood coming back from the lungs has just picked up oxygen."
+      },
+      "skill": "path of blood around the body",
+      "source": "original"
+    },
+    {
+      "id": "s01-q043",
+      "subtopicId": "s01-s3",
+      "type": "multi",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Study the circulation diagram (red: blood rich in oxygen; blue: blood poor in oxygen). Select ALL the statements that are true.",
+      "diagram": {
+        "type": "organ",
+        "organ": "circulation",
+        "labels": "names",
+        "flow": true
+      },
+      "options": [
+        "Blood leaving the lungs is rich in oxygen",
+        "Blood coming back from the body to the heart is poor in oxygen",
+        "Blood going from the heart to the lungs is rich in oxygen",
+        "The heart pumps blood to the lungs and also to the rest of the body",
+        "Blood goes from the body straight to the lungs without passing through the heart"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "solution": "Follow the two loops. Blood poor in oxygen (blue) comes back from the body to the heart. The heart pumps it to the lungs, where it picks up oxygen. Blood rich in oxygen (red) returns to the heart, which pumps it out to the body. So the heart pumps blood both to the lungs and to the body, and blood passes through the heart between the body and the lungs.",
+      "misconceptions": {
+        "2": "Blood going to the lungs is poor in oxygen (blue): it has just come back from the body. It picks up oxygen IN the lungs.",
+        "4": "Blood from the body goes back to the heart first, and the heart pumps it to the lungs. That is why there are two loops, both joined to the heart.",
+        "common": "Check each statement against the colours and the arrows in the diagram."
+      },
+      "skill": "path of blood around the body",
+      "source": "original"
+    },
+    {
+      "id": "s01-q044",
+      "subtopicId": "s01-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Siti sits still for 2 minutes, skips from 2 minutes to 5 minutes, and then sits down to rest. The line graph shows her pulse rate. What was her pulse rate at 4 minutes? Give your answer in beats per minute.",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Siti's pulse rate",
+        "series": [
+          {
+            "name": "Pulse rate",
+            "points": [
+              [
+                0,
+                74
+              ],
+              [
+                1,
+                74
+              ],
+              [
+                2,
+                74
+              ],
+              [
+                3,
+                110
+              ],
+              [
+                4,
+                126
+              ],
+              [
+                5,
+                132
+              ],
+              [
+                6,
+                108
+              ],
+              [
+                7,
+                92
+              ],
+              [
+                8,
+                84
+              ],
+              [
+                9,
+                78
+              ],
+              [
+                10,
+                76
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 10,
+        "xStep": 1,
+        "yMin": 60,
+        "yMax": 140,
+        "yStep": 10,
+        "minorStep": 2,
+        "xLabel": "Time (minutes)",
+        "yLabel": "Pulse rate (beats per minute)"
+      },
+      "answer": {
+        "value": 126,
+        "tolerance": 1,
+        "accept": [
+          "126 beats per minute",
+          "126 bpm"
+        ]
+      },
+      "solution": "Find 4 minutes on the time axis, go up to the line, then across to the pulse rate axis. The point is 3 small gridlines above 120, and each small gridline is 2 beats per minute: 120 + 6 = 126 beats per minute.",
+      "misconceptions": {
+        "common": "Reading the point at 5 minutes (132) instead of 4 minutes, or counting each small gridline as 1 beat per minute instead of 2."
+      },
+      "skill": "effects of exercise",
+      "source": "original"
+    },
+    {
+      "id": "s01-q045",
+      "subtopicId": "s01-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Look at the line graph of Siti's pulse rate. Siti sits still for 2 minutes, skips from 2 minutes to 5 minutes, and then sits down to rest. Which sentence best describes her pulse rate after she stopped skipping?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Siti's pulse rate",
+        "series": [
+          {
+            "name": "Pulse rate",
+            "points": [
+              [
+                0,
+                74
+              ],
+              [
+                1,
+                74
+              ],
+              [
+                2,
+                74
+              ],
+              [
+                3,
+                110
+              ],
+              [
+                4,
+                126
+              ],
+              [
+                5,
+                132
+              ],
+              [
+                6,
+                108
+              ],
+              [
+                7,
+                92
+              ],
+              [
+                8,
+                84
+              ],
+              [
+                9,
+                78
+              ],
+              [
+                10,
+                76
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 10,
+        "xStep": 1,
+        "yMin": 60,
+        "yMax": 140,
+        "yStep": 10,
+        "minorStep": 2,
+        "xLabel": "Time (minutes)",
+        "yLabel": "Pulse rate (beats per minute)"
+      },
+      "options": [
+        "It fell quickly at first, then more slowly, back towards her resting rate",
+        "It fell by the same amount every minute",
+        "It stayed at its highest value until the end",
+        "It went back to her resting rate within 1 minute"
+      ],
+      "answer": 0,
+      "solution": "After 5 minutes the line goes down: 132, 108, 92, 84, 78, 76. The falls are 24, 16, 8, 6 and 2 beats per minute, so it fell quickly at first and then more slowly. By 10 minutes it was nearly back to her resting rate of 74.",
+      "misconceptions": {
+        "1": "The falls are 24, 16, 8, 6 and 2 beats per minute, so they get smaller. The line is steep at first and then flattens out.",
+        "2": "The line goes down after 5 minutes, so her pulse rate did not stay at its highest.",
+        "3": "One minute after stopping (at 6 minutes) it was still 108, far above her resting rate of 74. It takes several minutes to recover."
+      },
+      "skill": "effects of exercise",
+      "source": "original"
+    },
+    {
+      "id": "s01-q046",
+      "subtopicId": "s01-s4",
+      "type": "numeric",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Use the line graph of Siti's pulse rate. Siti sits still for 2 minutes, skips from 2 minutes to 5 minutes, and then sits down to rest. By how many beats per minute did her pulse rate rise from her resting rate to its highest reading?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Siti's pulse rate",
+        "series": [
+          {
+            "name": "Pulse rate",
+            "points": [
+              [
+                0,
+                74
+              ],
+              [
+                1,
+                74
+              ],
+              [
+                2,
+                74
+              ],
+              [
+                3,
+                110
+              ],
+              [
+                4,
+                126
+              ],
+              [
+                5,
+                132
+              ],
+              [
+                6,
+                108
+              ],
+              [
+                7,
+                92
+              ],
+              [
+                8,
+                84
+              ],
+              [
+                9,
+                78
+              ],
+              [
+                10,
+                76
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 10,
+        "xStep": 1,
+        "yMin": 60,
+        "yMax": 140,
+        "yStep": 10,
+        "minorStep": 2,
+        "xLabel": "Time (minutes)",
+        "yLabel": "Pulse rate (beats per minute)"
+      },
+      "answer": {
+        "value": 58,
+        "tolerance": 0,
+        "accept": [
+          "58 beats per minute",
+          "58 bpm"
+        ]
+      },
+      "solution": "Her resting rate (0 to 2 minutes, before skipping) was 74 beats per minute. Her highest reading was 132, at 5 minutes. Rise = 132 - 74 = 58 beats per minute.",
+      "misconceptions": {
+        "common": "Using a reading that is not the highest point (for example 126 at 4 minutes), or reading a gridline wrongly. Each small gridline is 2 beats per minute."
+      },
+      "skill": "effects of exercise",
+      "source": "original"
+    },
+    {
+      "id": "s01-q047",
+      "subtopicId": "s01-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Kumar runs for 3 minutes, then rests. He counts his breathing rate every minute while he rests. The line graph shows his results. Which reading is anomalous (does not fit the pattern)?",
+      "diagram": {
+        "type": "lineGraph",
+        "title": "Kumar's breathing rate while resting",
+        "series": [
+          {
+            "name": "Breathing rate",
+            "points": [
+              [
+                0,
+                40
+              ],
+              [
+                1,
+                32
+              ],
+              [
+                2,
+                26
+              ],
+              [
+                3,
+                22
+              ],
+              [
+                4,
+                34
+              ],
+              [
+                5,
+                18
+              ],
+              [
+                6,
+                16
+              ]
+            ]
+          }
+        ],
+        "xMin": 0,
+        "xMax": 6,
+        "xStep": 1,
+        "yMin": 10,
+        "yMax": 45,
+        "yStep": 5,
+        "minorStep": 1,
+        "xLabel": "Time after running (minutes)",
+        "yLabel": "Breathing rate (breaths per minute)"
+      },
+      "options": [
+        "The reading at 0 minutes",
+        "The reading at 1 minute",
+        "The reading at 6 minutes",
+        "The reading at 4 minutes"
+      ],
+      "answer": 3,
+      "solution": "While Kumar rests, his breathing rate should keep falling: 40, 32, 26, 22, then 18 and 16. The point at 4 minutes (34 breaths per minute) jumps up, much higher than the readings either side of it (22 and 18). It does not fit the pattern, so it is anomalous. Kumar may have miscounted; he should repeat that reading.",
+      "misconceptions": {
+        "0": "The reading at 0 minutes (40) is the highest, but that fits: he had just stopped running, so he was breathing fastest then.",
+        "1": "The reading at 1 minute (32) fits the pattern: it is lower than 40 and higher than 26.",
+        "2": "The reading at 6 minutes (16) is the lowest, but that fits: he had rested longest, so his breathing had slowed the most."
+      },
+      "skill": "identifying anomalous results",
+      "source": "original"
+    },
+    {
+      "id": "s01-q048",
+      "subtopicId": "s01-s5",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "The bar chart shows typical resting heart rates of six mammals, from the smallest animal to the largest. Which conclusion does the bar chart support?",
+      "diagram": {
+        "type": "barChart",
+        "title": "Typical resting heart rates of mammals",
+        "categories": [
+          "Mouse",
+          "Rabbit",
+          "Cat",
+          "Human",
+          "Horse",
+          "Elephant"
+        ],
+        "series": [
+          {
+            "name": "Resting heart rate",
+            "values": [
+              500,
+              200,
+              150,
+              70,
+              40,
+              30
+            ]
+          }
+        ],
+        "xLabel": "Animals in order of size, smallest first",
+        "yLabel": "Resting heart rate (beats per minute)",
+        "yMax": 500,
+        "yStep": 50,
+        "minorStep": 10
+      },
+      "options": [
+        "The larger the mammal, the slower its resting heart rate",
+        "The larger the mammal, the faster its resting heart rate",
+        "All these mammals have about the same resting heart rate as a human",
+        "A mouse's heart beats about twice as fast as a cat's"
+      ],
+      "answer": 0,
+      "solution": "Read the bars from left to right: the animals get bigger and the bars get shorter (500, 200, 150, 70, 40 and 30 beats per minute). So the larger the mammal, the slower its resting heart beats. A mouse's tiny heart beats hundreds of times a minute; an elephant's beats only about 30 times.",
+      "misconceptions": {
+        "1": "This is back to front. The tallest bar belongs to the mouse, the smallest animal.",
+        "2": "The bars are very different, from 30 to 500 beats per minute, so they are not all about the same.",
+        "3": "Mouse 500, cat 150. Twice 150 is 300, but 500 is more than three times 150."
+      },
+      "skill": "comparing vertebrates",
+      "source": "original"
+    },
+    {
+      "id": "s01-q049",
+      "subtopicId": "s01-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "Omar measures his pulse rate every minute. He runs from 0 to 3 minutes, then rests from 3 to 6 minutes. Which graph shows the results you would expect?",
+      "optionDiagrams": [
+        {
+          "type": "lineGraph",
+          "categories": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "series": [
+            {
+              "name": "Pulse rate",
+              "values": [
+                72,
+                72,
+                72,
+                72,
+                72,
+                72,
+                72
+              ]
+            }
+          ],
+          "yMin": 40,
+          "yMax": 130,
+          "yStep": 10,
+          "xLabel": "Time (minutes)",
+          "yLabel": "Pulse rate (beats per minute)",
+          "size": "small"
+        },
+        {
+          "type": "lineGraph",
+          "categories": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "series": [
+            {
+              "name": "Pulse rate",
+              "values": [
+                72,
+                60,
+                50,
+                45,
+                55,
+                65,
+                72
+              ]
+            }
+          ],
+          "yMin": 40,
+          "yMax": 130,
+          "yStep": 10,
+          "xLabel": "Time (minutes)",
+          "yLabel": "Pulse rate (beats per minute)",
+          "size": "small"
+        },
+        {
+          "type": "lineGraph",
+          "categories": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "series": [
+            {
+              "name": "Pulse rate",
+              "values": [
+                72,
+                100,
+                115,
+                120,
+                95,
+                80,
+                74
+              ]
+            }
+          ],
+          "yMin": 40,
+          "yMax": 130,
+          "yStep": 10,
+          "xLabel": "Time (minutes)",
+          "yLabel": "Pulse rate (beats per minute)",
+          "size": "small"
+        },
+        {
+          "type": "lineGraph",
+          "categories": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "series": [
+            {
+              "name": "Pulse rate",
+              "values": [
+                72,
+                100,
+                115,
+                120,
+                120,
+                120,
+                120
+              ]
+            }
+          ],
+          "yMin": 40,
+          "yMax": 130,
+          "yStep": 10,
+          "xLabel": "Time (minutes)",
+          "yLabel": "Pulse rate (beats per minute)",
+          "size": "small"
+        }
+      ],
+      "options": [
+        "Graph A",
+        "Graph B",
+        "Graph C",
+        "Graph D"
+      ],
+      "answer": 2,
+      "solution": "While Omar runs (0 to 3 minutes), his muscles need more oxygen, so his heart beats faster and the line goes up. When he rests (3 to 6 minutes), his pulse rate falls back towards his resting rate. Only graph C goes up and then comes back down.",
+      "misconceptions": {
+        "0": "Graph A is flat, so the pulse rate never changes. Running makes your heart beat faster, so the line should go up.",
+        "1": "Graph B goes DOWN while he runs. Exercise makes the pulse rate go up, not down.",
+        "3": "Graph D goes up but never comes down. When you rest, your pulse rate falls back towards your resting rate within a few minutes."
+      },
+      "skill": "effects of exercise",
+      "source": "original"
+    },
+    {
+      "id": "s01-q050",
+      "subtopicId": "s01-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "In each picture, the letter A labels one part of the respiratory system. In which picture does A label a bronchus?",
+      "optionDiagrams": [
+        {
+          "type": "organ",
+          "organ": "lungs",
+          "labels": "letters",
+          "parts": [
+            "trachea"
+          ],
+          "size": "small",
+          "alt": "The lungs, with the letter A pointing to one part."
+        },
+        {
+          "type": "organ",
+          "organ": "lungs",
+          "labels": "letters",
+          "parts": [
+            "bronchus"
+          ],
+          "size": "small",
+          "alt": "The lungs, with the letter A pointing to one part."
+        },
+        {
+          "type": "organ",
+          "organ": "lungs",
+          "labels": "letters",
+          "parts": [
+            "bronchioles"
+          ],
+          "size": "small",
+          "alt": "The lungs, with the letter A pointing to one part."
+        },
+        {
+          "type": "organ",
+          "organ": "lungs",
+          "labels": "letters",
+          "parts": [
+            "diaphragm"
+          ],
+          "size": "small",
+          "alt": "The lungs, with the letter A pointing to one part."
+        }
+      ],
+      "options": [
+        "Picture 1",
+        "Picture 2",
+        "Picture 3",
+        "Picture 4"
+      ],
+      "answer": 1,
+      "solution": "The trachea splits into two large tubes, one going into each lung. Each of these tubes is a bronchus (plural: bronchi). In picture 2, A labels one of these tubes.",
+      "misconceptions": {
+        "0": "Picture 1 labels the trachea, the single main tube from the throat. Lower down it splits into the two bronchi.",
+        "2": "Picture 3 labels the bronchioles, the many small tubes inside a lung. A bronchus is the larger tube that leads into each lung.",
+        "3": "Picture 4 labels the diaphragm, the sheet of muscle under the lungs."
+      },
+      "skill": "parts of the respiratory system",
       "source": "original"
     }
   ]

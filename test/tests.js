@@ -575,14 +575,15 @@ check('no AI connected in version 1', aiAvailable() === false && (await explainM
 
 // ---------------------------------------------------------------- v2 suites (one file each)
 // tests-linked.js: accounts, data adapter, RLS intent, offline queue, working area, reports.
-// tests-diagrams.js / tests-generators.js: added by the content-engines work if present; each
-// exports run({ check, setGroup, fixtures }).
-for (const path of ['./tests-linked.js', './tests-diagrams.js', './tests-generators.js']) {
+// tests-integration.js: the diagram and generator engines wired into the app (their own full
+// suites are test/diagrams.html and test/generators.html). Each exports run({ check, setGroup, fixtures }).
+for (const path of ['./tests-linked.js', './tests-integration.js']) {
   let mod = null;
   try {
     mod = await import(path);
   } catch (e) {
-    if (path === './tests-linked.js') { group = 'v2 suites'; check(`load ${path}`, false, String(e)); }
+    group = 'v2 suites';
+    check(`load ${path}`, false, String(e));
     continue;
   }
   if (mod && typeof mod.run === 'function') {
@@ -619,5 +620,8 @@ sum.className = failed.length ? 'bad' : 'ok';
 window.testResults = { total: results.length, failed: failed.map((f) => `${f.group}: ${f.name} ${f.detail}`) };
 // for runs from the command line (headless browser): report the result to the local server log
 if (new URLSearchParams(location.search).has('beacon')) {
-  fetch(`./__result?${encodeURIComponent(JSON.stringify(window.testResults))}`).catch(() => {});
+  const notes = new URLSearchParams(location.search).has('notes') ? results.filter((r) => r.group.startsWith('integration')).map((r) => `${r.ok ? 'ok' : 'FAIL'} ${r.name}${r.detail ? ` [${String(r.detail).slice(0, 200)}]` : ''}`) : [];
+  // kept short: the local server refuses request lines over 64 KB
+  const short = { total: window.testResults.total, failed: window.testResults.failed.slice(0, 80).map((f) => f.slice(0, 400)), notes: notes.map((x) => x.slice(0, 300)) };
+  fetch(`./__result?${encodeURIComponent(JSON.stringify(short))}`).catch(() => {});
 }

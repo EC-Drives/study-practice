@@ -49,7 +49,34 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "The point (3, 2) is reflected in the y-axis. What are the coordinates of its image?",
+      "prompt": "Point P is plotted on the grid. It is reflected in the y-axis, shown as the dashed mirror line. What are the coordinates of its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -4,
+          4
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              2
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "x": 0,
+            "label": "mirror line"
+          }
+        ]
+      },
       "options": [
         "(3, -2)",
         "(-3, -2)",
@@ -57,7 +84,7 @@
         "(2, 3)"
       ],
       "answer": 2,
-      "solution": "The y-axis is a vertical mirror. (3, 2) is 3 units to the right of it, so the image is 3 units to the LEFT, at the same height. Image = (-3, 2).",
+      "solution": "The y-axis is a vertical mirror. P(3, 2) is 3 squares to the right of it, so the image is 3 squares to the LEFT, at the same height. Image = (-3, 2).",
       "misconceptions": {
         "0": "This is a reflection in the x-axis (the horizontal axis). The y-axis is the vertical axis, so the point flips from right to left and only x changes.",
         "1": "Only one coordinate changes in a reflection in an axis. Reflecting in the y-axis changes the sign of x; y stays the same.",
@@ -72,7 +99,34 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "The point (4, -5) is reflected in the x-axis. What are the coordinates of its image?",
+      "prompt": "Point P is plotted on the grid. It is reflected in the x-axis, shown as the dashed mirror line. What are the coordinates of its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -6,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              4,
+              -5
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "y": 0,
+            "label": "mirror line"
+          }
+        ]
+      },
       "options": [
         "(4, 5)",
         "(-4, -5)",
@@ -80,7 +134,7 @@
         "(-5, 4)"
       ],
       "answer": 0,
-      "solution": "The x-axis is a horizontal mirror. (4, -5) is 5 units below it, so the image is 5 units ABOVE it, directly over the point. Image = (4, 5).",
+      "solution": "The x-axis is a horizontal mirror. P(4, -5) is 5 squares below it, so the image is 5 squares ABOVE it, directly over the point. Image = (4, 5).",
       "misconceptions": {
         "1": "This is a reflection in the y-axis. The x-axis is horizontal, so the point flips from below to above and only y changes.",
         "2": "Both signs have changed. A reflection in the x-axis only changes the sign of the y-coordinate.",
@@ -110,7 +164,34 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "The point (5, 3) is reflected in the vertical mirror line x = 2 (the line through (2, 0), (2, 1), (2, 2) and so on). What are the coordinates of its image?",
+      "prompt": "Point P is plotted on the grid. It is reflected in the mirror line x = 2 shown. What are the coordinates of its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          7
+        ],
+        "y": [
+          -1,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              5,
+              3
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "x": 2,
+            "label": "x = 2"
+          }
+        ]
+      },
       "options": [
         "(-5, 3)",
         "(5, 1)",
@@ -118,7 +199,7 @@
         "(-1, 3)"
       ],
       "answer": 3,
-      "solution": "The mirror is the vertical line x = 2. The point is at x = 5, which is 5 - 2 = 3 units to the right of the mirror. The image is 3 units to the left of the mirror: x = 2 - 3 = -1. y does not change. Image = (-1, 3).",
+      "solution": "The mirror is the vertical line x = 2. P is at x = 5, which is 5 - 2 = 3 squares to the right of the mirror. The image is 3 squares to the left of the mirror: x = 2 - 3 = -1. y does not change. Image = (-1, 3).",
       "misconceptions": {
         "0": "This reflects in the y-axis (x = 0). The mirror here is the line x = 2, so measure the distance from that line instead.",
         "1": "This reflects in a horizontal line y = 2. The line x = 2 is vertical, so the point moves left, not down.",
@@ -133,7 +214,34 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "The point (1, 7) is reflected in the horizontal mirror line y = 4 (the line through (0, 4), (1, 4), (2, 4) and so on). What are the coordinates of its image?",
+      "prompt": "Point P is plotted on the grid. It is reflected in the mirror line y = 4 shown. What are the coordinates of its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          4
+        ],
+        "y": [
+          -1,
+          8
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              7
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "y": 4,
+            "label": "y = 4"
+          }
+        ]
+      },
       "options": [
         "(1, -7)",
         "(1, 1)",
@@ -141,7 +249,7 @@
         "(-1, 7)"
       ],
       "answer": 1,
-      "solution": "The mirror is the horizontal line y = 4. The point is at y = 7, which is 7 - 4 = 3 units above the mirror. The image is 3 units below the mirror: y = 4 - 3 = 1. x does not change. Image = (1, 1).",
+      "solution": "The mirror is the horizontal line y = 4. P is at y = 7, which is 7 - 4 = 3 squares above the mirror. The image is 3 squares below the mirror: y = 4 - 3 = 1. x does not change. Image = (1, 1).",
       "misconceptions": {
         "0": "This reflects in the x-axis (y = 0). The mirror is the line y = 4, so measure from that line.",
         "2": "3 is the DISTANCE from the point to the mirror. The image is 3 units below the mirror line: 4 - 3 = 1.",
@@ -156,13 +264,40 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "The point (-2, 6) is reflected in the horizontal mirror line y = 1. What is the y-coordinate of the image?",
+      "prompt": "Point P is plotted on the grid. It is reflected in the mirror line y = 1 shown. What is the y-coordinate of the image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          3
+        ],
+        "y": [
+          -5,
+          7
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              6
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "y": 1,
+            "label": "y = 1"
+          }
+        ]
+      },
       "answer": {
         "value": -4,
         "tolerance": 0,
         "accept": []
       },
-      "solution": "The point is at y = 6, which is 6 - 1 = 5 units above the mirror line y = 1. The image is 5 units below it: 1 - 5 = -4. The image is (-2, -4), so the y-coordinate is -4.",
+      "solution": "P is at y = 6, which is 6 - 1 = 5 squares above the mirror line y = 1. The image is 5 squares below it: 1 - 5 = -4. The image is (-2, -4), so the y-coordinate is -4.",
       "misconceptions": {
         "common": "Answering -6 by reflecting in the x-axis instead of the line y = 1, or answering 4 by forgetting that 1 - 5 goes below zero."
       },
@@ -175,7 +310,24 @@
       "type": "multi",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Select ALL the points that stay in exactly the same place when they are reflected in the vertical mirror line x = 3.",
+      "prompt": "The grid shows the vertical mirror line x = 3. Select ALL the points that stay in exactly the same place when they are reflected in this mirror line.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          7
+        ],
+        "y": [
+          -6,
+          4
+        ],
+        "lines": [
+          {
+            "x": 3,
+            "label": "x = 3"
+          }
+        ]
+      },
       "options": [
         "(3, 0)",
         "(3, -5)",
@@ -204,7 +356,65 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Triangle ABC has corners A(1, 2), B(4, 2) and C(4, 5). It is reflected in the x-axis. Which list gives the corners of the image, A', B' and C'?",
+      "prompt": "Triangle ABC is drawn on the grid. It is reflected in the x-axis, shown as the dashed mirror line. Which list gives the corners of the image, A', B' and C'?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -6,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                2
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                4,
+                5
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              2
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              4,
+              2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              4,
+              5
+            ],
+            "label": "C"
+          }
+        ],
+        "lines": [
+          {
+            "y": 0,
+            "label": "mirror line"
+          }
+        ]
+      },
       "options": [
         "(-1, 2), (-4, 2), (-4, 5)",
         "(1, -2), (4, -2), (4, -5)",
@@ -212,7 +422,7 @@
         "(-2, 1), (-2, 4), (-5, 4)"
       ],
       "answer": 1,
-      "solution": "Reflecting in the x-axis: keep each x-coordinate and change the sign of each y-coordinate. A(1, 2) to (1, -2), B(4, 2) to (4, -2), C(4, 5) to (4, -5).",
+      "solution": "Read the corners from the grid: A(1, 2), B(4, 2), C(4, 5). Reflecting in the x-axis: keep each x-coordinate and change the sign of each y-coordinate. A(1, 2) to (1, -2), B(4, 2) to (4, -2), C(4, 5) to (4, -5).",
       "misconceptions": {
         "0": "This is a reflection in the y-axis. Reflecting in the x-axis keeps x the same and changes the sign of y.",
         "2": "Every corner must be reflected. C(4, 5) also moves, to (4, -5).",
@@ -242,7 +452,34 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Point P is reflected in the vertical mirror line x = -1. Its image is (2, 4). What are the coordinates of P?",
+      "prompt": "Point P is reflected in the mirror line x = -1 shown on the grid. Its image, P', is plotted. What are the coordinates of P?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          4
+        ],
+        "y": [
+          -1,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              4
+            ],
+            "label": "P'",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "x": -1,
+            "label": "x = -1"
+          }
+        ]
+      },
       "options": [
         "(-4, 4)",
         "(-2, 4)",
@@ -250,7 +487,7 @@
         "(-3, 4)"
       ],
       "answer": 0,
-      "solution": "Reflecting back gives the original point. The image (2, 4) is 2 - (-1) = 3 units right of the mirror line x = -1. So P is 3 units left of the mirror: x = -1 - 3 = -4. y stays 4. P = (-4, 4).",
+      "solution": "Reflecting back gives the original point. P'(2, 4) is 2 - (-1) = 3 squares right of the mirror line x = -1. So P is 3 squares left of the mirror: x = -1 - 3 = -4. y stays 4. P = (-4, 4).",
       "misconceptions": {
         "1": "This reflects in the y-axis (x = 0). The mirror line is x = -1, one unit to the left of the y-axis.",
         "2": "This reflects in the horizontal line y = -1. The line x = -1 is vertical, so only x changes.",
@@ -265,7 +502,36 @@
       "type": "numeric",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "The point (1, 3) is reflected in a vertical mirror line and its image is (7, 3). The mirror line is x = ?. Give the missing number.",
+      "prompt": "Point P is reflected in a vertical mirror line. P and its image P' are plotted on the grid. The mirror line is x = ?. Give the missing number.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          8
+        ],
+        "y": [
+          0,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              3
+            ],
+            "label": "P",
+            "showCoords": true
+          },
+          {
+            "at": [
+              7,
+              3
+            ],
+            "label": "P'",
+            "showCoords": true
+          }
+        ]
+      },
       "answer": {
         "value": 4,
         "tolerance": 0,
@@ -274,7 +540,7 @@
           "x=4"
         ]
       },
-      "solution": "The mirror line is exactly halfway between a point and its image. Halfway between x = 1 and x = 7 is (1 + 7) / 2 = 4. So the mirror line is x = 4. Check: (1, 3) is 3 units left of x = 4, and (7, 3) is 3 units right of it.",
+      "solution": "The mirror line is exactly halfway between a point and its image. Halfway between x = 1 and x = 7 is (1 + 7) / 2 = 4. So the mirror line is x = 4. Check: P(1, 3) is 3 squares left of x = 4, and P'(7, 3) is 3 squares right of it.",
       "misconceptions": {
         "common": "Answering 6, the distance between the point and its image. The mirror line is at the halfway point, not at the full distance."
       },
@@ -287,7 +553,24 @@
       "type": "match",
       "difficulty": 3,
       "marks": 3,
-      "prompt": "Each point is reflected in the horizontal mirror line y = -2. Match each point to its image.",
+      "prompt": "The grid shows the horizontal mirror line y = -2. Each point is reflected in this mirror line. Match each point to its image.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          5
+        ],
+        "y": [
+          -6,
+          5
+        ],
+        "lines": [
+          {
+            "y": -2,
+            "label": "y = -2"
+          }
+        ]
+      },
       "options": {
         "left": [
           "(0, 1)",
@@ -329,7 +612,43 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "The point (2, 5) is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). What are the coordinates of its image?",
+      "prompt": "Point P is plotted on the grid. It is reflected in the diagonal mirror line y = x shown. What are the coordinates of its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          6
+        ],
+        "y": [
+          -6,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              5
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
       "options": [
         "(-2, 5)",
         "(5, 2)",
@@ -337,11 +656,11 @@
         "(-5, -2)"
       ],
       "answer": 1,
-      "solution": "In the diagonal mirror line through (0, 0), (1, 1) and (2, 2), the x and y coordinates swap places. (2, 5) becomes (5, 2). Check: both points are the same distance from the line, on opposite sides.",
+      "solution": "The diagonal mirror line y = x goes through (0, 0), (1, 1), (2, 2) and so on. In this mirror the x and y coordinates swap places. P(2, 5) becomes (5, 2). Check: both points are the same distance from the line, on opposite sides.",
       "misconceptions": {
-        "0": "This is a reflection in the y-axis. The mirror here is the diagonal line through (0, 0), (1, 1) and (2, 2).",
+        "0": "This is a reflection in the y-axis. The mirror here is the diagonal line y = x drawn on the grid.",
         "2": "This is a reflection in the x-axis. In this diagonal mirror, the point does not flip over an axis.",
-        "3": "This uses the OTHER diagonal, the one through (1, -1) and (2, -2). For the line through (1, 1) and (2, 2), just swap the numbers."
+        "3": "This uses the OTHER diagonal, the one through (1, -1) and (2, -2). For the line y = x drawn here, just swap the numbers."
       },
       "skill": "reflecting in a diagonal line",
       "source": "original"
@@ -352,9 +671,35 @@
       "type": "truefalse",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "True or false: The point (4, 4) does not move when it is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2).",
+      "prompt": "True or false: The point (4, 4) does not move when it is reflected in the diagonal mirror line y = x shown on the grid.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -2,
+          6
+        ],
+        "y": [
+          -2,
+          6
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
       "answer": true,
-      "solution": "The mirror line passes through every point whose two coordinates are equal: (0, 0), (1, 1), (2, 2), (3, 3), (4, 4) and so on. (4, 4) is ON the mirror line, so it stays still. True.",
+      "solution": "The mirror line y = x passes through every point whose two coordinates are equal: (0, 0), (1, 1), (2, 2), (3, 3), (4, 4) and so on. (4, 4) is ON the mirror line, so it stays still. True.",
       "misconceptions": {
         "common": "Thinking every point must move. A point on the mirror line is its own image."
       },
@@ -367,7 +712,43 @@
       "type": "short",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "The point (6, 1) is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). What are the coordinates of the image? Write them like (x, y).",
+      "prompt": "Point P is plotted on the grid. It is reflected in the diagonal mirror line y = x shown. What are the coordinates of the image? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          7
+        ],
+        "y": [
+          0,
+          7
+        ],
+        "points": [
+          {
+            "at": [
+              6,
+              1
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
       "answer": {
         "accept": [
           "(1, 6)",
@@ -379,7 +760,7 @@
         ],
         "keywords": []
       },
-      "solution": "In this diagonal mirror the two coordinates swap. (6, 1) becomes (1, 6).",
+      "solution": "In the mirror line y = x the two coordinates swap. P(6, 1) becomes (1, 6).",
       "misconceptions": {
         "common": "Changing a sign as if reflecting in an axis, for example writing (-6, 1). With this diagonal mirror the numbers swap places and keep their signs."
       },
@@ -392,7 +773,43 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "The point (-3, 1) is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). What are the coordinates of its image?",
+      "prompt": "Point P is plotted on the grid. Reflect P in the diagonal mirror line y = x drawn on the grid. Where is its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              1
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
       "options": [
         "(-1, 3)",
         "(3, 1)",
@@ -400,9 +817,9 @@
         "(1, -3)"
       ],
       "answer": 3,
-      "solution": "Swap the coordinates and keep their signs: (-3, 1) becomes (1, -3). The point moves from the second quadrant to the fourth quadrant, on the other side of the diagonal mirror.",
+      "solution": "Swap the coordinates and keep their signs: P(-3, 1) becomes (1, -3). The point moves from the second quadrant to the fourth quadrant, on the other side of the diagonal mirror.",
       "misconceptions": {
-        "0": "This swaps the numbers AND changes both signs, which is a reflection in the other diagonal (through (1, -1) and (2, -2)). For this mirror, just swap: (-3, 1) becomes (1, -3).",
+        "0": "This swaps the numbers AND changes both signs, which is a reflection in the other diagonal (through (1, -1) and (2, -2)). For the mirror line y = x drawn here, just swap: (-3, 1) becomes (1, -3).",
         "1": "This is a reflection in the y-axis. A diagonal mirror swaps the coordinates.",
         "2": "This is a reflection in the x-axis. A diagonal mirror swaps the coordinates."
       },
@@ -444,7 +861,74 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "Triangle ABC has corners A(1, 0), B(3, 0) and C(3, 1). It is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). Where is the image of B?",
+      "prompt": "Triangle ABC is drawn on the grid. It is reflected in the diagonal mirror line y = x shown. Where is the image of B?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          4
+        ],
+        "y": [
+          -4,
+          4
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                3,
+                1
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              0
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              3,
+              0
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              3,
+              1
+            ],
+            "label": "C"
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
       "options": [
         "(0, 3)",
         "(3, 0)",
@@ -452,11 +936,11 @@
         "(0, -3)"
       ],
       "answer": 0,
-      "solution": "In this diagonal mirror the coordinates swap. B(3, 0) becomes (0, 3). B was on the x-axis, and its image is on the y-axis.",
+      "solution": "B is at (3, 0). In the mirror line y = x the coordinates swap. B(3, 0) becomes (0, 3). B was on the x-axis, and its image is on the y-axis.",
       "misconceptions": {
         "1": "B is not on the mirror line (its coordinates 3 and 0 are not equal), so it must move.",
         "2": "This reflects B in the y-axis. In the diagonal mirror the coordinates swap.",
-        "3": "This swaps the numbers but also changes a sign. That is the other diagonal mirror. For this one, just swap: (3, 0) becomes (0, 3)."
+        "3": "This swaps the numbers but also changes a sign. That is the other diagonal mirror. For y = x, just swap: (3, 0) becomes (0, 3)."
       },
       "skill": "reflecting in a diagonal line",
       "source": "original"
@@ -467,9 +951,45 @@
       "type": "truefalse",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "True or false: Reflecting the point (-2, 5) in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2) gives the image (-5, 2).",
+      "prompt": "Point P is plotted on the grid. True or false: when P is reflected in the diagonal mirror line y = x shown, its image is (-5, 2).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          6
+        ],
+        "y": [
+          -6,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              5
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
       "answer": false,
-      "solution": "Swap the coordinates and keep their signs: (-2, 5) becomes (5, -2), not (-5, 2). False.",
+      "solution": "Swap the coordinates and keep their signs: P(-2, 5) becomes (5, -2), not (-5, 2). False.",
       "misconceptions": {
         "common": "Swapping the numbers but keeping the minus sign in the first place. The -2 moves to the second place, so the image is (5, -2)."
       },
@@ -482,7 +1002,43 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "The point (3, 1) is reflected in the other diagonal mirror line, which passes through (0, 0), (1, -1) and (2, -2) and slopes downwards from left to right. What are the coordinates of its image?",
+      "prompt": "Point P is plotted on the grid. It is reflected in the diagonal mirror line y = -x shown, which slopes downwards from left to right. What are the coordinates of its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          4
+        ],
+        "y": [
+          -4,
+          4
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              1
+            ],
+            "label": "P",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                -1
+              ]
+            ],
+            "label": "y = -x"
+          }
+        ]
+      },
       "options": [
         "(1, 3)",
         "(-3, -1)",
@@ -490,9 +1046,9 @@
         "(3, -1)"
       ],
       "answer": 2,
-      "solution": "For this diagonal mirror, swap the coordinates AND change both signs: (3, 1) becomes (-1, -3). Check: halfway between (3, 1) and (-1, -3) is (1, -1), which is on the mirror line.",
+      "solution": "This mirror line goes through (0, 0), (1, -1), (2, -2) and so on. For this diagonal, swap the coordinates AND change both signs: P(3, 1) becomes (-1, -3). Check: halfway between (3, 1) and (-1, -3) is (1, -1), which is on the mirror line.",
       "misconceptions": {
-        "0": "This uses the diagonal through (1, 1) and (2, 2). This mirror goes through (1, -1) and (2, -2), so as well as swapping, both signs change.",
+        "0": "This uses the diagonal y = x (through (1, 1) and (2, 2)). The mirror drawn here goes through (1, -1) and (2, -2), so as well as swapping, both signs change.",
         "1": "Both signs have changed, but the numbers also need to swap places.",
         "3": "This is a reflection in the x-axis, not in a diagonal line."
       },
@@ -505,7 +1061,43 @@
       "type": "short",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A point is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). Its image is (-4, 7). What were the coordinates of the original point? Write them like (x, y).",
+      "prompt": "Point P is reflected in the diagonal mirror line y = x shown on the grid. Its image, P', is plotted. What were the coordinates of P? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          8
+        ],
+        "y": [
+          -5,
+          8
+        ],
+        "points": [
+          {
+            "at": [
+              -4,
+              7
+            ],
+            "label": "P'",
+            "showCoords": true
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
       "answer": {
         "accept": [
           "(7, -4)",
@@ -517,7 +1109,7 @@
         ],
         "keywords": []
       },
-      "solution": "Reflecting in this diagonal swaps the coordinates, and reflecting back swaps them again. So the original point is (7, -4). Check: swapping (7, -4) gives (-4, 7).",
+      "solution": "Reflecting in y = x swaps the coordinates, and reflecting back swaps them again. So P is (7, -4). Check: swapping (7, -4) gives (-4, 7), which is P'.",
       "misconceptions": {
         "common": "Changing the signs as well as swapping, which gives (-7, 4). With this diagonal mirror the signs stay with their numbers."
       },
@@ -530,7 +1122,33 @@
       "type": "match",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Each point is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). Match each point to its image.",
+      "prompt": "Each point is reflected in the diagonal mirror line y = x drawn on the grid. Match each point to its image.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          6
+        ],
+        "y": [
+          -6,
+          6
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
       "options": {
         "left": [
           "(1, 3)",
@@ -572,7 +1190,55 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A square has corners (1, 2), (3, 2), (3, 4) and (1, 4). It is reflected in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2). Which list gives the corners of the image?",
+      "prompt": "The square drawn on the grid is reflected in the diagonal mirror line y = x shown. Which list gives the corners of the image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                4
+              ]
+            ]
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
       "options": [
         "(-1, 2), (-3, 2), (-3, 4), (-1, 4)",
         "(2, 1), (2, 3), (4, 3), (4, 1)",
@@ -580,11 +1246,11 @@
         "(-2, -1), (-2, -3), (-4, -3), (-4, -1)"
       ],
       "answer": 1,
-      "solution": "Swap the coordinates of every corner: (1, 2) to (2, 1), (3, 2) to (2, 3), (3, 4) to (4, 3), (1, 4) to (4, 1). The image is still a square with sides of 2 units, now on the other side of the diagonal.",
+      "solution": "Read the corners from the grid: (1, 2), (3, 2), (3, 4) and (1, 4). Swap the coordinates of every corner: (1, 2) to (2, 1), (3, 2) to (2, 3), (3, 4) to (4, 3), (1, 4) to (4, 1). The image is still a square with sides of 2 units, now on the other side of the diagonal.",
       "misconceptions": {
         "0": "This is a reflection in the y-axis. The diagonal mirror swaps the coordinates of each corner.",
         "2": "This is a reflection in the x-axis. The diagonal mirror swaps the coordinates of each corner.",
-        "3": "This swaps the numbers and changes the signs, which is the other diagonal mirror (through (1, -1)). Here you only swap."
+        "3": "This swaps the numbers and changes the signs, which is the other diagonal mirror (through (1, -1)). For y = x you only swap."
       },
       "skill": "reflecting in a diagonal line",
       "source": "original"
@@ -595,7 +1261,46 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A line goes from (0, 0) straight up to (0, 3). It is rotated 90° clockwise about (0, 0). Where does the end (0, 3) go?",
+      "prompt": "Line OA is drawn on the grid. It is rotated 90° clockwise about O. Where does A go?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          4
+        ],
+        "y": [
+          -4,
+          4
+        ],
+        "segments": [
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              0,
+              3
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              0,
+              0
+            ],
+            "label": "O"
+          },
+          {
+            "at": [
+              0,
+              3
+            ],
+            "label": "A"
+          }
+        ]
+      },
       "options": [
         "(-3, 0)",
         "(0, -3)",
@@ -603,11 +1308,11 @@
         "(3, 0)"
       ],
       "answer": 3,
-      "solution": "Think of a clock hand pointing at 12. A quarter turn clockwise makes it point at 3, which is to the right. The line now goes from (0, 0) to (3, 0).",
+      "solution": "OA goes from O(0, 0) straight up to A(0, 3). Think of a clock hand pointing at 12. A quarter turn clockwise makes it point at 3, which is to the right. OA is still 3 units long, so A goes to (3, 0).",
       "misconceptions": {
         "0": "This is a 90° ANTICLOCKWISE turn. Clockwise is the way clock hands move: from 12 o'clock to 3 o'clock, which is from straight up to the right.",
         "1": "This is a half turn (180°). A 90° turn is only a quarter turn.",
-        "2": "This slides the end 3 units right instead of turning the line. When a line turns about (0, 0), it stays 3 units long and that end stays at (0, 0)."
+        "2": "This slides A 3 units right instead of turning the line. When the line turns about O, it stays 3 units long and O stays at (0, 0)."
       },
       "skill": "rotating 90° about a vertex",
       "source": "original"
@@ -633,7 +1338,46 @@
       "type": "short",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A line goes from (0, 0) to (4, 0). It is rotated 90° anticlockwise about (0, 0). What are the coordinates of the image of (4, 0)? Write them like (x, y).",
+      "prompt": "Line OB is drawn on the grid. It is rotated 90° anticlockwise about O. What are the coordinates of the image of B? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "segments": [
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              4,
+              0
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              0,
+              0
+            ],
+            "label": "O"
+          },
+          {
+            "at": [
+              4,
+              0
+            ],
+            "label": "B"
+          }
+        ]
+      },
       "answer": {
         "accept": [
           "(0, 4)",
@@ -645,7 +1389,7 @@
         ],
         "keywords": []
       },
-      "solution": "The line points to the right. A quarter turn anticlockwise (the opposite way to clock hands) makes it point straight up. It is still 4 units long, so the end is at (0, 4).",
+      "solution": "OB goes from O(0, 0) to B(4, 0), pointing to the right. A quarter turn anticlockwise (the opposite way to clock hands) makes it point straight up. It is still 4 units long, so the image of B is (0, 4).",
       "misconceptions": {
         "common": "Turning clockwise instead, which gives (0, -4). Anticlockwise from pointing right means turning to point up."
       },
@@ -658,7 +1402,59 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Triangle ABC has corners A(1, 1), B(4, 1) and C(1, 3). It is rotated 90° clockwise about A. What are the coordinates of the image of B?",
+      "prompt": "Triangle ABC is drawn on the grid. It is rotated 90° clockwise about A. What are the coordinates of the image of B?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          5
+        ],
+        "y": [
+          -5,
+          4
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                1,
+                3
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              4,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              1,
+              3
+            ],
+            "label": "C"
+          }
+        ]
+      },
       "options": [
         "(1, 4)",
         "(1, -4)",
@@ -666,7 +1462,7 @@
         "(-2, 1)"
       ],
       "answer": 2,
-      "solution": "AB goes 3 units right from A. A quarter turn clockwise turns 'right' into 'down'. So the image of B is 3 units DOWN from A: (1, 1 - 3) = (1, -2). A stays at (1, 1).",
+      "solution": "A is at (1, 1) and B is at (4, 1), so AB goes 3 units right from A. A quarter turn clockwise turns 'right' into 'down'. So the image of B is 3 units DOWN from A: (1, 1 - 3) = (1, -2). A stays at (1, 1).",
       "misconceptions": {
         "0": "This is a 90° ANTICLOCKWISE rotation. Clockwise turns side AB (pointing right) to point DOWN.",
         "1": "This rotates about the origin (0, 0), not about A(1, 1). Use A as the centre.",
@@ -681,7 +1477,59 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Triangle ABC has corners A(1, 1), B(4, 1) and C(1, 3). It is rotated 90° anticlockwise about A. What are the coordinates of the image of C?",
+      "prompt": "Triangle ABC is drawn on the grid. It is rotated 90° anticlockwise about A. What are the coordinates of the image of C?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          5
+        ],
+        "y": [
+          -2,
+          4
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                1,
+                3
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              4,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              1,
+              3
+            ],
+            "label": "C"
+          }
+        ]
+      },
       "options": [
         "(-1, 1)",
         "(3, 1)",
@@ -689,7 +1537,7 @@
         "(1, -1)"
       ],
       "answer": 0,
-      "solution": "AC goes 2 units UP from A. A quarter turn anticlockwise turns 'up' into 'left'. So the image of C is 2 units LEFT of A: (1 - 2, 1) = (-1, 1).",
+      "solution": "A is at (1, 1) and C is at (1, 3), so AC goes 2 units UP from A. A quarter turn anticlockwise turns 'up' into 'left'. So the image of C is 2 units LEFT of A: (1 - 2, 1) = (-1, 1).",
       "misconceptions": {
         "1": "This is a 90° CLOCKWISE rotation. Anticlockwise turns 'up' into 'left'.",
         "2": "This rotates about the origin (0, 0). The centre of rotation is A(1, 1).",
@@ -704,7 +1552,70 @@
       "type": "short",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Rectangle PQRS has corners P(2, 1), Q(6, 1), R(6, 3) and S(2, 3). It is rotated 90° clockwise about P. What are the coordinates of the image of R? Write them like (x, y).",
+      "prompt": "Rectangle PQRS is drawn on the grid. It is rotated 90° clockwise about P. What are the coordinates of the image of R? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -1,
+          7
+        ],
+        "y": [
+          -4,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                2,
+                1
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                6,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              1
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              6,
+              1
+            ],
+            "label": "Q"
+          },
+          {
+            "at": [
+              6,
+              3
+            ],
+            "label": "R"
+          },
+          {
+            "at": [
+              2,
+              3
+            ],
+            "label": "S"
+          }
+        ]
+      },
       "answer": {
         "accept": [
           "(4, -3)",
@@ -716,7 +1627,7 @@
         ],
         "keywords": []
       },
-      "solution": "From P to R you go 4 right and 2 up. Turn that movement a quarter turn clockwise: '4 right' becomes '4 down' and '2 up' becomes '2 right'. So from P go 2 right and 4 down: (2 + 2, 1 - 4) = (4, -3).",
+      "solution": "P is at (2, 1) and R is at (6, 3). From P to R you go 4 right and 2 up. Turn that movement a quarter turn clockwise: '4 right' becomes '4 down' and '2 up' becomes '2 right'. So from P go 2 right and 4 down: (2 + 2, 1 - 4) = (4, -3).",
       "misconceptions": {
         "common": "Turning anticlockwise instead (which gives (0, 5)), or only turning one part of the movement. Both the 'across' and the 'up' parts must turn."
       },
@@ -729,7 +1640,90 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Triangle ABC has corners A(1, 1), B(3, 1) and C(3, 2). After a transformation, the image has corners A'(1, 1), B'(1, 3) and C'(0, 3). Which transformation was it?",
+      "prompt": "Triangle ABC and its image A'B'C' (dashed) are drawn on the grid. Which transformation maps ABC onto A'B'C'?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -2,
+          4
+        ],
+        "y": [
+          -2,
+          4
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                2
+              ]
+            ]
+          },
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                3
+              ]
+            ],
+            "style": "dashed"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "A, A'"
+          },
+          {
+            "at": [
+              3,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              3,
+              2
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              1,
+              3
+            ],
+            "label": "B'"
+          },
+          {
+            "at": [
+              0,
+              3
+            ],
+            "label": "C'"
+          }
+        ]
+      },
       "options": [
         "A rotation of 90° clockwise about (1, 1)",
         "A reflection in the diagonal mirror line that passes through (0, 0), (1, 1) and (2, 2)",
@@ -737,7 +1731,7 @@
         "A rotation of 90° anticlockwise about (1, 1)"
       ],
       "answer": 3,
-      "solution": "A stays at (1, 1), so it is the centre. AB pointed right and A'B' points up: that is a quarter turn anticlockwise. Check C: from A, C is 2 right and 1 up. Turned anticlockwise this becomes 2 up and 1 left: (1 - 1, 1 + 2) = (0, 3). It matches C'.",
+      "solution": "A and A' are the same point, (1, 1), so A is the centre. AB pointed right and A'B' points up: that is a quarter turn anticlockwise. Check C: from A, C(3, 2) is 2 right and 1 up. Turned anticlockwise this becomes 2 up and 1 left: (1 - 1, 1 + 2) = (0, 3). It matches C'.",
       "misconceptions": {
         "0": "A clockwise turn would send B (to the right of A) to a point BELOW A, at (1, -1). B' is above A.",
         "1": "This mirror does send A to (1, 1) and B to (1, 3), but it sends C(3, 2) to (2, 3), not (0, 3). Always check every corner.",
@@ -767,7 +1761,56 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A square has corners (0, 0), (2, 0), (2, 2) and (0, 2). It is rotated 90° clockwise about the corner (2, 0). What are the coordinates of the image of the corner (0, 2)?",
+      "prompt": "The square on the grid is rotated 90° clockwise about its corner C. What are the coordinates of the image of corner D?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          5
+        ],
+        "y": [
+          -3,
+          4
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              0
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              0,
+              2
+            ],
+            "label": "D"
+          }
+        ]
+      },
       "options": [
         "(0, -2)",
         "(4, 2)",
@@ -775,10 +1818,10 @@
         "(4, -2)"
       ],
       "answer": 1,
-      "solution": "From the centre (2, 0), the corner (0, 2) is 2 left and 2 up. A quarter turn clockwise turns 'left' into 'up' and 'up' into 'right'. So the image is 2 up and 2 right of (2, 0): (2 + 2, 0 + 2) = (4, 2). The whole square swings over to the right, between x = 2 and x = 4.",
+      "solution": "C is at (2, 0) and D is at (0, 2). From C, D is 2 left and 2 up. A quarter turn clockwise turns 'left' into 'up' and 'up' into 'right'. So the image is 2 up and 2 right of C: (2 + 2, 0 + 2) = (4, 2). The whole square swings over to the right, between x = 2 and x = 4.",
       "misconceptions": {
         "0": "This is an ANTICLOCKWISE turn. The square would swing down below the x-axis that way.",
-        "2": "This rotates about the origin (0, 0) instead of about the corner (2, 0).",
+        "2": "This is where the square's own corner C is. Rotating about the origin (0, 0) instead of about C would send D there. Use C(2, 0) as the centre.",
         "3": "This is a half turn (180°) about (2, 0). A 90° turn is only a quarter turn."
       },
       "skill": "rotating 90° about a vertex",
@@ -790,7 +1833,59 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "Triangle PQR has corners P(-1, 2), Q(2, 2) and R(-1, 4). It is rotated 90° anticlockwise about Q. What are the coordinates of the image of R?",
+      "prompt": "Triangle PQR is drawn on the grid. It is rotated 90° anticlockwise about Q. What are the coordinates of the image of R?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -2,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -1,
+                2
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                -1,
+                4
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -1,
+              2
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              2,
+              2
+            ],
+            "label": "Q"
+          },
+          {
+            "at": [
+              -1,
+              4
+            ],
+            "label": "R"
+          }
+        ]
+      },
       "options": [
         "(4, 5)",
         "(-4, -1)",
@@ -798,7 +1893,7 @@
         "(5, 0)"
       ],
       "answer": 2,
-      "solution": "From Q(2, 2), R is 3 left and 2 up. A quarter turn anticlockwise turns 'left' into 'down' and 'up' into 'left'. So the image is 3 down and 2 left of Q: (2 - 2, 2 - 3) = (0, -1).",
+      "solution": "Q is at (2, 2) and R is at (-1, 4). From Q, R is 3 left and 2 up. A quarter turn anticlockwise turns 'left' into 'down' and 'up' into 'left'. So the image is 3 down and 2 left of Q: (2 - 2, 2 - 3) = (0, -1).",
       "misconceptions": {
         "0": "This is a CLOCKWISE turn about Q. Anticlockwise turns 'left' into 'down'.",
         "1": "This rotates about the origin. The centre of rotation is Q(2, 2).",
@@ -841,13 +1936,52 @@
       "type": "numeric",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A line goes from (2, 1) up to (2, 5). It is rotated 90° clockwise about (2, 1). What is the x-coordinate of the image of (2, 5)?",
+      "prompt": "Line AB is drawn on the grid. It is rotated 90° clockwise about A. What is the x-coordinate of the image of B?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          7
+        ],
+        "y": [
+          0,
+          6
+        ],
+        "segments": [
+          {
+            "from": [
+              2,
+              1
+            ],
+            "to": [
+              2,
+              5
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              2,
+              5
+            ],
+            "label": "B"
+          }
+        ]
+      },
       "answer": {
         "value": 6,
         "tolerance": 0,
         "accept": []
       },
-      "solution": "The line is 4 units long and points straight up from (2, 1). A quarter turn clockwise makes it point right. So its end is 4 units right of (2, 1): (2 + 4, 1) = (6, 1). The x-coordinate is 6.",
+      "solution": "AB is 4 units long and points straight up from A(2, 1) to B(2, 5). A quarter turn clockwise makes it point right. So its end is 4 units right of A: (2 + 4, 1) = (6, 1). The x-coordinate is 6.",
       "misconceptions": {
         "common": "Answering -2 by turning anticlockwise (the line would then point left, to (-2, 1)), or answering 4 by giving the length of the line instead of the coordinate."
       },
@@ -860,7 +1994,34 @@
       "type": "short",
       "difficulty": 3,
       "marks": 3,
-      "prompt": "Triangle ABC is rotated 90° clockwise about its vertex A(2, 2). The image of vertex B is at (5, 2). What were the coordinates of B before the rotation? Write them like (x, y).",
+      "prompt": "Triangle ABC is rotated 90° clockwise about its vertex A. A and B', the image of vertex B, are plotted on the grid. What were the coordinates of B before the rotation? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          6
+        ],
+        "y": [
+          -2,
+          6
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              2
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              5,
+              2
+            ],
+            "label": "B'"
+          }
+        ]
+      },
       "answer": {
         "accept": [
           "(2, 5)",
@@ -872,7 +2033,7 @@
         ],
         "keywords": []
       },
-      "solution": "The image of B is 3 units right of A. To undo a clockwise quarter turn, turn back anticlockwise: 'right' turns into 'up'. So B was 3 units UP from A: (2, 2 + 3) = (2, 5). Check: turning (2, 5) clockwise about (2, 2) points the line right, to (5, 2).",
+      "solution": "A is at (2, 2) and B' is at (5, 2), so B' is 3 units right of A. To undo a clockwise quarter turn, turn back anticlockwise: 'right' turns into 'up'. So B was 3 units UP from A: (2, 2 + 3) = (2, 5). Check: turning (2, 5) clockwise about (2, 2) points the line right, to (5, 2).",
       "misconceptions": {
         "common": "Turning (5, 2) clockwise again, which gives (2, -1). To find the original, you must turn the opposite way."
       },
@@ -926,7 +2087,46 @@
       "type": "mcq",
       "difficulty": 1,
       "marks": 1,
-      "prompt": "A toy windmill has 4 identical blades, equally spaced around its centre. What is the order of rotational symmetry of the windmill (seen from the front)?",
+      "prompt": "The picture shows a toy windmill from the front. Its 4 blades are identical and equally spaced around the centre. What is the order of rotational symmetry of the windmill?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            1,
+            -1
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -4,
+            1
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -4
+          ]
+        ],
+        "shaded": true,
+        "alt": "A toy windmill seen from the front: 4 identical triangular blades arranged around a small square centre."
+      },
       "options": [
         "1",
         "2",
@@ -934,7 +2134,7 @@
         "8"
       ],
       "answer": 2,
-      "solution": "Turn the windmill slowly. Each blade moves into the next blade's place after a quarter turn, so it looks the same 4 times in one full turn. Order of rotational symmetry = 4.",
+      "solution": "Imagine turning the windmill in the picture about its centre. Each blade moves into the next blade's place after a quarter turn (90°), so it looks the same 4 times in one full turn. Order of rotational symmetry = 4.",
       "misconceptions": {
         "0": "Order 1 means the shape only looks the same after a full turn. The windmill looks the same after every quarter turn, so its order is higher.",
         "1": "The windmill looks the same after a half turn, but also after each quarter turn. Count every position in one full turn where it looks the same.",
@@ -988,7 +2188,50 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Siti draws half of a shape. Three of its corners are (1, 2), (3, 2) and (3, 5). She completes the shape so that the y-axis is a line of symmetry. Which of these points must also be a corner of the completed shape?",
+      "prompt": "Siti draws half of a shape on the grid. She completes the shape so that the y-axis (the dashed line) is a line of symmetry. Which of these points must also be a corner of the completed shape?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -5,
+          5
+        ],
+        "y": [
+          -6,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          }
+        ],
+        "lines": [
+          {
+            "x": 0,
+            "label": "line of symmetry"
+          }
+        ]
+      },
       "options": [
         "(3, -5)",
         "(-3, 5)",
@@ -996,7 +2239,7 @@
         "(-3, -5)"
       ],
       "answer": 1,
-      "solution": "The y-axis is the mirror line, so every corner has a partner on the other side at the same height. (3, 5) is 3 units right of the y-axis, so its partner is 3 units left: (-3, 5). (The other new corners are (-1, 2) and (-3, 2).)",
+      "solution": "The y-axis is the mirror line, so every corner has a partner on the other side at the same height. The top right corner of Siti's half is (3, 5). It is 3 squares right of the y-axis, so its partner is 3 squares left: (-3, 5). (The other new corners are (-1, 2) and (-3, 2).)",
       "misconceptions": {
         "0": "This reflects (3, 5) in the x-axis. The line of symmetry here is the y-axis, so the shape is completed on the LEFT side.",
         "2": "This swaps the coordinates, which is a reflection in a diagonal line, not the y-axis.",
@@ -1038,7 +2281,97 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "Triangle ABC has corners A(1, 1), B(3, 1) and C(1, 2). Its image has corners A'(-1, 1), B'(-3, 1) and C'(-1, 2). Which single transformation maps ABC onto A'B'C'?",
+      "prompt": "Triangle ABC and its image A'B'C' (dashed) are drawn on the grid. Which single transformation maps ABC onto A'B'C'?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          4
+        ],
+        "y": [
+          -2,
+          3
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ]
+          },
+          {
+            "points": [
+              [
+                -1,
+                1
+              ],
+              [
+                -3,
+                1
+              ],
+              [
+                -1,
+                2
+              ]
+            ],
+            "style": "dashed"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              3,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              1,
+              2
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              -1,
+              1
+            ],
+            "label": "A'"
+          },
+          {
+            "at": [
+              -3,
+              1
+            ],
+            "label": "B'"
+          },
+          {
+            "at": [
+              -1,
+              2
+            ],
+            "label": "C'"
+          }
+        ]
+      },
       "options": [
         "A translation of 2 units left",
         "A reflection in the x-axis",
@@ -1046,7 +2379,7 @@
         "A reflection in the y-axis"
       ],
       "answer": 3,
-      "solution": "Compare each corner with its image: the y-coordinates are unchanged and every x-coordinate has changed sign (1 to -1, 3 to -3). The triangle has flipped over the y-axis, so it is a reflection in the y-axis. Check all three corners, not just one.",
+      "solution": "Read the corners from the grid and compare each one with its image: A(1, 1) to A'(-1, 1), B(3, 1) to B'(-3, 1), C(1, 2) to C'(-1, 2). The y-coordinates are unchanged and every x-coordinate has changed sign. The triangle has flipped over the y-axis, so it is a reflection in the y-axis. Check all three corners, not just one.",
       "misconceptions": {
         "0": "This does move A(1, 1) to (-1, 1), but it moves B(3, 1) to (1, 1), not to (-3, 1). Check every corner.",
         "1": "That would change the signs of the y-coordinates, sending A to (1, -1). Here the y-coordinates stay the same and the x-coordinates change sign.",
@@ -1061,7 +2394,62 @@
       "type": "mcq",
       "difficulty": 2,
       "marks": 1,
-      "prompt": "A badge design has 3 identical petals equally spaced around its centre, and nothing else. What is the order of rotational symmetry of the design?",
+      "prompt": "The badge design shown has 3 identical petals equally spaced around its centre. What is the order of rotational symmetry of the design?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            1.6,
+            2.77
+          ],
+          [
+            0.0,
+            4.6
+          ],
+          [
+            -1.6,
+            2.77
+          ],
+          [
+            -1.3,
+            0.75
+          ],
+          [
+            -3.2,
+            0.0
+          ],
+          [
+            -3.98,
+            -2.3
+          ],
+          [
+            -1.6,
+            -2.77
+          ],
+          [
+            0.0,
+            -1.5
+          ],
+          [
+            1.6,
+            -2.77
+          ],
+          [
+            3.98,
+            -2.3
+          ],
+          [
+            3.2,
+            0.0
+          ],
+          [
+            1.3,
+            0.75
+          ]
+        ],
+        "shaded": true,
+        "alt": "A badge design made of 3 identical pointed petals arranged around its centre."
+      },
       "options": [
         "3",
         "1",
@@ -1069,7 +2457,7 @@
         "2"
       ],
       "answer": 0,
-      "solution": "Each petal moves into the next petal's place after one third of a full turn (120°). That happens 3 times in a full turn, so the order of rotational symmetry is 3.",
+      "solution": "Imagine turning the badge about its centre. Each petal moves into the next petal's place after one third of a full turn (120°). That happens 3 times in a full turn, so the order of rotational symmetry is 3.",
       "misconceptions": {
         "1": "The design fits onto itself after one third of a turn, not only after a full turn, so its order is more than 1.",
         "2": "This counts the petals and the gaps. Only count the positions in one full turn where the whole design looks the same: 3.",
@@ -1099,7 +2487,54 @@
       "type": "mcq",
       "difficulty": 3,
       "marks": 2,
-      "prompt": "A tile pattern is a square with one identical small triangle stuck onto the middle of two OPPOSITE sides (the top and the bottom). The other two sides have nothing on them. What is the order of rotational symmetry of the whole pattern?",
+      "prompt": "The tile pattern shown is a square with an identical small triangle on the middle of its top side and of its bottom side. The other two sides are plain. What is the order of rotational symmetry of the whole pattern?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            -1.2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            2,
+            5.2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "shaded": true,
+        "alt": "A tile pattern: a square with one small triangle on the middle of its top side and an identical triangle on the middle of its bottom side. The left and right sides are plain."
+      },
       "options": [
         "2",
         "4",
@@ -1142,6 +2577,1764 @@
       },
       "skill": "symmetry in patterns",
       "source": "inspired-by: Singapore P6"
+    },
+    {
+      "id": "m14-q048",
+      "subtopicId": "m14-s1",
+      "type": "short",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Triangle ABC is drawn on the grid. It is reflected in the mirror line x = 1. What are the coordinates of C', the image of C? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          6
+        ],
+        "y": [
+          0,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                3,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                4
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              5,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              5,
+              4
+            ],
+            "label": "C"
+          }
+        ],
+        "lines": [
+          {
+            "x": 1,
+            "label": "x = 1"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(-3, 4)",
+          "(-3,4)",
+          "-3, 4",
+          "-3,4",
+          "( -3, 4 )",
+          "(-3 ,4)"
+        ],
+        "keywords": []
+      },
+      "solution": "C is at (5, 4). The mirror line x = 1 is vertical, so only the x-coordinate changes. C is 5 - 1 = 4 squares to the right of the mirror, so C' is 4 squares to the left of it: x = 1 - 4 = -3. The height stays the same (y = 4). C' = (-3, 4).",
+      "misconceptions": {
+        "common": "It looks like you reflected C in the y-axis and got (-5, 4). The mirror here is the dashed line x = 1, so count the squares from that line, not from the y-axis."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q049",
+      "subtopicId": "m14-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Trapezium PQRS is drawn on the grid. It is reflected in the mirror line y = 3. Where is R', the image of R?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -1,
+          6
+        ],
+        "y": [
+          -1,
+          7
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                4
+              ],
+              [
+                5,
+                4
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                2,
+                6
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              4
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              5,
+              4
+            ],
+            "label": "Q"
+          },
+          {
+            "at": [
+              4,
+              6
+            ],
+            "label": "R"
+          },
+          {
+            "at": [
+              2,
+              6
+            ],
+            "label": "S"
+          }
+        ],
+        "lines": [
+          {
+            "y": 3,
+            "label": "y = 3"
+          }
+        ]
+      },
+      "options": [
+        "(4, 2)",
+        "(4, -6)",
+        "(4, 0)",
+        "(-4, 6)"
+      ],
+      "answer": 2,
+      "solution": "R is at (4, 6). The mirror line y = 3 is horizontal, so only the y-coordinate changes. R is 6 - 3 = 3 squares above the mirror, so R' is 3 squares below it: y = 3 - 3 = 0. x stays 4. R' = (4, 0). R is on the edge furthest from the mirror, so R' is also furthest from the mirror on the other side.",
+      "misconceptions": {
+        "0": "It looks like you slid the trapezium down below the mirror without flipping it. In a reflection the shape flips over: R is on the top edge, furthest from the mirror, so R' must be furthest from the mirror on the other side, 3 squares below y = 3.",
+        "1": "This reflects R in the x-axis. The mirror here is the dashed line y = 3, so measure 3 squares from that line, not 6 from the x-axis.",
+        "3": "This reflects R in the y-axis, which is a vertical mirror. The line y = 3 is horizontal, so R moves straight down and keeps x = 4."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q050",
+      "subtopicId": "m14-s2",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Triangle JKL is drawn on the grid. It is reflected in the diagonal mirror line y = x shown. What are the coordinates of J', the image of J? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          5
+        ],
+        "y": [
+          -4,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -3,
+                1
+              ],
+              [
+                -1,
+                1
+              ],
+              [
+                -1,
+                4
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -3,
+              1
+            ],
+            "label": "J"
+          },
+          {
+            "at": [
+              -1,
+              1
+            ],
+            "label": "K"
+          },
+          {
+            "at": [
+              -1,
+              4
+            ],
+            "label": "L"
+          }
+        ],
+        "lines": [
+          {
+            "through": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "label": "y = x"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(1, -3)",
+          "(1,-3)",
+          "1, -3",
+          "1,-3",
+          "( 1, -3 )",
+          "(1 ,-3)"
+        ],
+        "keywords": []
+      },
+      "solution": "J is at (-3, 1). In the mirror line y = x the two coordinates swap places and keep their signs. So (-3, 1) becomes (1, -3). Check: J is above the mirror line and J' is below it, and the point halfway between them, (-1, -1), is on the mirror line.",
+      "misconceptions": {
+        "common": "It looks like you changed a sign as well as swapping, for example writing (-1, 3). In the mirror line y = x, just swap the numbers and keep each sign with its number: (-3, 1) becomes (1, -3)."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q051",
+      "subtopicId": "m14-s1",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Triangle ABC is reflected in a vertical mirror line. Its image is the dashed triangle A'B'C' on the grid. Which line is the mirror line?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -3,
+          7
+        ],
+        "y": [
+          0,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                3,
+                2
+              ],
+              [
+                6,
+                2
+              ],
+              [
+                3,
+                4
+              ]
+            ]
+          },
+          {
+            "points": [
+              [
+                1,
+                2
+              ],
+              [
+                -2,
+                2
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "style": "dashed"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              3,
+              2
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              6,
+              2
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              3,
+              4
+            ],
+            "label": "C"
+          },
+          {
+            "at": [
+              1,
+              2
+            ],
+            "label": "A'"
+          },
+          {
+            "at": [
+              -2,
+              2
+            ],
+            "label": "B'"
+          },
+          {
+            "at": [
+              1,
+              4
+            ],
+            "label": "C'"
+          }
+        ]
+      },
+      "options": [
+        "x = 1",
+        "x = 2",
+        "x = 3",
+        "y = 2"
+      ],
+      "answer": 1,
+      "solution": "The mirror line is exactly halfway between each point and its image. A is at x = 3 and A' is at x = 1, so halfway is x = 2. Check B: B is at x = 6 and B' is at x = -2, and halfway is (6 + (-2)) / 2 = 2. The mirror line is x = 2.",
+      "misconceptions": {
+        "0": "x = 1 is the line through A' and C', an edge of the image. The mirror line is halfway between A and A', at x = 2, so the triangle and its image are both 1 square away from it.",
+        "2": "x = 3 is the line through A and C, an edge of the triangle. The mirror line lies halfway between the triangle and its image, at x = 2.",
+        "3": "y = 2 is a horizontal line (the bottom edges lie on it). The triangle has flipped from right to left, so the mirror line is vertical: it is an x = line."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q052",
+      "subtopicId": "m14-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Shape S is reflected in a mirror line. Its image is the dashed shape on the grid. Which line is the mirror line?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -6,
+          6
+        ],
+        "y": [
+          -6,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                5
+              ]
+            ],
+            "label": "S"
+          },
+          {
+            "points": [
+              [
+                -3,
+                -1
+              ],
+              [
+                -5,
+                -1
+              ],
+              [
+                -5,
+                -2
+              ]
+            ],
+            "style": "dashed"
+          }
+        ]
+      },
+      "options": [
+        "The x-axis",
+        "The y-axis",
+        "The diagonal line through (0, 0) and (1, 1)",
+        "The diagonal line through (0, 0) and (1, -1)"
+      ],
+      "answer": 3,
+      "solution": "Match the corners. (1, 3) goes to (-3, -1), (1, 5) goes to (-5, -1) and (2, 5) goes to (-5, -2). Each time the numbers swap places AND both signs change. That is a reflection in the diagonal line through (0, 0), (1, -1) and (2, -2). Check one pair: halfway between (1, 3) and (-3, -1) is (-1, 1), which is on that line.",
+      "misconceptions": {
+        "0": "A reflection in the x-axis would keep the shape on the right (x stays 1 and 2) and move it below the axis. The image here is on the left AND below, and its corners have swapped numbers.",
+        "1": "A reflection in the y-axis would keep the shape at the same height (y from 3 to 5). The image is below the x-axis, so the mirror is not the y-axis.",
+        "2": "The diagonal through (1, 1) swaps the numbers but keeps the signs, so (1, 3) would go to (3, 1), still in the first quadrant. Here (1, 3) goes to (-3, -1): the signs change too, so it is the other diagonal."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q053",
+      "subtopicId": "m14-s3",
+      "type": "short",
+      "difficulty": 2,
+      "marks": 2,
+      "prompt": "Trapezium PQRS is drawn on the grid. It is rotated 90° clockwise about vertex Q. What are the coordinates of the image of S? Write them like (x, y).",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          7
+        ],
+        "y": [
+          -3,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                1,
+                3
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "P"
+          },
+          {
+            "at": [
+              4,
+              1
+            ],
+            "label": "Q"
+          },
+          {
+            "at": [
+              3,
+              3
+            ],
+            "label": "R"
+          },
+          {
+            "at": [
+              1,
+              3
+            ],
+            "label": "S"
+          }
+        ]
+      },
+      "answer": {
+        "accept": [
+          "(6, 4)",
+          "(6,4)",
+          "6, 4",
+          "6,4",
+          "( 6, 4 )",
+          "(6 ,4)"
+        ],
+        "keywords": []
+      },
+      "solution": "Q is at (4, 1) and S is at (1, 3). From Q, S is 3 squares left and 2 squares up. A quarter turn clockwise turns 'left' into 'up' and 'up' into 'right'. So the image of S is 3 up and 2 right of Q: (4 + 2, 1 + 3) = (6, 4).",
+      "misconceptions": {
+        "common": "It looks like you turned anticlockwise, which gives (2, -2). Clockwise is the way clock hands move: side QP, which points left, turns to point up."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q054",
+      "subtopicId": "m14-s3",
+      "type": "match",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "Triangle DEF is drawn on the grid. It is rotated 90° anticlockwise about vertex E. Match each vertex to the coordinates of its image.",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -4,
+          4
+        ],
+        "y": [
+          -3,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                -2,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ]
+            ]
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              -2,
+              1
+            ],
+            "label": "D"
+          },
+          {
+            "at": [
+              1,
+              1
+            ],
+            "label": "E"
+          },
+          {
+            "at": [
+              1,
+              3
+            ],
+            "label": "F"
+          }
+        ]
+      },
+      "options": {
+        "left": [
+          "D",
+          "E",
+          "F"
+        ],
+        "right": [
+          "(1, 4)",
+          "(-1, 1)",
+          "(1, 1)",
+          "(3, 1)",
+          "(1, -2)"
+        ]
+      },
+      "answer": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "solution": "E is the centre, so it stays at (1, 1). From E, D(-2, 1) is 3 squares left; a quarter turn anticlockwise turns 'left' into 'down', so D goes 3 squares below E: (1, -2). From E, F(1, 3) is 2 squares up; anticlockwise turns 'up' into 'left', so F goes 2 squares left of E: (-1, 1).",
+      "misconceptions": {
+        "common": "Turning clockwise instead, which sends D to (1, 4) and F to (3, 1). Anticlockwise is the opposite way to clock hands: a side pointing up turns to point left."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q055",
+      "subtopicId": "m14-s4",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Shape A is drawn on the grid. The dashed shape is its image. Which transformation maps shape A onto its image?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          0,
+          9
+        ],
+        "y": [
+          0,
+          6
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "label": "A"
+          },
+          {
+            "points": [
+              [
+                5,
+                3
+              ],
+              [
+                8,
+                3
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "style": "dashed"
+          }
+        ]
+      },
+      "options": [
+        "A translation",
+        "A reflection",
+        "A rotation",
+        "An enlargement"
+      ],
+      "answer": 0,
+      "solution": "Compare the two shapes. The image is the same size and faces the same way: the long side is still along the bottom and the right angle is still at the bottom left. Every corner has moved 4 squares right and 2 squares up. Sliding without turning or flipping is a translation.",
+      "misconceptions": {
+        "1": "A reflection flips the shape, so the right angle would end up on the other side, like a mirror picture. Here the image faces exactly the same way as shape A.",
+        "2": "A rotation turns the shape, so its sides would point in new directions. Here the long side is still along the bottom.",
+        "3": "An enlargement changes the size. The image is exactly the same size as shape A."
+      },
+      "skill": "comparing reflection, rotation and translation",
+      "source": "original"
+    },
+    {
+      "id": "m14-q056",
+      "subtopicId": "m14-s4",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Triangle ABC is drawn on the grid. The dashed triangle is its image after one transformation. Which transformation was it?",
+      "diagram": {
+        "type": "coordinateGrid",
+        "x": [
+          -1,
+          6
+        ],
+        "y": [
+          -1,
+          5
+        ],
+        "polygons": [
+          {
+            "points": [
+              [
+                2,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                2
+              ]
+            ]
+          },
+          {
+            "points": [
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "style": "dashed"
+          }
+        ],
+        "points": [
+          {
+            "at": [
+              2,
+              1
+            ],
+            "label": "A"
+          },
+          {
+            "at": [
+              5,
+              1
+            ],
+            "label": "B"
+          },
+          {
+            "at": [
+              5,
+              2
+            ],
+            "label": "C"
+          }
+        ]
+      },
+      "options": [
+        "A translation",
+        "A reflection",
+        "A rotation of 90° anticlockwise about A",
+        "A rotation of 90° clockwise about A"
+      ],
+      "answer": 2,
+      "solution": "Corner A has not moved, so the triangle has turned about A. Side AB pointed right, from A(2, 1) to B(5, 1). In the image the matching side points straight up from A, to (2, 4). Turning from 'right' to 'up' is a quarter turn anticlockwise. Check C: from A, C is 3 right and 1 up; turned anticlockwise this becomes 3 up and 1 left: (2 - 1, 1 + 3) = (1, 4), which is a corner of the image. So it is a rotation of 90° anticlockwise about A.",
+      "misconceptions": {
+        "0": "A translation slides the shape without turning it, so side AB would still point right. In the image it points up, and corner A has not moved at all.",
+        "1": "A reflection makes a mirror picture, back to front. Imagine tracing triangle ABC and turning the tracing a quarter turn anticlockwise about A: it lands exactly on the dashed triangle without flipping the paper over, so this is a rotation.",
+        "3": "A clockwise quarter turn would make side AB point DOWN from A, to (2, -2). In the image it points up, which is anticlockwise."
+      },
+      "skill": "describing a transformation",
+      "source": "original"
+    },
+    {
+      "id": "m14-q057",
+      "subtopicId": "m14-s1",
+      "type": "mcq",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "Which grid shows the correct reflection of shape P in the mirror line? The dashed shape is the image.",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            8
+          ],
+          "y": [
+            0,
+            5
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  7,
+                  1
+                ],
+                [
+                  5,
+                  1
+                ],
+                [
+                  5,
+                  2
+                ],
+                [
+                  7,
+                  4
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "x": 4,
+              "label": "mirror line"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            8
+          ],
+          "y": [
+            0,
+            5
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  5,
+                  1
+                ],
+                [
+                  7,
+                  1
+                ],
+                [
+                  7,
+                  2
+                ],
+                [
+                  5,
+                  4
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "x": 4,
+              "label": "mirror line"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            8
+          ],
+          "y": [
+            0,
+            5
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "x": 4,
+              "label": "mirror line"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            8
+          ],
+          "y": [
+            0,
+            5
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  5,
+                  4
+                ],
+                [
+                  7,
+                  4
+                ],
+                [
+                  7,
+                  3
+                ],
+                [
+                  5,
+                  1
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "x": 4,
+              "label": "mirror line"
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "answer": 0,
+      "solution": "In a reflection every corner ends up the same distance from the mirror line, on the other side, and the shape is flipped like a mirror picture. Shape P's tall side is 3 squares left of the mirror line, so in the image the tall side is 3 squares right of it. Shape P's short side is 1 square from the mirror, so the image's short side is also 1 square from it. Only Grid A shows this.",
+      "misconceptions": {
+        "1": "In Grid B the shape has slid across without flipping: its tall side is still on the left. A reflection is a mirror picture, so the tall side must be on the right, furthest from the mirror.",
+        "2": "In Grid C the shape is flipped, but it touches the mirror line. Shape P is 1 square away from the mirror, so its image must also be 1 square away on the other side.",
+        "3": "In Grid D the shape has been turned upside down. A vertical mirror flips a shape from left to right only: the flat bottom edge stays at the bottom."
+      },
+      "skill": "reflecting in a vertical or horizontal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q058",
+      "subtopicId": "m14-s3",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which grid shows shape P rotated 90° clockwise about the marked corner? The dashed shape is the image.",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  6,
+                  4
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  6,
+                  4
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  4,
+                  0
+                ],
+                [
+                  5,
+                  2
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  6,
+                  4
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  6,
+                  4
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "label": "P"
+            },
+            {
+              "points": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  4
+                ],
+                [
+                  2,
+                  5
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "points": [
+            {
+              "at": [
+                3,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "answer": 1,
+      "solution": "Use the marked corner (3, 3) as the centre. The bottom edge of P goes 3 squares right from the centre. A quarter turn clockwise turns 'right' into 'down', so in the image this edge goes 3 squares down from the centre, to (3, 0). Only Grid B has the image hanging below the centre like that, and its other corners match too: (6, 4) goes to (4, 0) and (4, 5) goes to (5, 2).",
+      "misconceptions": {
+        "0": "Grid A shows a quarter turn ANTICLOCKWISE: the bottom edge now points up. Clockwise is the way clock hands move, so an edge pointing right turns to point down.",
+        "2": "Grid C shows a half turn (180°): the bottom edge now points left. A 90° turn is only a quarter turn, so the edge should point down.",
+        "3": "Grid D shows a reflection in an upright line through the marked corner: the shape is flipped, not turned. Tracing paper turned a quarter turn clockwise never flips the shape over."
+      },
+      "skill": "rotating 90° about a vertex",
+      "source": "original"
+    },
+    {
+      "id": "m14-q059",
+      "subtopicId": "m14-s2",
+      "type": "mcq",
+      "difficulty": 3,
+      "marks": 2,
+      "prompt": "Which grid shows the reflection of triangle T in the diagonal mirror line y = x? The dashed triangle is the image.",
+      "optionDiagrams": [
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "label": "T"
+            },
+            {
+              "points": [
+                [
+                  3,
+                  1
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  5,
+                  4
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "through": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "label": "y = x"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "label": "T"
+            },
+            {
+              "points": [
+                [
+                  7,
+                  3
+                ],
+                [
+                  7,
+                  6
+                ],
+                [
+                  5,
+                  6
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "through": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "label": "y = x"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "label": "T"
+            },
+            {
+              "points": [
+                [
+                  4,
+                  1
+                ],
+                [
+                  7,
+                  1
+                ],
+                [
+                  7,
+                  3
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "through": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "label": "y = x"
+            }
+          ]
+        },
+        {
+          "type": "coordinateGrid",
+          "x": [
+            0,
+            7
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "size": "small",
+          "polygons": [
+            {
+              "points": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "label": "T"
+            },
+            {
+              "points": [
+                [
+                  3,
+                  1
+                ],
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "style": "dashed"
+            }
+          ],
+          "lines": [
+            {
+              "through": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "label": "y = x"
+            }
+          ]
+        }
+      ],
+      "options": [
+        "Grid A",
+        "Grid B",
+        "Grid C",
+        "Grid D"
+      ],
+      "answer": 3,
+      "solution": "In the mirror line y = x every corner's coordinates swap places. T has corners (1, 3), (1, 6) and (3, 6), so the image has corners (3, 1), (6, 1) and (6, 3). Grid D shows this triangle. Check: (1, 3) and (3, 1) are the same distance from the mirror line, on opposite sides.",
+      "misconceptions": {
+        "0": "In Grid A the triangle has slid down and to the right without flipping: its long side still stands upright. In the diagonal mirror the upright long side of T becomes a flat side along the bottom of the image.",
+        "1": "Grid B shows a reflection in an upright (vertical) mirror line, not in the diagonal. In the diagonal mirror the coordinates swap, so (1, 3) goes to (3, 1).",
+        "2": "Grid C has the right shape the right way round, but it is one square too far to the right: (1, 3) would go to (4, 1). The image must be the same distance from the mirror line as T, so just swap the coordinates."
+      },
+      "skill": "reflecting in a diagonal line",
+      "source": "original"
+    },
+    {
+      "id": "m14-q060",
+      "subtopicId": "m14-s4",
+      "type": "numeric",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "The diagram shows a regular hexagon. What is its order of rotational symmetry?",
+      "diagram": {
+        "type": "polygon",
+        "regular": 6
+      },
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "accept": [
+          "order 6"
+        ]
+      },
+      "solution": "A regular hexagon has 6 equal sides and 6 equal angles. Turn it about its centre: it fits onto its own outline after every one-sixth of a turn (60°). That happens 6 times in one full turn, so the order of rotational symmetry is 6.",
+      "misconceptions": {
+        "common": "Answering 3 or 2, which counts only some of the turns. Count every position in one full turn where the hexagon fits exactly onto its outline: there are 6."
+      },
+      "skill": "symmetry in patterns",
+      "source": "original"
+    },
+    {
+      "id": "m14-q061",
+      "subtopicId": "m14-s4",
+      "type": "mcq",
+      "difficulty": 2,
+      "marks": 1,
+      "prompt": "The diagram shows a parallelogram that is not a rectangle. What is its order of rotational symmetry?",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "sides": [
+          {
+            "arrows": 1
+          },
+          {
+            "arrows": 2
+          },
+          {
+            "arrows": 1
+          },
+          {
+            "arrows": 2
+          }
+        ]
+      },
+      "options": [
+        "4",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": 2,
+      "solution": "Turn the parallelogram about its centre. After a quarter turn (90°) its long sides would stand upright, so it does not fit its outline. After a half turn (180°) it fits exactly: the two long sides swap places, and so do the two slanting sides. Together with the full turn, that is 2 positions. Order = 2.",
+      "misconceptions": {
+        "0": "A square has order 4, but a parallelogram does not fit onto itself after a quarter turn: its long sides would end up standing upright.",
+        "1": "Order 1 means it only fits after a full turn. Try a half turn: the parallelogram lands exactly on its own outline, so the order is more than 1.",
+        "3": "Order 3 belongs to shapes like an equilateral triangle. A parallelogram fits onto itself only after a half turn and a full turn: order 2."
+      },
+      "skill": "symmetry in patterns",
+      "source": "original"
+    },
+    {
+      "id": "m14-q062",
+      "subtopicId": "m14-s4",
+      "type": "truefalse",
+      "difficulty": 1,
+      "marks": 1,
+      "prompt": "True or false: The rectangle shown (it is not a square) has rotational symmetry of order 4.",
+      "diagram": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "angles": [
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          {
+            "right": true
+          },
+          {
+            "right": true
+          }
+        ]
+      },
+      "answer": false,
+      "solution": "After a quarter turn (90°) the rectangle would stand on its short side, so it does not fit its outline. A half turn (180°) and a full turn do fit. That is order 2, not 4. False.",
+      "misconceptions": {
+        "common": "Thinking a rectangle behaves like a square because all its angles are right angles. A square fits after every quarter turn; a rectangle only after a half turn, because its sides are not all equal."
+      },
+      "skill": "symmetry in patterns",
+      "source": "original"
     }
   ]
 }

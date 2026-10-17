@@ -2,22 +2,24 @@
 // device from every finished session. (Claude's deeper analysis is done by the Chief Learning
 // Officer from exported progress files; see ai.js.)
 
-import { subtopicMastery, misconceptionTally, skillTally, totals, streak, activity, currentTopic } from './stats.js';
+import { subtopicMastery, misconceptionTally, misconceptionCodeTally, skillTally, totals, streak, activity, currentTopic } from './stats.js';
+import { misconceptionLabel } from './hooks.js';
 import { formatDuration } from './timer.js';
 
 const DAY = 86400000;
 
 /**
  * ctx: { sessions, attempts, topics: topic[] (all loaded), now }
- * Returns { empty, headline, strengths[], weaknesses[], misconceptions[], skills{strong, weak},
- *           trend, week, recommendations[], current }
+ * Returns { empty, headline, strengths[], weaknesses[], misconceptions[], namedMistakes[],
+ *           skills{strong, weak}, trend, week, recommendations[], current }
+ * namedMistakes: catalogue misconception codes counted over 30 days, with this week's count.
  */
 export function progressAnalysis(ctx) {
   const now = ctx.now ?? Date.now();
   const sessions = ctx.sessions.filter((s) => s.status === 'complete');
   const attempts = ctx.attempts;
   if (!sessions.length) {
-    return { empty: true, headline: 'No practice sessions yet on this device.', strengths: [], weaknesses: [], misconceptions: [], skills: { strong: [], weak: [] }, trend: null, week: null, recommendations: ['Start with a 15- or 30-minute session on the current maths chapter.'], current: null };
+    return { empty: true, headline: 'No practice sessions yet on this device.', strengths: [], weaknesses: [], misconceptions: [], namedMistakes: [], skills: { strong: [], weak: [] }, trend: null, week: null, recommendations: ['Start with a 15- or 30-minute session on the current maths chapter.'], current: null };
   }
   const subInfo = new Map();
   for (const t of ctx.topics) for (const s of t.preamble.subtopics) subInfo.set(s.id, { title: s.title, topicTitle: t.title, topicId: t.topicId, subject: t.subject });
@@ -25,7 +27,15 @@ export function progressAnalysis(ctx) {
   const rows = [...mastery.entries()].map(([id, m]) => ({ id, ...m, ...(subInfo.get(id) || { title: id, topicTitle: '' }) }));
   const strengths = rows.filter((r) => r.n >= 4 && r.score >= 0.8).sort((a, b) => b.score - a.score).slice(0, 5);
   const weaknesses = rows.filter((r) => r.n >= 2 && r.score < 0.6).sort((a, b) => a.score - b.score).slice(0, 5);
-  const mis = misconceptionTally(attempts, now - 30 * DAY).slice(0, 5).map((m) => ({ ...m, subtopic: (subInfo.get(m.subtopicId) || {}).title || '' }));
+  const mis = misconceptionTally(attempts, now - 30 * DAY).filter((m) => !m.code).slice(0, 5).map((m) => ({ ...m, subtopic: (subInfo.get(m.subtopicId) || {}).title || '' }));
+  const weekCodes = new Map(misconceptionCodeTally(attempts, now - 7 * DAY).map((c) => [c.code, c.count]));
+  const namedMistakes = misconceptionCodeTally(attempts, now - 30 * DAY).slice(0, 6).map((c) => ({
+    code: c.code,
+    label: misconceptionLabel(c.code) || c.code,
+    count: c.count,
+    week: weekCodes.get(c.code) || 0,
+    subtopics: c.subtopicIds.map((id) => (subInfo.get(id) || {}).title || id),
+  }));
   const skills = skillTally(attempts.filter((a) => a.answeredAt >= now - 60 * DAY));
   const strongSkills = skills.filter((s) => s.total >= 4 && s.pct >= 0.8).sort((a, b) => b.pct - a.pct).slice(0, 4);
   const weakSkills = skills.filter((s) => s.total >= 3 && s.pct < 0.6).sort((a, b) => a.pct - b.pct).slice(0, 4);
@@ -49,7 +59,8 @@ export function progressAnalysis(ctx) {
 
   const recommendations = [];
   for (const w of weaknesses.slice(0, 2)) recommendations.push(`Practise "${w.title}" (${w.topicTitle}) with a 15-minute one-subtopic session.`);
-  if (mis[0]) recommendations.push(`Talk through a repeated mistake: ${mis[0].note}`);
+  if (namedMistakes[0] && namedMistakes[0].count >= 2) recommendations.push(`Talk through a mistake she has made ${namedMistakes[0].count} times this month: ${namedMistakes[0].label.replace(/\.$/, '')}.`);
+  else if (mis[0]) recommendations.push(`Talk through a repeated mistake: ${mis[0].note}`);
   if (week.thisWeek.sessions < 2) recommendations.push('Aim for three or four short sessions a week; short regular practice beats one long session.');
   const untouched = ctx.topics.filter((tp) => tp.subject === 'maths' && !attempts.some((a) => a.topicId === tp.topicId)).sort((a, b) => a.order - b.order);
   if (untouched[0] && weaknesses.length < 2) recommendations.push(`Start a new maths chapter: "${untouched[0].title}".`);
@@ -64,6 +75,7 @@ export function progressAnalysis(ctx) {
     strengths,
     weaknesses,
     misconceptions: mis,
+    namedMistakes,
     skills: { strong: strongSkills, weak: weakSkills },
     trend,
     week,
