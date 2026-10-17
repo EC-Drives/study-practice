@@ -442,10 +442,12 @@ Food-chain boxes are all drawn the same (no producer colour), so a wrong-order c
 #### `light` - rays: mirror, shadow, seeing
 | Field | Type | Notes |
 |---|---|---|
-| **`scene`** | `"mirror"`, `"shadow"`, `"seeing"` | |
+| **`scene`** | `"mirror"`, `"shadow"`, `"seeing"`, `"refraction"` | `refraction`: a ray from air into water or a glass block, bending towards the normal (drawn with the real angle, n = 1.33 for water and 1.5 for glass). |
+| `medium` | `"water"`, `"glass"` | Refraction only (default water). |
+| `showRefracted` | boolean | Refraction: draw the ray inside the water or glass (default true). |
 | `angle` | number | Mirror: angle of incidence from the normal (0-80). Shadow with the Sun: the Sun's height above the ground in degrees. |
 | `showReflected` | boolean | Mirror: draw the reflected ray (default true). |
-| `labels` | object | Mirror: `incident`, `reflected`, `normal`, `mirror`, `i`, `r` (angle labels). Shadow: `source`, `object`, `shadow`, `screen`. Any can be `"?"`. |
+| `labels` | object | Mirror: `incident`, `reflected`, `normal`, `mirror`, `i`, `r` (angle labels). Refraction: `incident`, `refracted`, `normal`, `i`, `r`, `air`, `medium`. Shadow: `source`, `object`, `shadow`, `screen`. Any can be `"?"`. |
 | `source` | `"torch"`, `"lamp"`, `"sun"` | Shadow and seeing. |
 | `object` | `"box"`, `"ball"`, `"tree"`, `"person"`, `"book"`, `"apple"` | Shadow and seeing. |
 | `sourceDistance`, `screenDistance`, `objectHeight` | numbers | Shadow with a torch or lamp: distances from the source to the object and to the screen, and object height (any units). The shadow is drawn to the exact size from these (similar triangles). Without `screenDistance` the shadow falls on the ground. |
@@ -536,4 +538,4 @@ Colours come from the app's theme tokens (`--ink`, `--line`, `--accent`, `--surf
 ## 5. Change log
 
 - 17 Oct 2026: version 1 (27 types).
-- 17 Oct 2026: version 1.1. New: `forces` (force arrows), the `newtonMeter` scale, `functionMachine`, `dotPlot` and `scatterGraph`. Documented: coordinate `segments[].label`, `axisLabels`, `fractionModel` limits (rows and cols up to 12 each, parts up to 24, wholes up to 4). Changed: food chains no longer tint the first box as a producer; coordinates with halves show as decimals (-4.5), not -9/2. Still to come (CLO's v1.1 list): refraction, reproductive organs, lab apparatus.
+- 17 Oct 2026: version 1.1. New: `forces` (force arrows), the `newtonMeter` scale, `functionMachine`, `dotPlot`, `scatterGraph`, and refraction in `light`. Documented: coordinate `segments[].label`, `axisLabels`, `fractionModel` limits (rows and cols up to 12 each, parts up to 24, wholes up to 4). Changed: food chains no longer tint the first box as a producer; coordinates with halves show as decimals (-4.5), not -9/2. Still to come (CLO's v1.1 list): reproductive organs, lab apparatus.

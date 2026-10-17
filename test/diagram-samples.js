@@ -94,6 +94,8 @@ export const SAMPLES = [
   { title: 'Forces on a boat and a car', spec: { type: 'forces', object: 'boat', arrows: [{ direction: 'up', size: 8, name: 'upthrust' }, { direction: 'down', size: 8, name: 'weight' }, { direction: 'right', size: 5, name: 'wind' }], size: 'small' } },
   { title: 'Car: driving force and air resistance', spec: { type: 'forces', object: 'car', arrows: [{ direction: 'right', size: 2000, name: 'driving force', label: '2000 N' }, { direction: 'left', size: 2000, name: 'air resistance', label: '?' }] } },
   { title: 'Mirror reflection', spec: { type: 'light', scene: 'mirror', angle: 40, labels: { i: '40°', r: '?', normal: 'normal', mirror: 'mirror' } } },
+  { title: 'Refraction into water', spec: { type: 'light', scene: 'refraction', medium: 'water', angle: 50, labels: { i: '50°', r: '?', normal: 'normal' } } },
+  { title: 'Refraction into glass', spec: { type: 'light', scene: 'refraction', medium: 'glass', angle: 35, size: 'small' } },
   { title: 'Shadow on a screen', spec: { type: 'light', scene: 'shadow', source: 'torch', object: 'ball', sourceDistance: 2, screenDistance: 6, objectHeight: 1, labels: { shadow: 'shadow', screen: 'screen' } } },
   { title: 'Shadow from the Sun', spec: { type: 'light', scene: 'shadow', source: 'sun', object: 'tree', angle: 35, labels: { shadow: '?' } } },
   { title: 'How we see an object', spec: { type: 'light', scene: 'seeing', source: 'lamp', object: 'book' } },

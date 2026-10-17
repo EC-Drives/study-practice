@@ -59,6 +59,13 @@ export const EXTRA_CHECKS = [
   ['dot plot rejects a value off the steps', () => validateDiagram({ type: 'dotPlot', values: [1.5], min: 0, max: 4 }).length > 0],
   ['function machine description keeps the order of the steps', () => /"x 3" and "\+ 4" in that order/.test(describeDiagram({ type: 'functionMachine', steps: ['x 3', '+ 4'], input: '5' }))],
   ['scatter graph trend described', () => /go up/.test(describeDiagram({ type: 'scatterGraph', points: [[1, 2], [2, 3], [3, 5], [4, 6]] }))],
+  ['refraction bends towards the normal (Snell, water n = 1.33)', () => {
+    const svg = svgOf({ type: 'light', scene: 'refraction', medium: 'water', angle: 50 });
+    const ls = [...svg.querySelectorAll('line.dg-ray')].map((l) => [Number(l.getAttribute('x1')), Number(l.getAttribute('y1')), Number(l.getAttribute('x2')), Number(l.getAttribute('y2'))]);
+    const out = ls.find((l) => l[1] >= 0 && l[3] > 0);
+    const ang = Math.atan2(out[2] - out[0], out[3] - out[1]) * 180 / Math.PI; // from the downward normal
+    return near(ang, Math.asin(Math.sin(50 * Math.PI / 180) / 1.33) * 180 / Math.PI, 0.6);
+  }],
   ['alt text overrides the built description', () => describeDiagram({ type: 'clock', time: '10:35', alt: 'A clock.' }) === 'A clock.'],
   ['report markup carries its own styles', () => /<style>/.test(diagramMarkup({ type: 'clock', time: '10:35' }))],
   ['light and dark themes both define every colour token', () => {

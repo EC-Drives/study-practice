@@ -380,8 +380,8 @@ export function shadowOnScreen(s) {
 const light = {
   size: 'medium',
   schema: {
-    scene: F.enum('mirror', 'shadow', 'seeing'), angle: F.num(0, 89), showReflected: F.bool,
-    labels: F.obj({ incident: F.str, reflected: F.str, normal: F.str, mirror: F.str, i: F.str, r: F.str, source: F.str, object: F.str, shadow: F.str, screen: F.str }),
+    scene: F.enum('mirror', 'shadow', 'seeing', 'refraction'), angle: F.num(0, 89), showReflected: F.bool, medium: F.enum('water', 'glass'), showRefracted: F.bool,
+    labels: F.obj({ incident: F.str, reflected: F.str, refracted: F.str, normal: F.str, mirror: F.str, i: F.str, r: F.str, source: F.str, object: F.str, shadow: F.str, screen: F.str, air: F.str, medium: F.str }),
     source: F.enum('torch', 'lamp', 'sun'), object: F.enum('box', 'ball', 'tree', 'person', 'book', 'apple'),
     sourceDistance: F.num(0.01), screenDistance: F.num(0.01), objectHeight: F.num(0.01), arrows: F.enum('correct', 'fromEye', 'none'),
   },
@@ -420,6 +420,34 @@ const light = {
       if (L.normal) body.push(labelAt(box, 0, -R - 10, 90, L.normal, { size: 14 }).node);
       if (L.mirror) { body.push(label(176, 30, L.mirror, { size: 14, anchor: 'end' })); box.text(176, 30, L.mirror, 14, 'end'); }
       box.rect(-180, -R - 12, 360, 32).addPts([a]);
+      return { box, body };
+    }
+    if (s.scene === 'refraction') {
+      // a ray from air into water or glass bends towards the normal (Snell's law, n = 1.33 or 1.5)
+      const i = s.angle != null ? s.angle : 40;
+      const n = s.medium === 'glass' ? 1.5 : 1.33;
+      const r = (Math.asin(Math.sin(rad(i)) / n) * 180) / Math.PI;
+      const R = 140;
+      body.push(el('rect', { x: -180, y: 0, width: 360, height: 150, class: s.medium === 'glass' ? 'dg-glass' : 'dg-liquid' }));
+      body.push(el('line', { x1: -180, y1: 0, x2: 180, y2: 0, class: 'dg-ink', 'stroke-width': 2 }));
+      body.push(el('line', { x1: 0, y1: -R - 10, x2: 0, y2: 150, class: 'dg-ink2', 'stroke-width': 1.6, 'stroke-dasharray': '6 5' }));
+      const a = polar(0, 0, R, 90 + i);
+      body.push(arrowLine(a, [0, 0], { cls: 'dg-ray', headCls: 'dg-fill-ray', width: 3, mid: true, size: 12 }));
+      const b = polar(0, 0, R, 270 + r);
+      if (s.showRefracted !== false) body.push(arrowLine([0, 0], b, { cls: 'dg-ray', headCls: 'dg-fill-ray', width: 3, mid: true, size: 12 }));
+      if (i > 0) {
+        body.push(el('path', { d: arcPath(0, 0, 44, 90, 90 + i), class: 'dg-ink', 'stroke-width': 1.5 }));
+        if (L.i) body.push(labelAt(box, 0, 0, 90 + i / 2, L.i, { gap: 50, size: 15 }).node);
+        if (s.showRefracted !== false && r > 0.5) {
+          body.push(el('path', { d: arcPath(0, 0, 50, 270, 270 + r), class: 'dg-ink', 'stroke-width': 1.5 }));
+          if (L.r) body.push(labelAt(box, 0, 0, 270 + r / 2, L.r, { gap: 56, size: 15 }).node);
+        }
+      }
+      body.push(label(-170, -16, L.air || 'air', { size: 14, anchor: 'start', cls: 'dg-t2' }), label(-170, 20, L.medium || s.medium || 'water', { size: 14, anchor: 'start', cls: 'dg-t2' }));
+      if (L.normal) body.push(labelAt(box, 0, -R - 10, 90, L.normal, { size: 14 }).node);
+      if (L.incident) body.push(labelAt(box, a[0], a[1], 90 + i, L.incident, { size: 14 }).node);
+      if (L.refracted && s.showRefracted !== false) body.push(labelAt(box, b[0], b[1], 270 + r, L.refracted, { size: 14 }).node);
+      box.rect(-180, -R - 12, 360, R + 162).addPts([a, b]);
       return { box, body };
     }
     if (s.scene === 'shadow') {
@@ -523,6 +551,15 @@ const light = {
       else parts.push('The reflected ray is not drawn.');
       if (L.i) parts.push(`The angle between the incoming ray and the normal is labelled ${say(L.i)}.`);
       if (L.r && s.showReflected !== false) parts.push(`The angle between the reflected ray and the normal is labelled ${say(L.r)}.`);
+      return parts.join(' ');
+    }
+    if (s.scene === 'refraction') {
+      const i = s.angle != null ? s.angle : 40;
+      const med = s.medium || 'water';
+      const parts = [`A ray of light travels through air and enters ${med === 'glass' ? 'a glass block' : 'water'}. A dashed line (the normal) is drawn at right angles to the surface where the ray enters.`];
+      parts.push(i === 0 ? 'The ray goes straight down along the normal.' : `The incoming ray comes down from the upper left.${s.showRefracted !== false ? ` Inside the ${med} the ray bends towards the normal, so it is steeper than before.` : ` The ray inside the ${med} is not drawn.`}`);
+      if (L.i) parts.push(`The angle between the incoming ray and the normal is labelled ${say(L.i)}.`);
+      if (L.r && s.showRefracted !== false) parts.push(`The angle between the ray in the ${med} and the normal is labelled ${say(L.r)}.`);
       return parts.join(' ');
     }
     if (s.scene === 'shadow') {
